@@ -12,14 +12,12 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// This resource may contain a any identifier, but the following format is recommended.
-    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/currentAccount:CurrentAccount example 'current_account'
+    /// $ pulumi import snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount example '"&lt;organization_account_name&gt;"'
     /// ```
     /// </summary>
-    [SnowflakeResourceType("snowflake:index/currentAccount:CurrentAccount")]
-    public partial class CurrentAccount : global::Pulumi.CustomResource
+    [SnowflakeResourceType("snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount")]
+    public partial class CurrentOrganizationAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
@@ -44,12 +42,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("allowIdToken")]
         public Output<bool> AllowIdToken { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-        /// </summary>
-        [Output("authenticationPolicy")]
-        public Output<string?> AuthenticationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
@@ -152,6 +144,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("clientTimestampTypeMapping")]
         public Output<string> ClientTimestampTypeMapping { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a comment for the organization account.
+        /// </summary>
+        [Output("comment")]
+        public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
@@ -328,12 +326,6 @@ namespace Pulumi.Snowflake
         public Output<string> ExternalVolume { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-        /// </summary>
-        [Output("featurePolicy")]
-        public Output<string?> FeaturePolicy { get; private set; } = null!;
-
-        /// <summary>
         /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Output("geographyOutputFormat")]
@@ -436,6 +428,12 @@ namespace Pulumi.Snowflake
         public Output<int> MultiStatementCount { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         /// </summary>
         [Output("networkPolicy")]
@@ -458,12 +456,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("odbcTreatDecimalAsInt")]
         public Output<bool> OdbcTreatDecimalAsInt { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-        /// </summary>
-        [Output("packagesPolicy")]
-        public Output<string?> PackagesPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
@@ -581,6 +573,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("sessionPolicy")]
         public Output<string?> SessionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+        /// </summary>
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.CurrentOrganizationAccountShowOutput>> ShowOutputs { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
@@ -758,19 +756,19 @@ namespace Pulumi.Snowflake
 
 
         /// <summary>
-        /// Create a CurrentAccount resource with the given unique name, arguments, and options.
+        /// Create a CurrentOrganizationAccount resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CurrentAccount(string name, CurrentAccountArgs? args = null, CustomResourceOptions? options = null)
-            : base("snowflake:index/currentAccount:CurrentAccount", name, args ?? new CurrentAccountArgs(), MakeResourceOptions(options, ""))
+        public CurrentOrganizationAccount(string name, CurrentOrganizationAccountArgs? args = null, CustomResourceOptions? options = null)
+            : base("snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount", name, args ?? new CurrentOrganizationAccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private CurrentAccount(string name, Input<string> id, CurrentAccountState? state = null, CustomResourceOptions? options = null)
-            : base("snowflake:index/currentAccount:CurrentAccount", name, state, MakeResourceOptions(options, id))
+        private CurrentOrganizationAccount(string name, Input<string> id, CurrentOrganizationAccountState? state = null, CustomResourceOptions? options = null)
+            : base("snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -786,7 +784,7 @@ namespace Pulumi.Snowflake
             return merged;
         }
         /// <summary>
-        /// Get an existing CurrentAccount resource's state with the given name, ID, and optional extra
+        /// Get an existing CurrentOrganizationAccount resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -794,13 +792,13 @@ namespace Pulumi.Snowflake
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static CurrentAccount Get(string name, Input<string> id, CurrentAccountState? state = null, CustomResourceOptions? options = null)
+        public static CurrentOrganizationAccount Get(string name, Input<string> id, CurrentOrganizationAccountState? state = null, CustomResourceOptions? options = null)
         {
-            return new CurrentAccount(name, id, state, options);
+            return new CurrentOrganizationAccount(name, id, state, options);
         }
     }
 
-    public sealed class CurrentAccountArgs : global::Pulumi.ResourceArgs
+    public sealed class CurrentOrganizationAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
@@ -825,12 +823,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("allowIdToken")]
         public Input<bool>? AllowIdToken { get; set; }
-
-        /// <summary>
-        /// Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-        /// </summary>
-        [Input("authenticationPolicy")]
-        public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
         /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
@@ -933,6 +925,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("clientTimestampTypeMapping")]
         public Input<string>? ClientTimestampTypeMapping { get; set; }
+
+        /// <summary>
+        /// Specifies a comment for the organization account.
+        /// </summary>
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
 
         /// <summary>
         /// Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
@@ -1109,12 +1107,6 @@ namespace Pulumi.Snowflake
         public Input<string>? ExternalVolume { get; set; }
 
         /// <summary>
-        /// Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-        /// </summary>
-        [Input("featurePolicy")]
-        public Input<string>? FeaturePolicy { get; set; }
-
-        /// <summary>
         /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Input("geographyOutputFormat")]
@@ -1217,6 +1209,12 @@ namespace Pulumi.Snowflake
         public Input<int>? MultiStatementCount { get; set; }
 
         /// <summary>
+        /// The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         /// </summary>
         [Input("networkPolicy")]
@@ -1239,12 +1237,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("odbcTreatDecimalAsInt")]
         public Input<bool>? OdbcTreatDecimalAsInt { get; set; }
-
-        /// <summary>
-        /// Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-        /// </summary>
-        [Input("packagesPolicy")]
-        public Input<string>? PackagesPolicy { get; set; }
 
         /// <summary>
         /// Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
@@ -1537,13 +1529,13 @@ namespace Pulumi.Snowflake
         [Input("weekStart")]
         public Input<int>? WeekStart { get; set; }
 
-        public CurrentAccountArgs()
+        public CurrentOrganizationAccountArgs()
         {
         }
-        public static new CurrentAccountArgs Empty => new CurrentAccountArgs();
+        public static new CurrentOrganizationAccountArgs Empty => new CurrentOrganizationAccountArgs();
     }
 
-    public sealed class CurrentAccountState : global::Pulumi.ResourceArgs
+    public sealed class CurrentOrganizationAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
@@ -1568,12 +1560,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("allowIdToken")]
         public Input<bool>? AllowIdToken { get; set; }
-
-        /// <summary>
-        /// Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-        /// </summary>
-        [Input("authenticationPolicy")]
-        public Input<string>? AuthenticationPolicy { get; set; }
 
         /// <summary>
         /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
@@ -1676,6 +1662,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("clientTimestampTypeMapping")]
         public Input<string>? ClientTimestampTypeMapping { get; set; }
+
+        /// <summary>
+        /// Specifies a comment for the organization account.
+        /// </summary>
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
 
         /// <summary>
         /// Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
@@ -1852,12 +1844,6 @@ namespace Pulumi.Snowflake
         public Input<string>? ExternalVolume { get; set; }
 
         /// <summary>
-        /// Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-        /// </summary>
-        [Input("featurePolicy")]
-        public Input<string>? FeaturePolicy { get; set; }
-
-        /// <summary>
         /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Input("geographyOutputFormat")]
@@ -1960,6 +1946,12 @@ namespace Pulumi.Snowflake
         public Input<int>? MultiStatementCount { get; set; }
 
         /// <summary>
+        /// The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         /// </summary>
         [Input("networkPolicy")]
@@ -1982,12 +1974,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("odbcTreatDecimalAsInt")]
         public Input<bool>? OdbcTreatDecimalAsInt { get; set; }
-
-        /// <summary>
-        /// Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-        /// </summary>
-        [Input("packagesPolicy")]
-        public Input<string>? PackagesPolicy { get; set; }
 
         /// <summary>
         /// Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
@@ -2105,6 +2091,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("sessionPolicy")]
         public Input<string>? SessionPolicy { get; set; }
+
+        [Input("showOutputs")]
+        private InputList<Inputs.CurrentOrganizationAccountShowOutputGetArgs>? _showOutputs;
+
+        /// <summary>
+        /// Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+        /// </summary>
+        public InputList<Inputs.CurrentOrganizationAccountShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.CurrentOrganizationAccountShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
 
         /// <summary>
         /// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
@@ -2280,9 +2278,9 @@ namespace Pulumi.Snowflake
         [Input("weekStart")]
         public Input<int>? WeekStart { get; set; }
 
-        public CurrentAccountState()
+        public CurrentOrganizationAccountState()
         {
         }
-        public static new CurrentAccountState Empty => new CurrentAccountState();
+        public static new CurrentOrganizationAccountState Empty => new CurrentOrganizationAccountState();
     }
 }

@@ -64,6 +64,7 @@ __all__ = [
     'ComputePoolDescribeOutput',
     'ComputePoolShowOutput',
     'CortexSearchServiceDescribeOutput',
+    'CurrentOrganizationAccountShowOutput',
     'DatabaseReplication',
     'DatabaseReplicationEnableToAccount',
     'DatabaseRoleShowOutput',
@@ -583,6 +584,7 @@ __all__ = [
     'UserParameterUseCachedResult',
     'UserParameterWeekOfYearPolicy',
     'UserParameterWeekStart',
+    'UserProgrammaticAccessTokenShowOutput',
     'UserShowOutput',
     'ViewAggregationPolicy',
     'ViewColumn',
@@ -854,6 +856,8 @@ __all__ = [
     'GetTasksTaskParameterWeekStartResult',
     'GetTasksTaskShowOutputResult',
     'GetTasksTaskShowOutputTaskRelationResult',
+    'GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenResult',
+    'GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputResult',
     'GetUsersLimitResult',
     'GetUsersUserResult',
     'GetUsersUserDescribeOutputResult',
@@ -4027,6 +4031,242 @@ class CortexSearchServiceDescribeOutput(dict):
     @pulumi.getter
     def warehouse(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "warehouse")
+
+
+@pulumi.output_type
+class CurrentOrganizationAccountShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountLocator":
+            suggest = "account_locator"
+        elif key == "accountLocatorUrl":
+            suggest = "account_locator_url"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "accountOldUrlLastUsed":
+            suggest = "account_old_url_last_used"
+        elif key == "accountOldUrlSavedOn":
+            suggest = "account_old_url_saved_on"
+        elif key == "accountUrl":
+            suggest = "account_url"
+        elif key == "consumptionBillingEntityName":
+            suggest = "consumption_billing_entity_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "isEventsAccount":
+            suggest = "is_events_account"
+        elif key == "isOrgAdmin":
+            suggest = "is_org_admin"
+        elif key == "isOrganizationAccount":
+            suggest = "is_organization_account"
+        elif key == "managedAccounts":
+            suggest = "managed_accounts"
+        elif key == "marketplaceConsumerBillingEntityName":
+            suggest = "marketplace_consumer_billing_entity_name"
+        elif key == "marketplaceProviderBillingEntityName":
+            suggest = "marketplace_provider_billing_entity_name"
+        elif key == "oldAccountUrl":
+            suggest = "old_account_url"
+        elif key == "organizationName":
+            suggest = "organization_name"
+        elif key == "organizationOldUrl":
+            suggest = "organization_old_url"
+        elif key == "organizationOldUrlLastUsed":
+            suggest = "organization_old_url_last_used"
+        elif key == "organizationOldUrlSavedOn":
+            suggest = "organization_old_url_saved_on"
+        elif key == "snowflakeRegion":
+            suggest = "snowflake_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CurrentOrganizationAccountShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CurrentOrganizationAccountShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CurrentOrganizationAccountShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_locator: Optional[_builtins.str] = None,
+                 account_locator_url: Optional[_builtins.str] = None,
+                 account_name: Optional[_builtins.str] = None,
+                 account_old_url_last_used: Optional[_builtins.str] = None,
+                 account_old_url_saved_on: Optional[_builtins.str] = None,
+                 account_url: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 consumption_billing_entity_name: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 edition: Optional[_builtins.str] = None,
+                 is_events_account: Optional[_builtins.bool] = None,
+                 is_org_admin: Optional[_builtins.bool] = None,
+                 is_organization_account: Optional[_builtins.bool] = None,
+                 managed_accounts: Optional[_builtins.int] = None,
+                 marketplace_consumer_billing_entity_name: Optional[_builtins.str] = None,
+                 marketplace_provider_billing_entity_name: Optional[_builtins.str] = None,
+                 old_account_url: Optional[_builtins.str] = None,
+                 organization_name: Optional[_builtins.str] = None,
+                 organization_old_url: Optional[_builtins.str] = None,
+                 organization_old_url_last_used: Optional[_builtins.str] = None,
+                 organization_old_url_saved_on: Optional[_builtins.str] = None,
+                 snowflake_region: Optional[_builtins.str] = None):
+        if account_locator is not None:
+            pulumi.set(__self__, "account_locator", account_locator)
+        if account_locator_url is not None:
+            pulumi.set(__self__, "account_locator_url", account_locator_url)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if account_old_url_last_used is not None:
+            pulumi.set(__self__, "account_old_url_last_used", account_old_url_last_used)
+        if account_old_url_saved_on is not None:
+            pulumi.set(__self__, "account_old_url_saved_on", account_old_url_saved_on)
+        if account_url is not None:
+            pulumi.set(__self__, "account_url", account_url)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if consumption_billing_entity_name is not None:
+            pulumi.set(__self__, "consumption_billing_entity_name", consumption_billing_entity_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if is_events_account is not None:
+            pulumi.set(__self__, "is_events_account", is_events_account)
+        if is_org_admin is not None:
+            pulumi.set(__self__, "is_org_admin", is_org_admin)
+        if is_organization_account is not None:
+            pulumi.set(__self__, "is_organization_account", is_organization_account)
+        if managed_accounts is not None:
+            pulumi.set(__self__, "managed_accounts", managed_accounts)
+        if marketplace_consumer_billing_entity_name is not None:
+            pulumi.set(__self__, "marketplace_consumer_billing_entity_name", marketplace_consumer_billing_entity_name)
+        if marketplace_provider_billing_entity_name is not None:
+            pulumi.set(__self__, "marketplace_provider_billing_entity_name", marketplace_provider_billing_entity_name)
+        if old_account_url is not None:
+            pulumi.set(__self__, "old_account_url", old_account_url)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if organization_old_url is not None:
+            pulumi.set(__self__, "organization_old_url", organization_old_url)
+        if organization_old_url_last_used is not None:
+            pulumi.set(__self__, "organization_old_url_last_used", organization_old_url_last_used)
+        if organization_old_url_saved_on is not None:
+            pulumi.set(__self__, "organization_old_url_saved_on", organization_old_url_saved_on)
+        if snowflake_region is not None:
+            pulumi.set(__self__, "snowflake_region", snowflake_region)
+
+    @_builtins.property
+    @pulumi.getter(name="accountLocator")
+    def account_locator(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "account_locator")
+
+    @_builtins.property
+    @pulumi.getter(name="accountLocatorUrl")
+    def account_locator_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "account_locator_url")
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "account_name")
+
+    @_builtins.property
+    @pulumi.getter(name="accountOldUrlLastUsed")
+    def account_old_url_last_used(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "account_old_url_last_used")
+
+    @_builtins.property
+    @pulumi.getter(name="accountOldUrlSavedOn")
+    def account_old_url_saved_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "account_old_url_saved_on")
+
+    @_builtins.property
+    @pulumi.getter(name="accountUrl")
+    def account_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "account_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="consumptionBillingEntityName")
+    def consumption_billing_entity_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "consumption_billing_entity_name")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def edition(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "edition")
+
+    @_builtins.property
+    @pulumi.getter(name="isEventsAccount")
+    def is_events_account(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_events_account")
+
+    @_builtins.property
+    @pulumi.getter(name="isOrgAdmin")
+    def is_org_admin(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_org_admin")
+
+    @_builtins.property
+    @pulumi.getter(name="isOrganizationAccount")
+    def is_organization_account(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_organization_account")
+
+    @_builtins.property
+    @pulumi.getter(name="managedAccounts")
+    def managed_accounts(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "managed_accounts")
+
+    @_builtins.property
+    @pulumi.getter(name="marketplaceConsumerBillingEntityName")
+    def marketplace_consumer_billing_entity_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "marketplace_consumer_billing_entity_name")
+
+    @_builtins.property
+    @pulumi.getter(name="marketplaceProviderBillingEntityName")
+    def marketplace_provider_billing_entity_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "marketplace_provider_billing_entity_name")
+
+    @_builtins.property
+    @pulumi.getter(name="oldAccountUrl")
+    def old_account_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "old_account_url")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "organization_name")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationOldUrl")
+    def organization_old_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "organization_old_url")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationOldUrlLastUsed")
+    def organization_old_url_last_used(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "organization_old_url_last_used")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationOldUrlSavedOn")
+    def organization_old_url_saved_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "organization_old_url_saved_on")
+
+    @_builtins.property
+    @pulumi.getter(name="snowflakeRegion")
+    def snowflake_region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "snowflake_region")
 
 
 @pulumi.output_type
@@ -36212,6 +36452,120 @@ class UserParameterWeekStart(dict):
 
 
 @pulumi.output_type
+class UserProgrammaticAccessTokenShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "expiresAt":
+            suggest = "expires_at"
+        elif key == "minsToBypassNetworkPolicyRequirement":
+            suggest = "mins_to_bypass_network_policy_requirement"
+        elif key == "roleRestriction":
+            suggest = "role_restriction"
+        elif key == "rotatedTo":
+            suggest = "rotated_to"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProgrammaticAccessTokenShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProgrammaticAccessTokenShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProgrammaticAccessTokenShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 expires_at: Optional[_builtins.str] = None,
+                 mins_to_bypass_network_policy_requirement: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 role_restriction: Optional[_builtins.str] = None,
+                 rotated_to: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None,
+                 user_name: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if expires_at is not None:
+            pulumi.set(__self__, "expires_at", expires_at)
+        if mins_to_bypass_network_policy_requirement is not None:
+            pulumi.set(__self__, "mins_to_bypass_network_policy_requirement", mins_to_bypass_network_policy_requirement)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if role_restriction is not None:
+            pulumi.set(__self__, "role_restriction", role_restriction)
+        if rotated_to is not None:
+            pulumi.set(__self__, "rotated_to", rotated_to)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "expires_at")
+
+    @_builtins.property
+    @pulumi.getter(name="minsToBypassNetworkPolicyRequirement")
+    def mins_to_bypass_network_policy_requirement(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "mins_to_bypass_network_policy_requirement")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="roleRestriction")
+    def role_restriction(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "role_restriction")
+
+    @_builtins.property
+    @pulumi.getter(name="rotatedTo")
+    def rotated_to(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "rotated_to")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
 class UserShowOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -50290,6 +50644,99 @@ class GetTasksTaskShowOutputTaskRelationResult(dict):
     @pulumi.getter
     def predecessors(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "predecessors")
+
+
+@pulumi.output_type
+class GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenResult(dict):
+    def __init__(__self__, *,
+                 show_outputs: Sequence['outputs.GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputResult']):
+        """
+        :param Sequence['GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs'] show_outputs: Holds the output of SHOW USER PROGRAMMATIC ACCESS TOKENS.
+        """
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputResult']:
+        """
+        Holds the output of SHOW USER PROGRAMMATIC ACCESS TOKENS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_by: _builtins.str,
+                 created_on: _builtins.str,
+                 expires_at: _builtins.str,
+                 mins_to_bypass_network_policy_requirement: _builtins.int,
+                 name: _builtins.str,
+                 role_restriction: _builtins.str,
+                 rotated_to: _builtins.str,
+                 status: _builtins.str,
+                 user_name: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "expires_at", expires_at)
+        pulumi.set(__self__, "mins_to_bypass_network_policy_requirement", mins_to_bypass_network_policy_requirement)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "role_restriction", role_restriction)
+        pulumi.set(__self__, "rotated_to", rotated_to)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> _builtins.str:
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> _builtins.str:
+        return pulumi.get(self, "expires_at")
+
+    @_builtins.property
+    @pulumi.getter(name="minsToBypassNetworkPolicyRequirement")
+    def mins_to_bypass_network_policy_requirement(self) -> _builtins.int:
+        return pulumi.get(self, "mins_to_bypass_network_policy_requirement")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="roleRestriction")
+    def role_restriction(self) -> _builtins.str:
+        return pulumi.get(self, "role_restriction")
+
+    @_builtins.property
+    @pulumi.getter(name="rotatedTo")
+    def rotated_to(self) -> _builtins.str:
+        return pulumi.get(self, "rotated_to")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> _builtins.str:
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type

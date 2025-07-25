@@ -2,20 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * ## Import
  *
- * This resource may contain a any identifier, but the following format is recommended.
- *
  * ```sh
- * $ pulumi import snowflake:index/currentAccount:CurrentAccount example 'current_account'
+ * $ pulumi import snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount example '"<organization_account_name>"'
  * ```
  */
-export class CurrentAccount extends pulumi.CustomResource {
+export class CurrentOrganizationAccount extends pulumi.CustomResource {
     /**
-     * Get an existing CurrentAccount resource's state with the given name, ID, and optional extra
+     * Get an existing CurrentOrganizationAccount resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -23,22 +23,22 @@ export class CurrentAccount extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CurrentAccountState, opts?: pulumi.CustomResourceOptions): CurrentAccount {
-        return new CurrentAccount(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CurrentOrganizationAccountState, opts?: pulumi.CustomResourceOptions): CurrentOrganizationAccount {
+        return new CurrentOrganizationAccount(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'snowflake:index/currentAccount:CurrentAccount';
+    public static readonly __pulumiType = 'snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount';
 
     /**
-     * Returns true if the given object is an instance of CurrentAccount.  This is designed to work even
+     * Returns true if the given object is an instance of CurrentOrganizationAccount.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is CurrentAccount {
+    public static isInstance(obj: any): obj is CurrentOrganizationAccount {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === CurrentAccount.__pulumiType;
+        return obj['__pulumiType'] === CurrentOrganizationAccount.__pulumiType;
     }
 
     /**
@@ -57,10 +57,6 @@ export class CurrentAccount extends pulumi.CustomResource {
      * Specifies whether a connection token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to enter login credentials at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using connection caching to minimize the number of prompts for authentication — optional.](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#label-browser-based-sso-connection-caching) For more information, check [ALLOW*ID*TOKEN docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-id-token).
      */
     public readonly allowIdToken!: pulumi.Output<boolean>;
-    /**
-     * Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-     */
-    public readonly authenticationPolicy!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
      */
@@ -129,6 +125,10 @@ export class CurrentAccount extends pulumi.CustomResource {
      * Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
      */
     public readonly clientTimestampTypeMapping!: pulumi.Output<string>;
+    /**
+     * Specifies a comment for the organization account.
+     */
+    public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
      */
@@ -246,10 +246,6 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     public readonly externalVolume!: pulumi.Output<string>;
     /**
-     * Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-     */
-    public readonly featurePolicy!: pulumi.Output<string | undefined>;
-    /**
      * Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      */
     public readonly geographyOutputFormat!: pulumi.Output<string>;
@@ -318,6 +314,10 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     public readonly multiStatementCount!: pulumi.Output<number>;
     /**
+     * The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+     */
+    public readonly name!: pulumi.Output<string>;
+    /**
      * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      */
     public readonly networkPolicy!: pulumi.Output<string>;
@@ -333,10 +333,6 @@ export class CurrentAccount extends pulumi.CustomResource {
      * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      */
     public readonly odbcTreatDecimalAsInt!: pulumi.Output<boolean>;
-    /**
-     * Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-     */
-    public readonly packagesPolicy!: pulumi.Output<string | undefined>;
     /**
      * Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
      */
@@ -414,6 +410,10 @@ export class CurrentAccount extends pulumi.CustomResource {
      * Specifies [session policy](https://docs.snowflake.com/en/user-guide/session-policies-using) for the current account.
      */
     public readonly sessionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+     */
+    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.CurrentOrganizationAccountShowOutput[]>;
     /**
      * Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
      */
@@ -532,23 +532,22 @@ export class CurrentAccount extends pulumi.CustomResource {
     public readonly weekStart!: pulumi.Output<number>;
 
     /**
-     * Create a CurrentAccount resource with the given unique name, arguments, and options.
+     * Create a CurrentOrganizationAccount resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CurrentAccountArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CurrentAccountArgs | CurrentAccountState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: CurrentOrganizationAccountArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: CurrentOrganizationAccountArgs | CurrentOrganizationAccountState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as CurrentAccountState | undefined;
+            const state = argsOrState as CurrentOrganizationAccountState | undefined;
             resourceInputs["abortDetachedQuery"] = state ? state.abortDetachedQuery : undefined;
             resourceInputs["activePythonProfiler"] = state ? state.activePythonProfiler : undefined;
             resourceInputs["allowClientMfaCaching"] = state ? state.allowClientMfaCaching : undefined;
             resourceInputs["allowIdToken"] = state ? state.allowIdToken : undefined;
-            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
             resourceInputs["autocommit"] = state ? state.autocommit : undefined;
             resourceInputs["baseLocationPrefix"] = state ? state.baseLocationPrefix : undefined;
             resourceInputs["binaryInputFormat"] = state ? state.binaryInputFormat : undefined;
@@ -566,6 +565,7 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["clientSessionKeepAlive"] = state ? state.clientSessionKeepAlive : undefined;
             resourceInputs["clientSessionKeepAliveHeartbeatFrequency"] = state ? state.clientSessionKeepAliveHeartbeatFrequency : undefined;
             resourceInputs["clientTimestampTypeMapping"] = state ? state.clientTimestampTypeMapping : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["cortexEnabledCrossRegion"] = state ? state.cortexEnabledCrossRegion : undefined;
             resourceInputs["cortexModelsAllowlist"] = state ? state.cortexModelsAllowlist : undefined;
             resourceInputs["csvTimestampFormat"] = state ? state.csvTimestampFormat : undefined;
@@ -595,7 +595,6 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["eventTable"] = state ? state.eventTable : undefined;
             resourceInputs["externalOauthAddPrivilegedRolesToBlockedList"] = state ? state.externalOauthAddPrivilegedRolesToBlockedList : undefined;
             resourceInputs["externalVolume"] = state ? state.externalVolume : undefined;
-            resourceInputs["featurePolicy"] = state ? state.featurePolicy : undefined;
             resourceInputs["geographyOutputFormat"] = state ? state.geographyOutputFormat : undefined;
             resourceInputs["geometryOutputFormat"] = state ? state.geometryOutputFormat : undefined;
             resourceInputs["hybridTableLockTimeout"] = state ? state.hybridTableLockTimeout : undefined;
@@ -613,11 +612,11 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["metricLevel"] = state ? state.metricLevel : undefined;
             resourceInputs["minDataRetentionTimeInDays"] = state ? state.minDataRetentionTimeInDays : undefined;
             resourceInputs["multiStatementCount"] = state ? state.multiStatementCount : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkPolicy"] = state ? state.networkPolicy : undefined;
             resourceInputs["noorderSequenceAsDefault"] = state ? state.noorderSequenceAsDefault : undefined;
             resourceInputs["oauthAddPrivilegedRolesToBlockedList"] = state ? state.oauthAddPrivilegedRolesToBlockedList : undefined;
             resourceInputs["odbcTreatDecimalAsInt"] = state ? state.odbcTreatDecimalAsInt : undefined;
-            resourceInputs["packagesPolicy"] = state ? state.packagesPolicy : undefined;
             resourceInputs["passwordPolicy"] = state ? state.passwordPolicy : undefined;
             resourceInputs["periodicDataRekeying"] = state ? state.periodicDataRekeying : undefined;
             resourceInputs["pipeExecutionPaused"] = state ? state.pipeExecutionPaused : undefined;
@@ -638,6 +637,7 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["serverlessTaskMaxStatementSize"] = state ? state.serverlessTaskMaxStatementSize : undefined;
             resourceInputs["serverlessTaskMinStatementSize"] = state ? state.serverlessTaskMinStatementSize : undefined;
             resourceInputs["sessionPolicy"] = state ? state.sessionPolicy : undefined;
+            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
             resourceInputs["simulatedDataSharingConsumer"] = state ? state.simulatedDataSharingConsumer : undefined;
             resourceInputs["ssoLoginPage"] = state ? state.ssoLoginPage : undefined;
             resourceInputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
@@ -668,12 +668,11 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["weekOfYearPolicy"] = state ? state.weekOfYearPolicy : undefined;
             resourceInputs["weekStart"] = state ? state.weekStart : undefined;
         } else {
-            const args = argsOrState as CurrentAccountArgs | undefined;
+            const args = argsOrState as CurrentOrganizationAccountArgs | undefined;
             resourceInputs["abortDetachedQuery"] = args ? args.abortDetachedQuery : undefined;
             resourceInputs["activePythonProfiler"] = args ? args.activePythonProfiler : undefined;
             resourceInputs["allowClientMfaCaching"] = args ? args.allowClientMfaCaching : undefined;
             resourceInputs["allowIdToken"] = args ? args.allowIdToken : undefined;
-            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
             resourceInputs["autocommit"] = args ? args.autocommit : undefined;
             resourceInputs["baseLocationPrefix"] = args ? args.baseLocationPrefix : undefined;
             resourceInputs["binaryInputFormat"] = args ? args.binaryInputFormat : undefined;
@@ -691,6 +690,7 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["clientSessionKeepAlive"] = args ? args.clientSessionKeepAlive : undefined;
             resourceInputs["clientSessionKeepAliveHeartbeatFrequency"] = args ? args.clientSessionKeepAliveHeartbeatFrequency : undefined;
             resourceInputs["clientTimestampTypeMapping"] = args ? args.clientTimestampTypeMapping : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["cortexEnabledCrossRegion"] = args ? args.cortexEnabledCrossRegion : undefined;
             resourceInputs["cortexModelsAllowlist"] = args ? args.cortexModelsAllowlist : undefined;
             resourceInputs["csvTimestampFormat"] = args ? args.csvTimestampFormat : undefined;
@@ -720,7 +720,6 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["eventTable"] = args ? args.eventTable : undefined;
             resourceInputs["externalOauthAddPrivilegedRolesToBlockedList"] = args ? args.externalOauthAddPrivilegedRolesToBlockedList : undefined;
             resourceInputs["externalVolume"] = args ? args.externalVolume : undefined;
-            resourceInputs["featurePolicy"] = args ? args.featurePolicy : undefined;
             resourceInputs["geographyOutputFormat"] = args ? args.geographyOutputFormat : undefined;
             resourceInputs["geometryOutputFormat"] = args ? args.geometryOutputFormat : undefined;
             resourceInputs["hybridTableLockTimeout"] = args ? args.hybridTableLockTimeout : undefined;
@@ -738,11 +737,11 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["metricLevel"] = args ? args.metricLevel : undefined;
             resourceInputs["minDataRetentionTimeInDays"] = args ? args.minDataRetentionTimeInDays : undefined;
             resourceInputs["multiStatementCount"] = args ? args.multiStatementCount : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkPolicy"] = args ? args.networkPolicy : undefined;
             resourceInputs["noorderSequenceAsDefault"] = args ? args.noorderSequenceAsDefault : undefined;
             resourceInputs["oauthAddPrivilegedRolesToBlockedList"] = args ? args.oauthAddPrivilegedRolesToBlockedList : undefined;
             resourceInputs["odbcTreatDecimalAsInt"] = args ? args.odbcTreatDecimalAsInt : undefined;
-            resourceInputs["packagesPolicy"] = args ? args.packagesPolicy : undefined;
             resourceInputs["passwordPolicy"] = args ? args.passwordPolicy : undefined;
             resourceInputs["periodicDataRekeying"] = args ? args.periodicDataRekeying : undefined;
             resourceInputs["pipeExecutionPaused"] = args ? args.pipeExecutionPaused : undefined;
@@ -792,16 +791,17 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
             resourceInputs["weekOfYearPolicy"] = args ? args.weekOfYearPolicy : undefined;
             resourceInputs["weekStart"] = args ? args.weekStart : undefined;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CurrentAccount.__pulumiType, name, resourceInputs, opts);
+        super(CurrentOrganizationAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering CurrentAccount resources.
+ * Input properties used for looking up and filtering CurrentOrganizationAccount resources.
  */
-export interface CurrentAccountState {
+export interface CurrentOrganizationAccountState {
     /**
      * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
      */
@@ -818,10 +818,6 @@ export interface CurrentAccountState {
      * Specifies whether a connection token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to enter login credentials at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using connection caching to minimize the number of prompts for authentication — optional.](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#label-browser-based-sso-connection-caching) For more information, check [ALLOW*ID*TOKEN docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-id-token).
      */
     allowIdToken?: pulumi.Input<boolean>;
-    /**
-     * Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-     */
-    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
      */
@@ -890,6 +886,10 @@ export interface CurrentAccountState {
      * Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
      */
     clientTimestampTypeMapping?: pulumi.Input<string>;
+    /**
+     * Specifies a comment for the organization account.
+     */
+    comment?: pulumi.Input<string>;
     /**
      * Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
      */
@@ -1007,10 +1007,6 @@ export interface CurrentAccountState {
      */
     externalVolume?: pulumi.Input<string>;
     /**
-     * Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-     */
-    featurePolicy?: pulumi.Input<string>;
-    /**
      * Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      */
     geographyOutputFormat?: pulumi.Input<string>;
@@ -1079,6 +1075,10 @@ export interface CurrentAccountState {
      */
     multiStatementCount?: pulumi.Input<number>;
     /**
+     * The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+     */
+    name?: pulumi.Input<string>;
+    /**
      * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      */
     networkPolicy?: pulumi.Input<string>;
@@ -1094,10 +1094,6 @@ export interface CurrentAccountState {
      * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      */
     odbcTreatDecimalAsInt?: pulumi.Input<boolean>;
-    /**
-     * Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-     */
-    packagesPolicy?: pulumi.Input<string>;
     /**
      * Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
      */
@@ -1175,6 +1171,10 @@ export interface CurrentAccountState {
      * Specifies [session policy](https://docs.snowflake.com/en/user-guide/session-policies-using) for the current account.
      */
     sessionPolicy?: pulumi.Input<string>;
+    /**
+     * Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.CurrentOrganizationAccountShowOutput>[]>;
     /**
      * Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
      */
@@ -1294,9 +1294,9 @@ export interface CurrentAccountState {
 }
 
 /**
- * The set of arguments for constructing a CurrentAccount resource.
+ * The set of arguments for constructing a CurrentOrganizationAccount resource.
  */
-export interface CurrentAccountArgs {
+export interface CurrentOrganizationAccountArgs {
     /**
      * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
      */
@@ -1313,10 +1313,6 @@ export interface CurrentAccountArgs {
      * Specifies whether a connection token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to enter login credentials at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using connection caching to minimize the number of prompts for authentication — optional.](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#label-browser-based-sso-connection-caching) For more information, check [ALLOW*ID*TOKEN docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-id-token).
      */
     allowIdToken?: pulumi.Input<boolean>;
-    /**
-     * Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-     */
-    authenticationPolicy?: pulumi.Input<string>;
     /**
      * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
      */
@@ -1385,6 +1381,10 @@ export interface CurrentAccountArgs {
      * Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
      */
     clientTimestampTypeMapping?: pulumi.Input<string>;
+    /**
+     * Specifies a comment for the organization account.
+     */
+    comment?: pulumi.Input<string>;
     /**
      * Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
      */
@@ -1502,10 +1502,6 @@ export interface CurrentAccountArgs {
      */
     externalVolume?: pulumi.Input<string>;
     /**
-     * Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-     */
-    featurePolicy?: pulumi.Input<string>;
-    /**
      * Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      */
     geographyOutputFormat?: pulumi.Input<string>;
@@ -1574,6 +1570,10 @@ export interface CurrentAccountArgs {
      */
     multiStatementCount?: pulumi.Input<number>;
     /**
+     * The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+     */
+    name?: pulumi.Input<string>;
+    /**
      * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      */
     networkPolicy?: pulumi.Input<string>;
@@ -1589,10 +1589,6 @@ export interface CurrentAccountArgs {
      * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      */
     odbcTreatDecimalAsInt?: pulumi.Input<boolean>;
-    /**
-     * Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-     */
-    packagesPolicy?: pulumi.Input<string>;
     /**
      * Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
      */

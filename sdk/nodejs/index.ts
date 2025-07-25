@@ -75,6 +75,11 @@ export type CurrentAccount = import("./currentAccount").CurrentAccount;
 export const CurrentAccount: typeof import("./currentAccount").CurrentAccount = null as any;
 utilities.lazyLoad(exports, ["CurrentAccount"], () => require("./currentAccount"));
 
+export { CurrentOrganizationAccountArgs, CurrentOrganizationAccountState } from "./currentOrganizationAccount";
+export type CurrentOrganizationAccount = import("./currentOrganizationAccount").CurrentOrganizationAccount;
+export const CurrentOrganizationAccount: typeof import("./currentOrganizationAccount").CurrentOrganizationAccount = null as any;
+utilities.lazyLoad(exports, ["CurrentOrganizationAccount"], () => require("./currentOrganizationAccount"));
+
 export { DatabaseArgs, DatabaseState } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -384,6 +389,11 @@ export { GetTasksArgs, GetTasksResult, GetTasksOutputArgs } from "./getTasks";
 export const getTasks: typeof import("./getTasks").getTasks = null as any;
 export const getTasksOutput: typeof import("./getTasks").getTasksOutput = null as any;
 utilities.lazyLoad(exports, ["getTasks","getTasksOutput"], () => require("./getTasks"));
+
+export { GetUserProgrammaticAccessTokensArgs, GetUserProgrammaticAccessTokensResult, GetUserProgrammaticAccessTokensOutputArgs } from "./getUserProgrammaticAccessTokens";
+export const getUserProgrammaticAccessTokens: typeof import("./getUserProgrammaticAccessTokens").getUserProgrammaticAccessTokens = null as any;
+export const getUserProgrammaticAccessTokensOutput: typeof import("./getUserProgrammaticAccessTokens").getUserProgrammaticAccessTokensOutput = null as any;
+utilities.lazyLoad(exports, ["getUserProgrammaticAccessTokens","getUserProgrammaticAccessTokensOutput"], () => require("./getUserProgrammaticAccessTokens"));
 
 export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
 export const getUsers: typeof import("./getUsers").getUsers = null as any;
@@ -708,6 +718,11 @@ export type UserPasswordPolicyAttachment = import("./userPasswordPolicyAttachmen
 export const UserPasswordPolicyAttachment: typeof import("./userPasswordPolicyAttachment").UserPasswordPolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["UserPasswordPolicyAttachment"], () => require("./userPasswordPolicyAttachment"));
 
+export { UserProgrammaticAccessTokenArgs, UserProgrammaticAccessTokenState } from "./userProgrammaticAccessToken";
+export type UserProgrammaticAccessToken = import("./userProgrammaticAccessToken").UserProgrammaticAccessToken;
+export const UserProgrammaticAccessToken: typeof import("./userProgrammaticAccessToken").UserProgrammaticAccessToken = null as any;
+utilities.lazyLoad(exports, ["UserProgrammaticAccessToken"], () => require("./userProgrammaticAccessToken"));
+
 export { UserPublicKeysArgs, UserPublicKeysState } from "./userPublicKeys";
 export type UserPublicKeys = import("./userPublicKeys").UserPublicKeys;
 export const UserPublicKeys: typeof import("./userPublicKeys").UserPublicKeys = null as any;
@@ -765,6 +780,8 @@ const _module = {
                 return new CortexSearchService(name, <any>undefined, { urn })
             case "snowflake:index/currentAccount:CurrentAccount":
                 return new CurrentAccount(name, <any>undefined, { urn })
+            case "snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount":
+                return new CurrentOrganizationAccount(name, <any>undefined, { urn })
             case "snowflake:index/database:Database":
                 return new Database(name, <any>undefined, { urn })
             case "snowflake:index/databaseRole:DatabaseRole":
@@ -919,6 +936,8 @@ const _module = {
                 return new UserAuthenticationPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment":
                 return new UserPasswordPolicyAttachment(name, <any>undefined, { urn })
+            case "snowflake:index/userProgrammaticAccessToken:UserProgrammaticAccessToken":
+                return new UserProgrammaticAccessToken(name, <any>undefined, { urn })
             case "snowflake:index/userPublicKeys:UserPublicKeys":
                 return new UserPublicKeys(name, <any>undefined, { urn })
             case "snowflake:index/view:View":
@@ -944,6 +963,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/authenticationPolicy",
 pulumi.runtime.registerResourceModule("snowflake", "index/computePool", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/cortexSearchService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/currentAccount", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/currentOrganizationAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/dynamicTable", _module)
@@ -1021,6 +1041,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userAuthenticationPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPasswordPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/userProgrammaticAccessToken", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPublicKeys", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouse", _module)

@@ -111,6 +111,8 @@ __all__ = [
     'ComputePoolShowOutputArgsDict',
     'CortexSearchServiceDescribeOutputArgs',
     'CortexSearchServiceDescribeOutputArgsDict',
+    'CurrentOrganizationAccountShowOutputArgs',
+    'CurrentOrganizationAccountShowOutputArgsDict',
     'DatabaseReplicationArgs',
     'DatabaseReplicationArgsDict',
     'DatabaseReplicationEnableToAccountArgs',
@@ -1151,6 +1153,8 @@ __all__ = [
     'UserParameterWeekOfYearPolicyArgsDict',
     'UserParameterWeekStartArgs',
     'UserParameterWeekStartArgsDict',
+    'UserProgrammaticAccessTokenShowOutputArgs',
+    'UserProgrammaticAccessTokenShowOutputArgsDict',
     'UserShowOutputArgs',
     'UserShowOutputArgsDict',
     'ViewAggregationPolicyArgs',
@@ -5656,6 +5660,302 @@ class CortexSearchServiceDescribeOutputArgs:
     @warehouse.setter
     def warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "warehouse", value)
+
+
+if not MYPY:
+    class CurrentOrganizationAccountShowOutputArgsDict(TypedDict):
+        account_locator: NotRequired[pulumi.Input[_builtins.str]]
+        account_locator_url: NotRequired[pulumi.Input[_builtins.str]]
+        account_name: NotRequired[pulumi.Input[_builtins.str]]
+        account_old_url_last_used: NotRequired[pulumi.Input[_builtins.str]]
+        account_old_url_saved_on: NotRequired[pulumi.Input[_builtins.str]]
+        account_url: NotRequired[pulumi.Input[_builtins.str]]
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        consumption_billing_entity_name: NotRequired[pulumi.Input[_builtins.str]]
+        created_on: NotRequired[pulumi.Input[_builtins.str]]
+        edition: NotRequired[pulumi.Input[_builtins.str]]
+        is_events_account: NotRequired[pulumi.Input[_builtins.bool]]
+        is_org_admin: NotRequired[pulumi.Input[_builtins.bool]]
+        is_organization_account: NotRequired[pulumi.Input[_builtins.bool]]
+        managed_accounts: NotRequired[pulumi.Input[_builtins.int]]
+        marketplace_consumer_billing_entity_name: NotRequired[pulumi.Input[_builtins.str]]
+        marketplace_provider_billing_entity_name: NotRequired[pulumi.Input[_builtins.str]]
+        old_account_url: NotRequired[pulumi.Input[_builtins.str]]
+        organization_name: NotRequired[pulumi.Input[_builtins.str]]
+        organization_old_url: NotRequired[pulumi.Input[_builtins.str]]
+        organization_old_url_last_used: NotRequired[pulumi.Input[_builtins.str]]
+        organization_old_url_saved_on: NotRequired[pulumi.Input[_builtins.str]]
+        snowflake_region: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    CurrentOrganizationAccountShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CurrentOrganizationAccountShowOutputArgs:
+    def __init__(__self__, *,
+                 account_locator: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_locator_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_old_url_last_used: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_old_url_saved_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 consumption_billing_entity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 edition: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_events_account: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_org_admin: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_organization_account: Optional[pulumi.Input[_builtins.bool]] = None,
+                 managed_accounts: Optional[pulumi.Input[_builtins.int]] = None,
+                 marketplace_consumer_billing_entity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 marketplace_provider_billing_entity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 old_account_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 organization_old_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 organization_old_url_last_used: Optional[pulumi.Input[_builtins.str]] = None,
+                 organization_old_url_saved_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 snowflake_region: Optional[pulumi.Input[_builtins.str]] = None):
+        if account_locator is not None:
+            pulumi.set(__self__, "account_locator", account_locator)
+        if account_locator_url is not None:
+            pulumi.set(__self__, "account_locator_url", account_locator_url)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if account_old_url_last_used is not None:
+            pulumi.set(__self__, "account_old_url_last_used", account_old_url_last_used)
+        if account_old_url_saved_on is not None:
+            pulumi.set(__self__, "account_old_url_saved_on", account_old_url_saved_on)
+        if account_url is not None:
+            pulumi.set(__self__, "account_url", account_url)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if consumption_billing_entity_name is not None:
+            pulumi.set(__self__, "consumption_billing_entity_name", consumption_billing_entity_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if is_events_account is not None:
+            pulumi.set(__self__, "is_events_account", is_events_account)
+        if is_org_admin is not None:
+            pulumi.set(__self__, "is_org_admin", is_org_admin)
+        if is_organization_account is not None:
+            pulumi.set(__self__, "is_organization_account", is_organization_account)
+        if managed_accounts is not None:
+            pulumi.set(__self__, "managed_accounts", managed_accounts)
+        if marketplace_consumer_billing_entity_name is not None:
+            pulumi.set(__self__, "marketplace_consumer_billing_entity_name", marketplace_consumer_billing_entity_name)
+        if marketplace_provider_billing_entity_name is not None:
+            pulumi.set(__self__, "marketplace_provider_billing_entity_name", marketplace_provider_billing_entity_name)
+        if old_account_url is not None:
+            pulumi.set(__self__, "old_account_url", old_account_url)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if organization_old_url is not None:
+            pulumi.set(__self__, "organization_old_url", organization_old_url)
+        if organization_old_url_last_used is not None:
+            pulumi.set(__self__, "organization_old_url_last_used", organization_old_url_last_used)
+        if organization_old_url_saved_on is not None:
+            pulumi.set(__self__, "organization_old_url_saved_on", organization_old_url_saved_on)
+        if snowflake_region is not None:
+            pulumi.set(__self__, "snowflake_region", snowflake_region)
+
+    @_builtins.property
+    @pulumi.getter(name="accountLocator")
+    def account_locator(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "account_locator")
+
+    @account_locator.setter
+    def account_locator(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account_locator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountLocatorUrl")
+    def account_locator_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "account_locator_url")
+
+    @account_locator_url.setter
+    def account_locator_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account_locator_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountOldUrlLastUsed")
+    def account_old_url_last_used(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "account_old_url_last_used")
+
+    @account_old_url_last_used.setter
+    def account_old_url_last_used(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account_old_url_last_used", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountOldUrlSavedOn")
+    def account_old_url_saved_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "account_old_url_saved_on")
+
+    @account_old_url_saved_on.setter
+    def account_old_url_saved_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account_old_url_saved_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountUrl")
+    def account_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "account_url")
+
+    @account_url.setter
+    def account_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account_url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="consumptionBillingEntityName")
+    def consumption_billing_entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "consumption_billing_entity_name")
+
+    @consumption_billing_entity_name.setter
+    def consumption_billing_entity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "consumption_billing_entity_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def edition(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "edition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isEventsAccount")
+    def is_events_account(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_events_account")
+
+    @is_events_account.setter
+    def is_events_account(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_events_account", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isOrgAdmin")
+    def is_org_admin(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_org_admin")
+
+    @is_org_admin.setter
+    def is_org_admin(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_org_admin", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isOrganizationAccount")
+    def is_organization_account(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_organization_account")
+
+    @is_organization_account.setter
+    def is_organization_account(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_organization_account", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedAccounts")
+    def managed_accounts(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "managed_accounts")
+
+    @managed_accounts.setter
+    def managed_accounts(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "managed_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="marketplaceConsumerBillingEntityName")
+    def marketplace_consumer_billing_entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "marketplace_consumer_billing_entity_name")
+
+    @marketplace_consumer_billing_entity_name.setter
+    def marketplace_consumer_billing_entity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "marketplace_consumer_billing_entity_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="marketplaceProviderBillingEntityName")
+    def marketplace_provider_billing_entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "marketplace_provider_billing_entity_name")
+
+    @marketplace_provider_billing_entity_name.setter
+    def marketplace_provider_billing_entity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "marketplace_provider_billing_entity_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oldAccountUrl")
+    def old_account_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "old_account_url")
+
+    @old_account_url.setter
+    def old_account_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "old_account_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "organization_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationOldUrl")
+    def organization_old_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "organization_old_url")
+
+    @organization_old_url.setter
+    def organization_old_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "organization_old_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationOldUrlLastUsed")
+    def organization_old_url_last_used(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "organization_old_url_last_used")
+
+    @organization_old_url_last_used.setter
+    def organization_old_url_last_used(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "organization_old_url_last_used", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationOldUrlSavedOn")
+    def organization_old_url_saved_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "organization_old_url_saved_on")
+
+    @organization_old_url_saved_on.setter
+    def organization_old_url_saved_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "organization_old_url_saved_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snowflakeRegion")
+    def snowflake_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "snowflake_region")
+
+    @snowflake_region.setter
+    def snowflake_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "snowflake_region", value)
 
 
 if not MYPY:
@@ -52658,6 +52958,146 @@ class UserParameterWeekStartArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class UserProgrammaticAccessTokenShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        created_by: NotRequired[pulumi.Input[_builtins.str]]
+        created_on: NotRequired[pulumi.Input[_builtins.str]]
+        expires_at: NotRequired[pulumi.Input[_builtins.str]]
+        mins_to_bypass_network_policy_requirement: NotRequired[pulumi.Input[_builtins.int]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        role_restriction: NotRequired[pulumi.Input[_builtins.str]]
+        rotated_to: NotRequired[pulumi.Input[_builtins.str]]
+        status: NotRequired[pulumi.Input[_builtins.str]]
+        user_name: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    UserProgrammaticAccessTokenShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProgrammaticAccessTokenShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 mins_to_bypass_network_policy_requirement: Optional[pulumi.Input[_builtins.int]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_restriction: Optional[pulumi.Input[_builtins.str]] = None,
+                 rotated_to: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if expires_at is not None:
+            pulumi.set(__self__, "expires_at", expires_at)
+        if mins_to_bypass_network_policy_requirement is not None:
+            pulumi.set(__self__, "mins_to_bypass_network_policy_requirement", mins_to_bypass_network_policy_requirement)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if role_restriction is not None:
+            pulumi.set(__self__, "role_restriction", role_restriction)
+        if rotated_to is not None:
+            pulumi.set(__self__, "rotated_to", rotated_to)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_by")
+
+    @created_by.setter
+    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "expires_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minsToBypassNetworkPolicyRequirement")
+    def mins_to_bypass_network_policy_requirement(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "mins_to_bypass_network_policy_requirement")
+
+    @mins_to_bypass_network_policy_requirement.setter
+    def mins_to_bypass_network_policy_requirement(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "mins_to_bypass_network_policy_requirement", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleRestriction")
+    def role_restriction(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "role_restriction")
+
+    @role_restriction.setter
+    def role_restriction(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "role_restriction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rotatedTo")
+    def rotated_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "rotated_to")
+
+    @rotated_to.setter
+    def rotated_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "rotated_to", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "user_name", value)
 
 
 if not MYPY:

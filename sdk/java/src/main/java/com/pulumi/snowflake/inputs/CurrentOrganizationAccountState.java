@@ -5,17 +5,19 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.CurrentOrganizationAccountShowOutputArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs {
+public final class CurrentOrganizationAccountState extends com.pulumi.resources.ResourceArgs {
 
-    public static final CurrentAccountState Empty = new CurrentAccountState();
+    public static final CurrentOrganizationAccountState Empty = new CurrentOrganizationAccountState();
 
     /**
      * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
@@ -75,21 +77,6 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<Boolean>> allowIdToken() {
         return Optional.ofNullable(this.allowIdToken);
-    }
-
-    /**
-     * Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-     * 
-     */
-    @Import(name="authenticationPolicy")
-    private @Nullable Output<String> authenticationPolicy;
-
-    /**
-     * @return Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-     * 
-     */
-    public Optional<Output<String>> authenticationPolicy() {
-        return Optional.ofNullable(this.authenticationPolicy);
     }
 
     /**
@@ -345,6 +332,21 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> clientTimestampTypeMapping() {
         return Optional.ofNullable(this.clientTimestampTypeMapping);
+    }
+
+    /**
+     * Specifies a comment for the organization account.
+     * 
+     */
+    @Import(name="comment")
+    private @Nullable Output<String> comment;
+
+    /**
+     * @return Specifies a comment for the organization account.
+     * 
+     */
+    public Optional<Output<String>> comment() {
+        return Optional.ofNullable(this.comment);
     }
 
     /**
@@ -783,21 +785,6 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-     * 
-     */
-    @Import(name="featurePolicy")
-    private @Nullable Output<String> featurePolicy;
-
-    /**
-     * @return Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-     * 
-     */
-    public Optional<Output<String>> featurePolicy() {
-        return Optional.ofNullable(this.featurePolicy);
-    }
-
-    /**
      * Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      * 
      */
@@ -1053,6 +1040,21 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      * 
      */
@@ -1110,21 +1112,6 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<Boolean>> odbcTreatDecimalAsInt() {
         return Optional.ofNullable(this.odbcTreatDecimalAsInt);
-    }
-
-    /**
-     * Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-     * 
-     */
-    @Import(name="packagesPolicy")
-    private @Nullable Output<String> packagesPolicy;
-
-    /**
-     * @return Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-     * 
-     */
-    public Optional<Output<String>> packagesPolicy() {
-        return Optional.ofNullable(this.packagesPolicy);
     }
 
     /**
@@ -1417,6 +1404,21 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<String>> sessionPolicy() {
         return Optional.ofNullable(this.sessionPolicy);
+    }
+
+    /**
+     * Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+     * 
+     */
+    @Import(name="showOutputs")
+    private @Nullable Output<List<CurrentOrganizationAccountShowOutputArgs>> showOutputs;
+
+    /**
+     * @return Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+     * 
+     */
+    public Optional<Output<List<CurrentOrganizationAccountShowOutputArgs>>> showOutputs() {
+        return Optional.ofNullable(this.showOutputs);
     }
 
     /**
@@ -1854,14 +1856,13 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.weekStart);
     }
 
-    private CurrentAccountState() {}
+    private CurrentOrganizationAccountState() {}
 
-    private CurrentAccountState(CurrentAccountState $) {
+    private CurrentOrganizationAccountState(CurrentOrganizationAccountState $) {
         this.abortDetachedQuery = $.abortDetachedQuery;
         this.activePythonProfiler = $.activePythonProfiler;
         this.allowClientMfaCaching = $.allowClientMfaCaching;
         this.allowIdToken = $.allowIdToken;
-        this.authenticationPolicy = $.authenticationPolicy;
         this.autocommit = $.autocommit;
         this.baseLocationPrefix = $.baseLocationPrefix;
         this.binaryInputFormat = $.binaryInputFormat;
@@ -1879,6 +1880,7 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
         this.clientSessionKeepAlive = $.clientSessionKeepAlive;
         this.clientSessionKeepAliveHeartbeatFrequency = $.clientSessionKeepAliveHeartbeatFrequency;
         this.clientTimestampTypeMapping = $.clientTimestampTypeMapping;
+        this.comment = $.comment;
         this.cortexEnabledCrossRegion = $.cortexEnabledCrossRegion;
         this.cortexModelsAllowlist = $.cortexModelsAllowlist;
         this.csvTimestampFormat = $.csvTimestampFormat;
@@ -1908,7 +1910,6 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
         this.eventTable = $.eventTable;
         this.externalOauthAddPrivilegedRolesToBlockedList = $.externalOauthAddPrivilegedRolesToBlockedList;
         this.externalVolume = $.externalVolume;
-        this.featurePolicy = $.featurePolicy;
         this.geographyOutputFormat = $.geographyOutputFormat;
         this.geometryOutputFormat = $.geometryOutputFormat;
         this.hybridTableLockTimeout = $.hybridTableLockTimeout;
@@ -1926,11 +1927,11 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
         this.metricLevel = $.metricLevel;
         this.minDataRetentionTimeInDays = $.minDataRetentionTimeInDays;
         this.multiStatementCount = $.multiStatementCount;
+        this.name = $.name;
         this.networkPolicy = $.networkPolicy;
         this.noorderSequenceAsDefault = $.noorderSequenceAsDefault;
         this.oauthAddPrivilegedRolesToBlockedList = $.oauthAddPrivilegedRolesToBlockedList;
         this.odbcTreatDecimalAsInt = $.odbcTreatDecimalAsInt;
-        this.packagesPolicy = $.packagesPolicy;
         this.passwordPolicy = $.passwordPolicy;
         this.periodicDataRekeying = $.periodicDataRekeying;
         this.pipeExecutionPaused = $.pipeExecutionPaused;
@@ -1951,6 +1952,7 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
         this.serverlessTaskMaxStatementSize = $.serverlessTaskMaxStatementSize;
         this.serverlessTaskMinStatementSize = $.serverlessTaskMinStatementSize;
         this.sessionPolicy = $.sessionPolicy;
+        this.showOutputs = $.showOutputs;
         this.simulatedDataSharingConsumer = $.simulatedDataSharingConsumer;
         this.ssoLoginPage = $.ssoLoginPage;
         this.statementQueuedTimeoutInSeconds = $.statementQueuedTimeoutInSeconds;
@@ -1985,19 +1987,19 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(CurrentAccountState defaults) {
+    public static Builder builder(CurrentOrganizationAccountState defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private CurrentAccountState $;
+        private CurrentOrganizationAccountState $;
 
         public Builder() {
-            $ = new CurrentAccountState();
+            $ = new CurrentOrganizationAccountState();
         }
 
-        public Builder(CurrentAccountState defaults) {
-            $ = new CurrentAccountState(Objects.requireNonNull(defaults));
+        public Builder(CurrentOrganizationAccountState defaults) {
+            $ = new CurrentOrganizationAccountState(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -2082,27 +2084,6 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
          */
         public Builder allowIdToken(Boolean allowIdToken) {
             return allowIdToken(Output.of(allowIdToken));
-        }
-
-        /**
-         * @param authenticationPolicy Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authenticationPolicy(@Nullable Output<String> authenticationPolicy) {
-            $.authenticationPolicy = authenticationPolicy;
-            return this;
-        }
-
-        /**
-         * @param authenticationPolicy Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authenticationPolicy(String authenticationPolicy) {
-            return authenticationPolicy(Output.of(authenticationPolicy));
         }
 
         /**
@@ -2460,6 +2441,27 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
          */
         public Builder clientTimestampTypeMapping(String clientTimestampTypeMapping) {
             return clientTimestampTypeMapping(Output.of(clientTimestampTypeMapping));
+        }
+
+        /**
+         * @param comment Specifies a comment for the organization account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder comment(@Nullable Output<String> comment) {
+            $.comment = comment;
+            return this;
+        }
+
+        /**
+         * @param comment Specifies a comment for the organization account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder comment(String comment) {
+            return comment(Output.of(comment));
         }
 
         /**
@@ -3072,27 +3074,6 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param featurePolicy Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder featurePolicy(@Nullable Output<String> featurePolicy) {
-            $.featurePolicy = featurePolicy;
-            return this;
-        }
-
-        /**
-         * @param featurePolicy Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder featurePolicy(String featurePolicy) {
-            return featurePolicy(Output.of(featurePolicy));
-        }
-
-        /**
          * @param geographyOutputFormat Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
          * 
          * @return builder
@@ -3450,6 +3431,27 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param name The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
+        }
+
+        /**
          * @param networkPolicy Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
          * 
          * @return builder
@@ -3531,27 +3533,6 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
          */
         public Builder odbcTreatDecimalAsInt(Boolean odbcTreatDecimalAsInt) {
             return odbcTreatDecimalAsInt(Output.of(odbcTreatDecimalAsInt));
-        }
-
-        /**
-         * @param packagesPolicy Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder packagesPolicy(@Nullable Output<String> packagesPolicy) {
-            $.packagesPolicy = packagesPolicy;
-            return this;
-        }
-
-        /**
-         * @param packagesPolicy Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder packagesPolicy(String packagesPolicy) {
-            return packagesPolicy(Output.of(packagesPolicy));
         }
 
         /**
@@ -3960,6 +3941,37 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
          */
         public Builder sessionPolicy(String sessionPolicy) {
             return sessionPolicy(Output.of(sessionPolicy));
+        }
+
+        /**
+         * @param showOutputs Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(@Nullable Output<List<CurrentOrganizationAccountShowOutputArgs>> showOutputs) {
+            $.showOutputs = showOutputs;
+            return this;
+        }
+
+        /**
+         * @param showOutputs Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(List<CurrentOrganizationAccountShowOutputArgs> showOutputs) {
+            return showOutputs(Output.of(showOutputs));
+        }
+
+        /**
+         * @param showOutputs Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showOutputs(CurrentOrganizationAccountShowOutputArgs... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
 
         /**
@@ -4571,7 +4583,7 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
             return weekStart(Output.of(weekStart));
         }
 
-        public CurrentAccountState build() {
+        public CurrentOrganizationAccountState build() {
             return $;
         }
     }

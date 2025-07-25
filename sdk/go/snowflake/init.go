@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CortexSearchService{}
 	case "snowflake:index/currentAccount:CurrentAccount":
 		r = &CurrentAccount{}
+	case "snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount":
+		r = &CurrentOrganizationAccount{}
 	case "snowflake:index/database:Database":
 		r = &Database{}
 	case "snowflake:index/databaseRole:DatabaseRole":
@@ -203,6 +205,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserAuthenticationPolicyAttachment{}
 	case "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment":
 		r = &UserPasswordPolicyAttachment{}
+	case "snowflake:index/userProgrammaticAccessToken:UserProgrammaticAccessToken":
+		r = &UserProgrammaticAccessToken{}
 	case "snowflake:index/userPublicKeys:UserPublicKeys":
 		r = &UserPublicKeys{}
 	case "snowflake:index/view:View":
@@ -308,6 +312,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/currentAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/currentOrganizationAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -693,6 +702,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/userPasswordPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/userProgrammaticAccessToken",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

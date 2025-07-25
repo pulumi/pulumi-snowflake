@@ -7,27 +7,27 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import com.pulumi.snowflake.CurrentAccountArgs;
+import com.pulumi.snowflake.CurrentOrganizationAccountArgs;
 import com.pulumi.snowflake.Utilities;
-import com.pulumi.snowflake.inputs.CurrentAccountState;
+import com.pulumi.snowflake.inputs.CurrentOrganizationAccountState;
+import com.pulumi.snowflake.outputs.CurrentOrganizationAccountShowOutput;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * ## Import
  * 
- * This resource may contain a any identifier, but the following format is recommended.
- * 
  * ```sh
- * $ pulumi import snowflake:index/currentAccount:CurrentAccount example &#39;current_account&#39;
+ * $ pulumi import snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount example &#39;&#34;&lt;organization_account_name&gt;&#34;&#39;
  * ```
  * 
  */
-@ResourceType(type="snowflake:index/currentAccount:CurrentAccount")
-public class CurrentAccount extends com.pulumi.resources.CustomResource {
+@ResourceType(type="snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount")
+public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
      * 
@@ -83,20 +83,6 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> allowIdToken() {
         return this.allowIdToken;
-    }
-    /**
-     * Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-     * 
-     */
-    @Export(name="authenticationPolicy", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> authenticationPolicy;
-
-    /**
-     * @return Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-     * 
-     */
-    public Output<Optional<String>> authenticationPolicy() {
-        return Codegen.optional(this.authenticationPolicy);
     }
     /**
      * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
@@ -335,6 +321,20 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      */
     public Output<String> clientTimestampTypeMapping() {
         return this.clientTimestampTypeMapping;
+    }
+    /**
+     * Specifies a comment for the organization account.
+     * 
+     */
+    @Export(name="comment", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> comment;
+
+    /**
+     * @return Specifies a comment for the organization account.
+     * 
+     */
+    public Output<Optional<String>> comment() {
+        return Codegen.optional(this.comment);
     }
     /**
      * Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
@@ -743,20 +743,6 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
         return this.externalVolume;
     }
     /**
-     * Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-     * 
-     */
-    @Export(name="featurePolicy", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> featurePolicy;
-
-    /**
-     * @return Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-     * 
-     */
-    public Output<Optional<String>> featurePolicy() {
-        return Codegen.optional(this.featurePolicy);
-    }
-    /**
      * Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      * 
      */
@@ -995,6 +981,20 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
         return this.multiStatementCount;
     }
     /**
+     * The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+     * 
+     */
+    @Export(name="name", refs={String.class}, tree="[0]")
+    private Output<String> name;
+
+    /**
+     * @return The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
+    }
+    /**
      * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      * 
      */
@@ -1049,20 +1049,6 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> odbcTreatDecimalAsInt() {
         return this.odbcTreatDecimalAsInt;
-    }
-    /**
-     * Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-     * 
-     */
-    @Export(name="packagesPolicy", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> packagesPolicy;
-
-    /**
-     * @return Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-     * 
-     */
-    public Output<Optional<String>> packagesPolicy() {
-        return Codegen.optional(this.packagesPolicy);
     }
     /**
      * Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
@@ -1335,6 +1321,20 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sessionPolicy() {
         return Codegen.optional(this.sessionPolicy);
+    }
+    /**
+     * Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,CurrentOrganizationAccountShowOutput.class}, tree="[0,1]")
+    private Output<List<CurrentOrganizationAccountShowOutput>> showOutputs;
+
+    /**
+     * @return Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+     * 
+     */
+    public Output<List<CurrentOrganizationAccountShowOutput>> showOutputs() {
+        return this.showOutputs;
     }
     /**
      * Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
@@ -1747,15 +1747,15 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CurrentAccount(java.lang.String name) {
-        this(name, CurrentAccountArgs.Empty);
+    public CurrentOrganizationAccount(java.lang.String name) {
+        this(name, CurrentOrganizationAccountArgs.Empty);
     }
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CurrentAccount(java.lang.String name, @Nullable CurrentAccountArgs args) {
+    public CurrentOrganizationAccount(java.lang.String name, @Nullable CurrentOrganizationAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -1764,19 +1764,19 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CurrentAccount(java.lang.String name, @Nullable CurrentAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/currentAccount:CurrentAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
+    public CurrentOrganizationAccount(java.lang.String name, @Nullable CurrentOrganizationAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CurrentAccount(java.lang.String name, Output<java.lang.String> id, @Nullable CurrentAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("snowflake:index/currentAccount:CurrentAccount", name, state, makeResourceOptions(options, id), false);
+    private CurrentOrganizationAccount(java.lang.String name, Output<java.lang.String> id, @Nullable CurrentOrganizationAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static CurrentAccountArgs makeArgs(@Nullable CurrentAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static CurrentOrganizationAccountArgs makeArgs(@Nullable CurrentOrganizationAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }
-        return args == null ? CurrentAccountArgs.Empty : args;
+        return args == null ? CurrentOrganizationAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
@@ -1795,7 +1795,7 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CurrentAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable CurrentAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        return new CurrentAccount(name, id, state, options);
+    public static CurrentOrganizationAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable CurrentOrganizationAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        return new CurrentOrganizationAccount(name, id, state, options);
     }
 }

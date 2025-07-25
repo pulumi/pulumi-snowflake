@@ -13,17 +13,18 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
-__all__ = ['CurrentAccountArgs', 'CurrentAccount']
+__all__ = ['CurrentOrganizationAccountArgs', 'CurrentOrganizationAccount']
 
 @pulumi.input_type
-class CurrentAccountArgs:
+class CurrentOrganizationAccountArgs:
     def __init__(__self__, *,
                  abort_detached_query: Optional[pulumi.Input[_builtins.bool]] = None,
                  active_python_profiler: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_client_mfa_caching: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_id_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  autocommit: Optional[pulumi.Input[_builtins.bool]] = None,
                  base_location_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  binary_input_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,6 +42,7 @@ class CurrentAccountArgs:
                  client_session_keep_alive: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_session_keep_alive_heartbeat_frequency: Optional[pulumi.Input[_builtins.int]] = None,
                  client_timestamp_type_mapping: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
                  cortex_enabled_cross_region: Optional[pulumi.Input[_builtins.str]] = None,
                  cortex_models_allowlist: Optional[pulumi.Input[_builtins.str]] = None,
                  csv_timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -70,7 +72,6 @@ class CurrentAccountArgs:
                  event_table: Optional[pulumi.Input[_builtins.str]] = None,
                  external_oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  geography_output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  geometry_output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  hybrid_table_lock_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -88,11 +89,11 @@ class CurrentAccountArgs:
                  metric_level: Optional[pulumi.Input[_builtins.str]] = None,
                  min_data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  multi_statement_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  noorder_sequence_as_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  odbc_treat_decimal_as_int: Optional[pulumi.Input[_builtins.bool]] = None,
-                 packages_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  password_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  periodic_data_rekeying: Optional[pulumi.Input[_builtins.bool]] = None,
                  pipe_execution_paused: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -143,12 +144,11 @@ class CurrentAccountArgs:
                  week_of_year_policy: Optional[pulumi.Input[_builtins.int]] = None,
                  week_start: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        The set of arguments for constructing a CurrentAccount resource.
+        The set of arguments for constructing a CurrentOrganizationAccount resource.
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         :param pulumi.Input[_builtins.str] active_python_profiler: Sets the profiler to use for the session when [profiling Python handler code](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-profiler). Valid values are (case-insensitive): `LINE` | `MEMORY`. For more information, check [ACTIVE*PYTHON*PROFILER docs](https://docs.snowflake.com/en/sql-reference/parameters#active-python-profiler).
         :param pulumi.Input[_builtins.bool] allow_client_mfa_caching: Specifies whether an MFA token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to respond to an MFA prompt at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using MFA token caching to minimize the number of prompts during authentication — optional.](https://docs.snowflake.com/en/user-guide/security-mfa.html#label-mfa-token-caching) For more information, check [ALLOW*CLIENT*MFA_CACHING docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-client-mfa-caching).
         :param pulumi.Input[_builtins.bool] allow_id_token: Specifies whether a connection token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to enter login credentials at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using connection caching to minimize the number of prompts for authentication — optional.](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#label-browser-based-sso-connection-caching) For more information, check [ALLOW*ID*TOKEN docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-id-token).
-        :param pulumi.Input[_builtins.str] authentication_policy: Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         :param pulumi.Input[_builtins.str] base_location_prefix: Specifies a prefix for Snowflake to use in the write path for Snowflake-managed Apache Iceberg™ tables. For more information, see [data and metadata directories for Iceberg tables](https://docs.snowflake.com/en/user-guide/tables-iceberg-storage.html#label-tables-iceberg-configure-external-volume-base-location). For more information, check [BASE*LOCATION*PREFIX docs](https://docs.snowflake.com/en/sql-reference/parameters#base-location-prefix).
         :param pulumi.Input[_builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
@@ -166,6 +166,7 @@ class CurrentAccountArgs:
         :param pulumi.Input[_builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the organization account.
         :param pulumi.Input[_builtins.str] cortex_enabled_cross_region: Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
         :param pulumi.Input[_builtins.str] cortex_models_allowlist: Specifies the models that users in the account can access. Use this parameter to allowlist models for all users in the account. If you need to provide specific users with access beyond what you’ve specified in the allowlist, use role-based access control instead. For more information, see [Model allowlist](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql.html#label-cortex-llm-allowlist). For more information, check [CORTEX*MODELS*ALLOWLIST docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-models-allowlist).
         :param pulumi.Input[_builtins.str] csv_timestamp_format: Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
@@ -195,7 +196,6 @@ class CurrentAccountArgs:
         :param pulumi.Input[_builtins.str] event_table: Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.bool] external_oauth_add_privileged_roles_to_blocked_list: Determines whether the ACCOUNTADMIN, ORGADMIN, GLOBALORGADMIN, and SECURITYADMIN roles can be used as the primary role when creating a Snowflake session based on the access token from the External OAuth authorization server. For more information, check [EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST docs](https://docs.snowflake.com/en/sql-reference/parameters#external-oauth-add-privileged-roles-to-blocked-list).
         :param pulumi.Input[_builtins.str] external_volume: Specifies the external volume for Apache Iceberg™ tables. For more information, see the [Iceberg table documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg.html#label-tables-iceberg-external-volume-def). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[_builtins.str] feature_policy: Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
         :param pulumi.Input[_builtins.str] geography_output_format: Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         :param pulumi.Input[_builtins.str] geometry_output_format: Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         :param pulumi.Input[_builtins.int] hybrid_table_lock_timeout: Number of seconds to wait while trying to acquire row-level locks on a hybrid table, before timing out and aborting the statement. For more information, check [HYBRID*TABLE*LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#hybrid-table-lock-timeout).
@@ -213,11 +213,11 @@ class CurrentAccountArgs:
         :param pulumi.Input[_builtins.str] metric_level: Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.int] min_data_retention_time_in_days: Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check [MIN*DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        :param pulumi.Input[_builtins.str] name: The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
         :param pulumi.Input[_builtins.str] network_policy: Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         :param pulumi.Input[_builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         :param pulumi.Input[_builtins.bool] oauth_add_privileged_roles_to_blocked_list: Determines whether the ACCOUNTADMIN, ORGADMIN, GLOBALORGADMIN, and SECURITYADMIN roles can be used as the primary role when creating a Snowflake session based on the access token from Snowflake’s authorization server. For more information, check [OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST docs](https://docs.snowflake.com/en/sql-reference/parameters#oauth-add-privileged-roles-to-blocked-list).
         :param pulumi.Input[_builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
-        :param pulumi.Input[_builtins.str] packages_policy: Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
         :param pulumi.Input[_builtins.str] password_policy: Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] periodic_data_rekeying: It enables/disables re-encryption of table data with new keys on a yearly basis to provide additional levels of data protection ([more details](https://docs.snowflake.com/en/sql-reference/parameters#periodic-data-rekeying)). For more information, check [PERIODIC*DATA*REKEYING docs](https://docs.snowflake.com/en/sql-reference/parameters#periodic-data-rekeying).
         :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role ([more details](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused)). For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
@@ -275,8 +275,6 @@ class CurrentAccountArgs:
             pulumi.set(__self__, "allow_client_mfa_caching", allow_client_mfa_caching)
         if allow_id_token is not None:
             pulumi.set(__self__, "allow_id_token", allow_id_token)
-        if authentication_policy is not None:
-            pulumi.set(__self__, "authentication_policy", authentication_policy)
         if autocommit is not None:
             pulumi.set(__self__, "autocommit", autocommit)
         if base_location_prefix is not None:
@@ -311,6 +309,8 @@ class CurrentAccountArgs:
             pulumi.set(__self__, "client_session_keep_alive_heartbeat_frequency", client_session_keep_alive_heartbeat_frequency)
         if client_timestamp_type_mapping is not None:
             pulumi.set(__self__, "client_timestamp_type_mapping", client_timestamp_type_mapping)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
         if cortex_enabled_cross_region is not None:
             pulumi.set(__self__, "cortex_enabled_cross_region", cortex_enabled_cross_region)
         if cortex_models_allowlist is not None:
@@ -369,8 +369,6 @@ class CurrentAccountArgs:
             pulumi.set(__self__, "external_oauth_add_privileged_roles_to_blocked_list", external_oauth_add_privileged_roles_to_blocked_list)
         if external_volume is not None:
             pulumi.set(__self__, "external_volume", external_volume)
-        if feature_policy is not None:
-            pulumi.set(__self__, "feature_policy", feature_policy)
         if geography_output_format is not None:
             pulumi.set(__self__, "geography_output_format", geography_output_format)
         if geometry_output_format is not None:
@@ -405,6 +403,8 @@ class CurrentAccountArgs:
             pulumi.set(__self__, "min_data_retention_time_in_days", min_data_retention_time_in_days)
         if multi_statement_count is not None:
             pulumi.set(__self__, "multi_statement_count", multi_statement_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
         if noorder_sequence_as_default is not None:
@@ -413,8 +413,6 @@ class CurrentAccountArgs:
             pulumi.set(__self__, "oauth_add_privileged_roles_to_blocked_list", oauth_add_privileged_roles_to_blocked_list)
         if odbc_treat_decimal_as_int is not None:
             pulumi.set(__self__, "odbc_treat_decimal_as_int", odbc_treat_decimal_as_int)
-        if packages_policy is not None:
-            pulumi.set(__self__, "packages_policy", packages_policy)
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
         if periodic_data_rekeying is not None:
@@ -561,18 +559,6 @@ class CurrentAccountArgs:
     @allow_id_token.setter
     def allow_id_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_id_token", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-        """
-        return pulumi.get(self, "authentication_policy")
-
-    @authentication_policy.setter
-    def authentication_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -777,6 +763,18 @@ class CurrentAccountArgs:
     @client_timestamp_type_mapping.setter
     def client_timestamp_type_mapping(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_timestamp_type_mapping", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a comment for the organization account.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="cortexEnabledCrossRegion")
@@ -1127,18 +1125,6 @@ class CurrentAccountArgs:
         pulumi.set(self, "external_volume", value)
 
     @_builtins.property
-    @pulumi.getter(name="featurePolicy")
-    def feature_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-        """
-        return pulumi.get(self, "feature_policy")
-
-    @feature_policy.setter
-    def feature_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "feature_policy", value)
-
-    @_builtins.property
     @pulumi.getter(name="geographyOutputFormat")
     def geography_output_format(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1343,6 +1329,18 @@ class CurrentAccountArgs:
         pulumi.set(self, "multi_statement_count", value)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1389,18 +1387,6 @@ class CurrentAccountArgs:
     @odbc_treat_decimal_as_int.setter
     def odbc_treat_decimal_as_int(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "odbc_treat_decimal_as_int", value)
-
-    @_builtins.property
-    @pulumi.getter(name="packagesPolicy")
-    def packages_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-        """
-        return pulumi.get(self, "packages_policy")
-
-    @packages_policy.setter
-    def packages_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "packages_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
@@ -1989,13 +1975,12 @@ class CurrentAccountArgs:
 
 
 @pulumi.input_type
-class _CurrentAccountState:
+class _CurrentOrganizationAccountState:
     def __init__(__self__, *,
                  abort_detached_query: Optional[pulumi.Input[_builtins.bool]] = None,
                  active_python_profiler: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_client_mfa_caching: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_id_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  autocommit: Optional[pulumi.Input[_builtins.bool]] = None,
                  base_location_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  binary_input_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2013,6 +1998,7 @@ class _CurrentAccountState:
                  client_session_keep_alive: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_session_keep_alive_heartbeat_frequency: Optional[pulumi.Input[_builtins.int]] = None,
                  client_timestamp_type_mapping: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
                  cortex_enabled_cross_region: Optional[pulumi.Input[_builtins.str]] = None,
                  cortex_models_allowlist: Optional[pulumi.Input[_builtins.str]] = None,
                  csv_timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2042,7 +2028,6 @@ class _CurrentAccountState:
                  event_table: Optional[pulumi.Input[_builtins.str]] = None,
                  external_oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  geography_output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  geometry_output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  hybrid_table_lock_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -2060,11 +2045,11 @@ class _CurrentAccountState:
                  metric_level: Optional[pulumi.Input[_builtins.str]] = None,
                  min_data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  multi_statement_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  noorder_sequence_as_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  odbc_treat_decimal_as_int: Optional[pulumi.Input[_builtins.bool]] = None,
-                 packages_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  password_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  periodic_data_rekeying: Optional[pulumi.Input[_builtins.bool]] = None,
                  pipe_execution_paused: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2085,6 +2070,7 @@ class _CurrentAccountState:
                  serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  session_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['CurrentOrganizationAccountShowOutputArgs']]]] = None,
                  simulated_data_sharing_consumer: Optional[pulumi.Input[_builtins.str]] = None,
                  sso_login_page: Optional[pulumi.Input[_builtins.bool]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -2115,12 +2101,11 @@ class _CurrentAccountState:
                  week_of_year_policy: Optional[pulumi.Input[_builtins.int]] = None,
                  week_start: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        Input properties used for looking up and filtering CurrentAccount resources.
+        Input properties used for looking up and filtering CurrentOrganizationAccount resources.
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         :param pulumi.Input[_builtins.str] active_python_profiler: Sets the profiler to use for the session when [profiling Python handler code](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-profiler). Valid values are (case-insensitive): `LINE` | `MEMORY`. For more information, check [ACTIVE*PYTHON*PROFILER docs](https://docs.snowflake.com/en/sql-reference/parameters#active-python-profiler).
         :param pulumi.Input[_builtins.bool] allow_client_mfa_caching: Specifies whether an MFA token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to respond to an MFA prompt at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using MFA token caching to minimize the number of prompts during authentication — optional.](https://docs.snowflake.com/en/user-guide/security-mfa.html#label-mfa-token-caching) For more information, check [ALLOW*CLIENT*MFA_CACHING docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-client-mfa-caching).
         :param pulumi.Input[_builtins.bool] allow_id_token: Specifies whether a connection token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to enter login credentials at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using connection caching to minimize the number of prompts for authentication — optional.](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#label-browser-based-sso-connection-caching) For more information, check [ALLOW*ID*TOKEN docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-id-token).
-        :param pulumi.Input[_builtins.str] authentication_policy: Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         :param pulumi.Input[_builtins.str] base_location_prefix: Specifies a prefix for Snowflake to use in the write path for Snowflake-managed Apache Iceberg™ tables. For more information, see [data and metadata directories for Iceberg tables](https://docs.snowflake.com/en/user-guide/tables-iceberg-storage.html#label-tables-iceberg-configure-external-volume-base-location). For more information, check [BASE*LOCATION*PREFIX docs](https://docs.snowflake.com/en/sql-reference/parameters#base-location-prefix).
         :param pulumi.Input[_builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
@@ -2138,6 +2123,7 @@ class _CurrentAccountState:
         :param pulumi.Input[_builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the organization account.
         :param pulumi.Input[_builtins.str] cortex_enabled_cross_region: Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
         :param pulumi.Input[_builtins.str] cortex_models_allowlist: Specifies the models that users in the account can access. Use this parameter to allowlist models for all users in the account. If you need to provide specific users with access beyond what you’ve specified in the allowlist, use role-based access control instead. For more information, see [Model allowlist](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql.html#label-cortex-llm-allowlist). For more information, check [CORTEX*MODELS*ALLOWLIST docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-models-allowlist).
         :param pulumi.Input[_builtins.str] csv_timestamp_format: Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
@@ -2167,7 +2153,6 @@ class _CurrentAccountState:
         :param pulumi.Input[_builtins.str] event_table: Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.bool] external_oauth_add_privileged_roles_to_blocked_list: Determines whether the ACCOUNTADMIN, ORGADMIN, GLOBALORGADMIN, and SECURITYADMIN roles can be used as the primary role when creating a Snowflake session based on the access token from the External OAuth authorization server. For more information, check [EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST docs](https://docs.snowflake.com/en/sql-reference/parameters#external-oauth-add-privileged-roles-to-blocked-list).
         :param pulumi.Input[_builtins.str] external_volume: Specifies the external volume for Apache Iceberg™ tables. For more information, see the [Iceberg table documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg.html#label-tables-iceberg-external-volume-def). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[_builtins.str] feature_policy: Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
         :param pulumi.Input[_builtins.str] geography_output_format: Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         :param pulumi.Input[_builtins.str] geometry_output_format: Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         :param pulumi.Input[_builtins.int] hybrid_table_lock_timeout: Number of seconds to wait while trying to acquire row-level locks on a hybrid table, before timing out and aborting the statement. For more information, check [HYBRID*TABLE*LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#hybrid-table-lock-timeout).
@@ -2185,11 +2170,11 @@ class _CurrentAccountState:
         :param pulumi.Input[_builtins.str] metric_level: Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.int] min_data_retention_time_in_days: Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check [MIN*DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        :param pulumi.Input[_builtins.str] name: The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
         :param pulumi.Input[_builtins.str] network_policy: Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         :param pulumi.Input[_builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         :param pulumi.Input[_builtins.bool] oauth_add_privileged_roles_to_blocked_list: Determines whether the ACCOUNTADMIN, ORGADMIN, GLOBALORGADMIN, and SECURITYADMIN roles can be used as the primary role when creating a Snowflake session based on the access token from Snowflake’s authorization server. For more information, check [OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST docs](https://docs.snowflake.com/en/sql-reference/parameters#oauth-add-privileged-roles-to-blocked-list).
         :param pulumi.Input[_builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
-        :param pulumi.Input[_builtins.str] packages_policy: Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
         :param pulumi.Input[_builtins.str] password_policy: Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] periodic_data_rekeying: It enables/disables re-encryption of table data with new keys on a yearly basis to provide additional levels of data protection ([more details](https://docs.snowflake.com/en/sql-reference/parameters#periodic-data-rekeying)). For more information, check [PERIODIC*DATA*REKEYING docs](https://docs.snowflake.com/en/sql-reference/parameters#periodic-data-rekeying).
         :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role ([more details](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused)). For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
@@ -2209,6 +2194,7 @@ class _CurrentAccountState:
         :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         :param pulumi.Input[_builtins.str] session_policy: Specifies [session policy](https://docs.snowflake.com/en/user-guide/session-policies-using) for the current account.
+        :param pulumi.Input[Sequence[pulumi.Input['CurrentOrganizationAccountShowOutputArgs']]] show_outputs: Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
         :param pulumi.Input[_builtins.str] simulated_data_sharing_consumer: Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
         :param pulumi.Input[_builtins.bool] sso_login_page: This deprecated parameter disables preview mode for testing SSO (after enabling federated authentication) before rolling it out to users. For more information, check [SSO*LOGIN*PAGE docs](https://docs.snowflake.com/en/sql-reference/parameters#sso-login-page).
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
@@ -2247,8 +2233,6 @@ class _CurrentAccountState:
             pulumi.set(__self__, "allow_client_mfa_caching", allow_client_mfa_caching)
         if allow_id_token is not None:
             pulumi.set(__self__, "allow_id_token", allow_id_token)
-        if authentication_policy is not None:
-            pulumi.set(__self__, "authentication_policy", authentication_policy)
         if autocommit is not None:
             pulumi.set(__self__, "autocommit", autocommit)
         if base_location_prefix is not None:
@@ -2283,6 +2267,8 @@ class _CurrentAccountState:
             pulumi.set(__self__, "client_session_keep_alive_heartbeat_frequency", client_session_keep_alive_heartbeat_frequency)
         if client_timestamp_type_mapping is not None:
             pulumi.set(__self__, "client_timestamp_type_mapping", client_timestamp_type_mapping)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
         if cortex_enabled_cross_region is not None:
             pulumi.set(__self__, "cortex_enabled_cross_region", cortex_enabled_cross_region)
         if cortex_models_allowlist is not None:
@@ -2341,8 +2327,6 @@ class _CurrentAccountState:
             pulumi.set(__self__, "external_oauth_add_privileged_roles_to_blocked_list", external_oauth_add_privileged_roles_to_blocked_list)
         if external_volume is not None:
             pulumi.set(__self__, "external_volume", external_volume)
-        if feature_policy is not None:
-            pulumi.set(__self__, "feature_policy", feature_policy)
         if geography_output_format is not None:
             pulumi.set(__self__, "geography_output_format", geography_output_format)
         if geometry_output_format is not None:
@@ -2377,6 +2361,8 @@ class _CurrentAccountState:
             pulumi.set(__self__, "min_data_retention_time_in_days", min_data_retention_time_in_days)
         if multi_statement_count is not None:
             pulumi.set(__self__, "multi_statement_count", multi_statement_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if network_policy is not None:
             pulumi.set(__self__, "network_policy", network_policy)
         if noorder_sequence_as_default is not None:
@@ -2385,8 +2371,6 @@ class _CurrentAccountState:
             pulumi.set(__self__, "oauth_add_privileged_roles_to_blocked_list", oauth_add_privileged_roles_to_blocked_list)
         if odbc_treat_decimal_as_int is not None:
             pulumi.set(__self__, "odbc_treat_decimal_as_int", odbc_treat_decimal_as_int)
-        if packages_policy is not None:
-            pulumi.set(__self__, "packages_policy", packages_policy)
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
         if periodic_data_rekeying is not None:
@@ -2427,6 +2411,8 @@ class _CurrentAccountState:
             pulumi.set(__self__, "serverless_task_min_statement_size", serverless_task_min_statement_size)
         if session_policy is not None:
             pulumi.set(__self__, "session_policy", session_policy)
+        if show_outputs is not None:
+            pulumi.set(__self__, "show_outputs", show_outputs)
         if simulated_data_sharing_consumer is not None:
             pulumi.set(__self__, "simulated_data_sharing_consumer", simulated_data_sharing_consumer)
         if sso_login_page is not None:
@@ -2533,18 +2519,6 @@ class _CurrentAccountState:
     @allow_id_token.setter
     def allow_id_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_id_token", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-        """
-        return pulumi.get(self, "authentication_policy")
-
-    @authentication_policy.setter
-    def authentication_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2749,6 +2723,18 @@ class _CurrentAccountState:
     @client_timestamp_type_mapping.setter
     def client_timestamp_type_mapping(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_timestamp_type_mapping", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a comment for the organization account.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="cortexEnabledCrossRegion")
@@ -3099,18 +3085,6 @@ class _CurrentAccountState:
         pulumi.set(self, "external_volume", value)
 
     @_builtins.property
-    @pulumi.getter(name="featurePolicy")
-    def feature_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-        """
-        return pulumi.get(self, "feature_policy")
-
-    @feature_policy.setter
-    def feature_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "feature_policy", value)
-
-    @_builtins.property
     @pulumi.getter(name="geographyOutputFormat")
     def geography_output_format(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -3315,6 +3289,18 @@ class _CurrentAccountState:
         pulumi.set(self, "multi_statement_count", value)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -3361,18 +3347,6 @@ class _CurrentAccountState:
     @odbc_treat_decimal_as_int.setter
     def odbc_treat_decimal_as_int(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "odbc_treat_decimal_as_int", value)
-
-    @_builtins.property
-    @pulumi.getter(name="packagesPolicy")
-    def packages_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-        """
-        return pulumi.get(self, "packages_policy")
-
-    @packages_policy.setter
-    def packages_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "packages_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
@@ -3610,6 +3584,18 @@ class _CurrentAccountState:
     @session_policy.setter
     def session_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "session_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CurrentOrganizationAccountShowOutputArgs']]]]:
+        """
+        Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+        """
+        return pulumi.get(self, "show_outputs")
+
+    @show_outputs.setter
+    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CurrentOrganizationAccountShowOutputArgs']]]]):
+        pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="simulatedDataSharingConsumer")
@@ -3960,8 +3946,8 @@ class _CurrentAccountState:
         pulumi.set(self, "week_start", value)
 
 
-@pulumi.type_token("snowflake:index/currentAccount:CurrentAccount")
-class CurrentAccount(pulumi.CustomResource):
+@pulumi.type_token("snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount")
+class CurrentOrganizationAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -3970,7 +3956,6 @@ class CurrentAccount(pulumi.CustomResource):
                  active_python_profiler: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_client_mfa_caching: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_id_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  autocommit: Optional[pulumi.Input[_builtins.bool]] = None,
                  base_location_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  binary_input_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -3988,6 +3973,7 @@ class CurrentAccount(pulumi.CustomResource):
                  client_session_keep_alive: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_session_keep_alive_heartbeat_frequency: Optional[pulumi.Input[_builtins.int]] = None,
                  client_timestamp_type_mapping: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
                  cortex_enabled_cross_region: Optional[pulumi.Input[_builtins.str]] = None,
                  cortex_models_allowlist: Optional[pulumi.Input[_builtins.str]] = None,
                  csv_timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4017,7 +4003,6 @@ class CurrentAccount(pulumi.CustomResource):
                  event_table: Optional[pulumi.Input[_builtins.str]] = None,
                  external_oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  geography_output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  geometry_output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  hybrid_table_lock_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -4035,11 +4020,11 @@ class CurrentAccount(pulumi.CustomResource):
                  metric_level: Optional[pulumi.Input[_builtins.str]] = None,
                  min_data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  multi_statement_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  noorder_sequence_as_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  odbc_treat_decimal_as_int: Optional[pulumi.Input[_builtins.bool]] = None,
-                 packages_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  password_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  periodic_data_rekeying: Optional[pulumi.Input[_builtins.bool]] = None,
                  pipe_execution_paused: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -4093,10 +4078,8 @@ class CurrentAccount(pulumi.CustomResource):
         """
         ## Import
 
-        This resource may contain a any identifier, but the following format is recommended.
-
         ```sh
-        $ pulumi import snowflake:index/currentAccount:CurrentAccount example 'current_account'
+        $ pulumi import snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount example '"<organization_account_name>"'
         ```
 
         :param str resource_name: The name of the resource.
@@ -4105,7 +4088,6 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] active_python_profiler: Sets the profiler to use for the session when [profiling Python handler code](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-profiler). Valid values are (case-insensitive): `LINE` | `MEMORY`. For more information, check [ACTIVE*PYTHON*PROFILER docs](https://docs.snowflake.com/en/sql-reference/parameters#active-python-profiler).
         :param pulumi.Input[_builtins.bool] allow_client_mfa_caching: Specifies whether an MFA token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to respond to an MFA prompt at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using MFA token caching to minimize the number of prompts during authentication — optional.](https://docs.snowflake.com/en/user-guide/security-mfa.html#label-mfa-token-caching) For more information, check [ALLOW*CLIENT*MFA_CACHING docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-client-mfa-caching).
         :param pulumi.Input[_builtins.bool] allow_id_token: Specifies whether a connection token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to enter login credentials at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using connection caching to minimize the number of prompts for authentication — optional.](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#label-browser-based-sso-connection-caching) For more information, check [ALLOW*ID*TOKEN docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-id-token).
-        :param pulumi.Input[_builtins.str] authentication_policy: Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         :param pulumi.Input[_builtins.str] base_location_prefix: Specifies a prefix for Snowflake to use in the write path for Snowflake-managed Apache Iceberg™ tables. For more information, see [data and metadata directories for Iceberg tables](https://docs.snowflake.com/en/user-guide/tables-iceberg-storage.html#label-tables-iceberg-configure-external-volume-base-location). For more information, check [BASE*LOCATION*PREFIX docs](https://docs.snowflake.com/en/sql-reference/parameters#base-location-prefix).
         :param pulumi.Input[_builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
@@ -4123,6 +4105,7 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the organization account.
         :param pulumi.Input[_builtins.str] cortex_enabled_cross_region: Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
         :param pulumi.Input[_builtins.str] cortex_models_allowlist: Specifies the models that users in the account can access. Use this parameter to allowlist models for all users in the account. If you need to provide specific users with access beyond what you’ve specified in the allowlist, use role-based access control instead. For more information, see [Model allowlist](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql.html#label-cortex-llm-allowlist). For more information, check [CORTEX*MODELS*ALLOWLIST docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-models-allowlist).
         :param pulumi.Input[_builtins.str] csv_timestamp_format: Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
@@ -4152,7 +4135,6 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] event_table: Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.bool] external_oauth_add_privileged_roles_to_blocked_list: Determines whether the ACCOUNTADMIN, ORGADMIN, GLOBALORGADMIN, and SECURITYADMIN roles can be used as the primary role when creating a Snowflake session based on the access token from the External OAuth authorization server. For more information, check [EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST docs](https://docs.snowflake.com/en/sql-reference/parameters#external-oauth-add-privileged-roles-to-blocked-list).
         :param pulumi.Input[_builtins.str] external_volume: Specifies the external volume for Apache Iceberg™ tables. For more information, see the [Iceberg table documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg.html#label-tables-iceberg-external-volume-def). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[_builtins.str] feature_policy: Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
         :param pulumi.Input[_builtins.str] geography_output_format: Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         :param pulumi.Input[_builtins.str] geometry_output_format: Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         :param pulumi.Input[_builtins.int] hybrid_table_lock_timeout: Number of seconds to wait while trying to acquire row-level locks on a hybrid table, before timing out and aborting the statement. For more information, check [HYBRID*TABLE*LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#hybrid-table-lock-timeout).
@@ -4170,11 +4152,11 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] metric_level: Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.int] min_data_retention_time_in_days: Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check [MIN*DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        :param pulumi.Input[_builtins.str] name: The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
         :param pulumi.Input[_builtins.str] network_policy: Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         :param pulumi.Input[_builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         :param pulumi.Input[_builtins.bool] oauth_add_privileged_roles_to_blocked_list: Determines whether the ACCOUNTADMIN, ORGADMIN, GLOBALORGADMIN, and SECURITYADMIN roles can be used as the primary role when creating a Snowflake session based on the access token from Snowflake’s authorization server. For more information, check [OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST docs](https://docs.snowflake.com/en/sql-reference/parameters#oauth-add-privileged-roles-to-blocked-list).
         :param pulumi.Input[_builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
-        :param pulumi.Input[_builtins.str] packages_policy: Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
         :param pulumi.Input[_builtins.str] password_policy: Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] periodic_data_rekeying: It enables/disables re-encryption of table data with new keys on a yearly basis to provide additional levels of data protection ([more details](https://docs.snowflake.com/en/sql-reference/parameters#periodic-data-rekeying)). For more information, check [PERIODIC*DATA*REKEYING docs](https://docs.snowflake.com/en/sql-reference/parameters#periodic-data-rekeying).
         :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role ([more details](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused)). For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
@@ -4228,24 +4210,22 @@ class CurrentAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[CurrentAccountArgs] = None,
+                 args: Optional[CurrentOrganizationAccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
 
-        This resource may contain a any identifier, but the following format is recommended.
-
         ```sh
-        $ pulumi import snowflake:index/currentAccount:CurrentAccount example 'current_account'
+        $ pulumi import snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount example '"<organization_account_name>"'
         ```
 
         :param str resource_name: The name of the resource.
-        :param CurrentAccountArgs args: The arguments to use to populate this resource's properties.
+        :param CurrentOrganizationAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CurrentAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CurrentOrganizationAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -4258,7 +4238,6 @@ class CurrentAccount(pulumi.CustomResource):
                  active_python_profiler: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_client_mfa_caching: Optional[pulumi.Input[_builtins.bool]] = None,
                  allow_id_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  autocommit: Optional[pulumi.Input[_builtins.bool]] = None,
                  base_location_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  binary_input_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4276,6 +4255,7 @@ class CurrentAccount(pulumi.CustomResource):
                  client_session_keep_alive: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_session_keep_alive_heartbeat_frequency: Optional[pulumi.Input[_builtins.int]] = None,
                  client_timestamp_type_mapping: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
                  cortex_enabled_cross_region: Optional[pulumi.Input[_builtins.str]] = None,
                  cortex_models_allowlist: Optional[pulumi.Input[_builtins.str]] = None,
                  csv_timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4305,7 +4285,6 @@ class CurrentAccount(pulumi.CustomResource):
                  event_table: Optional[pulumi.Input[_builtins.str]] = None,
                  external_oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  geography_output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  geometry_output_format: Optional[pulumi.Input[_builtins.str]] = None,
                  hybrid_table_lock_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -4323,11 +4302,11 @@ class CurrentAccount(pulumi.CustomResource):
                  metric_level: Optional[pulumi.Input[_builtins.str]] = None,
                  min_data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  multi_statement_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
                  network_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  noorder_sequence_as_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  odbc_treat_decimal_as_int: Optional[pulumi.Input[_builtins.bool]] = None,
-                 packages_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  password_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  periodic_data_rekeying: Optional[pulumi.Input[_builtins.bool]] = None,
                  pipe_execution_paused: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -4384,13 +4363,12 @@ class CurrentAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CurrentAccountArgs.__new__(CurrentAccountArgs)
+            __props__ = CurrentOrganizationAccountArgs.__new__(CurrentOrganizationAccountArgs)
 
             __props__.__dict__["abort_detached_query"] = abort_detached_query
             __props__.__dict__["active_python_profiler"] = active_python_profiler
             __props__.__dict__["allow_client_mfa_caching"] = allow_client_mfa_caching
             __props__.__dict__["allow_id_token"] = allow_id_token
-            __props__.__dict__["authentication_policy"] = authentication_policy
             __props__.__dict__["autocommit"] = autocommit
             __props__.__dict__["base_location_prefix"] = base_location_prefix
             __props__.__dict__["binary_input_format"] = binary_input_format
@@ -4408,6 +4386,7 @@ class CurrentAccount(pulumi.CustomResource):
             __props__.__dict__["client_session_keep_alive"] = client_session_keep_alive
             __props__.__dict__["client_session_keep_alive_heartbeat_frequency"] = client_session_keep_alive_heartbeat_frequency
             __props__.__dict__["client_timestamp_type_mapping"] = client_timestamp_type_mapping
+            __props__.__dict__["comment"] = comment
             __props__.__dict__["cortex_enabled_cross_region"] = cortex_enabled_cross_region
             __props__.__dict__["cortex_models_allowlist"] = cortex_models_allowlist
             __props__.__dict__["csv_timestamp_format"] = csv_timestamp_format
@@ -4437,7 +4416,6 @@ class CurrentAccount(pulumi.CustomResource):
             __props__.__dict__["event_table"] = event_table
             __props__.__dict__["external_oauth_add_privileged_roles_to_blocked_list"] = external_oauth_add_privileged_roles_to_blocked_list
             __props__.__dict__["external_volume"] = external_volume
-            __props__.__dict__["feature_policy"] = feature_policy
             __props__.__dict__["geography_output_format"] = geography_output_format
             __props__.__dict__["geometry_output_format"] = geometry_output_format
             __props__.__dict__["hybrid_table_lock_timeout"] = hybrid_table_lock_timeout
@@ -4455,11 +4433,11 @@ class CurrentAccount(pulumi.CustomResource):
             __props__.__dict__["metric_level"] = metric_level
             __props__.__dict__["min_data_retention_time_in_days"] = min_data_retention_time_in_days
             __props__.__dict__["multi_statement_count"] = multi_statement_count
+            __props__.__dict__["name"] = name
             __props__.__dict__["network_policy"] = network_policy
             __props__.__dict__["noorder_sequence_as_default"] = noorder_sequence_as_default
             __props__.__dict__["oauth_add_privileged_roles_to_blocked_list"] = oauth_add_privileged_roles_to_blocked_list
             __props__.__dict__["odbc_treat_decimal_as_int"] = odbc_treat_decimal_as_int
-            __props__.__dict__["packages_policy"] = packages_policy
             __props__.__dict__["password_policy"] = password_policy
             __props__.__dict__["periodic_data_rekeying"] = periodic_data_rekeying
             __props__.__dict__["pipe_execution_paused"] = pipe_execution_paused
@@ -4509,8 +4487,9 @@ class CurrentAccount(pulumi.CustomResource):
             __props__.__dict__["user_task_timeout_ms"] = user_task_timeout_ms
             __props__.__dict__["week_of_year_policy"] = week_of_year_policy
             __props__.__dict__["week_start"] = week_start
-        super(CurrentAccount, __self__).__init__(
-            'snowflake:index/currentAccount:CurrentAccount',
+            __props__.__dict__["show_outputs"] = None
+        super(CurrentOrganizationAccount, __self__).__init__(
+            'snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount',
             resource_name,
             __props__,
             opts)
@@ -4523,7 +4502,6 @@ class CurrentAccount(pulumi.CustomResource):
             active_python_profiler: Optional[pulumi.Input[_builtins.str]] = None,
             allow_client_mfa_caching: Optional[pulumi.Input[_builtins.bool]] = None,
             allow_id_token: Optional[pulumi.Input[_builtins.bool]] = None,
-            authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
             autocommit: Optional[pulumi.Input[_builtins.bool]] = None,
             base_location_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             binary_input_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4541,6 +4519,7 @@ class CurrentAccount(pulumi.CustomResource):
             client_session_keep_alive: Optional[pulumi.Input[_builtins.bool]] = None,
             client_session_keep_alive_heartbeat_frequency: Optional[pulumi.Input[_builtins.int]] = None,
             client_timestamp_type_mapping: Optional[pulumi.Input[_builtins.str]] = None,
+            comment: Optional[pulumi.Input[_builtins.str]] = None,
             cortex_enabled_cross_region: Optional[pulumi.Input[_builtins.str]] = None,
             cortex_models_allowlist: Optional[pulumi.Input[_builtins.str]] = None,
             csv_timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4570,7 +4549,6 @@ class CurrentAccount(pulumi.CustomResource):
             event_table: Optional[pulumi.Input[_builtins.str]] = None,
             external_oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
             external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-            feature_policy: Optional[pulumi.Input[_builtins.str]] = None,
             geography_output_format: Optional[pulumi.Input[_builtins.str]] = None,
             geometry_output_format: Optional[pulumi.Input[_builtins.str]] = None,
             hybrid_table_lock_timeout: Optional[pulumi.Input[_builtins.int]] = None,
@@ -4588,11 +4566,11 @@ class CurrentAccount(pulumi.CustomResource):
             metric_level: Optional[pulumi.Input[_builtins.str]] = None,
             min_data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
             multi_statement_count: Optional[pulumi.Input[_builtins.int]] = None,
+            name: Optional[pulumi.Input[_builtins.str]] = None,
             network_policy: Optional[pulumi.Input[_builtins.str]] = None,
             noorder_sequence_as_default: Optional[pulumi.Input[_builtins.bool]] = None,
             oauth_add_privileged_roles_to_blocked_list: Optional[pulumi.Input[_builtins.bool]] = None,
             odbc_treat_decimal_as_int: Optional[pulumi.Input[_builtins.bool]] = None,
-            packages_policy: Optional[pulumi.Input[_builtins.str]] = None,
             password_policy: Optional[pulumi.Input[_builtins.str]] = None,
             periodic_data_rekeying: Optional[pulumi.Input[_builtins.bool]] = None,
             pipe_execution_paused: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -4613,6 +4591,7 @@ class CurrentAccount(pulumi.CustomResource):
             serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
             serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
             session_policy: Optional[pulumi.Input[_builtins.str]] = None,
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CurrentOrganizationAccountShowOutputArgs', 'CurrentOrganizationAccountShowOutputArgsDict']]]]] = None,
             simulated_data_sharing_consumer: Optional[pulumi.Input[_builtins.str]] = None,
             sso_login_page: Optional[pulumi.Input[_builtins.bool]] = None,
             statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -4641,9 +4620,9 @@ class CurrentAccount(pulumi.CustomResource):
             user_task_minimum_trigger_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
             user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None,
             week_of_year_policy: Optional[pulumi.Input[_builtins.int]] = None,
-            week_start: Optional[pulumi.Input[_builtins.int]] = None) -> 'CurrentAccount':
+            week_start: Optional[pulumi.Input[_builtins.int]] = None) -> 'CurrentOrganizationAccount':
         """
-        Get an existing CurrentAccount resource's state with the given name, id, and optional extra
+        Get an existing CurrentOrganizationAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -4653,7 +4632,6 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] active_python_profiler: Sets the profiler to use for the session when [profiling Python handler code](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-profiler). Valid values are (case-insensitive): `LINE` | `MEMORY`. For more information, check [ACTIVE*PYTHON*PROFILER docs](https://docs.snowflake.com/en/sql-reference/parameters#active-python-profiler).
         :param pulumi.Input[_builtins.bool] allow_client_mfa_caching: Specifies whether an MFA token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to respond to an MFA prompt at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using MFA token caching to minimize the number of prompts during authentication — optional.](https://docs.snowflake.com/en/user-guide/security-mfa.html#label-mfa-token-caching) For more information, check [ALLOW*CLIENT*MFA_CACHING docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-client-mfa-caching).
         :param pulumi.Input[_builtins.bool] allow_id_token: Specifies whether a connection token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to enter login credentials at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using connection caching to minimize the number of prompts for authentication — optional.](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#label-browser-based-sso-connection-caching) For more information, check [ALLOW*ID*TOKEN docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-id-token).
-        :param pulumi.Input[_builtins.str] authentication_policy: Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         :param pulumi.Input[_builtins.str] base_location_prefix: Specifies a prefix for Snowflake to use in the write path for Snowflake-managed Apache Iceberg™ tables. For more information, see [data and metadata directories for Iceberg tables](https://docs.snowflake.com/en/user-guide/tables-iceberg-storage.html#label-tables-iceberg-configure-external-volume-base-location). For more information, check [BASE*LOCATION*PREFIX docs](https://docs.snowflake.com/en/sql-reference/parameters#base-location-prefix).
         :param pulumi.Input[_builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
@@ -4671,6 +4649,7 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the organization account.
         :param pulumi.Input[_builtins.str] cortex_enabled_cross_region: Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
         :param pulumi.Input[_builtins.str] cortex_models_allowlist: Specifies the models that users in the account can access. Use this parameter to allowlist models for all users in the account. If you need to provide specific users with access beyond what you’ve specified in the allowlist, use role-based access control instead. For more information, see [Model allowlist](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql.html#label-cortex-llm-allowlist). For more information, check [CORTEX*MODELS*ALLOWLIST docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-models-allowlist).
         :param pulumi.Input[_builtins.str] csv_timestamp_format: Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
@@ -4700,7 +4679,6 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] event_table: Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.bool] external_oauth_add_privileged_roles_to_blocked_list: Determines whether the ACCOUNTADMIN, ORGADMIN, GLOBALORGADMIN, and SECURITYADMIN roles can be used as the primary role when creating a Snowflake session based on the access token from the External OAuth authorization server. For more information, check [EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST docs](https://docs.snowflake.com/en/sql-reference/parameters#external-oauth-add-privileged-roles-to-blocked-list).
         :param pulumi.Input[_builtins.str] external_volume: Specifies the external volume for Apache Iceberg™ tables. For more information, see the [Iceberg table documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg.html#label-tables-iceberg-external-volume-def). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[_builtins.str] feature_policy: Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
         :param pulumi.Input[_builtins.str] geography_output_format: Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         :param pulumi.Input[_builtins.str] geometry_output_format: Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         :param pulumi.Input[_builtins.int] hybrid_table_lock_timeout: Number of seconds to wait while trying to acquire row-level locks on a hybrid table, before timing out and aborting the statement. For more information, check [HYBRID*TABLE*LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#hybrid-table-lock-timeout).
@@ -4718,11 +4696,11 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] metric_level: Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.int] min_data_retention_time_in_days: Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check [MIN*DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        :param pulumi.Input[_builtins.str] name: The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
         :param pulumi.Input[_builtins.str] network_policy: Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         :param pulumi.Input[_builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         :param pulumi.Input[_builtins.bool] oauth_add_privileged_roles_to_blocked_list: Determines whether the ACCOUNTADMIN, ORGADMIN, GLOBALORGADMIN, and SECURITYADMIN roles can be used as the primary role when creating a Snowflake session based on the access token from Snowflake’s authorization server. For more information, check [OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST docs](https://docs.snowflake.com/en/sql-reference/parameters#oauth-add-privileged-roles-to-blocked-list).
         :param pulumi.Input[_builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
-        :param pulumi.Input[_builtins.str] packages_policy: Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
         :param pulumi.Input[_builtins.str] password_policy: Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] periodic_data_rekeying: It enables/disables re-encryption of table data with new keys on a yearly basis to provide additional levels of data protection ([more details](https://docs.snowflake.com/en/sql-reference/parameters#periodic-data-rekeying)). For more information, check [PERIODIC*DATA*REKEYING docs](https://docs.snowflake.com/en/sql-reference/parameters#periodic-data-rekeying).
         :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role ([more details](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused)). For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
@@ -4742,6 +4720,7 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         :param pulumi.Input[_builtins.str] session_policy: Specifies [session policy](https://docs.snowflake.com/en/user-guide/session-policies-using) for the current account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CurrentOrganizationAccountShowOutputArgs', 'CurrentOrganizationAccountShowOutputArgsDict']]]] show_outputs: Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
         :param pulumi.Input[_builtins.str] simulated_data_sharing_consumer: Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
         :param pulumi.Input[_builtins.bool] sso_login_page: This deprecated parameter disables preview mode for testing SSO (after enabling federated authentication) before rolling it out to users. For more information, check [SSO*LOGIN*PAGE docs](https://docs.snowflake.com/en/sql-reference/parameters#sso-login-page).
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
@@ -4774,13 +4753,12 @@ class CurrentAccount(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _CurrentAccountState.__new__(_CurrentAccountState)
+        __props__ = _CurrentOrganizationAccountState.__new__(_CurrentOrganizationAccountState)
 
         __props__.__dict__["abort_detached_query"] = abort_detached_query
         __props__.__dict__["active_python_profiler"] = active_python_profiler
         __props__.__dict__["allow_client_mfa_caching"] = allow_client_mfa_caching
         __props__.__dict__["allow_id_token"] = allow_id_token
-        __props__.__dict__["authentication_policy"] = authentication_policy
         __props__.__dict__["autocommit"] = autocommit
         __props__.__dict__["base_location_prefix"] = base_location_prefix
         __props__.__dict__["binary_input_format"] = binary_input_format
@@ -4798,6 +4776,7 @@ class CurrentAccount(pulumi.CustomResource):
         __props__.__dict__["client_session_keep_alive"] = client_session_keep_alive
         __props__.__dict__["client_session_keep_alive_heartbeat_frequency"] = client_session_keep_alive_heartbeat_frequency
         __props__.__dict__["client_timestamp_type_mapping"] = client_timestamp_type_mapping
+        __props__.__dict__["comment"] = comment
         __props__.__dict__["cortex_enabled_cross_region"] = cortex_enabled_cross_region
         __props__.__dict__["cortex_models_allowlist"] = cortex_models_allowlist
         __props__.__dict__["csv_timestamp_format"] = csv_timestamp_format
@@ -4827,7 +4806,6 @@ class CurrentAccount(pulumi.CustomResource):
         __props__.__dict__["event_table"] = event_table
         __props__.__dict__["external_oauth_add_privileged_roles_to_blocked_list"] = external_oauth_add_privileged_roles_to_blocked_list
         __props__.__dict__["external_volume"] = external_volume
-        __props__.__dict__["feature_policy"] = feature_policy
         __props__.__dict__["geography_output_format"] = geography_output_format
         __props__.__dict__["geometry_output_format"] = geometry_output_format
         __props__.__dict__["hybrid_table_lock_timeout"] = hybrid_table_lock_timeout
@@ -4845,11 +4823,11 @@ class CurrentAccount(pulumi.CustomResource):
         __props__.__dict__["metric_level"] = metric_level
         __props__.__dict__["min_data_retention_time_in_days"] = min_data_retention_time_in_days
         __props__.__dict__["multi_statement_count"] = multi_statement_count
+        __props__.__dict__["name"] = name
         __props__.__dict__["network_policy"] = network_policy
         __props__.__dict__["noorder_sequence_as_default"] = noorder_sequence_as_default
         __props__.__dict__["oauth_add_privileged_roles_to_blocked_list"] = oauth_add_privileged_roles_to_blocked_list
         __props__.__dict__["odbc_treat_decimal_as_int"] = odbc_treat_decimal_as_int
-        __props__.__dict__["packages_policy"] = packages_policy
         __props__.__dict__["password_policy"] = password_policy
         __props__.__dict__["periodic_data_rekeying"] = periodic_data_rekeying
         __props__.__dict__["pipe_execution_paused"] = pipe_execution_paused
@@ -4870,6 +4848,7 @@ class CurrentAccount(pulumi.CustomResource):
         __props__.__dict__["serverless_task_max_statement_size"] = serverless_task_max_statement_size
         __props__.__dict__["serverless_task_min_statement_size"] = serverless_task_min_statement_size
         __props__.__dict__["session_policy"] = session_policy
+        __props__.__dict__["show_outputs"] = show_outputs
         __props__.__dict__["simulated_data_sharing_consumer"] = simulated_data_sharing_consumer
         __props__.__dict__["sso_login_page"] = sso_login_page
         __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
@@ -4899,7 +4878,7 @@ class CurrentAccount(pulumi.CustomResource):
         __props__.__dict__["user_task_timeout_ms"] = user_task_timeout_ms
         __props__.__dict__["week_of_year_policy"] = week_of_year_policy
         __props__.__dict__["week_start"] = week_start
-        return CurrentAccount(resource_name, opts=opts, __props__=__props__)
+        return CurrentOrganizationAccount(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="abortDetachedQuery")
@@ -4932,14 +4911,6 @@ class CurrentAccount(pulumi.CustomResource):
         Specifies whether a connection token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to enter login credentials at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using connection caching to minimize the number of prompts for authentication — optional.](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#label-browser-based-sso-connection-caching) For more information, check [ALLOW*ID*TOKEN docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-id-token).
         """
         return pulumi.get(self, "allow_id_token")
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
-        """
-        return pulumi.get(self, "authentication_policy")
 
     @_builtins.property
     @pulumi.getter
@@ -5076,6 +5047,14 @@ class CurrentAccount(pulumi.CustomResource):
         Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         """
         return pulumi.get(self, "client_timestamp_type_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies a comment for the organization account.
+        """
+        return pulumi.get(self, "comment")
 
     @_builtins.property
     @pulumi.getter(name="cortexEnabledCrossRegion")
@@ -5310,14 +5289,6 @@ class CurrentAccount(pulumi.CustomResource):
         return pulumi.get(self, "external_volume")
 
     @_builtins.property
-    @pulumi.getter(name="featurePolicy")
-    def feature_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies [feature policy](https://docs.snowflake.com/en/developer-guide/native-apps/ui-consumer-feature-policies) for the current account.
-        """
-        return pulumi.get(self, "feature_policy")
-
-    @_builtins.property
     @pulumi.getter(name="geographyOutputFormat")
     def geography_output_format(self) -> pulumi.Output[_builtins.str]:
         """
@@ -5454,6 +5425,14 @@ class CurrentAccount(pulumi.CustomResource):
         return pulumi.get(self, "multi_statement_count")
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The identifier (i.e. name) for the organization account within currently used organization. The field name is validated during import and create operations to ensure that it matches the current organization account name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> pulumi.Output[_builtins.str]:
         """
@@ -5484,14 +5463,6 @@ class CurrentAccount(pulumi.CustomResource):
         Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         """
         return pulumi.get(self, "odbc_treat_decimal_as_int")
-
-    @_builtins.property
-    @pulumi.getter(name="packagesPolicy")
-    def packages_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        Specifies [packages policy](https://docs.snowflake.com/en/developer-guide/udf/python/packages-policy) for the current account.
-        """
-        return pulumi.get(self, "packages_policy")
 
     @_builtins.property
     @pulumi.getter(name="passwordPolicy")
@@ -5649,6 +5620,14 @@ class CurrentAccount(pulumi.CustomResource):
         Specifies [session policy](https://docs.snowflake.com/en/user-guide/session-policies-using) for the current account.
         """
         return pulumi.get(self, "session_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> pulumi.Output[Sequence['outputs.CurrentOrganizationAccountShowOutput']]:
+        """
+        Saved output for the result of `SHOW ORGANIZATION ACCOUNTS`
+        """
+        return pulumi.get(self, "show_outputs")
 
     @_builtins.property
     @pulumi.getter(name="simulatedDataSharingConsumer")

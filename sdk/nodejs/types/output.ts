@@ -460,6 +460,31 @@ export interface CortexSearchServiceDescribeOutput {
     warehouse: string;
 }
 
+export interface CurrentOrganizationAccountShowOutput {
+    accountLocator: string;
+    accountLocatorUrl: string;
+    accountName: string;
+    accountOldUrlLastUsed: string;
+    accountOldUrlSavedOn: string;
+    accountUrl: string;
+    comment: string;
+    consumptionBillingEntityName: string;
+    createdOn: string;
+    edition: string;
+    isEventsAccount: boolean;
+    isOrgAdmin: boolean;
+    isOrganizationAccount: boolean;
+    managedAccounts: number;
+    marketplaceConsumerBillingEntityName: string;
+    marketplaceProviderBillingEntityName: string;
+    oldAccountUrl: string;
+    organizationName: string;
+    organizationOldUrl: string;
+    organizationOldUrlLastUsed: string;
+    organizationOldUrlSavedOn: string;
+    snowflakeRegion: string;
+}
+
 export interface DatabaseReplication {
     /**
      * Entry to enable replication and optionally failover for a given account identifier.
@@ -4096,6 +4121,26 @@ export interface GetTasksTaskShowOutputTaskRelation {
     finalizedRootTask: string;
     finalizer: string;
     predecessors: string[];
+}
+
+export interface GetUserProgrammaticAccessTokensUserProgrammaticAccessToken {
+    /**
+     * Holds the output of SHOW USER PROGRAMMATIC ACCESS TOKENS.
+     */
+    showOutputs: outputs.GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput[];
+}
+
+export interface GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput {
+    comment: string;
+    createdBy: string;
+    createdOn: string;
+    expiresAt: string;
+    minsToBypassNetworkPolicyRequirement: number;
+    name: string;
+    roleRestriction: string;
+    rotatedTo: string;
+    status: string;
+    userName: string;
 }
 
 export interface GetUsersLimit {
@@ -9347,6 +9392,19 @@ export interface UserParameterWeekStart {
     key: string;
     level: string;
     value: string;
+}
+
+export interface UserProgrammaticAccessTokenShowOutput {
+    comment: string;
+    createdBy: string;
+    createdOn: string;
+    expiresAt: string;
+    minsToBypassNetworkPolicyRequirement: number;
+    name: string;
+    roleRestriction: string;
+    rotatedTo: string;
+    status: string;
+    userName: string;
 }
 
 export interface UserShowOutput {

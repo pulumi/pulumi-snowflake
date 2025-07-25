@@ -6427,6 +6427,226 @@ func (o CortexSearchServiceDescribeOutputArrayOutput) Index(i pulumi.IntInput) C
 	}).(CortexSearchServiceDescribeOutputOutput)
 }
 
+type CurrentOrganizationAccountShowOutput struct {
+	AccountLocator                       *string `pulumi:"accountLocator"`
+	AccountLocatorUrl                    *string `pulumi:"accountLocatorUrl"`
+	AccountName                          *string `pulumi:"accountName"`
+	AccountOldUrlLastUsed                *string `pulumi:"accountOldUrlLastUsed"`
+	AccountOldUrlSavedOn                 *string `pulumi:"accountOldUrlSavedOn"`
+	AccountUrl                           *string `pulumi:"accountUrl"`
+	Comment                              *string `pulumi:"comment"`
+	ConsumptionBillingEntityName         *string `pulumi:"consumptionBillingEntityName"`
+	CreatedOn                            *string `pulumi:"createdOn"`
+	Edition                              *string `pulumi:"edition"`
+	IsEventsAccount                      *bool   `pulumi:"isEventsAccount"`
+	IsOrgAdmin                           *bool   `pulumi:"isOrgAdmin"`
+	IsOrganizationAccount                *bool   `pulumi:"isOrganizationAccount"`
+	ManagedAccounts                      *int    `pulumi:"managedAccounts"`
+	MarketplaceConsumerBillingEntityName *string `pulumi:"marketplaceConsumerBillingEntityName"`
+	MarketplaceProviderBillingEntityName *string `pulumi:"marketplaceProviderBillingEntityName"`
+	OldAccountUrl                        *string `pulumi:"oldAccountUrl"`
+	OrganizationName                     *string `pulumi:"organizationName"`
+	OrganizationOldUrl                   *string `pulumi:"organizationOldUrl"`
+	OrganizationOldUrlLastUsed           *string `pulumi:"organizationOldUrlLastUsed"`
+	OrganizationOldUrlSavedOn            *string `pulumi:"organizationOldUrlSavedOn"`
+	SnowflakeRegion                      *string `pulumi:"snowflakeRegion"`
+}
+
+// CurrentOrganizationAccountShowOutputInput is an input type that accepts CurrentOrganizationAccountShowOutputArgs and CurrentOrganizationAccountShowOutputOutput values.
+// You can construct a concrete instance of `CurrentOrganizationAccountShowOutputInput` via:
+//
+//	CurrentOrganizationAccountShowOutputArgs{...}
+type CurrentOrganizationAccountShowOutputInput interface {
+	pulumi.Input
+
+	ToCurrentOrganizationAccountShowOutputOutput() CurrentOrganizationAccountShowOutputOutput
+	ToCurrentOrganizationAccountShowOutputOutputWithContext(context.Context) CurrentOrganizationAccountShowOutputOutput
+}
+
+type CurrentOrganizationAccountShowOutputArgs struct {
+	AccountLocator                       pulumi.StringPtrInput `pulumi:"accountLocator"`
+	AccountLocatorUrl                    pulumi.StringPtrInput `pulumi:"accountLocatorUrl"`
+	AccountName                          pulumi.StringPtrInput `pulumi:"accountName"`
+	AccountOldUrlLastUsed                pulumi.StringPtrInput `pulumi:"accountOldUrlLastUsed"`
+	AccountOldUrlSavedOn                 pulumi.StringPtrInput `pulumi:"accountOldUrlSavedOn"`
+	AccountUrl                           pulumi.StringPtrInput `pulumi:"accountUrl"`
+	Comment                              pulumi.StringPtrInput `pulumi:"comment"`
+	ConsumptionBillingEntityName         pulumi.StringPtrInput `pulumi:"consumptionBillingEntityName"`
+	CreatedOn                            pulumi.StringPtrInput `pulumi:"createdOn"`
+	Edition                              pulumi.StringPtrInput `pulumi:"edition"`
+	IsEventsAccount                      pulumi.BoolPtrInput   `pulumi:"isEventsAccount"`
+	IsOrgAdmin                           pulumi.BoolPtrInput   `pulumi:"isOrgAdmin"`
+	IsOrganizationAccount                pulumi.BoolPtrInput   `pulumi:"isOrganizationAccount"`
+	ManagedAccounts                      pulumi.IntPtrInput    `pulumi:"managedAccounts"`
+	MarketplaceConsumerBillingEntityName pulumi.StringPtrInput `pulumi:"marketplaceConsumerBillingEntityName"`
+	MarketplaceProviderBillingEntityName pulumi.StringPtrInput `pulumi:"marketplaceProviderBillingEntityName"`
+	OldAccountUrl                        pulumi.StringPtrInput `pulumi:"oldAccountUrl"`
+	OrganizationName                     pulumi.StringPtrInput `pulumi:"organizationName"`
+	OrganizationOldUrl                   pulumi.StringPtrInput `pulumi:"organizationOldUrl"`
+	OrganizationOldUrlLastUsed           pulumi.StringPtrInput `pulumi:"organizationOldUrlLastUsed"`
+	OrganizationOldUrlSavedOn            pulumi.StringPtrInput `pulumi:"organizationOldUrlSavedOn"`
+	SnowflakeRegion                      pulumi.StringPtrInput `pulumi:"snowflakeRegion"`
+}
+
+func (CurrentOrganizationAccountShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CurrentOrganizationAccountShowOutput)(nil)).Elem()
+}
+
+func (i CurrentOrganizationAccountShowOutputArgs) ToCurrentOrganizationAccountShowOutputOutput() CurrentOrganizationAccountShowOutputOutput {
+	return i.ToCurrentOrganizationAccountShowOutputOutputWithContext(context.Background())
+}
+
+func (i CurrentOrganizationAccountShowOutputArgs) ToCurrentOrganizationAccountShowOutputOutputWithContext(ctx context.Context) CurrentOrganizationAccountShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CurrentOrganizationAccountShowOutputOutput)
+}
+
+// CurrentOrganizationAccountShowOutputArrayInput is an input type that accepts CurrentOrganizationAccountShowOutputArray and CurrentOrganizationAccountShowOutputArrayOutput values.
+// You can construct a concrete instance of `CurrentOrganizationAccountShowOutputArrayInput` via:
+//
+//	CurrentOrganizationAccountShowOutputArray{ CurrentOrganizationAccountShowOutputArgs{...} }
+type CurrentOrganizationAccountShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToCurrentOrganizationAccountShowOutputArrayOutput() CurrentOrganizationAccountShowOutputArrayOutput
+	ToCurrentOrganizationAccountShowOutputArrayOutputWithContext(context.Context) CurrentOrganizationAccountShowOutputArrayOutput
+}
+
+type CurrentOrganizationAccountShowOutputArray []CurrentOrganizationAccountShowOutputInput
+
+func (CurrentOrganizationAccountShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CurrentOrganizationAccountShowOutput)(nil)).Elem()
+}
+
+func (i CurrentOrganizationAccountShowOutputArray) ToCurrentOrganizationAccountShowOutputArrayOutput() CurrentOrganizationAccountShowOutputArrayOutput {
+	return i.ToCurrentOrganizationAccountShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CurrentOrganizationAccountShowOutputArray) ToCurrentOrganizationAccountShowOutputArrayOutputWithContext(ctx context.Context) CurrentOrganizationAccountShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CurrentOrganizationAccountShowOutputArrayOutput)
+}
+
+type CurrentOrganizationAccountShowOutputOutput struct{ *pulumi.OutputState }
+
+func (CurrentOrganizationAccountShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CurrentOrganizationAccountShowOutput)(nil)).Elem()
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) ToCurrentOrganizationAccountShowOutputOutput() CurrentOrganizationAccountShowOutputOutput {
+	return o
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) ToCurrentOrganizationAccountShowOutputOutputWithContext(ctx context.Context) CurrentOrganizationAccountShowOutputOutput {
+	return o
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) AccountLocator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.AccountLocator }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) AccountLocatorUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.AccountLocatorUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) AccountOldUrlLastUsed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.AccountOldUrlLastUsed }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) AccountOldUrlSavedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.AccountOldUrlSavedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) AccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.AccountUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) ConsumptionBillingEntityName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.ConsumptionBillingEntityName }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.Edition }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) IsEventsAccount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *bool { return v.IsEventsAccount }).(pulumi.BoolPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) IsOrgAdmin() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *bool { return v.IsOrgAdmin }).(pulumi.BoolPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) IsOrganizationAccount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *bool { return v.IsOrganizationAccount }).(pulumi.BoolPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) ManagedAccounts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *int { return v.ManagedAccounts }).(pulumi.IntPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) MarketplaceConsumerBillingEntityName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.MarketplaceConsumerBillingEntityName }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) MarketplaceProviderBillingEntityName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.MarketplaceProviderBillingEntityName }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) OldAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.OldAccountUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) OrganizationOldUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.OrganizationOldUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) OrganizationOldUrlLastUsed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.OrganizationOldUrlLastUsed }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) OrganizationOldUrlSavedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.OrganizationOldUrlSavedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CurrentOrganizationAccountShowOutputOutput) SnowflakeRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CurrentOrganizationAccountShowOutput) *string { return v.SnowflakeRegion }).(pulumi.StringPtrOutput)
+}
+
+type CurrentOrganizationAccountShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CurrentOrganizationAccountShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CurrentOrganizationAccountShowOutput)(nil)).Elem()
+}
+
+func (o CurrentOrganizationAccountShowOutputArrayOutput) ToCurrentOrganizationAccountShowOutputArrayOutput() CurrentOrganizationAccountShowOutputArrayOutput {
+	return o
+}
+
+func (o CurrentOrganizationAccountShowOutputArrayOutput) ToCurrentOrganizationAccountShowOutputArrayOutputWithContext(ctx context.Context) CurrentOrganizationAccountShowOutputArrayOutput {
+	return o
+}
+
+func (o CurrentOrganizationAccountShowOutputArrayOutput) Index(i pulumi.IntInput) CurrentOrganizationAccountShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CurrentOrganizationAccountShowOutput {
+		return vs[0].([]CurrentOrganizationAccountShowOutput)[vs[1].(int)]
+	}).(CurrentOrganizationAccountShowOutputOutput)
+}
+
 type DatabaseReplication struct {
 	// Entry to enable replication and optionally failover for a given account identifier.
 	EnableToAccounts []DatabaseReplicationEnableToAccount `pulumi:"enableToAccounts"`
@@ -65686,124 +65906,6 @@ func (o TaskParameterTwoDigitCenturyStartArrayOutput) Index(i pulumi.IntInput) T
 	}).(TaskParameterTwoDigitCenturyStartOutput)
 }
 
-type TaskParameterUnsupportedDdlAction struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterUnsupportedDdlActionInput is an input type that accepts TaskParameterUnsupportedDdlActionArgs and TaskParameterUnsupportedDdlActionOutput values.
-// You can construct a concrete instance of `TaskParameterUnsupportedDdlActionInput` via:
-//
-//	TaskParameterUnsupportedDdlActionArgs{...}
-type TaskParameterUnsupportedDdlActionInput interface {
-	pulumi.Input
-
-	ToTaskParameterUnsupportedDdlActionOutput() TaskParameterUnsupportedDdlActionOutput
-	ToTaskParameterUnsupportedDdlActionOutputWithContext(context.Context) TaskParameterUnsupportedDdlActionOutput
-}
-
-type TaskParameterUnsupportedDdlActionArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterUnsupportedDdlActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUnsupportedDdlAction)(nil)).Elem()
-}
-
-func (i TaskParameterUnsupportedDdlActionArgs) ToTaskParameterUnsupportedDdlActionOutput() TaskParameterUnsupportedDdlActionOutput {
-	return i.ToTaskParameterUnsupportedDdlActionOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUnsupportedDdlActionArgs) ToTaskParameterUnsupportedDdlActionOutputWithContext(ctx context.Context) TaskParameterUnsupportedDdlActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUnsupportedDdlActionOutput)
-}
-
-// TaskParameterUnsupportedDdlActionArrayInput is an input type that accepts TaskParameterUnsupportedDdlActionArray and TaskParameterUnsupportedDdlActionArrayOutput values.
-// You can construct a concrete instance of `TaskParameterUnsupportedDdlActionArrayInput` via:
-//
-//	TaskParameterUnsupportedDdlActionArray{ TaskParameterUnsupportedDdlActionArgs{...} }
-type TaskParameterUnsupportedDdlActionArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterUnsupportedDdlActionArrayOutput() TaskParameterUnsupportedDdlActionArrayOutput
-	ToTaskParameterUnsupportedDdlActionArrayOutputWithContext(context.Context) TaskParameterUnsupportedDdlActionArrayOutput
-}
-
-type TaskParameterUnsupportedDdlActionArray []TaskParameterUnsupportedDdlActionInput
-
-func (TaskParameterUnsupportedDdlActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUnsupportedDdlAction)(nil)).Elem()
-}
-
-func (i TaskParameterUnsupportedDdlActionArray) ToTaskParameterUnsupportedDdlActionArrayOutput() TaskParameterUnsupportedDdlActionArrayOutput {
-	return i.ToTaskParameterUnsupportedDdlActionArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUnsupportedDdlActionArray) ToTaskParameterUnsupportedDdlActionArrayOutputWithContext(ctx context.Context) TaskParameterUnsupportedDdlActionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUnsupportedDdlActionArrayOutput)
-}
-
-type TaskParameterUnsupportedDdlActionOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUnsupportedDdlActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUnsupportedDdlAction)(nil)).Elem()
-}
-
-func (o TaskParameterUnsupportedDdlActionOutput) ToTaskParameterUnsupportedDdlActionOutput() TaskParameterUnsupportedDdlActionOutput {
-	return o
-}
-
-func (o TaskParameterUnsupportedDdlActionOutput) ToTaskParameterUnsupportedDdlActionOutputWithContext(ctx context.Context) TaskParameterUnsupportedDdlActionOutput {
-	return o
-}
-
-func (o TaskParameterUnsupportedDdlActionOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUnsupportedDdlActionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUnsupportedDdlActionOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUnsupportedDdlActionOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUnsupportedDdlActionOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterUnsupportedDdlActionArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUnsupportedDdlActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUnsupportedDdlAction)(nil)).Elem()
-}
-
-func (o TaskParameterUnsupportedDdlActionArrayOutput) ToTaskParameterUnsupportedDdlActionArrayOutput() TaskParameterUnsupportedDdlActionArrayOutput {
-	return o
-}
-
-func (o TaskParameterUnsupportedDdlActionArrayOutput) ToTaskParameterUnsupportedDdlActionArrayOutputWithContext(ctx context.Context) TaskParameterUnsupportedDdlActionArrayOutput {
-	return o
-}
-
-func (o TaskParameterUnsupportedDdlActionArrayOutput) Index(i pulumi.IntInput) TaskParameterUnsupportedDdlActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterUnsupportedDdlAction {
-		return vs[0].([]TaskParameterUnsupportedDdlAction)[vs[1].(int)]
-	}).(TaskParameterUnsupportedDdlActionOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -65901,6 +66003,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolShowOutputArrayInput)(nil)).Elem(), ComputePoolShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CortexSearchServiceDescribeOutputInput)(nil)).Elem(), CortexSearchServiceDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CortexSearchServiceDescribeOutputArrayInput)(nil)).Elem(), CortexSearchServiceDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CurrentOrganizationAccountShowOutputInput)(nil)).Elem(), CurrentOrganizationAccountShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CurrentOrganizationAccountShowOutputArrayInput)(nil)).Elem(), CurrentOrganizationAccountShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationInput)(nil)).Elem(), DatabaseReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationPtrInput)(nil)).Elem(), DatabaseReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationEnableToAccountInput)(nil)).Elem(), DatabaseReplicationEnableToAccountArgs{})
@@ -66803,8 +66907,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevelArrayInput)(nil)).Elem(), TaskParameterTransactionDefaultIsolationLevelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTwoDigitCenturyStartInput)(nil)).Elem(), TaskParameterTwoDigitCenturyStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTwoDigitCenturyStartArrayInput)(nil)).Elem(), TaskParameterTwoDigitCenturyStartArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUnsupportedDdlActionInput)(nil)).Elem(), TaskParameterUnsupportedDdlActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUnsupportedDdlActionArrayInput)(nil)).Elem(), TaskParameterUnsupportedDdlActionArray{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -66901,6 +67003,8 @@ func init() {
 	pulumi.RegisterOutputType(ComputePoolShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(CortexSearchServiceDescribeOutputOutput{})
 	pulumi.RegisterOutputType(CortexSearchServiceDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(CurrentOrganizationAccountShowOutputOutput{})
+	pulumi.RegisterOutputType(CurrentOrganizationAccountShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationEnableToAccountOutput{})
@@ -67803,6 +67907,4 @@ func init() {
 	pulumi.RegisterOutputType(TaskParameterTransactionDefaultIsolationLevelArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterTwoDigitCenturyStartOutput{})
 	pulumi.RegisterOutputType(TaskParameterTwoDigitCenturyStartArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterUnsupportedDdlActionOutput{})
-	pulumi.RegisterOutputType(TaskParameterUnsupportedDdlActionArrayOutput{})
 }

@@ -13,6 +13,124 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TaskParameterUnsupportedDdlAction struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterUnsupportedDdlActionInput is an input type that accepts TaskParameterUnsupportedDdlActionArgs and TaskParameterUnsupportedDdlActionOutput values.
+// You can construct a concrete instance of `TaskParameterUnsupportedDdlActionInput` via:
+//
+//	TaskParameterUnsupportedDdlActionArgs{...}
+type TaskParameterUnsupportedDdlActionInput interface {
+	pulumi.Input
+
+	ToTaskParameterUnsupportedDdlActionOutput() TaskParameterUnsupportedDdlActionOutput
+	ToTaskParameterUnsupportedDdlActionOutputWithContext(context.Context) TaskParameterUnsupportedDdlActionOutput
+}
+
+type TaskParameterUnsupportedDdlActionArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterUnsupportedDdlActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterUnsupportedDdlAction)(nil)).Elem()
+}
+
+func (i TaskParameterUnsupportedDdlActionArgs) ToTaskParameterUnsupportedDdlActionOutput() TaskParameterUnsupportedDdlActionOutput {
+	return i.ToTaskParameterUnsupportedDdlActionOutputWithContext(context.Background())
+}
+
+func (i TaskParameterUnsupportedDdlActionArgs) ToTaskParameterUnsupportedDdlActionOutputWithContext(ctx context.Context) TaskParameterUnsupportedDdlActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUnsupportedDdlActionOutput)
+}
+
+// TaskParameterUnsupportedDdlActionArrayInput is an input type that accepts TaskParameterUnsupportedDdlActionArray and TaskParameterUnsupportedDdlActionArrayOutput values.
+// You can construct a concrete instance of `TaskParameterUnsupportedDdlActionArrayInput` via:
+//
+//	TaskParameterUnsupportedDdlActionArray{ TaskParameterUnsupportedDdlActionArgs{...} }
+type TaskParameterUnsupportedDdlActionArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterUnsupportedDdlActionArrayOutput() TaskParameterUnsupportedDdlActionArrayOutput
+	ToTaskParameterUnsupportedDdlActionArrayOutputWithContext(context.Context) TaskParameterUnsupportedDdlActionArrayOutput
+}
+
+type TaskParameterUnsupportedDdlActionArray []TaskParameterUnsupportedDdlActionInput
+
+func (TaskParameterUnsupportedDdlActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterUnsupportedDdlAction)(nil)).Elem()
+}
+
+func (i TaskParameterUnsupportedDdlActionArray) ToTaskParameterUnsupportedDdlActionArrayOutput() TaskParameterUnsupportedDdlActionArrayOutput {
+	return i.ToTaskParameterUnsupportedDdlActionArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterUnsupportedDdlActionArray) ToTaskParameterUnsupportedDdlActionArrayOutputWithContext(ctx context.Context) TaskParameterUnsupportedDdlActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUnsupportedDdlActionArrayOutput)
+}
+
+type TaskParameterUnsupportedDdlActionOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterUnsupportedDdlActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterUnsupportedDdlAction)(nil)).Elem()
+}
+
+func (o TaskParameterUnsupportedDdlActionOutput) ToTaskParameterUnsupportedDdlActionOutput() TaskParameterUnsupportedDdlActionOutput {
+	return o
+}
+
+func (o TaskParameterUnsupportedDdlActionOutput) ToTaskParameterUnsupportedDdlActionOutputWithContext(ctx context.Context) TaskParameterUnsupportedDdlActionOutput {
+	return o
+}
+
+func (o TaskParameterUnsupportedDdlActionOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterUnsupportedDdlActionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterUnsupportedDdlActionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterUnsupportedDdlActionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterUnsupportedDdlActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterUnsupportedDdlAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterUnsupportedDdlActionArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterUnsupportedDdlActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterUnsupportedDdlAction)(nil)).Elem()
+}
+
+func (o TaskParameterUnsupportedDdlActionArrayOutput) ToTaskParameterUnsupportedDdlActionArrayOutput() TaskParameterUnsupportedDdlActionArrayOutput {
+	return o
+}
+
+func (o TaskParameterUnsupportedDdlActionArrayOutput) ToTaskParameterUnsupportedDdlActionArrayOutputWithContext(ctx context.Context) TaskParameterUnsupportedDdlActionArrayOutput {
+	return o
+}
+
+func (o TaskParameterUnsupportedDdlActionArrayOutput) Index(i pulumi.IntInput) TaskParameterUnsupportedDdlActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterUnsupportedDdlAction {
+		return vs[0].([]TaskParameterUnsupportedDdlAction)[vs[1].(int)]
+	}).(TaskParameterUnsupportedDdlActionOutput)
+}
+
 type TaskParameterUseCachedResult struct {
 	Default     *string `pulumi:"default"`
 	Description *string `pulumi:"description"`
@@ -8505,6 +8623,154 @@ func (o UserParameterWeekStartArrayOutput) Index(i pulumi.IntInput) UserParamete
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterWeekStart {
 		return vs[0].([]UserParameterWeekStart)[vs[1].(int)]
 	}).(UserParameterWeekStartOutput)
+}
+
+type UserProgrammaticAccessTokenShowOutput struct {
+	Comment                              *string `pulumi:"comment"`
+	CreatedBy                            *string `pulumi:"createdBy"`
+	CreatedOn                            *string `pulumi:"createdOn"`
+	ExpiresAt                            *string `pulumi:"expiresAt"`
+	MinsToBypassNetworkPolicyRequirement *int    `pulumi:"minsToBypassNetworkPolicyRequirement"`
+	Name                                 *string `pulumi:"name"`
+	RoleRestriction                      *string `pulumi:"roleRestriction"`
+	RotatedTo                            *string `pulumi:"rotatedTo"`
+	Status                               *string `pulumi:"status"`
+	UserName                             *string `pulumi:"userName"`
+}
+
+// UserProgrammaticAccessTokenShowOutputInput is an input type that accepts UserProgrammaticAccessTokenShowOutputArgs and UserProgrammaticAccessTokenShowOutputOutput values.
+// You can construct a concrete instance of `UserProgrammaticAccessTokenShowOutputInput` via:
+//
+//	UserProgrammaticAccessTokenShowOutputArgs{...}
+type UserProgrammaticAccessTokenShowOutputInput interface {
+	pulumi.Input
+
+	ToUserProgrammaticAccessTokenShowOutputOutput() UserProgrammaticAccessTokenShowOutputOutput
+	ToUserProgrammaticAccessTokenShowOutputOutputWithContext(context.Context) UserProgrammaticAccessTokenShowOutputOutput
+}
+
+type UserProgrammaticAccessTokenShowOutputArgs struct {
+	Comment                              pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedBy                            pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedOn                            pulumi.StringPtrInput `pulumi:"createdOn"`
+	ExpiresAt                            pulumi.StringPtrInput `pulumi:"expiresAt"`
+	MinsToBypassNetworkPolicyRequirement pulumi.IntPtrInput    `pulumi:"minsToBypassNetworkPolicyRequirement"`
+	Name                                 pulumi.StringPtrInput `pulumi:"name"`
+	RoleRestriction                      pulumi.StringPtrInput `pulumi:"roleRestriction"`
+	RotatedTo                            pulumi.StringPtrInput `pulumi:"rotatedTo"`
+	Status                               pulumi.StringPtrInput `pulumi:"status"`
+	UserName                             pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (UserProgrammaticAccessTokenShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProgrammaticAccessTokenShowOutput)(nil)).Elem()
+}
+
+func (i UserProgrammaticAccessTokenShowOutputArgs) ToUserProgrammaticAccessTokenShowOutputOutput() UserProgrammaticAccessTokenShowOutputOutput {
+	return i.ToUserProgrammaticAccessTokenShowOutputOutputWithContext(context.Background())
+}
+
+func (i UserProgrammaticAccessTokenShowOutputArgs) ToUserProgrammaticAccessTokenShowOutputOutputWithContext(ctx context.Context) UserProgrammaticAccessTokenShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProgrammaticAccessTokenShowOutputOutput)
+}
+
+// UserProgrammaticAccessTokenShowOutputArrayInput is an input type that accepts UserProgrammaticAccessTokenShowOutputArray and UserProgrammaticAccessTokenShowOutputArrayOutput values.
+// You can construct a concrete instance of `UserProgrammaticAccessTokenShowOutputArrayInput` via:
+//
+//	UserProgrammaticAccessTokenShowOutputArray{ UserProgrammaticAccessTokenShowOutputArgs{...} }
+type UserProgrammaticAccessTokenShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToUserProgrammaticAccessTokenShowOutputArrayOutput() UserProgrammaticAccessTokenShowOutputArrayOutput
+	ToUserProgrammaticAccessTokenShowOutputArrayOutputWithContext(context.Context) UserProgrammaticAccessTokenShowOutputArrayOutput
+}
+
+type UserProgrammaticAccessTokenShowOutputArray []UserProgrammaticAccessTokenShowOutputInput
+
+func (UserProgrammaticAccessTokenShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProgrammaticAccessTokenShowOutput)(nil)).Elem()
+}
+
+func (i UserProgrammaticAccessTokenShowOutputArray) ToUserProgrammaticAccessTokenShowOutputArrayOutput() UserProgrammaticAccessTokenShowOutputArrayOutput {
+	return i.ToUserProgrammaticAccessTokenShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i UserProgrammaticAccessTokenShowOutputArray) ToUserProgrammaticAccessTokenShowOutputArrayOutputWithContext(ctx context.Context) UserProgrammaticAccessTokenShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProgrammaticAccessTokenShowOutputArrayOutput)
+}
+
+type UserProgrammaticAccessTokenShowOutputOutput struct{ *pulumi.OutputState }
+
+func (UserProgrammaticAccessTokenShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProgrammaticAccessTokenShowOutput)(nil)).Elem()
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) ToUserProgrammaticAccessTokenShowOutputOutput() UserProgrammaticAccessTokenShowOutputOutput {
+	return o
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) ToUserProgrammaticAccessTokenShowOutputOutputWithContext(ctx context.Context) UserProgrammaticAccessTokenShowOutputOutput {
+	return o
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) ExpiresAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.ExpiresAt }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) MinsToBypassNetworkPolicyRequirement() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *int { return v.MinsToBypassNetworkPolicyRequirement }).(pulumi.IntPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) RoleRestriction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.RoleRestriction }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) RotatedTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.RotatedTo }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o UserProgrammaticAccessTokenShowOutputOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProgrammaticAccessTokenShowOutput) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type UserProgrammaticAccessTokenShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProgrammaticAccessTokenShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProgrammaticAccessTokenShowOutput)(nil)).Elem()
+}
+
+func (o UserProgrammaticAccessTokenShowOutputArrayOutput) ToUserProgrammaticAccessTokenShowOutputArrayOutput() UserProgrammaticAccessTokenShowOutputArrayOutput {
+	return o
+}
+
+func (o UserProgrammaticAccessTokenShowOutputArrayOutput) ToUserProgrammaticAccessTokenShowOutputArrayOutputWithContext(ctx context.Context) UserProgrammaticAccessTokenShowOutputArrayOutput {
+	return o
+}
+
+func (o UserProgrammaticAccessTokenShowOutputArrayOutput) Index(i pulumi.IntInput) UserProgrammaticAccessTokenShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProgrammaticAccessTokenShowOutput {
+		return vs[0].([]UserProgrammaticAccessTokenShowOutput)[vs[1].(int)]
+	}).(UserProgrammaticAccessTokenShowOutputOutput)
 }
 
 type UserShowOutput struct {
@@ -45532,6 +45798,265 @@ func (o GetTasksTaskShowOutputTaskRelationArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetTasksTaskShowOutputTaskRelationOutput)
 }
 
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessToken struct {
+	// Holds the output of SHOW USER PROGRAMMATIC ACCESS TOKENS.
+	ShowOutputs []GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput `pulumi:"showOutputs"`
+}
+
+// GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenInput is an input type that accepts GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArgs and GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput values.
+// You can construct a concrete instance of `GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenInput` via:
+//
+//	GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArgs{...}
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenInput interface {
+	pulumi.Input
+
+	ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput
+	ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutputWithContext(context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArgs struct {
+	// Holds the output of SHOW USER PROGRAMMATIC ACCESS TOKENS.
+	ShowOutputs GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserProgrammaticAccessTokensUserProgrammaticAccessToken)(nil)).Elem()
+}
+
+func (i GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArgs) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput {
+	return i.ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutputWithContext(context.Background())
+}
+
+func (i GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArgs) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutputWithContext(ctx context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput)
+}
+
+// GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayInput is an input type that accepts GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArray and GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput values.
+// You can construct a concrete instance of `GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayInput` via:
+//
+//	GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArray{ GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArgs{...} }
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayInput interface {
+	pulumi.Input
+
+	ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput
+	ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutputWithContext(context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArray []GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenInput
+
+func (GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserProgrammaticAccessTokensUserProgrammaticAccessToken)(nil)).Elem()
+}
+
+func (i GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArray) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput {
+	return i.ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArray) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutputWithContext(ctx context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput)
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput struct{ *pulumi.OutputState }
+
+func (GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserProgrammaticAccessTokensUserProgrammaticAccessToken)(nil)).Elem()
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput {
+	return o
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutputWithContext(ctx context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput {
+	return o
+}
+
+// Holds the output of SHOW USER PROGRAMMATIC ACCESS TOKENS.
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput) ShowOutputs() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessToken) []GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput {
+		return v.ShowOutputs
+	}).(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput)
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserProgrammaticAccessTokensUserProgrammaticAccessToken)(nil)).Elem()
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput {
+	return o
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutputWithContext(ctx context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput {
+	return o
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput) Index(i pulumi.IntInput) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserProgrammaticAccessTokensUserProgrammaticAccessToken {
+		return vs[0].([]GetUserProgrammaticAccessTokensUserProgrammaticAccessToken)[vs[1].(int)]
+	}).(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput)
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput struct {
+	Comment                              string `pulumi:"comment"`
+	CreatedBy                            string `pulumi:"createdBy"`
+	CreatedOn                            string `pulumi:"createdOn"`
+	ExpiresAt                            string `pulumi:"expiresAt"`
+	MinsToBypassNetworkPolicyRequirement int    `pulumi:"minsToBypassNetworkPolicyRequirement"`
+	Name                                 string `pulumi:"name"`
+	RoleRestriction                      string `pulumi:"roleRestriction"`
+	RotatedTo                            string `pulumi:"rotatedTo"`
+	Status                               string `pulumi:"status"`
+	UserName                             string `pulumi:"userName"`
+}
+
+// GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputInput is an input type that accepts GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs and GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput values.
+// You can construct a concrete instance of `GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputInput` via:
+//
+//	GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs{...}
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputInput interface {
+	pulumi.Input
+
+	ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput
+	ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutputWithContext(context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs struct {
+	Comment                              pulumi.StringInput `pulumi:"comment"`
+	CreatedBy                            pulumi.StringInput `pulumi:"createdBy"`
+	CreatedOn                            pulumi.StringInput `pulumi:"createdOn"`
+	ExpiresAt                            pulumi.StringInput `pulumi:"expiresAt"`
+	MinsToBypassNetworkPolicyRequirement pulumi.IntInput    `pulumi:"minsToBypassNetworkPolicyRequirement"`
+	Name                                 pulumi.StringInput `pulumi:"name"`
+	RoleRestriction                      pulumi.StringInput `pulumi:"roleRestriction"`
+	RotatedTo                            pulumi.StringInput `pulumi:"rotatedTo"`
+	Status                               pulumi.StringInput `pulumi:"status"`
+	UserName                             pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput)(nil)).Elem()
+}
+
+func (i GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput {
+	return i.ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutputWithContext(ctx context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput)
+}
+
+// GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayInput is an input type that accepts GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArray and GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayInput` via:
+//
+//	GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArray{ GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs{...} }
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput
+	ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutputWithContext(context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArray []GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputInput
+
+func (GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput)(nil)).Elem()
+}
+
+func (i GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArray) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput {
+	return i.ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArray) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutputWithContext(ctx context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput)
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput)(nil)).Elem()
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput {
+	return o
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutputWithContext(ctx context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput {
+	return o
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string {
+		return v.CreatedBy
+	}).(pulumi.StringOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string {
+		return v.CreatedOn
+	}).(pulumi.StringOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) ExpiresAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string {
+		return v.ExpiresAt
+	}).(pulumi.StringOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) MinsToBypassNetworkPolicyRequirement() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) int {
+		return v.MinsToBypassNetworkPolicyRequirement
+	}).(pulumi.IntOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) RoleRestriction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string {
+		return v.RoleRestriction
+	}).(pulumi.StringOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) RotatedTo() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string {
+		return v.RotatedTo
+	}).(pulumi.StringOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput)(nil)).Elem()
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput() GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput {
+	return o
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput) ToGetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutputWithContext(ctx context.Context) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput {
+	return o
+}
+
+func (o GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput) Index(i pulumi.IntInput) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput {
+		return vs[0].([]GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutput)[vs[1].(int)]
+	}).(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput)
+}
+
 type GetUsersLimit struct {
 	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
 	From *string `pulumi:"from"`
@@ -55384,6 +55909,8 @@ func (o GetWarehousesWarehouseShowOutputArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUnsupportedDdlActionInput)(nil)).Elem(), TaskParameterUnsupportedDdlActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUnsupportedDdlActionArrayInput)(nil)).Elem(), TaskParameterUnsupportedDdlActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUseCachedResultInput)(nil)).Elem(), TaskParameterUseCachedResultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUseCachedResultArrayInput)(nil)).Elem(), TaskParameterUseCachedResultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUserTaskManagedInitialWarehouseSizeInput)(nil)).Elem(), TaskParameterUserTaskManagedInitialWarehouseSizeArgs{})
@@ -55520,6 +56047,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterWeekOfYearPolicyArrayInput)(nil)).Elem(), UserParameterWeekOfYearPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterWeekStartInput)(nil)).Elem(), UserParameterWeekStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterWeekStartArrayInput)(nil)).Elem(), UserParameterWeekStartArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProgrammaticAccessTokenShowOutputInput)(nil)).Elem(), UserProgrammaticAccessTokenShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProgrammaticAccessTokenShowOutputArrayInput)(nil)).Elem(), UserProgrammaticAccessTokenShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserShowOutputInput)(nil)).Elem(), UserShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserShowOutputArrayInput)(nil)).Elem(), UserShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewAggregationPolicyInput)(nil)).Elem(), ViewAggregationPolicyArgs{})
@@ -56062,6 +56591,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTasksTaskShowOutputArrayInput)(nil)).Elem(), GetTasksTaskShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTasksTaskShowOutputTaskRelationInput)(nil)).Elem(), GetTasksTaskShowOutputTaskRelationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTasksTaskShowOutputTaskRelationArrayInput)(nil)).Elem(), GetTasksTaskShowOutputTaskRelationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenInput)(nil)).Elem(), GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayInput)(nil)).Elem(), GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputInput)(nil)).Elem(), GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayInput)(nil)).Elem(), GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersLimitInput)(nil)).Elem(), GetUsersLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersLimitPtrInput)(nil)).Elem(), GetUsersLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
@@ -56212,6 +56745,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseParameterStatementTimeoutInSecondArrayInput)(nil)).Elem(), GetWarehousesWarehouseParameterStatementTimeoutInSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputArrayInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArray{})
+	pulumi.RegisterOutputType(TaskParameterUnsupportedDdlActionOutput{})
+	pulumi.RegisterOutputType(TaskParameterUnsupportedDdlActionArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterUseCachedResultOutput{})
 	pulumi.RegisterOutputType(TaskParameterUseCachedResultArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterUserTaskManagedInitialWarehouseSizeOutput{})
@@ -56348,6 +56883,8 @@ func init() {
 	pulumi.RegisterOutputType(UserParameterWeekOfYearPolicyArrayOutput{})
 	pulumi.RegisterOutputType(UserParameterWeekStartOutput{})
 	pulumi.RegisterOutputType(UserParameterWeekStartArrayOutput{})
+	pulumi.RegisterOutputType(UserProgrammaticAccessTokenShowOutputOutput{})
+	pulumi.RegisterOutputType(UserProgrammaticAccessTokenShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(UserShowOutputOutput{})
 	pulumi.RegisterOutputType(UserShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ViewAggregationPolicyOutput{})
@@ -56890,6 +57427,10 @@ func init() {
 	pulumi.RegisterOutputType(GetTasksTaskShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(GetTasksTaskShowOutputTaskRelationOutput{})
 	pulumi.RegisterOutputType(GetTasksTaskShowOutputTaskRelationArrayOutput{})
+	pulumi.RegisterOutputType(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenOutput{})
+	pulumi.RegisterOutputType(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenArrayOutput{})
+	pulumi.RegisterOutputType(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputOutput{})
+	pulumi.RegisterOutputType(GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersLimitOutput{})
 	pulumi.RegisterOutputType(GetUsersLimitPtrOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
