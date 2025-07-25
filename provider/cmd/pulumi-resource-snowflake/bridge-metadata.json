@@ -274,6 +274,15 @@
                 "current": "snowflake:index/currentAccount:CurrentAccount",
                 "majorVersion": 2
             },
+            "snowflake_current_organization_account": {
+                "current": "snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount",
+                "majorVersion": 2,
+                "fields": {
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_database": {
                 "current": "snowflake:index/database:Database",
                 "majorVersion": 2,
@@ -2779,6 +2788,15 @@
                 "current": "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment",
                 "majorVersion": 2
             },
+            "snowflake_user_programmatic_access_token": {
+                "current": "snowflake:index/userProgrammaticAccessToken:UserProgrammaticAccessToken",
+                "majorVersion": 2,
+                "fields": {
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_user_public_keys": {
                 "current": "snowflake:index/userPublicKeys:UserPublicKeys",
                 "majorVersion": 2
@@ -4134,6 +4152,22 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_user_programmatic_access_tokens": {
+                "current": "snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens",
+                "majorVersion": 2,
+                "fields": {
+                    "user_programmatic_access_tokens": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "show_output": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
