@@ -141,8 +141,9 @@ class ProviderArgs:
                `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
         :param pulumi.Input[_builtins.str] tmp_directory_path: Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
                the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
-        :param pulumi.Input[_builtins.str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-               variable.
+        :param pulumi.Input[_builtins.str] token: Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+               provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+               use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
         :param pulumi.Input[_builtins.bool] use_legacy_toml_file: False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
                format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
                variable.
@@ -726,8 +727,9 @@ class ProviderArgs:
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-        variable.
+        Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+        provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+        use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
         """
         return pulumi.get(self, "token")
 
@@ -931,8 +933,9 @@ class Provider(pulumi.ProviderResource):
                `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
         :param pulumi.Input[_builtins.str] tmp_directory_path: Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
                the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
-        :param pulumi.Input[_builtins.str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-               variable.
+        :param pulumi.Input[_builtins.str] token: Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+               provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+               use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
         :param pulumi.Input[_builtins.bool] use_legacy_toml_file: False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
                format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
                variable.
@@ -1274,8 +1277,9 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-        variable.
+        Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+        provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+        use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
         """
         return pulumi.get(self, "token")
 

@@ -86,6 +86,21 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The external ID that Snowflake will use when assuming the AWS role.
+     * 
+     */
+    @Import(name="storageAwsExternalId")
+    private @Nullable Output<String> storageAwsExternalId;
+
+    /**
+     * @return The external ID that Snowflake will use when assuming the AWS role.
+     * 
+     */
+    public Optional<Output<String>> storageAwsExternalId() {
+        return Optional.ofNullable(this.storageAwsExternalId);
+    }
+
+    /**
      * &#34;bucket-owner-full-control&#34; Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
      * 
      */
@@ -168,6 +183,7 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
         this.enabled = $.enabled;
         this.name = $.name;
         this.storageAllowedLocations = $.storageAllowedLocations;
+        this.storageAwsExternalId = $.storageAwsExternalId;
         this.storageAwsObjectAcl = $.storageAwsObjectAcl;
         this.storageAwsRoleArn = $.storageAwsRoleArn;
         this.storageBlockedLocations = $.storageBlockedLocations;
@@ -294,6 +310,27 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
          */
         public Builder storageAllowedLocations(String... storageAllowedLocations) {
             return storageAllowedLocations(List.of(storageAllowedLocations));
+        }
+
+        /**
+         * @param storageAwsExternalId The external ID that Snowflake will use when assuming the AWS role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAwsExternalId(@Nullable Output<String> storageAwsExternalId) {
+            $.storageAwsExternalId = storageAwsExternalId;
+            return this;
+        }
+
+        /**
+         * @param storageAwsExternalId The external ID that Snowflake will use when assuming the AWS role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAwsExternalId(String storageAwsExternalId) {
+            return storageAwsExternalId(Output.of(storageAwsExternalId));
         }
 
         /**

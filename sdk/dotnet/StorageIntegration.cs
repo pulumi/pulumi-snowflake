@@ -50,6 +50,12 @@ namespace Pulumi.Snowflake
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
+        /// Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.StorageIntegrationDescribeOutput>> DescribeOutputs { get; private set; } = null!;
+
+        /// <summary>
         /// (Default: `true`)
         /// </summary>
         [Output("enabled")]
@@ -74,7 +80,7 @@ namespace Pulumi.Snowflake
         /// The external ID that Snowflake will use when assuming the AWS role.
         /// </summary>
         [Output("storageAwsExternalId")]
-        public Output<string> StorageAwsExternalId { get; private set; } = null!;
+        public Output<string?> StorageAwsExternalId { get; private set; } = null!;
 
         /// <summary>
         /// The Snowflake user that will attempt to assume the AWS role.
@@ -202,6 +208,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// The external ID that Snowflake will use when assuming the AWS role.
+        /// </summary>
+        [Input("storageAwsExternalId")]
+        public Input<string>? StorageAwsExternalId { get; set; }
+
+        /// <summary>
         /// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         /// </summary>
         [Input("storageAwsObjectAcl")]
@@ -284,6 +296,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("createdOn")]
         public Input<string>? CreatedOn { get; set; }
+
+        [Input("describeOutputs")]
+        private InputList<Inputs.StorageIntegrationDescribeOutputGetArgs>? _describeOutputs;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+        /// </summary>
+        public InputList<Inputs.StorageIntegrationDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.StorageIntegrationDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
 
         /// <summary>
         /// (Default: `true`)

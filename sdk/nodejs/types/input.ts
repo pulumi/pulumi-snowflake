@@ -3255,6 +3255,65 @@ export interface LegacyServiceUserShowOutput {
     type?: pulumi.Input<string>;
 }
 
+export interface ListingManifest {
+    /**
+     * Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+     */
+    fromStage?: pulumi.Input<inputs.ListingManifestFromStage>;
+    /**
+     * Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+     */
+    fromString?: pulumi.Input<string>;
+}
+
+export interface ListingManifestFromStage {
+    /**
+     * Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * Identifier of the stage where the manifest file is located.
+     */
+    stage: pulumi.Input<string>;
+    /**
+     * Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+     */
+    versionComment?: pulumi.Input<string>;
+    /**
+     * Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+     */
+    versionName?: pulumi.Input<string>;
+}
+
+export interface ListingShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    detailedTargetAccounts?: pulumi.Input<string>;
+    distribution?: pulumi.Input<string>;
+    globalName?: pulumi.Input<string>;
+    isApplication?: pulumi.Input<boolean>;
+    isByRequest?: pulumi.Input<boolean>;
+    isLimitedTrial?: pulumi.Input<boolean>;
+    isMonetized?: pulumi.Input<boolean>;
+    isMountlessQueryable?: pulumi.Input<boolean>;
+    isTargeted?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    organizationProfileName?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    profile?: pulumi.Input<string>;
+    publishedOn?: pulumi.Input<string>;
+    regions?: pulumi.Input<string>;
+    rejectedOn?: pulumi.Input<string>;
+    reviewState?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
+    subtitle?: pulumi.Input<string>;
+    targetAccounts?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
+    uniformListingLocator?: pulumi.Input<string>;
+    updatedOn?: pulumi.Input<string>;
+}
+
 export interface MaskingPolicyArgument {
     /**
      * The argument name
@@ -5361,6 +5420,113 @@ export interface StageTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutput {
+    azureConsentUrls?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputAzureConsentUrl>[]>;
+    azureMultiTenantAppNames?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputAzureMultiTenantAppName>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputComment>[]>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputEnabled>[]>;
+    storageAllowedLocations?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAllowedLocation>[]>;
+    storageAwsExternalIds?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsExternalId>[]>;
+    storageAwsIamUserArns?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsIamUserArn>[]>;
+    storageAwsObjectAcls?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsObjectAcl>[]>;
+    storageAwsRoleArns?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsRoleArn>[]>;
+    storageBlockedLocations?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageBlockedLocation>[]>;
+    storageGcpServiceAccounts?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageGcpServiceAccount>[]>;
+    storageProviders?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageProvider>[]>;
+    usePrivatelinkEndpoints?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputUsePrivatelinkEndpoint>[]>;
+}
+
+export interface StorageIntegrationDescribeOutputAzureConsentUrl {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputAzureMultiTenantAppName {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputComment {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputEnabled {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAllowedLocation {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAwsExternalId {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAwsIamUserArn {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAwsObjectAcl {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAwsRoleArn {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputStorageBlockedLocation {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputStorageGcpServiceAccount {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputStorageProvider {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationDescribeOutputUsePrivatelinkEndpoint {
+    default?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 export interface StreamOnDirectoryTableDescribeOutput {

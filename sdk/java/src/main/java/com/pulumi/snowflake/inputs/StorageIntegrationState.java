@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.StorageIntegrationDescribeOutputArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -90,6 +91,21 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> createdOn() {
         return Optional.ofNullable(this.createdOn);
+    }
+
+    /**
+     * Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+     * 
+     */
+    @Import(name="describeOutputs")
+    private @Nullable Output<List<StorageIntegrationDescribeOutputArgs>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+     * 
+     */
+    public Optional<Output<List<StorageIntegrationDescribeOutputArgs>>> describeOutputs() {
+        return Optional.ofNullable(this.describeOutputs);
     }
 
     /**
@@ -272,6 +288,7 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
         this.azureTenantId = $.azureTenantId;
         this.comment = $.comment;
         this.createdOn = $.createdOn;
+        this.describeOutputs = $.describeOutputs;
         this.enabled = $.enabled;
         this.fullyQualifiedName = $.fullyQualifiedName;
         this.name = $.name;
@@ -407,6 +424,37 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
          */
         public Builder createdOn(String createdOn) {
             return createdOn(Output.of(createdOn));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(@Nullable Output<List<StorageIntegrationDescribeOutputArgs>> describeOutputs) {
+            $.describeOutputs = describeOutputs;
+            return this;
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(List<StorageIntegrationDescribeOutputArgs> describeOutputs) {
+            return describeOutputs(Output.of(describeOutputs));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(StorageIntegrationDescribeOutputArgs... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
 
         /**

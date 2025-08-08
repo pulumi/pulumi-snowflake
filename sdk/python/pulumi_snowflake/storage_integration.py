@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['StorageIntegrationArgs', 'StorageIntegration']
 
@@ -25,6 +27,7 @@ class StorageIntegrationArgs:
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_aws_object_acl: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -36,6 +39,7 @@ class StorageIntegrationArgs:
         :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``)
         :param pulumi.Input[_builtins.str] comment: (Default: ``)
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
+        :param pulumi.Input[_builtins.str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[_builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
@@ -51,6 +55,8 @@ class StorageIntegrationArgs:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if storage_aws_external_id is not None:
+            pulumi.set(__self__, "storage_aws_external_id", storage_aws_external_id)
         if storage_aws_object_acl is not None:
             pulumi.set(__self__, "storage_aws_object_acl", storage_aws_object_acl)
         if storage_aws_role_arn is not None:
@@ -130,6 +136,18 @@ class StorageIntegrationArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAwsExternalId")
+    def storage_aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The external ID that Snowflake will use when assuming the AWS role.
+        """
+        return pulumi.get(self, "storage_aws_external_id")
+
+    @storage_aws_external_id.setter
+    def storage_aws_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_aws_external_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageAwsObjectAcl")
     def storage_aws_object_acl(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -186,6 +204,7 @@ class _StorageIntegrationState:
                  azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputArgs']]]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -205,6 +224,7 @@ class _StorageIntegrationState:
         :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``)
         :param pulumi.Input[_builtins.str] comment: (Default: ``)
         :param pulumi.Input[_builtins.str] created_on: Date and time when the storage integration was created.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
@@ -227,6 +247,8 @@ class _StorageIntegrationState:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
             pulumi.set(__self__, "created_on", created_on)
+        if describe_outputs is not None:
+            pulumi.set(__self__, "describe_outputs", describe_outputs)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if fully_qualified_name is not None:
@@ -311,6 +333,18 @@ class _StorageIntegrationState:
     @created_on.setter
     def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputArgs']]]]:
+        """
+        Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @describe_outputs.setter
+    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputArgs']]]]):
+        pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
@@ -465,6 +499,7 @@ class StorageIntegration(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_aws_object_acl: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -484,6 +519,7 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: (Default: ``)
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
+        :param pulumi.Input[_builtins.str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[_builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
         :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
@@ -523,6 +559,7 @@ class StorageIntegration(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_aws_object_acl: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -544,6 +581,7 @@ class StorageIntegration(pulumi.CustomResource):
             if storage_allowed_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_allowed_locations'")
             __props__.__dict__["storage_allowed_locations"] = storage_allowed_locations
+            __props__.__dict__["storage_aws_external_id"] = storage_aws_external_id
             __props__.__dict__["storage_aws_object_acl"] = storage_aws_object_acl
             __props__.__dict__["storage_aws_role_arn"] = storage_aws_role_arn
             __props__.__dict__["storage_blocked_locations"] = storage_blocked_locations
@@ -554,8 +592,8 @@ class StorageIntegration(pulumi.CustomResource):
             __props__.__dict__["azure_consent_url"] = None
             __props__.__dict__["azure_multi_tenant_app_name"] = None
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
-            __props__.__dict__["storage_aws_external_id"] = None
             __props__.__dict__["storage_aws_iam_user_arn"] = None
             __props__.__dict__["storage_gcp_service_account"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["azureConsentUrl"])
@@ -575,6 +613,7 @@ class StorageIntegration(pulumi.CustomResource):
             azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
             comment: Optional[pulumi.Input[_builtins.str]] = None,
             created_on: Optional[pulumi.Input[_builtins.str]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationDescribeOutputArgs', 'StorageIntegrationDescribeOutputArgsDict']]]]] = None,
             enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -599,6 +638,7 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``)
         :param pulumi.Input[_builtins.str] comment: (Default: ``)
         :param pulumi.Input[_builtins.str] created_on: Date and time when the storage integration was created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationDescribeOutputArgs', 'StorageIntegrationDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
@@ -620,6 +660,7 @@ class StorageIntegration(pulumi.CustomResource):
         __props__.__dict__["azure_tenant_id"] = azure_tenant_id
         __props__.__dict__["comment"] = comment
         __props__.__dict__["created_on"] = created_on
+        __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
@@ -675,6 +716,14 @@ class StorageIntegration(pulumi.CustomResource):
         return pulumi.get(self, "created_on")
 
     @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Output[Sequence['outputs.StorageIntegrationDescribeOutput']]:
+        """
+        Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -705,7 +754,7 @@ class StorageIntegration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageAwsExternalId")
-    def storage_aws_external_id(self) -> pulumi.Output[_builtins.str]:
+    def storage_aws_external_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The external ID that Snowflake will use when assuming the AWS role.
         """

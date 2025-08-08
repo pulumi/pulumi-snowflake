@@ -98,6 +98,7 @@ from .grant_privileges_to_share import *
 from .image_repository import *
 from .job_service import *
 from .legacy_service_user import *
+from .listing import *
 from .managed_account import *
 from .masking_policy import *
 from .materialized_view import *
@@ -500,6 +501,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/legacyServiceUser:LegacyServiceUser": "LegacyServiceUser"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/listing",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/listing:Listing": "Listing"
   }
  },
  {

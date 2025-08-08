@@ -30,6 +30,8 @@ type StorageIntegration struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Date and time when the storage integration was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
+	// Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+	DescribeOutputs StorageIntegrationDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// (Default: `true`)
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -38,7 +40,7 @@ type StorageIntegration struct {
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations pulumi.StringArrayOutput `pulumi:"storageAllowedLocations"`
 	// The external ID that Snowflake will use when assuming the AWS role.
-	StorageAwsExternalId pulumi.StringOutput `pulumi:"storageAwsExternalId"`
+	StorageAwsExternalId pulumi.StringPtrOutput `pulumi:"storageAwsExternalId"`
 	// The Snowflake user that will attempt to assume the AWS role.
 	StorageAwsIamUserArn pulumi.StringOutput `pulumi:"storageAwsIamUserArn"`
 	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
@@ -105,6 +107,8 @@ type storageIntegrationState struct {
 	Comment *string `pulumi:"comment"`
 	// Date and time when the storage integration was created.
 	CreatedOn *string `pulumi:"createdOn"`
+	// Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+	DescribeOutputs []StorageIntegrationDescribeOutput `pulumi:"describeOutputs"`
 	// (Default: `true`)
 	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -141,6 +145,8 @@ type StorageIntegrationState struct {
 	Comment pulumi.StringPtrInput
 	// Date and time when the storage integration was created.
 	CreatedOn pulumi.StringPtrInput
+	// Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+	DescribeOutputs StorageIntegrationDescribeOutputArrayInput
 	// (Default: `true`)
 	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -180,6 +186,8 @@ type storageIntegrationArgs struct {
 	Name    *string `pulumi:"name"`
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations []string `pulumi:"storageAllowedLocations"`
+	// The external ID that Snowflake will use when assuming the AWS role.
+	StorageAwsExternalId *string `pulumi:"storageAwsExternalId"`
 	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
 	StorageAwsObjectAcl *string `pulumi:"storageAwsObjectAcl"`
 	// (Default: ``)
@@ -203,6 +211,8 @@ type StorageIntegrationArgs struct {
 	Name    pulumi.StringPtrInput
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations pulumi.StringArrayInput
+	// The external ID that Snowflake will use when assuming the AWS role.
+	StorageAwsExternalId pulumi.StringPtrInput
 	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
 	StorageAwsObjectAcl pulumi.StringPtrInput
 	// (Default: ``)
@@ -327,6 +337,11 @@ func (o StorageIntegrationOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
+// Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+func (o StorageIntegrationOutput) DescribeOutputs() StorageIntegrationDescribeOutputArrayOutput {
+	return o.ApplyT(func(v *StorageIntegration) StorageIntegrationDescribeOutputArrayOutput { return v.DescribeOutputs }).(StorageIntegrationDescribeOutputArrayOutput)
+}
+
 // (Default: `true`)
 func (o StorageIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -347,8 +362,8 @@ func (o StorageIntegrationOutput) StorageAllowedLocations() pulumi.StringArrayOu
 }
 
 // The external ID that Snowflake will use when assuming the AWS role.
-func (o StorageIntegrationOutput) StorageAwsExternalId() pulumi.StringOutput {
-	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.StorageAwsExternalId }).(pulumi.StringOutput)
+func (o StorageIntegrationOutput) StorageAwsExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.StorageAwsExternalId }).(pulumi.StringPtrOutput)
 }
 
 // The Snowflake user that will attempt to assume the AWS role.

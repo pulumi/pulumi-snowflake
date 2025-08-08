@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.StorageIntegrationArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.StorageIntegrationState;
+import com.pulumi.snowflake.outputs.StorageIntegrationDescribeOutput;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -97,6 +98,20 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
         return this.createdOn;
     }
     /**
+     * Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,StorageIntegrationDescribeOutput.class}, tree="[0,1]")
+    private Output<List<StorageIntegrationDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+     * 
+     */
+    public Output<List<StorageIntegrationDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
+    }
+    /**
      * (Default: `true`)
      * 
      */
@@ -149,14 +164,14 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageAwsExternalId", refs={String.class}, tree="[0]")
-    private Output<String> storageAwsExternalId;
+    private Output</* @Nullable */ String> storageAwsExternalId;
 
     /**
      * @return The external ID that Snowflake will use when assuming the AWS role.
      * 
      */
-    public Output<String> storageAwsExternalId() {
-        return this.storageAwsExternalId;
+    public Output<Optional<String>> storageAwsExternalId() {
+        return Codegen.optional(this.storageAwsExternalId);
     }
     /**
      * The Snowflake user that will attempt to assume the AWS role.

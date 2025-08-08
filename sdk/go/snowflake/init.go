@@ -105,6 +105,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JobService{}
 	case "snowflake:index/legacyServiceUser:LegacyServiceUser":
 		r = &LegacyServiceUser{}
+	case "snowflake:index/listing:Listing":
+		r = &Listing{}
 	case "snowflake:index/managedAccount:ManagedAccount":
 		r = &ManagedAccount{}
 	case "snowflake:index/maskingPolicy:MaskingPolicy":
@@ -452,6 +454,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/legacyServiceUser",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/listing",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

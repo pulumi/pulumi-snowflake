@@ -108,6 +108,7 @@
         "index.ts",
         "jobService.ts",
         "legacyServiceUser.ts",
+        "listing.ts",
         "managedAccount.ts",
         "maskingPolicy.ts",
         "materializedView.ts",

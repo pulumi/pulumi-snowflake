@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -60,6 +62,10 @@ export class StorageIntegration extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
+     * Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+     */
+    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.StorageIntegrationDescribeOutput[]>;
+    /**
      * (Default: `true`)
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
@@ -75,7 +81,7 @@ export class StorageIntegration extends pulumi.CustomResource {
     /**
      * The external ID that Snowflake will use when assuming the AWS role.
      */
-    public /*out*/ readonly storageAwsExternalId!: pulumi.Output<string>;
+    public readonly storageAwsExternalId!: pulumi.Output<string | undefined>;
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      */
@@ -123,6 +129,7 @@ export class StorageIntegration extends pulumi.CustomResource {
             resourceInputs["azureTenantId"] = state ? state.azureTenantId : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
+            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -148,6 +155,7 @@ export class StorageIntegration extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["storageAllowedLocations"] = args ? args.storageAllowedLocations : undefined;
+            resourceInputs["storageAwsExternalId"] = args ? args.storageAwsExternalId : undefined;
             resourceInputs["storageAwsObjectAcl"] = args ? args.storageAwsObjectAcl : undefined;
             resourceInputs["storageAwsRoleArn"] = args ? args.storageAwsRoleArn : undefined;
             resourceInputs["storageBlockedLocations"] = args ? args.storageBlockedLocations : undefined;
@@ -156,8 +164,8 @@ export class StorageIntegration extends pulumi.CustomResource {
             resourceInputs["azureConsentUrl"] = undefined /*out*/;
             resourceInputs["azureMultiTenantAppName"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
-            resourceInputs["storageAwsExternalId"] = undefined /*out*/;
             resourceInputs["storageAwsIamUserArn"] = undefined /*out*/;
             resourceInputs["storageGcpServiceAccount"] = undefined /*out*/;
         }
@@ -192,6 +200,10 @@ export interface StorageIntegrationState {
      * Date and time when the storage integration was created.
      */
     createdOn?: pulumi.Input<string>;
+    /**
+     * Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+     */
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutput>[]>;
     /**
      * (Default: `true`)
      */
@@ -260,6 +272,10 @@ export interface StorageIntegrationArgs {
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
      */
     storageAllowedLocations: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The external ID that Snowflake will use when assuming the AWS role.
+     */
+    storageAwsExternalId?: pulumi.Input<string>;
     /**
      * "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
      */

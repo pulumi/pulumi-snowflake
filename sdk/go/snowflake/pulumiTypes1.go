@@ -13,6 +13,2012 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TaskParameterStrictJsonOutput struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterStrictJsonOutputInput is an input type that accepts TaskParameterStrictJsonOutputArgs and TaskParameterStrictJsonOutputOutput values.
+// You can construct a concrete instance of `TaskParameterStrictJsonOutputInput` via:
+//
+//	TaskParameterStrictJsonOutputArgs{...}
+type TaskParameterStrictJsonOutputInput interface {
+	pulumi.Input
+
+	ToTaskParameterStrictJsonOutputOutput() TaskParameterStrictJsonOutputOutput
+	ToTaskParameterStrictJsonOutputOutputWithContext(context.Context) TaskParameterStrictJsonOutputOutput
+}
+
+type TaskParameterStrictJsonOutputArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterStrictJsonOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterStrictJsonOutput)(nil)).Elem()
+}
+
+func (i TaskParameterStrictJsonOutputArgs) ToTaskParameterStrictJsonOutputOutput() TaskParameterStrictJsonOutputOutput {
+	return i.ToTaskParameterStrictJsonOutputOutputWithContext(context.Background())
+}
+
+func (i TaskParameterStrictJsonOutputArgs) ToTaskParameterStrictJsonOutputOutputWithContext(ctx context.Context) TaskParameterStrictJsonOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStrictJsonOutputOutput)
+}
+
+// TaskParameterStrictJsonOutputArrayInput is an input type that accepts TaskParameterStrictJsonOutputArray and TaskParameterStrictJsonOutputArrayOutput values.
+// You can construct a concrete instance of `TaskParameterStrictJsonOutputArrayInput` via:
+//
+//	TaskParameterStrictJsonOutputArray{ TaskParameterStrictJsonOutputArgs{...} }
+type TaskParameterStrictJsonOutputArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterStrictJsonOutputArrayOutput() TaskParameterStrictJsonOutputArrayOutput
+	ToTaskParameterStrictJsonOutputArrayOutputWithContext(context.Context) TaskParameterStrictJsonOutputArrayOutput
+}
+
+type TaskParameterStrictJsonOutputArray []TaskParameterStrictJsonOutputInput
+
+func (TaskParameterStrictJsonOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterStrictJsonOutput)(nil)).Elem()
+}
+
+func (i TaskParameterStrictJsonOutputArray) ToTaskParameterStrictJsonOutputArrayOutput() TaskParameterStrictJsonOutputArrayOutput {
+	return i.ToTaskParameterStrictJsonOutputArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterStrictJsonOutputArray) ToTaskParameterStrictJsonOutputArrayOutputWithContext(ctx context.Context) TaskParameterStrictJsonOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStrictJsonOutputArrayOutput)
+}
+
+type TaskParameterStrictJsonOutputOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterStrictJsonOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterStrictJsonOutput)(nil)).Elem()
+}
+
+func (o TaskParameterStrictJsonOutputOutput) ToTaskParameterStrictJsonOutputOutput() TaskParameterStrictJsonOutputOutput {
+	return o
+}
+
+func (o TaskParameterStrictJsonOutputOutput) ToTaskParameterStrictJsonOutputOutputWithContext(ctx context.Context) TaskParameterStrictJsonOutputOutput {
+	return o
+}
+
+func (o TaskParameterStrictJsonOutputOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStrictJsonOutputOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStrictJsonOutputOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStrictJsonOutputOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStrictJsonOutputOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterStrictJsonOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterStrictJsonOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterStrictJsonOutput)(nil)).Elem()
+}
+
+func (o TaskParameterStrictJsonOutputArrayOutput) ToTaskParameterStrictJsonOutputArrayOutput() TaskParameterStrictJsonOutputArrayOutput {
+	return o
+}
+
+func (o TaskParameterStrictJsonOutputArrayOutput) ToTaskParameterStrictJsonOutputArrayOutputWithContext(ctx context.Context) TaskParameterStrictJsonOutputArrayOutput {
+	return o
+}
+
+func (o TaskParameterStrictJsonOutputArrayOutput) Index(i pulumi.IntInput) TaskParameterStrictJsonOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterStrictJsonOutput {
+		return vs[0].([]TaskParameterStrictJsonOutput)[vs[1].(int)]
+	}).(TaskParameterStrictJsonOutputOutput)
+}
+
+type TaskParameterSuspendTaskAfterNumFailure struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterSuspendTaskAfterNumFailureInput is an input type that accepts TaskParameterSuspendTaskAfterNumFailureArgs and TaskParameterSuspendTaskAfterNumFailureOutput values.
+// You can construct a concrete instance of `TaskParameterSuspendTaskAfterNumFailureInput` via:
+//
+//	TaskParameterSuspendTaskAfterNumFailureArgs{...}
+type TaskParameterSuspendTaskAfterNumFailureInput interface {
+	pulumi.Input
+
+	ToTaskParameterSuspendTaskAfterNumFailureOutput() TaskParameterSuspendTaskAfterNumFailureOutput
+	ToTaskParameterSuspendTaskAfterNumFailureOutputWithContext(context.Context) TaskParameterSuspendTaskAfterNumFailureOutput
+}
+
+type TaskParameterSuspendTaskAfterNumFailureArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterSuspendTaskAfterNumFailureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (i TaskParameterSuspendTaskAfterNumFailureArgs) ToTaskParameterSuspendTaskAfterNumFailureOutput() TaskParameterSuspendTaskAfterNumFailureOutput {
+	return i.ToTaskParameterSuspendTaskAfterNumFailureOutputWithContext(context.Background())
+}
+
+func (i TaskParameterSuspendTaskAfterNumFailureArgs) ToTaskParameterSuspendTaskAfterNumFailureOutputWithContext(ctx context.Context) TaskParameterSuspendTaskAfterNumFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterSuspendTaskAfterNumFailureOutput)
+}
+
+// TaskParameterSuspendTaskAfterNumFailureArrayInput is an input type that accepts TaskParameterSuspendTaskAfterNumFailureArray and TaskParameterSuspendTaskAfterNumFailureArrayOutput values.
+// You can construct a concrete instance of `TaskParameterSuspendTaskAfterNumFailureArrayInput` via:
+//
+//	TaskParameterSuspendTaskAfterNumFailureArray{ TaskParameterSuspendTaskAfterNumFailureArgs{...} }
+type TaskParameterSuspendTaskAfterNumFailureArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterSuspendTaskAfterNumFailureArrayOutput() TaskParameterSuspendTaskAfterNumFailureArrayOutput
+	ToTaskParameterSuspendTaskAfterNumFailureArrayOutputWithContext(context.Context) TaskParameterSuspendTaskAfterNumFailureArrayOutput
+}
+
+type TaskParameterSuspendTaskAfterNumFailureArray []TaskParameterSuspendTaskAfterNumFailureInput
+
+func (TaskParameterSuspendTaskAfterNumFailureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (i TaskParameterSuspendTaskAfterNumFailureArray) ToTaskParameterSuspendTaskAfterNumFailureArrayOutput() TaskParameterSuspendTaskAfterNumFailureArrayOutput {
+	return i.ToTaskParameterSuspendTaskAfterNumFailureArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterSuspendTaskAfterNumFailureArray) ToTaskParameterSuspendTaskAfterNumFailureArrayOutputWithContext(ctx context.Context) TaskParameterSuspendTaskAfterNumFailureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterSuspendTaskAfterNumFailureArrayOutput)
+}
+
+type TaskParameterSuspendTaskAfterNumFailureOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterSuspendTaskAfterNumFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureOutput) ToTaskParameterSuspendTaskAfterNumFailureOutput() TaskParameterSuspendTaskAfterNumFailureOutput {
+	return o
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureOutput) ToTaskParameterSuspendTaskAfterNumFailureOutputWithContext(ctx context.Context) TaskParameterSuspendTaskAfterNumFailureOutput {
+	return o
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterSuspendTaskAfterNumFailureArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterSuspendTaskAfterNumFailureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureArrayOutput) ToTaskParameterSuspendTaskAfterNumFailureArrayOutput() TaskParameterSuspendTaskAfterNumFailureArrayOutput {
+	return o
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureArrayOutput) ToTaskParameterSuspendTaskAfterNumFailureArrayOutputWithContext(ctx context.Context) TaskParameterSuspendTaskAfterNumFailureArrayOutput {
+	return o
+}
+
+func (o TaskParameterSuspendTaskAfterNumFailureArrayOutput) Index(i pulumi.IntInput) TaskParameterSuspendTaskAfterNumFailureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterSuspendTaskAfterNumFailure {
+		return vs[0].([]TaskParameterSuspendTaskAfterNumFailure)[vs[1].(int)]
+	}).(TaskParameterSuspendTaskAfterNumFailureOutput)
+}
+
+type TaskParameterTaskAutoRetryAttempt struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTaskAutoRetryAttemptInput is an input type that accepts TaskParameterTaskAutoRetryAttemptArgs and TaskParameterTaskAutoRetryAttemptOutput values.
+// You can construct a concrete instance of `TaskParameterTaskAutoRetryAttemptInput` via:
+//
+//	TaskParameterTaskAutoRetryAttemptArgs{...}
+type TaskParameterTaskAutoRetryAttemptInput interface {
+	pulumi.Input
+
+	ToTaskParameterTaskAutoRetryAttemptOutput() TaskParameterTaskAutoRetryAttemptOutput
+	ToTaskParameterTaskAutoRetryAttemptOutputWithContext(context.Context) TaskParameterTaskAutoRetryAttemptOutput
+}
+
+type TaskParameterTaskAutoRetryAttemptArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTaskAutoRetryAttemptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (i TaskParameterTaskAutoRetryAttemptArgs) ToTaskParameterTaskAutoRetryAttemptOutput() TaskParameterTaskAutoRetryAttemptOutput {
+	return i.ToTaskParameterTaskAutoRetryAttemptOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTaskAutoRetryAttemptArgs) ToTaskParameterTaskAutoRetryAttemptOutputWithContext(ctx context.Context) TaskParameterTaskAutoRetryAttemptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTaskAutoRetryAttemptOutput)
+}
+
+// TaskParameterTaskAutoRetryAttemptArrayInput is an input type that accepts TaskParameterTaskAutoRetryAttemptArray and TaskParameterTaskAutoRetryAttemptArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTaskAutoRetryAttemptArrayInput` via:
+//
+//	TaskParameterTaskAutoRetryAttemptArray{ TaskParameterTaskAutoRetryAttemptArgs{...} }
+type TaskParameterTaskAutoRetryAttemptArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTaskAutoRetryAttemptArrayOutput() TaskParameterTaskAutoRetryAttemptArrayOutput
+	ToTaskParameterTaskAutoRetryAttemptArrayOutputWithContext(context.Context) TaskParameterTaskAutoRetryAttemptArrayOutput
+}
+
+type TaskParameterTaskAutoRetryAttemptArray []TaskParameterTaskAutoRetryAttemptInput
+
+func (TaskParameterTaskAutoRetryAttemptArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (i TaskParameterTaskAutoRetryAttemptArray) ToTaskParameterTaskAutoRetryAttemptArrayOutput() TaskParameterTaskAutoRetryAttemptArrayOutput {
+	return i.ToTaskParameterTaskAutoRetryAttemptArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTaskAutoRetryAttemptArray) ToTaskParameterTaskAutoRetryAttemptArrayOutputWithContext(ctx context.Context) TaskParameterTaskAutoRetryAttemptArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTaskAutoRetryAttemptArrayOutput)
+}
+
+type TaskParameterTaskAutoRetryAttemptOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTaskAutoRetryAttemptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (o TaskParameterTaskAutoRetryAttemptOutput) ToTaskParameterTaskAutoRetryAttemptOutput() TaskParameterTaskAutoRetryAttemptOutput {
+	return o
+}
+
+func (o TaskParameterTaskAutoRetryAttemptOutput) ToTaskParameterTaskAutoRetryAttemptOutputWithContext(ctx context.Context) TaskParameterTaskAutoRetryAttemptOutput {
+	return o
+}
+
+func (o TaskParameterTaskAutoRetryAttemptOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTaskAutoRetryAttemptOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTaskAutoRetryAttemptOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTaskAutoRetryAttemptOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTaskAutoRetryAttemptOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTaskAutoRetryAttemptArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTaskAutoRetryAttemptArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (o TaskParameterTaskAutoRetryAttemptArrayOutput) ToTaskParameterTaskAutoRetryAttemptArrayOutput() TaskParameterTaskAutoRetryAttemptArrayOutput {
+	return o
+}
+
+func (o TaskParameterTaskAutoRetryAttemptArrayOutput) ToTaskParameterTaskAutoRetryAttemptArrayOutputWithContext(ctx context.Context) TaskParameterTaskAutoRetryAttemptArrayOutput {
+	return o
+}
+
+func (o TaskParameterTaskAutoRetryAttemptArrayOutput) Index(i pulumi.IntInput) TaskParameterTaskAutoRetryAttemptOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTaskAutoRetryAttempt {
+		return vs[0].([]TaskParameterTaskAutoRetryAttempt)[vs[1].(int)]
+	}).(TaskParameterTaskAutoRetryAttemptOutput)
+}
+
+type TaskParameterTimeInputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimeInputFormatInput is an input type that accepts TaskParameterTimeInputFormatArgs and TaskParameterTimeInputFormatOutput values.
+// You can construct a concrete instance of `TaskParameterTimeInputFormatInput` via:
+//
+//	TaskParameterTimeInputFormatArgs{...}
+type TaskParameterTimeInputFormatInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimeInputFormatOutput() TaskParameterTimeInputFormatOutput
+	ToTaskParameterTimeInputFormatOutputWithContext(context.Context) TaskParameterTimeInputFormatOutput
+}
+
+type TaskParameterTimeInputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimeInputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimeInputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimeInputFormatArgs) ToTaskParameterTimeInputFormatOutput() TaskParameterTimeInputFormatOutput {
+	return i.ToTaskParameterTimeInputFormatOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimeInputFormatArgs) ToTaskParameterTimeInputFormatOutputWithContext(ctx context.Context) TaskParameterTimeInputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimeInputFormatOutput)
+}
+
+// TaskParameterTimeInputFormatArrayInput is an input type that accepts TaskParameterTimeInputFormatArray and TaskParameterTimeInputFormatArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimeInputFormatArrayInput` via:
+//
+//	TaskParameterTimeInputFormatArray{ TaskParameterTimeInputFormatArgs{...} }
+type TaskParameterTimeInputFormatArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimeInputFormatArrayOutput() TaskParameterTimeInputFormatArrayOutput
+	ToTaskParameterTimeInputFormatArrayOutputWithContext(context.Context) TaskParameterTimeInputFormatArrayOutput
+}
+
+type TaskParameterTimeInputFormatArray []TaskParameterTimeInputFormatInput
+
+func (TaskParameterTimeInputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimeInputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimeInputFormatArray) ToTaskParameterTimeInputFormatArrayOutput() TaskParameterTimeInputFormatArrayOutput {
+	return i.ToTaskParameterTimeInputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimeInputFormatArray) ToTaskParameterTimeInputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimeInputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimeInputFormatArrayOutput)
+}
+
+type TaskParameterTimeInputFormatOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimeInputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimeInputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimeInputFormatOutput) ToTaskParameterTimeInputFormatOutput() TaskParameterTimeInputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimeInputFormatOutput) ToTaskParameterTimeInputFormatOutputWithContext(ctx context.Context) TaskParameterTimeInputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimeInputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimeInputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimeInputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimeInputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimeInputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimeInputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimeInputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimeInputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimeInputFormatArrayOutput) ToTaskParameterTimeInputFormatArrayOutput() TaskParameterTimeInputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimeInputFormatArrayOutput) ToTaskParameterTimeInputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimeInputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimeInputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimeInputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimeInputFormat {
+		return vs[0].([]TaskParameterTimeInputFormat)[vs[1].(int)]
+	}).(TaskParameterTimeInputFormatOutput)
+}
+
+type TaskParameterTimeOutputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimeOutputFormatInput is an input type that accepts TaskParameterTimeOutputFormatArgs and TaskParameterTimeOutputFormatOutput values.
+// You can construct a concrete instance of `TaskParameterTimeOutputFormatInput` via:
+//
+//	TaskParameterTimeOutputFormatArgs{...}
+type TaskParameterTimeOutputFormatInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimeOutputFormatOutput() TaskParameterTimeOutputFormatOutput
+	ToTaskParameterTimeOutputFormatOutputWithContext(context.Context) TaskParameterTimeOutputFormatOutput
+}
+
+type TaskParameterTimeOutputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimeOutputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimeOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimeOutputFormatArgs) ToTaskParameterTimeOutputFormatOutput() TaskParameterTimeOutputFormatOutput {
+	return i.ToTaskParameterTimeOutputFormatOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimeOutputFormatArgs) ToTaskParameterTimeOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimeOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimeOutputFormatOutput)
+}
+
+// TaskParameterTimeOutputFormatArrayInput is an input type that accepts TaskParameterTimeOutputFormatArray and TaskParameterTimeOutputFormatArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimeOutputFormatArrayInput` via:
+//
+//	TaskParameterTimeOutputFormatArray{ TaskParameterTimeOutputFormatArgs{...} }
+type TaskParameterTimeOutputFormatArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimeOutputFormatArrayOutput() TaskParameterTimeOutputFormatArrayOutput
+	ToTaskParameterTimeOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimeOutputFormatArrayOutput
+}
+
+type TaskParameterTimeOutputFormatArray []TaskParameterTimeOutputFormatInput
+
+func (TaskParameterTimeOutputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimeOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimeOutputFormatArray) ToTaskParameterTimeOutputFormatArrayOutput() TaskParameterTimeOutputFormatArrayOutput {
+	return i.ToTaskParameterTimeOutputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimeOutputFormatArray) ToTaskParameterTimeOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimeOutputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimeOutputFormatArrayOutput)
+}
+
+type TaskParameterTimeOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimeOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimeOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimeOutputFormatOutput) ToTaskParameterTimeOutputFormatOutput() TaskParameterTimeOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimeOutputFormatOutput) ToTaskParameterTimeOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimeOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimeOutputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimeOutputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimeOutputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimeOutputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimeOutputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimeOutputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimeOutputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimeOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimeOutputFormatArrayOutput) ToTaskParameterTimeOutputFormatArrayOutput() TaskParameterTimeOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimeOutputFormatArrayOutput) ToTaskParameterTimeOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimeOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimeOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimeOutputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimeOutputFormat {
+		return vs[0].([]TaskParameterTimeOutputFormat)[vs[1].(int)]
+	}).(TaskParameterTimeOutputFormatOutput)
+}
+
+type TaskParameterTimestampDayIsAlways24h struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimestampDayIsAlways24hInput is an input type that accepts TaskParameterTimestampDayIsAlways24hArgs and TaskParameterTimestampDayIsAlways24hOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampDayIsAlways24hInput` via:
+//
+//	TaskParameterTimestampDayIsAlways24hArgs{...}
+type TaskParameterTimestampDayIsAlways24hInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampDayIsAlways24hOutput() TaskParameterTimestampDayIsAlways24hOutput
+	ToTaskParameterTimestampDayIsAlways24hOutputWithContext(context.Context) TaskParameterTimestampDayIsAlways24hOutput
+}
+
+type TaskParameterTimestampDayIsAlways24hArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimestampDayIsAlways24hArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampDayIsAlways24h)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampDayIsAlways24hArgs) ToTaskParameterTimestampDayIsAlways24hOutput() TaskParameterTimestampDayIsAlways24hOutput {
+	return i.ToTaskParameterTimestampDayIsAlways24hOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampDayIsAlways24hArgs) ToTaskParameterTimestampDayIsAlways24hOutputWithContext(ctx context.Context) TaskParameterTimestampDayIsAlways24hOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampDayIsAlways24hOutput)
+}
+
+// TaskParameterTimestampDayIsAlways24hArrayInput is an input type that accepts TaskParameterTimestampDayIsAlways24hArray and TaskParameterTimestampDayIsAlways24hArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampDayIsAlways24hArrayInput` via:
+//
+//	TaskParameterTimestampDayIsAlways24hArray{ TaskParameterTimestampDayIsAlways24hArgs{...} }
+type TaskParameterTimestampDayIsAlways24hArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampDayIsAlways24hArrayOutput() TaskParameterTimestampDayIsAlways24hArrayOutput
+	ToTaskParameterTimestampDayIsAlways24hArrayOutputWithContext(context.Context) TaskParameterTimestampDayIsAlways24hArrayOutput
+}
+
+type TaskParameterTimestampDayIsAlways24hArray []TaskParameterTimestampDayIsAlways24hInput
+
+func (TaskParameterTimestampDayIsAlways24hArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampDayIsAlways24h)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampDayIsAlways24hArray) ToTaskParameterTimestampDayIsAlways24hArrayOutput() TaskParameterTimestampDayIsAlways24hArrayOutput {
+	return i.ToTaskParameterTimestampDayIsAlways24hArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampDayIsAlways24hArray) ToTaskParameterTimestampDayIsAlways24hArrayOutputWithContext(ctx context.Context) TaskParameterTimestampDayIsAlways24hArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampDayIsAlways24hArrayOutput)
+}
+
+type TaskParameterTimestampDayIsAlways24hOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampDayIsAlways24hOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampDayIsAlways24h)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampDayIsAlways24hOutput) ToTaskParameterTimestampDayIsAlways24hOutput() TaskParameterTimestampDayIsAlways24hOutput {
+	return o
+}
+
+func (o TaskParameterTimestampDayIsAlways24hOutput) ToTaskParameterTimestampDayIsAlways24hOutputWithContext(ctx context.Context) TaskParameterTimestampDayIsAlways24hOutput {
+	return o
+}
+
+func (o TaskParameterTimestampDayIsAlways24hOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampDayIsAlways24hOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampDayIsAlways24hOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampDayIsAlways24hOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampDayIsAlways24hOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimestampDayIsAlways24hArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampDayIsAlways24hArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampDayIsAlways24h)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampDayIsAlways24hArrayOutput) ToTaskParameterTimestampDayIsAlways24hArrayOutput() TaskParameterTimestampDayIsAlways24hArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampDayIsAlways24hArrayOutput) ToTaskParameterTimestampDayIsAlways24hArrayOutputWithContext(ctx context.Context) TaskParameterTimestampDayIsAlways24hArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampDayIsAlways24hArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampDayIsAlways24hOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampDayIsAlways24h {
+		return vs[0].([]TaskParameterTimestampDayIsAlways24h)[vs[1].(int)]
+	}).(TaskParameterTimestampDayIsAlways24hOutput)
+}
+
+type TaskParameterTimestampInputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimestampInputFormatInput is an input type that accepts TaskParameterTimestampInputFormatArgs and TaskParameterTimestampInputFormatOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampInputFormatInput` via:
+//
+//	TaskParameterTimestampInputFormatArgs{...}
+type TaskParameterTimestampInputFormatInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampInputFormatOutput() TaskParameterTimestampInputFormatOutput
+	ToTaskParameterTimestampInputFormatOutputWithContext(context.Context) TaskParameterTimestampInputFormatOutput
+}
+
+type TaskParameterTimestampInputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimestampInputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampInputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampInputFormatArgs) ToTaskParameterTimestampInputFormatOutput() TaskParameterTimestampInputFormatOutput {
+	return i.ToTaskParameterTimestampInputFormatOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampInputFormatArgs) ToTaskParameterTimestampInputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampInputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampInputFormatOutput)
+}
+
+// TaskParameterTimestampInputFormatArrayInput is an input type that accepts TaskParameterTimestampInputFormatArray and TaskParameterTimestampInputFormatArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampInputFormatArrayInput` via:
+//
+//	TaskParameterTimestampInputFormatArray{ TaskParameterTimestampInputFormatArgs{...} }
+type TaskParameterTimestampInputFormatArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampInputFormatArrayOutput() TaskParameterTimestampInputFormatArrayOutput
+	ToTaskParameterTimestampInputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampInputFormatArrayOutput
+}
+
+type TaskParameterTimestampInputFormatArray []TaskParameterTimestampInputFormatInput
+
+func (TaskParameterTimestampInputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampInputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampInputFormatArray) ToTaskParameterTimestampInputFormatArrayOutput() TaskParameterTimestampInputFormatArrayOutput {
+	return i.ToTaskParameterTimestampInputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampInputFormatArray) ToTaskParameterTimestampInputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampInputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampInputFormatArrayOutput)
+}
+
+type TaskParameterTimestampInputFormatOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampInputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampInputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampInputFormatOutput) ToTaskParameterTimestampInputFormatOutput() TaskParameterTimestampInputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampInputFormatOutput) ToTaskParameterTimestampInputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampInputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampInputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampInputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampInputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampInputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampInputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimestampInputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampInputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampInputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampInputFormatArrayOutput) ToTaskParameterTimestampInputFormatArrayOutput() TaskParameterTimestampInputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampInputFormatArrayOutput) ToTaskParameterTimestampInputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampInputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampInputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampInputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampInputFormat {
+		return vs[0].([]TaskParameterTimestampInputFormat)[vs[1].(int)]
+	}).(TaskParameterTimestampInputFormatOutput)
+}
+
+type TaskParameterTimestampLtzOutputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimestampLtzOutputFormatInput is an input type that accepts TaskParameterTimestampLtzOutputFormatArgs and TaskParameterTimestampLtzOutputFormatOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampLtzOutputFormatInput` via:
+//
+//	TaskParameterTimestampLtzOutputFormatArgs{...}
+type TaskParameterTimestampLtzOutputFormatInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampLtzOutputFormatOutput() TaskParameterTimestampLtzOutputFormatOutput
+	ToTaskParameterTimestampLtzOutputFormatOutputWithContext(context.Context) TaskParameterTimestampLtzOutputFormatOutput
+}
+
+type TaskParameterTimestampLtzOutputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimestampLtzOutputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampLtzOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampLtzOutputFormatArgs) ToTaskParameterTimestampLtzOutputFormatOutput() TaskParameterTimestampLtzOutputFormatOutput {
+	return i.ToTaskParameterTimestampLtzOutputFormatOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampLtzOutputFormatArgs) ToTaskParameterTimestampLtzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampLtzOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampLtzOutputFormatOutput)
+}
+
+// TaskParameterTimestampLtzOutputFormatArrayInput is an input type that accepts TaskParameterTimestampLtzOutputFormatArray and TaskParameterTimestampLtzOutputFormatArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampLtzOutputFormatArrayInput` via:
+//
+//	TaskParameterTimestampLtzOutputFormatArray{ TaskParameterTimestampLtzOutputFormatArgs{...} }
+type TaskParameterTimestampLtzOutputFormatArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampLtzOutputFormatArrayOutput() TaskParameterTimestampLtzOutputFormatArrayOutput
+	ToTaskParameterTimestampLtzOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampLtzOutputFormatArrayOutput
+}
+
+type TaskParameterTimestampLtzOutputFormatArray []TaskParameterTimestampLtzOutputFormatInput
+
+func (TaskParameterTimestampLtzOutputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampLtzOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampLtzOutputFormatArray) ToTaskParameterTimestampLtzOutputFormatArrayOutput() TaskParameterTimestampLtzOutputFormatArrayOutput {
+	return i.ToTaskParameterTimestampLtzOutputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampLtzOutputFormatArray) ToTaskParameterTimestampLtzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampLtzOutputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampLtzOutputFormatArrayOutput)
+}
+
+type TaskParameterTimestampLtzOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampLtzOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampLtzOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampLtzOutputFormatOutput) ToTaskParameterTimestampLtzOutputFormatOutput() TaskParameterTimestampLtzOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampLtzOutputFormatOutput) ToTaskParameterTimestampLtzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampLtzOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampLtzOutputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampLtzOutputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampLtzOutputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampLtzOutputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampLtzOutputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimestampLtzOutputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampLtzOutputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampLtzOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampLtzOutputFormatArrayOutput) ToTaskParameterTimestampLtzOutputFormatArrayOutput() TaskParameterTimestampLtzOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampLtzOutputFormatArrayOutput) ToTaskParameterTimestampLtzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampLtzOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampLtzOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampLtzOutputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampLtzOutputFormat {
+		return vs[0].([]TaskParameterTimestampLtzOutputFormat)[vs[1].(int)]
+	}).(TaskParameterTimestampLtzOutputFormatOutput)
+}
+
+type TaskParameterTimestampNtzOutputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimestampNtzOutputFormatInput is an input type that accepts TaskParameterTimestampNtzOutputFormatArgs and TaskParameterTimestampNtzOutputFormatOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampNtzOutputFormatInput` via:
+//
+//	TaskParameterTimestampNtzOutputFormatArgs{...}
+type TaskParameterTimestampNtzOutputFormatInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampNtzOutputFormatOutput() TaskParameterTimestampNtzOutputFormatOutput
+	ToTaskParameterTimestampNtzOutputFormatOutputWithContext(context.Context) TaskParameterTimestampNtzOutputFormatOutput
+}
+
+type TaskParameterTimestampNtzOutputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimestampNtzOutputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampNtzOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampNtzOutputFormatArgs) ToTaskParameterTimestampNtzOutputFormatOutput() TaskParameterTimestampNtzOutputFormatOutput {
+	return i.ToTaskParameterTimestampNtzOutputFormatOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampNtzOutputFormatArgs) ToTaskParameterTimestampNtzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampNtzOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampNtzOutputFormatOutput)
+}
+
+// TaskParameterTimestampNtzOutputFormatArrayInput is an input type that accepts TaskParameterTimestampNtzOutputFormatArray and TaskParameterTimestampNtzOutputFormatArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampNtzOutputFormatArrayInput` via:
+//
+//	TaskParameterTimestampNtzOutputFormatArray{ TaskParameterTimestampNtzOutputFormatArgs{...} }
+type TaskParameterTimestampNtzOutputFormatArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampNtzOutputFormatArrayOutput() TaskParameterTimestampNtzOutputFormatArrayOutput
+	ToTaskParameterTimestampNtzOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampNtzOutputFormatArrayOutput
+}
+
+type TaskParameterTimestampNtzOutputFormatArray []TaskParameterTimestampNtzOutputFormatInput
+
+func (TaskParameterTimestampNtzOutputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampNtzOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampNtzOutputFormatArray) ToTaskParameterTimestampNtzOutputFormatArrayOutput() TaskParameterTimestampNtzOutputFormatArrayOutput {
+	return i.ToTaskParameterTimestampNtzOutputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampNtzOutputFormatArray) ToTaskParameterTimestampNtzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampNtzOutputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampNtzOutputFormatArrayOutput)
+}
+
+type TaskParameterTimestampNtzOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampNtzOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampNtzOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampNtzOutputFormatOutput) ToTaskParameterTimestampNtzOutputFormatOutput() TaskParameterTimestampNtzOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampNtzOutputFormatOutput) ToTaskParameterTimestampNtzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampNtzOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampNtzOutputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampNtzOutputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampNtzOutputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampNtzOutputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampNtzOutputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimestampNtzOutputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampNtzOutputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampNtzOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampNtzOutputFormatArrayOutput) ToTaskParameterTimestampNtzOutputFormatArrayOutput() TaskParameterTimestampNtzOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampNtzOutputFormatArrayOutput) ToTaskParameterTimestampNtzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampNtzOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampNtzOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampNtzOutputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampNtzOutputFormat {
+		return vs[0].([]TaskParameterTimestampNtzOutputFormat)[vs[1].(int)]
+	}).(TaskParameterTimestampNtzOutputFormatOutput)
+}
+
+type TaskParameterTimestampOutputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimestampOutputFormatInput is an input type that accepts TaskParameterTimestampOutputFormatArgs and TaskParameterTimestampOutputFormatOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampOutputFormatInput` via:
+//
+//	TaskParameterTimestampOutputFormatArgs{...}
+type TaskParameterTimestampOutputFormatInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampOutputFormatOutput() TaskParameterTimestampOutputFormatOutput
+	ToTaskParameterTimestampOutputFormatOutputWithContext(context.Context) TaskParameterTimestampOutputFormatOutput
+}
+
+type TaskParameterTimestampOutputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimestampOutputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampOutputFormatArgs) ToTaskParameterTimestampOutputFormatOutput() TaskParameterTimestampOutputFormatOutput {
+	return i.ToTaskParameterTimestampOutputFormatOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampOutputFormatArgs) ToTaskParameterTimestampOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampOutputFormatOutput)
+}
+
+// TaskParameterTimestampOutputFormatArrayInput is an input type that accepts TaskParameterTimestampOutputFormatArray and TaskParameterTimestampOutputFormatArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampOutputFormatArrayInput` via:
+//
+//	TaskParameterTimestampOutputFormatArray{ TaskParameterTimestampOutputFormatArgs{...} }
+type TaskParameterTimestampOutputFormatArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampOutputFormatArrayOutput() TaskParameterTimestampOutputFormatArrayOutput
+	ToTaskParameterTimestampOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampOutputFormatArrayOutput
+}
+
+type TaskParameterTimestampOutputFormatArray []TaskParameterTimestampOutputFormatInput
+
+func (TaskParameterTimestampOutputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampOutputFormatArray) ToTaskParameterTimestampOutputFormatArrayOutput() TaskParameterTimestampOutputFormatArrayOutput {
+	return i.ToTaskParameterTimestampOutputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampOutputFormatArray) ToTaskParameterTimestampOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampOutputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampOutputFormatArrayOutput)
+}
+
+type TaskParameterTimestampOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampOutputFormatOutput) ToTaskParameterTimestampOutputFormatOutput() TaskParameterTimestampOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampOutputFormatOutput) ToTaskParameterTimestampOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampOutputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampOutputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampOutputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampOutputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampOutputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimestampOutputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampOutputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampOutputFormatArrayOutput) ToTaskParameterTimestampOutputFormatArrayOutput() TaskParameterTimestampOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampOutputFormatArrayOutput) ToTaskParameterTimestampOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampOutputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampOutputFormat {
+		return vs[0].([]TaskParameterTimestampOutputFormat)[vs[1].(int)]
+	}).(TaskParameterTimestampOutputFormatOutput)
+}
+
+type TaskParameterTimestampTypeMapping struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimestampTypeMappingInput is an input type that accepts TaskParameterTimestampTypeMappingArgs and TaskParameterTimestampTypeMappingOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampTypeMappingInput` via:
+//
+//	TaskParameterTimestampTypeMappingArgs{...}
+type TaskParameterTimestampTypeMappingInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampTypeMappingOutput() TaskParameterTimestampTypeMappingOutput
+	ToTaskParameterTimestampTypeMappingOutputWithContext(context.Context) TaskParameterTimestampTypeMappingOutput
+}
+
+type TaskParameterTimestampTypeMappingArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimestampTypeMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampTypeMapping)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampTypeMappingArgs) ToTaskParameterTimestampTypeMappingOutput() TaskParameterTimestampTypeMappingOutput {
+	return i.ToTaskParameterTimestampTypeMappingOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampTypeMappingArgs) ToTaskParameterTimestampTypeMappingOutputWithContext(ctx context.Context) TaskParameterTimestampTypeMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampTypeMappingOutput)
+}
+
+// TaskParameterTimestampTypeMappingArrayInput is an input type that accepts TaskParameterTimestampTypeMappingArray and TaskParameterTimestampTypeMappingArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampTypeMappingArrayInput` via:
+//
+//	TaskParameterTimestampTypeMappingArray{ TaskParameterTimestampTypeMappingArgs{...} }
+type TaskParameterTimestampTypeMappingArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampTypeMappingArrayOutput() TaskParameterTimestampTypeMappingArrayOutput
+	ToTaskParameterTimestampTypeMappingArrayOutputWithContext(context.Context) TaskParameterTimestampTypeMappingArrayOutput
+}
+
+type TaskParameterTimestampTypeMappingArray []TaskParameterTimestampTypeMappingInput
+
+func (TaskParameterTimestampTypeMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampTypeMapping)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampTypeMappingArray) ToTaskParameterTimestampTypeMappingArrayOutput() TaskParameterTimestampTypeMappingArrayOutput {
+	return i.ToTaskParameterTimestampTypeMappingArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampTypeMappingArray) ToTaskParameterTimestampTypeMappingArrayOutputWithContext(ctx context.Context) TaskParameterTimestampTypeMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampTypeMappingArrayOutput)
+}
+
+type TaskParameterTimestampTypeMappingOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampTypeMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampTypeMapping)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampTypeMappingOutput) ToTaskParameterTimestampTypeMappingOutput() TaskParameterTimestampTypeMappingOutput {
+	return o
+}
+
+func (o TaskParameterTimestampTypeMappingOutput) ToTaskParameterTimestampTypeMappingOutputWithContext(ctx context.Context) TaskParameterTimestampTypeMappingOutput {
+	return o
+}
+
+func (o TaskParameterTimestampTypeMappingOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampTypeMappingOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampTypeMappingOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampTypeMappingOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampTypeMappingOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimestampTypeMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampTypeMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampTypeMapping)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampTypeMappingArrayOutput) ToTaskParameterTimestampTypeMappingArrayOutput() TaskParameterTimestampTypeMappingArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampTypeMappingArrayOutput) ToTaskParameterTimestampTypeMappingArrayOutputWithContext(ctx context.Context) TaskParameterTimestampTypeMappingArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampTypeMappingArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampTypeMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampTypeMapping {
+		return vs[0].([]TaskParameterTimestampTypeMapping)[vs[1].(int)]
+	}).(TaskParameterTimestampTypeMappingOutput)
+}
+
+type TaskParameterTimestampTzOutputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimestampTzOutputFormatInput is an input type that accepts TaskParameterTimestampTzOutputFormatArgs and TaskParameterTimestampTzOutputFormatOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampTzOutputFormatInput` via:
+//
+//	TaskParameterTimestampTzOutputFormatArgs{...}
+type TaskParameterTimestampTzOutputFormatInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampTzOutputFormatOutput() TaskParameterTimestampTzOutputFormatOutput
+	ToTaskParameterTimestampTzOutputFormatOutputWithContext(context.Context) TaskParameterTimestampTzOutputFormatOutput
+}
+
+type TaskParameterTimestampTzOutputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimestampTzOutputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampTzOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampTzOutputFormatArgs) ToTaskParameterTimestampTzOutputFormatOutput() TaskParameterTimestampTzOutputFormatOutput {
+	return i.ToTaskParameterTimestampTzOutputFormatOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampTzOutputFormatArgs) ToTaskParameterTimestampTzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampTzOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampTzOutputFormatOutput)
+}
+
+// TaskParameterTimestampTzOutputFormatArrayInput is an input type that accepts TaskParameterTimestampTzOutputFormatArray and TaskParameterTimestampTzOutputFormatArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimestampTzOutputFormatArrayInput` via:
+//
+//	TaskParameterTimestampTzOutputFormatArray{ TaskParameterTimestampTzOutputFormatArgs{...} }
+type TaskParameterTimestampTzOutputFormatArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimestampTzOutputFormatArrayOutput() TaskParameterTimestampTzOutputFormatArrayOutput
+	ToTaskParameterTimestampTzOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampTzOutputFormatArrayOutput
+}
+
+type TaskParameterTimestampTzOutputFormatArray []TaskParameterTimestampTzOutputFormatInput
+
+func (TaskParameterTimestampTzOutputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampTzOutputFormat)(nil)).Elem()
+}
+
+func (i TaskParameterTimestampTzOutputFormatArray) ToTaskParameterTimestampTzOutputFormatArrayOutput() TaskParameterTimestampTzOutputFormatArrayOutput {
+	return i.ToTaskParameterTimestampTzOutputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimestampTzOutputFormatArray) ToTaskParameterTimestampTzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampTzOutputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampTzOutputFormatArrayOutput)
+}
+
+type TaskParameterTimestampTzOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampTzOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimestampTzOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampTzOutputFormatOutput) ToTaskParameterTimestampTzOutputFormatOutput() TaskParameterTimestampTzOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampTzOutputFormatOutput) ToTaskParameterTimestampTzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampTzOutputFormatOutput {
+	return o
+}
+
+func (o TaskParameterTimestampTzOutputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampTzOutputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampTzOutputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampTzOutputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimestampTzOutputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimestampTzOutputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimestampTzOutputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimestampTzOutputFormat)(nil)).Elem()
+}
+
+func (o TaskParameterTimestampTzOutputFormatArrayOutput) ToTaskParameterTimestampTzOutputFormatArrayOutput() TaskParameterTimestampTzOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampTzOutputFormatArrayOutput) ToTaskParameterTimestampTzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampTzOutputFormatArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimestampTzOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampTzOutputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampTzOutputFormat {
+		return vs[0].([]TaskParameterTimestampTzOutputFormat)[vs[1].(int)]
+	}).(TaskParameterTimestampTzOutputFormatOutput)
+}
+
+type TaskParameterTimezone struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTimezoneInput is an input type that accepts TaskParameterTimezoneArgs and TaskParameterTimezoneOutput values.
+// You can construct a concrete instance of `TaskParameterTimezoneInput` via:
+//
+//	TaskParameterTimezoneArgs{...}
+type TaskParameterTimezoneInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimezoneOutput() TaskParameterTimezoneOutput
+	ToTaskParameterTimezoneOutputWithContext(context.Context) TaskParameterTimezoneOutput
+}
+
+type TaskParameterTimezoneArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTimezoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimezone)(nil)).Elem()
+}
+
+func (i TaskParameterTimezoneArgs) ToTaskParameterTimezoneOutput() TaskParameterTimezoneOutput {
+	return i.ToTaskParameterTimezoneOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimezoneArgs) ToTaskParameterTimezoneOutputWithContext(ctx context.Context) TaskParameterTimezoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimezoneOutput)
+}
+
+// TaskParameterTimezoneArrayInput is an input type that accepts TaskParameterTimezoneArray and TaskParameterTimezoneArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTimezoneArrayInput` via:
+//
+//	TaskParameterTimezoneArray{ TaskParameterTimezoneArgs{...} }
+type TaskParameterTimezoneArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTimezoneArrayOutput() TaskParameterTimezoneArrayOutput
+	ToTaskParameterTimezoneArrayOutputWithContext(context.Context) TaskParameterTimezoneArrayOutput
+}
+
+type TaskParameterTimezoneArray []TaskParameterTimezoneInput
+
+func (TaskParameterTimezoneArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimezone)(nil)).Elem()
+}
+
+func (i TaskParameterTimezoneArray) ToTaskParameterTimezoneArrayOutput() TaskParameterTimezoneArrayOutput {
+	return i.ToTaskParameterTimezoneArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTimezoneArray) ToTaskParameterTimezoneArrayOutputWithContext(ctx context.Context) TaskParameterTimezoneArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimezoneArrayOutput)
+}
+
+type TaskParameterTimezoneOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimezoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTimezone)(nil)).Elem()
+}
+
+func (o TaskParameterTimezoneOutput) ToTaskParameterTimezoneOutput() TaskParameterTimezoneOutput {
+	return o
+}
+
+func (o TaskParameterTimezoneOutput) ToTaskParameterTimezoneOutputWithContext(ctx context.Context) TaskParameterTimezoneOutput {
+	return o
+}
+
+func (o TaskParameterTimezoneOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimezoneOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimezoneOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimezoneOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTimezoneOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTimezoneArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTimezoneArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTimezone)(nil)).Elem()
+}
+
+func (o TaskParameterTimezoneArrayOutput) ToTaskParameterTimezoneArrayOutput() TaskParameterTimezoneArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimezoneArrayOutput) ToTaskParameterTimezoneArrayOutputWithContext(ctx context.Context) TaskParameterTimezoneArrayOutput {
+	return o
+}
+
+func (o TaskParameterTimezoneArrayOutput) Index(i pulumi.IntInput) TaskParameterTimezoneOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimezone {
+		return vs[0].([]TaskParameterTimezone)[vs[1].(int)]
+	}).(TaskParameterTimezoneOutput)
+}
+
+type TaskParameterTraceLevel struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTraceLevelInput is an input type that accepts TaskParameterTraceLevelArgs and TaskParameterTraceLevelOutput values.
+// You can construct a concrete instance of `TaskParameterTraceLevelInput` via:
+//
+//	TaskParameterTraceLevelArgs{...}
+type TaskParameterTraceLevelInput interface {
+	pulumi.Input
+
+	ToTaskParameterTraceLevelOutput() TaskParameterTraceLevelOutput
+	ToTaskParameterTraceLevelOutputWithContext(context.Context) TaskParameterTraceLevelOutput
+}
+
+type TaskParameterTraceLevelArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTraceLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTraceLevel)(nil)).Elem()
+}
+
+func (i TaskParameterTraceLevelArgs) ToTaskParameterTraceLevelOutput() TaskParameterTraceLevelOutput {
+	return i.ToTaskParameterTraceLevelOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTraceLevelArgs) ToTaskParameterTraceLevelOutputWithContext(ctx context.Context) TaskParameterTraceLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTraceLevelOutput)
+}
+
+// TaskParameterTraceLevelArrayInput is an input type that accepts TaskParameterTraceLevelArray and TaskParameterTraceLevelArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTraceLevelArrayInput` via:
+//
+//	TaskParameterTraceLevelArray{ TaskParameterTraceLevelArgs{...} }
+type TaskParameterTraceLevelArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTraceLevelArrayOutput() TaskParameterTraceLevelArrayOutput
+	ToTaskParameterTraceLevelArrayOutputWithContext(context.Context) TaskParameterTraceLevelArrayOutput
+}
+
+type TaskParameterTraceLevelArray []TaskParameterTraceLevelInput
+
+func (TaskParameterTraceLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTraceLevel)(nil)).Elem()
+}
+
+func (i TaskParameterTraceLevelArray) ToTaskParameterTraceLevelArrayOutput() TaskParameterTraceLevelArrayOutput {
+	return i.ToTaskParameterTraceLevelArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTraceLevelArray) ToTaskParameterTraceLevelArrayOutputWithContext(ctx context.Context) TaskParameterTraceLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTraceLevelArrayOutput)
+}
+
+type TaskParameterTraceLevelOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTraceLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTraceLevel)(nil)).Elem()
+}
+
+func (o TaskParameterTraceLevelOutput) ToTaskParameterTraceLevelOutput() TaskParameterTraceLevelOutput {
+	return o
+}
+
+func (o TaskParameterTraceLevelOutput) ToTaskParameterTraceLevelOutputWithContext(ctx context.Context) TaskParameterTraceLevelOutput {
+	return o
+}
+
+func (o TaskParameterTraceLevelOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTraceLevelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTraceLevelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTraceLevelOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTraceLevelOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTraceLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTraceLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTraceLevel)(nil)).Elem()
+}
+
+func (o TaskParameterTraceLevelArrayOutput) ToTaskParameterTraceLevelArrayOutput() TaskParameterTraceLevelArrayOutput {
+	return o
+}
+
+func (o TaskParameterTraceLevelArrayOutput) ToTaskParameterTraceLevelArrayOutputWithContext(ctx context.Context) TaskParameterTraceLevelArrayOutput {
+	return o
+}
+
+func (o TaskParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) TaskParameterTraceLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTraceLevel {
+		return vs[0].([]TaskParameterTraceLevel)[vs[1].(int)]
+	}).(TaskParameterTraceLevelOutput)
+}
+
+type TaskParameterTransactionAbortOnError struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTransactionAbortOnErrorInput is an input type that accepts TaskParameterTransactionAbortOnErrorArgs and TaskParameterTransactionAbortOnErrorOutput values.
+// You can construct a concrete instance of `TaskParameterTransactionAbortOnErrorInput` via:
+//
+//	TaskParameterTransactionAbortOnErrorArgs{...}
+type TaskParameterTransactionAbortOnErrorInput interface {
+	pulumi.Input
+
+	ToTaskParameterTransactionAbortOnErrorOutput() TaskParameterTransactionAbortOnErrorOutput
+	ToTaskParameterTransactionAbortOnErrorOutputWithContext(context.Context) TaskParameterTransactionAbortOnErrorOutput
+}
+
+type TaskParameterTransactionAbortOnErrorArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTransactionAbortOnErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTransactionAbortOnError)(nil)).Elem()
+}
+
+func (i TaskParameterTransactionAbortOnErrorArgs) ToTaskParameterTransactionAbortOnErrorOutput() TaskParameterTransactionAbortOnErrorOutput {
+	return i.ToTaskParameterTransactionAbortOnErrorOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTransactionAbortOnErrorArgs) ToTaskParameterTransactionAbortOnErrorOutputWithContext(ctx context.Context) TaskParameterTransactionAbortOnErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTransactionAbortOnErrorOutput)
+}
+
+// TaskParameterTransactionAbortOnErrorArrayInput is an input type that accepts TaskParameterTransactionAbortOnErrorArray and TaskParameterTransactionAbortOnErrorArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTransactionAbortOnErrorArrayInput` via:
+//
+//	TaskParameterTransactionAbortOnErrorArray{ TaskParameterTransactionAbortOnErrorArgs{...} }
+type TaskParameterTransactionAbortOnErrorArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTransactionAbortOnErrorArrayOutput() TaskParameterTransactionAbortOnErrorArrayOutput
+	ToTaskParameterTransactionAbortOnErrorArrayOutputWithContext(context.Context) TaskParameterTransactionAbortOnErrorArrayOutput
+}
+
+type TaskParameterTransactionAbortOnErrorArray []TaskParameterTransactionAbortOnErrorInput
+
+func (TaskParameterTransactionAbortOnErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTransactionAbortOnError)(nil)).Elem()
+}
+
+func (i TaskParameterTransactionAbortOnErrorArray) ToTaskParameterTransactionAbortOnErrorArrayOutput() TaskParameterTransactionAbortOnErrorArrayOutput {
+	return i.ToTaskParameterTransactionAbortOnErrorArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTransactionAbortOnErrorArray) ToTaskParameterTransactionAbortOnErrorArrayOutputWithContext(ctx context.Context) TaskParameterTransactionAbortOnErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTransactionAbortOnErrorArrayOutput)
+}
+
+type TaskParameterTransactionAbortOnErrorOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTransactionAbortOnErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTransactionAbortOnError)(nil)).Elem()
+}
+
+func (o TaskParameterTransactionAbortOnErrorOutput) ToTaskParameterTransactionAbortOnErrorOutput() TaskParameterTransactionAbortOnErrorOutput {
+	return o
+}
+
+func (o TaskParameterTransactionAbortOnErrorOutput) ToTaskParameterTransactionAbortOnErrorOutputWithContext(ctx context.Context) TaskParameterTransactionAbortOnErrorOutput {
+	return o
+}
+
+func (o TaskParameterTransactionAbortOnErrorOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTransactionAbortOnErrorOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTransactionAbortOnErrorOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTransactionAbortOnErrorOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTransactionAbortOnErrorOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTransactionAbortOnErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTransactionAbortOnErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTransactionAbortOnError)(nil)).Elem()
+}
+
+func (o TaskParameterTransactionAbortOnErrorArrayOutput) ToTaskParameterTransactionAbortOnErrorArrayOutput() TaskParameterTransactionAbortOnErrorArrayOutput {
+	return o
+}
+
+func (o TaskParameterTransactionAbortOnErrorArrayOutput) ToTaskParameterTransactionAbortOnErrorArrayOutputWithContext(ctx context.Context) TaskParameterTransactionAbortOnErrorArrayOutput {
+	return o
+}
+
+func (o TaskParameterTransactionAbortOnErrorArrayOutput) Index(i pulumi.IntInput) TaskParameterTransactionAbortOnErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTransactionAbortOnError {
+		return vs[0].([]TaskParameterTransactionAbortOnError)[vs[1].(int)]
+	}).(TaskParameterTransactionAbortOnErrorOutput)
+}
+
+type TaskParameterTransactionDefaultIsolationLevel struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTransactionDefaultIsolationLevelInput is an input type that accepts TaskParameterTransactionDefaultIsolationLevelArgs and TaskParameterTransactionDefaultIsolationLevelOutput values.
+// You can construct a concrete instance of `TaskParameterTransactionDefaultIsolationLevelInput` via:
+//
+//	TaskParameterTransactionDefaultIsolationLevelArgs{...}
+type TaskParameterTransactionDefaultIsolationLevelInput interface {
+	pulumi.Input
+
+	ToTaskParameterTransactionDefaultIsolationLevelOutput() TaskParameterTransactionDefaultIsolationLevelOutput
+	ToTaskParameterTransactionDefaultIsolationLevelOutputWithContext(context.Context) TaskParameterTransactionDefaultIsolationLevelOutput
+}
+
+type TaskParameterTransactionDefaultIsolationLevelArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTransactionDefaultIsolationLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevel)(nil)).Elem()
+}
+
+func (i TaskParameterTransactionDefaultIsolationLevelArgs) ToTaskParameterTransactionDefaultIsolationLevelOutput() TaskParameterTransactionDefaultIsolationLevelOutput {
+	return i.ToTaskParameterTransactionDefaultIsolationLevelOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTransactionDefaultIsolationLevelArgs) ToTaskParameterTransactionDefaultIsolationLevelOutputWithContext(ctx context.Context) TaskParameterTransactionDefaultIsolationLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTransactionDefaultIsolationLevelOutput)
+}
+
+// TaskParameterTransactionDefaultIsolationLevelArrayInput is an input type that accepts TaskParameterTransactionDefaultIsolationLevelArray and TaskParameterTransactionDefaultIsolationLevelArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTransactionDefaultIsolationLevelArrayInput` via:
+//
+//	TaskParameterTransactionDefaultIsolationLevelArray{ TaskParameterTransactionDefaultIsolationLevelArgs{...} }
+type TaskParameterTransactionDefaultIsolationLevelArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTransactionDefaultIsolationLevelArrayOutput() TaskParameterTransactionDefaultIsolationLevelArrayOutput
+	ToTaskParameterTransactionDefaultIsolationLevelArrayOutputWithContext(context.Context) TaskParameterTransactionDefaultIsolationLevelArrayOutput
+}
+
+type TaskParameterTransactionDefaultIsolationLevelArray []TaskParameterTransactionDefaultIsolationLevelInput
+
+func (TaskParameterTransactionDefaultIsolationLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTransactionDefaultIsolationLevel)(nil)).Elem()
+}
+
+func (i TaskParameterTransactionDefaultIsolationLevelArray) ToTaskParameterTransactionDefaultIsolationLevelArrayOutput() TaskParameterTransactionDefaultIsolationLevelArrayOutput {
+	return i.ToTaskParameterTransactionDefaultIsolationLevelArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTransactionDefaultIsolationLevelArray) ToTaskParameterTransactionDefaultIsolationLevelArrayOutputWithContext(ctx context.Context) TaskParameterTransactionDefaultIsolationLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTransactionDefaultIsolationLevelArrayOutput)
+}
+
+type TaskParameterTransactionDefaultIsolationLevelOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTransactionDefaultIsolationLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevel)(nil)).Elem()
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelOutput) ToTaskParameterTransactionDefaultIsolationLevelOutput() TaskParameterTransactionDefaultIsolationLevelOutput {
+	return o
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelOutput) ToTaskParameterTransactionDefaultIsolationLevelOutputWithContext(ctx context.Context) TaskParameterTransactionDefaultIsolationLevelOutput {
+	return o
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTransactionDefaultIsolationLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTransactionDefaultIsolationLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTransactionDefaultIsolationLevel)(nil)).Elem()
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelArrayOutput) ToTaskParameterTransactionDefaultIsolationLevelArrayOutput() TaskParameterTransactionDefaultIsolationLevelArrayOutput {
+	return o
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelArrayOutput) ToTaskParameterTransactionDefaultIsolationLevelArrayOutputWithContext(ctx context.Context) TaskParameterTransactionDefaultIsolationLevelArrayOutput {
+	return o
+}
+
+func (o TaskParameterTransactionDefaultIsolationLevelArrayOutput) Index(i pulumi.IntInput) TaskParameterTransactionDefaultIsolationLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTransactionDefaultIsolationLevel {
+		return vs[0].([]TaskParameterTransactionDefaultIsolationLevel)[vs[1].(int)]
+	}).(TaskParameterTransactionDefaultIsolationLevelOutput)
+}
+
+type TaskParameterTwoDigitCenturyStart struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterTwoDigitCenturyStartInput is an input type that accepts TaskParameterTwoDigitCenturyStartArgs and TaskParameterTwoDigitCenturyStartOutput values.
+// You can construct a concrete instance of `TaskParameterTwoDigitCenturyStartInput` via:
+//
+//	TaskParameterTwoDigitCenturyStartArgs{...}
+type TaskParameterTwoDigitCenturyStartInput interface {
+	pulumi.Input
+
+	ToTaskParameterTwoDigitCenturyStartOutput() TaskParameterTwoDigitCenturyStartOutput
+	ToTaskParameterTwoDigitCenturyStartOutputWithContext(context.Context) TaskParameterTwoDigitCenturyStartOutput
+}
+
+type TaskParameterTwoDigitCenturyStartArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterTwoDigitCenturyStartArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTwoDigitCenturyStart)(nil)).Elem()
+}
+
+func (i TaskParameterTwoDigitCenturyStartArgs) ToTaskParameterTwoDigitCenturyStartOutput() TaskParameterTwoDigitCenturyStartOutput {
+	return i.ToTaskParameterTwoDigitCenturyStartOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTwoDigitCenturyStartArgs) ToTaskParameterTwoDigitCenturyStartOutputWithContext(ctx context.Context) TaskParameterTwoDigitCenturyStartOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTwoDigitCenturyStartOutput)
+}
+
+// TaskParameterTwoDigitCenturyStartArrayInput is an input type that accepts TaskParameterTwoDigitCenturyStartArray and TaskParameterTwoDigitCenturyStartArrayOutput values.
+// You can construct a concrete instance of `TaskParameterTwoDigitCenturyStartArrayInput` via:
+//
+//	TaskParameterTwoDigitCenturyStartArray{ TaskParameterTwoDigitCenturyStartArgs{...} }
+type TaskParameterTwoDigitCenturyStartArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterTwoDigitCenturyStartArrayOutput() TaskParameterTwoDigitCenturyStartArrayOutput
+	ToTaskParameterTwoDigitCenturyStartArrayOutputWithContext(context.Context) TaskParameterTwoDigitCenturyStartArrayOutput
+}
+
+type TaskParameterTwoDigitCenturyStartArray []TaskParameterTwoDigitCenturyStartInput
+
+func (TaskParameterTwoDigitCenturyStartArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTwoDigitCenturyStart)(nil)).Elem()
+}
+
+func (i TaskParameterTwoDigitCenturyStartArray) ToTaskParameterTwoDigitCenturyStartArrayOutput() TaskParameterTwoDigitCenturyStartArrayOutput {
+	return i.ToTaskParameterTwoDigitCenturyStartArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterTwoDigitCenturyStartArray) ToTaskParameterTwoDigitCenturyStartArrayOutputWithContext(ctx context.Context) TaskParameterTwoDigitCenturyStartArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTwoDigitCenturyStartArrayOutput)
+}
+
+type TaskParameterTwoDigitCenturyStartOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTwoDigitCenturyStartOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterTwoDigitCenturyStart)(nil)).Elem()
+}
+
+func (o TaskParameterTwoDigitCenturyStartOutput) ToTaskParameterTwoDigitCenturyStartOutput() TaskParameterTwoDigitCenturyStartOutput {
+	return o
+}
+
+func (o TaskParameterTwoDigitCenturyStartOutput) ToTaskParameterTwoDigitCenturyStartOutputWithContext(ctx context.Context) TaskParameterTwoDigitCenturyStartOutput {
+	return o
+}
+
+func (o TaskParameterTwoDigitCenturyStartOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTwoDigitCenturyStartOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTwoDigitCenturyStartOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTwoDigitCenturyStartOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterTwoDigitCenturyStartOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterTwoDigitCenturyStartArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterTwoDigitCenturyStartArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterTwoDigitCenturyStart)(nil)).Elem()
+}
+
+func (o TaskParameterTwoDigitCenturyStartArrayOutput) ToTaskParameterTwoDigitCenturyStartArrayOutput() TaskParameterTwoDigitCenturyStartArrayOutput {
+	return o
+}
+
+func (o TaskParameterTwoDigitCenturyStartArrayOutput) ToTaskParameterTwoDigitCenturyStartArrayOutputWithContext(ctx context.Context) TaskParameterTwoDigitCenturyStartArrayOutput {
+	return o
+}
+
+func (o TaskParameterTwoDigitCenturyStartArrayOutput) Index(i pulumi.IntInput) TaskParameterTwoDigitCenturyStartOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTwoDigitCenturyStart {
+		return vs[0].([]TaskParameterTwoDigitCenturyStart)[vs[1].(int)]
+	}).(TaskParameterTwoDigitCenturyStartOutput)
+}
+
 type TaskParameterUnsupportedDdlAction struct {
 	Default     *string `pulumi:"default"`
 	Description *string `pulumi:"description"`
@@ -55909,6 +57915,40 @@ func (o GetWarehousesWarehouseShowOutputArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStrictJsonOutputInput)(nil)).Elem(), TaskParameterStrictJsonOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStrictJsonOutputArrayInput)(nil)).Elem(), TaskParameterStrictJsonOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailureInput)(nil)).Elem(), TaskParameterSuspendTaskAfterNumFailureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailureArrayInput)(nil)).Elem(), TaskParameterSuspendTaskAfterNumFailureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTaskAutoRetryAttemptInput)(nil)).Elem(), TaskParameterTaskAutoRetryAttemptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTaskAutoRetryAttemptArrayInput)(nil)).Elem(), TaskParameterTaskAutoRetryAttemptArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimeInputFormatInput)(nil)).Elem(), TaskParameterTimeInputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimeInputFormatArrayInput)(nil)).Elem(), TaskParameterTimeInputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimeOutputFormatInput)(nil)).Elem(), TaskParameterTimeOutputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimeOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimeOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampDayIsAlways24hInput)(nil)).Elem(), TaskParameterTimestampDayIsAlways24hArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampDayIsAlways24hArrayInput)(nil)).Elem(), TaskParameterTimestampDayIsAlways24hArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampInputFormatInput)(nil)).Elem(), TaskParameterTimestampInputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampInputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampInputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampLtzOutputFormatInput)(nil)).Elem(), TaskParameterTimestampLtzOutputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampLtzOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampLtzOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampNtzOutputFormatInput)(nil)).Elem(), TaskParameterTimestampNtzOutputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampNtzOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampNtzOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampOutputFormatInput)(nil)).Elem(), TaskParameterTimestampOutputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampTypeMappingInput)(nil)).Elem(), TaskParameterTimestampTypeMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampTypeMappingArrayInput)(nil)).Elem(), TaskParameterTimestampTypeMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampTzOutputFormatInput)(nil)).Elem(), TaskParameterTimestampTzOutputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampTzOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampTzOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimezoneInput)(nil)).Elem(), TaskParameterTimezoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimezoneArrayInput)(nil)).Elem(), TaskParameterTimezoneArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTraceLevelInput)(nil)).Elem(), TaskParameterTraceLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTraceLevelArrayInput)(nil)).Elem(), TaskParameterTraceLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionAbortOnErrorInput)(nil)).Elem(), TaskParameterTransactionAbortOnErrorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionAbortOnErrorArrayInput)(nil)).Elem(), TaskParameterTransactionAbortOnErrorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevelInput)(nil)).Elem(), TaskParameterTransactionDefaultIsolationLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevelArrayInput)(nil)).Elem(), TaskParameterTransactionDefaultIsolationLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTwoDigitCenturyStartInput)(nil)).Elem(), TaskParameterTwoDigitCenturyStartArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTwoDigitCenturyStartArrayInput)(nil)).Elem(), TaskParameterTwoDigitCenturyStartArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUnsupportedDdlActionInput)(nil)).Elem(), TaskParameterUnsupportedDdlActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUnsupportedDdlActionArrayInput)(nil)).Elem(), TaskParameterUnsupportedDdlActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUseCachedResultInput)(nil)).Elem(), TaskParameterUseCachedResultArgs{})
@@ -56745,6 +58785,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseParameterStatementTimeoutInSecondArrayInput)(nil)).Elem(), GetWarehousesWarehouseParameterStatementTimeoutInSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputArrayInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArray{})
+	pulumi.RegisterOutputType(TaskParameterStrictJsonOutputOutput{})
+	pulumi.RegisterOutputType(TaskParameterStrictJsonOutputArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterSuspendTaskAfterNumFailureOutput{})
+	pulumi.RegisterOutputType(TaskParameterSuspendTaskAfterNumFailureArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTaskAutoRetryAttemptOutput{})
+	pulumi.RegisterOutputType(TaskParameterTaskAutoRetryAttemptArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimeInputFormatOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimeInputFormatArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimeOutputFormatOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimeOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampDayIsAlways24hOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampDayIsAlways24hArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampInputFormatOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampInputFormatArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampLtzOutputFormatOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampLtzOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampNtzOutputFormatOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampNtzOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampOutputFormatOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampTypeMappingOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampTypeMappingArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampTzOutputFormatOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimestampTzOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimezoneOutput{})
+	pulumi.RegisterOutputType(TaskParameterTimezoneArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTraceLevelOutput{})
+	pulumi.RegisterOutputType(TaskParameterTraceLevelArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTransactionAbortOnErrorOutput{})
+	pulumi.RegisterOutputType(TaskParameterTransactionAbortOnErrorArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTransactionDefaultIsolationLevelOutput{})
+	pulumi.RegisterOutputType(TaskParameterTransactionDefaultIsolationLevelArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterTwoDigitCenturyStartOutput{})
+	pulumi.RegisterOutputType(TaskParameterTwoDigitCenturyStartArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterUnsupportedDdlActionOutput{})
 	pulumi.RegisterOutputType(TaskParameterUnsupportedDdlActionArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterUseCachedResultOutput{})
