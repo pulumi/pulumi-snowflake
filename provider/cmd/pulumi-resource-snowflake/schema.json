@@ -233,7 +233,7 @@
             },
             "token": {
                 "type": "string",
-                "description": "Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment\nvariable.\n",
+                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the\nprovider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to\nuse. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.\n",
                 "secret": true
             },
             "tokenAccessor": {
@@ -7705,6 +7705,158 @@
                         "owner",
                         "snowflakeLock",
                         "type"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/ListingManifest:ListingManifest": {
+            "properties": {
+                "fromStage": {
+                    "$ref": "#/types/snowflake:index/ListingManifestFromStage:ListingManifestFromStage",
+                    "description": "Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.\n"
+                },
+                "fromString": {
+                    "type": "string",
+                    "description": "Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/ListingManifestFromStage:ListingManifestFromStage": {
+            "properties": {
+                "location": {
+                    "type": "string",
+                    "description": "Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.\n"
+                },
+                "stage": {
+                    "type": "string",
+                    "description": "Identifier of the stage where the manifest file is located.\n"
+                },
+                "versionComment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.\n"
+                },
+                "versionName": {
+                    "type": "string",
+                    "description": "Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "stage"
+            ]
+        },
+        "snowflake:index/ListingShowOutput:ListingShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "detailedTargetAccounts": {
+                    "type": "string"
+                },
+                "distribution": {
+                    "type": "string"
+                },
+                "globalName": {
+                    "type": "string"
+                },
+                "isApplication": {
+                    "type": "boolean"
+                },
+                "isByRequest": {
+                    "type": "boolean"
+                },
+                "isLimitedTrial": {
+                    "type": "boolean"
+                },
+                "isMonetized": {
+                    "type": "boolean"
+                },
+                "isMountlessQueryable": {
+                    "type": "boolean"
+                },
+                "isTargeted": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "organizationProfileName": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "profile": {
+                    "type": "string"
+                },
+                "publishedOn": {
+                    "type": "string"
+                },
+                "regions": {
+                    "type": "string"
+                },
+                "rejectedOn": {
+                    "type": "string"
+                },
+                "reviewState": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "subtitle": {
+                    "type": "string"
+                },
+                "targetAccounts": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "uniformListingLocator": {
+                    "type": "string"
+                },
+                "updatedOn": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "comment",
+                        "createdOn",
+                        "detailedTargetAccounts",
+                        "distribution",
+                        "globalName",
+                        "isApplication",
+                        "isByRequest",
+                        "isLimitedTrial",
+                        "isMonetized",
+                        "isMountlessQueryable",
+                        "isTargeted",
+                        "name",
+                        "organizationProfileName",
+                        "owner",
+                        "ownerRoleType",
+                        "profile",
+                        "publishedOn",
+                        "regions",
+                        "rejectedOn",
+                        "reviewState",
+                        "state",
+                        "subtitle",
+                        "targetAccounts",
+                        "title",
+                        "uniformListingLocator",
+                        "updatedOn"
                     ]
                 }
             }
@@ -15765,6 +15917,459 @@
                 "name",
                 "value"
             ]
+        },
+        "snowflake:index/StorageIntegrationDescribeOutput:StorageIntegrationDescribeOutput": {
+            "properties": {
+                "azureConsentUrls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputAzureConsentUrl:StorageIntegrationDescribeOutputAzureConsentUrl"
+                    }
+                },
+                "azureMultiTenantAppNames": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputAzureMultiTenantAppName:StorageIntegrationDescribeOutputAzureMultiTenantAppName"
+                    }
+                },
+                "comments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputComment:StorageIntegrationDescribeOutputComment"
+                    }
+                },
+                "enableds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputEnabled:StorageIntegrationDescribeOutputEnabled"
+                    }
+                },
+                "storageAllowedLocations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputStorageAllowedLocation:StorageIntegrationDescribeOutputStorageAllowedLocation"
+                    }
+                },
+                "storageAwsExternalIds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputStorageAwsExternalId:StorageIntegrationDescribeOutputStorageAwsExternalId"
+                    }
+                },
+                "storageAwsIamUserArns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputStorageAwsIamUserArn:StorageIntegrationDescribeOutputStorageAwsIamUserArn"
+                    }
+                },
+                "storageAwsObjectAcls": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputStorageAwsObjectAcl:StorageIntegrationDescribeOutputStorageAwsObjectAcl"
+                    }
+                },
+                "storageAwsRoleArns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputStorageAwsRoleArn:StorageIntegrationDescribeOutputStorageAwsRoleArn"
+                    }
+                },
+                "storageBlockedLocations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputStorageBlockedLocation:StorageIntegrationDescribeOutputStorageBlockedLocation"
+                    }
+                },
+                "storageGcpServiceAccounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputStorageGcpServiceAccount:StorageIntegrationDescribeOutputStorageGcpServiceAccount"
+                    }
+                },
+                "storageProviders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputStorageProvider:StorageIntegrationDescribeOutputStorageProvider"
+                    }
+                },
+                "usePrivatelinkEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutputUsePrivatelinkEndpoint:StorageIntegrationDescribeOutputUsePrivatelinkEndpoint"
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "azureConsentUrls",
+                        "azureMultiTenantAppNames",
+                        "comments",
+                        "enableds",
+                        "storageAllowedLocations",
+                        "storageAwsExternalIds",
+                        "storageAwsIamUserArns",
+                        "storageAwsObjectAcls",
+                        "storageAwsRoleArns",
+                        "storageBlockedLocations",
+                        "storageGcpServiceAccounts",
+                        "storageProviders",
+                        "usePrivatelinkEndpoints"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputAzureConsentUrl:StorageIntegrationDescribeOutputAzureConsentUrl": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputAzureMultiTenantAppName:StorageIntegrationDescribeOutputAzureMultiTenantAppName": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputComment:StorageIntegrationDescribeOutputComment": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputEnabled:StorageIntegrationDescribeOutputEnabled": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputStorageAllowedLocation:StorageIntegrationDescribeOutputStorageAllowedLocation": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputStorageAwsExternalId:StorageIntegrationDescribeOutputStorageAwsExternalId": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputStorageAwsIamUserArn:StorageIntegrationDescribeOutputStorageAwsIamUserArn": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputStorageAwsObjectAcl:StorageIntegrationDescribeOutputStorageAwsObjectAcl": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputStorageAwsRoleArn:StorageIntegrationDescribeOutputStorageAwsRoleArn": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputStorageBlockedLocation:StorageIntegrationDescribeOutputStorageBlockedLocation": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputStorageGcpServiceAccount:StorageIntegrationDescribeOutputStorageGcpServiceAccount": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputStorageProvider:StorageIntegrationDescribeOutputStorageProvider": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/StorageIntegrationDescribeOutputUsePrivatelinkEndpoint:StorageIntegrationDescribeOutputUsePrivatelinkEndpoint": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "name",
+                        "type",
+                        "value"
+                    ]
+                }
+            }
         },
         "snowflake:index/StreamOnDirectoryTableDescribeOutput:StreamOnDirectoryTableDescribeOutput": {
             "properties": {
@@ -34898,7 +35503,7 @@
             },
             "token": {
                 "type": "string",
-                "description": "Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment\nvariable.\n",
+                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the\nprovider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to\nuse. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.\n",
                 "secret": true
             },
             "tokenAccessor": {
@@ -35107,7 +35712,7 @@
             },
             "token": {
                 "type": "string",
-                "description": "Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment\nvariable.\n",
+                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the\nprovider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to\nuse. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.\n",
                 "secret": true
             },
             "tokenAccessor": {
@@ -46797,6 +47402,123 @@
                 "type": "object"
             }
         },
+        "snowflake:index/listing:Listing": {
+            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/listing:Listing example '\"\u003clisting_name\u003e\"'\n```\n\n",
+            "properties": {
+                "applicationPackage": {
+                    "type": "string",
+                    "description": "Specifies the application package attached to the listing.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the listing.\n"
+                },
+                "fullyQualifiedName": {
+                    "type": "string",
+                    "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
+                },
+                "manifest": {
+                    "$ref": "#/types/snowflake:index/ListingManifest:ListingManifest"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.\n"
+                },
+                "publish": {
+                    "type": "string",
+                    "description": "(Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.\n"
+                },
+                "share": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the share to attach to the listing.\n"
+                },
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/ListingShowOutput:ListingShowOutput"
+                    },
+                    "description": "Outputs the result of `SHOW LISTINGS` for the given listing.\n"
+                }
+            },
+            "required": [
+                "fullyQualifiedName",
+                "manifest",
+                "name",
+                "showOutputs"
+            ],
+            "inputProperties": {
+                "applicationPackage": {
+                    "type": "string",
+                    "description": "Specifies the application package attached to the listing.\n",
+                    "willReplaceOnChanges": true
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the listing.\n"
+                },
+                "manifest": {
+                    "$ref": "#/types/snowflake:index/ListingManifest:ListingManifest"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.\n"
+                },
+                "publish": {
+                    "type": "string",
+                    "description": "(Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.\n"
+                },
+                "share": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the share to attach to the listing.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "manifest"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Listing resources.\n",
+                "properties": {
+                    "applicationPackage": {
+                        "type": "string",
+                        "description": "Specifies the application package attached to the listing.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Specifies a comment for the listing.\n"
+                    },
+                    "fullyQualifiedName": {
+                        "type": "string",
+                        "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
+                    },
+                    "manifest": {
+                        "$ref": "#/types/snowflake:index/ListingManifest:ListingManifest"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.\n"
+                    },
+                    "publish": {
+                        "type": "string",
+                        "description": "(Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.\n"
+                    },
+                    "share": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the share to attach to the listing.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "showOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/ListingShowOutput:ListingShowOutput"
+                        },
+                        "description": "Outputs the result of `SHOW LISTINGS` for the given listing.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/managedAccount:ManagedAccount": {
             "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/managedAccount:ManagedAccount example name\n```\n\n",
             "properties": {
@@ -54857,6 +55579,13 @@
                     "type": "string",
                     "description": "Date and time when the storage integration was created.\n"
                 },
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutput:StorageIntegrationDescribeOutput"
+                    },
+                    "description": "Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.\n"
+                },
                 "enabled": {
                     "type": "boolean",
                     "description": "(Default: `true`)\n"
@@ -54915,10 +55644,10 @@
                 "azureConsentUrl",
                 "azureMultiTenantAppName",
                 "createdOn",
+                "describeOutputs",
                 "fullyQualifiedName",
                 "name",
                 "storageAllowedLocations",
-                "storageAwsExternalId",
                 "storageAwsIamUserArn",
                 "storageGcpServiceAccount",
                 "storageProvider"
@@ -54946,6 +55675,10 @@
                         "type": "string"
                     },
                     "description": "Explicitly limits external stages that use the integration to reference one or more storage locations.\n"
+                },
+                "storageAwsExternalId": {
+                    "type": "string",
+                    "description": "The external ID that Snowflake will use when assuming the AWS role.\n"
                 },
                 "storageAwsObjectAcl": {
                     "type": "string",
@@ -55000,6 +55733,13 @@
                     "createdOn": {
                         "type": "string",
                         "description": "Date and time when the storage integration was created.\n"
+                    },
+                    "describeOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/StorageIntegrationDescribeOutput:StorageIntegrationDescribeOutput"
+                        },
+                        "description": "Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.\n"
                     },
                     "enabled": {
                         "type": "boolean",
