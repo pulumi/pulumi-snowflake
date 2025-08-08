@@ -1046,6 +1046,25 @@
                     }
                 }
             },
+            "snowflake_listing": {
+                "current": "snowflake:index/listing:Listing",
+                "majorVersion": 2,
+                "fields": {
+                    "manifest": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "from_stage": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_managed_account": {
                 "current": "snowflake:index/managedAccount:ManagedAccount",
                 "majorVersion": 2
@@ -2123,6 +2142,52 @@
                 "current": "snowflake:index/storageIntegration:StorageIntegration",
                 "majorVersion": 2,
                 "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "azure_consent_url": {
+                                    "maxItemsOne": false
+                                },
+                                "azure_multi_tenant_app_name": {
+                                    "maxItemsOne": false
+                                },
+                                "comment": {
+                                    "maxItemsOne": false
+                                },
+                                "enabled": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_allowed_locations": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_aws_external_id": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_aws_iam_user_arn": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_aws_object_acl": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_aws_role_arn": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_blocked_locations": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_gcp_service_account": {
+                                    "maxItemsOne": false
+                                },
+                                "storage_provider": {
+                                    "maxItemsOne": false
+                                },
+                                "use_privatelink_endpoint": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "storage_allowed_locations": {
                         "maxItemsOne": false
                     },

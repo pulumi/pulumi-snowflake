@@ -27262,6 +27262,600 @@ func (o LegacyServiceUserShowOutputArrayOutput) Index(i pulumi.IntInput) LegacyS
 	}).(LegacyServiceUserShowOutputOutput)
 }
 
+type ListingManifest struct {
+	// Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+	FromStage *ListingManifestFromStage `pulumi:"fromStage"`
+	// Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+	FromString *string `pulumi:"fromString"`
+}
+
+// ListingManifestInput is an input type that accepts ListingManifestArgs and ListingManifestOutput values.
+// You can construct a concrete instance of `ListingManifestInput` via:
+//
+//	ListingManifestArgs{...}
+type ListingManifestInput interface {
+	pulumi.Input
+
+	ToListingManifestOutput() ListingManifestOutput
+	ToListingManifestOutputWithContext(context.Context) ListingManifestOutput
+}
+
+type ListingManifestArgs struct {
+	// Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+	FromStage ListingManifestFromStagePtrInput `pulumi:"fromStage"`
+	// Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+	FromString pulumi.StringPtrInput `pulumi:"fromString"`
+}
+
+func (ListingManifestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListingManifest)(nil)).Elem()
+}
+
+func (i ListingManifestArgs) ToListingManifestOutput() ListingManifestOutput {
+	return i.ToListingManifestOutputWithContext(context.Background())
+}
+
+func (i ListingManifestArgs) ToListingManifestOutputWithContext(ctx context.Context) ListingManifestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListingManifestOutput)
+}
+
+func (i ListingManifestArgs) ToListingManifestPtrOutput() ListingManifestPtrOutput {
+	return i.ToListingManifestPtrOutputWithContext(context.Background())
+}
+
+func (i ListingManifestArgs) ToListingManifestPtrOutputWithContext(ctx context.Context) ListingManifestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListingManifestOutput).ToListingManifestPtrOutputWithContext(ctx)
+}
+
+// ListingManifestPtrInput is an input type that accepts ListingManifestArgs, ListingManifestPtr and ListingManifestPtrOutput values.
+// You can construct a concrete instance of `ListingManifestPtrInput` via:
+//
+//	        ListingManifestArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListingManifestPtrInput interface {
+	pulumi.Input
+
+	ToListingManifestPtrOutput() ListingManifestPtrOutput
+	ToListingManifestPtrOutputWithContext(context.Context) ListingManifestPtrOutput
+}
+
+type listingManifestPtrType ListingManifestArgs
+
+func ListingManifestPtr(v *ListingManifestArgs) ListingManifestPtrInput {
+	return (*listingManifestPtrType)(v)
+}
+
+func (*listingManifestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListingManifest)(nil)).Elem()
+}
+
+func (i *listingManifestPtrType) ToListingManifestPtrOutput() ListingManifestPtrOutput {
+	return i.ToListingManifestPtrOutputWithContext(context.Background())
+}
+
+func (i *listingManifestPtrType) ToListingManifestPtrOutputWithContext(ctx context.Context) ListingManifestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListingManifestPtrOutput)
+}
+
+type ListingManifestOutput struct{ *pulumi.OutputState }
+
+func (ListingManifestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListingManifest)(nil)).Elem()
+}
+
+func (o ListingManifestOutput) ToListingManifestOutput() ListingManifestOutput {
+	return o
+}
+
+func (o ListingManifestOutput) ToListingManifestOutputWithContext(ctx context.Context) ListingManifestOutput {
+	return o
+}
+
+func (o ListingManifestOutput) ToListingManifestPtrOutput() ListingManifestPtrOutput {
+	return o.ToListingManifestPtrOutputWithContext(context.Background())
+}
+
+func (o ListingManifestOutput) ToListingManifestPtrOutputWithContext(ctx context.Context) ListingManifestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListingManifest) *ListingManifest {
+		return &v
+	}).(ListingManifestPtrOutput)
+}
+
+// Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+func (o ListingManifestOutput) FromStage() ListingManifestFromStagePtrOutput {
+	return o.ApplyT(func(v ListingManifest) *ListingManifestFromStage { return v.FromStage }).(ListingManifestFromStagePtrOutput)
+}
+
+// Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+func (o ListingManifestOutput) FromString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingManifest) *string { return v.FromString }).(pulumi.StringPtrOutput)
+}
+
+type ListingManifestPtrOutput struct{ *pulumi.OutputState }
+
+func (ListingManifestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListingManifest)(nil)).Elem()
+}
+
+func (o ListingManifestPtrOutput) ToListingManifestPtrOutput() ListingManifestPtrOutput {
+	return o
+}
+
+func (o ListingManifestPtrOutput) ToListingManifestPtrOutputWithContext(ctx context.Context) ListingManifestPtrOutput {
+	return o
+}
+
+func (o ListingManifestPtrOutput) Elem() ListingManifestOutput {
+	return o.ApplyT(func(v *ListingManifest) ListingManifest {
+		if v != nil {
+			return *v
+		}
+		var ret ListingManifest
+		return ret
+	}).(ListingManifestOutput)
+}
+
+// Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+func (o ListingManifestPtrOutput) FromStage() ListingManifestFromStagePtrOutput {
+	return o.ApplyT(func(v *ListingManifest) *ListingManifestFromStage {
+		if v == nil {
+			return nil
+		}
+		return v.FromStage
+	}).(ListingManifestFromStagePtrOutput)
+}
+
+// Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+func (o ListingManifestPtrOutput) FromString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListingManifest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FromString
+	}).(pulumi.StringPtrOutput)
+}
+
+type ListingManifestFromStage struct {
+	// Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+	Location *string `pulumi:"location"`
+	// Identifier of the stage where the manifest file is located.
+	Stage string `pulumi:"stage"`
+	// Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+	VersionComment *string `pulumi:"versionComment"`
+	// Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+	VersionName *string `pulumi:"versionName"`
+}
+
+// ListingManifestFromStageInput is an input type that accepts ListingManifestFromStageArgs and ListingManifestFromStageOutput values.
+// You can construct a concrete instance of `ListingManifestFromStageInput` via:
+//
+//	ListingManifestFromStageArgs{...}
+type ListingManifestFromStageInput interface {
+	pulumi.Input
+
+	ToListingManifestFromStageOutput() ListingManifestFromStageOutput
+	ToListingManifestFromStageOutputWithContext(context.Context) ListingManifestFromStageOutput
+}
+
+type ListingManifestFromStageArgs struct {
+	// Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Identifier of the stage where the manifest file is located.
+	Stage pulumi.StringInput `pulumi:"stage"`
+	// Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+	VersionComment pulumi.StringPtrInput `pulumi:"versionComment"`
+	// Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+	VersionName pulumi.StringPtrInput `pulumi:"versionName"`
+}
+
+func (ListingManifestFromStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListingManifestFromStage)(nil)).Elem()
+}
+
+func (i ListingManifestFromStageArgs) ToListingManifestFromStageOutput() ListingManifestFromStageOutput {
+	return i.ToListingManifestFromStageOutputWithContext(context.Background())
+}
+
+func (i ListingManifestFromStageArgs) ToListingManifestFromStageOutputWithContext(ctx context.Context) ListingManifestFromStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListingManifestFromStageOutput)
+}
+
+func (i ListingManifestFromStageArgs) ToListingManifestFromStagePtrOutput() ListingManifestFromStagePtrOutput {
+	return i.ToListingManifestFromStagePtrOutputWithContext(context.Background())
+}
+
+func (i ListingManifestFromStageArgs) ToListingManifestFromStagePtrOutputWithContext(ctx context.Context) ListingManifestFromStagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListingManifestFromStageOutput).ToListingManifestFromStagePtrOutputWithContext(ctx)
+}
+
+// ListingManifestFromStagePtrInput is an input type that accepts ListingManifestFromStageArgs, ListingManifestFromStagePtr and ListingManifestFromStagePtrOutput values.
+// You can construct a concrete instance of `ListingManifestFromStagePtrInput` via:
+//
+//	        ListingManifestFromStageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListingManifestFromStagePtrInput interface {
+	pulumi.Input
+
+	ToListingManifestFromStagePtrOutput() ListingManifestFromStagePtrOutput
+	ToListingManifestFromStagePtrOutputWithContext(context.Context) ListingManifestFromStagePtrOutput
+}
+
+type listingManifestFromStagePtrType ListingManifestFromStageArgs
+
+func ListingManifestFromStagePtr(v *ListingManifestFromStageArgs) ListingManifestFromStagePtrInput {
+	return (*listingManifestFromStagePtrType)(v)
+}
+
+func (*listingManifestFromStagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListingManifestFromStage)(nil)).Elem()
+}
+
+func (i *listingManifestFromStagePtrType) ToListingManifestFromStagePtrOutput() ListingManifestFromStagePtrOutput {
+	return i.ToListingManifestFromStagePtrOutputWithContext(context.Background())
+}
+
+func (i *listingManifestFromStagePtrType) ToListingManifestFromStagePtrOutputWithContext(ctx context.Context) ListingManifestFromStagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListingManifestFromStagePtrOutput)
+}
+
+type ListingManifestFromStageOutput struct{ *pulumi.OutputState }
+
+func (ListingManifestFromStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListingManifestFromStage)(nil)).Elem()
+}
+
+func (o ListingManifestFromStageOutput) ToListingManifestFromStageOutput() ListingManifestFromStageOutput {
+	return o
+}
+
+func (o ListingManifestFromStageOutput) ToListingManifestFromStageOutputWithContext(ctx context.Context) ListingManifestFromStageOutput {
+	return o
+}
+
+func (o ListingManifestFromStageOutput) ToListingManifestFromStagePtrOutput() ListingManifestFromStagePtrOutput {
+	return o.ToListingManifestFromStagePtrOutputWithContext(context.Background())
+}
+
+func (o ListingManifestFromStageOutput) ToListingManifestFromStagePtrOutputWithContext(ctx context.Context) ListingManifestFromStagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListingManifestFromStage) *ListingManifestFromStage {
+		return &v
+	}).(ListingManifestFromStagePtrOutput)
+}
+
+// Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+func (o ListingManifestFromStageOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingManifestFromStage) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the stage where the manifest file is located.
+func (o ListingManifestFromStageOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v ListingManifestFromStage) string { return v.Stage }).(pulumi.StringOutput)
+}
+
+// Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+func (o ListingManifestFromStageOutput) VersionComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingManifestFromStage) *string { return v.VersionComment }).(pulumi.StringPtrOutput)
+}
+
+// Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+func (o ListingManifestFromStageOutput) VersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingManifestFromStage) *string { return v.VersionName }).(pulumi.StringPtrOutput)
+}
+
+type ListingManifestFromStagePtrOutput struct{ *pulumi.OutputState }
+
+func (ListingManifestFromStagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListingManifestFromStage)(nil)).Elem()
+}
+
+func (o ListingManifestFromStagePtrOutput) ToListingManifestFromStagePtrOutput() ListingManifestFromStagePtrOutput {
+	return o
+}
+
+func (o ListingManifestFromStagePtrOutput) ToListingManifestFromStagePtrOutputWithContext(ctx context.Context) ListingManifestFromStagePtrOutput {
+	return o
+}
+
+func (o ListingManifestFromStagePtrOutput) Elem() ListingManifestFromStageOutput {
+	return o.ApplyT(func(v *ListingManifestFromStage) ListingManifestFromStage {
+		if v != nil {
+			return *v
+		}
+		var ret ListingManifestFromStage
+		return ret
+	}).(ListingManifestFromStageOutput)
+}
+
+// Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+func (o ListingManifestFromStagePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListingManifestFromStage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the stage where the manifest file is located.
+func (o ListingManifestFromStagePtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListingManifestFromStage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+func (o ListingManifestFromStagePtrOutput) VersionComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListingManifestFromStage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionComment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+func (o ListingManifestFromStagePtrOutput) VersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListingManifestFromStage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ListingShowOutput struct {
+	Comment                 *string `pulumi:"comment"`
+	CreatedOn               *string `pulumi:"createdOn"`
+	DetailedTargetAccounts  *string `pulumi:"detailedTargetAccounts"`
+	Distribution            *string `pulumi:"distribution"`
+	GlobalName              *string `pulumi:"globalName"`
+	IsApplication           *bool   `pulumi:"isApplication"`
+	IsByRequest             *bool   `pulumi:"isByRequest"`
+	IsLimitedTrial          *bool   `pulumi:"isLimitedTrial"`
+	IsMonetized             *bool   `pulumi:"isMonetized"`
+	IsMountlessQueryable    *bool   `pulumi:"isMountlessQueryable"`
+	IsTargeted              *bool   `pulumi:"isTargeted"`
+	Name                    *string `pulumi:"name"`
+	OrganizationProfileName *string `pulumi:"organizationProfileName"`
+	Owner                   *string `pulumi:"owner"`
+	OwnerRoleType           *string `pulumi:"ownerRoleType"`
+	Profile                 *string `pulumi:"profile"`
+	PublishedOn             *string `pulumi:"publishedOn"`
+	Regions                 *string `pulumi:"regions"`
+	RejectedOn              *string `pulumi:"rejectedOn"`
+	ReviewState             *string `pulumi:"reviewState"`
+	State                   *string `pulumi:"state"`
+	Subtitle                *string `pulumi:"subtitle"`
+	TargetAccounts          *string `pulumi:"targetAccounts"`
+	Title                   *string `pulumi:"title"`
+	UniformListingLocator   *string `pulumi:"uniformListingLocator"`
+	UpdatedOn               *string `pulumi:"updatedOn"`
+}
+
+// ListingShowOutputInput is an input type that accepts ListingShowOutputArgs and ListingShowOutputOutput values.
+// You can construct a concrete instance of `ListingShowOutputInput` via:
+//
+//	ListingShowOutputArgs{...}
+type ListingShowOutputInput interface {
+	pulumi.Input
+
+	ToListingShowOutputOutput() ListingShowOutputOutput
+	ToListingShowOutputOutputWithContext(context.Context) ListingShowOutputOutput
+}
+
+type ListingShowOutputArgs struct {
+	Comment                 pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn               pulumi.StringPtrInput `pulumi:"createdOn"`
+	DetailedTargetAccounts  pulumi.StringPtrInput `pulumi:"detailedTargetAccounts"`
+	Distribution            pulumi.StringPtrInput `pulumi:"distribution"`
+	GlobalName              pulumi.StringPtrInput `pulumi:"globalName"`
+	IsApplication           pulumi.BoolPtrInput   `pulumi:"isApplication"`
+	IsByRequest             pulumi.BoolPtrInput   `pulumi:"isByRequest"`
+	IsLimitedTrial          pulumi.BoolPtrInput   `pulumi:"isLimitedTrial"`
+	IsMonetized             pulumi.BoolPtrInput   `pulumi:"isMonetized"`
+	IsMountlessQueryable    pulumi.BoolPtrInput   `pulumi:"isMountlessQueryable"`
+	IsTargeted              pulumi.BoolPtrInput   `pulumi:"isTargeted"`
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	OrganizationProfileName pulumi.StringPtrInput `pulumi:"organizationProfileName"`
+	Owner                   pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType           pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	Profile                 pulumi.StringPtrInput `pulumi:"profile"`
+	PublishedOn             pulumi.StringPtrInput `pulumi:"publishedOn"`
+	Regions                 pulumi.StringPtrInput `pulumi:"regions"`
+	RejectedOn              pulumi.StringPtrInput `pulumi:"rejectedOn"`
+	ReviewState             pulumi.StringPtrInput `pulumi:"reviewState"`
+	State                   pulumi.StringPtrInput `pulumi:"state"`
+	Subtitle                pulumi.StringPtrInput `pulumi:"subtitle"`
+	TargetAccounts          pulumi.StringPtrInput `pulumi:"targetAccounts"`
+	Title                   pulumi.StringPtrInput `pulumi:"title"`
+	UniformListingLocator   pulumi.StringPtrInput `pulumi:"uniformListingLocator"`
+	UpdatedOn               pulumi.StringPtrInput `pulumi:"updatedOn"`
+}
+
+func (ListingShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListingShowOutput)(nil)).Elem()
+}
+
+func (i ListingShowOutputArgs) ToListingShowOutputOutput() ListingShowOutputOutput {
+	return i.ToListingShowOutputOutputWithContext(context.Background())
+}
+
+func (i ListingShowOutputArgs) ToListingShowOutputOutputWithContext(ctx context.Context) ListingShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListingShowOutputOutput)
+}
+
+// ListingShowOutputArrayInput is an input type that accepts ListingShowOutputArray and ListingShowOutputArrayOutput values.
+// You can construct a concrete instance of `ListingShowOutputArrayInput` via:
+//
+//	ListingShowOutputArray{ ListingShowOutputArgs{...} }
+type ListingShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToListingShowOutputArrayOutput() ListingShowOutputArrayOutput
+	ToListingShowOutputArrayOutputWithContext(context.Context) ListingShowOutputArrayOutput
+}
+
+type ListingShowOutputArray []ListingShowOutputInput
+
+func (ListingShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListingShowOutput)(nil)).Elem()
+}
+
+func (i ListingShowOutputArray) ToListingShowOutputArrayOutput() ListingShowOutputArrayOutput {
+	return i.ToListingShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i ListingShowOutputArray) ToListingShowOutputArrayOutputWithContext(ctx context.Context) ListingShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListingShowOutputArrayOutput)
+}
+
+type ListingShowOutputOutput struct{ *pulumi.OutputState }
+
+func (ListingShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListingShowOutput)(nil)).Elem()
+}
+
+func (o ListingShowOutputOutput) ToListingShowOutputOutput() ListingShowOutputOutput {
+	return o
+}
+
+func (o ListingShowOutputOutput) ToListingShowOutputOutputWithContext(ctx context.Context) ListingShowOutputOutput {
+	return o
+}
+
+func (o ListingShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) DetailedTargetAccounts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.DetailedTargetAccounts }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) Distribution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.Distribution }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) GlobalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.GlobalName }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) IsApplication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *bool { return v.IsApplication }).(pulumi.BoolPtrOutput)
+}
+
+func (o ListingShowOutputOutput) IsByRequest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *bool { return v.IsByRequest }).(pulumi.BoolPtrOutput)
+}
+
+func (o ListingShowOutputOutput) IsLimitedTrial() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *bool { return v.IsLimitedTrial }).(pulumi.BoolPtrOutput)
+}
+
+func (o ListingShowOutputOutput) IsMonetized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *bool { return v.IsMonetized }).(pulumi.BoolPtrOutput)
+}
+
+func (o ListingShowOutputOutput) IsMountlessQueryable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *bool { return v.IsMountlessQueryable }).(pulumi.BoolPtrOutput)
+}
+
+func (o ListingShowOutputOutput) IsTargeted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *bool { return v.IsTargeted }).(pulumi.BoolPtrOutput)
+}
+
+func (o ListingShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) OrganizationProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.OrganizationProfileName }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) PublishedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.PublishedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) Regions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.Regions }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) RejectedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.RejectedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) ReviewState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.ReviewState }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) Subtitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.Subtitle }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) TargetAccounts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.TargetAccounts }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) UniformListingLocator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.UniformListingLocator }).(pulumi.StringPtrOutput)
+}
+
+func (o ListingShowOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListingShowOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type ListingShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (ListingShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListingShowOutput)(nil)).Elem()
+}
+
+func (o ListingShowOutputArrayOutput) ToListingShowOutputArrayOutput() ListingShowOutputArrayOutput {
+	return o
+}
+
+func (o ListingShowOutputArrayOutput) ToListingShowOutputArrayOutputWithContext(ctx context.Context) ListingShowOutputArrayOutput {
+	return o
+}
+
+func (o ListingShowOutputArrayOutput) Index(i pulumi.IntInput) ListingShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListingShowOutput {
+		return vs[0].([]ListingShowOutput)[vs[1].(int)]
+	}).(ListingShowOutputOutput)
+}
+
 type MaskingPolicyArgument struct {
 	// The argument name
 	Name string `pulumi:"name"`
@@ -55272,6 +55866,1650 @@ func (o StageTagArrayOutput) Index(i pulumi.IntInput) StageTagOutput {
 	}).(StageTagOutput)
 }
 
+type StorageIntegrationDescribeOutput struct {
+	AzureConsentUrls          []StorageIntegrationDescribeOutputAzureConsentUrl          `pulumi:"azureConsentUrls"`
+	AzureMultiTenantAppNames  []StorageIntegrationDescribeOutputAzureMultiTenantAppName  `pulumi:"azureMultiTenantAppNames"`
+	Comments                  []StorageIntegrationDescribeOutputComment                  `pulumi:"comments"`
+	Enableds                  []StorageIntegrationDescribeOutputEnabled                  `pulumi:"enableds"`
+	StorageAllowedLocations   []StorageIntegrationDescribeOutputStorageAllowedLocation   `pulumi:"storageAllowedLocations"`
+	StorageAwsExternalIds     []StorageIntegrationDescribeOutputStorageAwsExternalId     `pulumi:"storageAwsExternalIds"`
+	StorageAwsIamUserArns     []StorageIntegrationDescribeOutputStorageAwsIamUserArn     `pulumi:"storageAwsIamUserArns"`
+	StorageAwsObjectAcls      []StorageIntegrationDescribeOutputStorageAwsObjectAcl      `pulumi:"storageAwsObjectAcls"`
+	StorageAwsRoleArns        []StorageIntegrationDescribeOutputStorageAwsRoleArn        `pulumi:"storageAwsRoleArns"`
+	StorageBlockedLocations   []StorageIntegrationDescribeOutputStorageBlockedLocation   `pulumi:"storageBlockedLocations"`
+	StorageGcpServiceAccounts []StorageIntegrationDescribeOutputStorageGcpServiceAccount `pulumi:"storageGcpServiceAccounts"`
+	StorageProviders          []StorageIntegrationDescribeOutputStorageProvider          `pulumi:"storageProviders"`
+	UsePrivatelinkEndpoints   []StorageIntegrationDescribeOutputUsePrivatelinkEndpoint   `pulumi:"usePrivatelinkEndpoints"`
+}
+
+// StorageIntegrationDescribeOutputInput is an input type that accepts StorageIntegrationDescribeOutputArgs and StorageIntegrationDescribeOutputOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputInput` via:
+//
+//	StorageIntegrationDescribeOutputArgs{...}
+type StorageIntegrationDescribeOutputInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputOutput() StorageIntegrationDescribeOutputOutput
+	ToStorageIntegrationDescribeOutputOutputWithContext(context.Context) StorageIntegrationDescribeOutputOutput
+}
+
+type StorageIntegrationDescribeOutputArgs struct {
+	AzureConsentUrls          StorageIntegrationDescribeOutputAzureConsentUrlArrayInput          `pulumi:"azureConsentUrls"`
+	AzureMultiTenantAppNames  StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayInput  `pulumi:"azureMultiTenantAppNames"`
+	Comments                  StorageIntegrationDescribeOutputCommentArrayInput                  `pulumi:"comments"`
+	Enableds                  StorageIntegrationDescribeOutputEnabledArrayInput                  `pulumi:"enableds"`
+	StorageAllowedLocations   StorageIntegrationDescribeOutputStorageAllowedLocationArrayInput   `pulumi:"storageAllowedLocations"`
+	StorageAwsExternalIds     StorageIntegrationDescribeOutputStorageAwsExternalIdArrayInput     `pulumi:"storageAwsExternalIds"`
+	StorageAwsIamUserArns     StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayInput     `pulumi:"storageAwsIamUserArns"`
+	StorageAwsObjectAcls      StorageIntegrationDescribeOutputStorageAwsObjectAclArrayInput      `pulumi:"storageAwsObjectAcls"`
+	StorageAwsRoleArns        StorageIntegrationDescribeOutputStorageAwsRoleArnArrayInput        `pulumi:"storageAwsRoleArns"`
+	StorageBlockedLocations   StorageIntegrationDescribeOutputStorageBlockedLocationArrayInput   `pulumi:"storageBlockedLocations"`
+	StorageGcpServiceAccounts StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayInput `pulumi:"storageGcpServiceAccounts"`
+	StorageProviders          StorageIntegrationDescribeOutputStorageProviderArrayInput          `pulumi:"storageProviders"`
+	UsePrivatelinkEndpoints   StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayInput   `pulumi:"usePrivatelinkEndpoints"`
+}
+
+func (StorageIntegrationDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputArgs) ToStorageIntegrationDescribeOutputOutput() StorageIntegrationDescribeOutputOutput {
+	return i.ToStorageIntegrationDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputArgs) ToStorageIntegrationDescribeOutputOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputOutput)
+}
+
+// StorageIntegrationDescribeOutputArrayInput is an input type that accepts StorageIntegrationDescribeOutputArray and StorageIntegrationDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputArray{ StorageIntegrationDescribeOutputArgs{...} }
+type StorageIntegrationDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputArrayOutput() StorageIntegrationDescribeOutputArrayOutput
+	ToStorageIntegrationDescribeOutputArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputArrayOutput
+}
+
+type StorageIntegrationDescribeOutputArray []StorageIntegrationDescribeOutputInput
+
+func (StorageIntegrationDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputArray) ToStorageIntegrationDescribeOutputArrayOutput() StorageIntegrationDescribeOutputArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputArray) ToStorageIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputOutput) ToStorageIntegrationDescribeOutputOutput() StorageIntegrationDescribeOutputOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputOutput) ToStorageIntegrationDescribeOutputOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputOutput) AzureConsentUrls() StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputAzureConsentUrl {
+		return v.AzureConsentUrls
+	}).(StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) AzureMultiTenantAppNames() StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputAzureMultiTenantAppName {
+		return v.AzureMultiTenantAppNames
+	}).(StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) Comments() StorageIntegrationDescribeOutputCommentArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputComment { return v.Comments }).(StorageIntegrationDescribeOutputCommentArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) Enableds() StorageIntegrationDescribeOutputEnabledArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputEnabled { return v.Enableds }).(StorageIntegrationDescribeOutputEnabledArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) StorageAllowedLocations() StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputStorageAllowedLocation {
+		return v.StorageAllowedLocations
+	}).(StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) StorageAwsExternalIds() StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputStorageAwsExternalId {
+		return v.StorageAwsExternalIds
+	}).(StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) StorageAwsIamUserArns() StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputStorageAwsIamUserArn {
+		return v.StorageAwsIamUserArns
+	}).(StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) StorageAwsObjectAcls() StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputStorageAwsObjectAcl {
+		return v.StorageAwsObjectAcls
+	}).(StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) StorageAwsRoleArns() StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputStorageAwsRoleArn {
+		return v.StorageAwsRoleArns
+	}).(StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) StorageBlockedLocations() StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputStorageBlockedLocation {
+		return v.StorageBlockedLocations
+	}).(StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) StorageGcpServiceAccounts() StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputStorageGcpServiceAccount {
+		return v.StorageGcpServiceAccounts
+	}).(StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) StorageProviders() StorageIntegrationDescribeOutputStorageProviderArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputStorageProvider {
+		return v.StorageProviders
+	}).(StorageIntegrationDescribeOutputStorageProviderArrayOutput)
+}
+
+func (o StorageIntegrationDescribeOutputOutput) UsePrivatelinkEndpoints() StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutput) []StorageIntegrationDescribeOutputUsePrivatelinkEndpoint {
+		return v.UsePrivatelinkEndpoints
+	}).(StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputArrayOutput) ToStorageIntegrationDescribeOutputArrayOutput() StorageIntegrationDescribeOutputArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputArrayOutput) ToStorageIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutput {
+		return vs[0].([]StorageIntegrationDescribeOutput)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputOutput)
+}
+
+type StorageIntegrationDescribeOutputAzureConsentUrl struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputAzureConsentUrlInput is an input type that accepts StorageIntegrationDescribeOutputAzureConsentUrlArgs and StorageIntegrationDescribeOutputAzureConsentUrlOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputAzureConsentUrlInput` via:
+//
+//	StorageIntegrationDescribeOutputAzureConsentUrlArgs{...}
+type StorageIntegrationDescribeOutputAzureConsentUrlInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputAzureConsentUrlOutput() StorageIntegrationDescribeOutputAzureConsentUrlOutput
+	ToStorageIntegrationDescribeOutputAzureConsentUrlOutputWithContext(context.Context) StorageIntegrationDescribeOutputAzureConsentUrlOutput
+}
+
+type StorageIntegrationDescribeOutputAzureConsentUrlArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputAzureConsentUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputAzureConsentUrl)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputAzureConsentUrlArgs) ToStorageIntegrationDescribeOutputAzureConsentUrlOutput() StorageIntegrationDescribeOutputAzureConsentUrlOutput {
+	return i.ToStorageIntegrationDescribeOutputAzureConsentUrlOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputAzureConsentUrlArgs) ToStorageIntegrationDescribeOutputAzureConsentUrlOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputAzureConsentUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputAzureConsentUrlOutput)
+}
+
+// StorageIntegrationDescribeOutputAzureConsentUrlArrayInput is an input type that accepts StorageIntegrationDescribeOutputAzureConsentUrlArray and StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputAzureConsentUrlArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputAzureConsentUrlArray{ StorageIntegrationDescribeOutputAzureConsentUrlArgs{...} }
+type StorageIntegrationDescribeOutputAzureConsentUrlArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputAzureConsentUrlArrayOutput() StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput
+	ToStorageIntegrationDescribeOutputAzureConsentUrlArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput
+}
+
+type StorageIntegrationDescribeOutputAzureConsentUrlArray []StorageIntegrationDescribeOutputAzureConsentUrlInput
+
+func (StorageIntegrationDescribeOutputAzureConsentUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputAzureConsentUrl)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputAzureConsentUrlArray) ToStorageIntegrationDescribeOutputAzureConsentUrlArrayOutput() StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputAzureConsentUrlArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputAzureConsentUrlArray) ToStorageIntegrationDescribeOutputAzureConsentUrlArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputAzureConsentUrlOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputAzureConsentUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputAzureConsentUrl)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlOutput) ToStorageIntegrationDescribeOutputAzureConsentUrlOutput() StorageIntegrationDescribeOutputAzureConsentUrlOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlOutput) ToStorageIntegrationDescribeOutputAzureConsentUrlOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputAzureConsentUrlOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputAzureConsentUrl) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputAzureConsentUrl) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputAzureConsentUrl) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputAzureConsentUrl) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputAzureConsentUrl)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput) ToStorageIntegrationDescribeOutputAzureConsentUrlArrayOutput() StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput) ToStorageIntegrationDescribeOutputAzureConsentUrlArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputAzureConsentUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputAzureConsentUrl {
+		return vs[0].([]StorageIntegrationDescribeOutputAzureConsentUrl)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputAzureConsentUrlOutput)
+}
+
+type StorageIntegrationDescribeOutputAzureMultiTenantAppName struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputAzureMultiTenantAppNameInput is an input type that accepts StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs and StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputAzureMultiTenantAppNameInput` via:
+//
+//	StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs{...}
+type StorageIntegrationDescribeOutputAzureMultiTenantAppNameInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput() StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput
+	ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameOutputWithContext(context.Context) StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput
+}
+
+type StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputAzureMultiTenantAppName)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs) ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput() StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput {
+	return i.ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs) ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput)
+}
+
+// StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayInput is an input type that accepts StorageIntegrationDescribeOutputAzureMultiTenantAppNameArray and StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputAzureMultiTenantAppNameArray{ StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs{...} }
+type StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput() StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput
+	ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput
+}
+
+type StorageIntegrationDescribeOutputAzureMultiTenantAppNameArray []StorageIntegrationDescribeOutputAzureMultiTenantAppNameInput
+
+func (StorageIntegrationDescribeOutputAzureMultiTenantAppNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputAzureMultiTenantAppName)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputAzureMultiTenantAppNameArray) ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput() StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputAzureMultiTenantAppNameArray) ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputAzureMultiTenantAppName)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput) ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput() StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput) ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputAzureMultiTenantAppName) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputAzureMultiTenantAppName) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputAzureMultiTenantAppName) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputAzureMultiTenantAppName) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputAzureMultiTenantAppName)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput) ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput() StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput) ToStorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputAzureMultiTenantAppName {
+		return vs[0].([]StorageIntegrationDescribeOutputAzureMultiTenantAppName)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput)
+}
+
+type StorageIntegrationDescribeOutputComment struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputCommentInput is an input type that accepts StorageIntegrationDescribeOutputCommentArgs and StorageIntegrationDescribeOutputCommentOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputCommentInput` via:
+//
+//	StorageIntegrationDescribeOutputCommentArgs{...}
+type StorageIntegrationDescribeOutputCommentInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputCommentOutput() StorageIntegrationDescribeOutputCommentOutput
+	ToStorageIntegrationDescribeOutputCommentOutputWithContext(context.Context) StorageIntegrationDescribeOutputCommentOutput
+}
+
+type StorageIntegrationDescribeOutputCommentArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputCommentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputComment)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputCommentArgs) ToStorageIntegrationDescribeOutputCommentOutput() StorageIntegrationDescribeOutputCommentOutput {
+	return i.ToStorageIntegrationDescribeOutputCommentOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputCommentArgs) ToStorageIntegrationDescribeOutputCommentOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputCommentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputCommentOutput)
+}
+
+// StorageIntegrationDescribeOutputCommentArrayInput is an input type that accepts StorageIntegrationDescribeOutputCommentArray and StorageIntegrationDescribeOutputCommentArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputCommentArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputCommentArray{ StorageIntegrationDescribeOutputCommentArgs{...} }
+type StorageIntegrationDescribeOutputCommentArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputCommentArrayOutput() StorageIntegrationDescribeOutputCommentArrayOutput
+	ToStorageIntegrationDescribeOutputCommentArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputCommentArrayOutput
+}
+
+type StorageIntegrationDescribeOutputCommentArray []StorageIntegrationDescribeOutputCommentInput
+
+func (StorageIntegrationDescribeOutputCommentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputComment)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputCommentArray) ToStorageIntegrationDescribeOutputCommentArrayOutput() StorageIntegrationDescribeOutputCommentArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputCommentArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputCommentArray) ToStorageIntegrationDescribeOutputCommentArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputCommentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputCommentArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputCommentOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputCommentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputComment)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputCommentOutput) ToStorageIntegrationDescribeOutputCommentOutput() StorageIntegrationDescribeOutputCommentOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputCommentOutput) ToStorageIntegrationDescribeOutputCommentOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputCommentOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputCommentOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputComment) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputCommentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputComment) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputCommentOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputComment) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputCommentOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputComment) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputCommentArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputCommentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputComment)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputCommentArrayOutput) ToStorageIntegrationDescribeOutputCommentArrayOutput() StorageIntegrationDescribeOutputCommentArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputCommentArrayOutput) ToStorageIntegrationDescribeOutputCommentArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputCommentArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputCommentArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputCommentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputComment {
+		return vs[0].([]StorageIntegrationDescribeOutputComment)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputCommentOutput)
+}
+
+type StorageIntegrationDescribeOutputEnabled struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputEnabledInput is an input type that accepts StorageIntegrationDescribeOutputEnabledArgs and StorageIntegrationDescribeOutputEnabledOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputEnabledInput` via:
+//
+//	StorageIntegrationDescribeOutputEnabledArgs{...}
+type StorageIntegrationDescribeOutputEnabledInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputEnabledOutput() StorageIntegrationDescribeOutputEnabledOutput
+	ToStorageIntegrationDescribeOutputEnabledOutputWithContext(context.Context) StorageIntegrationDescribeOutputEnabledOutput
+}
+
+type StorageIntegrationDescribeOutputEnabledArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputEnabledArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputEnabled)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputEnabledArgs) ToStorageIntegrationDescribeOutputEnabledOutput() StorageIntegrationDescribeOutputEnabledOutput {
+	return i.ToStorageIntegrationDescribeOutputEnabledOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputEnabledArgs) ToStorageIntegrationDescribeOutputEnabledOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputEnabledOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputEnabledOutput)
+}
+
+// StorageIntegrationDescribeOutputEnabledArrayInput is an input type that accepts StorageIntegrationDescribeOutputEnabledArray and StorageIntegrationDescribeOutputEnabledArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputEnabledArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputEnabledArray{ StorageIntegrationDescribeOutputEnabledArgs{...} }
+type StorageIntegrationDescribeOutputEnabledArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputEnabledArrayOutput() StorageIntegrationDescribeOutputEnabledArrayOutput
+	ToStorageIntegrationDescribeOutputEnabledArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputEnabledArrayOutput
+}
+
+type StorageIntegrationDescribeOutputEnabledArray []StorageIntegrationDescribeOutputEnabledInput
+
+func (StorageIntegrationDescribeOutputEnabledArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputEnabled)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputEnabledArray) ToStorageIntegrationDescribeOutputEnabledArrayOutput() StorageIntegrationDescribeOutputEnabledArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputEnabledArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputEnabledArray) ToStorageIntegrationDescribeOutputEnabledArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputEnabledArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputEnabledArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputEnabledOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputEnabledOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputEnabled)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputEnabledOutput) ToStorageIntegrationDescribeOutputEnabledOutput() StorageIntegrationDescribeOutputEnabledOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputEnabledOutput) ToStorageIntegrationDescribeOutputEnabledOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputEnabledOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputEnabledOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputEnabled) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputEnabledOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputEnabled) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputEnabledOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputEnabled) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputEnabledOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputEnabled) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputEnabledArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputEnabledArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputEnabled)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputEnabledArrayOutput) ToStorageIntegrationDescribeOutputEnabledArrayOutput() StorageIntegrationDescribeOutputEnabledArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputEnabledArrayOutput) ToStorageIntegrationDescribeOutputEnabledArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputEnabledArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputEnabledArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputEnabledOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputEnabled {
+		return vs[0].([]StorageIntegrationDescribeOutputEnabled)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputEnabledOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAllowedLocation struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputStorageAllowedLocationInput is an input type that accepts StorageIntegrationDescribeOutputStorageAllowedLocationArgs and StorageIntegrationDescribeOutputStorageAllowedLocationOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAllowedLocationInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAllowedLocationArgs{...}
+type StorageIntegrationDescribeOutputStorageAllowedLocationInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAllowedLocationOutput() StorageIntegrationDescribeOutputStorageAllowedLocationOutput
+	ToStorageIntegrationDescribeOutputStorageAllowedLocationOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAllowedLocationOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAllowedLocationArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputStorageAllowedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAllowedLocation)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAllowedLocationArgs) ToStorageIntegrationDescribeOutputStorageAllowedLocationOutput() StorageIntegrationDescribeOutputStorageAllowedLocationOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAllowedLocationOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAllowedLocationArgs) ToStorageIntegrationDescribeOutputStorageAllowedLocationOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAllowedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAllowedLocationOutput)
+}
+
+// StorageIntegrationDescribeOutputStorageAllowedLocationArrayInput is an input type that accepts StorageIntegrationDescribeOutputStorageAllowedLocationArray and StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAllowedLocationArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAllowedLocationArray{ StorageIntegrationDescribeOutputStorageAllowedLocationArgs{...} }
+type StorageIntegrationDescribeOutputStorageAllowedLocationArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput() StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput
+	ToStorageIntegrationDescribeOutputStorageAllowedLocationArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAllowedLocationArray []StorageIntegrationDescribeOutputStorageAllowedLocationInput
+
+func (StorageIntegrationDescribeOutputStorageAllowedLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAllowedLocation)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAllowedLocationArray) ToStorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput() StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAllowedLocationArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAllowedLocationArray) ToStorageIntegrationDescribeOutputStorageAllowedLocationArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAllowedLocationOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAllowedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAllowedLocation)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationOutput) ToStorageIntegrationDescribeOutputStorageAllowedLocationOutput() StorageIntegrationDescribeOutputStorageAllowedLocationOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationOutput) ToStorageIntegrationDescribeOutputStorageAllowedLocationOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAllowedLocationOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAllowedLocation) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAllowedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAllowedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAllowedLocation) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAllowedLocation)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput) ToStorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput() StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput) ToStorageIntegrationDescribeOutputStorageAllowedLocationArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputStorageAllowedLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputStorageAllowedLocation {
+		return vs[0].([]StorageIntegrationDescribeOutputStorageAllowedLocation)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputStorageAllowedLocationOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsExternalId struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputStorageAwsExternalIdInput is an input type that accepts StorageIntegrationDescribeOutputStorageAwsExternalIdArgs and StorageIntegrationDescribeOutputStorageAwsExternalIdOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAwsExternalIdInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAwsExternalIdArgs{...}
+type StorageIntegrationDescribeOutputStorageAwsExternalIdInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAwsExternalIdOutput() StorageIntegrationDescribeOutputStorageAwsExternalIdOutput
+	ToStorageIntegrationDescribeOutputStorageAwsExternalIdOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAwsExternalIdOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAwsExternalIdArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputStorageAwsExternalIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsExternalId)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsExternalIdArgs) ToStorageIntegrationDescribeOutputStorageAwsExternalIdOutput() StorageIntegrationDescribeOutputStorageAwsExternalIdOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAwsExternalIdOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsExternalIdArgs) ToStorageIntegrationDescribeOutputStorageAwsExternalIdOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsExternalIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAwsExternalIdOutput)
+}
+
+// StorageIntegrationDescribeOutputStorageAwsExternalIdArrayInput is an input type that accepts StorageIntegrationDescribeOutputStorageAwsExternalIdArray and StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAwsExternalIdArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAwsExternalIdArray{ StorageIntegrationDescribeOutputStorageAwsExternalIdArgs{...} }
+type StorageIntegrationDescribeOutputStorageAwsExternalIdArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput() StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput
+	ToStorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAwsExternalIdArray []StorageIntegrationDescribeOutputStorageAwsExternalIdInput
+
+func (StorageIntegrationDescribeOutputStorageAwsExternalIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAwsExternalId)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsExternalIdArray) ToStorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput() StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsExternalIdArray) ToStorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsExternalIdOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAwsExternalIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsExternalId)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdOutput) ToStorageIntegrationDescribeOutputStorageAwsExternalIdOutput() StorageIntegrationDescribeOutputStorageAwsExternalIdOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdOutput) ToStorageIntegrationDescribeOutputStorageAwsExternalIdOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsExternalIdOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsExternalId) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsExternalId) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsExternalId) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsExternalId) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAwsExternalId)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput) ToStorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput() StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput) ToStorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputStorageAwsExternalIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputStorageAwsExternalId {
+		return vs[0].([]StorageIntegrationDescribeOutputStorageAwsExternalId)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputStorageAwsExternalIdOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsIamUserArn struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputStorageAwsIamUserArnInput is an input type that accepts StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs and StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAwsIamUserArnInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs{...}
+type StorageIntegrationDescribeOutputStorageAwsIamUserArnInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAwsIamUserArnOutput() StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput
+	ToStorageIntegrationDescribeOutputStorageAwsIamUserArnOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsIamUserArn)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs) ToStorageIntegrationDescribeOutputStorageAwsIamUserArnOutput() StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAwsIamUserArnOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs) ToStorageIntegrationDescribeOutputStorageAwsIamUserArnOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput)
+}
+
+// StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayInput is an input type that accepts StorageIntegrationDescribeOutputStorageAwsIamUserArnArray and StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAwsIamUserArnArray{ StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs{...} }
+type StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput() StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput
+	ToStorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAwsIamUserArnArray []StorageIntegrationDescribeOutputStorageAwsIamUserArnInput
+
+func (StorageIntegrationDescribeOutputStorageAwsIamUserArnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAwsIamUserArn)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsIamUserArnArray) ToStorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput() StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsIamUserArnArray) ToStorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsIamUserArn)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput) ToStorageIntegrationDescribeOutputStorageAwsIamUserArnOutput() StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput) ToStorageIntegrationDescribeOutputStorageAwsIamUserArnOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsIamUserArn) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsIamUserArn) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsIamUserArn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsIamUserArn) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAwsIamUserArn)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput) ToStorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput() StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput) ToStorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputStorageAwsIamUserArn {
+		return vs[0].([]StorageIntegrationDescribeOutputStorageAwsIamUserArn)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsObjectAcl struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputStorageAwsObjectAclInput is an input type that accepts StorageIntegrationDescribeOutputStorageAwsObjectAclArgs and StorageIntegrationDescribeOutputStorageAwsObjectAclOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAwsObjectAclInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAwsObjectAclArgs{...}
+type StorageIntegrationDescribeOutputStorageAwsObjectAclInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAwsObjectAclOutput() StorageIntegrationDescribeOutputStorageAwsObjectAclOutput
+	ToStorageIntegrationDescribeOutputStorageAwsObjectAclOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAwsObjectAclOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAwsObjectAclArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputStorageAwsObjectAclArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsObjectAcl)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsObjectAclArgs) ToStorageIntegrationDescribeOutputStorageAwsObjectAclOutput() StorageIntegrationDescribeOutputStorageAwsObjectAclOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAwsObjectAclOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsObjectAclArgs) ToStorageIntegrationDescribeOutputStorageAwsObjectAclOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsObjectAclOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAwsObjectAclOutput)
+}
+
+// StorageIntegrationDescribeOutputStorageAwsObjectAclArrayInput is an input type that accepts StorageIntegrationDescribeOutputStorageAwsObjectAclArray and StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAwsObjectAclArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAwsObjectAclArray{ StorageIntegrationDescribeOutputStorageAwsObjectAclArgs{...} }
+type StorageIntegrationDescribeOutputStorageAwsObjectAclArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput() StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput
+	ToStorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAwsObjectAclArray []StorageIntegrationDescribeOutputStorageAwsObjectAclInput
+
+func (StorageIntegrationDescribeOutputStorageAwsObjectAclArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAwsObjectAcl)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsObjectAclArray) ToStorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput() StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsObjectAclArray) ToStorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsObjectAclOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAwsObjectAclOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsObjectAcl)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclOutput) ToStorageIntegrationDescribeOutputStorageAwsObjectAclOutput() StorageIntegrationDescribeOutputStorageAwsObjectAclOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclOutput) ToStorageIntegrationDescribeOutputStorageAwsObjectAclOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsObjectAclOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsObjectAcl) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsObjectAcl) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsObjectAcl) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsObjectAcl) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAwsObjectAcl)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput) ToStorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput() StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput) ToStorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputStorageAwsObjectAclOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputStorageAwsObjectAcl {
+		return vs[0].([]StorageIntegrationDescribeOutputStorageAwsObjectAcl)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputStorageAwsObjectAclOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsRoleArn struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputStorageAwsRoleArnInput is an input type that accepts StorageIntegrationDescribeOutputStorageAwsRoleArnArgs and StorageIntegrationDescribeOutputStorageAwsRoleArnOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAwsRoleArnInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAwsRoleArnArgs{...}
+type StorageIntegrationDescribeOutputStorageAwsRoleArnInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAwsRoleArnOutput() StorageIntegrationDescribeOutputStorageAwsRoleArnOutput
+	ToStorageIntegrationDescribeOutputStorageAwsRoleArnOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAwsRoleArnOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAwsRoleArnArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputStorageAwsRoleArnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsRoleArn)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsRoleArnArgs) ToStorageIntegrationDescribeOutputStorageAwsRoleArnOutput() StorageIntegrationDescribeOutputStorageAwsRoleArnOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAwsRoleArnOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsRoleArnArgs) ToStorageIntegrationDescribeOutputStorageAwsRoleArnOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsRoleArnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAwsRoleArnOutput)
+}
+
+// StorageIntegrationDescribeOutputStorageAwsRoleArnArrayInput is an input type that accepts StorageIntegrationDescribeOutputStorageAwsRoleArnArray and StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageAwsRoleArnArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageAwsRoleArnArray{ StorageIntegrationDescribeOutputStorageAwsRoleArnArgs{...} }
+type StorageIntegrationDescribeOutputStorageAwsRoleArnArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput() StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput
+	ToStorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput
+}
+
+type StorageIntegrationDescribeOutputStorageAwsRoleArnArray []StorageIntegrationDescribeOutputStorageAwsRoleArnInput
+
+func (StorageIntegrationDescribeOutputStorageAwsRoleArnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAwsRoleArn)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsRoleArnArray) ToStorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput() StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageAwsRoleArnArray) ToStorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsRoleArnOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAwsRoleArnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsRoleArn)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnOutput) ToStorageIntegrationDescribeOutputStorageAwsRoleArnOutput() StorageIntegrationDescribeOutputStorageAwsRoleArnOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnOutput) ToStorageIntegrationDescribeOutputStorageAwsRoleArnOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsRoleArnOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsRoleArn) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsRoleArn) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsRoleArn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageAwsRoleArn) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageAwsRoleArn)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput) ToStorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput() StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput) ToStorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputStorageAwsRoleArnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputStorageAwsRoleArn {
+		return vs[0].([]StorageIntegrationDescribeOutputStorageAwsRoleArn)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputStorageAwsRoleArnOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageBlockedLocation struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputStorageBlockedLocationInput is an input type that accepts StorageIntegrationDescribeOutputStorageBlockedLocationArgs and StorageIntegrationDescribeOutputStorageBlockedLocationOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageBlockedLocationInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageBlockedLocationArgs{...}
+type StorageIntegrationDescribeOutputStorageBlockedLocationInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageBlockedLocationOutput() StorageIntegrationDescribeOutputStorageBlockedLocationOutput
+	ToStorageIntegrationDescribeOutputStorageBlockedLocationOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageBlockedLocationOutput
+}
+
+type StorageIntegrationDescribeOutputStorageBlockedLocationArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputStorageBlockedLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageBlockedLocation)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageBlockedLocationArgs) ToStorageIntegrationDescribeOutputStorageBlockedLocationOutput() StorageIntegrationDescribeOutputStorageBlockedLocationOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageBlockedLocationOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageBlockedLocationArgs) ToStorageIntegrationDescribeOutputStorageBlockedLocationOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageBlockedLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageBlockedLocationOutput)
+}
+
+// StorageIntegrationDescribeOutputStorageBlockedLocationArrayInput is an input type that accepts StorageIntegrationDescribeOutputStorageBlockedLocationArray and StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageBlockedLocationArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageBlockedLocationArray{ StorageIntegrationDescribeOutputStorageBlockedLocationArgs{...} }
+type StorageIntegrationDescribeOutputStorageBlockedLocationArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput() StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput
+	ToStorageIntegrationDescribeOutputStorageBlockedLocationArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput
+}
+
+type StorageIntegrationDescribeOutputStorageBlockedLocationArray []StorageIntegrationDescribeOutputStorageBlockedLocationInput
+
+func (StorageIntegrationDescribeOutputStorageBlockedLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageBlockedLocation)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageBlockedLocationArray) ToStorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput() StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageBlockedLocationArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageBlockedLocationArray) ToStorageIntegrationDescribeOutputStorageBlockedLocationArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageBlockedLocationOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageBlockedLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageBlockedLocation)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationOutput) ToStorageIntegrationDescribeOutputStorageBlockedLocationOutput() StorageIntegrationDescribeOutputStorageBlockedLocationOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationOutput) ToStorageIntegrationDescribeOutputStorageBlockedLocationOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageBlockedLocationOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageBlockedLocation) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageBlockedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageBlockedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageBlockedLocation) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageBlockedLocation)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput) ToStorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput() StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput) ToStorageIntegrationDescribeOutputStorageBlockedLocationArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputStorageBlockedLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputStorageBlockedLocation {
+		return vs[0].([]StorageIntegrationDescribeOutputStorageBlockedLocation)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputStorageBlockedLocationOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageGcpServiceAccount struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputStorageGcpServiceAccountInput is an input type that accepts StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs and StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageGcpServiceAccountInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs{...}
+type StorageIntegrationDescribeOutputStorageGcpServiceAccountInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageGcpServiceAccountOutput() StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput
+	ToStorageIntegrationDescribeOutputStorageGcpServiceAccountOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput
+}
+
+type StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageGcpServiceAccount)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs) ToStorageIntegrationDescribeOutputStorageGcpServiceAccountOutput() StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageGcpServiceAccountOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs) ToStorageIntegrationDescribeOutputStorageGcpServiceAccountOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput)
+}
+
+// StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayInput is an input type that accepts StorageIntegrationDescribeOutputStorageGcpServiceAccountArray and StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageGcpServiceAccountArray{ StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs{...} }
+type StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput() StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput
+	ToStorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput
+}
+
+type StorageIntegrationDescribeOutputStorageGcpServiceAccountArray []StorageIntegrationDescribeOutputStorageGcpServiceAccountInput
+
+func (StorageIntegrationDescribeOutputStorageGcpServiceAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageGcpServiceAccount)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageGcpServiceAccountArray) ToStorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput() StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageGcpServiceAccountArray) ToStorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageGcpServiceAccount)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput) ToStorageIntegrationDescribeOutputStorageGcpServiceAccountOutput() StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput) ToStorageIntegrationDescribeOutputStorageGcpServiceAccountOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageGcpServiceAccount) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageGcpServiceAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageGcpServiceAccount) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageGcpServiceAccount) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageGcpServiceAccount)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput) ToStorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput() StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput) ToStorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputStorageGcpServiceAccount {
+		return vs[0].([]StorageIntegrationDescribeOutputStorageGcpServiceAccount)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageProvider struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputStorageProviderInput is an input type that accepts StorageIntegrationDescribeOutputStorageProviderArgs and StorageIntegrationDescribeOutputStorageProviderOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageProviderInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageProviderArgs{...}
+type StorageIntegrationDescribeOutputStorageProviderInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageProviderOutput() StorageIntegrationDescribeOutputStorageProviderOutput
+	ToStorageIntegrationDescribeOutputStorageProviderOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageProviderOutput
+}
+
+type StorageIntegrationDescribeOutputStorageProviderArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputStorageProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageProvider)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageProviderArgs) ToStorageIntegrationDescribeOutputStorageProviderOutput() StorageIntegrationDescribeOutputStorageProviderOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageProviderOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageProviderArgs) ToStorageIntegrationDescribeOutputStorageProviderOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageProviderOutput)
+}
+
+// StorageIntegrationDescribeOutputStorageProviderArrayInput is an input type that accepts StorageIntegrationDescribeOutputStorageProviderArray and StorageIntegrationDescribeOutputStorageProviderArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputStorageProviderArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputStorageProviderArray{ StorageIntegrationDescribeOutputStorageProviderArgs{...} }
+type StorageIntegrationDescribeOutputStorageProviderArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputStorageProviderArrayOutput() StorageIntegrationDescribeOutputStorageProviderArrayOutput
+	ToStorageIntegrationDescribeOutputStorageProviderArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputStorageProviderArrayOutput
+}
+
+type StorageIntegrationDescribeOutputStorageProviderArray []StorageIntegrationDescribeOutputStorageProviderInput
+
+func (StorageIntegrationDescribeOutputStorageProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageProvider)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputStorageProviderArray) ToStorageIntegrationDescribeOutputStorageProviderArrayOutput() StorageIntegrationDescribeOutputStorageProviderArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputStorageProviderArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputStorageProviderArray) ToStorageIntegrationDescribeOutputStorageProviderArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputStorageProviderArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageProviderOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputStorageProvider)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderOutput) ToStorageIntegrationDescribeOutputStorageProviderOutput() StorageIntegrationDescribeOutputStorageProviderOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderOutput) ToStorageIntegrationDescribeOutputStorageProviderOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageProviderOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageProvider) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageProvider) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageProvider) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputStorageProvider) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputStorageProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputStorageProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputStorageProvider)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderArrayOutput) ToStorageIntegrationDescribeOutputStorageProviderArrayOutput() StorageIntegrationDescribeOutputStorageProviderArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderArrayOutput) ToStorageIntegrationDescribeOutputStorageProviderArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputStorageProviderArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputStorageProviderArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputStorageProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputStorageProvider {
+		return vs[0].([]StorageIntegrationDescribeOutputStorageProvider)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputStorageProviderOutput)
+}
+
+type StorageIntegrationDescribeOutputUsePrivatelinkEndpoint struct {
+	Default *string `pulumi:"default"`
+	Name    *string `pulumi:"name"`
+	Type    *string `pulumi:"type"`
+	Value   *string `pulumi:"value"`
+}
+
+// StorageIntegrationDescribeOutputUsePrivatelinkEndpointInput is an input type that accepts StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs and StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputUsePrivatelinkEndpointInput` via:
+//
+//	StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs{...}
+type StorageIntegrationDescribeOutputUsePrivatelinkEndpointInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput() StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput
+	ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointOutputWithContext(context.Context) StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput
+}
+
+type StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs struct {
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Value   pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputUsePrivatelinkEndpoint)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs) ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput() StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput {
+	return i.ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs) ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput)
+}
+
+// StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayInput is an input type that accepts StorageIntegrationDescribeOutputUsePrivatelinkEndpointArray and StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput values.
+// You can construct a concrete instance of `StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayInput` via:
+//
+//	StorageIntegrationDescribeOutputUsePrivatelinkEndpointArray{ StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs{...} }
+type StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayInput interface {
+	pulumi.Input
+
+	ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput() StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput
+	ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutputWithContext(context.Context) StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput
+}
+
+type StorageIntegrationDescribeOutputUsePrivatelinkEndpointArray []StorageIntegrationDescribeOutputUsePrivatelinkEndpointInput
+
+func (StorageIntegrationDescribeOutputUsePrivatelinkEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputUsePrivatelinkEndpoint)(nil)).Elem()
+}
+
+func (i StorageIntegrationDescribeOutputUsePrivatelinkEndpointArray) ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput() StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput {
+	return i.ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i StorageIntegrationDescribeOutputUsePrivatelinkEndpointArray) ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput)
+}
+
+type StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageIntegrationDescribeOutputUsePrivatelinkEndpoint)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput) ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput() StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput) ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputUsePrivatelinkEndpoint) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputUsePrivatelinkEndpoint) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputUsePrivatelinkEndpoint) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageIntegrationDescribeOutputUsePrivatelinkEndpoint) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageIntegrationDescribeOutputUsePrivatelinkEndpoint)(nil)).Elem()
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput) ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput() StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput) ToStorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutputWithContext(ctx context.Context) StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput {
+	return o
+}
+
+func (o StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput) Index(i pulumi.IntInput) StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageIntegrationDescribeOutputUsePrivatelinkEndpoint {
+		return vs[0].([]StorageIntegrationDescribeOutputUsePrivatelinkEndpoint)[vs[1].(int)]
+	}).(StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput)
+}
+
 type StreamOnDirectoryTableDescribeOutput struct {
 	BaseTables    []string `pulumi:"baseTables"`
 	Comment       *string  `pulumi:"comment"`
@@ -63900,2012 +66138,6 @@ func (o TaskParameterStatementTimeoutInSecondArrayOutput) Index(i pulumi.IntInpu
 	}).(TaskParameterStatementTimeoutInSecondOutput)
 }
 
-type TaskParameterStrictJsonOutput struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterStrictJsonOutputInput is an input type that accepts TaskParameterStrictJsonOutputArgs and TaskParameterStrictJsonOutputOutput values.
-// You can construct a concrete instance of `TaskParameterStrictJsonOutputInput` via:
-//
-//	TaskParameterStrictJsonOutputArgs{...}
-type TaskParameterStrictJsonOutputInput interface {
-	pulumi.Input
-
-	ToTaskParameterStrictJsonOutputOutput() TaskParameterStrictJsonOutputOutput
-	ToTaskParameterStrictJsonOutputOutputWithContext(context.Context) TaskParameterStrictJsonOutputOutput
-}
-
-type TaskParameterStrictJsonOutputArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterStrictJsonOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterStrictJsonOutput)(nil)).Elem()
-}
-
-func (i TaskParameterStrictJsonOutputArgs) ToTaskParameterStrictJsonOutputOutput() TaskParameterStrictJsonOutputOutput {
-	return i.ToTaskParameterStrictJsonOutputOutputWithContext(context.Background())
-}
-
-func (i TaskParameterStrictJsonOutputArgs) ToTaskParameterStrictJsonOutputOutputWithContext(ctx context.Context) TaskParameterStrictJsonOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStrictJsonOutputOutput)
-}
-
-// TaskParameterStrictJsonOutputArrayInput is an input type that accepts TaskParameterStrictJsonOutputArray and TaskParameterStrictJsonOutputArrayOutput values.
-// You can construct a concrete instance of `TaskParameterStrictJsonOutputArrayInput` via:
-//
-//	TaskParameterStrictJsonOutputArray{ TaskParameterStrictJsonOutputArgs{...} }
-type TaskParameterStrictJsonOutputArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterStrictJsonOutputArrayOutput() TaskParameterStrictJsonOutputArrayOutput
-	ToTaskParameterStrictJsonOutputArrayOutputWithContext(context.Context) TaskParameterStrictJsonOutputArrayOutput
-}
-
-type TaskParameterStrictJsonOutputArray []TaskParameterStrictJsonOutputInput
-
-func (TaskParameterStrictJsonOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterStrictJsonOutput)(nil)).Elem()
-}
-
-func (i TaskParameterStrictJsonOutputArray) ToTaskParameterStrictJsonOutputArrayOutput() TaskParameterStrictJsonOutputArrayOutput {
-	return i.ToTaskParameterStrictJsonOutputArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterStrictJsonOutputArray) ToTaskParameterStrictJsonOutputArrayOutputWithContext(ctx context.Context) TaskParameterStrictJsonOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStrictJsonOutputArrayOutput)
-}
-
-type TaskParameterStrictJsonOutputOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterStrictJsonOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterStrictJsonOutput)(nil)).Elem()
-}
-
-func (o TaskParameterStrictJsonOutputOutput) ToTaskParameterStrictJsonOutputOutput() TaskParameterStrictJsonOutputOutput {
-	return o
-}
-
-func (o TaskParameterStrictJsonOutputOutput) ToTaskParameterStrictJsonOutputOutputWithContext(ctx context.Context) TaskParameterStrictJsonOutputOutput {
-	return o
-}
-
-func (o TaskParameterStrictJsonOutputOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStrictJsonOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStrictJsonOutputOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStrictJsonOutputOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStrictJsonOutputOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStrictJsonOutput) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterStrictJsonOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterStrictJsonOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterStrictJsonOutput)(nil)).Elem()
-}
-
-func (o TaskParameterStrictJsonOutputArrayOutput) ToTaskParameterStrictJsonOutputArrayOutput() TaskParameterStrictJsonOutputArrayOutput {
-	return o
-}
-
-func (o TaskParameterStrictJsonOutputArrayOutput) ToTaskParameterStrictJsonOutputArrayOutputWithContext(ctx context.Context) TaskParameterStrictJsonOutputArrayOutput {
-	return o
-}
-
-func (o TaskParameterStrictJsonOutputArrayOutput) Index(i pulumi.IntInput) TaskParameterStrictJsonOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterStrictJsonOutput {
-		return vs[0].([]TaskParameterStrictJsonOutput)[vs[1].(int)]
-	}).(TaskParameterStrictJsonOutputOutput)
-}
-
-type TaskParameterSuspendTaskAfterNumFailure struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterSuspendTaskAfterNumFailureInput is an input type that accepts TaskParameterSuspendTaskAfterNumFailureArgs and TaskParameterSuspendTaskAfterNumFailureOutput values.
-// You can construct a concrete instance of `TaskParameterSuspendTaskAfterNumFailureInput` via:
-//
-//	TaskParameterSuspendTaskAfterNumFailureArgs{...}
-type TaskParameterSuspendTaskAfterNumFailureInput interface {
-	pulumi.Input
-
-	ToTaskParameterSuspendTaskAfterNumFailureOutput() TaskParameterSuspendTaskAfterNumFailureOutput
-	ToTaskParameterSuspendTaskAfterNumFailureOutputWithContext(context.Context) TaskParameterSuspendTaskAfterNumFailureOutput
-}
-
-type TaskParameterSuspendTaskAfterNumFailureArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterSuspendTaskAfterNumFailureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailure)(nil)).Elem()
-}
-
-func (i TaskParameterSuspendTaskAfterNumFailureArgs) ToTaskParameterSuspendTaskAfterNumFailureOutput() TaskParameterSuspendTaskAfterNumFailureOutput {
-	return i.ToTaskParameterSuspendTaskAfterNumFailureOutputWithContext(context.Background())
-}
-
-func (i TaskParameterSuspendTaskAfterNumFailureArgs) ToTaskParameterSuspendTaskAfterNumFailureOutputWithContext(ctx context.Context) TaskParameterSuspendTaskAfterNumFailureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterSuspendTaskAfterNumFailureOutput)
-}
-
-// TaskParameterSuspendTaskAfterNumFailureArrayInput is an input type that accepts TaskParameterSuspendTaskAfterNumFailureArray and TaskParameterSuspendTaskAfterNumFailureArrayOutput values.
-// You can construct a concrete instance of `TaskParameterSuspendTaskAfterNumFailureArrayInput` via:
-//
-//	TaskParameterSuspendTaskAfterNumFailureArray{ TaskParameterSuspendTaskAfterNumFailureArgs{...} }
-type TaskParameterSuspendTaskAfterNumFailureArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterSuspendTaskAfterNumFailureArrayOutput() TaskParameterSuspendTaskAfterNumFailureArrayOutput
-	ToTaskParameterSuspendTaskAfterNumFailureArrayOutputWithContext(context.Context) TaskParameterSuspendTaskAfterNumFailureArrayOutput
-}
-
-type TaskParameterSuspendTaskAfterNumFailureArray []TaskParameterSuspendTaskAfterNumFailureInput
-
-func (TaskParameterSuspendTaskAfterNumFailureArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterSuspendTaskAfterNumFailure)(nil)).Elem()
-}
-
-func (i TaskParameterSuspendTaskAfterNumFailureArray) ToTaskParameterSuspendTaskAfterNumFailureArrayOutput() TaskParameterSuspendTaskAfterNumFailureArrayOutput {
-	return i.ToTaskParameterSuspendTaskAfterNumFailureArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterSuspendTaskAfterNumFailureArray) ToTaskParameterSuspendTaskAfterNumFailureArrayOutputWithContext(ctx context.Context) TaskParameterSuspendTaskAfterNumFailureArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterSuspendTaskAfterNumFailureArrayOutput)
-}
-
-type TaskParameterSuspendTaskAfterNumFailureOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterSuspendTaskAfterNumFailureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailure)(nil)).Elem()
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureOutput) ToTaskParameterSuspendTaskAfterNumFailureOutput() TaskParameterSuspendTaskAfterNumFailureOutput {
-	return o
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureOutput) ToTaskParameterSuspendTaskAfterNumFailureOutputWithContext(ctx context.Context) TaskParameterSuspendTaskAfterNumFailureOutput {
-	return o
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSuspendTaskAfterNumFailure) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterSuspendTaskAfterNumFailureArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterSuspendTaskAfterNumFailureArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterSuspendTaskAfterNumFailure)(nil)).Elem()
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureArrayOutput) ToTaskParameterSuspendTaskAfterNumFailureArrayOutput() TaskParameterSuspendTaskAfterNumFailureArrayOutput {
-	return o
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureArrayOutput) ToTaskParameterSuspendTaskAfterNumFailureArrayOutputWithContext(ctx context.Context) TaskParameterSuspendTaskAfterNumFailureArrayOutput {
-	return o
-}
-
-func (o TaskParameterSuspendTaskAfterNumFailureArrayOutput) Index(i pulumi.IntInput) TaskParameterSuspendTaskAfterNumFailureOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterSuspendTaskAfterNumFailure {
-		return vs[0].([]TaskParameterSuspendTaskAfterNumFailure)[vs[1].(int)]
-	}).(TaskParameterSuspendTaskAfterNumFailureOutput)
-}
-
-type TaskParameterTaskAutoRetryAttempt struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTaskAutoRetryAttemptInput is an input type that accepts TaskParameterTaskAutoRetryAttemptArgs and TaskParameterTaskAutoRetryAttemptOutput values.
-// You can construct a concrete instance of `TaskParameterTaskAutoRetryAttemptInput` via:
-//
-//	TaskParameterTaskAutoRetryAttemptArgs{...}
-type TaskParameterTaskAutoRetryAttemptInput interface {
-	pulumi.Input
-
-	ToTaskParameterTaskAutoRetryAttemptOutput() TaskParameterTaskAutoRetryAttemptOutput
-	ToTaskParameterTaskAutoRetryAttemptOutputWithContext(context.Context) TaskParameterTaskAutoRetryAttemptOutput
-}
-
-type TaskParameterTaskAutoRetryAttemptArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTaskAutoRetryAttemptArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTaskAutoRetryAttempt)(nil)).Elem()
-}
-
-func (i TaskParameterTaskAutoRetryAttemptArgs) ToTaskParameterTaskAutoRetryAttemptOutput() TaskParameterTaskAutoRetryAttemptOutput {
-	return i.ToTaskParameterTaskAutoRetryAttemptOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTaskAutoRetryAttemptArgs) ToTaskParameterTaskAutoRetryAttemptOutputWithContext(ctx context.Context) TaskParameterTaskAutoRetryAttemptOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTaskAutoRetryAttemptOutput)
-}
-
-// TaskParameterTaskAutoRetryAttemptArrayInput is an input type that accepts TaskParameterTaskAutoRetryAttemptArray and TaskParameterTaskAutoRetryAttemptArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTaskAutoRetryAttemptArrayInput` via:
-//
-//	TaskParameterTaskAutoRetryAttemptArray{ TaskParameterTaskAutoRetryAttemptArgs{...} }
-type TaskParameterTaskAutoRetryAttemptArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTaskAutoRetryAttemptArrayOutput() TaskParameterTaskAutoRetryAttemptArrayOutput
-	ToTaskParameterTaskAutoRetryAttemptArrayOutputWithContext(context.Context) TaskParameterTaskAutoRetryAttemptArrayOutput
-}
-
-type TaskParameterTaskAutoRetryAttemptArray []TaskParameterTaskAutoRetryAttemptInput
-
-func (TaskParameterTaskAutoRetryAttemptArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTaskAutoRetryAttempt)(nil)).Elem()
-}
-
-func (i TaskParameterTaskAutoRetryAttemptArray) ToTaskParameterTaskAutoRetryAttemptArrayOutput() TaskParameterTaskAutoRetryAttemptArrayOutput {
-	return i.ToTaskParameterTaskAutoRetryAttemptArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTaskAutoRetryAttemptArray) ToTaskParameterTaskAutoRetryAttemptArrayOutputWithContext(ctx context.Context) TaskParameterTaskAutoRetryAttemptArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTaskAutoRetryAttemptArrayOutput)
-}
-
-type TaskParameterTaskAutoRetryAttemptOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTaskAutoRetryAttemptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTaskAutoRetryAttempt)(nil)).Elem()
-}
-
-func (o TaskParameterTaskAutoRetryAttemptOutput) ToTaskParameterTaskAutoRetryAttemptOutput() TaskParameterTaskAutoRetryAttemptOutput {
-	return o
-}
-
-func (o TaskParameterTaskAutoRetryAttemptOutput) ToTaskParameterTaskAutoRetryAttemptOutputWithContext(ctx context.Context) TaskParameterTaskAutoRetryAttemptOutput {
-	return o
-}
-
-func (o TaskParameterTaskAutoRetryAttemptOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTaskAutoRetryAttemptOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTaskAutoRetryAttemptOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTaskAutoRetryAttemptOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTaskAutoRetryAttemptOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTaskAutoRetryAttempt) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTaskAutoRetryAttemptArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTaskAutoRetryAttemptArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTaskAutoRetryAttempt)(nil)).Elem()
-}
-
-func (o TaskParameterTaskAutoRetryAttemptArrayOutput) ToTaskParameterTaskAutoRetryAttemptArrayOutput() TaskParameterTaskAutoRetryAttemptArrayOutput {
-	return o
-}
-
-func (o TaskParameterTaskAutoRetryAttemptArrayOutput) ToTaskParameterTaskAutoRetryAttemptArrayOutputWithContext(ctx context.Context) TaskParameterTaskAutoRetryAttemptArrayOutput {
-	return o
-}
-
-func (o TaskParameterTaskAutoRetryAttemptArrayOutput) Index(i pulumi.IntInput) TaskParameterTaskAutoRetryAttemptOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTaskAutoRetryAttempt {
-		return vs[0].([]TaskParameterTaskAutoRetryAttempt)[vs[1].(int)]
-	}).(TaskParameterTaskAutoRetryAttemptOutput)
-}
-
-type TaskParameterTimeInputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimeInputFormatInput is an input type that accepts TaskParameterTimeInputFormatArgs and TaskParameterTimeInputFormatOutput values.
-// You can construct a concrete instance of `TaskParameterTimeInputFormatInput` via:
-//
-//	TaskParameterTimeInputFormatArgs{...}
-type TaskParameterTimeInputFormatInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimeInputFormatOutput() TaskParameterTimeInputFormatOutput
-	ToTaskParameterTimeInputFormatOutputWithContext(context.Context) TaskParameterTimeInputFormatOutput
-}
-
-type TaskParameterTimeInputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimeInputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimeInputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimeInputFormatArgs) ToTaskParameterTimeInputFormatOutput() TaskParameterTimeInputFormatOutput {
-	return i.ToTaskParameterTimeInputFormatOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimeInputFormatArgs) ToTaskParameterTimeInputFormatOutputWithContext(ctx context.Context) TaskParameterTimeInputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimeInputFormatOutput)
-}
-
-// TaskParameterTimeInputFormatArrayInput is an input type that accepts TaskParameterTimeInputFormatArray and TaskParameterTimeInputFormatArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimeInputFormatArrayInput` via:
-//
-//	TaskParameterTimeInputFormatArray{ TaskParameterTimeInputFormatArgs{...} }
-type TaskParameterTimeInputFormatArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimeInputFormatArrayOutput() TaskParameterTimeInputFormatArrayOutput
-	ToTaskParameterTimeInputFormatArrayOutputWithContext(context.Context) TaskParameterTimeInputFormatArrayOutput
-}
-
-type TaskParameterTimeInputFormatArray []TaskParameterTimeInputFormatInput
-
-func (TaskParameterTimeInputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimeInputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimeInputFormatArray) ToTaskParameterTimeInputFormatArrayOutput() TaskParameterTimeInputFormatArrayOutput {
-	return i.ToTaskParameterTimeInputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimeInputFormatArray) ToTaskParameterTimeInputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimeInputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimeInputFormatArrayOutput)
-}
-
-type TaskParameterTimeInputFormatOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimeInputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimeInputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimeInputFormatOutput) ToTaskParameterTimeInputFormatOutput() TaskParameterTimeInputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimeInputFormatOutput) ToTaskParameterTimeInputFormatOutputWithContext(ctx context.Context) TaskParameterTimeInputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimeInputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimeInputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimeInputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimeInputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimeInputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeInputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimeInputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimeInputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimeInputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimeInputFormatArrayOutput) ToTaskParameterTimeInputFormatArrayOutput() TaskParameterTimeInputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimeInputFormatArrayOutput) ToTaskParameterTimeInputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimeInputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimeInputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimeInputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimeInputFormat {
-		return vs[0].([]TaskParameterTimeInputFormat)[vs[1].(int)]
-	}).(TaskParameterTimeInputFormatOutput)
-}
-
-type TaskParameterTimeOutputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimeOutputFormatInput is an input type that accepts TaskParameterTimeOutputFormatArgs and TaskParameterTimeOutputFormatOutput values.
-// You can construct a concrete instance of `TaskParameterTimeOutputFormatInput` via:
-//
-//	TaskParameterTimeOutputFormatArgs{...}
-type TaskParameterTimeOutputFormatInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimeOutputFormatOutput() TaskParameterTimeOutputFormatOutput
-	ToTaskParameterTimeOutputFormatOutputWithContext(context.Context) TaskParameterTimeOutputFormatOutput
-}
-
-type TaskParameterTimeOutputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimeOutputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimeOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimeOutputFormatArgs) ToTaskParameterTimeOutputFormatOutput() TaskParameterTimeOutputFormatOutput {
-	return i.ToTaskParameterTimeOutputFormatOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimeOutputFormatArgs) ToTaskParameterTimeOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimeOutputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimeOutputFormatOutput)
-}
-
-// TaskParameterTimeOutputFormatArrayInput is an input type that accepts TaskParameterTimeOutputFormatArray and TaskParameterTimeOutputFormatArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimeOutputFormatArrayInput` via:
-//
-//	TaskParameterTimeOutputFormatArray{ TaskParameterTimeOutputFormatArgs{...} }
-type TaskParameterTimeOutputFormatArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimeOutputFormatArrayOutput() TaskParameterTimeOutputFormatArrayOutput
-	ToTaskParameterTimeOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimeOutputFormatArrayOutput
-}
-
-type TaskParameterTimeOutputFormatArray []TaskParameterTimeOutputFormatInput
-
-func (TaskParameterTimeOutputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimeOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimeOutputFormatArray) ToTaskParameterTimeOutputFormatArrayOutput() TaskParameterTimeOutputFormatArrayOutput {
-	return i.ToTaskParameterTimeOutputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimeOutputFormatArray) ToTaskParameterTimeOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimeOutputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimeOutputFormatArrayOutput)
-}
-
-type TaskParameterTimeOutputFormatOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimeOutputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimeOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimeOutputFormatOutput) ToTaskParameterTimeOutputFormatOutput() TaskParameterTimeOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimeOutputFormatOutput) ToTaskParameterTimeOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimeOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimeOutputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimeOutputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimeOutputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimeOutputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimeOutputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimeOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimeOutputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimeOutputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimeOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimeOutputFormatArrayOutput) ToTaskParameterTimeOutputFormatArrayOutput() TaskParameterTimeOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimeOutputFormatArrayOutput) ToTaskParameterTimeOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimeOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimeOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimeOutputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimeOutputFormat {
-		return vs[0].([]TaskParameterTimeOutputFormat)[vs[1].(int)]
-	}).(TaskParameterTimeOutputFormatOutput)
-}
-
-type TaskParameterTimestampDayIsAlways24h struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimestampDayIsAlways24hInput is an input type that accepts TaskParameterTimestampDayIsAlways24hArgs and TaskParameterTimestampDayIsAlways24hOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampDayIsAlways24hInput` via:
-//
-//	TaskParameterTimestampDayIsAlways24hArgs{...}
-type TaskParameterTimestampDayIsAlways24hInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampDayIsAlways24hOutput() TaskParameterTimestampDayIsAlways24hOutput
-	ToTaskParameterTimestampDayIsAlways24hOutputWithContext(context.Context) TaskParameterTimestampDayIsAlways24hOutput
-}
-
-type TaskParameterTimestampDayIsAlways24hArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimestampDayIsAlways24hArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampDayIsAlways24h)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampDayIsAlways24hArgs) ToTaskParameterTimestampDayIsAlways24hOutput() TaskParameterTimestampDayIsAlways24hOutput {
-	return i.ToTaskParameterTimestampDayIsAlways24hOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampDayIsAlways24hArgs) ToTaskParameterTimestampDayIsAlways24hOutputWithContext(ctx context.Context) TaskParameterTimestampDayIsAlways24hOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampDayIsAlways24hOutput)
-}
-
-// TaskParameterTimestampDayIsAlways24hArrayInput is an input type that accepts TaskParameterTimestampDayIsAlways24hArray and TaskParameterTimestampDayIsAlways24hArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampDayIsAlways24hArrayInput` via:
-//
-//	TaskParameterTimestampDayIsAlways24hArray{ TaskParameterTimestampDayIsAlways24hArgs{...} }
-type TaskParameterTimestampDayIsAlways24hArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampDayIsAlways24hArrayOutput() TaskParameterTimestampDayIsAlways24hArrayOutput
-	ToTaskParameterTimestampDayIsAlways24hArrayOutputWithContext(context.Context) TaskParameterTimestampDayIsAlways24hArrayOutput
-}
-
-type TaskParameterTimestampDayIsAlways24hArray []TaskParameterTimestampDayIsAlways24hInput
-
-func (TaskParameterTimestampDayIsAlways24hArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampDayIsAlways24h)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampDayIsAlways24hArray) ToTaskParameterTimestampDayIsAlways24hArrayOutput() TaskParameterTimestampDayIsAlways24hArrayOutput {
-	return i.ToTaskParameterTimestampDayIsAlways24hArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampDayIsAlways24hArray) ToTaskParameterTimestampDayIsAlways24hArrayOutputWithContext(ctx context.Context) TaskParameterTimestampDayIsAlways24hArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampDayIsAlways24hArrayOutput)
-}
-
-type TaskParameterTimestampDayIsAlways24hOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampDayIsAlways24hOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampDayIsAlways24h)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampDayIsAlways24hOutput) ToTaskParameterTimestampDayIsAlways24hOutput() TaskParameterTimestampDayIsAlways24hOutput {
-	return o
-}
-
-func (o TaskParameterTimestampDayIsAlways24hOutput) ToTaskParameterTimestampDayIsAlways24hOutputWithContext(ctx context.Context) TaskParameterTimestampDayIsAlways24hOutput {
-	return o
-}
-
-func (o TaskParameterTimestampDayIsAlways24hOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampDayIsAlways24hOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampDayIsAlways24hOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampDayIsAlways24hOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampDayIsAlways24hOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampDayIsAlways24h) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimestampDayIsAlways24hArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampDayIsAlways24hArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampDayIsAlways24h)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampDayIsAlways24hArrayOutput) ToTaskParameterTimestampDayIsAlways24hArrayOutput() TaskParameterTimestampDayIsAlways24hArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampDayIsAlways24hArrayOutput) ToTaskParameterTimestampDayIsAlways24hArrayOutputWithContext(ctx context.Context) TaskParameterTimestampDayIsAlways24hArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampDayIsAlways24hArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampDayIsAlways24hOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampDayIsAlways24h {
-		return vs[0].([]TaskParameterTimestampDayIsAlways24h)[vs[1].(int)]
-	}).(TaskParameterTimestampDayIsAlways24hOutput)
-}
-
-type TaskParameterTimestampInputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimestampInputFormatInput is an input type that accepts TaskParameterTimestampInputFormatArgs and TaskParameterTimestampInputFormatOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampInputFormatInput` via:
-//
-//	TaskParameterTimestampInputFormatArgs{...}
-type TaskParameterTimestampInputFormatInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampInputFormatOutput() TaskParameterTimestampInputFormatOutput
-	ToTaskParameterTimestampInputFormatOutputWithContext(context.Context) TaskParameterTimestampInputFormatOutput
-}
-
-type TaskParameterTimestampInputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimestampInputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampInputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampInputFormatArgs) ToTaskParameterTimestampInputFormatOutput() TaskParameterTimestampInputFormatOutput {
-	return i.ToTaskParameterTimestampInputFormatOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampInputFormatArgs) ToTaskParameterTimestampInputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampInputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampInputFormatOutput)
-}
-
-// TaskParameterTimestampInputFormatArrayInput is an input type that accepts TaskParameterTimestampInputFormatArray and TaskParameterTimestampInputFormatArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampInputFormatArrayInput` via:
-//
-//	TaskParameterTimestampInputFormatArray{ TaskParameterTimestampInputFormatArgs{...} }
-type TaskParameterTimestampInputFormatArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampInputFormatArrayOutput() TaskParameterTimestampInputFormatArrayOutput
-	ToTaskParameterTimestampInputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampInputFormatArrayOutput
-}
-
-type TaskParameterTimestampInputFormatArray []TaskParameterTimestampInputFormatInput
-
-func (TaskParameterTimestampInputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampInputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampInputFormatArray) ToTaskParameterTimestampInputFormatArrayOutput() TaskParameterTimestampInputFormatArrayOutput {
-	return i.ToTaskParameterTimestampInputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampInputFormatArray) ToTaskParameterTimestampInputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampInputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampInputFormatArrayOutput)
-}
-
-type TaskParameterTimestampInputFormatOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampInputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampInputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampInputFormatOutput) ToTaskParameterTimestampInputFormatOutput() TaskParameterTimestampInputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampInputFormatOutput) ToTaskParameterTimestampInputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampInputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampInputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampInputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampInputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampInputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampInputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampInputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimestampInputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampInputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampInputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampInputFormatArrayOutput) ToTaskParameterTimestampInputFormatArrayOutput() TaskParameterTimestampInputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampInputFormatArrayOutput) ToTaskParameterTimestampInputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampInputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampInputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampInputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampInputFormat {
-		return vs[0].([]TaskParameterTimestampInputFormat)[vs[1].(int)]
-	}).(TaskParameterTimestampInputFormatOutput)
-}
-
-type TaskParameterTimestampLtzOutputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimestampLtzOutputFormatInput is an input type that accepts TaskParameterTimestampLtzOutputFormatArgs and TaskParameterTimestampLtzOutputFormatOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampLtzOutputFormatInput` via:
-//
-//	TaskParameterTimestampLtzOutputFormatArgs{...}
-type TaskParameterTimestampLtzOutputFormatInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampLtzOutputFormatOutput() TaskParameterTimestampLtzOutputFormatOutput
-	ToTaskParameterTimestampLtzOutputFormatOutputWithContext(context.Context) TaskParameterTimestampLtzOutputFormatOutput
-}
-
-type TaskParameterTimestampLtzOutputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimestampLtzOutputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampLtzOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampLtzOutputFormatArgs) ToTaskParameterTimestampLtzOutputFormatOutput() TaskParameterTimestampLtzOutputFormatOutput {
-	return i.ToTaskParameterTimestampLtzOutputFormatOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampLtzOutputFormatArgs) ToTaskParameterTimestampLtzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampLtzOutputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampLtzOutputFormatOutput)
-}
-
-// TaskParameterTimestampLtzOutputFormatArrayInput is an input type that accepts TaskParameterTimestampLtzOutputFormatArray and TaskParameterTimestampLtzOutputFormatArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampLtzOutputFormatArrayInput` via:
-//
-//	TaskParameterTimestampLtzOutputFormatArray{ TaskParameterTimestampLtzOutputFormatArgs{...} }
-type TaskParameterTimestampLtzOutputFormatArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampLtzOutputFormatArrayOutput() TaskParameterTimestampLtzOutputFormatArrayOutput
-	ToTaskParameterTimestampLtzOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampLtzOutputFormatArrayOutput
-}
-
-type TaskParameterTimestampLtzOutputFormatArray []TaskParameterTimestampLtzOutputFormatInput
-
-func (TaskParameterTimestampLtzOutputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampLtzOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampLtzOutputFormatArray) ToTaskParameterTimestampLtzOutputFormatArrayOutput() TaskParameterTimestampLtzOutputFormatArrayOutput {
-	return i.ToTaskParameterTimestampLtzOutputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampLtzOutputFormatArray) ToTaskParameterTimestampLtzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampLtzOutputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampLtzOutputFormatArrayOutput)
-}
-
-type TaskParameterTimestampLtzOutputFormatOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampLtzOutputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampLtzOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampLtzOutputFormatOutput) ToTaskParameterTimestampLtzOutputFormatOutput() TaskParameterTimestampLtzOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampLtzOutputFormatOutput) ToTaskParameterTimestampLtzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampLtzOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampLtzOutputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampLtzOutputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampLtzOutputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampLtzOutputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampLtzOutputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampLtzOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimestampLtzOutputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampLtzOutputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampLtzOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampLtzOutputFormatArrayOutput) ToTaskParameterTimestampLtzOutputFormatArrayOutput() TaskParameterTimestampLtzOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampLtzOutputFormatArrayOutput) ToTaskParameterTimestampLtzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampLtzOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampLtzOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampLtzOutputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampLtzOutputFormat {
-		return vs[0].([]TaskParameterTimestampLtzOutputFormat)[vs[1].(int)]
-	}).(TaskParameterTimestampLtzOutputFormatOutput)
-}
-
-type TaskParameterTimestampNtzOutputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimestampNtzOutputFormatInput is an input type that accepts TaskParameterTimestampNtzOutputFormatArgs and TaskParameterTimestampNtzOutputFormatOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampNtzOutputFormatInput` via:
-//
-//	TaskParameterTimestampNtzOutputFormatArgs{...}
-type TaskParameterTimestampNtzOutputFormatInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampNtzOutputFormatOutput() TaskParameterTimestampNtzOutputFormatOutput
-	ToTaskParameterTimestampNtzOutputFormatOutputWithContext(context.Context) TaskParameterTimestampNtzOutputFormatOutput
-}
-
-type TaskParameterTimestampNtzOutputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimestampNtzOutputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampNtzOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampNtzOutputFormatArgs) ToTaskParameterTimestampNtzOutputFormatOutput() TaskParameterTimestampNtzOutputFormatOutput {
-	return i.ToTaskParameterTimestampNtzOutputFormatOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampNtzOutputFormatArgs) ToTaskParameterTimestampNtzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampNtzOutputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampNtzOutputFormatOutput)
-}
-
-// TaskParameterTimestampNtzOutputFormatArrayInput is an input type that accepts TaskParameterTimestampNtzOutputFormatArray and TaskParameterTimestampNtzOutputFormatArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampNtzOutputFormatArrayInput` via:
-//
-//	TaskParameterTimestampNtzOutputFormatArray{ TaskParameterTimestampNtzOutputFormatArgs{...} }
-type TaskParameterTimestampNtzOutputFormatArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampNtzOutputFormatArrayOutput() TaskParameterTimestampNtzOutputFormatArrayOutput
-	ToTaskParameterTimestampNtzOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampNtzOutputFormatArrayOutput
-}
-
-type TaskParameterTimestampNtzOutputFormatArray []TaskParameterTimestampNtzOutputFormatInput
-
-func (TaskParameterTimestampNtzOutputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampNtzOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampNtzOutputFormatArray) ToTaskParameterTimestampNtzOutputFormatArrayOutput() TaskParameterTimestampNtzOutputFormatArrayOutput {
-	return i.ToTaskParameterTimestampNtzOutputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampNtzOutputFormatArray) ToTaskParameterTimestampNtzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampNtzOutputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampNtzOutputFormatArrayOutput)
-}
-
-type TaskParameterTimestampNtzOutputFormatOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampNtzOutputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampNtzOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampNtzOutputFormatOutput) ToTaskParameterTimestampNtzOutputFormatOutput() TaskParameterTimestampNtzOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampNtzOutputFormatOutput) ToTaskParameterTimestampNtzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampNtzOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampNtzOutputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampNtzOutputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampNtzOutputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampNtzOutputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampNtzOutputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampNtzOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimestampNtzOutputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampNtzOutputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampNtzOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampNtzOutputFormatArrayOutput) ToTaskParameterTimestampNtzOutputFormatArrayOutput() TaskParameterTimestampNtzOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampNtzOutputFormatArrayOutput) ToTaskParameterTimestampNtzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampNtzOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampNtzOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampNtzOutputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampNtzOutputFormat {
-		return vs[0].([]TaskParameterTimestampNtzOutputFormat)[vs[1].(int)]
-	}).(TaskParameterTimestampNtzOutputFormatOutput)
-}
-
-type TaskParameterTimestampOutputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimestampOutputFormatInput is an input type that accepts TaskParameterTimestampOutputFormatArgs and TaskParameterTimestampOutputFormatOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampOutputFormatInput` via:
-//
-//	TaskParameterTimestampOutputFormatArgs{...}
-type TaskParameterTimestampOutputFormatInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampOutputFormatOutput() TaskParameterTimestampOutputFormatOutput
-	ToTaskParameterTimestampOutputFormatOutputWithContext(context.Context) TaskParameterTimestampOutputFormatOutput
-}
-
-type TaskParameterTimestampOutputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimestampOutputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampOutputFormatArgs) ToTaskParameterTimestampOutputFormatOutput() TaskParameterTimestampOutputFormatOutput {
-	return i.ToTaskParameterTimestampOutputFormatOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampOutputFormatArgs) ToTaskParameterTimestampOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampOutputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampOutputFormatOutput)
-}
-
-// TaskParameterTimestampOutputFormatArrayInput is an input type that accepts TaskParameterTimestampOutputFormatArray and TaskParameterTimestampOutputFormatArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampOutputFormatArrayInput` via:
-//
-//	TaskParameterTimestampOutputFormatArray{ TaskParameterTimestampOutputFormatArgs{...} }
-type TaskParameterTimestampOutputFormatArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampOutputFormatArrayOutput() TaskParameterTimestampOutputFormatArrayOutput
-	ToTaskParameterTimestampOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampOutputFormatArrayOutput
-}
-
-type TaskParameterTimestampOutputFormatArray []TaskParameterTimestampOutputFormatInput
-
-func (TaskParameterTimestampOutputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampOutputFormatArray) ToTaskParameterTimestampOutputFormatArrayOutput() TaskParameterTimestampOutputFormatArrayOutput {
-	return i.ToTaskParameterTimestampOutputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampOutputFormatArray) ToTaskParameterTimestampOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampOutputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampOutputFormatArrayOutput)
-}
-
-type TaskParameterTimestampOutputFormatOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampOutputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampOutputFormatOutput) ToTaskParameterTimestampOutputFormatOutput() TaskParameterTimestampOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampOutputFormatOutput) ToTaskParameterTimestampOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampOutputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampOutputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampOutputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampOutputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampOutputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimestampOutputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampOutputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampOutputFormatArrayOutput) ToTaskParameterTimestampOutputFormatArrayOutput() TaskParameterTimestampOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampOutputFormatArrayOutput) ToTaskParameterTimestampOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampOutputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampOutputFormat {
-		return vs[0].([]TaskParameterTimestampOutputFormat)[vs[1].(int)]
-	}).(TaskParameterTimestampOutputFormatOutput)
-}
-
-type TaskParameterTimestampTypeMapping struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimestampTypeMappingInput is an input type that accepts TaskParameterTimestampTypeMappingArgs and TaskParameterTimestampTypeMappingOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampTypeMappingInput` via:
-//
-//	TaskParameterTimestampTypeMappingArgs{...}
-type TaskParameterTimestampTypeMappingInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampTypeMappingOutput() TaskParameterTimestampTypeMappingOutput
-	ToTaskParameterTimestampTypeMappingOutputWithContext(context.Context) TaskParameterTimestampTypeMappingOutput
-}
-
-type TaskParameterTimestampTypeMappingArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimestampTypeMappingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampTypeMapping)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampTypeMappingArgs) ToTaskParameterTimestampTypeMappingOutput() TaskParameterTimestampTypeMappingOutput {
-	return i.ToTaskParameterTimestampTypeMappingOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampTypeMappingArgs) ToTaskParameterTimestampTypeMappingOutputWithContext(ctx context.Context) TaskParameterTimestampTypeMappingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampTypeMappingOutput)
-}
-
-// TaskParameterTimestampTypeMappingArrayInput is an input type that accepts TaskParameterTimestampTypeMappingArray and TaskParameterTimestampTypeMappingArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampTypeMappingArrayInput` via:
-//
-//	TaskParameterTimestampTypeMappingArray{ TaskParameterTimestampTypeMappingArgs{...} }
-type TaskParameterTimestampTypeMappingArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampTypeMappingArrayOutput() TaskParameterTimestampTypeMappingArrayOutput
-	ToTaskParameterTimestampTypeMappingArrayOutputWithContext(context.Context) TaskParameterTimestampTypeMappingArrayOutput
-}
-
-type TaskParameterTimestampTypeMappingArray []TaskParameterTimestampTypeMappingInput
-
-func (TaskParameterTimestampTypeMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampTypeMapping)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampTypeMappingArray) ToTaskParameterTimestampTypeMappingArrayOutput() TaskParameterTimestampTypeMappingArrayOutput {
-	return i.ToTaskParameterTimestampTypeMappingArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampTypeMappingArray) ToTaskParameterTimestampTypeMappingArrayOutputWithContext(ctx context.Context) TaskParameterTimestampTypeMappingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampTypeMappingArrayOutput)
-}
-
-type TaskParameterTimestampTypeMappingOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampTypeMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampTypeMapping)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampTypeMappingOutput) ToTaskParameterTimestampTypeMappingOutput() TaskParameterTimestampTypeMappingOutput {
-	return o
-}
-
-func (o TaskParameterTimestampTypeMappingOutput) ToTaskParameterTimestampTypeMappingOutputWithContext(ctx context.Context) TaskParameterTimestampTypeMappingOutput {
-	return o
-}
-
-func (o TaskParameterTimestampTypeMappingOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampTypeMappingOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampTypeMappingOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampTypeMappingOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampTypeMappingOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTypeMapping) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimestampTypeMappingArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampTypeMappingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampTypeMapping)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampTypeMappingArrayOutput) ToTaskParameterTimestampTypeMappingArrayOutput() TaskParameterTimestampTypeMappingArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampTypeMappingArrayOutput) ToTaskParameterTimestampTypeMappingArrayOutputWithContext(ctx context.Context) TaskParameterTimestampTypeMappingArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampTypeMappingArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampTypeMappingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampTypeMapping {
-		return vs[0].([]TaskParameterTimestampTypeMapping)[vs[1].(int)]
-	}).(TaskParameterTimestampTypeMappingOutput)
-}
-
-type TaskParameterTimestampTzOutputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimestampTzOutputFormatInput is an input type that accepts TaskParameterTimestampTzOutputFormatArgs and TaskParameterTimestampTzOutputFormatOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampTzOutputFormatInput` via:
-//
-//	TaskParameterTimestampTzOutputFormatArgs{...}
-type TaskParameterTimestampTzOutputFormatInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampTzOutputFormatOutput() TaskParameterTimestampTzOutputFormatOutput
-	ToTaskParameterTimestampTzOutputFormatOutputWithContext(context.Context) TaskParameterTimestampTzOutputFormatOutput
-}
-
-type TaskParameterTimestampTzOutputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimestampTzOutputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampTzOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampTzOutputFormatArgs) ToTaskParameterTimestampTzOutputFormatOutput() TaskParameterTimestampTzOutputFormatOutput {
-	return i.ToTaskParameterTimestampTzOutputFormatOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampTzOutputFormatArgs) ToTaskParameterTimestampTzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampTzOutputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampTzOutputFormatOutput)
-}
-
-// TaskParameterTimestampTzOutputFormatArrayInput is an input type that accepts TaskParameterTimestampTzOutputFormatArray and TaskParameterTimestampTzOutputFormatArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimestampTzOutputFormatArrayInput` via:
-//
-//	TaskParameterTimestampTzOutputFormatArray{ TaskParameterTimestampTzOutputFormatArgs{...} }
-type TaskParameterTimestampTzOutputFormatArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimestampTzOutputFormatArrayOutput() TaskParameterTimestampTzOutputFormatArrayOutput
-	ToTaskParameterTimestampTzOutputFormatArrayOutputWithContext(context.Context) TaskParameterTimestampTzOutputFormatArrayOutput
-}
-
-type TaskParameterTimestampTzOutputFormatArray []TaskParameterTimestampTzOutputFormatInput
-
-func (TaskParameterTimestampTzOutputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampTzOutputFormat)(nil)).Elem()
-}
-
-func (i TaskParameterTimestampTzOutputFormatArray) ToTaskParameterTimestampTzOutputFormatArrayOutput() TaskParameterTimestampTzOutputFormatArrayOutput {
-	return i.ToTaskParameterTimestampTzOutputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimestampTzOutputFormatArray) ToTaskParameterTimestampTzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampTzOutputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimestampTzOutputFormatArrayOutput)
-}
-
-type TaskParameterTimestampTzOutputFormatOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampTzOutputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimestampTzOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampTzOutputFormatOutput) ToTaskParameterTimestampTzOutputFormatOutput() TaskParameterTimestampTzOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampTzOutputFormatOutput) ToTaskParameterTimestampTzOutputFormatOutputWithContext(ctx context.Context) TaskParameterTimestampTzOutputFormatOutput {
-	return o
-}
-
-func (o TaskParameterTimestampTzOutputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampTzOutputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampTzOutputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampTzOutputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimestampTzOutputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimestampTzOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimestampTzOutputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimestampTzOutputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimestampTzOutputFormat)(nil)).Elem()
-}
-
-func (o TaskParameterTimestampTzOutputFormatArrayOutput) ToTaskParameterTimestampTzOutputFormatArrayOutput() TaskParameterTimestampTzOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampTzOutputFormatArrayOutput) ToTaskParameterTimestampTzOutputFormatArrayOutputWithContext(ctx context.Context) TaskParameterTimestampTzOutputFormatArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimestampTzOutputFormatArrayOutput) Index(i pulumi.IntInput) TaskParameterTimestampTzOutputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimestampTzOutputFormat {
-		return vs[0].([]TaskParameterTimestampTzOutputFormat)[vs[1].(int)]
-	}).(TaskParameterTimestampTzOutputFormatOutput)
-}
-
-type TaskParameterTimezone struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTimezoneInput is an input type that accepts TaskParameterTimezoneArgs and TaskParameterTimezoneOutput values.
-// You can construct a concrete instance of `TaskParameterTimezoneInput` via:
-//
-//	TaskParameterTimezoneArgs{...}
-type TaskParameterTimezoneInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimezoneOutput() TaskParameterTimezoneOutput
-	ToTaskParameterTimezoneOutputWithContext(context.Context) TaskParameterTimezoneOutput
-}
-
-type TaskParameterTimezoneArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTimezoneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimezone)(nil)).Elem()
-}
-
-func (i TaskParameterTimezoneArgs) ToTaskParameterTimezoneOutput() TaskParameterTimezoneOutput {
-	return i.ToTaskParameterTimezoneOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimezoneArgs) ToTaskParameterTimezoneOutputWithContext(ctx context.Context) TaskParameterTimezoneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimezoneOutput)
-}
-
-// TaskParameterTimezoneArrayInput is an input type that accepts TaskParameterTimezoneArray and TaskParameterTimezoneArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTimezoneArrayInput` via:
-//
-//	TaskParameterTimezoneArray{ TaskParameterTimezoneArgs{...} }
-type TaskParameterTimezoneArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTimezoneArrayOutput() TaskParameterTimezoneArrayOutput
-	ToTaskParameterTimezoneArrayOutputWithContext(context.Context) TaskParameterTimezoneArrayOutput
-}
-
-type TaskParameterTimezoneArray []TaskParameterTimezoneInput
-
-func (TaskParameterTimezoneArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimezone)(nil)).Elem()
-}
-
-func (i TaskParameterTimezoneArray) ToTaskParameterTimezoneArrayOutput() TaskParameterTimezoneArrayOutput {
-	return i.ToTaskParameterTimezoneArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTimezoneArray) ToTaskParameterTimezoneArrayOutputWithContext(ctx context.Context) TaskParameterTimezoneArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTimezoneArrayOutput)
-}
-
-type TaskParameterTimezoneOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimezoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTimezone)(nil)).Elem()
-}
-
-func (o TaskParameterTimezoneOutput) ToTaskParameterTimezoneOutput() TaskParameterTimezoneOutput {
-	return o
-}
-
-func (o TaskParameterTimezoneOutput) ToTaskParameterTimezoneOutputWithContext(ctx context.Context) TaskParameterTimezoneOutput {
-	return o
-}
-
-func (o TaskParameterTimezoneOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimezoneOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimezoneOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimezoneOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTimezoneOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTimezone) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTimezoneArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTimezoneArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTimezone)(nil)).Elem()
-}
-
-func (o TaskParameterTimezoneArrayOutput) ToTaskParameterTimezoneArrayOutput() TaskParameterTimezoneArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimezoneArrayOutput) ToTaskParameterTimezoneArrayOutputWithContext(ctx context.Context) TaskParameterTimezoneArrayOutput {
-	return o
-}
-
-func (o TaskParameterTimezoneArrayOutput) Index(i pulumi.IntInput) TaskParameterTimezoneOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTimezone {
-		return vs[0].([]TaskParameterTimezone)[vs[1].(int)]
-	}).(TaskParameterTimezoneOutput)
-}
-
-type TaskParameterTraceLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTraceLevelInput is an input type that accepts TaskParameterTraceLevelArgs and TaskParameterTraceLevelOutput values.
-// You can construct a concrete instance of `TaskParameterTraceLevelInput` via:
-//
-//	TaskParameterTraceLevelArgs{...}
-type TaskParameterTraceLevelInput interface {
-	pulumi.Input
-
-	ToTaskParameterTraceLevelOutput() TaskParameterTraceLevelOutput
-	ToTaskParameterTraceLevelOutputWithContext(context.Context) TaskParameterTraceLevelOutput
-}
-
-type TaskParameterTraceLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTraceLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTraceLevel)(nil)).Elem()
-}
-
-func (i TaskParameterTraceLevelArgs) ToTaskParameterTraceLevelOutput() TaskParameterTraceLevelOutput {
-	return i.ToTaskParameterTraceLevelOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTraceLevelArgs) ToTaskParameterTraceLevelOutputWithContext(ctx context.Context) TaskParameterTraceLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTraceLevelOutput)
-}
-
-// TaskParameterTraceLevelArrayInput is an input type that accepts TaskParameterTraceLevelArray and TaskParameterTraceLevelArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTraceLevelArrayInput` via:
-//
-//	TaskParameterTraceLevelArray{ TaskParameterTraceLevelArgs{...} }
-type TaskParameterTraceLevelArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTraceLevelArrayOutput() TaskParameterTraceLevelArrayOutput
-	ToTaskParameterTraceLevelArrayOutputWithContext(context.Context) TaskParameterTraceLevelArrayOutput
-}
-
-type TaskParameterTraceLevelArray []TaskParameterTraceLevelInput
-
-func (TaskParameterTraceLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTraceLevel)(nil)).Elem()
-}
-
-func (i TaskParameterTraceLevelArray) ToTaskParameterTraceLevelArrayOutput() TaskParameterTraceLevelArrayOutput {
-	return i.ToTaskParameterTraceLevelArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTraceLevelArray) ToTaskParameterTraceLevelArrayOutputWithContext(ctx context.Context) TaskParameterTraceLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTraceLevelArrayOutput)
-}
-
-type TaskParameterTraceLevelOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTraceLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTraceLevel)(nil)).Elem()
-}
-
-func (o TaskParameterTraceLevelOutput) ToTaskParameterTraceLevelOutput() TaskParameterTraceLevelOutput {
-	return o
-}
-
-func (o TaskParameterTraceLevelOutput) ToTaskParameterTraceLevelOutputWithContext(ctx context.Context) TaskParameterTraceLevelOutput {
-	return o
-}
-
-func (o TaskParameterTraceLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTraceLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTraceLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTraceLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTraceLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTraceLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTraceLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTraceLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTraceLevel)(nil)).Elem()
-}
-
-func (o TaskParameterTraceLevelArrayOutput) ToTaskParameterTraceLevelArrayOutput() TaskParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o TaskParameterTraceLevelArrayOutput) ToTaskParameterTraceLevelArrayOutputWithContext(ctx context.Context) TaskParameterTraceLevelArrayOutput {
-	return o
-}
-
-func (o TaskParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) TaskParameterTraceLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTraceLevel {
-		return vs[0].([]TaskParameterTraceLevel)[vs[1].(int)]
-	}).(TaskParameterTraceLevelOutput)
-}
-
-type TaskParameterTransactionAbortOnError struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTransactionAbortOnErrorInput is an input type that accepts TaskParameterTransactionAbortOnErrorArgs and TaskParameterTransactionAbortOnErrorOutput values.
-// You can construct a concrete instance of `TaskParameterTransactionAbortOnErrorInput` via:
-//
-//	TaskParameterTransactionAbortOnErrorArgs{...}
-type TaskParameterTransactionAbortOnErrorInput interface {
-	pulumi.Input
-
-	ToTaskParameterTransactionAbortOnErrorOutput() TaskParameterTransactionAbortOnErrorOutput
-	ToTaskParameterTransactionAbortOnErrorOutputWithContext(context.Context) TaskParameterTransactionAbortOnErrorOutput
-}
-
-type TaskParameterTransactionAbortOnErrorArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTransactionAbortOnErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTransactionAbortOnError)(nil)).Elem()
-}
-
-func (i TaskParameterTransactionAbortOnErrorArgs) ToTaskParameterTransactionAbortOnErrorOutput() TaskParameterTransactionAbortOnErrorOutput {
-	return i.ToTaskParameterTransactionAbortOnErrorOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTransactionAbortOnErrorArgs) ToTaskParameterTransactionAbortOnErrorOutputWithContext(ctx context.Context) TaskParameterTransactionAbortOnErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTransactionAbortOnErrorOutput)
-}
-
-// TaskParameterTransactionAbortOnErrorArrayInput is an input type that accepts TaskParameterTransactionAbortOnErrorArray and TaskParameterTransactionAbortOnErrorArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTransactionAbortOnErrorArrayInput` via:
-//
-//	TaskParameterTransactionAbortOnErrorArray{ TaskParameterTransactionAbortOnErrorArgs{...} }
-type TaskParameterTransactionAbortOnErrorArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTransactionAbortOnErrorArrayOutput() TaskParameterTransactionAbortOnErrorArrayOutput
-	ToTaskParameterTransactionAbortOnErrorArrayOutputWithContext(context.Context) TaskParameterTransactionAbortOnErrorArrayOutput
-}
-
-type TaskParameterTransactionAbortOnErrorArray []TaskParameterTransactionAbortOnErrorInput
-
-func (TaskParameterTransactionAbortOnErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTransactionAbortOnError)(nil)).Elem()
-}
-
-func (i TaskParameterTransactionAbortOnErrorArray) ToTaskParameterTransactionAbortOnErrorArrayOutput() TaskParameterTransactionAbortOnErrorArrayOutput {
-	return i.ToTaskParameterTransactionAbortOnErrorArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTransactionAbortOnErrorArray) ToTaskParameterTransactionAbortOnErrorArrayOutputWithContext(ctx context.Context) TaskParameterTransactionAbortOnErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTransactionAbortOnErrorArrayOutput)
-}
-
-type TaskParameterTransactionAbortOnErrorOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTransactionAbortOnErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTransactionAbortOnError)(nil)).Elem()
-}
-
-func (o TaskParameterTransactionAbortOnErrorOutput) ToTaskParameterTransactionAbortOnErrorOutput() TaskParameterTransactionAbortOnErrorOutput {
-	return o
-}
-
-func (o TaskParameterTransactionAbortOnErrorOutput) ToTaskParameterTransactionAbortOnErrorOutputWithContext(ctx context.Context) TaskParameterTransactionAbortOnErrorOutput {
-	return o
-}
-
-func (o TaskParameterTransactionAbortOnErrorOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTransactionAbortOnErrorOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTransactionAbortOnErrorOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTransactionAbortOnErrorOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTransactionAbortOnErrorOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionAbortOnError) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTransactionAbortOnErrorArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTransactionAbortOnErrorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTransactionAbortOnError)(nil)).Elem()
-}
-
-func (o TaskParameterTransactionAbortOnErrorArrayOutput) ToTaskParameterTransactionAbortOnErrorArrayOutput() TaskParameterTransactionAbortOnErrorArrayOutput {
-	return o
-}
-
-func (o TaskParameterTransactionAbortOnErrorArrayOutput) ToTaskParameterTransactionAbortOnErrorArrayOutputWithContext(ctx context.Context) TaskParameterTransactionAbortOnErrorArrayOutput {
-	return o
-}
-
-func (o TaskParameterTransactionAbortOnErrorArrayOutput) Index(i pulumi.IntInput) TaskParameterTransactionAbortOnErrorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTransactionAbortOnError {
-		return vs[0].([]TaskParameterTransactionAbortOnError)[vs[1].(int)]
-	}).(TaskParameterTransactionAbortOnErrorOutput)
-}
-
-type TaskParameterTransactionDefaultIsolationLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTransactionDefaultIsolationLevelInput is an input type that accepts TaskParameterTransactionDefaultIsolationLevelArgs and TaskParameterTransactionDefaultIsolationLevelOutput values.
-// You can construct a concrete instance of `TaskParameterTransactionDefaultIsolationLevelInput` via:
-//
-//	TaskParameterTransactionDefaultIsolationLevelArgs{...}
-type TaskParameterTransactionDefaultIsolationLevelInput interface {
-	pulumi.Input
-
-	ToTaskParameterTransactionDefaultIsolationLevelOutput() TaskParameterTransactionDefaultIsolationLevelOutput
-	ToTaskParameterTransactionDefaultIsolationLevelOutputWithContext(context.Context) TaskParameterTransactionDefaultIsolationLevelOutput
-}
-
-type TaskParameterTransactionDefaultIsolationLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTransactionDefaultIsolationLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevel)(nil)).Elem()
-}
-
-func (i TaskParameterTransactionDefaultIsolationLevelArgs) ToTaskParameterTransactionDefaultIsolationLevelOutput() TaskParameterTransactionDefaultIsolationLevelOutput {
-	return i.ToTaskParameterTransactionDefaultIsolationLevelOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTransactionDefaultIsolationLevelArgs) ToTaskParameterTransactionDefaultIsolationLevelOutputWithContext(ctx context.Context) TaskParameterTransactionDefaultIsolationLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTransactionDefaultIsolationLevelOutput)
-}
-
-// TaskParameterTransactionDefaultIsolationLevelArrayInput is an input type that accepts TaskParameterTransactionDefaultIsolationLevelArray and TaskParameterTransactionDefaultIsolationLevelArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTransactionDefaultIsolationLevelArrayInput` via:
-//
-//	TaskParameterTransactionDefaultIsolationLevelArray{ TaskParameterTransactionDefaultIsolationLevelArgs{...} }
-type TaskParameterTransactionDefaultIsolationLevelArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTransactionDefaultIsolationLevelArrayOutput() TaskParameterTransactionDefaultIsolationLevelArrayOutput
-	ToTaskParameterTransactionDefaultIsolationLevelArrayOutputWithContext(context.Context) TaskParameterTransactionDefaultIsolationLevelArrayOutput
-}
-
-type TaskParameterTransactionDefaultIsolationLevelArray []TaskParameterTransactionDefaultIsolationLevelInput
-
-func (TaskParameterTransactionDefaultIsolationLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTransactionDefaultIsolationLevel)(nil)).Elem()
-}
-
-func (i TaskParameterTransactionDefaultIsolationLevelArray) ToTaskParameterTransactionDefaultIsolationLevelArrayOutput() TaskParameterTransactionDefaultIsolationLevelArrayOutput {
-	return i.ToTaskParameterTransactionDefaultIsolationLevelArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTransactionDefaultIsolationLevelArray) ToTaskParameterTransactionDefaultIsolationLevelArrayOutputWithContext(ctx context.Context) TaskParameterTransactionDefaultIsolationLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTransactionDefaultIsolationLevelArrayOutput)
-}
-
-type TaskParameterTransactionDefaultIsolationLevelOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTransactionDefaultIsolationLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevel)(nil)).Elem()
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelOutput) ToTaskParameterTransactionDefaultIsolationLevelOutput() TaskParameterTransactionDefaultIsolationLevelOutput {
-	return o
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelOutput) ToTaskParameterTransactionDefaultIsolationLevelOutputWithContext(ctx context.Context) TaskParameterTransactionDefaultIsolationLevelOutput {
-	return o
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTransactionDefaultIsolationLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTransactionDefaultIsolationLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTransactionDefaultIsolationLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTransactionDefaultIsolationLevel)(nil)).Elem()
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelArrayOutput) ToTaskParameterTransactionDefaultIsolationLevelArrayOutput() TaskParameterTransactionDefaultIsolationLevelArrayOutput {
-	return o
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelArrayOutput) ToTaskParameterTransactionDefaultIsolationLevelArrayOutputWithContext(ctx context.Context) TaskParameterTransactionDefaultIsolationLevelArrayOutput {
-	return o
-}
-
-func (o TaskParameterTransactionDefaultIsolationLevelArrayOutput) Index(i pulumi.IntInput) TaskParameterTransactionDefaultIsolationLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTransactionDefaultIsolationLevel {
-		return vs[0].([]TaskParameterTransactionDefaultIsolationLevel)[vs[1].(int)]
-	}).(TaskParameterTransactionDefaultIsolationLevelOutput)
-}
-
-type TaskParameterTwoDigitCenturyStart struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterTwoDigitCenturyStartInput is an input type that accepts TaskParameterTwoDigitCenturyStartArgs and TaskParameterTwoDigitCenturyStartOutput values.
-// You can construct a concrete instance of `TaskParameterTwoDigitCenturyStartInput` via:
-//
-//	TaskParameterTwoDigitCenturyStartArgs{...}
-type TaskParameterTwoDigitCenturyStartInput interface {
-	pulumi.Input
-
-	ToTaskParameterTwoDigitCenturyStartOutput() TaskParameterTwoDigitCenturyStartOutput
-	ToTaskParameterTwoDigitCenturyStartOutputWithContext(context.Context) TaskParameterTwoDigitCenturyStartOutput
-}
-
-type TaskParameterTwoDigitCenturyStartArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterTwoDigitCenturyStartArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTwoDigitCenturyStart)(nil)).Elem()
-}
-
-func (i TaskParameterTwoDigitCenturyStartArgs) ToTaskParameterTwoDigitCenturyStartOutput() TaskParameterTwoDigitCenturyStartOutput {
-	return i.ToTaskParameterTwoDigitCenturyStartOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTwoDigitCenturyStartArgs) ToTaskParameterTwoDigitCenturyStartOutputWithContext(ctx context.Context) TaskParameterTwoDigitCenturyStartOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTwoDigitCenturyStartOutput)
-}
-
-// TaskParameterTwoDigitCenturyStartArrayInput is an input type that accepts TaskParameterTwoDigitCenturyStartArray and TaskParameterTwoDigitCenturyStartArrayOutput values.
-// You can construct a concrete instance of `TaskParameterTwoDigitCenturyStartArrayInput` via:
-//
-//	TaskParameterTwoDigitCenturyStartArray{ TaskParameterTwoDigitCenturyStartArgs{...} }
-type TaskParameterTwoDigitCenturyStartArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterTwoDigitCenturyStartArrayOutput() TaskParameterTwoDigitCenturyStartArrayOutput
-	ToTaskParameterTwoDigitCenturyStartArrayOutputWithContext(context.Context) TaskParameterTwoDigitCenturyStartArrayOutput
-}
-
-type TaskParameterTwoDigitCenturyStartArray []TaskParameterTwoDigitCenturyStartInput
-
-func (TaskParameterTwoDigitCenturyStartArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTwoDigitCenturyStart)(nil)).Elem()
-}
-
-func (i TaskParameterTwoDigitCenturyStartArray) ToTaskParameterTwoDigitCenturyStartArrayOutput() TaskParameterTwoDigitCenturyStartArrayOutput {
-	return i.ToTaskParameterTwoDigitCenturyStartArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterTwoDigitCenturyStartArray) ToTaskParameterTwoDigitCenturyStartArrayOutputWithContext(ctx context.Context) TaskParameterTwoDigitCenturyStartArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterTwoDigitCenturyStartArrayOutput)
-}
-
-type TaskParameterTwoDigitCenturyStartOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTwoDigitCenturyStartOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterTwoDigitCenturyStart)(nil)).Elem()
-}
-
-func (o TaskParameterTwoDigitCenturyStartOutput) ToTaskParameterTwoDigitCenturyStartOutput() TaskParameterTwoDigitCenturyStartOutput {
-	return o
-}
-
-func (o TaskParameterTwoDigitCenturyStartOutput) ToTaskParameterTwoDigitCenturyStartOutputWithContext(ctx context.Context) TaskParameterTwoDigitCenturyStartOutput {
-	return o
-}
-
-func (o TaskParameterTwoDigitCenturyStartOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTwoDigitCenturyStartOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTwoDigitCenturyStartOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTwoDigitCenturyStartOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterTwoDigitCenturyStartOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterTwoDigitCenturyStart) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterTwoDigitCenturyStartArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterTwoDigitCenturyStartArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterTwoDigitCenturyStart)(nil)).Elem()
-}
-
-func (o TaskParameterTwoDigitCenturyStartArrayOutput) ToTaskParameterTwoDigitCenturyStartArrayOutput() TaskParameterTwoDigitCenturyStartArrayOutput {
-	return o
-}
-
-func (o TaskParameterTwoDigitCenturyStartArrayOutput) ToTaskParameterTwoDigitCenturyStartArrayOutputWithContext(ctx context.Context) TaskParameterTwoDigitCenturyStartArrayOutput {
-	return o
-}
-
-func (o TaskParameterTwoDigitCenturyStartArrayOutput) Index(i pulumi.IntInput) TaskParameterTwoDigitCenturyStartOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterTwoDigitCenturyStart {
-		return vs[0].([]TaskParameterTwoDigitCenturyStart)[vs[1].(int)]
-	}).(TaskParameterTwoDigitCenturyStartOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -66313,6 +66545,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterWeekStartArrayInput)(nil)).Elem(), LegacyServiceUserParameterWeekStartArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserShowOutputInput)(nil)).Elem(), LegacyServiceUserShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserShowOutputArrayInput)(nil)).Elem(), LegacyServiceUserShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListingManifestInput)(nil)).Elem(), ListingManifestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListingManifestPtrInput)(nil)).Elem(), ListingManifestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListingManifestFromStageInput)(nil)).Elem(), ListingManifestFromStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListingManifestFromStagePtrInput)(nil)).Elem(), ListingManifestFromStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListingShowOutputInput)(nil)).Elem(), ListingShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListingShowOutputArrayInput)(nil)).Elem(), ListingShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicyArgumentInput)(nil)).Elem(), MaskingPolicyArgumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicyArgumentArrayInput)(nil)).Elem(), MaskingPolicyArgumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaskingPolicyDescribeOutputInput)(nil)).Elem(), MaskingPolicyDescribeOutputArgs{})
@@ -66755,6 +66993,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUserShowOutputArrayInput)(nil)).Elem(), ServiceUserShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageTagInput)(nil)).Elem(), StageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageTagArrayInput)(nil)).Elem(), StageTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputInput)(nil)).Elem(), StorageIntegrationDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputAzureConsentUrlInput)(nil)).Elem(), StorageIntegrationDescribeOutputAzureConsentUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputAzureConsentUrlArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputAzureConsentUrlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputAzureMultiTenantAppNameInput)(nil)).Elem(), StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputAzureMultiTenantAppNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputCommentInput)(nil)).Elem(), StorageIntegrationDescribeOutputCommentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputCommentArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputCommentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputEnabledInput)(nil)).Elem(), StorageIntegrationDescribeOutputEnabledArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputEnabledArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputEnabledArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAllowedLocationInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAllowedLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAllowedLocationArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAllowedLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsExternalIdInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAwsExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsExternalIdArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAwsExternalIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsIamUserArnInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAwsIamUserArnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsObjectAclInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAwsObjectAclArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsObjectAclArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAwsObjectAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsRoleArnInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAwsRoleArnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageAwsRoleArnArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageAwsRoleArnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageBlockedLocationInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageBlockedLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageBlockedLocationArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageBlockedLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageGcpServiceAccountInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageGcpServiceAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageProviderInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputStorageProviderArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputStorageProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputUsePrivatelinkEndpointInput)(nil)).Elem(), StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayInput)(nil)).Elem(), StorageIntegrationDescribeOutputUsePrivatelinkEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamOnDirectoryTableDescribeOutputInput)(nil)).Elem(), StreamOnDirectoryTableDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamOnDirectoryTableDescribeOutputArrayInput)(nil)).Elem(), StreamOnDirectoryTableDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamOnDirectoryTableShowOutputInput)(nil)).Elem(), StreamOnDirectoryTableShowOutputArgs{})
@@ -66873,40 +67139,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecondArrayInput)(nil)).Elem(), TaskParameterStatementQueuedTimeoutInSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementTimeoutInSecondInput)(nil)).Elem(), TaskParameterStatementTimeoutInSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementTimeoutInSecondArrayInput)(nil)).Elem(), TaskParameterStatementTimeoutInSecondArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStrictJsonOutputInput)(nil)).Elem(), TaskParameterStrictJsonOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStrictJsonOutputArrayInput)(nil)).Elem(), TaskParameterStrictJsonOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailureInput)(nil)).Elem(), TaskParameterSuspendTaskAfterNumFailureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailureArrayInput)(nil)).Elem(), TaskParameterSuspendTaskAfterNumFailureArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTaskAutoRetryAttemptInput)(nil)).Elem(), TaskParameterTaskAutoRetryAttemptArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTaskAutoRetryAttemptArrayInput)(nil)).Elem(), TaskParameterTaskAutoRetryAttemptArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimeInputFormatInput)(nil)).Elem(), TaskParameterTimeInputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimeInputFormatArrayInput)(nil)).Elem(), TaskParameterTimeInputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimeOutputFormatInput)(nil)).Elem(), TaskParameterTimeOutputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimeOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimeOutputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampDayIsAlways24hInput)(nil)).Elem(), TaskParameterTimestampDayIsAlways24hArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampDayIsAlways24hArrayInput)(nil)).Elem(), TaskParameterTimestampDayIsAlways24hArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampInputFormatInput)(nil)).Elem(), TaskParameterTimestampInputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampInputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampInputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampLtzOutputFormatInput)(nil)).Elem(), TaskParameterTimestampLtzOutputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampLtzOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampLtzOutputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampNtzOutputFormatInput)(nil)).Elem(), TaskParameterTimestampNtzOutputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampNtzOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampNtzOutputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampOutputFormatInput)(nil)).Elem(), TaskParameterTimestampOutputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampOutputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampTypeMappingInput)(nil)).Elem(), TaskParameterTimestampTypeMappingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampTypeMappingArrayInput)(nil)).Elem(), TaskParameterTimestampTypeMappingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampTzOutputFormatInput)(nil)).Elem(), TaskParameterTimestampTzOutputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimestampTzOutputFormatArrayInput)(nil)).Elem(), TaskParameterTimestampTzOutputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimezoneInput)(nil)).Elem(), TaskParameterTimezoneArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTimezoneArrayInput)(nil)).Elem(), TaskParameterTimezoneArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTraceLevelInput)(nil)).Elem(), TaskParameterTraceLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTraceLevelArrayInput)(nil)).Elem(), TaskParameterTraceLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionAbortOnErrorInput)(nil)).Elem(), TaskParameterTransactionAbortOnErrorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionAbortOnErrorArrayInput)(nil)).Elem(), TaskParameterTransactionAbortOnErrorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevelInput)(nil)).Elem(), TaskParameterTransactionDefaultIsolationLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTransactionDefaultIsolationLevelArrayInput)(nil)).Elem(), TaskParameterTransactionDefaultIsolationLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTwoDigitCenturyStartInput)(nil)).Elem(), TaskParameterTwoDigitCenturyStartArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTwoDigitCenturyStartArrayInput)(nil)).Elem(), TaskParameterTwoDigitCenturyStartArray{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -67313,6 +67545,12 @@ func init() {
 	pulumi.RegisterOutputType(LegacyServiceUserParameterWeekStartArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserShowOutputOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(ListingManifestOutput{})
+	pulumi.RegisterOutputType(ListingManifestPtrOutput{})
+	pulumi.RegisterOutputType(ListingManifestFromStageOutput{})
+	pulumi.RegisterOutputType(ListingManifestFromStagePtrOutput{})
+	pulumi.RegisterOutputType(ListingShowOutputOutput{})
+	pulumi.RegisterOutputType(ListingShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(MaskingPolicyArgumentOutput{})
 	pulumi.RegisterOutputType(MaskingPolicyArgumentArrayOutput{})
 	pulumi.RegisterOutputType(MaskingPolicyDescribeOutputOutput{})
@@ -67755,6 +67993,34 @@ func init() {
 	pulumi.RegisterOutputType(ServiceUserShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(StageTagOutput{})
 	pulumi.RegisterOutputType(StageTagArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputAzureConsentUrlOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputAzureConsentUrlArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputAzureMultiTenantAppNameOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputAzureMultiTenantAppNameArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputCommentOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputCommentArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputEnabledOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputEnabledArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAllowedLocationOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAllowedLocationArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAwsExternalIdOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAwsExternalIdArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAwsIamUserArnOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAwsIamUserArnArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAwsObjectAclOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAwsObjectAclArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAwsRoleArnOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageAwsRoleArnArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageBlockedLocationOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageBlockedLocationArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageGcpServiceAccountOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageGcpServiceAccountArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageProviderOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputStorageProviderArrayOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputUsePrivatelinkEndpointOutput{})
+	pulumi.RegisterOutputType(StorageIntegrationDescribeOutputUsePrivatelinkEndpointArrayOutput{})
 	pulumi.RegisterOutputType(StreamOnDirectoryTableDescribeOutputOutput{})
 	pulumi.RegisterOutputType(StreamOnDirectoryTableDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(StreamOnDirectoryTableShowOutputOutput{})
@@ -67873,38 +68139,4 @@ func init() {
 	pulumi.RegisterOutputType(TaskParameterStatementQueuedTimeoutInSecondArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterStatementTimeoutInSecondOutput{})
 	pulumi.RegisterOutputType(TaskParameterStatementTimeoutInSecondArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterStrictJsonOutputOutput{})
-	pulumi.RegisterOutputType(TaskParameterStrictJsonOutputArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterSuspendTaskAfterNumFailureOutput{})
-	pulumi.RegisterOutputType(TaskParameterSuspendTaskAfterNumFailureArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTaskAutoRetryAttemptOutput{})
-	pulumi.RegisterOutputType(TaskParameterTaskAutoRetryAttemptArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimeInputFormatOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimeInputFormatArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimeOutputFormatOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimeOutputFormatArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampDayIsAlways24hOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampDayIsAlways24hArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampInputFormatOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampInputFormatArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampLtzOutputFormatOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampLtzOutputFormatArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampNtzOutputFormatOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampNtzOutputFormatArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampOutputFormatOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampOutputFormatArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampTypeMappingOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampTypeMappingArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampTzOutputFormatOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimestampTzOutputFormatArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimezoneOutput{})
-	pulumi.RegisterOutputType(TaskParameterTimezoneArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTraceLevelOutput{})
-	pulumi.RegisterOutputType(TaskParameterTraceLevelArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTransactionAbortOnErrorOutput{})
-	pulumi.RegisterOutputType(TaskParameterTransactionAbortOnErrorArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTransactionDefaultIsolationLevelOutput{})
-	pulumi.RegisterOutputType(TaskParameterTransactionDefaultIsolationLevelArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterTwoDigitCenturyStartOutput{})
-	pulumi.RegisterOutputType(TaskParameterTwoDigitCenturyStartArrayOutput{})
 }

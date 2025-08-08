@@ -134,8 +134,9 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly tmpDirectoryPath!: pulumi.Output<string | undefined>;
     /**
-     * Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-     * variable.
+     * Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+     * provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+     * use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
      */
     public readonly token!: pulumi.Output<string | undefined>;
     /**
@@ -411,8 +412,9 @@ export interface ProviderArgs {
      */
     tmpDirectoryPath?: pulumi.Input<string>;
     /**
-     * Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-     * variable.
+     * Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+     * provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+     * use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
      */
     token?: pulumi.Input<string>;
     tokenAccessor?: pulumi.Input<inputs.ProviderTokenAccessor>;

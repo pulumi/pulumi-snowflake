@@ -421,6 +421,12 @@ __all__ = [
     'LegacyServiceUserParameterWeekStartArgsDict',
     'LegacyServiceUserShowOutputArgs',
     'LegacyServiceUserShowOutputArgsDict',
+    'ListingManifestArgs',
+    'ListingManifestArgsDict',
+    'ListingManifestFromStageArgs',
+    'ListingManifestFromStageArgsDict',
+    'ListingShowOutputArgs',
+    'ListingShowOutputArgsDict',
     'MaskingPolicyArgumentArgs',
     'MaskingPolicyArgumentArgsDict',
     'MaskingPolicyDescribeOutputArgs',
@@ -863,6 +869,34 @@ __all__ = [
     'ServiceUserShowOutputArgsDict',
     'StageTagArgs',
     'StageTagArgsDict',
+    'StorageIntegrationDescribeOutputArgs',
+    'StorageIntegrationDescribeOutputArgsDict',
+    'StorageIntegrationDescribeOutputAzureConsentUrlArgs',
+    'StorageIntegrationDescribeOutputAzureConsentUrlArgsDict',
+    'StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs',
+    'StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgsDict',
+    'StorageIntegrationDescribeOutputCommentArgs',
+    'StorageIntegrationDescribeOutputCommentArgsDict',
+    'StorageIntegrationDescribeOutputEnabledArgs',
+    'StorageIntegrationDescribeOutputEnabledArgsDict',
+    'StorageIntegrationDescribeOutputStorageAllowedLocationArgs',
+    'StorageIntegrationDescribeOutputStorageAllowedLocationArgsDict',
+    'StorageIntegrationDescribeOutputStorageAwsExternalIdArgs',
+    'StorageIntegrationDescribeOutputStorageAwsExternalIdArgsDict',
+    'StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs',
+    'StorageIntegrationDescribeOutputStorageAwsIamUserArnArgsDict',
+    'StorageIntegrationDescribeOutputStorageAwsObjectAclArgs',
+    'StorageIntegrationDescribeOutputStorageAwsObjectAclArgsDict',
+    'StorageIntegrationDescribeOutputStorageAwsRoleArnArgs',
+    'StorageIntegrationDescribeOutputStorageAwsRoleArnArgsDict',
+    'StorageIntegrationDescribeOutputStorageBlockedLocationArgs',
+    'StorageIntegrationDescribeOutputStorageBlockedLocationArgsDict',
+    'StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs',
+    'StorageIntegrationDescribeOutputStorageGcpServiceAccountArgsDict',
+    'StorageIntegrationDescribeOutputStorageProviderArgs',
+    'StorageIntegrationDescribeOutputStorageProviderArgsDict',
+    'StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs',
+    'StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgsDict',
     'StreamOnDirectoryTableDescribeOutputArgs',
     'StreamOnDirectoryTableDescribeOutputArgsDict',
     'StreamOnDirectoryTableShowOutputArgs',
@@ -19806,6 +19840,497 @@ class LegacyServiceUserShowOutputArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ListingManifestArgsDict(TypedDict):
+        from_stage: NotRequired[pulumi.Input['ListingManifestFromStageArgsDict']]
+        """
+        Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+        """
+        from_string: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+        """
+elif False:
+    ListingManifestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ListingManifestArgs:
+    def __init__(__self__, *,
+                 from_stage: Optional[pulumi.Input['ListingManifestFromStageArgs']] = None,
+                 from_string: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['ListingManifestFromStageArgs'] from_stage: Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+        :param pulumi.Input[_builtins.str] from_string: Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+        """
+        if from_stage is not None:
+            pulumi.set(__self__, "from_stage", from_stage)
+        if from_string is not None:
+            pulumi.set(__self__, "from_string", from_string)
+
+    @_builtins.property
+    @pulumi.getter(name="fromStage")
+    def from_stage(self) -> Optional[pulumi.Input['ListingManifestFromStageArgs']]:
+        """
+        Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+        """
+        return pulumi.get(self, "from_stage")
+
+    @from_stage.setter
+    def from_stage(self, value: Optional[pulumi.Input['ListingManifestFromStageArgs']]):
+        pulumi.set(self, "from_stage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fromString")
+    def from_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+        """
+        return pulumi.get(self, "from_string")
+
+    @from_string.setter
+    def from_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "from_string", value)
+
+
+if not MYPY:
+    class ListingManifestFromStageArgsDict(TypedDict):
+        stage: pulumi.Input[_builtins.str]
+        """
+        Identifier of the stage where the manifest file is located.
+        """
+        location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+        """
+        version_comment: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+        """
+        version_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+        """
+elif False:
+    ListingManifestFromStageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ListingManifestFromStageArgs:
+    def __init__(__self__, *,
+                 stage: pulumi.Input[_builtins.str],
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 version_comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 version_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] stage: Identifier of the stage where the manifest file is located.
+        :param pulumi.Input[_builtins.str] location: Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+        :param pulumi.Input[_builtins.str] version_comment: Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+        :param pulumi.Input[_builtins.str] version_name: Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+        """
+        pulumi.set(__self__, "stage", stage)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if version_comment is not None:
+            pulumi.set(__self__, "version_comment", version_comment)
+        if version_name is not None:
+            pulumi.set(__self__, "version_name", version_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the stage where the manifest file is located.
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stage", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionComment")
+    def version_comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+        """
+        return pulumi.get(self, "version_comment")
+
+    @version_comment.setter
+    def version_comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version_comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+        """
+        return pulumi.get(self, "version_name")
+
+    @version_name.setter
+    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version_name", value)
+
+
+if not MYPY:
+    class ListingShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        created_on: NotRequired[pulumi.Input[_builtins.str]]
+        detailed_target_accounts: NotRequired[pulumi.Input[_builtins.str]]
+        distribution: NotRequired[pulumi.Input[_builtins.str]]
+        global_name: NotRequired[pulumi.Input[_builtins.str]]
+        is_application: NotRequired[pulumi.Input[_builtins.bool]]
+        is_by_request: NotRequired[pulumi.Input[_builtins.bool]]
+        is_limited_trial: NotRequired[pulumi.Input[_builtins.bool]]
+        is_monetized: NotRequired[pulumi.Input[_builtins.bool]]
+        is_mountless_queryable: NotRequired[pulumi.Input[_builtins.bool]]
+        is_targeted: NotRequired[pulumi.Input[_builtins.bool]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        organization_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+        owner: NotRequired[pulumi.Input[_builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[_builtins.str]]
+        profile: NotRequired[pulumi.Input[_builtins.str]]
+        published_on: NotRequired[pulumi.Input[_builtins.str]]
+        regions: NotRequired[pulumi.Input[_builtins.str]]
+        rejected_on: NotRequired[pulumi.Input[_builtins.str]]
+        review_state: NotRequired[pulumi.Input[_builtins.str]]
+        state: NotRequired[pulumi.Input[_builtins.str]]
+        subtitle: NotRequired[pulumi.Input[_builtins.str]]
+        target_accounts: NotRequired[pulumi.Input[_builtins.str]]
+        title: NotRequired[pulumi.Input[_builtins.str]]
+        uniform_listing_locator: NotRequired[pulumi.Input[_builtins.str]]
+        updated_on: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    ListingShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ListingShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 detailed_target_accounts: Optional[pulumi.Input[_builtins.str]] = None,
+                 distribution: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_application: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_by_request: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_limited_trial: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_monetized: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_mountless_queryable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_targeted: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 organization_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 profile: Optional[pulumi.Input[_builtins.str]] = None,
+                 published_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 regions: Optional[pulumi.Input[_builtins.str]] = None,
+                 rejected_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 review_state: Optional[pulumi.Input[_builtins.str]] = None,
+                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 subtitle: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_accounts: Optional[pulumi.Input[_builtins.str]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 uniform_listing_locator: Optional[pulumi.Input[_builtins.str]] = None,
+                 updated_on: Optional[pulumi.Input[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if detailed_target_accounts is not None:
+            pulumi.set(__self__, "detailed_target_accounts", detailed_target_accounts)
+        if distribution is not None:
+            pulumi.set(__self__, "distribution", distribution)
+        if global_name is not None:
+            pulumi.set(__self__, "global_name", global_name)
+        if is_application is not None:
+            pulumi.set(__self__, "is_application", is_application)
+        if is_by_request is not None:
+            pulumi.set(__self__, "is_by_request", is_by_request)
+        if is_limited_trial is not None:
+            pulumi.set(__self__, "is_limited_trial", is_limited_trial)
+        if is_monetized is not None:
+            pulumi.set(__self__, "is_monetized", is_monetized)
+        if is_mountless_queryable is not None:
+            pulumi.set(__self__, "is_mountless_queryable", is_mountless_queryable)
+        if is_targeted is not None:
+            pulumi.set(__self__, "is_targeted", is_targeted)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if organization_profile_name is not None:
+            pulumi.set(__self__, "organization_profile_name", organization_profile_name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if published_on is not None:
+            pulumi.set(__self__, "published_on", published_on)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if rejected_on is not None:
+            pulumi.set(__self__, "rejected_on", rejected_on)
+        if review_state is not None:
+            pulumi.set(__self__, "review_state", review_state)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+        if target_accounts is not None:
+            pulumi.set(__self__, "target_accounts", target_accounts)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if uniform_listing_locator is not None:
+            pulumi.set(__self__, "uniform_listing_locator", uniform_listing_locator)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="detailedTargetAccounts")
+    def detailed_target_accounts(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "detailed_target_accounts")
+
+    @detailed_target_accounts.setter
+    def detailed_target_accounts(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "detailed_target_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def distribution(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "distribution")
+
+    @distribution.setter
+    def distribution(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "distribution", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalName")
+    def global_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "global_name")
+
+    @global_name.setter
+    def global_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "global_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isApplication")
+    def is_application(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_application")
+
+    @is_application.setter
+    def is_application(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_application", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isByRequest")
+    def is_by_request(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_by_request")
+
+    @is_by_request.setter
+    def is_by_request(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_by_request", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isLimitedTrial")
+    def is_limited_trial(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_limited_trial")
+
+    @is_limited_trial.setter
+    def is_limited_trial(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_limited_trial", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isMonetized")
+    def is_monetized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_monetized")
+
+    @is_monetized.setter
+    def is_monetized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_monetized", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isMountlessQueryable")
+    def is_mountless_queryable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_mountless_queryable")
+
+    @is_mountless_queryable.setter
+    def is_mountless_queryable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_mountless_queryable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isTargeted")
+    def is_targeted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_targeted")
+
+    @is_targeted.setter
+    def is_targeted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_targeted", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationProfileName")
+    def organization_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "organization_profile_name")
+
+    @organization_profile_name.setter
+    def organization_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "organization_profile_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publishedOn")
+    def published_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "published_on")
+
+    @published_on.setter
+    def published_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "published_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rejectedOn")
+    def rejected_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "rejected_on")
+
+    @rejected_on.setter
+    def rejected_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "rejected_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reviewState")
+    def review_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "review_state")
+
+    @review_state.setter
+    def review_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "review_state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subtitle", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetAccounts")
+    def target_accounts(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "target_accounts")
+
+    @target_accounts.setter
+    def target_accounts(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="uniformListingLocator")
+    def uniform_listing_locator(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "uniform_listing_locator")
+
+    @uniform_listing_locator.setter
+    def uniform_listing_locator(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "uniform_listing_locator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "updated_on", value)
 
 
 if not MYPY:
@@ -39138,6 +39663,991 @@ class StageTagArgs:
     @schema.setter
     def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputArgsDict(TypedDict):
+        azure_consent_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureConsentUrlArgsDict']]]]
+        azure_multi_tenant_app_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgsDict']]]]
+        comments: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputCommentArgsDict']]]]
+        enableds: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputEnabledArgsDict']]]]
+        storage_allowed_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAllowedLocationArgsDict']]]]
+        storage_aws_external_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsExternalIdArgsDict']]]]
+        storage_aws_iam_user_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsIamUserArnArgsDict']]]]
+        storage_aws_object_acls: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsObjectAclArgsDict']]]]
+        storage_aws_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsRoleArnArgsDict']]]]
+        storage_blocked_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageBlockedLocationArgsDict']]]]
+        storage_gcp_service_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageGcpServiceAccountArgsDict']]]]
+        storage_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageProviderArgsDict']]]]
+        use_privatelink_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgsDict']]]]
+elif False:
+    StorageIntegrationDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputArgs:
+    def __init__(__self__, *,
+                 azure_consent_urls: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureConsentUrlArgs']]]] = None,
+                 azure_multi_tenant_app_names: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs']]]] = None,
+                 comments: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputCommentArgs']]]] = None,
+                 enableds: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputEnabledArgs']]]] = None,
+                 storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAllowedLocationArgs']]]] = None,
+                 storage_aws_external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsExternalIdArgs']]]] = None,
+                 storage_aws_iam_user_arns: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs']]]] = None,
+                 storage_aws_object_acls: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsObjectAclArgs']]]] = None,
+                 storage_aws_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsRoleArnArgs']]]] = None,
+                 storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageBlockedLocationArgs']]]] = None,
+                 storage_gcp_service_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs']]]] = None,
+                 storage_providers: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageProviderArgs']]]] = None,
+                 use_privatelink_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs']]]] = None):
+        if azure_consent_urls is not None:
+            pulumi.set(__self__, "azure_consent_urls", azure_consent_urls)
+        if azure_multi_tenant_app_names is not None:
+            pulumi.set(__self__, "azure_multi_tenant_app_names", azure_multi_tenant_app_names)
+        if comments is not None:
+            pulumi.set(__self__, "comments", comments)
+        if enableds is not None:
+            pulumi.set(__self__, "enableds", enableds)
+        if storage_allowed_locations is not None:
+            pulumi.set(__self__, "storage_allowed_locations", storage_allowed_locations)
+        if storage_aws_external_ids is not None:
+            pulumi.set(__self__, "storage_aws_external_ids", storage_aws_external_ids)
+        if storage_aws_iam_user_arns is not None:
+            pulumi.set(__self__, "storage_aws_iam_user_arns", storage_aws_iam_user_arns)
+        if storage_aws_object_acls is not None:
+            pulumi.set(__self__, "storage_aws_object_acls", storage_aws_object_acls)
+        if storage_aws_role_arns is not None:
+            pulumi.set(__self__, "storage_aws_role_arns", storage_aws_role_arns)
+        if storage_blocked_locations is not None:
+            pulumi.set(__self__, "storage_blocked_locations", storage_blocked_locations)
+        if storage_gcp_service_accounts is not None:
+            pulumi.set(__self__, "storage_gcp_service_accounts", storage_gcp_service_accounts)
+        if storage_providers is not None:
+            pulumi.set(__self__, "storage_providers", storage_providers)
+        if use_privatelink_endpoints is not None:
+            pulumi.set(__self__, "use_privatelink_endpoints", use_privatelink_endpoints)
+
+    @_builtins.property
+    @pulumi.getter(name="azureConsentUrls")
+    def azure_consent_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureConsentUrlArgs']]]]:
+        return pulumi.get(self, "azure_consent_urls")
+
+    @azure_consent_urls.setter
+    def azure_consent_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureConsentUrlArgs']]]]):
+        pulumi.set(self, "azure_consent_urls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureMultiTenantAppNames")
+    def azure_multi_tenant_app_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs']]]]:
+        return pulumi.get(self, "azure_multi_tenant_app_names")
+
+    @azure_multi_tenant_app_names.setter
+    def azure_multi_tenant_app_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs']]]]):
+        pulumi.set(self, "azure_multi_tenant_app_names", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputCommentArgs']]]]:
+        return pulumi.get(self, "comments")
+
+    @comments.setter
+    def comments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputCommentArgs']]]]):
+        pulumi.set(self, "comments", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enableds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputEnabledArgs']]]]:
+        return pulumi.get(self, "enableds")
+
+    @enableds.setter
+    def enableds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputEnabledArgs']]]]):
+        pulumi.set(self, "enableds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAllowedLocations")
+    def storage_allowed_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAllowedLocationArgs']]]]:
+        return pulumi.get(self, "storage_allowed_locations")
+
+    @storage_allowed_locations.setter
+    def storage_allowed_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAllowedLocationArgs']]]]):
+        pulumi.set(self, "storage_allowed_locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsExternalIds")
+    def storage_aws_external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsExternalIdArgs']]]]:
+        return pulumi.get(self, "storage_aws_external_ids")
+
+    @storage_aws_external_ids.setter
+    def storage_aws_external_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsExternalIdArgs']]]]):
+        pulumi.set(self, "storage_aws_external_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsIamUserArns")
+    def storage_aws_iam_user_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs']]]]:
+        return pulumi.get(self, "storage_aws_iam_user_arns")
+
+    @storage_aws_iam_user_arns.setter
+    def storage_aws_iam_user_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs']]]]):
+        pulumi.set(self, "storage_aws_iam_user_arns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsObjectAcls")
+    def storage_aws_object_acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsObjectAclArgs']]]]:
+        return pulumi.get(self, "storage_aws_object_acls")
+
+    @storage_aws_object_acls.setter
+    def storage_aws_object_acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsObjectAclArgs']]]]):
+        pulumi.set(self, "storage_aws_object_acls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsRoleArns")
+    def storage_aws_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsRoleArnArgs']]]]:
+        return pulumi.get(self, "storage_aws_role_arns")
+
+    @storage_aws_role_arns.setter
+    def storage_aws_role_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsRoleArnArgs']]]]):
+        pulumi.set(self, "storage_aws_role_arns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageBlockedLocations")
+    def storage_blocked_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageBlockedLocationArgs']]]]:
+        return pulumi.get(self, "storage_blocked_locations")
+
+    @storage_blocked_locations.setter
+    def storage_blocked_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageBlockedLocationArgs']]]]):
+        pulumi.set(self, "storage_blocked_locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageGcpServiceAccounts")
+    def storage_gcp_service_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs']]]]:
+        return pulumi.get(self, "storage_gcp_service_accounts")
+
+    @storage_gcp_service_accounts.setter
+    def storage_gcp_service_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs']]]]):
+        pulumi.set(self, "storage_gcp_service_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageProviders")
+    def storage_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageProviderArgs']]]]:
+        return pulumi.get(self, "storage_providers")
+
+    @storage_providers.setter
+    def storage_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageProviderArgs']]]]):
+        pulumi.set(self, "storage_providers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoints")
+    def use_privatelink_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs']]]]:
+        return pulumi.get(self, "use_privatelink_endpoints")
+
+    @use_privatelink_endpoints.setter
+    def use_privatelink_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs']]]]):
+        pulumi.set(self, "use_privatelink_endpoints", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputAzureConsentUrlArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputAzureConsentUrlArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputAzureConsentUrlArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputCommentArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputCommentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputCommentArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputEnabledArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputEnabledArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputEnabledArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputStorageAllowedLocationArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputStorageAllowedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputStorageAllowedLocationArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputStorageAwsExternalIdArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputStorageAwsExternalIdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputStorageAwsExternalIdArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputStorageAwsIamUserArnArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputStorageAwsIamUserArnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputStorageAwsObjectAclArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputStorageAwsObjectAclArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputStorageAwsObjectAclArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputStorageAwsRoleArnArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputStorageAwsRoleArnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputStorageAwsRoleArnArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputStorageBlockedLocationArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputStorageBlockedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputStorageBlockedLocationArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputStorageGcpServiceAccountArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputStorageGcpServiceAccountArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputStorageProviderArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputStorageProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputStorageProviderArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

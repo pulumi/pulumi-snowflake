@@ -84,8 +84,9 @@ type Provider struct {
 	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
 	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 	TmpDirectoryPath pulumi.StringPtrOutput `pulumi:"tmpDirectoryPath"`
-	// Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-	// variable.
+	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+	// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+	// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 	Token pulumi.StringPtrOutput `pulumi:"token"`
 	// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
 	User pulumi.StringPtrOutput `pulumi:"user"`
@@ -285,8 +286,9 @@ type providerArgs struct {
 	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
 	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 	TmpDirectoryPath *string `pulumi:"tmpDirectoryPath"`
-	// Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-	// variable.
+	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+	// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+	// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 	Token         *string                `pulumi:"token"`
 	TokenAccessor *ProviderTokenAccessor `pulumi:"tokenAccessor"`
 	// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
@@ -418,8 +420,9 @@ type ProviderArgs struct {
 	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
 	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 	TmpDirectoryPath pulumi.StringPtrInput
-	// Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-	// variable.
+	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+	// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+	// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 	Token         pulumi.StringPtrInput
 	TokenAccessor ProviderTokenAccessorPtrInput
 	// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
@@ -622,8 +625,9 @@ func (o ProviderOutput) TmpDirectoryPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TmpDirectoryPath }).(pulumi.StringPtrOutput)
 }
 
-// Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-// variable.
+// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 func (o ProviderOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Token }).(pulumi.StringPtrOutput)
 }

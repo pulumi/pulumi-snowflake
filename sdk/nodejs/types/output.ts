@@ -5796,6 +5796,65 @@ export interface LegacyServiceUserShowOutput {
     type: string;
 }
 
+export interface ListingManifest {
+    /**
+     * Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
+     */
+    fromStage?: outputs.ListingManifestFromStage;
+    /**
+     * Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+     */
+    fromString?: string;
+}
+
+export interface ListingManifestFromStage {
+    /**
+     * Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
+     */
+    location?: string;
+    /**
+     * Identifier of the stage where the manifest file is located.
+     */
+    stage: string;
+    /**
+     * Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
+     */
+    versionComment?: string;
+    /**
+     * Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
+     */
+    versionName?: string;
+}
+
+export interface ListingShowOutput {
+    comment: string;
+    createdOn: string;
+    detailedTargetAccounts: string;
+    distribution: string;
+    globalName: string;
+    isApplication: boolean;
+    isByRequest: boolean;
+    isLimitedTrial: boolean;
+    isMonetized: boolean;
+    isMountlessQueryable: boolean;
+    isTargeted: boolean;
+    name: string;
+    organizationProfileName: string;
+    owner: string;
+    ownerRoleType: string;
+    profile: string;
+    publishedOn: string;
+    regions: string;
+    rejectedOn: string;
+    reviewState: string;
+    state: string;
+    subtitle: string;
+    targetAccounts: string;
+    title: string;
+    uniformListingLocator: string;
+    updatedOn: string;
+}
+
 export interface MaskingPolicyArgument {
     /**
      * The argument name
@@ -7878,6 +7937,113 @@ export interface StageTag {
     /**
      * Tag value, e.g. marketing_info.
      */
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutput {
+    azureConsentUrls: outputs.StorageIntegrationDescribeOutputAzureConsentUrl[];
+    azureMultiTenantAppNames: outputs.StorageIntegrationDescribeOutputAzureMultiTenantAppName[];
+    comments: outputs.StorageIntegrationDescribeOutputComment[];
+    enableds: outputs.StorageIntegrationDescribeOutputEnabled[];
+    storageAllowedLocations: outputs.StorageIntegrationDescribeOutputStorageAllowedLocation[];
+    storageAwsExternalIds: outputs.StorageIntegrationDescribeOutputStorageAwsExternalId[];
+    storageAwsIamUserArns: outputs.StorageIntegrationDescribeOutputStorageAwsIamUserArn[];
+    storageAwsObjectAcls: outputs.StorageIntegrationDescribeOutputStorageAwsObjectAcl[];
+    storageAwsRoleArns: outputs.StorageIntegrationDescribeOutputStorageAwsRoleArn[];
+    storageBlockedLocations: outputs.StorageIntegrationDescribeOutputStorageBlockedLocation[];
+    storageGcpServiceAccounts: outputs.StorageIntegrationDescribeOutputStorageGcpServiceAccount[];
+    storageProviders: outputs.StorageIntegrationDescribeOutputStorageProvider[];
+    usePrivatelinkEndpoints: outputs.StorageIntegrationDescribeOutputUsePrivatelinkEndpoint[];
+}
+
+export interface StorageIntegrationDescribeOutputAzureConsentUrl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputAzureMultiTenantAppName {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputComment {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputEnabled {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAllowedLocation {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAwsExternalId {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAwsIamUserArn {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAwsObjectAcl {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputStorageAwsRoleArn {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputStorageBlockedLocation {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputStorageGcpServiceAccount {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputStorageProvider {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface StorageIntegrationDescribeOutputUsePrivatelinkEndpoint {
+    default: string;
+    name: string;
+    type: string;
     value: string;
 }
 

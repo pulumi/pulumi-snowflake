@@ -465,6 +465,11 @@ export type LegacyServiceUser = import("./legacyServiceUser").LegacyServiceUser;
 export const LegacyServiceUser: typeof import("./legacyServiceUser").LegacyServiceUser = null as any;
 utilities.lazyLoad(exports, ["LegacyServiceUser"], () => require("./legacyServiceUser"));
 
+export { ListingArgs, ListingState } from "./listing";
+export type Listing = import("./listing").Listing;
+export const Listing: typeof import("./listing").Listing = null as any;
+utilities.lazyLoad(exports, ["Listing"], () => require("./listing"));
+
 export { ManagedAccountArgs, ManagedAccountState } from "./managedAccount";
 export type ManagedAccount = import("./managedAccount").ManagedAccount;
 export const ManagedAccount: typeof import("./managedAccount").ManagedAccount = null as any;
@@ -836,6 +841,8 @@ const _module = {
                 return new JobService(name, <any>undefined, { urn })
             case "snowflake:index/legacyServiceUser:LegacyServiceUser":
                 return new LegacyServiceUser(name, <any>undefined, { urn })
+            case "snowflake:index/listing:Listing":
+                return new Listing(name, <any>undefined, { urn })
             case "snowflake:index/managedAccount:ManagedAccount":
                 return new ManagedAccount(name, <any>undefined, { urn })
             case "snowflake:index/maskingPolicy:MaskingPolicy":
@@ -991,6 +998,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToShare
 pulumi.runtime.registerResourceModule("snowflake", "index/imageRepository", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/jobService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/legacyServiceUser", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/listing", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/maskingPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/materializedView", _module)

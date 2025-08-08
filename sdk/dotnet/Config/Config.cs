@@ -433,8 +433,9 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
         /// <summary>
-        /// Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-        /// variable.
+        /// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+        /// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+        /// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
         /// </summary>
         public static string? Token
         {

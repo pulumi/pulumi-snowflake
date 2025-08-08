@@ -356,16 +356,18 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.tmpDirectoryPath);
     }
     /**
-     * Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-     * variable.
+     * Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+     * provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+     * use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
      * 
      */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
     /**
-     * @return Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
-     * variable.
+     * @return Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
+     * provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
+     * use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
      * 
      */
     public Output<Optional<String>> token() {
