@@ -60326,7 +60326,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:snowflake"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:snowflake/terraformConfig",

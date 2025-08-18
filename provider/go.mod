@@ -14,7 +14,7 @@ replace (
 require (
 	github.com/Snowflake-Labs/terraform-provider-snowflake v1.2.1
 	github.com/pulumi/providertest v0.3.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.111.1-0.20250814162642-1f64e24d26d8
 	github.com/stretchr/testify v1.10.0
 )
 
