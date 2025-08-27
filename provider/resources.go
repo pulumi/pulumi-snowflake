@@ -17,7 +17,6 @@ package snowflake
 import (
 	"bytes"
 	"fmt"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	"os"
 	"path"
 
@@ -29,6 +28,7 @@ import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 
 	"github.com/pulumi/pulumi-snowflake/provider/v2/pkg/version"
