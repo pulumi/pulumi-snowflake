@@ -196,7 +196,6 @@ var removeMainTf = info.DocsEdit{
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		removeBytes := []byte(" in `main.tf` in a configuration directory")
 		return bytes.ReplaceAll(content, removeBytes, nil), nil
-
 	},
 }
 
