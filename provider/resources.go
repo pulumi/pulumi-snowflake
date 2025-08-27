@@ -17,6 +17,7 @@ package snowflake
 import (
 	"bytes"
 	"fmt"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	"os"
 	"path"
 
@@ -136,6 +137,8 @@ func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
 	edits := []info.DocsEdit{
 		removeLiteralFromIndex(roadmap),
 		removeLiteralFromIndex(migration),
+		removeSnowflakeSupport,
+		removeSupportedArchitectures,
 		fixExample,
 		removeMainTf,
 	}
@@ -193,6 +196,27 @@ var removeMainTf = info.DocsEdit{
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		removeBytes := []byte(" in `main.tf` in a configuration directory")
 		return bytes.ReplaceAll(content, removeBytes, nil), nil
+
+	},
+}
+
+// We do not want to send Pulumi users to Snowflake support
+var removeSnowflakeSupport = info.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+			return headerText == "Support"
+		})
+	},
+}
+
+// This has TF/hashicorp-specific instructions in it
+var removeSupportedArchitectures = info.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
+			return headerText == "Supported architectures"
+		})
 	},
 }
 
