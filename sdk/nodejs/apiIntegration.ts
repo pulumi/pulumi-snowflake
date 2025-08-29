@@ -42,66 +42,66 @@ export class ApiIntegration extends pulumi.CustomResource {
     /**
      * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
      */
-    public readonly apiAllowedPrefixes!: pulumi.Output<string[]>;
+    declare public readonly apiAllowedPrefixes: pulumi.Output<string[]>;
     /**
      * The external ID that Snowflake will use when assuming the AWS role.
      */
-    public /*out*/ readonly apiAwsExternalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiAwsExternalId: pulumi.Output<string>;
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      */
-    public /*out*/ readonly apiAwsIamUserArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiAwsIamUserArn: pulumi.Output<string>;
     /**
      * (Default: ``) ARN of a cloud platform role.
      */
-    public readonly apiAwsRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly apiAwsRoleArn: pulumi.Output<string | undefined>;
     /**
      * Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
      */
-    public readonly apiBlockedPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly apiBlockedPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * The service account used for communication with the Google API Gateway.
      */
-    public readonly apiGcpServiceAccount!: pulumi.Output<string>;
+    declare public readonly apiGcpServiceAccount: pulumi.Output<string>;
     /**
      * The API key (also called a “subscription key”).
      */
-    public readonly apiKey!: pulumi.Output<string | undefined>;
+    declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
      * Specifies the HTTPS proxy service type.
      */
-    public readonly apiProvider!: pulumi.Output<string>;
+    declare public readonly apiProvider: pulumi.Output<string>;
     /**
      * (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
      */
-    public readonly azureAdApplicationId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly azureConsentUrl!: pulumi.Output<string>;
-    public /*out*/ readonly azureMultiTenantAppName!: pulumi.Output<string>;
+    declare public readonly azureAdApplicationId: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly azureConsentUrl: pulumi.Output<string>;
+    declare public /*out*/ readonly azureMultiTenantAppName: pulumi.Output<string>;
     /**
      * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
-    public readonly azureTenantId!: pulumi.Output<string | undefined>;
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly azureTenantId: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Date and time when the API integration was created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      */
-    public readonly googleAudience!: pulumi.Output<string | undefined>;
+    declare public readonly googleAudience: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ApiIntegration resource with the given unique name, arguments, and options.
@@ -116,44 +116,44 @@ export class ApiIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiIntegrationState | undefined;
-            resourceInputs["apiAllowedPrefixes"] = state ? state.apiAllowedPrefixes : undefined;
-            resourceInputs["apiAwsExternalId"] = state ? state.apiAwsExternalId : undefined;
-            resourceInputs["apiAwsIamUserArn"] = state ? state.apiAwsIamUserArn : undefined;
-            resourceInputs["apiAwsRoleArn"] = state ? state.apiAwsRoleArn : undefined;
-            resourceInputs["apiBlockedPrefixes"] = state ? state.apiBlockedPrefixes : undefined;
-            resourceInputs["apiGcpServiceAccount"] = state ? state.apiGcpServiceAccount : undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["apiProvider"] = state ? state.apiProvider : undefined;
-            resourceInputs["azureAdApplicationId"] = state ? state.azureAdApplicationId : undefined;
-            resourceInputs["azureConsentUrl"] = state ? state.azureConsentUrl : undefined;
-            resourceInputs["azureMultiTenantAppName"] = state ? state.azureMultiTenantAppName : undefined;
-            resourceInputs["azureTenantId"] = state ? state.azureTenantId : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["googleAudience"] = state ? state.googleAudience : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiAllowedPrefixes"] = state?.apiAllowedPrefixes;
+            resourceInputs["apiAwsExternalId"] = state?.apiAwsExternalId;
+            resourceInputs["apiAwsIamUserArn"] = state?.apiAwsIamUserArn;
+            resourceInputs["apiAwsRoleArn"] = state?.apiAwsRoleArn;
+            resourceInputs["apiBlockedPrefixes"] = state?.apiBlockedPrefixes;
+            resourceInputs["apiGcpServiceAccount"] = state?.apiGcpServiceAccount;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["apiProvider"] = state?.apiProvider;
+            resourceInputs["azureAdApplicationId"] = state?.azureAdApplicationId;
+            resourceInputs["azureConsentUrl"] = state?.azureConsentUrl;
+            resourceInputs["azureMultiTenantAppName"] = state?.azureMultiTenantAppName;
+            resourceInputs["azureTenantId"] = state?.azureTenantId;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["createdOn"] = state?.createdOn;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["googleAudience"] = state?.googleAudience;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ApiIntegrationArgs | undefined;
-            if ((!args || args.apiAllowedPrefixes === undefined) && !opts.urn) {
+            if (args?.apiAllowedPrefixes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiAllowedPrefixes'");
             }
-            if ((!args || args.apiProvider === undefined) && !opts.urn) {
+            if (args?.apiProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiProvider'");
             }
-            resourceInputs["apiAllowedPrefixes"] = args ? args.apiAllowedPrefixes : undefined;
-            resourceInputs["apiAwsRoleArn"] = args ? args.apiAwsRoleArn : undefined;
-            resourceInputs["apiBlockedPrefixes"] = args ? args.apiBlockedPrefixes : undefined;
-            resourceInputs["apiGcpServiceAccount"] = args ? args.apiGcpServiceAccount : undefined;
+            resourceInputs["apiAllowedPrefixes"] = args?.apiAllowedPrefixes;
+            resourceInputs["apiAwsRoleArn"] = args?.apiAwsRoleArn;
+            resourceInputs["apiBlockedPrefixes"] = args?.apiBlockedPrefixes;
+            resourceInputs["apiGcpServiceAccount"] = args?.apiGcpServiceAccount;
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["apiProvider"] = args ? args.apiProvider : undefined;
-            resourceInputs["azureAdApplicationId"] = args ? args.azureAdApplicationId : undefined;
-            resourceInputs["azureTenantId"] = args ? args.azureTenantId : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["googleAudience"] = args ? args.googleAudience : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiProvider"] = args?.apiProvider;
+            resourceInputs["azureAdApplicationId"] = args?.azureAdApplicationId;
+            resourceInputs["azureTenantId"] = args?.azureTenantId;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["googleAudience"] = args?.googleAudience;
+            resourceInputs["name"] = args?.name;
             resourceInputs["apiAwsExternalId"] = undefined /*out*/;
             resourceInputs["apiAwsIamUserArn"] = undefined /*out*/;
             resourceInputs["azureConsentUrl"] = undefined /*out*/;

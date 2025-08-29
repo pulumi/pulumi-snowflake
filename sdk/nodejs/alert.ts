@@ -46,43 +46,43 @@ export class Alert extends pulumi.CustomResource {
     /**
      * The SQL statement that should be executed if the condition returns one or more rows.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * The schedule for periodically running an alert.
      */
-    public readonly alertSchedule!: pulumi.Output<outputs.AlertAlertSchedule | undefined>;
+    declare public readonly alertSchedule: pulumi.Output<outputs.AlertAlertSchedule | undefined>;
     /**
      * Specifies a comment for the alert.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
      */
-    public readonly condition!: pulumi.Output<string>;
+    declare public readonly condition: pulumi.Output<string>;
     /**
      * The database in which to create the alert.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The schema in which to create the alert.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * The warehouse the alert will use.
      */
-    public readonly warehouse!: pulumi.Output<string>;
+    declare public readonly warehouse: pulumi.Output<string>;
 
     /**
      * Create a Alert resource with the given unique name, arguments, and options.
@@ -97,42 +97,42 @@ export class Alert extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["alertSchedule"] = state ? state.alertSchedule : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["condition"] = state ? state.condition : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["warehouse"] = state ? state.warehouse : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["alertSchedule"] = state?.alertSchedule;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["condition"] = state?.condition;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["warehouse"] = state?.warehouse;
         } else {
             const args = argsOrState as AlertArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.condition === undefined) && !opts.urn) {
+            if (args?.condition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'condition'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.warehouse === undefined) && !opts.urn) {
+            if (args?.warehouse === undefined && !opts.urn) {
                 throw new Error("Missing required property 'warehouse'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["alertSchedule"] = args ? args.alertSchedule : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["alertSchedule"] = args?.alertSchedule;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["warehouse"] = args?.warehouse;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

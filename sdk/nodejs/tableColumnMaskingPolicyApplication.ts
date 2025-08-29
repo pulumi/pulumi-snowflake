@@ -35,15 +35,15 @@ export class TableColumnMaskingPolicyApplication extends pulumi.CustomResource {
     /**
      * The column to apply the masking policy to.
      */
-    public readonly column!: pulumi.Output<string>;
+    declare public readonly column: pulumi.Output<string>;
     /**
      * Fully qualified name (`database.schema.policyname`) of the policy to apply.
      */
-    public readonly maskingPolicy!: pulumi.Output<string>;
+    declare public readonly maskingPolicy: pulumi.Output<string>;
     /**
      * The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.
      */
-    public readonly table!: pulumi.Output<string>;
+    declare public readonly table: pulumi.Output<string>;
 
     /**
      * Create a TableColumnMaskingPolicyApplication resource with the given unique name, arguments, and options.
@@ -58,23 +58,23 @@ export class TableColumnMaskingPolicyApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableColumnMaskingPolicyApplicationState | undefined;
-            resourceInputs["column"] = state ? state.column : undefined;
-            resourceInputs["maskingPolicy"] = state ? state.maskingPolicy : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
+            resourceInputs["column"] = state?.column;
+            resourceInputs["maskingPolicy"] = state?.maskingPolicy;
+            resourceInputs["table"] = state?.table;
         } else {
             const args = argsOrState as TableColumnMaskingPolicyApplicationArgs | undefined;
-            if ((!args || args.column === undefined) && !opts.urn) {
+            if (args?.column === undefined && !opts.urn) {
                 throw new Error("Missing required property 'column'");
             }
-            if ((!args || args.maskingPolicy === undefined) && !opts.urn) {
+            if (args?.maskingPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maskingPolicy'");
             }
-            if ((!args || args.table === undefined) && !opts.urn) {
+            if (args?.table === undefined && !opts.urn) {
                 throw new Error("Missing required property 'table'");
             }
-            resourceInputs["column"] = args ? args.column : undefined;
-            resourceInputs["maskingPolicy"] = args ? args.maskingPolicy : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
+            resourceInputs["column"] = args?.column;
+            resourceInputs["maskingPolicy"] = args?.maskingPolicy;
+            resourceInputs["table"] = args?.table;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TableColumnMaskingPolicyApplication.__pulumiType, name, resourceInputs, opts);

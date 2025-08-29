@@ -44,151 +44,151 @@ export class FileFormat extends pulumi.CustomResource {
     /**
      * Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
      */
-    public readonly allowDuplicate!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowDuplicate: pulumi.Output<boolean | undefined>;
     /**
      * Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text.
      */
-    public readonly binaryAsText!: pulumi.Output<boolean | undefined>;
+    declare public readonly binaryAsText: pulumi.Output<boolean | undefined>;
     /**
      * Defines the encoding format for binary input or output.
      */
-    public readonly binaryFormat!: pulumi.Output<string>;
+    declare public readonly binaryFormat: pulumi.Output<string>;
     /**
      * Specifies a comment for the file format.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Specifies the current compression algorithm for the data file.
      */
-    public readonly compression!: pulumi.Output<string>;
+    declare public readonly compression: pulumi.Output<string>;
     /**
      * The database in which to create the file format.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Defines the format of date values in the data files (data loading) or table (data unloading).
      */
-    public readonly dateFormat!: pulumi.Output<string>;
+    declare public readonly dateFormat: pulumi.Output<string>;
     /**
      * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
      */
-    public readonly disableAutoConvert!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableAutoConvert: pulumi.Output<boolean | undefined>;
     /**
      * Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
      */
-    public readonly disableSnowflakeData!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableSnowflakeData: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
      */
-    public readonly emptyFieldAsNull!: pulumi.Output<boolean | undefined>;
+    declare public readonly emptyFieldAsNull: pulumi.Output<boolean | undefined>;
     /**
      * Boolean that enables parsing of octal numbers.
      */
-    public readonly enableOctal!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableOctal: pulumi.Output<boolean | undefined>;
     /**
      * String (constant) that specifies the character set of the source data when loading data into a table.
      */
-    public readonly encoding!: pulumi.Output<string>;
+    declare public readonly encoding: pulumi.Output<string>;
     /**
      * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
      */
-    public readonly errorOnColumnCountMismatch!: pulumi.Output<boolean | undefined>;
+    declare public readonly errorOnColumnCountMismatch: pulumi.Output<boolean | undefined>;
     /**
      * Single character string used as the escape character for field values.
      */
-    public readonly escape!: pulumi.Output<string>;
+    declare public readonly escape: pulumi.Output<string>;
     /**
      * Single character string used as the escape character for unenclosed field values only.
      */
-    public readonly escapeUnenclosedField!: pulumi.Output<string>;
+    declare public readonly escapeUnenclosedField: pulumi.Output<string>;
     /**
      * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      */
-    public readonly fieldDelimiter!: pulumi.Output<string>;
+    declare public readonly fieldDelimiter: pulumi.Output<string>;
     /**
      * Character used to enclose strings.
      */
-    public readonly fieldOptionallyEnclosedBy!: pulumi.Output<string>;
+    declare public readonly fieldOptionallyEnclosedBy: pulumi.Output<string>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    public readonly fileExtension!: pulumi.Output<string | undefined>;
+    declare public readonly fileExtension: pulumi.Output<string | undefined>;
     /**
      * Specifies the format of the input files (for data loading) or output files (for data unloading).
      */
-    public readonly formatType!: pulumi.Output<string>;
+    declare public readonly formatType: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Boolean that specifies whether UTF-8 encoding errors produce error conditions.
      */
-    public readonly ignoreUtf8Errors!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreUtf8Errors: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    public readonly nullIfs!: pulumi.Output<string[]>;
+    declare public readonly nullIfs: pulumi.Output<string[]>;
     /**
      * Boolean that specifies whether to use the first row headers in the data files to determine column names.
      */
-    public readonly parseHeader!: pulumi.Output<boolean | undefined>;
+    declare public readonly parseHeader: pulumi.Output<boolean | undefined>;
     /**
      * Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
      */
-    public readonly preserveSpace!: pulumi.Output<boolean | undefined>;
+    declare public readonly preserveSpace: pulumi.Output<boolean | undefined>;
     /**
      * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      */
-    public readonly recordDelimiter!: pulumi.Output<string>;
+    declare public readonly recordDelimiter: pulumi.Output<string>;
     /**
      * Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
      */
-    public readonly replaceInvalidCharacters!: pulumi.Output<boolean | undefined>;
+    declare public readonly replaceInvalidCharacters: pulumi.Output<boolean | undefined>;
     /**
      * The schema in which to create the file format.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Boolean that specifies to skip any blank lines encountered in the data files.
      */
-    public readonly skipBlankLines!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipBlankLines: pulumi.Output<boolean | undefined>;
     /**
      * Boolean that specifies whether to skip the BOM (byte order mark), if present in a data file.
      */
-    public readonly skipByteOrderMark!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipByteOrderMark: pulumi.Output<boolean | undefined>;
     /**
      * Number of lines at the start of the file to skip.
      */
-    public readonly skipHeader!: pulumi.Output<number | undefined>;
+    declare public readonly skipHeader: pulumi.Output<number | undefined>;
     /**
      * Boolean that instructs the JSON parser to remove object fields or array elements containing null values.
      */
-    public readonly stripNullValues!: pulumi.Output<boolean | undefined>;
+    declare public readonly stripNullValues: pulumi.Output<boolean | undefined>;
     /**
      * Boolean that instructs the JSON parser to remove outer brackets.
      */
-    public readonly stripOuterArray!: pulumi.Output<boolean | undefined>;
+    declare public readonly stripOuterArray: pulumi.Output<boolean | undefined>;
     /**
      * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
      */
-    public readonly stripOuterElement!: pulumi.Output<boolean | undefined>;
+    declare public readonly stripOuterElement: pulumi.Output<boolean | undefined>;
     /**
      * Defines the format of time values in the data files (data loading) or table (data unloading).
      */
-    public readonly timeFormat!: pulumi.Output<string>;
+    declare public readonly timeFormat: pulumi.Output<string>;
     /**
      * Defines the format of timestamp values in the data files (data loading) or table (data unloading).
      */
-    public readonly timestampFormat!: pulumi.Output<string>;
+    declare public readonly timestampFormat: pulumi.Output<string>;
     /**
      * Boolean that specifies whether to remove white space from fields.
      */
-    public readonly trimSpace!: pulumi.Output<boolean | undefined>;
+    declare public readonly trimSpace: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a FileFormat resource with the given unique name, arguments, and options.
@@ -203,90 +203,90 @@ export class FileFormat extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileFormatState | undefined;
-            resourceInputs["allowDuplicate"] = state ? state.allowDuplicate : undefined;
-            resourceInputs["binaryAsText"] = state ? state.binaryAsText : undefined;
-            resourceInputs["binaryFormat"] = state ? state.binaryFormat : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["compression"] = state ? state.compression : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["dateFormat"] = state ? state.dateFormat : undefined;
-            resourceInputs["disableAutoConvert"] = state ? state.disableAutoConvert : undefined;
-            resourceInputs["disableSnowflakeData"] = state ? state.disableSnowflakeData : undefined;
-            resourceInputs["emptyFieldAsNull"] = state ? state.emptyFieldAsNull : undefined;
-            resourceInputs["enableOctal"] = state ? state.enableOctal : undefined;
-            resourceInputs["encoding"] = state ? state.encoding : undefined;
-            resourceInputs["errorOnColumnCountMismatch"] = state ? state.errorOnColumnCountMismatch : undefined;
-            resourceInputs["escape"] = state ? state.escape : undefined;
-            resourceInputs["escapeUnenclosedField"] = state ? state.escapeUnenclosedField : undefined;
-            resourceInputs["fieldDelimiter"] = state ? state.fieldDelimiter : undefined;
-            resourceInputs["fieldOptionallyEnclosedBy"] = state ? state.fieldOptionallyEnclosedBy : undefined;
-            resourceInputs["fileExtension"] = state ? state.fileExtension : undefined;
-            resourceInputs["formatType"] = state ? state.formatType : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["ignoreUtf8Errors"] = state ? state.ignoreUtf8Errors : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nullIfs"] = state ? state.nullIfs : undefined;
-            resourceInputs["parseHeader"] = state ? state.parseHeader : undefined;
-            resourceInputs["preserveSpace"] = state ? state.preserveSpace : undefined;
-            resourceInputs["recordDelimiter"] = state ? state.recordDelimiter : undefined;
-            resourceInputs["replaceInvalidCharacters"] = state ? state.replaceInvalidCharacters : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["skipBlankLines"] = state ? state.skipBlankLines : undefined;
-            resourceInputs["skipByteOrderMark"] = state ? state.skipByteOrderMark : undefined;
-            resourceInputs["skipHeader"] = state ? state.skipHeader : undefined;
-            resourceInputs["stripNullValues"] = state ? state.stripNullValues : undefined;
-            resourceInputs["stripOuterArray"] = state ? state.stripOuterArray : undefined;
-            resourceInputs["stripOuterElement"] = state ? state.stripOuterElement : undefined;
-            resourceInputs["timeFormat"] = state ? state.timeFormat : undefined;
-            resourceInputs["timestampFormat"] = state ? state.timestampFormat : undefined;
-            resourceInputs["trimSpace"] = state ? state.trimSpace : undefined;
+            resourceInputs["allowDuplicate"] = state?.allowDuplicate;
+            resourceInputs["binaryAsText"] = state?.binaryAsText;
+            resourceInputs["binaryFormat"] = state?.binaryFormat;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["compression"] = state?.compression;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["dateFormat"] = state?.dateFormat;
+            resourceInputs["disableAutoConvert"] = state?.disableAutoConvert;
+            resourceInputs["disableSnowflakeData"] = state?.disableSnowflakeData;
+            resourceInputs["emptyFieldAsNull"] = state?.emptyFieldAsNull;
+            resourceInputs["enableOctal"] = state?.enableOctal;
+            resourceInputs["encoding"] = state?.encoding;
+            resourceInputs["errorOnColumnCountMismatch"] = state?.errorOnColumnCountMismatch;
+            resourceInputs["escape"] = state?.escape;
+            resourceInputs["escapeUnenclosedField"] = state?.escapeUnenclosedField;
+            resourceInputs["fieldDelimiter"] = state?.fieldDelimiter;
+            resourceInputs["fieldOptionallyEnclosedBy"] = state?.fieldOptionallyEnclosedBy;
+            resourceInputs["fileExtension"] = state?.fileExtension;
+            resourceInputs["formatType"] = state?.formatType;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["ignoreUtf8Errors"] = state?.ignoreUtf8Errors;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nullIfs"] = state?.nullIfs;
+            resourceInputs["parseHeader"] = state?.parseHeader;
+            resourceInputs["preserveSpace"] = state?.preserveSpace;
+            resourceInputs["recordDelimiter"] = state?.recordDelimiter;
+            resourceInputs["replaceInvalidCharacters"] = state?.replaceInvalidCharacters;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["skipBlankLines"] = state?.skipBlankLines;
+            resourceInputs["skipByteOrderMark"] = state?.skipByteOrderMark;
+            resourceInputs["skipHeader"] = state?.skipHeader;
+            resourceInputs["stripNullValues"] = state?.stripNullValues;
+            resourceInputs["stripOuterArray"] = state?.stripOuterArray;
+            resourceInputs["stripOuterElement"] = state?.stripOuterElement;
+            resourceInputs["timeFormat"] = state?.timeFormat;
+            resourceInputs["timestampFormat"] = state?.timestampFormat;
+            resourceInputs["trimSpace"] = state?.trimSpace;
         } else {
             const args = argsOrState as FileFormatArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.formatType === undefined) && !opts.urn) {
+            if (args?.formatType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'formatType'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["allowDuplicate"] = args ? args.allowDuplicate : undefined;
-            resourceInputs["binaryAsText"] = args ? args.binaryAsText : undefined;
-            resourceInputs["binaryFormat"] = args ? args.binaryFormat : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["compression"] = args ? args.compression : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["dateFormat"] = args ? args.dateFormat : undefined;
-            resourceInputs["disableAutoConvert"] = args ? args.disableAutoConvert : undefined;
-            resourceInputs["disableSnowflakeData"] = args ? args.disableSnowflakeData : undefined;
-            resourceInputs["emptyFieldAsNull"] = args ? args.emptyFieldAsNull : undefined;
-            resourceInputs["enableOctal"] = args ? args.enableOctal : undefined;
-            resourceInputs["encoding"] = args ? args.encoding : undefined;
-            resourceInputs["errorOnColumnCountMismatch"] = args ? args.errorOnColumnCountMismatch : undefined;
-            resourceInputs["escape"] = args ? args.escape : undefined;
-            resourceInputs["escapeUnenclosedField"] = args ? args.escapeUnenclosedField : undefined;
-            resourceInputs["fieldDelimiter"] = args ? args.fieldDelimiter : undefined;
-            resourceInputs["fieldOptionallyEnclosedBy"] = args ? args.fieldOptionallyEnclosedBy : undefined;
-            resourceInputs["fileExtension"] = args ? args.fileExtension : undefined;
-            resourceInputs["formatType"] = args ? args.formatType : undefined;
-            resourceInputs["ignoreUtf8Errors"] = args ? args.ignoreUtf8Errors : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nullIfs"] = args ? args.nullIfs : undefined;
-            resourceInputs["parseHeader"] = args ? args.parseHeader : undefined;
-            resourceInputs["preserveSpace"] = args ? args.preserveSpace : undefined;
-            resourceInputs["recordDelimiter"] = args ? args.recordDelimiter : undefined;
-            resourceInputs["replaceInvalidCharacters"] = args ? args.replaceInvalidCharacters : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["skipBlankLines"] = args ? args.skipBlankLines : undefined;
-            resourceInputs["skipByteOrderMark"] = args ? args.skipByteOrderMark : undefined;
-            resourceInputs["skipHeader"] = args ? args.skipHeader : undefined;
-            resourceInputs["stripNullValues"] = args ? args.stripNullValues : undefined;
-            resourceInputs["stripOuterArray"] = args ? args.stripOuterArray : undefined;
-            resourceInputs["stripOuterElement"] = args ? args.stripOuterElement : undefined;
-            resourceInputs["timeFormat"] = args ? args.timeFormat : undefined;
-            resourceInputs["timestampFormat"] = args ? args.timestampFormat : undefined;
-            resourceInputs["trimSpace"] = args ? args.trimSpace : undefined;
+            resourceInputs["allowDuplicate"] = args?.allowDuplicate;
+            resourceInputs["binaryAsText"] = args?.binaryAsText;
+            resourceInputs["binaryFormat"] = args?.binaryFormat;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["compression"] = args?.compression;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["dateFormat"] = args?.dateFormat;
+            resourceInputs["disableAutoConvert"] = args?.disableAutoConvert;
+            resourceInputs["disableSnowflakeData"] = args?.disableSnowflakeData;
+            resourceInputs["emptyFieldAsNull"] = args?.emptyFieldAsNull;
+            resourceInputs["enableOctal"] = args?.enableOctal;
+            resourceInputs["encoding"] = args?.encoding;
+            resourceInputs["errorOnColumnCountMismatch"] = args?.errorOnColumnCountMismatch;
+            resourceInputs["escape"] = args?.escape;
+            resourceInputs["escapeUnenclosedField"] = args?.escapeUnenclosedField;
+            resourceInputs["fieldDelimiter"] = args?.fieldDelimiter;
+            resourceInputs["fieldOptionallyEnclosedBy"] = args?.fieldOptionallyEnclosedBy;
+            resourceInputs["fileExtension"] = args?.fileExtension;
+            resourceInputs["formatType"] = args?.formatType;
+            resourceInputs["ignoreUtf8Errors"] = args?.ignoreUtf8Errors;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nullIfs"] = args?.nullIfs;
+            resourceInputs["parseHeader"] = args?.parseHeader;
+            resourceInputs["preserveSpace"] = args?.preserveSpace;
+            resourceInputs["recordDelimiter"] = args?.recordDelimiter;
+            resourceInputs["replaceInvalidCharacters"] = args?.replaceInvalidCharacters;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["skipBlankLines"] = args?.skipBlankLines;
+            resourceInputs["skipByteOrderMark"] = args?.skipByteOrderMark;
+            resourceInputs["skipHeader"] = args?.skipHeader;
+            resourceInputs["stripNullValues"] = args?.stripNullValues;
+            resourceInputs["stripOuterArray"] = args?.stripOuterArray;
+            resourceInputs["stripOuterElement"] = args?.stripOuterElement;
+            resourceInputs["timeFormat"] = args?.timeFormat;
+            resourceInputs["timestampFormat"] = args?.timestampFormat;
+            resourceInputs["trimSpace"] = args?.trimSpace;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -42,19 +42,19 @@ export class Share extends pulumi.CustomResource {
     /**
      * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
-    public readonly accounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly accounts: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the managed account.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier for the share; must be unique for the account in which the share is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Share resource with the given unique name, arguments, and options.
@@ -69,15 +69,15 @@ export class Share extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareState | undefined;
-            resourceInputs["accounts"] = state ? state.accounts : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["accounts"] = state?.accounts;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ShareArgs | undefined;
-            resourceInputs["accounts"] = args ? args.accounts : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["accounts"] = args?.accounts;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["name"] = args?.name;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

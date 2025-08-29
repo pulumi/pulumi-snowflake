@@ -44,39 +44,39 @@ export class NetworkPolicy extends pulumi.CustomResource {
     /**
      * Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
      */
-    public readonly allowedIpLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedIpLists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
      */
-    public readonly allowedNetworkRuleLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedNetworkRuleLists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowedIpList`.
      */
-    public readonly blockedIpLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly blockedIpLists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
      */
-    public readonly blockedNetworkRuleLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly blockedNetworkRuleLists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the network policy.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.NetworkPolicyDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.NetworkPolicyDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.NetworkPolicyShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.NetworkPolicyShowOutput[]>;
 
     /**
      * Create a NetworkPolicy resource with the given unique name, arguments, and options.
@@ -91,23 +91,23 @@ export class NetworkPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkPolicyState | undefined;
-            resourceInputs["allowedIpLists"] = state ? state.allowedIpLists : undefined;
-            resourceInputs["allowedNetworkRuleLists"] = state ? state.allowedNetworkRuleLists : undefined;
-            resourceInputs["blockedIpLists"] = state ? state.blockedIpLists : undefined;
-            resourceInputs["blockedNetworkRuleLists"] = state ? state.blockedNetworkRuleLists : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["allowedIpLists"] = state?.allowedIpLists;
+            resourceInputs["allowedNetworkRuleLists"] = state?.allowedNetworkRuleLists;
+            resourceInputs["blockedIpLists"] = state?.blockedIpLists;
+            resourceInputs["blockedNetworkRuleLists"] = state?.blockedNetworkRuleLists;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as NetworkPolicyArgs | undefined;
-            resourceInputs["allowedIpLists"] = args ? args.allowedIpLists : undefined;
-            resourceInputs["allowedNetworkRuleLists"] = args ? args.allowedNetworkRuleLists : undefined;
-            resourceInputs["blockedIpLists"] = args ? args.blockedIpLists : undefined;
-            resourceInputs["blockedNetworkRuleLists"] = args ? args.blockedNetworkRuleLists : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["allowedIpLists"] = args?.allowedIpLists;
+            resourceInputs["allowedNetworkRuleLists"] = args?.allowedNetworkRuleLists;
+            resourceInputs["blockedIpLists"] = args?.blockedIpLists;
+            resourceInputs["blockedNetworkRuleLists"] = args?.blockedNetworkRuleLists;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["name"] = args?.name;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

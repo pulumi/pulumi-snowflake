@@ -44,23 +44,23 @@ export class DatabaseRole extends pulumi.CustomResource {
     /**
      * Specifies a comment for the database role.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.DatabaseRoleShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.DatabaseRoleShowOutput[]>;
 
     /**
      * Create a DatabaseRole resource with the given unique name, arguments, and options.
@@ -75,19 +75,19 @@ export class DatabaseRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseRoleState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as DatabaseRoleArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["name"] = args?.name;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }

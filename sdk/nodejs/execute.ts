@@ -42,19 +42,19 @@ export class Execute extends pulumi.CustomResource {
     /**
      * SQL statement to execute. Forces recreation of resource on change.
      */
-    public readonly execute!: pulumi.Output<string>;
+    declare public readonly execute: pulumi.Output<string>;
     /**
      * Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
      */
-    public readonly query!: pulumi.Output<string | undefined>;
+    declare public readonly query: pulumi.Output<string | undefined>;
     /**
      * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
      */
-    public /*out*/ readonly queryResults!: pulumi.Output<{[key: string]: string}[]>;
+    declare public /*out*/ readonly queryResults: pulumi.Output<{[key: string]: string}[]>;
     /**
      * SQL statement to revert the execute statement. Invoked when resource is being destroyed.
      */
-    public readonly revert!: pulumi.Output<string>;
+    declare public readonly revert: pulumi.Output<string>;
 
     /**
      * Create a Execute resource with the given unique name, arguments, and options.
@@ -69,21 +69,21 @@ export class Execute extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExecuteState | undefined;
-            resourceInputs["execute"] = state ? state.execute : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["queryResults"] = state ? state.queryResults : undefined;
-            resourceInputs["revert"] = state ? state.revert : undefined;
+            resourceInputs["execute"] = state?.execute;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["queryResults"] = state?.queryResults;
+            resourceInputs["revert"] = state?.revert;
         } else {
             const args = argsOrState as ExecuteArgs | undefined;
-            if ((!args || args.execute === undefined) && !opts.urn) {
+            if (args?.execute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'execute'");
             }
-            if ((!args || args.revert === undefined) && !opts.urn) {
+            if (args?.revert === undefined && !opts.urn) {
                 throw new Error("Missing required property 'revert'");
             }
-            resourceInputs["execute"] = args ? args.execute : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["revert"] = args ? args.revert : undefined;
+            resourceInputs["execute"] = args?.execute;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["revert"] = args?.revert;
             resourceInputs["queryResults"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

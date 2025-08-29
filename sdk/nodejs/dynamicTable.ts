@@ -44,95 +44,95 @@ export class DynamicTable extends pulumi.CustomResource {
     /**
      * Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
      */
-    public /*out*/ readonly automaticClustering!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly automaticClustering: pulumi.Output<boolean>;
     /**
      * Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
      */
-    public /*out*/ readonly bytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly bytes: pulumi.Output<number>;
     /**
      * The clustering key for the dynamic table.
      */
-    public /*out*/ readonly clusterBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterBy: pulumi.Output<string>;
     /**
      * Specifies a comment for the dynamic table.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Time when this dynamic table was created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Timestamp of the data in the base object(s) that is included in the dynamic table.
      */
-    public /*out*/ readonly dataTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataTimestamp: pulumi.Output<string>;
     /**
      * The database in which to create the dynamic table.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
-    public readonly initialize!: pulumi.Output<string | undefined>;
+    declare public readonly initialize: pulumi.Output<string | undefined>;
     /**
      * TRUE if the dynamic table has been cloned, else FALSE.
      */
-    public /*out*/ readonly isClone!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isClone: pulumi.Output<boolean>;
     /**
      * TRUE if the dynamic table is a replica. else FALSE.
      */
-    public /*out*/ readonly isReplica!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isReplica: pulumi.Output<boolean>;
     /**
      * Timestamp of last suspension.
      */
-    public /*out*/ readonly lastSuspendedOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSuspendedOn: pulumi.Output<string>;
     /**
      * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
-    public readonly orReplace!: pulumi.Output<boolean | undefined>;
+    declare public readonly orReplace: pulumi.Output<boolean | undefined>;
     /**
      * Role that owns the dynamic table.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * Specifies the query to use to populate the dynamic table.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
-    public readonly refreshMode!: pulumi.Output<string | undefined>;
+    declare public readonly refreshMode: pulumi.Output<string | undefined>;
     /**
      * Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
      */
-    public /*out*/ readonly refreshModeReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly refreshModeReason: pulumi.Output<string>;
     /**
      * Number of rows in the table.
      */
-    public /*out*/ readonly rows!: pulumi.Output<number>;
+    declare public /*out*/ readonly rows: pulumi.Output<number>;
     /**
      * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      */
-    public /*out*/ readonly schedulingState!: pulumi.Output<string>;
+    declare public /*out*/ readonly schedulingState: pulumi.Output<string>;
     /**
      * The schema in which to create the dynamic table.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Specifies the target lag time for the dynamic table.
      */
-    public readonly targetLag!: pulumi.Output<outputs.DynamicTableTargetLag>;
+    declare public readonly targetLag: pulumi.Output<outputs.DynamicTableTargetLag>;
     /**
      * The warehouse in which to create the dynamic table.
      */
-    public readonly warehouse!: pulumi.Output<string>;
+    declare public readonly warehouse: pulumi.Output<string>;
 
     /**
      * Create a DynamicTable resource with the given unique name, arguments, and options.
@@ -147,56 +147,56 @@ export class DynamicTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DynamicTableState | undefined;
-            resourceInputs["automaticClustering"] = state ? state.automaticClustering : undefined;
-            resourceInputs["bytes"] = state ? state.bytes : undefined;
-            resourceInputs["clusterBy"] = state ? state.clusterBy : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
-            resourceInputs["dataTimestamp"] = state ? state.dataTimestamp : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["initialize"] = state ? state.initialize : undefined;
-            resourceInputs["isClone"] = state ? state.isClone : undefined;
-            resourceInputs["isReplica"] = state ? state.isReplica : undefined;
-            resourceInputs["lastSuspendedOn"] = state ? state.lastSuspendedOn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["orReplace"] = state ? state.orReplace : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["refreshMode"] = state ? state.refreshMode : undefined;
-            resourceInputs["refreshModeReason"] = state ? state.refreshModeReason : undefined;
-            resourceInputs["rows"] = state ? state.rows : undefined;
-            resourceInputs["schedulingState"] = state ? state.schedulingState : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["targetLag"] = state ? state.targetLag : undefined;
-            resourceInputs["warehouse"] = state ? state.warehouse : undefined;
+            resourceInputs["automaticClustering"] = state?.automaticClustering;
+            resourceInputs["bytes"] = state?.bytes;
+            resourceInputs["clusterBy"] = state?.clusterBy;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["createdOn"] = state?.createdOn;
+            resourceInputs["dataTimestamp"] = state?.dataTimestamp;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["initialize"] = state?.initialize;
+            resourceInputs["isClone"] = state?.isClone;
+            resourceInputs["isReplica"] = state?.isReplica;
+            resourceInputs["lastSuspendedOn"] = state?.lastSuspendedOn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["orReplace"] = state?.orReplace;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["refreshMode"] = state?.refreshMode;
+            resourceInputs["refreshModeReason"] = state?.refreshModeReason;
+            resourceInputs["rows"] = state?.rows;
+            resourceInputs["schedulingState"] = state?.schedulingState;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["targetLag"] = state?.targetLag;
+            resourceInputs["warehouse"] = state?.warehouse;
         } else {
             const args = argsOrState as DynamicTableArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.targetLag === undefined) && !opts.urn) {
+            if (args?.targetLag === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetLag'");
             }
-            if ((!args || args.warehouse === undefined) && !opts.urn) {
+            if (args?.warehouse === undefined && !opts.urn) {
                 throw new Error("Missing required property 'warehouse'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["initialize"] = args ? args.initialize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["orReplace"] = args ? args.orReplace : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["refreshMode"] = args ? args.refreshMode : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["targetLag"] = args ? args.targetLag : undefined;
-            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["initialize"] = args?.initialize;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["orReplace"] = args?.orReplace;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["refreshMode"] = args?.refreshMode;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["targetLag"] = args?.targetLag;
+            resourceInputs["warehouse"] = args?.warehouse;
             resourceInputs["automaticClustering"] = undefined /*out*/;
             resourceInputs["bytes"] = undefined /*out*/;
             resourceInputs["clusterBy"] = undefined /*out*/;

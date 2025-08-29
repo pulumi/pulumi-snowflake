@@ -44,47 +44,47 @@ export class ResourceMonitor extends pulumi.CustomResource {
     /**
      * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
      */
-    public readonly creditQuota!: pulumi.Output<number | undefined>;
+    declare public readonly creditQuota: pulumi.Output<number | undefined>;
     /**
      * The date and time when the resource monitor suspends the assigned warehouses.
      */
-    public readonly endTimestamp!: pulumi.Output<string | undefined>;
+    declare public readonly endTimestamp: pulumi.Output<string | undefined>;
     /**
      * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
-    public readonly frequency!: pulumi.Output<string | undefined>;
+    declare public readonly frequency: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
      */
-    public readonly notifyTriggers!: pulumi.Output<number[] | undefined>;
+    declare public readonly notifyTriggers: pulumi.Output<number[] | undefined>;
     /**
      * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      */
-    public readonly notifyUsers!: pulumi.Output<string[] | undefined>;
+    declare public readonly notifyUsers: pulumi.Output<string[] | undefined>;
     /**
      * Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ResourceMonitorShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ResourceMonitorShowOutput[]>;
     /**
      * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
-    public readonly startTimestamp!: pulumi.Output<string | undefined>;
+    declare public readonly startTimestamp: pulumi.Output<string | undefined>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
-    public readonly suspendImmediateTrigger!: pulumi.Output<number | undefined>;
+    declare public readonly suspendImmediateTrigger: pulumi.Output<number | undefined>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
-    public readonly suspendTrigger!: pulumi.Output<number | undefined>;
+    declare public readonly suspendTrigger: pulumi.Output<number | undefined>;
 
     /**
      * Create a ResourceMonitor resource with the given unique name, arguments, and options.
@@ -99,28 +99,28 @@ export class ResourceMonitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceMonitorState | undefined;
-            resourceInputs["creditQuota"] = state ? state.creditQuota : undefined;
-            resourceInputs["endTimestamp"] = state ? state.endTimestamp : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifyTriggers"] = state ? state.notifyTriggers : undefined;
-            resourceInputs["notifyUsers"] = state ? state.notifyUsers : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["startTimestamp"] = state ? state.startTimestamp : undefined;
-            resourceInputs["suspendImmediateTrigger"] = state ? state.suspendImmediateTrigger : undefined;
-            resourceInputs["suspendTrigger"] = state ? state.suspendTrigger : undefined;
+            resourceInputs["creditQuota"] = state?.creditQuota;
+            resourceInputs["endTimestamp"] = state?.endTimestamp;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifyTriggers"] = state?.notifyTriggers;
+            resourceInputs["notifyUsers"] = state?.notifyUsers;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["startTimestamp"] = state?.startTimestamp;
+            resourceInputs["suspendImmediateTrigger"] = state?.suspendImmediateTrigger;
+            resourceInputs["suspendTrigger"] = state?.suspendTrigger;
         } else {
             const args = argsOrState as ResourceMonitorArgs | undefined;
-            resourceInputs["creditQuota"] = args ? args.creditQuota : undefined;
-            resourceInputs["endTimestamp"] = args ? args.endTimestamp : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifyTriggers"] = args ? args.notifyTriggers : undefined;
-            resourceInputs["notifyUsers"] = args ? args.notifyUsers : undefined;
-            resourceInputs["startTimestamp"] = args ? args.startTimestamp : undefined;
-            resourceInputs["suspendImmediateTrigger"] = args ? args.suspendImmediateTrigger : undefined;
-            resourceInputs["suspendTrigger"] = args ? args.suspendTrigger : undefined;
+            resourceInputs["creditQuota"] = args?.creditQuota;
+            resourceInputs["endTimestamp"] = args?.endTimestamp;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifyTriggers"] = args?.notifyTriggers;
+            resourceInputs["notifyUsers"] = args?.notifyUsers;
+            resourceInputs["startTimestamp"] = args?.startTimestamp;
+            resourceInputs["suspendImmediateTrigger"] = args?.suspendImmediateTrigger;
+            resourceInputs["suspendTrigger"] = args?.suspendTrigger;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }

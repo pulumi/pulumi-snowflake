@@ -44,55 +44,55 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
     /**
      * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
-    public readonly blockedRolesLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly blockedRolesLists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the OAuth integration.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.OauthIntegrationForPartnerApplicationsDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.OauthIntegrationForPartnerApplicationsDescribeOutput[]>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly enabled!: pulumi.Output<string | undefined>;
+    declare public readonly enabled: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      */
-    public readonly oauthClient!: pulumi.Output<string>;
+    declare public readonly oauthClient: pulumi.Output<string>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly oauthIssueRefreshTokens!: pulumi.Output<string | undefined>;
+    declare public readonly oauthIssueRefreshTokens: pulumi.Output<string | undefined>;
     /**
      * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
      */
-    public readonly oauthRedirectUri!: pulumi.Output<string | undefined>;
+    declare public readonly oauthRedirectUri: pulumi.Output<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
-    public readonly oauthRefreshTokenValidity!: pulumi.Output<number | undefined>;
+    declare public readonly oauthRefreshTokenValidity: pulumi.Output<number | undefined>;
     /**
      * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      */
-    public readonly oauthUseSecondaryRoles!: pulumi.Output<string | undefined>;
+    declare public readonly oauthUseSecondaryRoles: pulumi.Output<string | undefined>;
     /**
      * Parameters related to this security integration.
      */
-    public /*out*/ readonly relatedParameters!: pulumi.Output<outputs.OauthIntegrationForPartnerApplicationsRelatedParameter[]>;
+    declare public /*out*/ readonly relatedParameters: pulumi.Output<outputs.OauthIntegrationForPartnerApplicationsRelatedParameter[]>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.OauthIntegrationForPartnerApplicationsShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.OauthIntegrationForPartnerApplicationsShowOutput[]>;
 
     /**
      * Create a OauthIntegrationForPartnerApplications resource with the given unique name, arguments, and options.
@@ -107,33 +107,33 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OauthIntegrationForPartnerApplicationsState | undefined;
-            resourceInputs["blockedRolesLists"] = state ? state.blockedRolesLists : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["oauthClient"] = state ? state.oauthClient : undefined;
-            resourceInputs["oauthIssueRefreshTokens"] = state ? state.oauthIssueRefreshTokens : undefined;
-            resourceInputs["oauthRedirectUri"] = state ? state.oauthRedirectUri : undefined;
-            resourceInputs["oauthRefreshTokenValidity"] = state ? state.oauthRefreshTokenValidity : undefined;
-            resourceInputs["oauthUseSecondaryRoles"] = state ? state.oauthUseSecondaryRoles : undefined;
-            resourceInputs["relatedParameters"] = state ? state.relatedParameters : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["blockedRolesLists"] = state?.blockedRolesLists;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["oauthClient"] = state?.oauthClient;
+            resourceInputs["oauthIssueRefreshTokens"] = state?.oauthIssueRefreshTokens;
+            resourceInputs["oauthRedirectUri"] = state?.oauthRedirectUri;
+            resourceInputs["oauthRefreshTokenValidity"] = state?.oauthRefreshTokenValidity;
+            resourceInputs["oauthUseSecondaryRoles"] = state?.oauthUseSecondaryRoles;
+            resourceInputs["relatedParameters"] = state?.relatedParameters;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as OauthIntegrationForPartnerApplicationsArgs | undefined;
-            if ((!args || args.oauthClient === undefined) && !opts.urn) {
+            if (args?.oauthClient === undefined && !opts.urn) {
                 throw new Error("Missing required property 'oauthClient'");
             }
-            resourceInputs["blockedRolesLists"] = args ? args.blockedRolesLists : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["oauthClient"] = args ? args.oauthClient : undefined;
-            resourceInputs["oauthIssueRefreshTokens"] = args ? args.oauthIssueRefreshTokens : undefined;
+            resourceInputs["blockedRolesLists"] = args?.blockedRolesLists;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["oauthClient"] = args?.oauthClient;
+            resourceInputs["oauthIssueRefreshTokens"] = args?.oauthIssueRefreshTokens;
             resourceInputs["oauthRedirectUri"] = args?.oauthRedirectUri ? pulumi.secret(args.oauthRedirectUri) : undefined;
-            resourceInputs["oauthRefreshTokenValidity"] = args ? args.oauthRefreshTokenValidity : undefined;
-            resourceInputs["oauthUseSecondaryRoles"] = args ? args.oauthUseSecondaryRoles : undefined;
+            resourceInputs["oauthRefreshTokenValidity"] = args?.oauthRefreshTokenValidity;
+            resourceInputs["oauthUseSecondaryRoles"] = args?.oauthUseSecondaryRoles;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["relatedParameters"] = undefined /*out*/;

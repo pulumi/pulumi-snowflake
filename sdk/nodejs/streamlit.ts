@@ -44,55 +44,55 @@ export class Streamlit extends pulumi.CustomResource {
     /**
      * Specifies a comment for the streamlit.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.StreamlitDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.StreamlitDescribeOutput[]>;
     /**
      * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
      */
-    public readonly directoryLocation!: pulumi.Output<string | undefined>;
+    declare public readonly directoryLocation: pulumi.Output<string | undefined>;
     /**
      * External access integrations connected to the Streamlit.
      */
-    public readonly externalAccessIntegrations!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalAccessIntegrations: pulumi.Output<string[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
      */
-    public readonly mainFile!: pulumi.Output<string>;
+    declare public readonly mainFile: pulumi.Output<string>;
     /**
      * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      */
-    public readonly queryWarehouse!: pulumi.Output<string | undefined>;
+    declare public readonly queryWarehouse: pulumi.Output<string | undefined>;
     /**
      * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW STREAMLIT` for the given streamlit.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.StreamlitShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.StreamlitShowOutput[]>;
     /**
      * The stage in which streamlit files are located. For more information about this resource, see docs.
      */
-    public readonly stage!: pulumi.Output<string>;
+    declare public readonly stage: pulumi.Output<string>;
     /**
      * Specifies a title for the Streamlit app to display in Snowsight.
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
 
     /**
      * Create a Streamlit resource with the given unique name, arguments, and options.
@@ -107,43 +107,43 @@ export class Streamlit extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamlitState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["directoryLocation"] = state ? state.directoryLocation : undefined;
-            resourceInputs["externalAccessIntegrations"] = state ? state.externalAccessIntegrations : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["mainFile"] = state ? state.mainFile : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queryWarehouse"] = state ? state.queryWarehouse : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["stage"] = state ? state.stage : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["directoryLocation"] = state?.directoryLocation;
+            resourceInputs["externalAccessIntegrations"] = state?.externalAccessIntegrations;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["mainFile"] = state?.mainFile;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queryWarehouse"] = state?.queryWarehouse;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["stage"] = state?.stage;
+            resourceInputs["title"] = state?.title;
         } else {
             const args = argsOrState as StreamlitArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.mainFile === undefined) && !opts.urn) {
+            if (args?.mainFile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mainFile'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.stage === undefined) && !opts.urn) {
+            if (args?.stage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["directoryLocation"] = args ? args.directoryLocation : undefined;
-            resourceInputs["externalAccessIntegrations"] = args ? args.externalAccessIntegrations : undefined;
-            resourceInputs["mainFile"] = args ? args.mainFile : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryWarehouse"] = args ? args.queryWarehouse : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["directoryLocation"] = args?.directoryLocation;
+            resourceInputs["externalAccessIntegrations"] = args?.externalAccessIntegrations;
+            resourceInputs["mainFile"] = args?.mainFile;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryWarehouse"] = args?.queryWarehouse;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["stage"] = args?.stage;
+            resourceInputs["title"] = args?.title;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

@@ -35,15 +35,15 @@ export class UserPublicKeys extends pulumi.CustomResource {
     /**
      * Name of the user.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
      */
-    public readonly rsaPublicKey!: pulumi.Output<string | undefined>;
+    declare public readonly rsaPublicKey: pulumi.Output<string | undefined>;
     /**
      * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
-    public readonly rsaPublicKey2!: pulumi.Output<string | undefined>;
+    declare public readonly rsaPublicKey2: pulumi.Output<string | undefined>;
 
     /**
      * Create a UserPublicKeys resource with the given unique name, arguments, and options.
@@ -58,14 +58,14 @@ export class UserPublicKeys extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserPublicKeysState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rsaPublicKey"] = state ? state.rsaPublicKey : undefined;
-            resourceInputs["rsaPublicKey2"] = state ? state.rsaPublicKey2 : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rsaPublicKey"] = state?.rsaPublicKey;
+            resourceInputs["rsaPublicKey2"] = state?.rsaPublicKey2;
         } else {
             const args = argsOrState as UserPublicKeysArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rsaPublicKey"] = args ? args.rsaPublicKey : undefined;
-            resourceInputs["rsaPublicKey2"] = args ? args.rsaPublicKey2 : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rsaPublicKey"] = args?.rsaPublicKey;
+            resourceInputs["rsaPublicKey2"] = args?.rsaPublicKey2;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserPublicKeys.__pulumiType, name, resourceInputs, opts);

@@ -44,83 +44,83 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
     /**
      * Specifies a comment for the OAuth integration.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.ExternalOauthIntegrationDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ExternalOauthIntegrationDescribeOutput[]>;
     /**
      * Specifies whether to initiate operation of the integration or suspend it.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      */
-    public readonly externalOauthAllowedRolesLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalOauthAllowedRolesLists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
      */
-    public readonly externalOauthAnyRoleMode!: pulumi.Output<string | undefined>;
+    declare public readonly externalOauthAnyRoleMode: pulumi.Output<string | undefined>;
     /**
      * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
      */
-    public readonly externalOauthAudienceLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalOauthAudienceLists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
-    public readonly externalOauthBlockedRolesLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalOauthBlockedRolesLists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the URL to define the OAuth 2.0 authorization server.
      */
-    public readonly externalOauthIssuer!: pulumi.Output<string>;
+    declare public readonly externalOauthIssuer: pulumi.Output<string>;
     /**
      * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      */
-    public readonly externalOauthJwsKeysUrls!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalOauthJwsKeysUrls: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
      */
-    public readonly externalOauthRsaPublicKey!: pulumi.Output<string | undefined>;
+    declare public readonly externalOauthRsaPublicKey: pulumi.Output<string | undefined>;
     /**
      * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
      */
-    public readonly externalOauthRsaPublicKey2!: pulumi.Output<string | undefined>;
+    declare public readonly externalOauthRsaPublicKey2: pulumi.Output<string | undefined>;
     /**
      * Specifies the scope delimiter in the authorization token.
      */
-    public readonly externalOauthScopeDelimiter!: pulumi.Output<string | undefined>;
+    declare public readonly externalOauthScopeDelimiter: pulumi.Output<string | undefined>;
     /**
      * Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
      */
-    public readonly externalOauthScopeMappingAttribute!: pulumi.Output<string | undefined>;
+    declare public readonly externalOauthScopeMappingAttribute: pulumi.Output<string | undefined>;
     /**
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
      */
-    public readonly externalOauthSnowflakeUserMappingAttribute!: pulumi.Output<string>;
+    declare public readonly externalOauthSnowflakeUserMappingAttribute: pulumi.Output<string>;
     /**
      * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
      */
-    public readonly externalOauthTokenUserMappingClaims!: pulumi.Output<string[]>;
+    declare public readonly externalOauthTokenUserMappingClaims: pulumi.Output<string[]>;
     /**
      * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
      */
-    public readonly externalOauthType!: pulumi.Output<string>;
+    declare public readonly externalOauthType: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Parameters related to this security integration.
      */
-    public /*out*/ readonly relatedParameters!: pulumi.Output<outputs.ExternalOauthIntegrationRelatedParameter[]>;
+    declare public /*out*/ readonly relatedParameters: pulumi.Output<outputs.ExternalOauthIntegrationRelatedParameter[]>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ExternalOauthIntegrationShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ExternalOauthIntegrationShowOutput[]>;
 
     /**
      * Create a ExternalOauthIntegration resource with the given unique name, arguments, and options.
@@ -135,59 +135,59 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExternalOauthIntegrationState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["externalOauthAllowedRolesLists"] = state ? state.externalOauthAllowedRolesLists : undefined;
-            resourceInputs["externalOauthAnyRoleMode"] = state ? state.externalOauthAnyRoleMode : undefined;
-            resourceInputs["externalOauthAudienceLists"] = state ? state.externalOauthAudienceLists : undefined;
-            resourceInputs["externalOauthBlockedRolesLists"] = state ? state.externalOauthBlockedRolesLists : undefined;
-            resourceInputs["externalOauthIssuer"] = state ? state.externalOauthIssuer : undefined;
-            resourceInputs["externalOauthJwsKeysUrls"] = state ? state.externalOauthJwsKeysUrls : undefined;
-            resourceInputs["externalOauthRsaPublicKey"] = state ? state.externalOauthRsaPublicKey : undefined;
-            resourceInputs["externalOauthRsaPublicKey2"] = state ? state.externalOauthRsaPublicKey2 : undefined;
-            resourceInputs["externalOauthScopeDelimiter"] = state ? state.externalOauthScopeDelimiter : undefined;
-            resourceInputs["externalOauthScopeMappingAttribute"] = state ? state.externalOauthScopeMappingAttribute : undefined;
-            resourceInputs["externalOauthSnowflakeUserMappingAttribute"] = state ? state.externalOauthSnowflakeUserMappingAttribute : undefined;
-            resourceInputs["externalOauthTokenUserMappingClaims"] = state ? state.externalOauthTokenUserMappingClaims : undefined;
-            resourceInputs["externalOauthType"] = state ? state.externalOauthType : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["relatedParameters"] = state ? state.relatedParameters : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["externalOauthAllowedRolesLists"] = state?.externalOauthAllowedRolesLists;
+            resourceInputs["externalOauthAnyRoleMode"] = state?.externalOauthAnyRoleMode;
+            resourceInputs["externalOauthAudienceLists"] = state?.externalOauthAudienceLists;
+            resourceInputs["externalOauthBlockedRolesLists"] = state?.externalOauthBlockedRolesLists;
+            resourceInputs["externalOauthIssuer"] = state?.externalOauthIssuer;
+            resourceInputs["externalOauthJwsKeysUrls"] = state?.externalOauthJwsKeysUrls;
+            resourceInputs["externalOauthRsaPublicKey"] = state?.externalOauthRsaPublicKey;
+            resourceInputs["externalOauthRsaPublicKey2"] = state?.externalOauthRsaPublicKey2;
+            resourceInputs["externalOauthScopeDelimiter"] = state?.externalOauthScopeDelimiter;
+            resourceInputs["externalOauthScopeMappingAttribute"] = state?.externalOauthScopeMappingAttribute;
+            resourceInputs["externalOauthSnowflakeUserMappingAttribute"] = state?.externalOauthSnowflakeUserMappingAttribute;
+            resourceInputs["externalOauthTokenUserMappingClaims"] = state?.externalOauthTokenUserMappingClaims;
+            resourceInputs["externalOauthType"] = state?.externalOauthType;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["relatedParameters"] = state?.relatedParameters;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as ExternalOauthIntegrationArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.externalOauthIssuer === undefined) && !opts.urn) {
+            if (args?.externalOauthIssuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'externalOauthIssuer'");
             }
-            if ((!args || args.externalOauthSnowflakeUserMappingAttribute === undefined) && !opts.urn) {
+            if (args?.externalOauthSnowflakeUserMappingAttribute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'externalOauthSnowflakeUserMappingAttribute'");
             }
-            if ((!args || args.externalOauthTokenUserMappingClaims === undefined) && !opts.urn) {
+            if (args?.externalOauthTokenUserMappingClaims === undefined && !opts.urn) {
                 throw new Error("Missing required property 'externalOauthTokenUserMappingClaims'");
             }
-            if ((!args || args.externalOauthType === undefined) && !opts.urn) {
+            if (args?.externalOauthType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'externalOauthType'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["externalOauthAllowedRolesLists"] = args ? args.externalOauthAllowedRolesLists : undefined;
-            resourceInputs["externalOauthAnyRoleMode"] = args ? args.externalOauthAnyRoleMode : undefined;
-            resourceInputs["externalOauthAudienceLists"] = args ? args.externalOauthAudienceLists : undefined;
-            resourceInputs["externalOauthBlockedRolesLists"] = args ? args.externalOauthBlockedRolesLists : undefined;
-            resourceInputs["externalOauthIssuer"] = args ? args.externalOauthIssuer : undefined;
-            resourceInputs["externalOauthJwsKeysUrls"] = args ? args.externalOauthJwsKeysUrls : undefined;
-            resourceInputs["externalOauthRsaPublicKey"] = args ? args.externalOauthRsaPublicKey : undefined;
-            resourceInputs["externalOauthRsaPublicKey2"] = args ? args.externalOauthRsaPublicKey2 : undefined;
-            resourceInputs["externalOauthScopeDelimiter"] = args ? args.externalOauthScopeDelimiter : undefined;
-            resourceInputs["externalOauthScopeMappingAttribute"] = args ? args.externalOauthScopeMappingAttribute : undefined;
-            resourceInputs["externalOauthSnowflakeUserMappingAttribute"] = args ? args.externalOauthSnowflakeUserMappingAttribute : undefined;
-            resourceInputs["externalOauthTokenUserMappingClaims"] = args ? args.externalOauthTokenUserMappingClaims : undefined;
-            resourceInputs["externalOauthType"] = args ? args.externalOauthType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["externalOauthAllowedRolesLists"] = args?.externalOauthAllowedRolesLists;
+            resourceInputs["externalOauthAnyRoleMode"] = args?.externalOauthAnyRoleMode;
+            resourceInputs["externalOauthAudienceLists"] = args?.externalOauthAudienceLists;
+            resourceInputs["externalOauthBlockedRolesLists"] = args?.externalOauthBlockedRolesLists;
+            resourceInputs["externalOauthIssuer"] = args?.externalOauthIssuer;
+            resourceInputs["externalOauthJwsKeysUrls"] = args?.externalOauthJwsKeysUrls;
+            resourceInputs["externalOauthRsaPublicKey"] = args?.externalOauthRsaPublicKey;
+            resourceInputs["externalOauthRsaPublicKey2"] = args?.externalOauthRsaPublicKey2;
+            resourceInputs["externalOauthScopeDelimiter"] = args?.externalOauthScopeDelimiter;
+            resourceInputs["externalOauthScopeMappingAttribute"] = args?.externalOauthScopeMappingAttribute;
+            resourceInputs["externalOauthSnowflakeUserMappingAttribute"] = args?.externalOauthSnowflakeUserMappingAttribute;
+            resourceInputs["externalOauthTokenUserMappingClaims"] = args?.externalOauthTokenUserMappingClaims;
+            resourceInputs["externalOauthType"] = args?.externalOauthType;
+            resourceInputs["name"] = args?.name;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["relatedParameters"] = undefined /*out*/;

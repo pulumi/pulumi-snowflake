@@ -42,17 +42,17 @@ export class EmailNotificationIntegration extends pulumi.CustomResource {
     /**
      * List of email addresses that should receive notifications.
      */
-    public readonly allowedRecipients!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedRecipients: pulumi.Output<string[] | undefined>;
     /**
      * A comment for the email integration.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a EmailNotificationIntegration resource with the given unique name, arguments, and options.
@@ -67,20 +67,20 @@ export class EmailNotificationIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailNotificationIntegrationState | undefined;
-            resourceInputs["allowedRecipients"] = state ? state.allowedRecipients : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["allowedRecipients"] = state?.allowedRecipients;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as EmailNotificationIntegrationArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            resourceInputs["allowedRecipients"] = args ? args.allowedRecipients : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["allowedRecipients"] = args?.allowedRecipients;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

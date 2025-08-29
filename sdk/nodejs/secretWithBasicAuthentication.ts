@@ -44,40 +44,40 @@ export class SecretWithBasicAuthentication extends pulumi.CustomResource {
     /**
      * Specifies a comment for the secret.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE SECRET` for the given secret.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.SecretWithBasicAuthenticationDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.SecretWithBasicAuthenticationDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      */
-    public /*out*/ readonly secretType!: pulumi.Output<string>;
+    declare public /*out*/ readonly secretType: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW SECRETS` for the given secret.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.SecretWithBasicAuthenticationShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.SecretWithBasicAuthenticationShowOutput[]>;
     /**
      * Specifies the username value to store in the secret.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a SecretWithBasicAuthentication resource with the given unique name, arguments, and options.
@@ -92,35 +92,35 @@ export class SecretWithBasicAuthentication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretWithBasicAuthenticationState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["secretType"] = state ? state.secretType : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["secretType"] = state?.secretType;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as SecretWithBasicAuthenticationArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["username"] = args?.username ? pulumi.secret(args.username) : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;

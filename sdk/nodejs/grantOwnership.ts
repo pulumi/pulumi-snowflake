@@ -84,19 +84,19 @@ export class GrantOwnership extends pulumi.CustomResource {
     /**
      * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
-    public readonly accountRoleName!: pulumi.Output<string | undefined>;
+    declare public readonly accountRoleName: pulumi.Output<string | undefined>;
     /**
      * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
-    public readonly databaseRoleName!: pulumi.Output<string | undefined>;
+    declare public readonly databaseRoleName: pulumi.Output<string | undefined>;
     /**
      * Configures which object(s) should transfer their ownership to the specified role.
      */
-    public readonly on!: pulumi.Output<outputs.GrantOwnershipOn>;
+    declare public readonly on: pulumi.Output<outputs.GrantOwnershipOn>;
     /**
      * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
      */
-    public readonly outboundPrivileges!: pulumi.Output<string | undefined>;
+    declare public readonly outboundPrivileges: pulumi.Output<string | undefined>;
 
     /**
      * Create a GrantOwnership resource with the given unique name, arguments, and options.
@@ -111,19 +111,19 @@ export class GrantOwnership extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrantOwnershipState | undefined;
-            resourceInputs["accountRoleName"] = state ? state.accountRoleName : undefined;
-            resourceInputs["databaseRoleName"] = state ? state.databaseRoleName : undefined;
-            resourceInputs["on"] = state ? state.on : undefined;
-            resourceInputs["outboundPrivileges"] = state ? state.outboundPrivileges : undefined;
+            resourceInputs["accountRoleName"] = state?.accountRoleName;
+            resourceInputs["databaseRoleName"] = state?.databaseRoleName;
+            resourceInputs["on"] = state?.on;
+            resourceInputs["outboundPrivileges"] = state?.outboundPrivileges;
         } else {
             const args = argsOrState as GrantOwnershipArgs | undefined;
-            if ((!args || args.on === undefined) && !opts.urn) {
+            if (args?.on === undefined && !opts.urn) {
                 throw new Error("Missing required property 'on'");
             }
-            resourceInputs["accountRoleName"] = args ? args.accountRoleName : undefined;
-            resourceInputs["databaseRoleName"] = args ? args.databaseRoleName : undefined;
-            resourceInputs["on"] = args ? args.on : undefined;
-            resourceInputs["outboundPrivileges"] = args ? args.outboundPrivileges : undefined;
+            resourceInputs["accountRoleName"] = args?.accountRoleName;
+            resourceInputs["databaseRoleName"] = args?.databaseRoleName;
+            resourceInputs["on"] = args?.on;
+            resourceInputs["outboundPrivileges"] = args?.outboundPrivileges;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GrantOwnership.__pulumiType, name, resourceInputs, opts);

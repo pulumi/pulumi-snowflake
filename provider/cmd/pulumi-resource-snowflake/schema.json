@@ -50,51 +50,51 @@
         "variables": {
             "accountName": {
                 "type": "string",
-                "description": "Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required\nunless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.\n"
+                "description": "Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable."
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |\n`TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the\n`SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
-                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.\n"
+                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable."
             },
             "clientRequestMfaToken": {
                 "type": "string",
-                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also\nbe sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.\n"
+                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable."
             },
             "clientStoreTemporaryCredential": {
                 "type": "string",
-                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be\nsourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.\n"
+                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable."
             },
             "clientTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_CLIENT_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable."
             },
             "disableConsoleLogin": {
                 "type": "string",
-                "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the\n`SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.\n"
+                "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable."
             },
             "disableQueryContextCache": {
                 "type": "boolean",
-                "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`\nenvironment variable.\n"
+                "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable."
             },
             "disableTelemetry": {
                 "type": "boolean",
-                "description": "Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.\n"
+                "description": "Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable."
             },
             "driverTracing": {
                 "type": "string",
-                "description": "Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |\n`warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.\n"
+                "description": "Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable."
             },
             "host": {
                 "type": "string",
-                "description": "Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the\n`SNOWFLAKE_HOST` environment variable.\n",
+                "description": "Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_HOST"
@@ -103,63 +103,63 @@
             },
             "includeRetryReason": {
                 "type": "string",
-                "description": "Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment\nvariable.\n"
+                "description": "Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable."
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`\nenvironment variable.\n"
+                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable."
             },
             "jwtClientTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable."
             },
             "jwtExpireTimeout": {
                 "type": "integer",
-                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.\n"
+                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable."
             },
             "keepSessionAlive": {
                 "type": "boolean",
-                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the\n`SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.\n"
+                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable."
             },
             "loginTimeout": {
                 "type": "integer",
-                "description": "Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_LOGIN_TIMEOUT` environment variable.\n"
+                "description": "Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable."
             },
             "maxRetryCount": {
                 "type": "integer",
-                "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the\n`SNOWFLAKE_MAX_RETRY_COUNT` environment variable.\n"
+                "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
             },
             "ocspFailOpen": {
                 "type": "string",
-                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be\nsourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.\n"
+                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable."
             },
             "oktaUrl": {
                 "type": "string",
-                "description": "The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more\nin Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the\n`SNOWFLAKE_OKTA_URL` environment variable.\n"
+                "description": "The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable."
             },
             "organizationName": {
                 "type": "string",
-                "description": "Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required\nunless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.\n"
+                "description": "Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable."
             },
             "params": {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
                 },
-                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).\nThis field can not be set with environmental variables.\n"
+                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables."
             },
             "passcode": {
                 "type": "string",
-                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from\nthe `SNOWFLAKE_PASSCODE` environment variable.\n",
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.",
                 "secret": true
             },
             "passcodeInPassword": {
                 "type": "boolean",
-                "description": "False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the\n`SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.\n"
+                "description": "False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable."
             },
             "password": {
                 "type": "string",
-                "description": "Password for user + password or\n[token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for\n[PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and\n`private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.\n",
+                "description": "Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PASSWORD"
@@ -169,7 +169,7 @@
             },
             "port": {
                 "type": "integer",
-                "description": "Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the\n`SNOWFLAKE_PORT` environment variable.\n",
+                "description": "Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PORT"
@@ -184,12 +184,12 @@
             },
             "privateKey": {
                 "type": "string",
-                "description": "Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
+                "description": "Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.",
                 "secret": true
             },
             "privateKeyPassphrase": {
                 "type": "string",
-                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.\n",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
@@ -199,11 +199,11 @@
             },
             "profile": {
                 "type": "string",
-                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment\nvariable.\n"
+                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable."
             },
             "protocol": {
                 "type": "string",
-                "description": "A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the\n`SNOWFLAKE_PROTOCOL` environment variable.\n",
+                "description": "A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PROTOCOL"
@@ -212,11 +212,11 @@
             },
             "requestTimeout": {
                 "type": "integer",
-                "description": "request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_REQUEST_TIMEOUT` environment variable.\n"
+                "description": "request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable."
             },
             "role": {
                 "type": "string",
-                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n",
+                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_ROLE"
@@ -225,15 +225,15 @@
             },
             "skipTomlFilePermissionVerification": {
                 "type": "boolean",
-                "description": "False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as\nthe permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting\nthe proper privileges - see the section below. Can also be sourced from the\n`SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.\n"
+                "description": "False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable."
             },
             "tmpDirectoryPath": {
                 "type": "string",
-                "description": "Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from\nthe `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.\n"
+                "description": "Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable."
             },
             "token": {
                 "type": "string",
-                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the\nprovider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to\nuse. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.\n",
+                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.",
                 "secret": true
             },
             "tokenAccessor": {
@@ -241,19 +241,19 @@
             },
             "useLegacyTomlFile": {
                 "type": "boolean",
-                "description": "False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new\nformat. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment\nvariable.\n"
+                "description": "False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable."
             },
             "user": {
                 "type": "string",
-                "description": "Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\n"
+                "description": "Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable."
             },
             "validateDefaultParameters": {
                 "type": "string",
-                "description": "True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a\nconnection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.\n"
+                "description": "True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable."
             },
             "warehouse": {
                 "type": "string",
-                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced\nfrom the `SNOWFLAKE_WAREHOUSE` environment variable.\n",
+                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_WAREHOUSE"
@@ -35350,116 +35350,116 @@
         "properties": {
             "accountName": {
                 "type": "string",
-                "description": "Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required\nunless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.\n"
+                "description": "Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable."
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |\n`TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the\n`SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
-                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.\n"
+                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable."
             },
             "clientRequestMfaToken": {
                 "type": "string",
-                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also\nbe sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.\n"
+                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable."
             },
             "clientStoreTemporaryCredential": {
                 "type": "string",
-                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be\nsourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.\n"
+                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable."
             },
             "clientTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_CLIENT_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable."
             },
             "disableConsoleLogin": {
                 "type": "string",
-                "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the\n`SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.\n"
+                "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable."
             },
             "disableQueryContextCache": {
                 "type": "boolean",
-                "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`\nenvironment variable.\n"
+                "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable."
             },
             "disableTelemetry": {
                 "type": "boolean",
-                "description": "Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.\n"
+                "description": "Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable."
             },
             "driverTracing": {
                 "type": "string",
-                "description": "Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |\n`warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.\n"
+                "description": "Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable."
             },
             "host": {
                 "type": "string",
-                "description": "Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the\n`SNOWFLAKE_HOST` environment variable.\n"
+                "description": "Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable."
             },
             "includeRetryReason": {
                 "type": "string",
-                "description": "Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment\nvariable.\n"
+                "description": "Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable."
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`\nenvironment variable.\n"
+                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable."
             },
             "jwtClientTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable."
             },
             "jwtExpireTimeout": {
                 "type": "integer",
-                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.\n"
+                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable."
             },
             "keepSessionAlive": {
                 "type": "boolean",
-                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the\n`SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.\n"
+                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable."
             },
             "loginTimeout": {
                 "type": "integer",
-                "description": "Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_LOGIN_TIMEOUT` environment variable.\n"
+                "description": "Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable."
             },
             "maxRetryCount": {
                 "type": "integer",
-                "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the\n`SNOWFLAKE_MAX_RETRY_COUNT` environment variable.\n"
+                "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
             },
             "ocspFailOpen": {
                 "type": "string",
-                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be\nsourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.\n"
+                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable."
             },
             "oktaUrl": {
                 "type": "string",
-                "description": "The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more\nin Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the\n`SNOWFLAKE_OKTA_URL` environment variable.\n"
+                "description": "The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable."
             },
             "organizationName": {
                 "type": "string",
-                "description": "Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required\nunless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.\n"
+                "description": "Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable."
             },
             "params": {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
                 },
-                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).\nThis field can not be set with environmental variables.\n"
+                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables."
             },
             "passcode": {
                 "type": "string",
-                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from\nthe `SNOWFLAKE_PASSCODE` environment variable.\n",
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.",
                 "secret": true
             },
             "passcodeInPassword": {
                 "type": "boolean",
-                "description": "False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the\n`SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.\n"
+                "description": "False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable."
             },
             "password": {
                 "type": "string",
-                "description": "Password for user + password or\n[token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for\n[PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and\n`private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.\n",
+                "description": "Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.",
                 "secret": true
             },
             "port": {
                 "type": "integer",
-                "description": "Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the\n`SNOWFLAKE_PORT` environment variable.\n"
+                "description": "Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable."
             },
             "previewFeaturesEnabled": {
                 "type": "array",
@@ -35469,41 +35469,41 @@
             },
             "privateKey": {
                 "type": "string",
-                "description": "Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
+                "description": "Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.",
                 "secret": true
             },
             "privateKeyPassphrase": {
                 "type": "string",
-                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.\n",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.",
                 "secret": true
             },
             "profile": {
                 "type": "string",
-                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment\nvariable.\n"
+                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable."
             },
             "protocol": {
                 "type": "string",
-                "description": "A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the\n`SNOWFLAKE_PROTOCOL` environment variable.\n"
+                "description": "A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable."
             },
             "requestTimeout": {
                 "type": "integer",
-                "description": "request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_REQUEST_TIMEOUT` environment variable.\n"
+                "description": "request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable."
             },
             "role": {
                 "type": "string",
-                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n"
+                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable."
             },
             "skipTomlFilePermissionVerification": {
                 "type": "boolean",
-                "description": "False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as\nthe permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting\nthe proper privileges - see the section below. Can also be sourced from the\n`SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.\n"
+                "description": "False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable."
             },
             "tmpDirectoryPath": {
                 "type": "string",
-                "description": "Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from\nthe `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.\n"
+                "description": "Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable."
             },
             "token": {
                 "type": "string",
-                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the\nprovider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to\nuse. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.\n",
+                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.",
                 "secret": true
             },
             "tokenAccessor": {
@@ -35511,69 +35511,69 @@
             },
             "useLegacyTomlFile": {
                 "type": "boolean",
-                "description": "False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new\nformat. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment\nvariable.\n"
+                "description": "False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable."
             },
             "user": {
                 "type": "string",
-                "description": "Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\n"
+                "description": "Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable."
             },
             "validateDefaultParameters": {
                 "type": "string",
-                "description": "True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a\nconnection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.\n"
+                "description": "True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable."
             },
             "warehouse": {
                 "type": "string",
-                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced\nfrom the `SNOWFLAKE_WAREHOUSE` environment variable.\n"
+                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable."
             }
         },
         "inputProperties": {
             "accountName": {
                 "type": "string",
-                "description": "Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required\nunless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.\n"
+                "description": "Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable."
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when\nconnecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |\n`TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the\n`SNOWFLAKE_AUTHENTICATOR` environment variable.\n"
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
-                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.\n"
+                "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable."
             },
             "clientRequestMfaToken": {
                 "type": "string",
-                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also\nbe sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.\n"
+                "description": "When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable."
             },
             "clientStoreTemporaryCredential": {
                 "type": "string",
-                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be\nsourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.\n"
+                "description": "When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable."
             },
             "clientTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_CLIENT_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable."
             },
             "disableConsoleLogin": {
                 "type": "string",
-                "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the\n`SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.\n"
+                "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable."
             },
             "disableQueryContextCache": {
                 "type": "boolean",
-                "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`\nenvironment variable.\n"
+                "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable."
             },
             "disableTelemetry": {
                 "type": "boolean",
-                "description": "Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.\n"
+                "description": "Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable."
             },
             "driverTracing": {
                 "type": "string",
-                "description": "Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |\n`warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.\n"
+                "description": "Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable."
             },
             "host": {
                 "type": "string",
-                "description": "Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the\n`SNOWFLAKE_HOST` environment variable.\n",
+                "description": "Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_HOST"
@@ -35582,63 +35582,63 @@
             },
             "includeRetryReason": {
                 "type": "string",
-                "description": "Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment\nvariable.\n"
+                "description": "Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable."
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the\ndefault value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`\nenvironment variable.\n"
+                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable."
             },
             "jwtClientTimeout": {
                 "type": "integer",
-                "description": "The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the\n`SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.\n"
+                "description": "The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable."
             },
             "jwtExpireTimeout": {
                 "type": "integer",
-                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.\n"
+                "description": "JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable."
             },
             "keepSessionAlive": {
                 "type": "boolean",
-                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the\n`SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.\n"
+                "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable."
             },
             "loginTimeout": {
                 "type": "integer",
-                "description": "Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_LOGIN_TIMEOUT` environment variable.\n"
+                "description": "Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable."
             },
             "maxRetryCount": {
                 "type": "integer",
-                "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the\n`SNOWFLAKE_MAX_RETRY_COUNT` environment variable.\n"
+                "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
             },
             "ocspFailOpen": {
                 "type": "string",
-                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be\nsourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.\n"
+                "description": "True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable."
             },
             "oktaUrl": {
                 "type": "string",
-                "description": "The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more\nin Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the\n`SNOWFLAKE_OKTA_URL` environment variable.\n"
+                "description": "The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable."
             },
             "organizationName": {
                 "type": "string",
-                "description": "Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the\n[Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required\nunless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.\n"
+                "description": "Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable."
             },
             "params": {
                 "type": "object",
                 "additionalProperties": {
                     "type": "string"
                 },
-                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).\nThis field can not be set with environmental variables.\n"
+                "description": "Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables."
             },
             "passcode": {
                 "type": "string",
-                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from\nthe `SNOWFLAKE_PASSCODE` environment variable.\n",
+                "description": "Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.",
                 "secret": true
             },
             "passcodeInPassword": {
                 "type": "boolean",
-                "description": "False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the\n`SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.\n"
+                "description": "False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable."
             },
             "password": {
                 "type": "string",
-                "description": "Password for user + password or\n[token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for\n[PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and\n`private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.\n",
+                "description": "Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PASSWORD"
@@ -35648,7 +35648,7 @@
             },
             "port": {
                 "type": "integer",
-                "description": "Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the\n`SNOWFLAKE_PORT` environment variable.\n",
+                "description": "Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PORT"
@@ -35663,12 +35663,12 @@
             },
             "privateKey": {
                 "type": "string",
-                "description": "Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the\n`SNOWFLAKE_PRIVATE_KEY` environment variable.\n",
+                "description": "Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.",
                 "secret": true
             },
             "privateKeyPassphrase": {
                 "type": "string",
-                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and\ndes-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.\n",
+                "description": "Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
@@ -35678,11 +35678,11 @@
             },
             "profile": {
                 "type": "string",
-                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment\nvariable.\n"
+                "description": "Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable."
             },
             "protocol": {
                 "type": "string",
-                "description": "A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the\n`SNOWFLAKE_PROTOCOL` environment variable.\n",
+                "description": "A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_PROTOCOL"
@@ -35691,11 +35691,11 @@
             },
             "requestTimeout": {
                 "type": "integer",
-                "description": "request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the\n`SNOWFLAKE_REQUEST_TIMEOUT` environment variable.\n"
+                "description": "request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable."
             },
             "role": {
                 "type": "string",
-                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n",
+                "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_ROLE"
@@ -35704,15 +35704,15 @@
             },
             "skipTomlFilePermissionVerification": {
                 "type": "boolean",
-                "description": "False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as\nthe permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting\nthe proper privileges - see the section below. Can also be sourced from the\n`SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.\n"
+                "description": "False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable."
             },
             "tmpDirectoryPath": {
                 "type": "string",
-                "description": "Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from\nthe `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.\n"
+                "description": "Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable."
             },
             "token": {
                 "type": "string",
-                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the\nprovider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to\nuse. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.\n",
+                "description": "Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.",
                 "secret": true
             },
             "tokenAccessor": {
@@ -35720,19 +35720,19 @@
             },
             "useLegacyTomlFile": {
                 "type": "boolean",
-                "description": "False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new\nformat. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment\nvariable.\n"
+                "description": "False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable."
             },
             "user": {
                 "type": "string",
-                "description": "Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\n"
+                "description": "Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable."
             },
             "validateDefaultParameters": {
                 "type": "string",
-                "description": "True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a\nconnection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.\n"
+                "description": "True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable."
             },
             "warehouse": {
                 "type": "string",
-                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced\nfrom the `SNOWFLAKE_WAREHOUSE` environment variable.\n",
+                "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.",
                 "defaultInfo": {
                     "environment": [
                         "SNOWFLAKE_WAREHOUSE"
@@ -60376,7 +60376,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "inClass": {
@@ -60422,7 +60422,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
@@ -60476,7 +60476,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "pattern": {
@@ -60530,7 +60530,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
@@ -60580,7 +60580,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
@@ -60630,7 +60630,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -60667,7 +60667,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "region": {
@@ -60694,7 +60694,7 @@
                 "description": "A collection of values returned by getCurrentRole.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -60734,7 +60734,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "isCurrent": {
@@ -60807,7 +60807,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "name": {
@@ -60863,7 +60863,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "inDatabase": {
@@ -60926,7 +60926,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
@@ -60985,7 +60985,7 @@
                 "description": "A collection of values returned by getDynamicTables.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -61050,7 +61050,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "schema": {
@@ -61100,7 +61100,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "schema": {
@@ -61140,7 +61140,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "inAccount": {
@@ -61190,7 +61190,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "schema": {
@@ -61242,7 +61242,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "schema": {
@@ -61294,7 +61294,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -61380,7 +61380,7 @@
                         "description": "Lists all privileges granted to the object.\n"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -61411,7 +61411,7 @@
                 "description": "A collection of values returned by getImageRepositories.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "imageRepositories": {
@@ -61465,7 +61465,7 @@
                 "description": "A collection of values returned by getMaskingPolicies.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -61527,7 +61527,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "materializedViews": {
@@ -61571,7 +61571,7 @@
                 "description": "A collection of values returned by getNetworkPolicies.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
@@ -61629,7 +61629,7 @@
                 "description": "A collection of values returned by getParameters.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "objectName": {
@@ -61695,7 +61695,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "pipes": {
@@ -61747,7 +61747,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "procedures": {
@@ -61787,7 +61787,7 @@
                 "description": "A collection of values returned by getResourceMonitors.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
@@ -61837,7 +61837,7 @@
                 "description": "A collection of values returned by getRowAccessPolicies.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -61907,7 +61907,7 @@
                 "description": "A collection of values returned by getSchemas.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -61973,7 +61973,7 @@
                 "description": "A collection of values returned by getSecrets.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -62023,7 +62023,7 @@
                 "description": "A collection of values returned by getSecurityIntegrations.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
@@ -62077,7 +62077,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "schema": {
@@ -62137,7 +62137,7 @@
                 "description": "A collection of values returned by getServices.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -62195,7 +62195,7 @@
                 "description": "A collection of values returned by getShares.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "pattern": {
@@ -62245,7 +62245,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "schema": {
@@ -62275,7 +62275,7 @@
                 "description": "A collection of values returned by getStorageIntegrations.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "storageIntegrations": {
@@ -62321,7 +62321,7 @@
                 "description": "A collection of values returned by getStreamlits.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -62387,7 +62387,7 @@
                 "description": "A collection of values returned by getStreams.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -62449,7 +62449,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "integrationName": {
@@ -62492,7 +62492,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -62526,7 +62526,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "internalStage": {
@@ -62585,7 +62585,7 @@
                         "type": "array"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     }
                 },
@@ -62629,7 +62629,7 @@
                 "description": "A collection of values returned by getTables.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -62687,7 +62687,7 @@
                 "description": "A collection of values returned by getTags.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -62749,7 +62749,7 @@
                 "description": "A collection of values returned by getTasks.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -62814,7 +62814,7 @@
                         "type": "string"
                     },
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "userProgrammaticAccessTokens": {
@@ -62865,7 +62865,7 @@
                 "description": "A collection of values returned by getUsers.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
@@ -62935,7 +62935,7 @@
                 "description": "A collection of values returned by getViews.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "in": {
@@ -62997,7 +62997,7 @@
                 "description": "A collection of values returned by getWarehouses.\n",
                 "properties": {
                     "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "description": "The provider-assigned unique ID for this managed resource.",
                         "type": "string"
                     },
                     "like": {
