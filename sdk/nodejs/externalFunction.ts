@@ -46,79 +46,79 @@ export class ExternalFunction extends pulumi.CustomResource {
     /**
      * The name of the API integration object that should be used to authenticate the call to the proxy service.
      */
-    public readonly apiIntegration!: pulumi.Output<string>;
+    declare public readonly apiIntegration: pulumi.Output<string>;
     /**
      * Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
      */
-    public readonly args!: pulumi.Output<outputs.ExternalFunctionArg[] | undefined>;
+    declare public readonly args: pulumi.Output<outputs.ExternalFunctionArg[] | undefined>;
     /**
      * (Default: `user-defined function`) A description of the external function.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      */
-    public readonly compression!: pulumi.Output<string | undefined>;
+    declare public readonly compression: pulumi.Output<string | undefined>;
     /**
      * Binds Snowflake context function results to HTTP headers.
      */
-    public readonly contextHeaders!: pulumi.Output<string[] | undefined>;
+    declare public readonly contextHeaders: pulumi.Output<string[] | undefined>;
     /**
      * Date and time when the external function was created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * The database in which to create the external function.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Allows users to specify key-value metadata that is sent with every request as HTTP headers.
      */
-    public readonly headers!: pulumi.Output<outputs.ExternalFunctionHeader[] | undefined>;
+    declare public readonly headers: pulumi.Output<outputs.ExternalFunctionHeader[] | undefined>;
     /**
      * This specifies the maximum number of rows in each batch sent to the proxy service.
      */
-    public readonly maxBatchRows!: pulumi.Output<number | undefined>;
+    declare public readonly maxBatchRows: pulumi.Output<number | undefined>;
     /**
      * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      */
-    public readonly nullInputBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly nullInputBehavior: pulumi.Output<string | undefined>;
     /**
      * This specifies the name of the request translator function
      */
-    public readonly requestTranslator!: pulumi.Output<string | undefined>;
+    declare public readonly requestTranslator: pulumi.Output<string | undefined>;
     /**
      * This specifies the name of the response translator function.
      */
-    public readonly responseTranslator!: pulumi.Output<string | undefined>;
+    declare public readonly responseTranslator: pulumi.Output<string | undefined>;
     /**
      * Specifies the behavior of the function when returning results
      */
-    public readonly returnBehavior!: pulumi.Output<string>;
+    declare public readonly returnBehavior: pulumi.Output<string>;
     /**
      * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
-    public readonly returnNullAllowed!: pulumi.Output<boolean | undefined>;
+    declare public readonly returnNullAllowed: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the data type returned by the external function.
      */
-    public readonly returnType!: pulumi.Output<string>;
+    declare public readonly returnType: pulumi.Output<string>;
     /**
      * The schema in which to create the external function.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
      */
-    public readonly urlOfProxyAndResource!: pulumi.Output<string>;
+    declare public readonly urlOfProxyAndResource: pulumi.Output<string>;
 
     /**
      * Create a ExternalFunction resource with the given unique name, arguments, and options.
@@ -133,62 +133,62 @@ export class ExternalFunction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExternalFunctionState | undefined;
-            resourceInputs["apiIntegration"] = state ? state.apiIntegration : undefined;
-            resourceInputs["args"] = state ? state.args : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["compression"] = state ? state.compression : undefined;
-            resourceInputs["contextHeaders"] = state ? state.contextHeaders : undefined;
-            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["headers"] = state ? state.headers : undefined;
-            resourceInputs["maxBatchRows"] = state ? state.maxBatchRows : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
-            resourceInputs["requestTranslator"] = state ? state.requestTranslator : undefined;
-            resourceInputs["responseTranslator"] = state ? state.responseTranslator : undefined;
-            resourceInputs["returnBehavior"] = state ? state.returnBehavior : undefined;
-            resourceInputs["returnNullAllowed"] = state ? state.returnNullAllowed : undefined;
-            resourceInputs["returnType"] = state ? state.returnType : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["urlOfProxyAndResource"] = state ? state.urlOfProxyAndResource : undefined;
+            resourceInputs["apiIntegration"] = state?.apiIntegration;
+            resourceInputs["args"] = state?.args;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["compression"] = state?.compression;
+            resourceInputs["contextHeaders"] = state?.contextHeaders;
+            resourceInputs["createdOn"] = state?.createdOn;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["headers"] = state?.headers;
+            resourceInputs["maxBatchRows"] = state?.maxBatchRows;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nullInputBehavior"] = state?.nullInputBehavior;
+            resourceInputs["requestTranslator"] = state?.requestTranslator;
+            resourceInputs["responseTranslator"] = state?.responseTranslator;
+            resourceInputs["returnBehavior"] = state?.returnBehavior;
+            resourceInputs["returnNullAllowed"] = state?.returnNullAllowed;
+            resourceInputs["returnType"] = state?.returnType;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["urlOfProxyAndResource"] = state?.urlOfProxyAndResource;
         } else {
             const args = argsOrState as ExternalFunctionArgs | undefined;
-            if ((!args || args.apiIntegration === undefined) && !opts.urn) {
+            if (args?.apiIntegration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiIntegration'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.returnBehavior === undefined) && !opts.urn) {
+            if (args?.returnBehavior === undefined && !opts.urn) {
                 throw new Error("Missing required property 'returnBehavior'");
             }
-            if ((!args || args.returnType === undefined) && !opts.urn) {
+            if (args?.returnType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'returnType'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.urlOfProxyAndResource === undefined) && !opts.urn) {
+            if (args?.urlOfProxyAndResource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'urlOfProxyAndResource'");
             }
-            resourceInputs["apiIntegration"] = args ? args.apiIntegration : undefined;
-            resourceInputs["args"] = args ? args.args : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["compression"] = args ? args.compression : undefined;
-            resourceInputs["contextHeaders"] = args ? args.contextHeaders : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["headers"] = args ? args.headers : undefined;
-            resourceInputs["maxBatchRows"] = args ? args.maxBatchRows : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
-            resourceInputs["requestTranslator"] = args ? args.requestTranslator : undefined;
-            resourceInputs["responseTranslator"] = args ? args.responseTranslator : undefined;
-            resourceInputs["returnBehavior"] = args ? args.returnBehavior : undefined;
-            resourceInputs["returnNullAllowed"] = args ? args.returnNullAllowed : undefined;
-            resourceInputs["returnType"] = args ? args.returnType : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["urlOfProxyAndResource"] = args ? args.urlOfProxyAndResource : undefined;
+            resourceInputs["apiIntegration"] = args?.apiIntegration;
+            resourceInputs["args"] = args?.args;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["compression"] = args?.compression;
+            resourceInputs["contextHeaders"] = args?.contextHeaders;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["headers"] = args?.headers;
+            resourceInputs["maxBatchRows"] = args?.maxBatchRows;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nullInputBehavior"] = args?.nullInputBehavior;
+            resourceInputs["requestTranslator"] = args?.requestTranslator;
+            resourceInputs["responseTranslator"] = args?.responseTranslator;
+            resourceInputs["returnBehavior"] = args?.returnBehavior;
+            resourceInputs["returnNullAllowed"] = args?.returnNullAllowed;
+            resourceInputs["returnType"] = args?.returnType;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["urlOfProxyAndResource"] = args?.urlOfProxyAndResource;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }

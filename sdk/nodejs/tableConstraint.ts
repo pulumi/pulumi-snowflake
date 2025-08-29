@@ -44,53 +44,53 @@ export class TableConstraint extends pulumi.CustomResource {
     /**
      * Columns to use in constraint key
      */
-    public readonly columns!: pulumi.Output<string[]>;
+    declare public readonly columns: pulumi.Output<string[]>;
     /**
      * Comment for the table constraint
      *
      * @deprecated Not used. Will be removed.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * (Default: `true`) Whether the constraint is deferrable
      */
-    public readonly deferrable!: pulumi.Output<boolean | undefined>;
+    declare public readonly deferrable: pulumi.Output<boolean | undefined>;
     /**
      * (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      */
-    public readonly enable!: pulumi.Output<boolean | undefined>;
+    declare public readonly enable: pulumi.Output<boolean | undefined>;
     /**
      * (Default: `false`) Whether the constraint is enforced
      */
-    public readonly enforced!: pulumi.Output<boolean | undefined>;
+    declare public readonly enforced: pulumi.Output<boolean | undefined>;
     /**
      * Additional properties when type is set to foreign key. Not applicable for primary/unique keys
      */
-    public readonly foreignKeyProperties!: pulumi.Output<outputs.TableConstraintForeignKeyProperties | undefined>;
+    declare public readonly foreignKeyProperties: pulumi.Output<outputs.TableConstraintForeignKeyProperties | undefined>;
     /**
      * (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
      */
-    public readonly initially!: pulumi.Output<string | undefined>;
+    declare public readonly initially: pulumi.Output<string | undefined>;
     /**
      * Name of constraint
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      */
-    public readonly rely!: pulumi.Output<boolean | undefined>;
+    declare public readonly rely: pulumi.Output<boolean | undefined>;
     /**
      * Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
      */
-    public readonly tableId!: pulumi.Output<string>;
+    declare public readonly tableId: pulumi.Output<string>;
     /**
      * Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      */
-    public readonly validate!: pulumi.Output<boolean | undefined>;
+    declare public readonly validate: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a TableConstraint resource with the given unique name, arguments, and options.
@@ -105,41 +105,41 @@ export class TableConstraint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableConstraintState | undefined;
-            resourceInputs["columns"] = state ? state.columns : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["deferrable"] = state ? state.deferrable : undefined;
-            resourceInputs["enable"] = state ? state.enable : undefined;
-            resourceInputs["enforced"] = state ? state.enforced : undefined;
-            resourceInputs["foreignKeyProperties"] = state ? state.foreignKeyProperties : undefined;
-            resourceInputs["initially"] = state ? state.initially : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rely"] = state ? state.rely : undefined;
-            resourceInputs["tableId"] = state ? state.tableId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["validate"] = state ? state.validate : undefined;
+            resourceInputs["columns"] = state?.columns;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["deferrable"] = state?.deferrable;
+            resourceInputs["enable"] = state?.enable;
+            resourceInputs["enforced"] = state?.enforced;
+            resourceInputs["foreignKeyProperties"] = state?.foreignKeyProperties;
+            resourceInputs["initially"] = state?.initially;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rely"] = state?.rely;
+            resourceInputs["tableId"] = state?.tableId;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["validate"] = state?.validate;
         } else {
             const args = argsOrState as TableConstraintArgs | undefined;
-            if ((!args || args.columns === undefined) && !opts.urn) {
+            if (args?.columns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columns'");
             }
-            if ((!args || args.tableId === undefined) && !opts.urn) {
+            if (args?.tableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["columns"] = args ? args.columns : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["deferrable"] = args ? args.deferrable : undefined;
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["enforced"] = args ? args.enforced : undefined;
-            resourceInputs["foreignKeyProperties"] = args ? args.foreignKeyProperties : undefined;
-            resourceInputs["initially"] = args ? args.initially : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rely"] = args ? args.rely : undefined;
-            resourceInputs["tableId"] = args ? args.tableId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validate"] = args ? args.validate : undefined;
+            resourceInputs["columns"] = args?.columns;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["deferrable"] = args?.deferrable;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["enforced"] = args?.enforced;
+            resourceInputs["foreignKeyProperties"] = args?.foreignKeyProperties;
+            resourceInputs["initially"] = args?.initially;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rely"] = args?.rely;
+            resourceInputs["tableId"] = args?.tableId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validate"] = args?.validate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TableConstraint.__pulumiType, name, resourceInputs, opts);

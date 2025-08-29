@@ -48,68 +48,68 @@ export class FunctionSql extends pulumi.CustomResource {
     /**
      * List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      */
-    public readonly arguments!: pulumi.Output<outputs.FunctionSqlArgument[] | undefined>;
+    declare public readonly arguments: pulumi.Output<outputs.FunctionSqlArgument[] | undefined>;
     /**
      * (Default: `user-defined function`) Specifies a comment for the function.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
-    public readonly enableConsoleOutput!: pulumi.Output<boolean>;
+    declare public readonly enableConsoleOutput: pulumi.Output<boolean>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
-    public readonly functionDefinition!: pulumi.Output<string>;
+    declare public readonly functionDefinition: pulumi.Output<string>;
     /**
      * Specifies language for the user. Used to detect external changes.
      */
-    public /*out*/ readonly functionLanguage!: pulumi.Output<string>;
-    public readonly isSecure!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly functionLanguage: pulumi.Output<string>;
+    declare public readonly isSecure: pulumi.Output<string | undefined>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
-    public readonly logLevel!: pulumi.Output<string>;
+    declare public readonly logLevel: pulumi.Output<string>;
     /**
      * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      */
-    public readonly metricLevel!: pulumi.Output<string>;
+    declare public readonly metricLevel: pulumi.Output<string>;
     /**
      * The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
      */
-    public /*out*/ readonly parameters!: pulumi.Output<outputs.FunctionSqlParameter[]>;
+    declare public /*out*/ readonly parameters: pulumi.Output<outputs.FunctionSqlParameter[]>;
     /**
      * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
      */
-    public readonly returnResultsBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly returnResultsBehavior: pulumi.Output<string | undefined>;
     /**
      * Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      */
-    public readonly returnType!: pulumi.Output<string>;
+    declare public readonly returnType: pulumi.Output<string>;
     /**
      * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW FUNCTION` for the given function.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.FunctionSqlShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.FunctionSqlShowOutput[]>;
     /**
      * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      */
-    public readonly traceLevel!: pulumi.Output<string>;
+    declare public readonly traceLevel: pulumi.Output<string>;
 
     /**
      * Create a FunctionSql resource with the given unique name, arguments, and options.
@@ -124,50 +124,50 @@ export class FunctionSql extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionSqlState | undefined;
-            resourceInputs["arguments"] = state ? state.arguments : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["enableConsoleOutput"] = state ? state.enableConsoleOutput : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["functionDefinition"] = state ? state.functionDefinition : undefined;
-            resourceInputs["functionLanguage"] = state ? state.functionLanguage : undefined;
-            resourceInputs["isSecure"] = state ? state.isSecure : undefined;
-            resourceInputs["logLevel"] = state ? state.logLevel : undefined;
-            resourceInputs["metricLevel"] = state ? state.metricLevel : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["returnResultsBehavior"] = state ? state.returnResultsBehavior : undefined;
-            resourceInputs["returnType"] = state ? state.returnType : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["traceLevel"] = state ? state.traceLevel : undefined;
+            resourceInputs["arguments"] = state?.arguments;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["enableConsoleOutput"] = state?.enableConsoleOutput;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["functionDefinition"] = state?.functionDefinition;
+            resourceInputs["functionLanguage"] = state?.functionLanguage;
+            resourceInputs["isSecure"] = state?.isSecure;
+            resourceInputs["logLevel"] = state?.logLevel;
+            resourceInputs["metricLevel"] = state?.metricLevel;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["returnResultsBehavior"] = state?.returnResultsBehavior;
+            resourceInputs["returnType"] = state?.returnType;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["traceLevel"] = state?.traceLevel;
         } else {
             const args = argsOrState as FunctionSqlArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.functionDefinition === undefined) && !opts.urn) {
+            if (args?.functionDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionDefinition'");
             }
-            if ((!args || args.returnType === undefined) && !opts.urn) {
+            if (args?.returnType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'returnType'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["arguments"] = args ? args.arguments : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["enableConsoleOutput"] = args ? args.enableConsoleOutput : undefined;
-            resourceInputs["functionDefinition"] = args ? args.functionDefinition : undefined;
-            resourceInputs["isSecure"] = args ? args.isSecure : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["metricLevel"] = args ? args.metricLevel : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["returnResultsBehavior"] = args ? args.returnResultsBehavior : undefined;
-            resourceInputs["returnType"] = args ? args.returnType : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["traceLevel"] = args ? args.traceLevel : undefined;
+            resourceInputs["arguments"] = args?.arguments;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["enableConsoleOutput"] = args?.enableConsoleOutput;
+            resourceInputs["functionDefinition"] = args?.functionDefinition;
+            resourceInputs["isSecure"] = args?.isSecure;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["metricLevel"] = args?.metricLevel;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["returnResultsBehavior"] = args?.returnResultsBehavior;
+            resourceInputs["returnType"] = args?.returnType;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["traceLevel"] = args?.traceLevel;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["functionLanguage"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;

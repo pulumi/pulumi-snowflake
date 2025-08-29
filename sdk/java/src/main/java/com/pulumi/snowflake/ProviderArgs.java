@@ -22,18 +22,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProviderArgs Empty = new ProviderArgs();
 
     /**
-     * Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-     * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-     * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+     * Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
      * 
      */
     @Import(name="accountName")
     private @Nullable Output<String> accountName;
 
     /**
-     * @return Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-     * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-     * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+     * @return Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
      * 
      */
     public Optional<Output<String>> accountName() {
@@ -41,20 +37,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-     * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-     * `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-     * `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      * 
      */
     @Import(name="authenticator")
     private @Nullable Output<String> authenticator;
 
     /**
-     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-     * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-     * `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-     * `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      * 
      */
     public Optional<Output<String>> authenticator() {
@@ -77,16 +67,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-     * be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+     * When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
      * 
      */
     @Import(name="clientRequestMfaToken")
     private @Nullable Output<String> clientRequestMfaToken;
 
     /**
-     * @return When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-     * be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+     * @return When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
      * 
      */
     public Optional<Output<String>> clientRequestMfaToken() {
@@ -94,16 +82,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-     * sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+     * When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
      * 
      */
     @Import(name="clientStoreTemporaryCredential")
     private @Nullable Output<String> clientStoreTemporaryCredential;
 
     /**
-     * @return When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-     * sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+     * @return When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
      * 
      */
     public Optional<Output<String>> clientStoreTemporaryCredential() {
@@ -111,16 +97,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timeout in seconds for the client to complete the authentication. Can also be sourced from the
-     * `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+     * The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
      * 
      */
     @Import(name="clientTimeout", json=true)
     private @Nullable Output<Integer> clientTimeout;
 
     /**
-     * @return The timeout in seconds for the client to complete the authentication. Can also be sourced from the
-     * `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+     * @return The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
      * 
      */
     public Optional<Output<Integer>> clientTimeout() {
@@ -128,16 +112,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether console login should be disabled in the driver. Can also be sourced from the
-     * `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+     * Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
      * 
      */
     @Import(name="disableConsoleLogin")
     private @Nullable Output<String> disableConsoleLogin;
 
     /**
-     * @return Indicates whether console login should be disabled in the driver. Can also be sourced from the
-     * `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+     * @return Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
      * 
      */
     public Optional<Output<String>> disableConsoleLogin() {
@@ -145,16 +127,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
-     * environment variable.
+     * Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
      * 
      */
     @Import(name="disableQueryContextCache", json=true)
     private @Nullable Output<Boolean> disableQueryContextCache;
 
     /**
-     * @return Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
-     * environment variable.
+     * @return Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
      * 
      */
     public Optional<Output<Boolean>> disableQueryContextCache() {
@@ -177,16 +157,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-     * `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+     * Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
      * 
      */
     @Import(name="driverTracing")
     private @Nullable Output<String> driverTracing;
 
     /**
-     * @return Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-     * `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+     * @return Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
      * 
      */
     public Optional<Output<String>> driverTracing() {
@@ -194,16 +172,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
-     * `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+     * The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
      * 
      */
     @Import(name="externalBrowserTimeout", json=true)
     private @Nullable Output<Integer> externalBrowserTimeout;
 
     /**
-     * @return The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
-     * `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+     * @return The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
      * 
      */
     public Optional<Output<Integer>> externalBrowserTimeout() {
@@ -211,16 +187,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-     * `SNOWFLAKE_HOST` environment variable.
+     * Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
      * 
      */
     @Import(name="host")
     private @Nullable Output<String> host;
 
     /**
-     * @return Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-     * `SNOWFLAKE_HOST` environment variable.
+     * @return Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
      * 
      */
     public Optional<Output<String>> host() {
@@ -228,16 +202,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-     * variable.
+     * Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
      * 
      */
     @Import(name="includeRetryReason")
     private @Nullable Output<String> includeRetryReason;
 
     /**
-     * @return Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-     * variable.
+     * @return Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
      * 
      */
     public Optional<Output<String>> includeRetryReason() {
@@ -245,18 +217,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-     * default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
-     * environment variable.
+     * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
      * 
      */
     @Import(name="insecureMode", json=true)
     private @Nullable Output<Boolean> insecureMode;
 
     /**
-     * @return If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-     * default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
-     * environment variable.
+     * @return If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
      * 
      */
     public Optional<Output<Boolean>> insecureMode() {
@@ -264,16 +232,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
-     * `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+     * The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
      * 
      */
     @Import(name="jwtClientTimeout", json=true)
     private @Nullable Output<Integer> jwtClientTimeout;
 
     /**
-     * @return The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
-     * `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+     * @return The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
      * 
      */
     public Optional<Output<Integer>> jwtClientTimeout() {
@@ -296,16 +262,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables the session to persist even after the connection is closed. Can also be sourced from the
-     * `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+     * Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
      * 
      */
     @Import(name="keepSessionAlive", json=true)
     private @Nullable Output<Boolean> keepSessionAlive;
 
     /**
-     * @return Enables the session to persist even after the connection is closed. Can also be sourced from the
-     * `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+     * @return Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
      * 
      */
     public Optional<Output<Boolean>> keepSessionAlive() {
@@ -313,16 +277,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-     * `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
+     * Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
      * 
      */
     @Import(name="loginTimeout", json=true)
     private @Nullable Output<Integer> loginTimeout;
 
     /**
-     * @return Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-     * `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
+     * @return Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
      * 
      */
     public Optional<Output<Integer>> loginTimeout() {
@@ -330,16 +292,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
-     * `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+     * Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
      * 
      */
     @Import(name="maxRetryCount", json=true)
     private @Nullable Output<Integer> maxRetryCount;
 
     /**
-     * @return Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
-     * `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+     * @return Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
      * 
      */
     public Optional<Output<Integer>> maxRetryCount() {
@@ -347,16 +307,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-     * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+     * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
      * 
      */
     @Import(name="ocspFailOpen")
     private @Nullable Output<String> ocspFailOpen;
 
     /**
-     * @return True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-     * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+     * @return True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
      * 
      */
     public Optional<Output<String>> ocspFailOpen() {
@@ -364,18 +322,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-     * in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-     * `SNOWFLAKE_OKTA_URL` environment variable.
+     * The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
      * 
      */
     @Import(name="oktaUrl")
     private @Nullable Output<String> oktaUrl;
 
     /**
-     * @return The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-     * in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-     * `SNOWFLAKE_OKTA_URL` environment variable.
+     * @return The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
      * 
      */
     public Optional<Output<String>> oktaUrl() {
@@ -383,18 +337,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-     * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-     * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+     * Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
      * 
      */
     @Import(name="organizationName")
     private @Nullable Output<String> organizationName;
 
     /**
-     * @return Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-     * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-     * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+     * @return Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
      * 
      */
     public Optional<Output<String>> organizationName() {
@@ -402,16 +352,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
-     * This field can not be set with environmental variables.
+     * Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables.
      * 
      */
     @Import(name="params", json=true)
     private @Nullable Output<Map<String,String>> params;
 
     /**
-     * @return Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
-     * This field can not be set with environmental variables.
+     * @return Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables.
      * 
      */
     public Optional<Output<Map<String,String>>> params() {
@@ -419,16 +367,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-     * the `SNOWFLAKE_PASSCODE` environment variable.
+     * Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
      * 
      */
     @Import(name="passcode")
     private @Nullable Output<String> passcode;
 
     /**
-     * @return Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-     * the `SNOWFLAKE_PASSCODE` environment variable.
+     * @return Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
      * 
      */
     public Optional<Output<String>> passcode() {
@@ -436,16 +382,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
-     * `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+     * False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
      * 
      */
     @Import(name="passcodeInPassword", json=true)
     private @Nullable Output<Boolean> passcodeInPassword;
 
     /**
-     * @return False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
-     * `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+     * @return False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
      * 
      */
     public Optional<Output<Boolean>> passcodeInPassword() {
@@ -453,20 +397,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for user + password or
-     * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-     * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
-     * `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+     * Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Password for user + password or
-     * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-     * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
-     * `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+     * @return Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
     public Optional<Output<String>> password() {
@@ -474,16 +412,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
-     * `SNOWFLAKE_PORT` environment variable.
+     * Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
      * 
      */
     @Import(name="port", json=true)
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
-     * `SNOWFLAKE_PORT` environment variable.
+     * @return Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -498,16 +434,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-     * `SNOWFLAKE_PRIVATE_KEY` environment variable.
+     * Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-     * `SNOWFLAKE_PRIVATE_KEY` environment variable.
+     * @return Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -515,16 +449,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-     * des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+     * Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
      * 
      */
     @Import(name="privateKeyPassphrase")
     private @Nullable Output<String> privateKeyPassphrase;
 
     /**
-     * @return Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-     * des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+     * @return Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
      * 
      */
     public Optional<Output<String>> privateKeyPassphrase() {
@@ -532,16 +464,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-     * variable.
+     * Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
      * 
      */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
     /**
-     * @return Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-     * variable.
+     * @return Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
      * 
      */
     public Optional<Output<String>> profile() {
@@ -549,16 +479,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-     * `SNOWFLAKE_PROTOCOL` environment variable.
+     * A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-     * `SNOWFLAKE_PROTOCOL` environment variable.
+     * @return A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -566,16 +494,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-     * `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+     * request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
      * 
      */
     @Import(name="requestTimeout", json=true)
     private @Nullable Output<Integer> requestTimeout;
 
     /**
-     * @return request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-     * `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+     * @return request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
      * 
      */
     public Optional<Output<Integer>> requestTimeout() {
@@ -583,16 +509,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-     * `SNOWFLAKE_ROLE` environment variable.
+     * Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
      * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
-     * @return Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-     * `SNOWFLAKE_ROLE` environment variable.
+     * @return Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
      * 
      */
     public Optional<Output<String>> role() {
@@ -600,20 +524,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-     * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
-     * the proper privileges - see the section below. Can also be sourced from the
-     * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
+     * False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
      * 
      */
     @Import(name="skipTomlFilePermissionVerification", json=true)
     private @Nullable Output<Boolean> skipTomlFilePermissionVerification;
 
     /**
-     * @return False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-     * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
-     * the proper privileges - see the section below. Can also be sourced from the
-     * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
+     * @return False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
      * 
      */
     public Optional<Output<Boolean>> skipTomlFilePermissionVerification() {
@@ -621,16 +539,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-     * the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+     * Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
      * 
      */
     @Import(name="tmpDirectoryPath")
     private @Nullable Output<String> tmpDirectoryPath;
 
     /**
-     * @return Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-     * the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+     * @return Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
      * 
      */
     public Optional<Output<String>> tmpDirectoryPath() {
@@ -638,18 +554,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-     * provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-     * use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+     * Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
      * 
      */
     @Import(name="token")
     private @Nullable Output<String> token;
 
     /**
-     * @return Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-     * provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-     * use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+     * @return Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
      * 
      */
     public Optional<Output<String>> token() {
@@ -664,18 +576,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
-     * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
-     * variable.
+     * False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
      * 
      */
     @Import(name="useLegacyTomlFile", json=true)
     private @Nullable Output<Boolean> useLegacyTomlFile;
 
     /**
-     * @return False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
-     * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
-     * variable.
+     * @return False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
      * 
      */
     public Optional<Output<Boolean>> useLegacyTomlFile() {
@@ -698,16 +606,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-     * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+     * True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
      * 
      */
     @Import(name="validateDefaultParameters")
     private @Nullable Output<String> validateDefaultParameters;
 
     /**
-     * @return True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-     * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+     * @return True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
      * 
      */
     public Optional<Output<String>> validateDefaultParameters() {
@@ -715,16 +621,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-     * from the `SNOWFLAKE_WAREHOUSE` environment variable.
+     * Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
      * 
      */
     @Import(name="warehouse")
     private @Nullable Output<String> warehouse;
 
     /**
-     * @return Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-     * from the `SNOWFLAKE_WAREHOUSE` environment variable.
+     * @return Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
      * 
      */
     public Optional<Output<String>> warehouse() {
@@ -797,9 +701,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountName Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-         * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-         * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+         * @param accountName Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
          * 
          * @return builder
          * 
@@ -810,9 +712,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountName Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-         * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-         * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+         * @param accountName Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
          * 
          * @return builder
          * 
@@ -822,10 +722,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-         * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-         * `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-         * `SNOWFLAKE_AUTHENTICATOR` environment variable.
+         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
          * 
          * @return builder
          * 
@@ -836,10 +733,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-         * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-         * `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-         * `SNOWFLAKE_AUTHENTICATOR` environment variable.
+         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
          * 
          * @return builder
          * 
@@ -870,8 +764,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientRequestMfaToken When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-         * be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+         * @param clientRequestMfaToken When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
          * 
          * @return builder
          * 
@@ -882,8 +775,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientRequestMfaToken When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-         * be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+         * @param clientRequestMfaToken When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
          * 
          * @return builder
          * 
@@ -893,8 +785,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientStoreTemporaryCredential When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-         * sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+         * @param clientStoreTemporaryCredential When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
          * 
          * @return builder
          * 
@@ -905,8 +796,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientStoreTemporaryCredential When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-         * sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+         * @param clientStoreTemporaryCredential When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
          * 
          * @return builder
          * 
@@ -916,8 +806,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientTimeout The timeout in seconds for the client to complete the authentication. Can also be sourced from the
-         * `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+         * @param clientTimeout The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -928,8 +817,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientTimeout The timeout in seconds for the client to complete the authentication. Can also be sourced from the
-         * `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+         * @param clientTimeout The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -939,8 +827,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableConsoleLogin Indicates whether console login should be disabled in the driver. Can also be sourced from the
-         * `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+         * @param disableConsoleLogin Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
          * 
          * @return builder
          * 
@@ -951,8 +838,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableConsoleLogin Indicates whether console login should be disabled in the driver. Can also be sourced from the
-         * `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+         * @param disableConsoleLogin Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
          * 
          * @return builder
          * 
@@ -962,8 +848,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableQueryContextCache Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
-         * environment variable.
+         * @param disableQueryContextCache Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
          * 
          * @return builder
          * 
@@ -974,8 +859,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableQueryContextCache Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
-         * environment variable.
+         * @param disableQueryContextCache Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
          * 
          * @return builder
          * 
@@ -1006,8 +890,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param driverTracing Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-         * `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+         * @param driverTracing Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
          * 
          * @return builder
          * 
@@ -1018,8 +901,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param driverTracing Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-         * `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+         * @param driverTracing Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
          * 
          * @return builder
          * 
@@ -1029,8 +911,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalBrowserTimeout The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
-         * `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+         * @param externalBrowserTimeout The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -1041,8 +922,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalBrowserTimeout The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
-         * `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+         * @param externalBrowserTimeout The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -1052,8 +932,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param host Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-         * `SNOWFLAKE_HOST` environment variable.
+         * @param host Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
          * 
          * @return builder
          * 
@@ -1064,8 +943,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param host Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-         * `SNOWFLAKE_HOST` environment variable.
+         * @param host Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
          * 
          * @return builder
          * 
@@ -1075,8 +953,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeRetryReason Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-         * variable.
+         * @param includeRetryReason Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
          * 
          * @return builder
          * 
@@ -1087,8 +964,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeRetryReason Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-         * variable.
+         * @param includeRetryReason Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
          * 
          * @return builder
          * 
@@ -1098,9 +974,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insecureMode If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-         * default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
-         * environment variable.
+         * @param insecureMode If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
          * 
          * @return builder
          * 
@@ -1111,9 +985,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insecureMode If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-         * default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
-         * environment variable.
+         * @param insecureMode If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
          * 
          * @return builder
          * 
@@ -1123,8 +995,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwtClientTimeout The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
-         * `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+         * @param jwtClientTimeout The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -1135,8 +1006,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jwtClientTimeout The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
-         * `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+         * @param jwtClientTimeout The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -1167,8 +1037,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keepSessionAlive Enables the session to persist even after the connection is closed. Can also be sourced from the
-         * `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+         * @param keepSessionAlive Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
          * 
          * @return builder
          * 
@@ -1179,8 +1048,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keepSessionAlive Enables the session to persist even after the connection is closed. Can also be sourced from the
-         * `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+         * @param keepSessionAlive Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
          * 
          * @return builder
          * 
@@ -1190,8 +1058,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginTimeout Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-         * `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
+         * @param loginTimeout Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -1202,8 +1069,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loginTimeout Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-         * `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
+         * @param loginTimeout Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -1213,8 +1079,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetryCount Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
-         * `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+         * @param maxRetryCount Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
          * 
          * @return builder
          * 
@@ -1225,8 +1090,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRetryCount Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
-         * `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+         * @param maxRetryCount Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
          * 
          * @return builder
          * 
@@ -1236,8 +1100,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ocspFailOpen True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-         * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+         * @param ocspFailOpen True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
          * 
          * @return builder
          * 
@@ -1248,8 +1111,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ocspFailOpen True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-         * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+         * @param ocspFailOpen True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
          * 
          * @return builder
          * 
@@ -1259,9 +1121,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oktaUrl The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-         * in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-         * `SNOWFLAKE_OKTA_URL` environment variable.
+         * @param oktaUrl The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
          * 
          * @return builder
          * 
@@ -1272,9 +1132,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oktaUrl The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-         * in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-         * `SNOWFLAKE_OKTA_URL` environment variable.
+         * @param oktaUrl The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
          * 
          * @return builder
          * 
@@ -1284,9 +1142,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organizationName Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-         * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-         * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+         * @param organizationName Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
          * 
          * @return builder
          * 
@@ -1297,9 +1153,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param organizationName Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-         * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-         * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+         * @param organizationName Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
          * 
          * @return builder
          * 
@@ -1309,8 +1163,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param params Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
-         * This field can not be set with environmental variables.
+         * @param params Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables.
          * 
          * @return builder
          * 
@@ -1321,8 +1174,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param params Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
-         * This field can not be set with environmental variables.
+         * @param params Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables.
          * 
          * @return builder
          * 
@@ -1332,8 +1184,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passcode Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-         * the `SNOWFLAKE_PASSCODE` environment variable.
+         * @param passcode Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
          * 
          * @return builder
          * 
@@ -1344,8 +1195,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passcode Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-         * the `SNOWFLAKE_PASSCODE` environment variable.
+         * @param passcode Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
          * 
          * @return builder
          * 
@@ -1355,8 +1205,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passcodeInPassword False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
-         * `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+         * @param passcodeInPassword False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
          * 
          * @return builder
          * 
@@ -1367,8 +1216,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passcodeInPassword False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
-         * `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+         * @param passcodeInPassword False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
          * 
          * @return builder
          * 
@@ -1378,10 +1226,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for user + password or
-         * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-         * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
-         * `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+         * @param password Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
          * 
          * @return builder
          * 
@@ -1392,10 +1237,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for user + password or
-         * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-         * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
-         * `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+         * @param password Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
          * 
          * @return builder
          * 
@@ -1405,8 +1247,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
-         * `SNOWFLAKE_PORT` environment variable.
+         * @param port Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
          * 
          * @return builder
          * 
@@ -1417,8 +1258,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
-         * `SNOWFLAKE_PORT` environment variable.
+         * @param port Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
          * 
          * @return builder
          * 
@@ -1441,8 +1281,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-         * `SNOWFLAKE_PRIVATE_KEY` environment variable.
+         * @param privateKey Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
          * 
          * @return builder
          * 
@@ -1453,8 +1292,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-         * `SNOWFLAKE_PRIVATE_KEY` environment variable.
+         * @param privateKey Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
          * 
          * @return builder
          * 
@@ -1464,8 +1302,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKeyPassphrase Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-         * des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+         * @param privateKeyPassphrase Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
          * 
          * @return builder
          * 
@@ -1476,8 +1313,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKeyPassphrase Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-         * des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+         * @param privateKeyPassphrase Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
          * 
          * @return builder
          * 
@@ -1487,8 +1323,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profile Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-         * variable.
+         * @param profile Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
          * 
          * @return builder
          * 
@@ -1499,8 +1334,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profile Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-         * variable.
+         * @param profile Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
          * 
          * @return builder
          * 
@@ -1510,8 +1344,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-         * `SNOWFLAKE_PROTOCOL` environment variable.
+         * @param protocol A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
          * 
          * @return builder
          * 
@@ -1522,8 +1355,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-         * `SNOWFLAKE_PROTOCOL` environment variable.
+         * @param protocol A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
          * 
          * @return builder
          * 
@@ -1533,8 +1365,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestTimeout request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-         * `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+         * @param requestTimeout request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -1545,8 +1376,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestTimeout request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-         * `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+         * @param requestTimeout request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
          * 
          * @return builder
          * 
@@ -1556,8 +1386,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-         * `SNOWFLAKE_ROLE` environment variable.
+         * @param role Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
          * 
          * @return builder
          * 
@@ -1568,8 +1397,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-         * `SNOWFLAKE_ROLE` environment variable.
+         * @param role Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
          * 
          * @return builder
          * 
@@ -1579,10 +1407,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipTomlFilePermissionVerification False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-         * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
-         * the proper privileges - see the section below. Can also be sourced from the
-         * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
+         * @param skipTomlFilePermissionVerification False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
          * 
          * @return builder
          * 
@@ -1593,10 +1418,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipTomlFilePermissionVerification False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-         * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
-         * the proper privileges - see the section below. Can also be sourced from the
-         * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
+         * @param skipTomlFilePermissionVerification False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
          * 
          * @return builder
          * 
@@ -1606,8 +1428,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tmpDirectoryPath Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-         * the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+         * @param tmpDirectoryPath Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
          * 
          * @return builder
          * 
@@ -1618,8 +1439,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tmpDirectoryPath Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-         * the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+         * @param tmpDirectoryPath Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
          * 
          * @return builder
          * 
@@ -1629,9 +1449,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param token Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-         * provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-         * use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+         * @param token Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
          * 
          * @return builder
          * 
@@ -1642,9 +1460,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param token Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-         * provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-         * use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+         * @param token Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
          * 
          * @return builder
          * 
@@ -1663,9 +1479,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useLegacyTomlFile False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
-         * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
-         * variable.
+         * @param useLegacyTomlFile False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
          * 
          * @return builder
          * 
@@ -1676,9 +1490,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useLegacyTomlFile False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
-         * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
-         * variable.
+         * @param useLegacyTomlFile False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
          * 
          * @return builder
          * 
@@ -1709,8 +1521,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validateDefaultParameters True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-         * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+         * @param validateDefaultParameters True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
          * 
          * @return builder
          * 
@@ -1721,8 +1532,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param validateDefaultParameters True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-         * connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+         * @param validateDefaultParameters True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
          * 
          * @return builder
          * 
@@ -1732,8 +1542,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-         * from the `SNOWFLAKE_WAREHOUSE` environment variable.
+         * @param warehouse Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
          * 
          * @return builder
          * 
@@ -1744,8 +1553,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-         * from the `SNOWFLAKE_WAREHOUSE` environment variable.
+         * @param warehouse Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
          * 
          * @return builder
          * 

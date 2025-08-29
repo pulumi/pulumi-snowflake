@@ -44,15 +44,15 @@ export class GrantApplicationRole extends pulumi.CustomResource {
     /**
      * The fully qualified name of the application on which application role will be granted.
      */
-    public readonly applicationName!: pulumi.Output<string | undefined>;
+    declare public readonly applicationName: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier for the application role to grant.
      */
-    public readonly applicationRoleName!: pulumi.Output<string>;
+    declare public readonly applicationRoleName: pulumi.Output<string>;
     /**
      * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
      */
-    public readonly parentAccountRoleName!: pulumi.Output<string | undefined>;
+    declare public readonly parentAccountRoleName: pulumi.Output<string | undefined>;
 
     /**
      * Create a GrantApplicationRole resource with the given unique name, arguments, and options.
@@ -67,17 +67,17 @@ export class GrantApplicationRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrantApplicationRoleState | undefined;
-            resourceInputs["applicationName"] = state ? state.applicationName : undefined;
-            resourceInputs["applicationRoleName"] = state ? state.applicationRoleName : undefined;
-            resourceInputs["parentAccountRoleName"] = state ? state.parentAccountRoleName : undefined;
+            resourceInputs["applicationName"] = state?.applicationName;
+            resourceInputs["applicationRoleName"] = state?.applicationRoleName;
+            resourceInputs["parentAccountRoleName"] = state?.parentAccountRoleName;
         } else {
             const args = argsOrState as GrantApplicationRoleArgs | undefined;
-            if ((!args || args.applicationRoleName === undefined) && !opts.urn) {
+            if (args?.applicationRoleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationRoleName'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["applicationRoleName"] = args ? args.applicationRoleName : undefined;
-            resourceInputs["parentAccountRoleName"] = args ? args.parentAccountRoleName : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["applicationRoleName"] = args?.applicationRoleName;
+            resourceInputs["parentAccountRoleName"] = args?.parentAccountRoleName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GrantApplicationRole.__pulumiType, name, resourceInputs, opts);

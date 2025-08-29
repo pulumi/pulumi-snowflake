@@ -35,11 +35,11 @@ export class UserAuthenticationPolicyAttachment extends pulumi.CustomResource {
     /**
      * Fully qualified name of the authentication policy
      */
-    public readonly authenticationPolicyName!: pulumi.Output<string>;
+    declare public readonly authenticationPolicyName: pulumi.Output<string>;
     /**
      * User name of the user you want to attach the authentication policy to
      */
-    public readonly userName!: pulumi.Output<string>;
+    declare public readonly userName: pulumi.Output<string>;
 
     /**
      * Create a UserAuthenticationPolicyAttachment resource with the given unique name, arguments, and options.
@@ -54,18 +54,18 @@ export class UserAuthenticationPolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserAuthenticationPolicyAttachmentState | undefined;
-            resourceInputs["authenticationPolicyName"] = state ? state.authenticationPolicyName : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["authenticationPolicyName"] = state?.authenticationPolicyName;
+            resourceInputs["userName"] = state?.userName;
         } else {
             const args = argsOrState as UserAuthenticationPolicyAttachmentArgs | undefined;
-            if ((!args || args.authenticationPolicyName === undefined) && !opts.urn) {
+            if (args?.authenticationPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationPolicyName'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["authenticationPolicyName"] = args ? args.authenticationPolicyName : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["authenticationPolicyName"] = args?.authenticationPolicyName;
+            resourceInputs["userName"] = args?.userName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserAuthenticationPolicyAttachment.__pulumiType, name, resourceInputs, opts);

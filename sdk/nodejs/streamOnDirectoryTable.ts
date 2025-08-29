@@ -44,41 +44,41 @@ export class StreamOnDirectoryTable extends pulumi.CustomResource {
     /**
      * Specifies a comment for the stream.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
-    public readonly copyGrants!: pulumi.Output<boolean | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
+    declare public readonly copyGrants: pulumi.Output<boolean | undefined>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE STREAM` for the given stream.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.StreamOnDirectoryTableDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.StreamOnDirectoryTableDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW STREAMS` for the given stream.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.StreamOnDirectoryTableShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.StreamOnDirectoryTableShowOutput[]>;
     /**
      * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
-    public readonly stage!: pulumi.Output<string>;
-    public /*out*/ readonly stale!: pulumi.Output<boolean>;
+    declare public readonly stage: pulumi.Output<string>;
+    declare public /*out*/ readonly stale: pulumi.Output<boolean>;
     /**
      * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
      */
-    public /*out*/ readonly streamType!: pulumi.Output<string>;
+    declare public /*out*/ readonly streamType: pulumi.Output<string>;
 
     /**
      * Create a StreamOnDirectoryTable resource with the given unique name, arguments, and options.
@@ -93,34 +93,34 @@ export class StreamOnDirectoryTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamOnDirectoryTableState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["copyGrants"] = state ? state.copyGrants : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["stage"] = state ? state.stage : undefined;
-            resourceInputs["stale"] = state ? state.stale : undefined;
-            resourceInputs["streamType"] = state ? state.streamType : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["copyGrants"] = state?.copyGrants;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["stage"] = state?.stage;
+            resourceInputs["stale"] = state?.stale;
+            resourceInputs["streamType"] = state?.streamType;
         } else {
             const args = argsOrState as StreamOnDirectoryTableArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.stage === undefined) && !opts.urn) {
+            if (args?.stage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["copyGrants"] = args ? args.copyGrants : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["copyGrants"] = args?.copyGrants;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["stage"] = args?.stage;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

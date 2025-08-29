@@ -44,52 +44,52 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
     /**
      * Specifies a comment for the integration.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput[]>;
     /**
      * Specifies whether this security integration is enabled or disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
-    public readonly oauthAccessTokenValidity!: pulumi.Output<number | undefined>;
+    declare public readonly oauthAccessTokenValidity: pulumi.Output<number | undefined>;
     /**
      * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
      */
-    public readonly oauthAllowedScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly oauthAllowedScopes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      */
-    public readonly oauthClientAuthMethod!: pulumi.Output<string | undefined>;
+    declare public readonly oauthClientAuthMethod: pulumi.Output<string | undefined>;
     /**
      * Specifies the client ID for the OAuth application in the external service.
      */
-    public readonly oauthClientId!: pulumi.Output<string>;
-    public readonly oauthClientSecret!: pulumi.Output<string>;
+    declare public readonly oauthClientId: pulumi.Output<string>;
+    declare public readonly oauthClientSecret: pulumi.Output<string>;
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
      */
-    public readonly oauthRefreshTokenValidity!: pulumi.Output<number | undefined>;
+    declare public readonly oauthRefreshTokenValidity: pulumi.Output<number | undefined>;
     /**
      * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      */
-    public readonly oauthTokenEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly oauthTokenEndpoint: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ApiAuthenticationIntegrationWithClientCredentialsShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ApiAuthenticationIntegrationWithClientCredentialsShowOutput[]>;
 
     /**
      * Create a ApiAuthenticationIntegrationWithClientCredentials resource with the given unique name, arguments, and options.
@@ -104,40 +104,40 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiAuthenticationIntegrationWithClientCredentialsState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["oauthAccessTokenValidity"] = state ? state.oauthAccessTokenValidity : undefined;
-            resourceInputs["oauthAllowedScopes"] = state ? state.oauthAllowedScopes : undefined;
-            resourceInputs["oauthClientAuthMethod"] = state ? state.oauthClientAuthMethod : undefined;
-            resourceInputs["oauthClientId"] = state ? state.oauthClientId : undefined;
-            resourceInputs["oauthClientSecret"] = state ? state.oauthClientSecret : undefined;
-            resourceInputs["oauthRefreshTokenValidity"] = state ? state.oauthRefreshTokenValidity : undefined;
-            resourceInputs["oauthTokenEndpoint"] = state ? state.oauthTokenEndpoint : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["oauthAccessTokenValidity"] = state?.oauthAccessTokenValidity;
+            resourceInputs["oauthAllowedScopes"] = state?.oauthAllowedScopes;
+            resourceInputs["oauthClientAuthMethod"] = state?.oauthClientAuthMethod;
+            resourceInputs["oauthClientId"] = state?.oauthClientId;
+            resourceInputs["oauthClientSecret"] = state?.oauthClientSecret;
+            resourceInputs["oauthRefreshTokenValidity"] = state?.oauthRefreshTokenValidity;
+            resourceInputs["oauthTokenEndpoint"] = state?.oauthTokenEndpoint;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as ApiAuthenticationIntegrationWithClientCredentialsArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.oauthClientId === undefined) && !opts.urn) {
+            if (args?.oauthClientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'oauthClientId'");
             }
-            if ((!args || args.oauthClientSecret === undefined) && !opts.urn) {
+            if (args?.oauthClientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'oauthClientSecret'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["oauthAccessTokenValidity"] = args ? args.oauthAccessTokenValidity : undefined;
-            resourceInputs["oauthAllowedScopes"] = args ? args.oauthAllowedScopes : undefined;
-            resourceInputs["oauthClientAuthMethod"] = args ? args.oauthClientAuthMethod : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["oauthAccessTokenValidity"] = args?.oauthAccessTokenValidity;
+            resourceInputs["oauthAllowedScopes"] = args?.oauthAllowedScopes;
+            resourceInputs["oauthClientAuthMethod"] = args?.oauthClientAuthMethod;
             resourceInputs["oauthClientId"] = args?.oauthClientId ? pulumi.secret(args.oauthClientId) : undefined;
             resourceInputs["oauthClientSecret"] = args?.oauthClientSecret ? pulumi.secret(args.oauthClientSecret) : undefined;
-            resourceInputs["oauthRefreshTokenValidity"] = args ? args.oauthRefreshTokenValidity : undefined;
-            resourceInputs["oauthTokenEndpoint"] = args ? args.oauthTokenEndpoint : undefined;
+            resourceInputs["oauthRefreshTokenValidity"] = args?.oauthRefreshTokenValidity;
+            resourceInputs["oauthTokenEndpoint"] = args?.oauthTokenEndpoint;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

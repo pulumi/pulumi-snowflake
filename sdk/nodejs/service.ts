@@ -44,75 +44,75 @@ export class Service extends pulumi.CustomResource {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a service. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly autoResume!: pulumi.Output<string | undefined>;
+    declare public readonly autoResume: pulumi.Output<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity (service is idle) after which Snowflake automatically suspends the service.
      */
-    public readonly autoSuspendSecs!: pulumi.Output<number | undefined>;
+    declare public readonly autoSuspendSecs: pulumi.Output<number | undefined>;
     /**
      * Specifies a comment for the service.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly computePool!: pulumi.Output<string>;
+    declare public readonly computePool: pulumi.Output<string>;
     /**
      * The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE SERVICE` for the given service.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.ServiceDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ServiceDescribeOutput[]>;
     /**
      * Specifies the names of the external access integrations that allow your service to access external sites.
      */
-    public readonly externalAccessIntegrations!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalAccessIntegrations: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    public readonly fromSpecification!: pulumi.Output<outputs.ServiceFromSpecification | undefined>;
+    declare public readonly fromSpecification: pulumi.Output<outputs.ServiceFromSpecification | undefined>;
     /**
      * Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    public readonly fromSpecificationTemplate!: pulumi.Output<outputs.ServiceFromSpecificationTemplate | undefined>;
+    declare public readonly fromSpecificationTemplate: pulumi.Output<outputs.ServiceFromSpecificationTemplate | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the maximum number of service instances to run.
      */
-    public readonly maxInstances!: pulumi.Output<number | undefined>;
+    declare public readonly maxInstances: pulumi.Output<number | undefined>;
     /**
      * Specifies the minimum number of service instances to run.
      */
-    public readonly minInstances!: pulumi.Output<number | undefined>;
+    declare public readonly minInstances: pulumi.Output<number | undefined>;
     /**
      * Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
      */
-    public readonly minReadyInstances!: pulumi.Output<number | undefined>;
+    declare public readonly minReadyInstances: pulumi.Output<number | undefined>;
     /**
      * Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly queryWarehouse!: pulumi.Output<string | undefined>;
+    declare public readonly queryWarehouse: pulumi.Output<string | undefined>;
     /**
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
      */
-    public /*out*/ readonly serviceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceType: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW SERVICES` for the given service.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ServiceShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ServiceShowOutput[]>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -127,49 +127,49 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["autoResume"] = state ? state.autoResume : undefined;
-            resourceInputs["autoSuspendSecs"] = state ? state.autoSuspendSecs : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["computePool"] = state ? state.computePool : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["externalAccessIntegrations"] = state ? state.externalAccessIntegrations : undefined;
-            resourceInputs["fromSpecification"] = state ? state.fromSpecification : undefined;
-            resourceInputs["fromSpecificationTemplate"] = state ? state.fromSpecificationTemplate : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["maxInstances"] = state ? state.maxInstances : undefined;
-            resourceInputs["minInstances"] = state ? state.minInstances : undefined;
-            resourceInputs["minReadyInstances"] = state ? state.minReadyInstances : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queryWarehouse"] = state ? state.queryWarehouse : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["serviceType"] = state ? state.serviceType : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["autoResume"] = state?.autoResume;
+            resourceInputs["autoSuspendSecs"] = state?.autoSuspendSecs;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["computePool"] = state?.computePool;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["externalAccessIntegrations"] = state?.externalAccessIntegrations;
+            resourceInputs["fromSpecification"] = state?.fromSpecification;
+            resourceInputs["fromSpecificationTemplate"] = state?.fromSpecificationTemplate;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["maxInstances"] = state?.maxInstances;
+            resourceInputs["minInstances"] = state?.minInstances;
+            resourceInputs["minReadyInstances"] = state?.minReadyInstances;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queryWarehouse"] = state?.queryWarehouse;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["serviceType"] = state?.serviceType;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.computePool === undefined) && !opts.urn) {
+            if (args?.computePool === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computePool'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["autoResume"] = args ? args.autoResume : undefined;
-            resourceInputs["autoSuspendSecs"] = args ? args.autoSuspendSecs : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["computePool"] = args ? args.computePool : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["externalAccessIntegrations"] = args ? args.externalAccessIntegrations : undefined;
-            resourceInputs["fromSpecification"] = args ? args.fromSpecification : undefined;
-            resourceInputs["fromSpecificationTemplate"] = args ? args.fromSpecificationTemplate : undefined;
-            resourceInputs["maxInstances"] = args ? args.maxInstances : undefined;
-            resourceInputs["minInstances"] = args ? args.minInstances : undefined;
-            resourceInputs["minReadyInstances"] = args ? args.minReadyInstances : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryWarehouse"] = args ? args.queryWarehouse : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["autoResume"] = args?.autoResume;
+            resourceInputs["autoSuspendSecs"] = args?.autoSuspendSecs;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["computePool"] = args?.computePool;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["externalAccessIntegrations"] = args?.externalAccessIntegrations;
+            resourceInputs["fromSpecification"] = args?.fromSpecification;
+            resourceInputs["fromSpecificationTemplate"] = args?.fromSpecificationTemplate;
+            resourceInputs["maxInstances"] = args?.maxInstances;
+            resourceInputs["minInstances"] = args?.minInstances;
+            resourceInputs["minReadyInstances"] = args?.minReadyInstances;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryWarehouse"] = args?.queryWarehouse;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["serviceType"] = undefined /*out*/;

@@ -44,24 +44,24 @@ export class PrimaryConnection extends pulumi.CustomResource {
     /**
      * Specifies a comment for the connection.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
      */
-    public readonly enableFailoverToAccounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly enableFailoverToAccounts: pulumi.Output<string[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
-    public /*out*/ readonly isPrimary!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
+    declare public /*out*/ readonly isPrimary: pulumi.Output<boolean>;
     /**
      * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW CONNECTIONS` for the given connection.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.PrimaryConnectionShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.PrimaryConnectionShowOutput[]>;
 
     /**
      * Create a PrimaryConnection resource with the given unique name, arguments, and options.
@@ -76,17 +76,17 @@ export class PrimaryConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrimaryConnectionState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["enableFailoverToAccounts"] = state ? state.enableFailoverToAccounts : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["isPrimary"] = state ? state.isPrimary : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["enableFailoverToAccounts"] = state?.enableFailoverToAccounts;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["isPrimary"] = state?.isPrimary;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as PrimaryConnectionArgs | undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enableFailoverToAccounts"] = args ? args.enableFailoverToAccounts : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enableFailoverToAccounts"] = args?.enableFailoverToAccounts;
+            resourceInputs["name"] = args?.name;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["isPrimary"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

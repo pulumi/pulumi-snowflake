@@ -44,43 +44,43 @@ export class FailoverGroup extends pulumi.CustomResource {
     /**
      * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
      */
-    public readonly allowedAccounts!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedAccounts: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
      */
-    public readonly allowedDatabases!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedDatabases: pulumi.Output<string[] | undefined>;
     /**
      * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
-    public readonly allowedIntegrationTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedIntegrationTypes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
      */
-    public readonly allowedShares!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedShares: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the name of the replica to use as the source for the failover group.
      */
-    public readonly fromReplica!: pulumi.Output<outputs.FailoverGroupFromReplica | undefined>;
+    declare public readonly fromReplica: pulumi.Output<outputs.FailoverGroupFromReplica | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: `false`) Allows replicating objects to accounts on lower editions.
      */
-    public readonly ignoreEditionCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreEditionCheck: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
      */
-    public readonly objectTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly objectTypes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the schedule for refreshing secondary failover groups.
      */
-    public readonly replicationSchedule!: pulumi.Output<outputs.FailoverGroupReplicationSchedule | undefined>;
+    declare public readonly replicationSchedule: pulumi.Output<outputs.FailoverGroupReplicationSchedule | undefined>;
 
     /**
      * Create a FailoverGroup resource with the given unique name, arguments, and options.
@@ -95,27 +95,27 @@ export class FailoverGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FailoverGroupState | undefined;
-            resourceInputs["allowedAccounts"] = state ? state.allowedAccounts : undefined;
-            resourceInputs["allowedDatabases"] = state ? state.allowedDatabases : undefined;
-            resourceInputs["allowedIntegrationTypes"] = state ? state.allowedIntegrationTypes : undefined;
-            resourceInputs["allowedShares"] = state ? state.allowedShares : undefined;
-            resourceInputs["fromReplica"] = state ? state.fromReplica : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["ignoreEditionCheck"] = state ? state.ignoreEditionCheck : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["objectTypes"] = state ? state.objectTypes : undefined;
-            resourceInputs["replicationSchedule"] = state ? state.replicationSchedule : undefined;
+            resourceInputs["allowedAccounts"] = state?.allowedAccounts;
+            resourceInputs["allowedDatabases"] = state?.allowedDatabases;
+            resourceInputs["allowedIntegrationTypes"] = state?.allowedIntegrationTypes;
+            resourceInputs["allowedShares"] = state?.allowedShares;
+            resourceInputs["fromReplica"] = state?.fromReplica;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["ignoreEditionCheck"] = state?.ignoreEditionCheck;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["objectTypes"] = state?.objectTypes;
+            resourceInputs["replicationSchedule"] = state?.replicationSchedule;
         } else {
             const args = argsOrState as FailoverGroupArgs | undefined;
-            resourceInputs["allowedAccounts"] = args ? args.allowedAccounts : undefined;
-            resourceInputs["allowedDatabases"] = args ? args.allowedDatabases : undefined;
-            resourceInputs["allowedIntegrationTypes"] = args ? args.allowedIntegrationTypes : undefined;
-            resourceInputs["allowedShares"] = args ? args.allowedShares : undefined;
-            resourceInputs["fromReplica"] = args ? args.fromReplica : undefined;
-            resourceInputs["ignoreEditionCheck"] = args ? args.ignoreEditionCheck : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectTypes"] = args ? args.objectTypes : undefined;
-            resourceInputs["replicationSchedule"] = args ? args.replicationSchedule : undefined;
+            resourceInputs["allowedAccounts"] = args?.allowedAccounts;
+            resourceInputs["allowedDatabases"] = args?.allowedDatabases;
+            resourceInputs["allowedIntegrationTypes"] = args?.allowedIntegrationTypes;
+            resourceInputs["allowedShares"] = args?.allowedShares;
+            resourceInputs["fromReplica"] = args?.fromReplica;
+            resourceInputs["ignoreEditionCheck"] = args?.ignoreEditionCheck;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objectTypes"] = args?.objectTypes;
+            resourceInputs["replicationSchedule"] = args?.replicationSchedule;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

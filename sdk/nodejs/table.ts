@@ -46,55 +46,55 @@ export class Table extends pulumi.CustomResource {
     /**
      * (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
      */
-    public readonly changeTracking!: pulumi.Output<boolean | undefined>;
+    declare public readonly changeTracking: pulumi.Output<boolean | undefined>;
     /**
      * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
-    public readonly clusterBies!: pulumi.Output<string[] | undefined>;
+    declare public readonly clusterBies: pulumi.Output<string[] | undefined>;
     /**
      * Definitions of a column to create in the table. Minimum one required.
      */
-    public readonly columns!: pulumi.Output<outputs.TableColumn[]>;
+    declare public readonly columns: pulumi.Output<outputs.TableColumn[]>;
     /**
      * Specifies a comment for the table.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
      */
-    public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
+    declare public readonly dataRetentionTimeInDays: pulumi.Output<number | undefined>;
     /**
      * The database in which to create the table.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Name of the role that owns the table.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * Definitions of primary key constraint to create on table
      *
      * @deprecated Use snowflake.TableConstraint instead
      */
-    public readonly primaryKey!: pulumi.Output<outputs.TablePrimaryKey | undefined>;
+    declare public readonly primaryKey: pulumi.Output<outputs.TablePrimaryKey | undefined>;
     /**
      * The schema in which to create the table.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    public readonly tags!: pulumi.Output<outputs.TableTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.TableTag[] | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -109,39 +109,39 @@ export class Table extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            resourceInputs["changeTracking"] = state ? state.changeTracking : undefined;
-            resourceInputs["clusterBies"] = state ? state.clusterBies : undefined;
-            resourceInputs["columns"] = state ? state.columns : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["dataRetentionTimeInDays"] = state ? state.dataRetentionTimeInDays : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["changeTracking"] = state?.changeTracking;
+            resourceInputs["clusterBies"] = state?.clusterBies;
+            resourceInputs["columns"] = state?.columns;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["dataRetentionTimeInDays"] = state?.dataRetentionTimeInDays;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if ((!args || args.columns === undefined) && !opts.urn) {
+            if (args?.columns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columns'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["changeTracking"] = args ? args.changeTracking : undefined;
-            resourceInputs["clusterBies"] = args ? args.clusterBies : undefined;
-            resourceInputs["columns"] = args ? args.columns : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["dataRetentionTimeInDays"] = args ? args.dataRetentionTimeInDays : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["changeTracking"] = args?.changeTracking;
+            resourceInputs["clusterBies"] = args?.clusterBies;
+            resourceInputs["columns"] = args?.columns;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["dataRetentionTimeInDays"] = args?.dataRetentionTimeInDays;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["primaryKey"] = args?.primaryKey;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
         }

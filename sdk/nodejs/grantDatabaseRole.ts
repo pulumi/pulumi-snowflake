@@ -44,19 +44,19 @@ export class GrantDatabaseRole extends pulumi.CustomResource {
     /**
      * The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
      */
-    public readonly databaseRoleName!: pulumi.Output<string>;
+    declare public readonly databaseRoleName: pulumi.Output<string>;
     /**
      * The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    public readonly parentDatabaseRoleName!: pulumi.Output<string | undefined>;
+    declare public readonly parentDatabaseRoleName: pulumi.Output<string | undefined>;
     /**
      * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    public readonly parentRoleName!: pulumi.Output<string | undefined>;
+    declare public readonly parentRoleName: pulumi.Output<string | undefined>;
     /**
      * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
-    public readonly shareName!: pulumi.Output<string | undefined>;
+    declare public readonly shareName: pulumi.Output<string | undefined>;
 
     /**
      * Create a GrantDatabaseRole resource with the given unique name, arguments, and options.
@@ -71,19 +71,19 @@ export class GrantDatabaseRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrantDatabaseRoleState | undefined;
-            resourceInputs["databaseRoleName"] = state ? state.databaseRoleName : undefined;
-            resourceInputs["parentDatabaseRoleName"] = state ? state.parentDatabaseRoleName : undefined;
-            resourceInputs["parentRoleName"] = state ? state.parentRoleName : undefined;
-            resourceInputs["shareName"] = state ? state.shareName : undefined;
+            resourceInputs["databaseRoleName"] = state?.databaseRoleName;
+            resourceInputs["parentDatabaseRoleName"] = state?.parentDatabaseRoleName;
+            resourceInputs["parentRoleName"] = state?.parentRoleName;
+            resourceInputs["shareName"] = state?.shareName;
         } else {
             const args = argsOrState as GrantDatabaseRoleArgs | undefined;
-            if ((!args || args.databaseRoleName === undefined) && !opts.urn) {
+            if (args?.databaseRoleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseRoleName'");
             }
-            resourceInputs["databaseRoleName"] = args ? args.databaseRoleName : undefined;
-            resourceInputs["parentDatabaseRoleName"] = args ? args.parentDatabaseRoleName : undefined;
-            resourceInputs["parentRoleName"] = args ? args.parentRoleName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["databaseRoleName"] = args?.databaseRoleName;
+            resourceInputs["parentDatabaseRoleName"] = args?.parentDatabaseRoleName;
+            resourceInputs["parentRoleName"] = args?.parentRoleName;
+            resourceInputs["shareName"] = args?.shareName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GrantDatabaseRole.__pulumiType, name, resourceInputs, opts);

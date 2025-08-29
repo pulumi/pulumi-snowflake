@@ -44,31 +44,31 @@ export class ExternalVolume extends pulumi.CustomResource {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly allowWrites!: pulumi.Output<string | undefined>;
+    declare public readonly allowWrites: pulumi.Output<string | undefined>;
     /**
      * Specifies a comment for the external volume.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.ExternalVolumeDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ExternalVolumeDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ExternalVolumeShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ExternalVolumeShowOutput[]>;
     /**
      * List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
      */
-    public readonly storageLocations!: pulumi.Output<outputs.ExternalVolumeStorageLocation[]>;
+    declare public readonly storageLocations: pulumi.Output<outputs.ExternalVolumeStorageLocation[]>;
 
     /**
      * Create a ExternalVolume resource with the given unique name, arguments, and options.
@@ -83,22 +83,22 @@ export class ExternalVolume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExternalVolumeState | undefined;
-            resourceInputs["allowWrites"] = state ? state.allowWrites : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["storageLocations"] = state ? state.storageLocations : undefined;
+            resourceInputs["allowWrites"] = state?.allowWrites;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["storageLocations"] = state?.storageLocations;
         } else {
             const args = argsOrState as ExternalVolumeArgs | undefined;
-            if ((!args || args.storageLocations === undefined) && !opts.urn) {
+            if (args?.storageLocations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageLocations'");
             }
-            resourceInputs["allowWrites"] = args ? args.allowWrites : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageLocations"] = args ? args.storageLocations : undefined;
+            resourceInputs["allowWrites"] = args?.allowWrites;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageLocations"] = args?.storageLocations;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

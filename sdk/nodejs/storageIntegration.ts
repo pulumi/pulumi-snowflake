@@ -44,72 +44,72 @@ export class StorageIntegration extends pulumi.CustomResource {
     /**
      * The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
      */
-    public /*out*/ readonly azureConsentUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureConsentUrl: pulumi.Output<string>;
     /**
      * This is the name of the Snowflake client application created for your account.
      */
-    public /*out*/ readonly azureMultiTenantAppName!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureMultiTenantAppName: pulumi.Output<string>;
     /**
      * (Default: ``)
      */
-    public readonly azureTenantId!: pulumi.Output<string | undefined>;
+    declare public readonly azureTenantId: pulumi.Output<string | undefined>;
     /**
      * (Default: ``)
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Date and time when the storage integration was created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.StorageIntegrationDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.StorageIntegrationDescribeOutput[]>;
     /**
      * (Default: `true`)
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
      */
-    public readonly storageAllowedLocations!: pulumi.Output<string[]>;
+    declare public readonly storageAllowedLocations: pulumi.Output<string[]>;
     /**
      * The external ID that Snowflake will use when assuming the AWS role.
      */
-    public readonly storageAwsExternalId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAwsExternalId: pulumi.Output<string | undefined>;
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      */
-    public /*out*/ readonly storageAwsIamUserArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageAwsIamUserArn: pulumi.Output<string>;
     /**
      * "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
      */
-    public readonly storageAwsObjectAcl!: pulumi.Output<string | undefined>;
+    declare public readonly storageAwsObjectAcl: pulumi.Output<string | undefined>;
     /**
      * (Default: ``)
      */
-    public readonly storageAwsRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly storageAwsRoleArn: pulumi.Output<string | undefined>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
      */
-    public readonly storageBlockedLocations!: pulumi.Output<string[] | undefined>;
+    declare public readonly storageBlockedLocations: pulumi.Output<string[] | undefined>;
     /**
      * This is the name of the Snowflake Google Service Account created for your account.
      */
-    public /*out*/ readonly storageGcpServiceAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageGcpServiceAccount: pulumi.Output<string>;
     /**
      * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
      */
-    public readonly storageProvider!: pulumi.Output<string>;
+    declare public readonly storageProvider: pulumi.Output<string>;
     /**
      * (Default: `EXTERNAL_STAGE`)
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a StorageIntegration resource with the given unique name, arguments, and options.
@@ -124,43 +124,43 @@ export class StorageIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StorageIntegrationState | undefined;
-            resourceInputs["azureConsentUrl"] = state ? state.azureConsentUrl : undefined;
-            resourceInputs["azureMultiTenantAppName"] = state ? state.azureMultiTenantAppName : undefined;
-            resourceInputs["azureTenantId"] = state ? state.azureTenantId : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageAllowedLocations"] = state ? state.storageAllowedLocations : undefined;
-            resourceInputs["storageAwsExternalId"] = state ? state.storageAwsExternalId : undefined;
-            resourceInputs["storageAwsIamUserArn"] = state ? state.storageAwsIamUserArn : undefined;
-            resourceInputs["storageAwsObjectAcl"] = state ? state.storageAwsObjectAcl : undefined;
-            resourceInputs["storageAwsRoleArn"] = state ? state.storageAwsRoleArn : undefined;
-            resourceInputs["storageBlockedLocations"] = state ? state.storageBlockedLocations : undefined;
-            resourceInputs["storageGcpServiceAccount"] = state ? state.storageGcpServiceAccount : undefined;
-            resourceInputs["storageProvider"] = state ? state.storageProvider : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["azureConsentUrl"] = state?.azureConsentUrl;
+            resourceInputs["azureMultiTenantAppName"] = state?.azureMultiTenantAppName;
+            resourceInputs["azureTenantId"] = state?.azureTenantId;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["createdOn"] = state?.createdOn;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageAllowedLocations"] = state?.storageAllowedLocations;
+            resourceInputs["storageAwsExternalId"] = state?.storageAwsExternalId;
+            resourceInputs["storageAwsIamUserArn"] = state?.storageAwsIamUserArn;
+            resourceInputs["storageAwsObjectAcl"] = state?.storageAwsObjectAcl;
+            resourceInputs["storageAwsRoleArn"] = state?.storageAwsRoleArn;
+            resourceInputs["storageBlockedLocations"] = state?.storageBlockedLocations;
+            resourceInputs["storageGcpServiceAccount"] = state?.storageGcpServiceAccount;
+            resourceInputs["storageProvider"] = state?.storageProvider;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as StorageIntegrationArgs | undefined;
-            if ((!args || args.storageAllowedLocations === undefined) && !opts.urn) {
+            if (args?.storageAllowedLocations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAllowedLocations'");
             }
-            if ((!args || args.storageProvider === undefined) && !opts.urn) {
+            if (args?.storageProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageProvider'");
             }
-            resourceInputs["azureTenantId"] = args ? args.azureTenantId : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAllowedLocations"] = args ? args.storageAllowedLocations : undefined;
-            resourceInputs["storageAwsExternalId"] = args ? args.storageAwsExternalId : undefined;
-            resourceInputs["storageAwsObjectAcl"] = args ? args.storageAwsObjectAcl : undefined;
-            resourceInputs["storageAwsRoleArn"] = args ? args.storageAwsRoleArn : undefined;
-            resourceInputs["storageBlockedLocations"] = args ? args.storageBlockedLocations : undefined;
-            resourceInputs["storageProvider"] = args ? args.storageProvider : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["azureTenantId"] = args?.azureTenantId;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAllowedLocations"] = args?.storageAllowedLocations;
+            resourceInputs["storageAwsExternalId"] = args?.storageAwsExternalId;
+            resourceInputs["storageAwsObjectAcl"] = args?.storageAwsObjectAcl;
+            resourceInputs["storageAwsRoleArn"] = args?.storageAwsRoleArn;
+            resourceInputs["storageBlockedLocations"] = args?.storageBlockedLocations;
+            resourceInputs["storageProvider"] = args?.storageProvider;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureConsentUrl"] = undefined /*out*/;
             resourceInputs["azureMultiTenantAppName"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

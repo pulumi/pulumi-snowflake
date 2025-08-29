@@ -44,15 +44,15 @@ export class GrantAccountRole extends pulumi.CustomResource {
     /**
      * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    public readonly parentRoleName!: pulumi.Output<string | undefined>;
+    declare public readonly parentRoleName: pulumi.Output<string | undefined>;
     /**
      * The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
      */
-    public readonly roleName!: pulumi.Output<string>;
+    declare public readonly roleName: pulumi.Output<string>;
     /**
      * The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
      */
-    public readonly userName!: pulumi.Output<string | undefined>;
+    declare public readonly userName: pulumi.Output<string | undefined>;
 
     /**
      * Create a GrantAccountRole resource with the given unique name, arguments, and options.
@@ -67,17 +67,17 @@ export class GrantAccountRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrantAccountRoleState | undefined;
-            resourceInputs["parentRoleName"] = state ? state.parentRoleName : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["parentRoleName"] = state?.parentRoleName;
+            resourceInputs["roleName"] = state?.roleName;
+            resourceInputs["userName"] = state?.userName;
         } else {
             const args = argsOrState as GrantAccountRoleArgs | undefined;
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["parentRoleName"] = args ? args.parentRoleName : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["parentRoleName"] = args?.parentRoleName;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["userName"] = args?.userName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GrantAccountRole.__pulumiType, name, resourceInputs, opts);

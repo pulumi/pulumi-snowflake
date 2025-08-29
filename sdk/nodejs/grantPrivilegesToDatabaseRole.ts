@@ -66,36 +66,36 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
     /**
      * (Default: `false`) Grant all privileges on the database role.
      */
-    public readonly allPrivileges!: pulumi.Output<boolean | undefined>;
-    public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
+    declare public readonly allPrivileges: pulumi.Output<boolean | undefined>;
+    declare public readonly alwaysApply: pulumi.Output<boolean | undefined>;
     /**
      * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
-    public readonly alwaysApplyTrigger!: pulumi.Output<string | undefined>;
+    declare public readonly alwaysApplyTrigger: pulumi.Output<string | undefined>;
     /**
      * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
-    public readonly databaseRoleName!: pulumi.Output<string>;
+    declare public readonly databaseRoleName: pulumi.Output<string>;
     /**
      * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
-    public readonly onDatabase!: pulumi.Output<string | undefined>;
+    declare public readonly onDatabase: pulumi.Output<string | undefined>;
     /**
      * Specifies the schema on which privileges will be granted.
      */
-    public readonly onSchema!: pulumi.Output<outputs.GrantPrivilegesToDatabaseRoleOnSchema | undefined>;
+    declare public readonly onSchema: pulumi.Output<outputs.GrantPrivilegesToDatabaseRoleOnSchema | undefined>;
     /**
      * Specifies the schema object on which privileges will be granted.
      */
-    public readonly onSchemaObject!: pulumi.Output<outputs.GrantPrivilegesToDatabaseRoleOnSchemaObject | undefined>;
+    declare public readonly onSchemaObject: pulumi.Output<outputs.GrantPrivilegesToDatabaseRoleOnSchemaObject | undefined>;
     /**
      * The privileges to grant on the database role.
      */
-    public readonly privileges!: pulumi.Output<string[] | undefined>;
+    declare public readonly privileges: pulumi.Output<string[] | undefined>;
     /**
      * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      */
-    public readonly withGrantOption!: pulumi.Output<boolean | undefined>;
+    declare public readonly withGrantOption: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GrantPrivilegesToDatabaseRole resource with the given unique name, arguments, and options.
@@ -110,29 +110,29 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrantPrivilegesToDatabaseRoleState | undefined;
-            resourceInputs["allPrivileges"] = state ? state.allPrivileges : undefined;
-            resourceInputs["alwaysApply"] = state ? state.alwaysApply : undefined;
-            resourceInputs["alwaysApplyTrigger"] = state ? state.alwaysApplyTrigger : undefined;
-            resourceInputs["databaseRoleName"] = state ? state.databaseRoleName : undefined;
-            resourceInputs["onDatabase"] = state ? state.onDatabase : undefined;
-            resourceInputs["onSchema"] = state ? state.onSchema : undefined;
-            resourceInputs["onSchemaObject"] = state ? state.onSchemaObject : undefined;
-            resourceInputs["privileges"] = state ? state.privileges : undefined;
-            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["allPrivileges"] = state?.allPrivileges;
+            resourceInputs["alwaysApply"] = state?.alwaysApply;
+            resourceInputs["alwaysApplyTrigger"] = state?.alwaysApplyTrigger;
+            resourceInputs["databaseRoleName"] = state?.databaseRoleName;
+            resourceInputs["onDatabase"] = state?.onDatabase;
+            resourceInputs["onSchema"] = state?.onSchema;
+            resourceInputs["onSchemaObject"] = state?.onSchemaObject;
+            resourceInputs["privileges"] = state?.privileges;
+            resourceInputs["withGrantOption"] = state?.withGrantOption;
         } else {
             const args = argsOrState as GrantPrivilegesToDatabaseRoleArgs | undefined;
-            if ((!args || args.databaseRoleName === undefined) && !opts.urn) {
+            if (args?.databaseRoleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseRoleName'");
             }
-            resourceInputs["allPrivileges"] = args ? args.allPrivileges : undefined;
-            resourceInputs["alwaysApply"] = args ? args.alwaysApply : undefined;
-            resourceInputs["alwaysApplyTrigger"] = args ? args.alwaysApplyTrigger : undefined;
-            resourceInputs["databaseRoleName"] = args ? args.databaseRoleName : undefined;
-            resourceInputs["onDatabase"] = args ? args.onDatabase : undefined;
-            resourceInputs["onSchema"] = args ? args.onSchema : undefined;
-            resourceInputs["onSchemaObject"] = args ? args.onSchemaObject : undefined;
-            resourceInputs["privileges"] = args ? args.privileges : undefined;
-            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["allPrivileges"] = args?.allPrivileges;
+            resourceInputs["alwaysApply"] = args?.alwaysApply;
+            resourceInputs["alwaysApplyTrigger"] = args?.alwaysApplyTrigger;
+            resourceInputs["databaseRoleName"] = args?.databaseRoleName;
+            resourceInputs["onDatabase"] = args?.onDatabase;
+            resourceInputs["onSchema"] = args?.onSchema;
+            resourceInputs["onSchemaObject"] = args?.onSchemaObject;
+            resourceInputs["privileges"] = args?.privileges;
+            resourceInputs["withGrantOption"] = args?.withGrantOption;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GrantPrivilegesToDatabaseRole.__pulumiType, name, resourceInputs, opts);

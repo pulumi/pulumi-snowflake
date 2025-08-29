@@ -44,51 +44,51 @@ export class ComputePool extends pulumi.CustomResource {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a compute pool when a service or job is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly autoResume!: pulumi.Output<string | undefined>;
+    declare public readonly autoResume: pulumi.Output<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
      */
-    public readonly autoSuspendSecs!: pulumi.Output<number | undefined>;
+    declare public readonly autoSuspendSecs: pulumi.Output<number | undefined>;
     /**
      * Specifies a comment for the compute pool.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE COMPUTE POOL` for the given compute pool.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.ComputePoolDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ComputePoolDescribeOutput[]>;
     /**
      * Specifies the Snowflake Native App name.
      */
-    public readonly forApplication!: pulumi.Output<string | undefined>;
+    declare public readonly forApplication: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the compute pool is created initially in the suspended state. This field is used only when creating a compute pool. Changes on this field are ignored after creation.
      */
-    public readonly initiallySuspended!: pulumi.Output<string | undefined>;
+    declare public readonly initiallySuspended: pulumi.Output<string | undefined>;
     /**
      * Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL`.
      */
-    public readonly instanceFamily!: pulumi.Output<string>;
+    declare public readonly instanceFamily: pulumi.Output<string>;
     /**
      * Specifies the maximum number of nodes for the compute pool.
      */
-    public readonly maxNodes!: pulumi.Output<number>;
+    declare public readonly maxNodes: pulumi.Output<number>;
     /**
      * Specifies the minimum number of nodes for the compute pool.
      */
-    public readonly minNodes!: pulumi.Output<number>;
+    declare public readonly minNodes: pulumi.Output<number>;
     /**
      * Specifies the identifier for the compute pool; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW COMPUTE POOLS` for the given compute pool.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ComputePoolShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ComputePoolShowOutput[]>;
 
     /**
      * Create a ComputePool resource with the given unique name, arguments, and options.
@@ -103,38 +103,38 @@ export class ComputePool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComputePoolState | undefined;
-            resourceInputs["autoResume"] = state ? state.autoResume : undefined;
-            resourceInputs["autoSuspendSecs"] = state ? state.autoSuspendSecs : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["forApplication"] = state ? state.forApplication : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["initiallySuspended"] = state ? state.initiallySuspended : undefined;
-            resourceInputs["instanceFamily"] = state ? state.instanceFamily : undefined;
-            resourceInputs["maxNodes"] = state ? state.maxNodes : undefined;
-            resourceInputs["minNodes"] = state ? state.minNodes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["autoResume"] = state?.autoResume;
+            resourceInputs["autoSuspendSecs"] = state?.autoSuspendSecs;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["forApplication"] = state?.forApplication;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["initiallySuspended"] = state?.initiallySuspended;
+            resourceInputs["instanceFamily"] = state?.instanceFamily;
+            resourceInputs["maxNodes"] = state?.maxNodes;
+            resourceInputs["minNodes"] = state?.minNodes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as ComputePoolArgs | undefined;
-            if ((!args || args.instanceFamily === undefined) && !opts.urn) {
+            if (args?.instanceFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceFamily'");
             }
-            if ((!args || args.maxNodes === undefined) && !opts.urn) {
+            if (args?.maxNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxNodes'");
             }
-            if ((!args || args.minNodes === undefined) && !opts.urn) {
+            if (args?.minNodes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minNodes'");
             }
-            resourceInputs["autoResume"] = args ? args.autoResume : undefined;
-            resourceInputs["autoSuspendSecs"] = args ? args.autoSuspendSecs : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["forApplication"] = args ? args.forApplication : undefined;
-            resourceInputs["initiallySuspended"] = args ? args.initiallySuspended : undefined;
-            resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
-            resourceInputs["maxNodes"] = args ? args.maxNodes : undefined;
-            resourceInputs["minNodes"] = args ? args.minNodes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["autoResume"] = args?.autoResume;
+            resourceInputs["autoSuspendSecs"] = args?.autoSuspendSecs;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["forApplication"] = args?.forApplication;
+            resourceInputs["initiallySuspended"] = args?.initiallySuspended;
+            resourceInputs["instanceFamily"] = args?.instanceFamily;
+            resourceInputs["maxNodes"] = args?.maxNodes;
+            resourceInputs["minNodes"] = args?.minNodes;
+            resourceInputs["name"] = args?.name;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

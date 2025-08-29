@@ -11,17 +11,12 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
 func GetAccountName(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:accountName")
 }
 
-// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-// `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-// `SNOWFLAKE_AUTHENTICATOR` environment variable.
+// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 func GetAuthenticator(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:authenticator")
 }
@@ -31,32 +26,27 @@ func GetClientIp(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:clientIp")
 }
 
-// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-// be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
 func GetClientRequestMfaToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:clientRequestMfaToken")
 }
 
-// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-// sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
 func GetClientStoreTemporaryCredential(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:clientStoreTemporaryCredential")
 }
 
-// The timeout in seconds for the client to complete the authentication. Can also be sourced from the
-// `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+// The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
 func GetClientTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:clientTimeout")
 }
 
-// Indicates whether console login should be disabled in the driver. Can also be sourced from the
-// `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 func GetDisableConsoleLogin(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:disableConsoleLogin")
 }
 
-// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
-// environment variable.
+// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
 func GetDisableQueryContextCache(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:disableQueryContextCache")
 }
@@ -66,20 +56,17 @@ func GetDisableTelemetry(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:disableTelemetry")
 }
 
-// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-// `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
 func GetDriverTracing(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:driverTracing")
 }
 
-// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
-// `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
 func GetExternalBrowserTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:externalBrowserTimeout")
 }
 
-// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-// `SNOWFLAKE_HOST` environment variable.
+// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
 func GetHost(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:host")
 	if err == nil {
@@ -92,21 +79,17 @@ func GetHost(ctx *pulumi.Context) string {
 	return value
 }
 
-// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-// variable.
+// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 func GetIncludeRetryReason(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:includeRetryReason")
 }
 
-// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-// default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
-// environment variable.
+// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
 func GetInsecureMode(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:insecureMode")
 }
 
-// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
-// `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
 func GetJwtClientTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:jwtClientTimeout")
 }
@@ -116,66 +99,52 @@ func GetJwtExpireTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:jwtExpireTimeout")
 }
 
-// Enables the session to persist even after the connection is closed. Can also be sourced from the
-// `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+// Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
 func GetKeepSessionAlive(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:keepSessionAlive")
 }
 
-// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-// `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
+// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
 func GetLoginTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:loginTimeout")
 }
 
-// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
-// `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
 func GetMaxRetryCount(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:maxRetryCount")
 }
 
-// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
 func GetOcspFailOpen(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:ocspFailOpen")
 }
 
-// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-// in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-// `SNOWFLAKE_OKTA_URL` environment variable.
+// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
 func GetOktaUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:oktaUrl")
 }
 
-// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
 func GetOrganizationName(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:organizationName")
 }
 
-// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
-// This field can not be set with environmental variables.
+// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables.
 func GetParams(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:params")
 }
 
-// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-// the `SNOWFLAKE_PASSCODE` environment variable.
+// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
 func GetPasscode(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:passcode")
 }
 
-// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
-// `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
 func GetPasscodeInPassword(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:passcodeInPassword")
 }
 
-// Password for user + password or
-// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
-// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 func GetPassword(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:password")
 	if err == nil {
@@ -188,8 +157,7 @@ func GetPassword(ctx *pulumi.Context) string {
 	return value
 }
 
-// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
-// `SNOWFLAKE_PORT` environment variable.
+// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
 func GetPort(ctx *pulumi.Context) int {
 	v, err := config.TryInt(ctx, "snowflake:port")
 	if err == nil {
@@ -205,14 +173,12 @@ func GetPreviewFeaturesEnabled(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:previewFeaturesEnabled")
 }
 
-// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
 func GetPrivateKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:privateKey")
 }
 
-// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-// des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
 func GetPrivateKeyPassphrase(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:privateKeyPassphrase")
 	if err == nil {
@@ -225,14 +191,12 @@ func GetPrivateKeyPassphrase(ctx *pulumi.Context) string {
 	return value
 }
 
-// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-// variable.
+// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
 func GetProfile(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:profile")
 }
 
-// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-// `SNOWFLAKE_PROTOCOL` environment variable.
+// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 func GetProtocol(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:protocol")
 	if err == nil {
@@ -245,14 +209,12 @@ func GetProtocol(ctx *pulumi.Context) string {
 	return value
 }
 
-// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-// `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
 func GetRequestTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:requestTimeout")
 }
 
-// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-// `SNOWFLAKE_ROLE` environment variable.
+// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
 func GetRole(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:role")
 	if err == nil {
@@ -265,23 +227,17 @@ func GetRole(ctx *pulumi.Context) string {
 	return value
 }
 
-// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-// the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
-// the proper privileges - see the section below. Can also be sourced from the
-// `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
+// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
 func GetSkipTomlFilePermissionVerification(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:skipTomlFilePermissionVerification")
 }
 
-// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 func GetTmpDirectoryPath(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:tmpDirectoryPath")
 }
 
-// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:token")
 }
@@ -289,9 +245,7 @@ func GetTokenAccessor(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:tokenAccessor")
 }
 
-// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
-// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
-// variable.
+// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
 func GetUseLegacyTomlFile(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:useLegacyTomlFile")
 }
@@ -301,14 +255,12 @@ func GetUser(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:user")
 }
 
-// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 func GetValidateDefaultParameters(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:validateDefaultParameters")
 }
 
-// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-// from the `SNOWFLAKE_WAREHOUSE` environment variable.
+// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
 func GetWarehouse(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "snowflake:warehouse")
 	if err == nil {

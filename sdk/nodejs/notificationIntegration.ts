@@ -42,96 +42,96 @@ export class NotificationIntegration extends pulumi.CustomResource {
     /**
      * The external ID that Snowflake will use when assuming the AWS role
      */
-    public /*out*/ readonly awsSnsExternalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsSnsExternalId: pulumi.Output<string>;
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      */
-    public /*out*/ readonly awsSnsIamUserArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsSnsIamUserArn: pulumi.Output<string>;
     /**
      * AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
      */
-    public readonly awsSnsRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly awsSnsRoleArn: pulumi.Output<string | undefined>;
     /**
      * AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
      */
-    public readonly awsSnsTopicArn!: pulumi.Output<string | undefined>;
+    declare public readonly awsSnsTopicArn: pulumi.Output<string | undefined>;
     /**
      * AWS SQS queue ARN for notification integration to connect to
      *
      * @deprecated No longer supported notification method
      */
-    public readonly awsSqsArn!: pulumi.Output<string | undefined>;
+    declare public readonly awsSqsArn: pulumi.Output<string | undefined>;
     /**
      * The external ID that Snowflake will use when assuming the AWS role
      *
      * @deprecated No longer supported notification method
      */
-    public /*out*/ readonly awsSqsExternalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsSqsExternalId: pulumi.Output<string>;
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      *
      * @deprecated No longer supported notification method
      */
-    public /*out*/ readonly awsSqsIamUserArn!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsSqsIamUserArn: pulumi.Output<string>;
     /**
      * AWS IAM role ARN for notification integration to assume
      *
      * @deprecated No longer supported notification method
      */
-    public readonly awsSqsRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly awsSqsRoleArn: pulumi.Output<string | undefined>;
     /**
      * The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
      */
-    public readonly azureStorageQueuePrimaryUri!: pulumi.Output<string | undefined>;
+    declare public readonly azureStorageQueuePrimaryUri: pulumi.Output<string | undefined>;
     /**
      * The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
      */
-    public readonly azureTenantId!: pulumi.Output<string | undefined>;
+    declare public readonly azureTenantId: pulumi.Output<string | undefined>;
     /**
      * A comment for the integration
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Date and time when the notification integration was created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
      *
      * @deprecated Will be removed - it is added automatically on the SDK level.
      */
-    public readonly direction!: pulumi.Output<string | undefined>;
+    declare public readonly direction: pulumi.Output<string | undefined>;
     /**
      * (Default: `true`)
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * The GCP service account identifier that Snowflake will use when assuming the GCP role
      */
-    public /*out*/ readonly gcpPubsubServiceAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly gcpPubsubServiceAccount: pulumi.Output<string>;
     /**
      * The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
      */
-    public readonly gcpPubsubSubscriptionName!: pulumi.Output<string | undefined>;
+    declare public readonly gcpPubsubSubscriptionName: pulumi.Output<string | undefined>;
     /**
      * The topic id that Snowflake will use to push notifications.
      */
-    public readonly gcpPubsubTopicName!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly gcpPubsubTopicName: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
      */
-    public readonly notificationProvider!: pulumi.Output<string>;
+    declare public readonly notificationProvider: pulumi.Output<string>;
     /**
      * (Default: `QUEUE`) A type of integration
      *
      * @deprecated Will be removed - it is added automatically on the SDK level.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a NotificationIntegration resource with the given unique name, arguments, and options.
@@ -146,46 +146,46 @@ export class NotificationIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationIntegrationState | undefined;
-            resourceInputs["awsSnsExternalId"] = state ? state.awsSnsExternalId : undefined;
-            resourceInputs["awsSnsIamUserArn"] = state ? state.awsSnsIamUserArn : undefined;
-            resourceInputs["awsSnsRoleArn"] = state ? state.awsSnsRoleArn : undefined;
-            resourceInputs["awsSnsTopicArn"] = state ? state.awsSnsTopicArn : undefined;
-            resourceInputs["awsSqsArn"] = state ? state.awsSqsArn : undefined;
-            resourceInputs["awsSqsExternalId"] = state ? state.awsSqsExternalId : undefined;
-            resourceInputs["awsSqsIamUserArn"] = state ? state.awsSqsIamUserArn : undefined;
-            resourceInputs["awsSqsRoleArn"] = state ? state.awsSqsRoleArn : undefined;
-            resourceInputs["azureStorageQueuePrimaryUri"] = state ? state.azureStorageQueuePrimaryUri : undefined;
-            resourceInputs["azureTenantId"] = state ? state.azureTenantId : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
-            resourceInputs["direction"] = state ? state.direction : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["gcpPubsubServiceAccount"] = state ? state.gcpPubsubServiceAccount : undefined;
-            resourceInputs["gcpPubsubSubscriptionName"] = state ? state.gcpPubsubSubscriptionName : undefined;
-            resourceInputs["gcpPubsubTopicName"] = state ? state.gcpPubsubTopicName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationProvider"] = state ? state.notificationProvider : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["awsSnsExternalId"] = state?.awsSnsExternalId;
+            resourceInputs["awsSnsIamUserArn"] = state?.awsSnsIamUserArn;
+            resourceInputs["awsSnsRoleArn"] = state?.awsSnsRoleArn;
+            resourceInputs["awsSnsTopicArn"] = state?.awsSnsTopicArn;
+            resourceInputs["awsSqsArn"] = state?.awsSqsArn;
+            resourceInputs["awsSqsExternalId"] = state?.awsSqsExternalId;
+            resourceInputs["awsSqsIamUserArn"] = state?.awsSqsIamUserArn;
+            resourceInputs["awsSqsRoleArn"] = state?.awsSqsRoleArn;
+            resourceInputs["azureStorageQueuePrimaryUri"] = state?.azureStorageQueuePrimaryUri;
+            resourceInputs["azureTenantId"] = state?.azureTenantId;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["createdOn"] = state?.createdOn;
+            resourceInputs["direction"] = state?.direction;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["gcpPubsubServiceAccount"] = state?.gcpPubsubServiceAccount;
+            resourceInputs["gcpPubsubSubscriptionName"] = state?.gcpPubsubSubscriptionName;
+            resourceInputs["gcpPubsubTopicName"] = state?.gcpPubsubTopicName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationProvider"] = state?.notificationProvider;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as NotificationIntegrationArgs | undefined;
-            if ((!args || args.notificationProvider === undefined) && !opts.urn) {
+            if (args?.notificationProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationProvider'");
             }
-            resourceInputs["awsSnsRoleArn"] = args ? args.awsSnsRoleArn : undefined;
-            resourceInputs["awsSnsTopicArn"] = args ? args.awsSnsTopicArn : undefined;
-            resourceInputs["awsSqsArn"] = args ? args.awsSqsArn : undefined;
-            resourceInputs["awsSqsRoleArn"] = args ? args.awsSqsRoleArn : undefined;
-            resourceInputs["azureStorageQueuePrimaryUri"] = args ? args.azureStorageQueuePrimaryUri : undefined;
-            resourceInputs["azureTenantId"] = args ? args.azureTenantId : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["gcpPubsubSubscriptionName"] = args ? args.gcpPubsubSubscriptionName : undefined;
-            resourceInputs["gcpPubsubTopicName"] = args ? args.gcpPubsubTopicName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationProvider"] = args ? args.notificationProvider : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["awsSnsRoleArn"] = args?.awsSnsRoleArn;
+            resourceInputs["awsSnsTopicArn"] = args?.awsSnsTopicArn;
+            resourceInputs["awsSqsArn"] = args?.awsSqsArn;
+            resourceInputs["awsSqsRoleArn"] = args?.awsSqsRoleArn;
+            resourceInputs["azureStorageQueuePrimaryUri"] = args?.azureStorageQueuePrimaryUri;
+            resourceInputs["azureTenantId"] = args?.azureTenantId;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["direction"] = args?.direction;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["gcpPubsubSubscriptionName"] = args?.gcpPubsubSubscriptionName;
+            resourceInputs["gcpPubsubTopicName"] = args?.gcpPubsubTopicName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationProvider"] = args?.notificationProvider;
+            resourceInputs["type"] = args?.type;
             resourceInputs["awsSnsExternalId"] = undefined /*out*/;
             resourceInputs["awsSnsIamUserArn"] = undefined /*out*/;
             resourceInputs["awsSqsExternalId"] = undefined /*out*/;

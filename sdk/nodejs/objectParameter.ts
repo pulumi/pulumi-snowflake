@@ -44,23 +44,23 @@ export class ObjectParameter extends pulumi.CustomResource {
     /**
      * Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    public readonly objectIdentifiers!: pulumi.Output<outputs.ObjectParameterObjectIdentifier[] | undefined>;
+    declare public readonly objectIdentifiers: pulumi.Output<outputs.ObjectParameterObjectIdentifier[] | undefined>;
     /**
      * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    public readonly objectType!: pulumi.Output<string | undefined>;
+    declare public readonly objectType: pulumi.Output<string | undefined>;
     /**
      * (Default: `false`) If true, the object parameter will be set on the account level.
      */
-    public readonly onAccount!: pulumi.Output<boolean | undefined>;
+    declare public readonly onAccount: pulumi.Output<boolean | undefined>;
     /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a ObjectParameter resource with the given unique name, arguments, and options.
@@ -75,24 +75,24 @@ export class ObjectParameter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObjectParameterState | undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["objectIdentifiers"] = state ? state.objectIdentifiers : undefined;
-            resourceInputs["objectType"] = state ? state.objectType : undefined;
-            resourceInputs["onAccount"] = state ? state.onAccount : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["objectIdentifiers"] = state?.objectIdentifiers;
+            resourceInputs["objectType"] = state?.objectType;
+            resourceInputs["onAccount"] = state?.onAccount;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as ObjectParameterArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["objectIdentifiers"] = args ? args.objectIdentifiers : undefined;
-            resourceInputs["objectType"] = args ? args.objectType : undefined;
-            resourceInputs["onAccount"] = args ? args.onAccount : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["objectIdentifiers"] = args?.objectIdentifiers;
+            resourceInputs["objectType"] = args?.objectType;
+            resourceInputs["onAccount"] = args?.onAccount;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ObjectParameter.__pulumiType, name, resourceInputs, opts);

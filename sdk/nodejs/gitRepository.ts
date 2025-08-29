@@ -44,43 +44,43 @@ export class GitRepository extends pulumi.CustomResource {
     /**
      * Identifier of API INTEGRATION containing information about the remote Git repository such as allowed credentials and prefixes for target URLs.
      */
-    public readonly apiIntegration!: pulumi.Output<string>;
+    declare public readonly apiIntegration: pulumi.Output<string>;
     /**
      * Specifies a comment for the git repository.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE GIT REPOSITORY` for the given git repository.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.GitRepositoryDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.GitRepositoryDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the Snowflake secret fully qualified name (e.g `"\"<db_name>\".\"<schema_name>\".\"<secret_name>\""`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
      */
-    public readonly gitCredentials!: pulumi.Output<string | undefined>;
+    declare public readonly gitCredentials: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier for the git repository; must be unique for the schema in which the git repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the origin URL of the remote Git repository that this Git repository clone represents. The URL must use HTTPS.
      */
-    public readonly origin!: pulumi.Output<string>;
+    declare public readonly origin: pulumi.Output<string>;
     /**
      * The schema in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW GIT REPOSITORIES` for the given git repository.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.GitRepositoryShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.GitRepositoryShowOutput[]>;
 
     /**
      * Create a GitRepository resource with the given unique name, arguments, and options.
@@ -95,37 +95,37 @@ export class GitRepository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitRepositoryState | undefined;
-            resourceInputs["apiIntegration"] = state ? state.apiIntegration : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["gitCredentials"] = state ? state.gitCredentials : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["origin"] = state ? state.origin : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["apiIntegration"] = state?.apiIntegration;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["gitCredentials"] = state?.gitCredentials;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["origin"] = state?.origin;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as GitRepositoryArgs | undefined;
-            if ((!args || args.apiIntegration === undefined) && !opts.urn) {
+            if (args?.apiIntegration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiIntegration'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.origin === undefined) && !opts.urn) {
+            if (args?.origin === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origin'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["apiIntegration"] = args ? args.apiIntegration : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["gitCredentials"] = args ? args.gitCredentials : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["apiIntegration"] = args?.apiIntegration;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["gitCredentials"] = args?.gitCredentials;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["origin"] = args?.origin;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

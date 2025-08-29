@@ -42,47 +42,47 @@ export class ManagedAccount extends pulumi.CustomResource {
     /**
      * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
      */
-    public readonly adminName!: pulumi.Output<string>;
+    declare public readonly adminName: pulumi.Output<string>;
     /**
      * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      */
-    public readonly adminPassword!: pulumi.Output<string>;
+    declare public readonly adminPassword: pulumi.Output<string>;
     /**
      * Cloud in which the managed account is located.
      */
-    public /*out*/ readonly cloud!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloud: pulumi.Output<string>;
     /**
      * Specifies a comment for the managed account.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Date and time when the managed account was created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Display name of the managed account.
      */
-    public /*out*/ readonly locator!: pulumi.Output<string>;
+    declare public /*out*/ readonly locator: pulumi.Output<string>;
     /**
      * Identifier for the managed account; must be unique for your account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Snowflake Region in which the managed account is located.
      */
-    public /*out*/ readonly region!: pulumi.Output<string>;
+    declare public /*out*/ readonly region: pulumi.Output<string>;
     /**
      * (Default: `READER`) Specifies the type of managed account.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * URL for accessing the managed account, particularly through the web interface.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a ManagedAccount resource with the given unique name, arguments, and options.
@@ -97,30 +97,30 @@ export class ManagedAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedAccountState | undefined;
-            resourceInputs["adminName"] = state ? state.adminName : undefined;
-            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
-            resourceInputs["cloud"] = state ? state.cloud : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["locator"] = state ? state.locator : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["adminName"] = state?.adminName;
+            resourceInputs["adminPassword"] = state?.adminPassword;
+            resourceInputs["cloud"] = state?.cloud;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["createdOn"] = state?.createdOn;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["locator"] = state?.locator;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ManagedAccountArgs | undefined;
-            if ((!args || args.adminName === undefined) && !opts.urn) {
+            if (args?.adminName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminName'");
             }
-            if ((!args || args.adminPassword === undefined) && !opts.urn) {
+            if (args?.adminPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminPassword'");
             }
-            resourceInputs["adminName"] = args ? args.adminName : undefined;
+            resourceInputs["adminName"] = args?.adminName;
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["type"] = args?.type;
             resourceInputs["cloud"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
