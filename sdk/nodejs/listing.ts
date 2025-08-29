@@ -44,32 +44,32 @@ export class Listing extends pulumi.CustomResource {
     /**
      * Specifies the application package attached to the listing.
      */
-    public readonly applicationPackage!: pulumi.Output<string | undefined>;
+    declare public readonly applicationPackage: pulumi.Output<string | undefined>;
     /**
      * Specifies a comment for the listing.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
-    public readonly manifest!: pulumi.Output<outputs.ListingManifest>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
+    declare public readonly manifest: pulumi.Output<outputs.ListingManifest>;
     /**
      * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
      */
-    public readonly publish!: pulumi.Output<string | undefined>;
+    declare public readonly publish: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier for the share to attach to the listing.
      */
-    public readonly share!: pulumi.Output<string | undefined>;
+    declare public readonly share: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `SHOW LISTINGS` for the given listing.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ListingShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ListingShowOutput[]>;
 
     /**
      * Create a Listing resource with the given unique name, arguments, and options.
@@ -84,25 +84,25 @@ export class Listing extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListingState | undefined;
-            resourceInputs["applicationPackage"] = state ? state.applicationPackage : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["manifest"] = state ? state.manifest : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publish"] = state ? state.publish : undefined;
-            resourceInputs["share"] = state ? state.share : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["applicationPackage"] = state?.applicationPackage;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["manifest"] = state?.manifest;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publish"] = state?.publish;
+            resourceInputs["share"] = state?.share;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as ListingArgs | undefined;
-            if ((!args || args.manifest === undefined) && !opts.urn) {
+            if (args?.manifest === undefined && !opts.urn) {
                 throw new Error("Missing required property 'manifest'");
             }
-            resourceInputs["applicationPackage"] = args ? args.applicationPackage : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["manifest"] = args ? args.manifest : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publish"] = args ? args.publish : undefined;
-            resourceInputs["share"] = args ? args.share : undefined;
+            resourceInputs["applicationPackage"] = args?.applicationPackage;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["manifest"] = args?.manifest;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publish"] = args?.publish;
+            resourceInputs["share"] = args?.share;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }

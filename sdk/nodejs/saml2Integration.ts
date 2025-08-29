@@ -44,83 +44,83 @@ export class Saml2Integration extends pulumi.CustomResource {
     /**
      * A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
      */
-    public readonly allowedEmailPatterns!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedEmailPatterns: pulumi.Output<string[] | undefined>;
     /**
      * A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
      */
-    public readonly allowedUserDomains!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedUserDomains: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the integration.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.Saml2IntegrationDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.Saml2IntegrationDescribeOutput[]>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly enabled!: pulumi.Output<string | undefined>;
+    declare public readonly enabled: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly saml2EnableSpInitiated!: pulumi.Output<string | undefined>;
+    declare public readonly saml2EnableSpInitiated: pulumi.Output<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly saml2ForceAuthn!: pulumi.Output<string | undefined>;
+    declare public readonly saml2ForceAuthn: pulumi.Output<string | undefined>;
     /**
      * The string containing the IdP EntityID / Issuer.
      */
-    public readonly saml2Issuer!: pulumi.Output<string>;
+    declare public readonly saml2Issuer: pulumi.Output<string>;
     /**
      * The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
      */
-    public readonly saml2PostLogoutRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly saml2PostLogoutRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * The string describing the IdP. Valid options are: `OKTA` | `ADFS` | `CUSTOM`.
      */
-    public readonly saml2Provider!: pulumi.Output<string>;
+    declare public readonly saml2Provider: pulumi.Output<string>;
     /**
      * The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` | `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` | `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` | `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` | `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
      */
-    public readonly saml2RequestedNameidFormat!: pulumi.Output<string | undefined>;
+    declare public readonly saml2RequestedNameidFormat: pulumi.Output<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly saml2SignRequest!: pulumi.Output<string | undefined>;
+    declare public readonly saml2SignRequest: pulumi.Output<string | undefined>;
     /**
      * The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
      */
-    public readonly saml2SnowflakeAcsUrl!: pulumi.Output<string | undefined>;
+    declare public readonly saml2SnowflakeAcsUrl: pulumi.Output<string | undefined>;
     /**
      * The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
      */
-    public readonly saml2SnowflakeIssuerUrl!: pulumi.Output<string | undefined>;
+    declare public readonly saml2SnowflakeIssuerUrl: pulumi.Output<string | undefined>;
     /**
      * The string containing the label to display after the Log In With button on the login page. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
      */
-    public readonly saml2SpInitiatedLoginPageLabel!: pulumi.Output<string | undefined>;
+    declare public readonly saml2SpInitiatedLoginPageLabel: pulumi.Output<string | undefined>;
     /**
      * The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
      */
-    public readonly saml2SsoUrl!: pulumi.Output<string>;
+    declare public readonly saml2SsoUrl: pulumi.Output<string>;
     /**
      * The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
      */
-    public readonly saml2X509Cert!: pulumi.Output<string>;
+    declare public readonly saml2X509Cert: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.Saml2IntegrationShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.Saml2IntegrationShowOutput[]>;
 
     /**
      * Create a Saml2Integration resource with the given unique name, arguments, and options.
@@ -135,56 +135,56 @@ export class Saml2Integration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as Saml2IntegrationState | undefined;
-            resourceInputs["allowedEmailPatterns"] = state ? state.allowedEmailPatterns : undefined;
-            resourceInputs["allowedUserDomains"] = state ? state.allowedUserDomains : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["saml2EnableSpInitiated"] = state ? state.saml2EnableSpInitiated : undefined;
-            resourceInputs["saml2ForceAuthn"] = state ? state.saml2ForceAuthn : undefined;
-            resourceInputs["saml2Issuer"] = state ? state.saml2Issuer : undefined;
-            resourceInputs["saml2PostLogoutRedirectUrl"] = state ? state.saml2PostLogoutRedirectUrl : undefined;
-            resourceInputs["saml2Provider"] = state ? state.saml2Provider : undefined;
-            resourceInputs["saml2RequestedNameidFormat"] = state ? state.saml2RequestedNameidFormat : undefined;
-            resourceInputs["saml2SignRequest"] = state ? state.saml2SignRequest : undefined;
-            resourceInputs["saml2SnowflakeAcsUrl"] = state ? state.saml2SnowflakeAcsUrl : undefined;
-            resourceInputs["saml2SnowflakeIssuerUrl"] = state ? state.saml2SnowflakeIssuerUrl : undefined;
-            resourceInputs["saml2SpInitiatedLoginPageLabel"] = state ? state.saml2SpInitiatedLoginPageLabel : undefined;
-            resourceInputs["saml2SsoUrl"] = state ? state.saml2SsoUrl : undefined;
-            resourceInputs["saml2X509Cert"] = state ? state.saml2X509Cert : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["allowedEmailPatterns"] = state?.allowedEmailPatterns;
+            resourceInputs["allowedUserDomains"] = state?.allowedUserDomains;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["saml2EnableSpInitiated"] = state?.saml2EnableSpInitiated;
+            resourceInputs["saml2ForceAuthn"] = state?.saml2ForceAuthn;
+            resourceInputs["saml2Issuer"] = state?.saml2Issuer;
+            resourceInputs["saml2PostLogoutRedirectUrl"] = state?.saml2PostLogoutRedirectUrl;
+            resourceInputs["saml2Provider"] = state?.saml2Provider;
+            resourceInputs["saml2RequestedNameidFormat"] = state?.saml2RequestedNameidFormat;
+            resourceInputs["saml2SignRequest"] = state?.saml2SignRequest;
+            resourceInputs["saml2SnowflakeAcsUrl"] = state?.saml2SnowflakeAcsUrl;
+            resourceInputs["saml2SnowflakeIssuerUrl"] = state?.saml2SnowflakeIssuerUrl;
+            resourceInputs["saml2SpInitiatedLoginPageLabel"] = state?.saml2SpInitiatedLoginPageLabel;
+            resourceInputs["saml2SsoUrl"] = state?.saml2SsoUrl;
+            resourceInputs["saml2X509Cert"] = state?.saml2X509Cert;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as Saml2IntegrationArgs | undefined;
-            if ((!args || args.saml2Issuer === undefined) && !opts.urn) {
+            if (args?.saml2Issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'saml2Issuer'");
             }
-            if ((!args || args.saml2Provider === undefined) && !opts.urn) {
+            if (args?.saml2Provider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'saml2Provider'");
             }
-            if ((!args || args.saml2SsoUrl === undefined) && !opts.urn) {
+            if (args?.saml2SsoUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'saml2SsoUrl'");
             }
-            if ((!args || args.saml2X509Cert === undefined) && !opts.urn) {
+            if (args?.saml2X509Cert === undefined && !opts.urn) {
                 throw new Error("Missing required property 'saml2X509Cert'");
             }
-            resourceInputs["allowedEmailPatterns"] = args ? args.allowedEmailPatterns : undefined;
-            resourceInputs["allowedUserDomains"] = args ? args.allowedUserDomains : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["saml2EnableSpInitiated"] = args ? args.saml2EnableSpInitiated : undefined;
-            resourceInputs["saml2ForceAuthn"] = args ? args.saml2ForceAuthn : undefined;
-            resourceInputs["saml2Issuer"] = args ? args.saml2Issuer : undefined;
-            resourceInputs["saml2PostLogoutRedirectUrl"] = args ? args.saml2PostLogoutRedirectUrl : undefined;
-            resourceInputs["saml2Provider"] = args ? args.saml2Provider : undefined;
-            resourceInputs["saml2RequestedNameidFormat"] = args ? args.saml2RequestedNameidFormat : undefined;
-            resourceInputs["saml2SignRequest"] = args ? args.saml2SignRequest : undefined;
-            resourceInputs["saml2SnowflakeAcsUrl"] = args ? args.saml2SnowflakeAcsUrl : undefined;
-            resourceInputs["saml2SnowflakeIssuerUrl"] = args ? args.saml2SnowflakeIssuerUrl : undefined;
-            resourceInputs["saml2SpInitiatedLoginPageLabel"] = args ? args.saml2SpInitiatedLoginPageLabel : undefined;
-            resourceInputs["saml2SsoUrl"] = args ? args.saml2SsoUrl : undefined;
+            resourceInputs["allowedEmailPatterns"] = args?.allowedEmailPatterns;
+            resourceInputs["allowedUserDomains"] = args?.allowedUserDomains;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["saml2EnableSpInitiated"] = args?.saml2EnableSpInitiated;
+            resourceInputs["saml2ForceAuthn"] = args?.saml2ForceAuthn;
+            resourceInputs["saml2Issuer"] = args?.saml2Issuer;
+            resourceInputs["saml2PostLogoutRedirectUrl"] = args?.saml2PostLogoutRedirectUrl;
+            resourceInputs["saml2Provider"] = args?.saml2Provider;
+            resourceInputs["saml2RequestedNameidFormat"] = args?.saml2RequestedNameidFormat;
+            resourceInputs["saml2SignRequest"] = args?.saml2SignRequest;
+            resourceInputs["saml2SnowflakeAcsUrl"] = args?.saml2SnowflakeAcsUrl;
+            resourceInputs["saml2SnowflakeIssuerUrl"] = args?.saml2SnowflakeIssuerUrl;
+            resourceInputs["saml2SpInitiatedLoginPageLabel"] = args?.saml2SpInitiatedLoginPageLabel;
+            resourceInputs["saml2SsoUrl"] = args?.saml2SsoUrl;
             resourceInputs["saml2X509Cert"] = args?.saml2X509Cert ? pulumi.secret(args.saml2X509Cert) : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;

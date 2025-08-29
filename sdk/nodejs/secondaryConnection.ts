@@ -44,27 +44,27 @@ export class SecondaryConnection extends pulumi.CustomResource {
     /**
      * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
      */
-    public readonly asReplicaOf!: pulumi.Output<string>;
+    declare public readonly asReplicaOf: pulumi.Output<string>;
     /**
      * Specifies a comment for the secondary connection.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
      */
-    public /*out*/ readonly isPrimary!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isPrimary: pulumi.Output<boolean>;
     /**
      * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW CONNECTIONS` for the given connection.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.SecondaryConnectionShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.SecondaryConnectionShowOutput[]>;
 
     /**
      * Create a SecondaryConnection resource with the given unique name, arguments, and options.
@@ -79,20 +79,20 @@ export class SecondaryConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecondaryConnectionState | undefined;
-            resourceInputs["asReplicaOf"] = state ? state.asReplicaOf : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["isPrimary"] = state ? state.isPrimary : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["asReplicaOf"] = state?.asReplicaOf;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["isPrimary"] = state?.isPrimary;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as SecondaryConnectionArgs | undefined;
-            if ((!args || args.asReplicaOf === undefined) && !opts.urn) {
+            if (args?.asReplicaOf === undefined && !opts.urn) {
                 throw new Error("Missing required property 'asReplicaOf'");
             }
-            resourceInputs["asReplicaOf"] = args ? args.asReplicaOf : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["asReplicaOf"] = args?.asReplicaOf;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["name"] = args?.name;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["isPrimary"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

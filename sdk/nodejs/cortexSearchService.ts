@@ -44,55 +44,55 @@ export class CortexSearchService extends pulumi.CustomResource {
     /**
      * Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
      */
-    public readonly attributes!: pulumi.Output<string[] | undefined>;
+    declare public readonly attributes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the Cortex search service.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Creation date for the given Cortex search service.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * The database in which to create the Cortex search service.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.CortexSearchServiceDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.CortexSearchServiceDescribeOutput[]>;
     /**
      * Specifies the embedding model to use for the Cortex search service.
      */
-    public readonly embeddingModel!: pulumi.Output<string | undefined>;
+    declare public readonly embeddingModel: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the column to use as the search column for the Cortex search service; must be a text value.
      */
-    public readonly on!: pulumi.Output<string>;
+    declare public readonly on: pulumi.Output<string>;
     /**
      * Specifies the query to use to populate the Cortex search service.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * The schema in which to create the Cortex search service.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Specifies the maximum target lag time for the Cortex search service.
      */
-    public readonly targetLag!: pulumi.Output<string>;
+    declare public readonly targetLag: pulumi.Output<string>;
     /**
      * The warehouse in which to create the Cortex search service.
      */
-    public readonly warehouse!: pulumi.Output<string>;
+    declare public readonly warehouse: pulumi.Output<string>;
 
     /**
      * Create a CortexSearchService resource with the given unique name, arguments, and options.
@@ -107,49 +107,49 @@ export class CortexSearchService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CortexSearchServiceState | undefined;
-            resourceInputs["attributes"] = state ? state.attributes : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["embeddingModel"] = state ? state.embeddingModel : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["on"] = state ? state.on : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["targetLag"] = state ? state.targetLag : undefined;
-            resourceInputs["warehouse"] = state ? state.warehouse : undefined;
+            resourceInputs["attributes"] = state?.attributes;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["createdOn"] = state?.createdOn;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["embeddingModel"] = state?.embeddingModel;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["on"] = state?.on;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["targetLag"] = state?.targetLag;
+            resourceInputs["warehouse"] = state?.warehouse;
         } else {
             const args = argsOrState as CortexSearchServiceArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.on === undefined) && !opts.urn) {
+            if (args?.on === undefined && !opts.urn) {
                 throw new Error("Missing required property 'on'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.targetLag === undefined) && !opts.urn) {
+            if (args?.targetLag === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetLag'");
             }
-            if ((!args || args.warehouse === undefined) && !opts.urn) {
+            if (args?.warehouse === undefined && !opts.urn) {
                 throw new Error("Missing required property 'warehouse'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["embeddingModel"] = args ? args.embeddingModel : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["on"] = args ? args.on : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["targetLag"] = args ? args.targetLag : undefined;
-            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["embeddingModel"] = args?.embeddingModel;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["on"] = args?.on;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["targetLag"] = args?.targetLag;
+            resourceInputs["warehouse"] = args?.warehouse;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;

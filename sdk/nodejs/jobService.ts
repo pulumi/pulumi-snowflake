@@ -44,55 +44,55 @@ export class JobService extends pulumi.CustomResource {
     /**
      * Specifies a comment for the service.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly computePool!: pulumi.Output<string>;
+    declare public readonly computePool: pulumi.Output<string>;
     /**
      * The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE SERVICE` for the given service.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.JobServiceDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.JobServiceDescribeOutput[]>;
     /**
      * Specifies the names of the external access integrations that allow your service to access external sites.
      */
-    public readonly externalAccessIntegrations!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalAccessIntegrations: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    public readonly fromSpecification!: pulumi.Output<outputs.JobServiceFromSpecification | undefined>;
+    declare public readonly fromSpecification: pulumi.Output<outputs.JobServiceFromSpecification | undefined>;
     /**
      * Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    public readonly fromSpecificationTemplate!: pulumi.Output<outputs.JobServiceFromSpecificationTemplate | undefined>;
+    declare public readonly fromSpecificationTemplate: pulumi.Output<outputs.JobServiceFromSpecificationTemplate | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly queryWarehouse!: pulumi.Output<string | undefined>;
+    declare public readonly queryWarehouse: pulumi.Output<string | undefined>;
     /**
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
      */
-    public /*out*/ readonly serviceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceType: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW SERVICES` for the given service.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.JobServiceShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.JobServiceShowOutput[]>;
 
     /**
      * Create a JobService resource with the given unique name, arguments, and options.
@@ -107,39 +107,39 @@ export class JobService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobServiceState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["computePool"] = state ? state.computePool : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["externalAccessIntegrations"] = state ? state.externalAccessIntegrations : undefined;
-            resourceInputs["fromSpecification"] = state ? state.fromSpecification : undefined;
-            resourceInputs["fromSpecificationTemplate"] = state ? state.fromSpecificationTemplate : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queryWarehouse"] = state ? state.queryWarehouse : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["serviceType"] = state ? state.serviceType : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["computePool"] = state?.computePool;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["externalAccessIntegrations"] = state?.externalAccessIntegrations;
+            resourceInputs["fromSpecification"] = state?.fromSpecification;
+            resourceInputs["fromSpecificationTemplate"] = state?.fromSpecificationTemplate;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queryWarehouse"] = state?.queryWarehouse;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["serviceType"] = state?.serviceType;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as JobServiceArgs | undefined;
-            if ((!args || args.computePool === undefined) && !opts.urn) {
+            if (args?.computePool === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computePool'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["computePool"] = args ? args.computePool : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["externalAccessIntegrations"] = args ? args.externalAccessIntegrations : undefined;
-            resourceInputs["fromSpecification"] = args ? args.fromSpecification : undefined;
-            resourceInputs["fromSpecificationTemplate"] = args ? args.fromSpecificationTemplate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryWarehouse"] = args ? args.queryWarehouse : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["computePool"] = args?.computePool;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["externalAccessIntegrations"] = args?.externalAccessIntegrations;
+            resourceInputs["fromSpecification"] = args?.fromSpecification;
+            resourceInputs["fromSpecificationTemplate"] = args?.fromSpecificationTemplate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryWarehouse"] = args?.queryWarehouse;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["serviceType"] = undefined /*out*/;

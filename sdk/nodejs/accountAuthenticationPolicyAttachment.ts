@@ -35,7 +35,7 @@ export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource
     /**
      * Qualified name (`"db"."schema"."policyName"`) of the authentication policy to apply to the current account.
      */
-    public readonly authenticationPolicy!: pulumi.Output<string>;
+    declare public readonly authenticationPolicy: pulumi.Output<string>;
 
     /**
      * Create a AccountAuthenticationPolicyAttachment resource with the given unique name, arguments, and options.
@@ -50,13 +50,13 @@ export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountAuthenticationPolicyAttachmentState | undefined;
-            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
+            resourceInputs["authenticationPolicy"] = state?.authenticationPolicy;
         } else {
             const args = argsOrState as AccountAuthenticationPolicyAttachmentArgs | undefined;
-            if ((!args || args.authenticationPolicy === undefined) && !opts.urn) {
+            if (args?.authenticationPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationPolicy'");
             }
-            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
+            resourceInputs["authenticationPolicy"] = args?.authenticationPolicy;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountAuthenticationPolicyAttachment.__pulumiType, name, resourceInputs, opts);

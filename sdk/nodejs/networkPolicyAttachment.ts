@@ -42,15 +42,15 @@ export class NetworkPolicyAttachment extends pulumi.CustomResource {
     /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
      */
-    public readonly networkPolicyName!: pulumi.Output<string>;
+    declare public readonly networkPolicyName: pulumi.Output<string>;
     /**
      * (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
      */
-    public readonly setForAccount!: pulumi.Output<boolean | undefined>;
+    declare public readonly setForAccount: pulumi.Output<boolean | undefined>;
     /**
      * Specifies which users the network policy should be attached to
      */
-    public readonly users!: pulumi.Output<string[] | undefined>;
+    declare public readonly users: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a NetworkPolicyAttachment resource with the given unique name, arguments, and options.
@@ -65,17 +65,17 @@ export class NetworkPolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkPolicyAttachmentState | undefined;
-            resourceInputs["networkPolicyName"] = state ? state.networkPolicyName : undefined;
-            resourceInputs["setForAccount"] = state ? state.setForAccount : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
+            resourceInputs["networkPolicyName"] = state?.networkPolicyName;
+            resourceInputs["setForAccount"] = state?.setForAccount;
+            resourceInputs["users"] = state?.users;
         } else {
             const args = argsOrState as NetworkPolicyAttachmentArgs | undefined;
-            if ((!args || args.networkPolicyName === undefined) && !opts.urn) {
+            if (args?.networkPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkPolicyName'");
             }
-            resourceInputs["networkPolicyName"] = args ? args.networkPolicyName : undefined;
-            resourceInputs["setForAccount"] = args ? args.setForAccount : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["networkPolicyName"] = args?.networkPolicyName;
+            resourceInputs["setForAccount"] = args?.setForAccount;
+            resourceInputs["users"] = args?.users;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkPolicyAttachment.__pulumiType, name, resourceInputs, opts);

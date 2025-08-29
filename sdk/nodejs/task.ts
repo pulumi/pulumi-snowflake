@@ -44,303 +44,303 @@ export class Task extends pulumi.CustomResource {
     /**
      * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
      */
-    public readonly abortDetachedQuery!: pulumi.Output<boolean>;
+    declare public readonly abortDetachedQuery: pulumi.Output<boolean>;
     /**
      * Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly afters!: pulumi.Output<string[] | undefined>;
+    declare public readonly afters: pulumi.Output<string[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly allowOverlappingExecution!: pulumi.Output<string | undefined>;
+    declare public readonly allowOverlappingExecution: pulumi.Output<string | undefined>;
     /**
      * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
      */
-    public readonly autocommit!: pulumi.Output<boolean>;
+    declare public readonly autocommit: pulumi.Output<boolean>;
     /**
      * The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
      */
-    public readonly binaryInputFormat!: pulumi.Output<string>;
+    declare public readonly binaryInputFormat: pulumi.Output<string>;
     /**
      * The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
      */
-    public readonly binaryOutputFormat!: pulumi.Output<string>;
+    declare public readonly binaryOutputFormat: pulumi.Output<string>;
     /**
      * Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
      */
-    public readonly clientMemoryLimit!: pulumi.Output<number>;
+    declare public readonly clientMemoryLimit: pulumi.Output<number>;
     /**
      * For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
      */
-    public readonly clientMetadataRequestUseConnectionCtx!: pulumi.Output<boolean>;
+    declare public readonly clientMetadataRequestUseConnectionCtx: pulumi.Output<boolean>;
     /**
      * Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
      */
-    public readonly clientPrefetchThreads!: pulumi.Output<number>;
+    declare public readonly clientPrefetchThreads: pulumi.Output<number>;
     /**
      * Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
      */
-    public readonly clientResultChunkSize!: pulumi.Output<number>;
+    declare public readonly clientResultChunkSize: pulumi.Output<number>;
     /**
      * Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
      */
-    public readonly clientResultColumnCaseInsensitive!: pulumi.Output<boolean>;
+    declare public readonly clientResultColumnCaseInsensitive: pulumi.Output<boolean>;
     /**
      * Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
      */
-    public readonly clientSessionKeepAlive!: pulumi.Output<boolean>;
+    declare public readonly clientSessionKeepAlive: pulumi.Output<boolean>;
     /**
      * Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
      */
-    public readonly clientSessionKeepAliveHeartbeatFrequency!: pulumi.Output<number>;
+    declare public readonly clientSessionKeepAliveHeartbeatFrequency: pulumi.Output<number>;
     /**
      * Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
      */
-    public readonly clientTimestampTypeMapping!: pulumi.Output<string>;
+    declare public readonly clientTimestampTypeMapping: pulumi.Output<string>;
     /**
      * Specifies a comment for the task.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
      */
-    public readonly config!: pulumi.Output<string | undefined>;
+    declare public readonly config: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
      */
-    public readonly dateInputFormat!: pulumi.Output<string>;
+    declare public readonly dateInputFormat: pulumi.Output<string>;
     /**
      * Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
      */
-    public readonly dateOutputFormat!: pulumi.Output<string>;
+    declare public readonly dateOutputFormat: pulumi.Output<string>;
     /**
      * Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
      */
-    public readonly enableUnloadPhysicalTypeOptimization!: pulumi.Output<boolean>;
+    declare public readonly enableUnloadPhysicalTypeOptimization: pulumi.Output<boolean>;
     /**
      * Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
-    public readonly errorIntegration!: pulumi.Output<string | undefined>;
+    declare public readonly errorIntegration: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
      */
-    public readonly errorOnNondeterministicMerge!: pulumi.Output<boolean>;
+    declare public readonly errorOnNondeterministicMerge: pulumi.Output<boolean>;
     /**
      * Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
      */
-    public readonly errorOnNondeterministicUpdate!: pulumi.Output<boolean>;
+    declare public readonly errorOnNondeterministicUpdate: pulumi.Output<boolean>;
     /**
      * Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly finalize!: pulumi.Output<string | undefined>;
+    declare public readonly finalize: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      */
-    public readonly geographyOutputFormat!: pulumi.Output<string>;
+    declare public readonly geographyOutputFormat: pulumi.Output<string>;
     /**
      * Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
      */
-    public readonly geometryOutputFormat!: pulumi.Output<string>;
+    declare public readonly geometryOutputFormat: pulumi.Output<string>;
     /**
      * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
-    public readonly jdbcTreatTimestampNtzAsUtc!: pulumi.Output<boolean>;
+    declare public readonly jdbcTreatTimestampNtzAsUtc: pulumi.Output<boolean>;
     /**
      * Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
      */
-    public readonly jdbcUseSessionTimezone!: pulumi.Output<boolean>;
+    declare public readonly jdbcUseSessionTimezone: pulumi.Output<boolean>;
     /**
      * Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
      */
-    public readonly jsonIndent!: pulumi.Output<number>;
+    declare public readonly jsonIndent: pulumi.Output<number>;
     /**
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
-    public readonly lockTimeout!: pulumi.Output<number>;
+    declare public readonly lockTimeout: pulumi.Output<number>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
-    public readonly logLevel!: pulumi.Output<string>;
+    declare public readonly logLevel: pulumi.Output<string>;
     /**
      * Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
      */
-    public readonly multiStatementCount!: pulumi.Output<number>;
+    declare public readonly multiStatementCount: pulumi.Output<number>;
     /**
      * Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
      */
-    public readonly noorderSequenceAsDefault!: pulumi.Output<boolean>;
+    declare public readonly noorderSequenceAsDefault: pulumi.Output<boolean>;
     /**
      * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      */
-    public readonly odbcTreatDecimalAsInt!: pulumi.Output<boolean>;
+    declare public readonly odbcTreatDecimalAsInt: pulumi.Output<boolean>;
     /**
      * Outputs the result of `SHOW PARAMETERS IN TASK` for the given task.
      */
-    public /*out*/ readonly parameters!: pulumi.Output<outputs.TaskParameter[]>;
+    declare public /*out*/ readonly parameters: pulumi.Output<outputs.TaskParameter[]>;
     /**
      * Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
      */
-    public readonly queryTag!: pulumi.Output<string>;
+    declare public readonly queryTag: pulumi.Output<string>;
     /**
      * Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */
-    public readonly quotedIdentifiersIgnoreCase!: pulumi.Output<boolean>;
+    declare public readonly quotedIdentifiersIgnoreCase: pulumi.Output<boolean>;
     /**
      * Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
      */
-    public readonly rowsPerResultset!: pulumi.Output<number>;
+    declare public readonly rowsPerResultset: pulumi.Output<number>;
     /**
      * Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
      */
-    public readonly s3StageVpceDnsName!: pulumi.Output<string>;
+    declare public readonly s3StageVpceDnsName: pulumi.Output<string>;
     /**
      * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
      */
-    public readonly schedule!: pulumi.Output<outputs.TaskSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.TaskSchedule | undefined>;
     /**
      * The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      */
-    public readonly searchPath!: pulumi.Output<string>;
+    declare public readonly searchPath: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW TASKS` for the given task.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.TaskShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.TaskShowOutput[]>;
     /**
      * Any single SQL statement, or a call to a stored procedure, executed when the task runs.
      */
-    public readonly sqlStatement!: pulumi.Output<string>;
+    declare public readonly sqlStatement: pulumi.Output<string>;
     /**
      * Specifies if the task should be started or suspended.
      */
-    public readonly started!: pulumi.Output<boolean>;
+    declare public readonly started: pulumi.Output<boolean>;
     /**
      * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      */
-    public readonly statementQueuedTimeoutInSeconds!: pulumi.Output<number>;
+    declare public readonly statementQueuedTimeoutInSeconds: pulumi.Output<number>;
     /**
      * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      */
-    public readonly statementTimeoutInSeconds!: pulumi.Output<number>;
+    declare public readonly statementTimeoutInSeconds: pulumi.Output<number>;
     /**
      * This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
      */
-    public readonly strictJsonOutput!: pulumi.Output<boolean>;
+    declare public readonly strictJsonOutput: pulumi.Output<boolean>;
     /**
      * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      */
-    public readonly suspendTaskAfterNumFailures!: pulumi.Output<number>;
+    declare public readonly suspendTaskAfterNumFailures: pulumi.Output<number>;
     /**
      * Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      */
-    public readonly taskAutoRetryAttempts!: pulumi.Output<number>;
+    declare public readonly taskAutoRetryAttempts: pulumi.Output<number>;
     /**
      * Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
      */
-    public readonly timeInputFormat!: pulumi.Output<string>;
+    declare public readonly timeInputFormat: pulumi.Output<string>;
     /**
      * Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
      */
-    public readonly timeOutputFormat!: pulumi.Output<string>;
+    declare public readonly timeOutputFormat: pulumi.Output<string>;
     /**
      * Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
      */
-    public readonly timestampDayIsAlways24h!: pulumi.Output<boolean>;
+    declare public readonly timestampDayIsAlways24h: pulumi.Output<boolean>;
     /**
      * Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
      */
-    public readonly timestampInputFormat!: pulumi.Output<string>;
+    declare public readonly timestampInputFormat: pulumi.Output<string>;
     /**
      * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
-    public readonly timestampLtzOutputFormat!: pulumi.Output<string>;
+    declare public readonly timestampLtzOutputFormat: pulumi.Output<string>;
     /**
      * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
-    public readonly timestampNtzOutputFormat!: pulumi.Output<string>;
+    declare public readonly timestampNtzOutputFormat: pulumi.Output<string>;
     /**
      * Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
      */
-    public readonly timestampOutputFormat!: pulumi.Output<string>;
+    declare public readonly timestampOutputFormat: pulumi.Output<string>;
     /**
      * Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
      */
-    public readonly timestampTypeMapping!: pulumi.Output<string>;
+    declare public readonly timestampTypeMapping: pulumi.Output<string>;
     /**
      * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
-    public readonly timestampTzOutputFormat!: pulumi.Output<string>;
+    declare public readonly timestampTzOutputFormat: pulumi.Output<string>;
     /**
      * Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
      */
-    public readonly timezone!: pulumi.Output<string>;
+    declare public readonly timezone: pulumi.Output<string>;
     /**
      * Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      */
-    public readonly traceLevel!: pulumi.Output<string>;
+    declare public readonly traceLevel: pulumi.Output<string>;
     /**
      * Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
      */
-    public readonly transactionAbortOnError!: pulumi.Output<boolean>;
+    declare public readonly transactionAbortOnError: pulumi.Output<boolean>;
     /**
      * Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
      */
-    public readonly transactionDefaultIsolationLevel!: pulumi.Output<string>;
+    declare public readonly transactionDefaultIsolationLevel: pulumi.Output<string>;
     /**
      * Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
      */
-    public readonly twoDigitCenturyStart!: pulumi.Output<number>;
+    declare public readonly twoDigitCenturyStart: pulumi.Output<number>;
     /**
      * Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
      */
-    public readonly unsupportedDdlAction!: pulumi.Output<string>;
+    declare public readonly unsupportedDdlAction: pulumi.Output<string>;
     /**
      * Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
      */
-    public readonly useCachedResult!: pulumi.Output<boolean>;
+    declare public readonly useCachedResult: pulumi.Output<boolean>;
     /**
      * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      */
-    public readonly userTaskManagedInitialWarehouseSize!: pulumi.Output<string>;
+    declare public readonly userTaskManagedInitialWarehouseSize: pulumi.Output<string>;
     /**
      * Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
      */
-    public readonly userTaskMinimumTriggerIntervalInSeconds!: pulumi.Output<number>;
+    declare public readonly userTaskMinimumTriggerIntervalInSeconds: pulumi.Output<number>;
     /**
      * Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      */
-    public readonly userTaskTimeoutMs!: pulumi.Output<number>;
+    declare public readonly userTaskTimeoutMs: pulumi.Output<number>;
     /**
      * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
      */
-    public readonly warehouse!: pulumi.Output<string | undefined>;
+    declare public readonly warehouse: pulumi.Output<string | undefined>;
     /**
      * Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
      */
-    public readonly weekOfYearPolicy!: pulumi.Output<number>;
+    declare public readonly weekOfYearPolicy: pulumi.Output<number>;
     /**
      * Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
      */
-    public readonly weekStart!: pulumi.Output<number>;
+    declare public readonly weekStart: pulumi.Output<number>;
     /**
      * Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
      */
-    public readonly when!: pulumi.Output<string | undefined>;
+    declare public readonly when: pulumi.Output<string | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -355,167 +355,167 @@ export class Task extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TaskState | undefined;
-            resourceInputs["abortDetachedQuery"] = state ? state.abortDetachedQuery : undefined;
-            resourceInputs["afters"] = state ? state.afters : undefined;
-            resourceInputs["allowOverlappingExecution"] = state ? state.allowOverlappingExecution : undefined;
-            resourceInputs["autocommit"] = state ? state.autocommit : undefined;
-            resourceInputs["binaryInputFormat"] = state ? state.binaryInputFormat : undefined;
-            resourceInputs["binaryOutputFormat"] = state ? state.binaryOutputFormat : undefined;
-            resourceInputs["clientMemoryLimit"] = state ? state.clientMemoryLimit : undefined;
-            resourceInputs["clientMetadataRequestUseConnectionCtx"] = state ? state.clientMetadataRequestUseConnectionCtx : undefined;
-            resourceInputs["clientPrefetchThreads"] = state ? state.clientPrefetchThreads : undefined;
-            resourceInputs["clientResultChunkSize"] = state ? state.clientResultChunkSize : undefined;
-            resourceInputs["clientResultColumnCaseInsensitive"] = state ? state.clientResultColumnCaseInsensitive : undefined;
-            resourceInputs["clientSessionKeepAlive"] = state ? state.clientSessionKeepAlive : undefined;
-            resourceInputs["clientSessionKeepAliveHeartbeatFrequency"] = state ? state.clientSessionKeepAliveHeartbeatFrequency : undefined;
-            resourceInputs["clientTimestampTypeMapping"] = state ? state.clientTimestampTypeMapping : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["config"] = state ? state.config : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["dateInputFormat"] = state ? state.dateInputFormat : undefined;
-            resourceInputs["dateOutputFormat"] = state ? state.dateOutputFormat : undefined;
-            resourceInputs["enableUnloadPhysicalTypeOptimization"] = state ? state.enableUnloadPhysicalTypeOptimization : undefined;
-            resourceInputs["errorIntegration"] = state ? state.errorIntegration : undefined;
-            resourceInputs["errorOnNondeterministicMerge"] = state ? state.errorOnNondeterministicMerge : undefined;
-            resourceInputs["errorOnNondeterministicUpdate"] = state ? state.errorOnNondeterministicUpdate : undefined;
-            resourceInputs["finalize"] = state ? state.finalize : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["geographyOutputFormat"] = state ? state.geographyOutputFormat : undefined;
-            resourceInputs["geometryOutputFormat"] = state ? state.geometryOutputFormat : undefined;
-            resourceInputs["jdbcTreatTimestampNtzAsUtc"] = state ? state.jdbcTreatTimestampNtzAsUtc : undefined;
-            resourceInputs["jdbcUseSessionTimezone"] = state ? state.jdbcUseSessionTimezone : undefined;
-            resourceInputs["jsonIndent"] = state ? state.jsonIndent : undefined;
-            resourceInputs["lockTimeout"] = state ? state.lockTimeout : undefined;
-            resourceInputs["logLevel"] = state ? state.logLevel : undefined;
-            resourceInputs["multiStatementCount"] = state ? state.multiStatementCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["noorderSequenceAsDefault"] = state ? state.noorderSequenceAsDefault : undefined;
-            resourceInputs["odbcTreatDecimalAsInt"] = state ? state.odbcTreatDecimalAsInt : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["queryTag"] = state ? state.queryTag : undefined;
-            resourceInputs["quotedIdentifiersIgnoreCase"] = state ? state.quotedIdentifiersIgnoreCase : undefined;
-            resourceInputs["rowsPerResultset"] = state ? state.rowsPerResultset : undefined;
-            resourceInputs["s3StageVpceDnsName"] = state ? state.s3StageVpceDnsName : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["searchPath"] = state ? state.searchPath : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["sqlStatement"] = state ? state.sqlStatement : undefined;
-            resourceInputs["started"] = state ? state.started : undefined;
-            resourceInputs["statementQueuedTimeoutInSeconds"] = state ? state.statementQueuedTimeoutInSeconds : undefined;
-            resourceInputs["statementTimeoutInSeconds"] = state ? state.statementTimeoutInSeconds : undefined;
-            resourceInputs["strictJsonOutput"] = state ? state.strictJsonOutput : undefined;
-            resourceInputs["suspendTaskAfterNumFailures"] = state ? state.suspendTaskAfterNumFailures : undefined;
-            resourceInputs["taskAutoRetryAttempts"] = state ? state.taskAutoRetryAttempts : undefined;
-            resourceInputs["timeInputFormat"] = state ? state.timeInputFormat : undefined;
-            resourceInputs["timeOutputFormat"] = state ? state.timeOutputFormat : undefined;
-            resourceInputs["timestampDayIsAlways24h"] = state ? state.timestampDayIsAlways24h : undefined;
-            resourceInputs["timestampInputFormat"] = state ? state.timestampInputFormat : undefined;
-            resourceInputs["timestampLtzOutputFormat"] = state ? state.timestampLtzOutputFormat : undefined;
-            resourceInputs["timestampNtzOutputFormat"] = state ? state.timestampNtzOutputFormat : undefined;
-            resourceInputs["timestampOutputFormat"] = state ? state.timestampOutputFormat : undefined;
-            resourceInputs["timestampTypeMapping"] = state ? state.timestampTypeMapping : undefined;
-            resourceInputs["timestampTzOutputFormat"] = state ? state.timestampTzOutputFormat : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
-            resourceInputs["traceLevel"] = state ? state.traceLevel : undefined;
-            resourceInputs["transactionAbortOnError"] = state ? state.transactionAbortOnError : undefined;
-            resourceInputs["transactionDefaultIsolationLevel"] = state ? state.transactionDefaultIsolationLevel : undefined;
-            resourceInputs["twoDigitCenturyStart"] = state ? state.twoDigitCenturyStart : undefined;
-            resourceInputs["unsupportedDdlAction"] = state ? state.unsupportedDdlAction : undefined;
-            resourceInputs["useCachedResult"] = state ? state.useCachedResult : undefined;
-            resourceInputs["userTaskManagedInitialWarehouseSize"] = state ? state.userTaskManagedInitialWarehouseSize : undefined;
-            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = state ? state.userTaskMinimumTriggerIntervalInSeconds : undefined;
-            resourceInputs["userTaskTimeoutMs"] = state ? state.userTaskTimeoutMs : undefined;
-            resourceInputs["warehouse"] = state ? state.warehouse : undefined;
-            resourceInputs["weekOfYearPolicy"] = state ? state.weekOfYearPolicy : undefined;
-            resourceInputs["weekStart"] = state ? state.weekStart : undefined;
-            resourceInputs["when"] = state ? state.when : undefined;
+            resourceInputs["abortDetachedQuery"] = state?.abortDetachedQuery;
+            resourceInputs["afters"] = state?.afters;
+            resourceInputs["allowOverlappingExecution"] = state?.allowOverlappingExecution;
+            resourceInputs["autocommit"] = state?.autocommit;
+            resourceInputs["binaryInputFormat"] = state?.binaryInputFormat;
+            resourceInputs["binaryOutputFormat"] = state?.binaryOutputFormat;
+            resourceInputs["clientMemoryLimit"] = state?.clientMemoryLimit;
+            resourceInputs["clientMetadataRequestUseConnectionCtx"] = state?.clientMetadataRequestUseConnectionCtx;
+            resourceInputs["clientPrefetchThreads"] = state?.clientPrefetchThreads;
+            resourceInputs["clientResultChunkSize"] = state?.clientResultChunkSize;
+            resourceInputs["clientResultColumnCaseInsensitive"] = state?.clientResultColumnCaseInsensitive;
+            resourceInputs["clientSessionKeepAlive"] = state?.clientSessionKeepAlive;
+            resourceInputs["clientSessionKeepAliveHeartbeatFrequency"] = state?.clientSessionKeepAliveHeartbeatFrequency;
+            resourceInputs["clientTimestampTypeMapping"] = state?.clientTimestampTypeMapping;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["config"] = state?.config;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["dateInputFormat"] = state?.dateInputFormat;
+            resourceInputs["dateOutputFormat"] = state?.dateOutputFormat;
+            resourceInputs["enableUnloadPhysicalTypeOptimization"] = state?.enableUnloadPhysicalTypeOptimization;
+            resourceInputs["errorIntegration"] = state?.errorIntegration;
+            resourceInputs["errorOnNondeterministicMerge"] = state?.errorOnNondeterministicMerge;
+            resourceInputs["errorOnNondeterministicUpdate"] = state?.errorOnNondeterministicUpdate;
+            resourceInputs["finalize"] = state?.finalize;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["geographyOutputFormat"] = state?.geographyOutputFormat;
+            resourceInputs["geometryOutputFormat"] = state?.geometryOutputFormat;
+            resourceInputs["jdbcTreatTimestampNtzAsUtc"] = state?.jdbcTreatTimestampNtzAsUtc;
+            resourceInputs["jdbcUseSessionTimezone"] = state?.jdbcUseSessionTimezone;
+            resourceInputs["jsonIndent"] = state?.jsonIndent;
+            resourceInputs["lockTimeout"] = state?.lockTimeout;
+            resourceInputs["logLevel"] = state?.logLevel;
+            resourceInputs["multiStatementCount"] = state?.multiStatementCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["noorderSequenceAsDefault"] = state?.noorderSequenceAsDefault;
+            resourceInputs["odbcTreatDecimalAsInt"] = state?.odbcTreatDecimalAsInt;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["queryTag"] = state?.queryTag;
+            resourceInputs["quotedIdentifiersIgnoreCase"] = state?.quotedIdentifiersIgnoreCase;
+            resourceInputs["rowsPerResultset"] = state?.rowsPerResultset;
+            resourceInputs["s3StageVpceDnsName"] = state?.s3StageVpceDnsName;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["searchPath"] = state?.searchPath;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["sqlStatement"] = state?.sqlStatement;
+            resourceInputs["started"] = state?.started;
+            resourceInputs["statementQueuedTimeoutInSeconds"] = state?.statementQueuedTimeoutInSeconds;
+            resourceInputs["statementTimeoutInSeconds"] = state?.statementTimeoutInSeconds;
+            resourceInputs["strictJsonOutput"] = state?.strictJsonOutput;
+            resourceInputs["suspendTaskAfterNumFailures"] = state?.suspendTaskAfterNumFailures;
+            resourceInputs["taskAutoRetryAttempts"] = state?.taskAutoRetryAttempts;
+            resourceInputs["timeInputFormat"] = state?.timeInputFormat;
+            resourceInputs["timeOutputFormat"] = state?.timeOutputFormat;
+            resourceInputs["timestampDayIsAlways24h"] = state?.timestampDayIsAlways24h;
+            resourceInputs["timestampInputFormat"] = state?.timestampInputFormat;
+            resourceInputs["timestampLtzOutputFormat"] = state?.timestampLtzOutputFormat;
+            resourceInputs["timestampNtzOutputFormat"] = state?.timestampNtzOutputFormat;
+            resourceInputs["timestampOutputFormat"] = state?.timestampOutputFormat;
+            resourceInputs["timestampTypeMapping"] = state?.timestampTypeMapping;
+            resourceInputs["timestampTzOutputFormat"] = state?.timestampTzOutputFormat;
+            resourceInputs["timezone"] = state?.timezone;
+            resourceInputs["traceLevel"] = state?.traceLevel;
+            resourceInputs["transactionAbortOnError"] = state?.transactionAbortOnError;
+            resourceInputs["transactionDefaultIsolationLevel"] = state?.transactionDefaultIsolationLevel;
+            resourceInputs["twoDigitCenturyStart"] = state?.twoDigitCenturyStart;
+            resourceInputs["unsupportedDdlAction"] = state?.unsupportedDdlAction;
+            resourceInputs["useCachedResult"] = state?.useCachedResult;
+            resourceInputs["userTaskManagedInitialWarehouseSize"] = state?.userTaskManagedInitialWarehouseSize;
+            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = state?.userTaskMinimumTriggerIntervalInSeconds;
+            resourceInputs["userTaskTimeoutMs"] = state?.userTaskTimeoutMs;
+            resourceInputs["warehouse"] = state?.warehouse;
+            resourceInputs["weekOfYearPolicy"] = state?.weekOfYearPolicy;
+            resourceInputs["weekStart"] = state?.weekStart;
+            resourceInputs["when"] = state?.when;
         } else {
             const args = argsOrState as TaskArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.sqlStatement === undefined) && !opts.urn) {
+            if (args?.sqlStatement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlStatement'");
             }
-            if ((!args || args.started === undefined) && !opts.urn) {
+            if (args?.started === undefined && !opts.urn) {
                 throw new Error("Missing required property 'started'");
             }
-            resourceInputs["abortDetachedQuery"] = args ? args.abortDetachedQuery : undefined;
-            resourceInputs["afters"] = args ? args.afters : undefined;
-            resourceInputs["allowOverlappingExecution"] = args ? args.allowOverlappingExecution : undefined;
-            resourceInputs["autocommit"] = args ? args.autocommit : undefined;
-            resourceInputs["binaryInputFormat"] = args ? args.binaryInputFormat : undefined;
-            resourceInputs["binaryOutputFormat"] = args ? args.binaryOutputFormat : undefined;
-            resourceInputs["clientMemoryLimit"] = args ? args.clientMemoryLimit : undefined;
-            resourceInputs["clientMetadataRequestUseConnectionCtx"] = args ? args.clientMetadataRequestUseConnectionCtx : undefined;
-            resourceInputs["clientPrefetchThreads"] = args ? args.clientPrefetchThreads : undefined;
-            resourceInputs["clientResultChunkSize"] = args ? args.clientResultChunkSize : undefined;
-            resourceInputs["clientResultColumnCaseInsensitive"] = args ? args.clientResultColumnCaseInsensitive : undefined;
-            resourceInputs["clientSessionKeepAlive"] = args ? args.clientSessionKeepAlive : undefined;
-            resourceInputs["clientSessionKeepAliveHeartbeatFrequency"] = args ? args.clientSessionKeepAliveHeartbeatFrequency : undefined;
-            resourceInputs["clientTimestampTypeMapping"] = args ? args.clientTimestampTypeMapping : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["dateInputFormat"] = args ? args.dateInputFormat : undefined;
-            resourceInputs["dateOutputFormat"] = args ? args.dateOutputFormat : undefined;
-            resourceInputs["enableUnloadPhysicalTypeOptimization"] = args ? args.enableUnloadPhysicalTypeOptimization : undefined;
-            resourceInputs["errorIntegration"] = args ? args.errorIntegration : undefined;
-            resourceInputs["errorOnNondeterministicMerge"] = args ? args.errorOnNondeterministicMerge : undefined;
-            resourceInputs["errorOnNondeterministicUpdate"] = args ? args.errorOnNondeterministicUpdate : undefined;
-            resourceInputs["finalize"] = args ? args.finalize : undefined;
-            resourceInputs["geographyOutputFormat"] = args ? args.geographyOutputFormat : undefined;
-            resourceInputs["geometryOutputFormat"] = args ? args.geometryOutputFormat : undefined;
-            resourceInputs["jdbcTreatTimestampNtzAsUtc"] = args ? args.jdbcTreatTimestampNtzAsUtc : undefined;
-            resourceInputs["jdbcUseSessionTimezone"] = args ? args.jdbcUseSessionTimezone : undefined;
-            resourceInputs["jsonIndent"] = args ? args.jsonIndent : undefined;
-            resourceInputs["lockTimeout"] = args ? args.lockTimeout : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["multiStatementCount"] = args ? args.multiStatementCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["noorderSequenceAsDefault"] = args ? args.noorderSequenceAsDefault : undefined;
-            resourceInputs["odbcTreatDecimalAsInt"] = args ? args.odbcTreatDecimalAsInt : undefined;
-            resourceInputs["queryTag"] = args ? args.queryTag : undefined;
-            resourceInputs["quotedIdentifiersIgnoreCase"] = args ? args.quotedIdentifiersIgnoreCase : undefined;
-            resourceInputs["rowsPerResultset"] = args ? args.rowsPerResultset : undefined;
-            resourceInputs["s3StageVpceDnsName"] = args ? args.s3StageVpceDnsName : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["searchPath"] = args ? args.searchPath : undefined;
-            resourceInputs["sqlStatement"] = args ? args.sqlStatement : undefined;
-            resourceInputs["started"] = args ? args.started : undefined;
-            resourceInputs["statementQueuedTimeoutInSeconds"] = args ? args.statementQueuedTimeoutInSeconds : undefined;
-            resourceInputs["statementTimeoutInSeconds"] = args ? args.statementTimeoutInSeconds : undefined;
-            resourceInputs["strictJsonOutput"] = args ? args.strictJsonOutput : undefined;
-            resourceInputs["suspendTaskAfterNumFailures"] = args ? args.suspendTaskAfterNumFailures : undefined;
-            resourceInputs["taskAutoRetryAttempts"] = args ? args.taskAutoRetryAttempts : undefined;
-            resourceInputs["timeInputFormat"] = args ? args.timeInputFormat : undefined;
-            resourceInputs["timeOutputFormat"] = args ? args.timeOutputFormat : undefined;
-            resourceInputs["timestampDayIsAlways24h"] = args ? args.timestampDayIsAlways24h : undefined;
-            resourceInputs["timestampInputFormat"] = args ? args.timestampInputFormat : undefined;
-            resourceInputs["timestampLtzOutputFormat"] = args ? args.timestampLtzOutputFormat : undefined;
-            resourceInputs["timestampNtzOutputFormat"] = args ? args.timestampNtzOutputFormat : undefined;
-            resourceInputs["timestampOutputFormat"] = args ? args.timestampOutputFormat : undefined;
-            resourceInputs["timestampTypeMapping"] = args ? args.timestampTypeMapping : undefined;
-            resourceInputs["timestampTzOutputFormat"] = args ? args.timestampTzOutputFormat : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
-            resourceInputs["traceLevel"] = args ? args.traceLevel : undefined;
-            resourceInputs["transactionAbortOnError"] = args ? args.transactionAbortOnError : undefined;
-            resourceInputs["transactionDefaultIsolationLevel"] = args ? args.transactionDefaultIsolationLevel : undefined;
-            resourceInputs["twoDigitCenturyStart"] = args ? args.twoDigitCenturyStart : undefined;
-            resourceInputs["unsupportedDdlAction"] = args ? args.unsupportedDdlAction : undefined;
-            resourceInputs["useCachedResult"] = args ? args.useCachedResult : undefined;
-            resourceInputs["userTaskManagedInitialWarehouseSize"] = args ? args.userTaskManagedInitialWarehouseSize : undefined;
-            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = args ? args.userTaskMinimumTriggerIntervalInSeconds : undefined;
-            resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
-            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
-            resourceInputs["weekOfYearPolicy"] = args ? args.weekOfYearPolicy : undefined;
-            resourceInputs["weekStart"] = args ? args.weekStart : undefined;
-            resourceInputs["when"] = args ? args.when : undefined;
+            resourceInputs["abortDetachedQuery"] = args?.abortDetachedQuery;
+            resourceInputs["afters"] = args?.afters;
+            resourceInputs["allowOverlappingExecution"] = args?.allowOverlappingExecution;
+            resourceInputs["autocommit"] = args?.autocommit;
+            resourceInputs["binaryInputFormat"] = args?.binaryInputFormat;
+            resourceInputs["binaryOutputFormat"] = args?.binaryOutputFormat;
+            resourceInputs["clientMemoryLimit"] = args?.clientMemoryLimit;
+            resourceInputs["clientMetadataRequestUseConnectionCtx"] = args?.clientMetadataRequestUseConnectionCtx;
+            resourceInputs["clientPrefetchThreads"] = args?.clientPrefetchThreads;
+            resourceInputs["clientResultChunkSize"] = args?.clientResultChunkSize;
+            resourceInputs["clientResultColumnCaseInsensitive"] = args?.clientResultColumnCaseInsensitive;
+            resourceInputs["clientSessionKeepAlive"] = args?.clientSessionKeepAlive;
+            resourceInputs["clientSessionKeepAliveHeartbeatFrequency"] = args?.clientSessionKeepAliveHeartbeatFrequency;
+            resourceInputs["clientTimestampTypeMapping"] = args?.clientTimestampTypeMapping;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["dateInputFormat"] = args?.dateInputFormat;
+            resourceInputs["dateOutputFormat"] = args?.dateOutputFormat;
+            resourceInputs["enableUnloadPhysicalTypeOptimization"] = args?.enableUnloadPhysicalTypeOptimization;
+            resourceInputs["errorIntegration"] = args?.errorIntegration;
+            resourceInputs["errorOnNondeterministicMerge"] = args?.errorOnNondeterministicMerge;
+            resourceInputs["errorOnNondeterministicUpdate"] = args?.errorOnNondeterministicUpdate;
+            resourceInputs["finalize"] = args?.finalize;
+            resourceInputs["geographyOutputFormat"] = args?.geographyOutputFormat;
+            resourceInputs["geometryOutputFormat"] = args?.geometryOutputFormat;
+            resourceInputs["jdbcTreatTimestampNtzAsUtc"] = args?.jdbcTreatTimestampNtzAsUtc;
+            resourceInputs["jdbcUseSessionTimezone"] = args?.jdbcUseSessionTimezone;
+            resourceInputs["jsonIndent"] = args?.jsonIndent;
+            resourceInputs["lockTimeout"] = args?.lockTimeout;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["multiStatementCount"] = args?.multiStatementCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["noorderSequenceAsDefault"] = args?.noorderSequenceAsDefault;
+            resourceInputs["odbcTreatDecimalAsInt"] = args?.odbcTreatDecimalAsInt;
+            resourceInputs["queryTag"] = args?.queryTag;
+            resourceInputs["quotedIdentifiersIgnoreCase"] = args?.quotedIdentifiersIgnoreCase;
+            resourceInputs["rowsPerResultset"] = args?.rowsPerResultset;
+            resourceInputs["s3StageVpceDnsName"] = args?.s3StageVpceDnsName;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["searchPath"] = args?.searchPath;
+            resourceInputs["sqlStatement"] = args?.sqlStatement;
+            resourceInputs["started"] = args?.started;
+            resourceInputs["statementQueuedTimeoutInSeconds"] = args?.statementQueuedTimeoutInSeconds;
+            resourceInputs["statementTimeoutInSeconds"] = args?.statementTimeoutInSeconds;
+            resourceInputs["strictJsonOutput"] = args?.strictJsonOutput;
+            resourceInputs["suspendTaskAfterNumFailures"] = args?.suspendTaskAfterNumFailures;
+            resourceInputs["taskAutoRetryAttempts"] = args?.taskAutoRetryAttempts;
+            resourceInputs["timeInputFormat"] = args?.timeInputFormat;
+            resourceInputs["timeOutputFormat"] = args?.timeOutputFormat;
+            resourceInputs["timestampDayIsAlways24h"] = args?.timestampDayIsAlways24h;
+            resourceInputs["timestampInputFormat"] = args?.timestampInputFormat;
+            resourceInputs["timestampLtzOutputFormat"] = args?.timestampLtzOutputFormat;
+            resourceInputs["timestampNtzOutputFormat"] = args?.timestampNtzOutputFormat;
+            resourceInputs["timestampOutputFormat"] = args?.timestampOutputFormat;
+            resourceInputs["timestampTypeMapping"] = args?.timestampTypeMapping;
+            resourceInputs["timestampTzOutputFormat"] = args?.timestampTzOutputFormat;
+            resourceInputs["timezone"] = args?.timezone;
+            resourceInputs["traceLevel"] = args?.traceLevel;
+            resourceInputs["transactionAbortOnError"] = args?.transactionAbortOnError;
+            resourceInputs["transactionDefaultIsolationLevel"] = args?.transactionDefaultIsolationLevel;
+            resourceInputs["twoDigitCenturyStart"] = args?.twoDigitCenturyStart;
+            resourceInputs["unsupportedDdlAction"] = args?.unsupportedDdlAction;
+            resourceInputs["useCachedResult"] = args?.useCachedResult;
+            resourceInputs["userTaskManagedInitialWarehouseSize"] = args?.userTaskManagedInitialWarehouseSize;
+            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = args?.userTaskMinimumTriggerIntervalInSeconds;
+            resourceInputs["userTaskTimeoutMs"] = args?.userTaskTimeoutMs;
+            resourceInputs["warehouse"] = args?.warehouse;
+            resourceInputs["weekOfYearPolicy"] = args?.weekOfYearPolicy;
+            resourceInputs["weekStart"] = args?.weekStart;
+            resourceInputs["when"] = args?.when;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

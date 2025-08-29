@@ -44,43 +44,43 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
     /**
      * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
      */
-    public readonly apiAuthentication!: pulumi.Output<string>;
+    declare public readonly apiAuthentication: pulumi.Output<string>;
     /**
      * Specifies a comment for the secret.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE SECRET` for the given secret.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.SecretWithClientCredentialsDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.SecretWithClientCredentialsDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
      */
-    public readonly oauthScopes!: pulumi.Output<string[]>;
+    declare public readonly oauthScopes: pulumi.Output<string[]>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      */
-    public /*out*/ readonly secretType!: pulumi.Output<string>;
+    declare public /*out*/ readonly secretType: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW SECRETS` for the given secret.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.SecretWithClientCredentialsShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.SecretWithClientCredentialsShowOutput[]>;
 
     /**
      * Create a SecretWithClientCredentials resource with the given unique name, arguments, and options.
@@ -95,36 +95,36 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretWithClientCredentialsState | undefined;
-            resourceInputs["apiAuthentication"] = state ? state.apiAuthentication : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["oauthScopes"] = state ? state.oauthScopes : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["secretType"] = state ? state.secretType : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["apiAuthentication"] = state?.apiAuthentication;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["oauthScopes"] = state?.oauthScopes;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["secretType"] = state?.secretType;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as SecretWithClientCredentialsArgs | undefined;
-            if ((!args || args.apiAuthentication === undefined) && !opts.urn) {
+            if (args?.apiAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiAuthentication'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.oauthScopes === undefined) && !opts.urn) {
+            if (args?.oauthScopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'oauthScopes'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["apiAuthentication"] = args ? args.apiAuthentication : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["oauthScopes"] = args ? args.oauthScopes : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["apiAuthentication"] = args?.apiAuthentication;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["oauthScopes"] = args?.oauthScopes;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["secretType"] = undefined /*out*/;

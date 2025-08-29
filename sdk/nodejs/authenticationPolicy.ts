@@ -44,51 +44,51 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
     /**
      * A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
      */
-    public readonly authenticationMethods!: pulumi.Output<string[] | undefined>;
+    declare public readonly authenticationMethods: pulumi.Output<string[] | undefined>;
     /**
      * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      */
-    public readonly clientTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientTypes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the authentication policy.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.AuthenticationPolicyDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.AuthenticationPolicyDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
      */
-    public readonly mfaAuthenticationMethods!: pulumi.Output<string[] | undefined>;
+    declare public readonly mfaAuthenticationMethods: pulumi.Output<string[] | undefined>;
     /**
      * (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
      */
-    public readonly mfaEnrollment!: pulumi.Output<string | undefined>;
+    declare public readonly mfaEnrollment: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
      */
-    public readonly securityIntegrations!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityIntegrations: pulumi.Output<string[] | undefined>;
     /**
      * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.AuthenticationPolicyShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.AuthenticationPolicyShowOutput[]>;
 
     /**
      * Create a AuthenticationPolicy resource with the given unique name, arguments, and options.
@@ -103,35 +103,35 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthenticationPolicyState | undefined;
-            resourceInputs["authenticationMethods"] = state ? state.authenticationMethods : undefined;
-            resourceInputs["clientTypes"] = state ? state.clientTypes : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["mfaAuthenticationMethods"] = state ? state.mfaAuthenticationMethods : undefined;
-            resourceInputs["mfaEnrollment"] = state ? state.mfaEnrollment : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["securityIntegrations"] = state ? state.securityIntegrations : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["authenticationMethods"] = state?.authenticationMethods;
+            resourceInputs["clientTypes"] = state?.clientTypes;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["mfaAuthenticationMethods"] = state?.mfaAuthenticationMethods;
+            resourceInputs["mfaEnrollment"] = state?.mfaEnrollment;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["securityIntegrations"] = state?.securityIntegrations;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as AuthenticationPolicyArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["authenticationMethods"] = args ? args.authenticationMethods : undefined;
-            resourceInputs["clientTypes"] = args ? args.clientTypes : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["mfaAuthenticationMethods"] = args ? args.mfaAuthenticationMethods : undefined;
-            resourceInputs["mfaEnrollment"] = args ? args.mfaEnrollment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["securityIntegrations"] = args ? args.securityIntegrations : undefined;
+            resourceInputs["authenticationMethods"] = args?.authenticationMethods;
+            resourceInputs["clientTypes"] = args?.clientTypes;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["mfaAuthenticationMethods"] = args?.mfaAuthenticationMethods;
+            resourceInputs["mfaEnrollment"] = args?.mfaEnrollment;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["securityIntegrations"] = args?.securityIntegrations;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

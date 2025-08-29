@@ -66,40 +66,40 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
     /**
      * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
-    public readonly accountRoleName!: pulumi.Output<string>;
+    declare public readonly accountRoleName: pulumi.Output<string>;
     /**
      * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      */
-    public readonly allPrivileges!: pulumi.Output<boolean | undefined>;
-    public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
+    declare public readonly allPrivileges: pulumi.Output<boolean | undefined>;
+    declare public readonly alwaysApply: pulumi.Output<boolean | undefined>;
     /**
      * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
-    public readonly alwaysApplyTrigger!: pulumi.Output<string | undefined>;
+    declare public readonly alwaysApplyTrigger: pulumi.Output<string | undefined>;
     /**
      * (Default: `false`) If true, the privileges will be granted on the account.
      */
-    public readonly onAccount!: pulumi.Output<boolean | undefined>;
+    declare public readonly onAccount: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the account object on which privileges will be granted
      */
-    public readonly onAccountObject!: pulumi.Output<outputs.GrantPrivilegesToAccountRoleOnAccountObject | undefined>;
+    declare public readonly onAccountObject: pulumi.Output<outputs.GrantPrivilegesToAccountRoleOnAccountObject | undefined>;
     /**
      * Specifies the schema on which privileges will be granted.
      */
-    public readonly onSchema!: pulumi.Output<outputs.GrantPrivilegesToAccountRoleOnSchema | undefined>;
+    declare public readonly onSchema: pulumi.Output<outputs.GrantPrivilegesToAccountRoleOnSchema | undefined>;
     /**
      * Specifies the schema object on which privileges will be granted.
      */
-    public readonly onSchemaObject!: pulumi.Output<outputs.GrantPrivilegesToAccountRoleOnSchemaObject | undefined>;
+    declare public readonly onSchemaObject: pulumi.Output<outputs.GrantPrivilegesToAccountRoleOnSchemaObject | undefined>;
     /**
      * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      */
-    public readonly privileges!: pulumi.Output<string[] | undefined>;
+    declare public readonly privileges: pulumi.Output<string[] | undefined>;
     /**
      * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */
-    public readonly withGrantOption!: pulumi.Output<boolean | undefined>;
+    declare public readonly withGrantOption: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GrantPrivilegesToAccountRole resource with the given unique name, arguments, and options.
@@ -114,31 +114,31 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrantPrivilegesToAccountRoleState | undefined;
-            resourceInputs["accountRoleName"] = state ? state.accountRoleName : undefined;
-            resourceInputs["allPrivileges"] = state ? state.allPrivileges : undefined;
-            resourceInputs["alwaysApply"] = state ? state.alwaysApply : undefined;
-            resourceInputs["alwaysApplyTrigger"] = state ? state.alwaysApplyTrigger : undefined;
-            resourceInputs["onAccount"] = state ? state.onAccount : undefined;
-            resourceInputs["onAccountObject"] = state ? state.onAccountObject : undefined;
-            resourceInputs["onSchema"] = state ? state.onSchema : undefined;
-            resourceInputs["onSchemaObject"] = state ? state.onSchemaObject : undefined;
-            resourceInputs["privileges"] = state ? state.privileges : undefined;
-            resourceInputs["withGrantOption"] = state ? state.withGrantOption : undefined;
+            resourceInputs["accountRoleName"] = state?.accountRoleName;
+            resourceInputs["allPrivileges"] = state?.allPrivileges;
+            resourceInputs["alwaysApply"] = state?.alwaysApply;
+            resourceInputs["alwaysApplyTrigger"] = state?.alwaysApplyTrigger;
+            resourceInputs["onAccount"] = state?.onAccount;
+            resourceInputs["onAccountObject"] = state?.onAccountObject;
+            resourceInputs["onSchema"] = state?.onSchema;
+            resourceInputs["onSchemaObject"] = state?.onSchemaObject;
+            resourceInputs["privileges"] = state?.privileges;
+            resourceInputs["withGrantOption"] = state?.withGrantOption;
         } else {
             const args = argsOrState as GrantPrivilegesToAccountRoleArgs | undefined;
-            if ((!args || args.accountRoleName === undefined) && !opts.urn) {
+            if (args?.accountRoleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountRoleName'");
             }
-            resourceInputs["accountRoleName"] = args ? args.accountRoleName : undefined;
-            resourceInputs["allPrivileges"] = args ? args.allPrivileges : undefined;
-            resourceInputs["alwaysApply"] = args ? args.alwaysApply : undefined;
-            resourceInputs["alwaysApplyTrigger"] = args ? args.alwaysApplyTrigger : undefined;
-            resourceInputs["onAccount"] = args ? args.onAccount : undefined;
-            resourceInputs["onAccountObject"] = args ? args.onAccountObject : undefined;
-            resourceInputs["onSchema"] = args ? args.onSchema : undefined;
-            resourceInputs["onSchemaObject"] = args ? args.onSchemaObject : undefined;
-            resourceInputs["privileges"] = args ? args.privileges : undefined;
-            resourceInputs["withGrantOption"] = args ? args.withGrantOption : undefined;
+            resourceInputs["accountRoleName"] = args?.accountRoleName;
+            resourceInputs["allPrivileges"] = args?.allPrivileges;
+            resourceInputs["alwaysApply"] = args?.alwaysApply;
+            resourceInputs["alwaysApplyTrigger"] = args?.alwaysApplyTrigger;
+            resourceInputs["onAccount"] = args?.onAccount;
+            resourceInputs["onAccountObject"] = args?.onAccountObject;
+            resourceInputs["onSchema"] = args?.onSchema;
+            resourceInputs["onSchemaObject"] = args?.onSchemaObject;
+            resourceInputs["privileges"] = args?.privileges;
+            resourceInputs["withGrantOption"] = args?.withGrantOption;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GrantPrivilegesToAccountRole.__pulumiType, name, resourceInputs, opts);

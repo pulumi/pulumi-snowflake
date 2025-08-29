@@ -44,75 +44,75 @@ export class PasswordPolicy extends pulumi.CustomResource {
     /**
      * Adds a comment or overwrites an existing comment for the password policy.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database this password policy belongs to.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      */
-    public readonly history!: pulumi.Output<number | undefined>;
+    declare public readonly history: pulumi.Output<number | undefined>;
     /**
      * (Default: `false`) Prevent overwriting a previous password policy with the same name.
      */
-    public readonly ifNotExists!: pulumi.Output<boolean | undefined>;
+    declare public readonly ifNotExists: pulumi.Output<boolean | undefined>;
     /**
      * (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
      */
-    public readonly lockoutTimeMins!: pulumi.Output<number | undefined>;
+    declare public readonly lockoutTimeMins: pulumi.Output<number | undefined>;
     /**
      * (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
      */
-    public readonly maxAgeDays!: pulumi.Output<number | undefined>;
+    declare public readonly maxAgeDays: pulumi.Output<number | undefined>;
     /**
      * (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
      */
-    public readonly maxLength!: pulumi.Output<number | undefined>;
+    declare public readonly maxLength: pulumi.Output<number | undefined>;
     /**
      * (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      */
-    public readonly maxRetries!: pulumi.Output<number | undefined>;
+    declare public readonly maxRetries: pulumi.Output<number | undefined>;
     /**
      * (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
      */
-    public readonly minAgeDays!: pulumi.Output<number | undefined>;
+    declare public readonly minAgeDays: pulumi.Output<number | undefined>;
     /**
      * (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      */
-    public readonly minLength!: pulumi.Output<number | undefined>;
+    declare public readonly minLength: pulumi.Output<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    public readonly minLowerCaseChars!: pulumi.Output<number | undefined>;
+    declare public readonly minLowerCaseChars: pulumi.Output<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    public readonly minNumericChars!: pulumi.Output<number | undefined>;
+    declare public readonly minNumericChars: pulumi.Output<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    public readonly minSpecialChars!: pulumi.Output<number | undefined>;
+    declare public readonly minSpecialChars: pulumi.Output<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    public readonly minUpperCaseChars!: pulumi.Output<number | undefined>;
+    declare public readonly minUpperCaseChars: pulumi.Output<number | undefined>;
     /**
      * Identifier for the password policy; must be unique for your account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Default: `false`) Whether to override a previous password policy with the same name.
      */
-    public readonly orReplace!: pulumi.Output<boolean | undefined>;
+    declare public readonly orReplace: pulumi.Output<boolean | undefined>;
     /**
      * The schema this password policy belongs to.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
 
     /**
      * Create a PasswordPolicy resource with the given unique name, arguments, and options.
@@ -127,49 +127,49 @@ export class PasswordPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PasswordPolicyState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["history"] = state ? state.history : undefined;
-            resourceInputs["ifNotExists"] = state ? state.ifNotExists : undefined;
-            resourceInputs["lockoutTimeMins"] = state ? state.lockoutTimeMins : undefined;
-            resourceInputs["maxAgeDays"] = state ? state.maxAgeDays : undefined;
-            resourceInputs["maxLength"] = state ? state.maxLength : undefined;
-            resourceInputs["maxRetries"] = state ? state.maxRetries : undefined;
-            resourceInputs["minAgeDays"] = state ? state.minAgeDays : undefined;
-            resourceInputs["minLength"] = state ? state.minLength : undefined;
-            resourceInputs["minLowerCaseChars"] = state ? state.minLowerCaseChars : undefined;
-            resourceInputs["minNumericChars"] = state ? state.minNumericChars : undefined;
-            resourceInputs["minSpecialChars"] = state ? state.minSpecialChars : undefined;
-            resourceInputs["minUpperCaseChars"] = state ? state.minUpperCaseChars : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["orReplace"] = state ? state.orReplace : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["history"] = state?.history;
+            resourceInputs["ifNotExists"] = state?.ifNotExists;
+            resourceInputs["lockoutTimeMins"] = state?.lockoutTimeMins;
+            resourceInputs["maxAgeDays"] = state?.maxAgeDays;
+            resourceInputs["maxLength"] = state?.maxLength;
+            resourceInputs["maxRetries"] = state?.maxRetries;
+            resourceInputs["minAgeDays"] = state?.minAgeDays;
+            resourceInputs["minLength"] = state?.minLength;
+            resourceInputs["minLowerCaseChars"] = state?.minLowerCaseChars;
+            resourceInputs["minNumericChars"] = state?.minNumericChars;
+            resourceInputs["minSpecialChars"] = state?.minSpecialChars;
+            resourceInputs["minUpperCaseChars"] = state?.minUpperCaseChars;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["orReplace"] = state?.orReplace;
+            resourceInputs["schema"] = state?.schema;
         } else {
             const args = argsOrState as PasswordPolicyArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["history"] = args ? args.history : undefined;
-            resourceInputs["ifNotExists"] = args ? args.ifNotExists : undefined;
-            resourceInputs["lockoutTimeMins"] = args ? args.lockoutTimeMins : undefined;
-            resourceInputs["maxAgeDays"] = args ? args.maxAgeDays : undefined;
-            resourceInputs["maxLength"] = args ? args.maxLength : undefined;
-            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
-            resourceInputs["minAgeDays"] = args ? args.minAgeDays : undefined;
-            resourceInputs["minLength"] = args ? args.minLength : undefined;
-            resourceInputs["minLowerCaseChars"] = args ? args.minLowerCaseChars : undefined;
-            resourceInputs["minNumericChars"] = args ? args.minNumericChars : undefined;
-            resourceInputs["minSpecialChars"] = args ? args.minSpecialChars : undefined;
-            resourceInputs["minUpperCaseChars"] = args ? args.minUpperCaseChars : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["orReplace"] = args ? args.orReplace : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["history"] = args?.history;
+            resourceInputs["ifNotExists"] = args?.ifNotExists;
+            resourceInputs["lockoutTimeMins"] = args?.lockoutTimeMins;
+            resourceInputs["maxAgeDays"] = args?.maxAgeDays;
+            resourceInputs["maxLength"] = args?.maxLength;
+            resourceInputs["maxRetries"] = args?.maxRetries;
+            resourceInputs["minAgeDays"] = args?.minAgeDays;
+            resourceInputs["minLength"] = args?.minLength;
+            resourceInputs["minLowerCaseChars"] = args?.minLowerCaseChars;
+            resourceInputs["minNumericChars"] = args?.minNumericChars;
+            resourceInputs["minSpecialChars"] = args?.minSpecialChars;
+            resourceInputs["minUpperCaseChars"] = args?.minUpperCaseChars;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["orReplace"] = args?.orReplace;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

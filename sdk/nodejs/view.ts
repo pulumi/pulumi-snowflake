@@ -44,66 +44,66 @@ export class View extends pulumi.CustomResource {
     /**
      * Specifies the aggregation policy to set on a view.
      */
-    public readonly aggregationPolicy!: pulumi.Output<outputs.ViewAggregationPolicy | undefined>;
+    declare public readonly aggregationPolicy: pulumi.Output<outputs.ViewAggregationPolicy | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly changeTracking!: pulumi.Output<string | undefined>;
+    declare public readonly changeTracking: pulumi.Output<string | undefined>;
     /**
      * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
-    public readonly columns!: pulumi.Output<outputs.ViewColumn[] | undefined>;
+    declare public readonly columns: pulumi.Output<outputs.ViewColumn[] | undefined>;
     /**
      * Specifies a comment for the view.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
-    public readonly copyGrants!: pulumi.Output<boolean | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
+    declare public readonly copyGrants: pulumi.Output<boolean | undefined>;
     /**
      * Data metric functions used for the view.
      */
-    public readonly dataMetricFunctions!: pulumi.Output<outputs.ViewDataMetricFunction[] | undefined>;
+    declare public readonly dataMetricFunctions: pulumi.Output<outputs.ViewDataMetricFunction[] | undefined>;
     /**
      * Specifies the schedule to run the data metric functions periodically.
      */
-    public readonly dataMetricSchedule!: pulumi.Output<outputs.ViewDataMetricSchedule | undefined>;
+    declare public readonly dataMetricSchedule: pulumi.Output<outputs.ViewDataMetricSchedule | undefined>;
     /**
      * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE VIEW` for the given view.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.ViewDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ViewDescribeOutput[]>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly isRecursive!: pulumi.Output<string | undefined>;
-    public readonly isSecure!: pulumi.Output<string | undefined>;
-    public readonly isTemporary!: pulumi.Output<string | undefined>;
+    declare public readonly isRecursive: pulumi.Output<string | undefined>;
+    declare public readonly isSecure: pulumi.Output<string | undefined>;
+    declare public readonly isTemporary: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the row access policy to set on a view.
      */
-    public readonly rowAccessPolicy!: pulumi.Output<outputs.ViewRowAccessPolicy | undefined>;
+    declare public readonly rowAccessPolicy: pulumi.Output<outputs.ViewRowAccessPolicy | undefined>;
     /**
      * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW VIEW` for the given view.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ViewShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ViewShowOutput[]>;
     /**
      * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
-    public readonly statement!: pulumi.Output<string>;
+    declare public readonly statement: pulumi.Output<string>;
 
     /**
      * Create a View resource with the given unique name, arguments, and options.
@@ -118,50 +118,50 @@ export class View extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ViewState | undefined;
-            resourceInputs["aggregationPolicy"] = state ? state.aggregationPolicy : undefined;
-            resourceInputs["changeTracking"] = state ? state.changeTracking : undefined;
-            resourceInputs["columns"] = state ? state.columns : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["copyGrants"] = state ? state.copyGrants : undefined;
-            resourceInputs["dataMetricFunctions"] = state ? state.dataMetricFunctions : undefined;
-            resourceInputs["dataMetricSchedule"] = state ? state.dataMetricSchedule : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["isRecursive"] = state ? state.isRecursive : undefined;
-            resourceInputs["isSecure"] = state ? state.isSecure : undefined;
-            resourceInputs["isTemporary"] = state ? state.isTemporary : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rowAccessPolicy"] = state ? state.rowAccessPolicy : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["statement"] = state ? state.statement : undefined;
+            resourceInputs["aggregationPolicy"] = state?.aggregationPolicy;
+            resourceInputs["changeTracking"] = state?.changeTracking;
+            resourceInputs["columns"] = state?.columns;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["copyGrants"] = state?.copyGrants;
+            resourceInputs["dataMetricFunctions"] = state?.dataMetricFunctions;
+            resourceInputs["dataMetricSchedule"] = state?.dataMetricSchedule;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["isRecursive"] = state?.isRecursive;
+            resourceInputs["isSecure"] = state?.isSecure;
+            resourceInputs["isTemporary"] = state?.isTemporary;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rowAccessPolicy"] = state?.rowAccessPolicy;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["statement"] = state?.statement;
         } else {
             const args = argsOrState as ViewArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.statement === undefined) && !opts.urn) {
+            if (args?.statement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statement'");
             }
-            resourceInputs["aggregationPolicy"] = args ? args.aggregationPolicy : undefined;
-            resourceInputs["changeTracking"] = args ? args.changeTracking : undefined;
-            resourceInputs["columns"] = args ? args.columns : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["copyGrants"] = args ? args.copyGrants : undefined;
-            resourceInputs["dataMetricFunctions"] = args ? args.dataMetricFunctions : undefined;
-            resourceInputs["dataMetricSchedule"] = args ? args.dataMetricSchedule : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["isRecursive"] = args ? args.isRecursive : undefined;
-            resourceInputs["isSecure"] = args ? args.isSecure : undefined;
-            resourceInputs["isTemporary"] = args ? args.isTemporary : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rowAccessPolicy"] = args ? args.rowAccessPolicy : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["statement"] = args ? args.statement : undefined;
+            resourceInputs["aggregationPolicy"] = args?.aggregationPolicy;
+            resourceInputs["changeTracking"] = args?.changeTracking;
+            resourceInputs["columns"] = args?.columns;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["copyGrants"] = args?.copyGrants;
+            resourceInputs["dataMetricFunctions"] = args?.dataMetricFunctions;
+            resourceInputs["dataMetricSchedule"] = args?.dataMetricSchedule;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["isRecursive"] = args?.isRecursive;
+            resourceInputs["isSecure"] = args?.isSecure;
+            resourceInputs["isTemporary"] = args?.isTemporary;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rowAccessPolicy"] = args?.rowAccessPolicy;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["statement"] = args?.statement;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

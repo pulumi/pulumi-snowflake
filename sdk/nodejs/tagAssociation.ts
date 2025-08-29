@@ -44,23 +44,23 @@ export class TagAssociation extends pulumi.CustomResource {
     /**
      * Specifies the object identifiers for the tag association.
      */
-    public readonly objectIdentifiers!: pulumi.Output<string[]>;
+    declare public readonly objectIdentifiers: pulumi.Output<string[]>;
     /**
      * Specifies the type of object to add a tag. Allowed object types: `ACCOUNT` | `APPLICATION` | `APPLICATION PACKAGE` | `COMPUTE POOL` | `DATABASE` | `FAILOVER GROUP` | `INTEGRATION` | `NETWORK POLICY` | `REPLICATION GROUP` | `ROLE` | `SHARE` | `USER` | `WAREHOUSE` | `DATABASE ROLE` | `SCHEMA` | `ALERT` | `SNOWFLAKE.CORE.BUDGET` | `SNOWFLAKE.ML.CLASSIFICATION` | `EXTERNAL FUNCTION` | `EXTERNAL TABLE` | `FUNCTION` | `IMAGE REPOSITORY` | `GIT REPOSITORY` | `ICEBERG TABLE` | `MATERIALIZED VIEW` | `PIPE` | `MASKING POLICY` | `PASSWORD POLICY` | `ROW ACCESS POLICY` | `SESSION POLICY` | `PRIVACY POLICY` | `PROCEDURE` | `SERVICE` | `STAGE` | `STREAM` | `TABLE` | `TASK` | `VIEW` | `COLUMN` | `EVENT TABLE`.
      */
-    public readonly objectType!: pulumi.Output<string>;
+    declare public readonly objectType: pulumi.Output<string>;
     /**
      * (Default: `true`) If true, skips validation of the tag association.
      */
-    public readonly skipValidation!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipValidation: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the identifier for the tag.
      */
-    public readonly tagId!: pulumi.Output<string>;
+    declare public readonly tagId: pulumi.Output<string>;
     /**
      * Specifies the value of the tag, (e.g. 'finance' or 'engineering')
      */
-    public readonly tagValue!: pulumi.Output<string>;
+    declare public readonly tagValue: pulumi.Output<string>;
 
     /**
      * Create a TagAssociation resource with the given unique name, arguments, and options.
@@ -75,30 +75,30 @@ export class TagAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagAssociationState | undefined;
-            resourceInputs["objectIdentifiers"] = state ? state.objectIdentifiers : undefined;
-            resourceInputs["objectType"] = state ? state.objectType : undefined;
-            resourceInputs["skipValidation"] = state ? state.skipValidation : undefined;
-            resourceInputs["tagId"] = state ? state.tagId : undefined;
-            resourceInputs["tagValue"] = state ? state.tagValue : undefined;
+            resourceInputs["objectIdentifiers"] = state?.objectIdentifiers;
+            resourceInputs["objectType"] = state?.objectType;
+            resourceInputs["skipValidation"] = state?.skipValidation;
+            resourceInputs["tagId"] = state?.tagId;
+            resourceInputs["tagValue"] = state?.tagValue;
         } else {
             const args = argsOrState as TagAssociationArgs | undefined;
-            if ((!args || args.objectIdentifiers === undefined) && !opts.urn) {
+            if (args?.objectIdentifiers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectIdentifiers'");
             }
-            if ((!args || args.objectType === undefined) && !opts.urn) {
+            if (args?.objectType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectType'");
             }
-            if ((!args || args.tagId === undefined) && !opts.urn) {
+            if (args?.tagId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagId'");
             }
-            if ((!args || args.tagValue === undefined) && !opts.urn) {
+            if (args?.tagValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tagValue'");
             }
-            resourceInputs["objectIdentifiers"] = args ? args.objectIdentifiers : undefined;
-            resourceInputs["objectType"] = args ? args.objectType : undefined;
-            resourceInputs["skipValidation"] = args ? args.skipValidation : undefined;
-            resourceInputs["tagId"] = args ? args.tagId : undefined;
-            resourceInputs["tagValue"] = args ? args.tagValue : undefined;
+            resourceInputs["objectIdentifiers"] = args?.objectIdentifiers;
+            resourceInputs["objectType"] = args?.objectType;
+            resourceInputs["skipValidation"] = args?.skipValidation;
+            resourceInputs["tagId"] = args?.tagId;
+            resourceInputs["tagValue"] = args?.tagValue;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TagAssociation.__pulumiType, name, resourceInputs, opts);

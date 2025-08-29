@@ -48,100 +48,100 @@ export class FunctionJava extends pulumi.CustomResource {
     /**
      * List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      */
-    public readonly arguments!: pulumi.Output<outputs.FunctionJavaArgument[] | undefined>;
+    declare public readonly arguments: pulumi.Output<outputs.FunctionJavaArgument[] | undefined>;
     /**
      * (Default: `user-defined function`) Specifies a comment for the function.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
-    public readonly enableConsoleOutput!: pulumi.Output<boolean>;
+    declare public readonly enableConsoleOutput: pulumi.Output<boolean>;
     /**
      * The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
      */
-    public readonly externalAccessIntegrations!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalAccessIntegrations: pulumi.Output<string[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Java source code. For more information, see [Introduction to Java UDFs](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
-    public readonly functionDefinition!: pulumi.Output<string | undefined>;
+    declare public readonly functionDefinition: pulumi.Output<string | undefined>;
     /**
      * Specifies language for the user. Used to detect external changes.
      */
-    public /*out*/ readonly functionLanguage!: pulumi.Output<string>;
+    declare public /*out*/ readonly functionLanguage: pulumi.Output<string>;
     /**
      * The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
      */
-    public readonly handler!: pulumi.Output<string>;
+    declare public readonly handler: pulumi.Output<string>;
     /**
      * The location (stage), path, and name of the file(s) to import. A file can be a JAR file or another type of file. If the file is a JAR file, it can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). Java UDFs can also read non-JAR files. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#java).
      */
-    public readonly imports!: pulumi.Output<outputs.FunctionJavaImport[] | undefined>;
-    public readonly isSecure!: pulumi.Output<string | undefined>;
+    declare public readonly imports: pulumi.Output<outputs.FunctionJavaImport[] | undefined>;
+    declare public readonly isSecure: pulumi.Output<string | undefined>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
-    public readonly logLevel!: pulumi.Output<string>;
+    declare public readonly logLevel: pulumi.Output<string>;
     /**
      * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      */
-    public readonly metricLevel!: pulumi.Output<string>;
+    declare public readonly metricLevel: pulumi.Output<string>;
     /**
      * The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      */
-    public readonly nullInputBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly nullInputBehavior: pulumi.Output<string | undefined>;
     /**
      * The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `packageName` is `snowflake_domain:package`.
      */
-    public readonly packages!: pulumi.Output<string[] | undefined>;
+    declare public readonly packages: pulumi.Output<string[] | undefined>;
     /**
      * Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
      */
-    public /*out*/ readonly parameters!: pulumi.Output<outputs.FunctionJavaParameter[]>;
+    declare public /*out*/ readonly parameters: pulumi.Output<outputs.FunctionJavaParameter[]>;
     /**
      * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
      */
-    public readonly returnResultsBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly returnResultsBehavior: pulumi.Output<string | undefined>;
     /**
      * Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      */
-    public readonly returnType!: pulumi.Output<string>;
+    declare public readonly returnType: pulumi.Output<string>;
     /**
      * Specifies the Java JDK runtime version to use. The supported versions of Java are 11.x and 17.x. If RUNTIME_VERSION is not set, Java JDK 11 is used.
      */
-    public readonly runtimeVersion!: pulumi.Output<string | undefined>;
+    declare public readonly runtimeVersion: pulumi.Output<string | undefined>;
     /**
      * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
      */
-    public readonly secrets!: pulumi.Output<outputs.FunctionJavaSecret[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.FunctionJavaSecret[] | undefined>;
     /**
      * Outputs the result of `SHOW FUNCTION` for the given function.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.FunctionJavaShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.FunctionJavaShowOutput[]>;
     /**
      * The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
      */
-    public readonly targetPath!: pulumi.Output<outputs.FunctionJavaTargetPath | undefined>;
+    declare public readonly targetPath: pulumi.Output<outputs.FunctionJavaTargetPath | undefined>;
     /**
      * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      */
-    public readonly traceLevel!: pulumi.Output<string>;
+    declare public readonly traceLevel: pulumi.Output<string>;
 
     /**
      * Create a FunctionJava resource with the given unique name, arguments, and options.
@@ -156,66 +156,66 @@ export class FunctionJava extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionJavaState | undefined;
-            resourceInputs["arguments"] = state ? state.arguments : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["enableConsoleOutput"] = state ? state.enableConsoleOutput : undefined;
-            resourceInputs["externalAccessIntegrations"] = state ? state.externalAccessIntegrations : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["functionDefinition"] = state ? state.functionDefinition : undefined;
-            resourceInputs["functionLanguage"] = state ? state.functionLanguage : undefined;
-            resourceInputs["handler"] = state ? state.handler : undefined;
-            resourceInputs["imports"] = state ? state.imports : undefined;
-            resourceInputs["isSecure"] = state ? state.isSecure : undefined;
-            resourceInputs["logLevel"] = state ? state.logLevel : undefined;
-            resourceInputs["metricLevel"] = state ? state.metricLevel : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
-            resourceInputs["packages"] = state ? state.packages : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["returnResultsBehavior"] = state ? state.returnResultsBehavior : undefined;
-            resourceInputs["returnType"] = state ? state.returnType : undefined;
-            resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["secrets"] = state ? state.secrets : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["targetPath"] = state ? state.targetPath : undefined;
-            resourceInputs["traceLevel"] = state ? state.traceLevel : undefined;
+            resourceInputs["arguments"] = state?.arguments;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["enableConsoleOutput"] = state?.enableConsoleOutput;
+            resourceInputs["externalAccessIntegrations"] = state?.externalAccessIntegrations;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["functionDefinition"] = state?.functionDefinition;
+            resourceInputs["functionLanguage"] = state?.functionLanguage;
+            resourceInputs["handler"] = state?.handler;
+            resourceInputs["imports"] = state?.imports;
+            resourceInputs["isSecure"] = state?.isSecure;
+            resourceInputs["logLevel"] = state?.logLevel;
+            resourceInputs["metricLevel"] = state?.metricLevel;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nullInputBehavior"] = state?.nullInputBehavior;
+            resourceInputs["packages"] = state?.packages;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["returnResultsBehavior"] = state?.returnResultsBehavior;
+            resourceInputs["returnType"] = state?.returnType;
+            resourceInputs["runtimeVersion"] = state?.runtimeVersion;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["secrets"] = state?.secrets;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["targetPath"] = state?.targetPath;
+            resourceInputs["traceLevel"] = state?.traceLevel;
         } else {
             const args = argsOrState as FunctionJavaArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.handler === undefined) && !opts.urn) {
+            if (args?.handler === undefined && !opts.urn) {
                 throw new Error("Missing required property 'handler'");
             }
-            if ((!args || args.returnType === undefined) && !opts.urn) {
+            if (args?.returnType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'returnType'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["arguments"] = args ? args.arguments : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["enableConsoleOutput"] = args ? args.enableConsoleOutput : undefined;
-            resourceInputs["externalAccessIntegrations"] = args ? args.externalAccessIntegrations : undefined;
-            resourceInputs["functionDefinition"] = args ? args.functionDefinition : undefined;
-            resourceInputs["handler"] = args ? args.handler : undefined;
-            resourceInputs["imports"] = args ? args.imports : undefined;
-            resourceInputs["isSecure"] = args ? args.isSecure : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["metricLevel"] = args ? args.metricLevel : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
-            resourceInputs["packages"] = args ? args.packages : undefined;
-            resourceInputs["returnResultsBehavior"] = args ? args.returnResultsBehavior : undefined;
-            resourceInputs["returnType"] = args ? args.returnType : undefined;
-            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["secrets"] = args ? args.secrets : undefined;
-            resourceInputs["targetPath"] = args ? args.targetPath : undefined;
-            resourceInputs["traceLevel"] = args ? args.traceLevel : undefined;
+            resourceInputs["arguments"] = args?.arguments;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["enableConsoleOutput"] = args?.enableConsoleOutput;
+            resourceInputs["externalAccessIntegrations"] = args?.externalAccessIntegrations;
+            resourceInputs["functionDefinition"] = args?.functionDefinition;
+            resourceInputs["handler"] = args?.handler;
+            resourceInputs["imports"] = args?.imports;
+            resourceInputs["isSecure"] = args?.isSecure;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["metricLevel"] = args?.metricLevel;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nullInputBehavior"] = args?.nullInputBehavior;
+            resourceInputs["packages"] = args?.packages;
+            resourceInputs["returnResultsBehavior"] = args?.returnResultsBehavior;
+            resourceInputs["returnType"] = args?.returnType;
+            resourceInputs["runtimeVersion"] = args?.runtimeVersion;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["secrets"] = args?.secrets;
+            resourceInputs["targetPath"] = args?.targetPath;
+            resourceInputs["traceLevel"] = args?.traceLevel;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["functionLanguage"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;

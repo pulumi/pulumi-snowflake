@@ -48,107 +48,107 @@ export class ProcedureJava extends pulumi.CustomResource {
     /**
      * List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
      */
-    public readonly arguments!: pulumi.Output<outputs.ProcedureJavaArgument[] | undefined>;
+    declare public readonly arguments: pulumi.Output<outputs.ProcedureJavaArgument[] | undefined>;
     /**
      * (Default: `user-defined procedure`) Specifies a comment for the procedure.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
-    public readonly enableConsoleOutput!: pulumi.Output<boolean>;
+    declare public readonly enableConsoleOutput: pulumi.Output<boolean>;
     /**
      * Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
      */
-    public readonly executeAs!: pulumi.Output<string | undefined>;
+    declare public readonly executeAs: pulumi.Output<string | undefined>;
     /**
      * The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this procedure’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
      */
-    public readonly externalAccessIntegrations!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalAccessIntegrations: pulumi.Output<string[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Use the fully qualified name of the method or function for the stored procedure. This is typically in the following form `com.my_company.my_package.MyClass.myMethod` where `com.my_company.my_package` corresponds to the package containing the object or class: `package com.my_company.my_package;`.
      */
-    public readonly handler!: pulumi.Output<string>;
+    declare public readonly handler: pulumi.Output<string>;
     /**
      * The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your code depends on classes defined outside the stored procedure or resource files. If you are writing a stored procedure with a staged handler, you must also include a path to the JAR file containing the stored procedure’s handler code. The IMPORTS definition cannot reference variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique name, even if the files are in different subdirectories or different stages.
      */
-    public readonly imports!: pulumi.Output<outputs.ProcedureJavaImport[] | undefined>;
+    declare public readonly imports: pulumi.Output<outputs.ProcedureJavaImport[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly isSecure!: pulumi.Output<string | undefined>;
+    declare public readonly isSecure: pulumi.Output<string | undefined>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
-    public readonly logLevel!: pulumi.Output<string>;
+    declare public readonly logLevel: pulumi.Output<string>;
     /**
      * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      */
-    public readonly metricLevel!: pulumi.Output<string>;
+    declare public readonly metricLevel: pulumi.Output<string>;
     /**
      * The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      */
-    public readonly nullInputBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly nullInputBehavior: pulumi.Output<string | undefined>;
     /**
      * List of the names of packages deployed in Snowflake that should be included in the handler code’s execution environment. The Snowpark package is required for stored procedures, but is specified in the `snowparkPackage` attribute. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
      */
-    public readonly packages!: pulumi.Output<string[] | undefined>;
+    declare public readonly packages: pulumi.Output<string[] | undefined>;
     /**
      * Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
      */
-    public /*out*/ readonly parameters!: pulumi.Output<outputs.ProcedureJavaParameter[]>;
+    declare public /*out*/ readonly parameters: pulumi.Output<outputs.ProcedureJavaParameter[]>;
     /**
      * Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedureDefinition` value must be Java source code. For more information, see [Java (using Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-java). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
-    public readonly procedureDefinition!: pulumi.Output<string | undefined>;
+    declare public readonly procedureDefinition: pulumi.Output<string | undefined>;
     /**
      * Specifies language for the procedure. Used to detect external changes.
      */
-    public /*out*/ readonly procedureLanguage!: pulumi.Output<string>;
+    declare public /*out*/ readonly procedureLanguage: pulumi.Output<string>;
     /**
      * Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL-Java Data Type Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-java-data-type-mappings)). For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
      */
-    public readonly returnType!: pulumi.Output<string>;
+    declare public readonly returnType: pulumi.Output<string>;
     /**
      * The language runtime version to use. Currently, the supported versions are: 11.
      */
-    public readonly runtimeVersion!: pulumi.Output<string>;
+    declare public readonly runtimeVersion: pulumi.Output<string>;
     /**
      * The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
      */
-    public readonly secrets!: pulumi.Output<outputs.ProcedureJavaSecret[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.ProcedureJavaSecret[] | undefined>;
     /**
      * Outputs the result of `SHOW PROCEDURE` for the given procedure.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ProcedureJavaShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ProcedureJavaShowOutput[]>;
     /**
      * The Snowpark package is required for stored procedures, so it must always be present. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
      */
-    public readonly snowparkPackage!: pulumi.Output<string>;
+    declare public readonly snowparkPackage: pulumi.Output<string>;
     /**
      * Use the fully qualified name of the method or function for the stored procedure. This is typically in the following form `com.my_company.my_package.MyClass.myMethod` where `com.my_company.my_package` corresponds to the package containing the object or class: `package com.my_company.my_package;`.
      */
-    public readonly targetPath!: pulumi.Output<outputs.ProcedureJavaTargetPath | undefined>;
+    declare public readonly targetPath: pulumi.Output<outputs.ProcedureJavaTargetPath | undefined>;
     /**
      * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      */
-    public readonly traceLevel!: pulumi.Output<string>;
+    declare public readonly traceLevel: pulumi.Output<string>;
 
     /**
      * Create a ProcedureJava resource with the given unique name, arguments, and options.
@@ -163,74 +163,74 @@ export class ProcedureJava extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProcedureJavaState | undefined;
-            resourceInputs["arguments"] = state ? state.arguments : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["enableConsoleOutput"] = state ? state.enableConsoleOutput : undefined;
-            resourceInputs["executeAs"] = state ? state.executeAs : undefined;
-            resourceInputs["externalAccessIntegrations"] = state ? state.externalAccessIntegrations : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["handler"] = state ? state.handler : undefined;
-            resourceInputs["imports"] = state ? state.imports : undefined;
-            resourceInputs["isSecure"] = state ? state.isSecure : undefined;
-            resourceInputs["logLevel"] = state ? state.logLevel : undefined;
-            resourceInputs["metricLevel"] = state ? state.metricLevel : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nullInputBehavior"] = state ? state.nullInputBehavior : undefined;
-            resourceInputs["packages"] = state ? state.packages : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["procedureDefinition"] = state ? state.procedureDefinition : undefined;
-            resourceInputs["procedureLanguage"] = state ? state.procedureLanguage : undefined;
-            resourceInputs["returnType"] = state ? state.returnType : undefined;
-            resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["secrets"] = state ? state.secrets : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["snowparkPackage"] = state ? state.snowparkPackage : undefined;
-            resourceInputs["targetPath"] = state ? state.targetPath : undefined;
-            resourceInputs["traceLevel"] = state ? state.traceLevel : undefined;
+            resourceInputs["arguments"] = state?.arguments;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["enableConsoleOutput"] = state?.enableConsoleOutput;
+            resourceInputs["executeAs"] = state?.executeAs;
+            resourceInputs["externalAccessIntegrations"] = state?.externalAccessIntegrations;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["handler"] = state?.handler;
+            resourceInputs["imports"] = state?.imports;
+            resourceInputs["isSecure"] = state?.isSecure;
+            resourceInputs["logLevel"] = state?.logLevel;
+            resourceInputs["metricLevel"] = state?.metricLevel;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nullInputBehavior"] = state?.nullInputBehavior;
+            resourceInputs["packages"] = state?.packages;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["procedureDefinition"] = state?.procedureDefinition;
+            resourceInputs["procedureLanguage"] = state?.procedureLanguage;
+            resourceInputs["returnType"] = state?.returnType;
+            resourceInputs["runtimeVersion"] = state?.runtimeVersion;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["secrets"] = state?.secrets;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["snowparkPackage"] = state?.snowparkPackage;
+            resourceInputs["targetPath"] = state?.targetPath;
+            resourceInputs["traceLevel"] = state?.traceLevel;
         } else {
             const args = argsOrState as ProcedureJavaArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.handler === undefined) && !opts.urn) {
+            if (args?.handler === undefined && !opts.urn) {
                 throw new Error("Missing required property 'handler'");
             }
-            if ((!args || args.returnType === undefined) && !opts.urn) {
+            if (args?.returnType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'returnType'");
             }
-            if ((!args || args.runtimeVersion === undefined) && !opts.urn) {
+            if (args?.runtimeVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeVersion'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.snowparkPackage === undefined) && !opts.urn) {
+            if (args?.snowparkPackage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snowparkPackage'");
             }
-            resourceInputs["arguments"] = args ? args.arguments : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["enableConsoleOutput"] = args ? args.enableConsoleOutput : undefined;
-            resourceInputs["executeAs"] = args ? args.executeAs : undefined;
-            resourceInputs["externalAccessIntegrations"] = args ? args.externalAccessIntegrations : undefined;
-            resourceInputs["handler"] = args ? args.handler : undefined;
-            resourceInputs["imports"] = args ? args.imports : undefined;
-            resourceInputs["isSecure"] = args ? args.isSecure : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["metricLevel"] = args ? args.metricLevel : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nullInputBehavior"] = args ? args.nullInputBehavior : undefined;
-            resourceInputs["packages"] = args ? args.packages : undefined;
-            resourceInputs["procedureDefinition"] = args ? args.procedureDefinition : undefined;
-            resourceInputs["returnType"] = args ? args.returnType : undefined;
-            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["secrets"] = args ? args.secrets : undefined;
-            resourceInputs["snowparkPackage"] = args ? args.snowparkPackage : undefined;
-            resourceInputs["targetPath"] = args ? args.targetPath : undefined;
-            resourceInputs["traceLevel"] = args ? args.traceLevel : undefined;
+            resourceInputs["arguments"] = args?.arguments;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["enableConsoleOutput"] = args?.enableConsoleOutput;
+            resourceInputs["executeAs"] = args?.executeAs;
+            resourceInputs["externalAccessIntegrations"] = args?.externalAccessIntegrations;
+            resourceInputs["handler"] = args?.handler;
+            resourceInputs["imports"] = args?.imports;
+            resourceInputs["isSecure"] = args?.isSecure;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["metricLevel"] = args?.metricLevel;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nullInputBehavior"] = args?.nullInputBehavior;
+            resourceInputs["packages"] = args?.packages;
+            resourceInputs["procedureDefinition"] = args?.procedureDefinition;
+            resourceInputs["returnType"] = args?.returnType;
+            resourceInputs["runtimeVersion"] = args?.runtimeVersion;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["secrets"] = args?.secrets;
+            resourceInputs["snowparkPackage"] = args?.snowparkPackage;
+            resourceInputs["targetPath"] = args?.targetPath;
+            resourceInputs["traceLevel"] = args?.traceLevel;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["procedureLanguage"] = undefined /*out*/;

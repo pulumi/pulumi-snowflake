@@ -46,65 +46,65 @@ export class Stage extends pulumi.CustomResource {
     /**
      * A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
      */
-    public readonly awsExternalId!: pulumi.Output<string>;
+    declare public readonly awsExternalId: pulumi.Output<string>;
     /**
      * Specifies a comment for the stage.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Specifies the copy options for the stage.
      */
-    public readonly copyOptions!: pulumi.Output<string | undefined>;
+    declare public readonly copyOptions: pulumi.Output<string | undefined>;
     /**
      * Specifies the credentials for the stage.
      */
-    public readonly credentials!: pulumi.Output<string | undefined>;
+    declare public readonly credentials: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the stage.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Specifies the directory settings for the stage.
      */
-    public readonly directory!: pulumi.Output<string | undefined>;
+    declare public readonly directory: pulumi.Output<string | undefined>;
     /**
      * Specifies the encryption settings for the stage.
      */
-    public readonly encryption!: pulumi.Output<string | undefined>;
+    declare public readonly encryption: pulumi.Output<string | undefined>;
     /**
      * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `fileFormat = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `fileFormat = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
      */
-    public readonly fileFormat!: pulumi.Output<string | undefined>;
+    declare public readonly fileFormat: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The schema in which to create the stage.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
      */
-    public readonly snowflakeIamUser!: pulumi.Output<string>;
+    declare public readonly snowflakeIamUser: pulumi.Output<string>;
     /**
      * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
      */
-    public readonly storageIntegration!: pulumi.Output<string | undefined>;
+    declare public readonly storageIntegration: pulumi.Output<string | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    public readonly tags!: pulumi.Output<outputs.StageTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.StageTag[] | undefined>;
     /**
      * Specifies the URL for the stage.
      */
-    public readonly url!: pulumi.Output<string | undefined>;
+    declare public readonly url: pulumi.Output<string | undefined>;
 
     /**
      * Create a Stage resource with the given unique name, arguments, and options.
@@ -119,43 +119,43 @@ export class Stage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StageState | undefined;
-            resourceInputs["awsExternalId"] = state ? state.awsExternalId : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["copyOptions"] = state ? state.copyOptions : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["directory"] = state ? state.directory : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["snowflakeIamUser"] = state ? state.snowflakeIamUser : undefined;
-            resourceInputs["storageIntegration"] = state ? state.storageIntegration : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["awsExternalId"] = state?.awsExternalId;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["copyOptions"] = state?.copyOptions;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["directory"] = state?.directory;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["fileFormat"] = state?.fileFormat;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["snowflakeIamUser"] = state?.snowflakeIamUser;
+            resourceInputs["storageIntegration"] = state?.storageIntegration;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as StageArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["awsExternalId"] = args ? args.awsExternalId : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["copyOptions"] = args ? args.copyOptions : undefined;
+            resourceInputs["awsExternalId"] = args?.awsExternalId;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["copyOptions"] = args?.copyOptions;
             resourceInputs["credentials"] = args?.credentials ? pulumi.secret(args.credentials) : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["directory"] = args ? args.directory : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["snowflakeIamUser"] = args ? args.snowflakeIamUser : undefined;
-            resourceInputs["storageIntegration"] = args ? args.storageIntegration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["directory"] = args?.directory;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["fileFormat"] = args?.fileFormat;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["snowflakeIamUser"] = args?.snowflakeIamUser;
+            resourceInputs["storageIntegration"] = args?.storageIntegration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["url"] = args?.url;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

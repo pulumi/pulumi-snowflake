@@ -44,43 +44,43 @@ export class ScimIntegration extends pulumi.CustomResource {
     /**
      * Specifies a comment for the integration.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.ScimIntegrationDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ScimIntegrationDescribeOutput[]>;
     /**
      * Specify whether the security integration is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      */
-    public readonly networkPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly networkPolicy: pulumi.Output<string | undefined>;
     /**
      * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      */
-    public readonly runAsRole!: pulumi.Output<string>;
+    declare public readonly runAsRole: pulumi.Output<string>;
     /**
      * Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
      */
-    public readonly scimClient!: pulumi.Output<string>;
+    declare public readonly scimClient: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ScimIntegrationShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ScimIntegrationShowOutput[]>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly syncPassword!: pulumi.Output<string | undefined>;
+    declare public readonly syncPassword: pulumi.Output<string | undefined>;
 
     /**
      * Create a ScimIntegration resource with the given unique name, arguments, and options.
@@ -95,34 +95,34 @@ export class ScimIntegration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScimIntegrationState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkPolicy"] = state ? state.networkPolicy : undefined;
-            resourceInputs["runAsRole"] = state ? state.runAsRole : undefined;
-            resourceInputs["scimClient"] = state ? state.scimClient : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["syncPassword"] = state ? state.syncPassword : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkPolicy"] = state?.networkPolicy;
+            resourceInputs["runAsRole"] = state?.runAsRole;
+            resourceInputs["scimClient"] = state?.scimClient;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["syncPassword"] = state?.syncPassword;
         } else {
             const args = argsOrState as ScimIntegrationArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.runAsRole === undefined) && !opts.urn) {
+            if (args?.runAsRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runAsRole'");
             }
-            if ((!args || args.scimClient === undefined) && !opts.urn) {
+            if (args?.scimClient === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scimClient'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkPolicy"] = args ? args.networkPolicy : undefined;
-            resourceInputs["runAsRole"] = args ? args.runAsRole : undefined;
-            resourceInputs["scimClient"] = args ? args.scimClient : undefined;
-            resourceInputs["syncPassword"] = args ? args.syncPassword : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkPolicy"] = args?.networkPolicy;
+            resourceInputs["runAsRole"] = args?.runAsRole;
+            resourceInputs["scimClient"] = args?.scimClient;
+            resourceInputs["syncPassword"] = args?.syncPassword;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

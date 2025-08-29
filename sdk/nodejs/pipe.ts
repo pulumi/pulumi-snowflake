@@ -44,51 +44,51 @@ export class Pipe extends pulumi.CustomResource {
     /**
      * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
-    public readonly autoIngest!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoIngest: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
      */
-    public readonly awsSnsTopicArn!: pulumi.Output<string | undefined>;
+    declare public readonly awsSnsTopicArn: pulumi.Output<string | undefined>;
     /**
      * Specifies a comment for the pipe.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Specifies the copy statement for the pipe.
      */
-    public readonly copyStatement!: pulumi.Output<string>;
+    declare public readonly copyStatement: pulumi.Output<string>;
     /**
      * The database in which to create the pipe.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Specifies the name of the notification integration used for error notifications.
      */
-    public readonly errorIntegration!: pulumi.Output<string | undefined>;
+    declare public readonly errorIntegration: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies an integration for the pipe.
      */
-    public readonly integration!: pulumi.Output<string | undefined>;
+    declare public readonly integration: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
      */
-    public /*out*/ readonly notificationChannel!: pulumi.Output<string>;
+    declare public /*out*/ readonly notificationChannel: pulumi.Output<string>;
     /**
      * Name of the role that owns the pipe.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * The schema in which to create the pipe.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
 
     /**
      * Create a Pipe resource with the given unique name, arguments, and options.
@@ -103,38 +103,38 @@ export class Pipe extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipeState | undefined;
-            resourceInputs["autoIngest"] = state ? state.autoIngest : undefined;
-            resourceInputs["awsSnsTopicArn"] = state ? state.awsSnsTopicArn : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["copyStatement"] = state ? state.copyStatement : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["errorIntegration"] = state ? state.errorIntegration : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["integration"] = state ? state.integration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationChannel"] = state ? state.notificationChannel : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["autoIngest"] = state?.autoIngest;
+            resourceInputs["awsSnsTopicArn"] = state?.awsSnsTopicArn;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["copyStatement"] = state?.copyStatement;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["errorIntegration"] = state?.errorIntegration;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["integration"] = state?.integration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationChannel"] = state?.notificationChannel;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["schema"] = state?.schema;
         } else {
             const args = argsOrState as PipeArgs | undefined;
-            if ((!args || args.copyStatement === undefined) && !opts.urn) {
+            if (args?.copyStatement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'copyStatement'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["autoIngest"] = args ? args.autoIngest : undefined;
-            resourceInputs["awsSnsTopicArn"] = args ? args.awsSnsTopicArn : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["copyStatement"] = args ? args.copyStatement : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["errorIntegration"] = args ? args.errorIntegration : undefined;
-            resourceInputs["integration"] = args ? args.integration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["autoIngest"] = args?.autoIngest;
+            resourceInputs["awsSnsTopicArn"] = args?.awsSnsTopicArn;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["copyStatement"] = args?.copyStatement;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["errorIntegration"] = args?.errorIntegration;
+            resourceInputs["integration"] = args?.integration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["notificationChannel"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;

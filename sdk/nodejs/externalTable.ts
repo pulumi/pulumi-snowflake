@@ -46,73 +46,73 @@ export class ExternalTable extends pulumi.CustomResource {
     /**
      * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
-    public readonly autoRefresh!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoRefresh: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the aws sns topic for the external table.
      */
-    public readonly awsSnsTopic!: pulumi.Output<string | undefined>;
+    declare public readonly awsSnsTopic: pulumi.Output<string | undefined>;
     /**
      * Definitions of a column to create in the external table. Minimum one required.
      */
-    public readonly columns!: pulumi.Output<outputs.ExternalTableColumn[]>;
+    declare public readonly columns: pulumi.Output<outputs.ExternalTableColumn[]>;
     /**
      * Specifies a comment for the external table.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
-    public readonly copyGrants!: pulumi.Output<boolean | undefined>;
+    declare public readonly copyGrants: pulumi.Output<boolean | undefined>;
     /**
      * The database in which to create the external table.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Specifies the file format for the external table.
      */
-    public readonly fileFormat!: pulumi.Output<string>;
+    declare public readonly fileFormat: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Name of the role that owns the external table.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * Specifies any partition columns to evaluate for the external table.
      */
-    public readonly partitionBies!: pulumi.Output<string[] | undefined>;
+    declare public readonly partitionBies: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the file names and/or paths on the external stage to match.
      */
-    public readonly pattern!: pulumi.Output<string | undefined>;
+    declare public readonly pattern: pulumi.Output<string | undefined>;
     /**
      * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
-    public readonly refreshOnCreate!: pulumi.Output<boolean | undefined>;
+    declare public readonly refreshOnCreate: pulumi.Output<boolean | undefined>;
     /**
      * The schema in which to create the external table.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
      */
-    public readonly tableFormat!: pulumi.Output<string | undefined>;
+    declare public readonly tableFormat: pulumi.Output<string | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    public readonly tags!: pulumi.Output<outputs.ExternalTableTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.ExternalTableTag[] | undefined>;
 
     /**
      * Create a ExternalTable resource with the given unique name, arguments, and options.
@@ -127,55 +127,55 @@ export class ExternalTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExternalTableState | undefined;
-            resourceInputs["autoRefresh"] = state ? state.autoRefresh : undefined;
-            resourceInputs["awsSnsTopic"] = state ? state.awsSnsTopic : undefined;
-            resourceInputs["columns"] = state ? state.columns : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["copyGrants"] = state ? state.copyGrants : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["partitionBies"] = state ? state.partitionBies : undefined;
-            resourceInputs["pattern"] = state ? state.pattern : undefined;
-            resourceInputs["refreshOnCreate"] = state ? state.refreshOnCreate : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["tableFormat"] = state ? state.tableFormat : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoRefresh"] = state?.autoRefresh;
+            resourceInputs["awsSnsTopic"] = state?.awsSnsTopic;
+            resourceInputs["columns"] = state?.columns;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["copyGrants"] = state?.copyGrants;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["fileFormat"] = state?.fileFormat;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["partitionBies"] = state?.partitionBies;
+            resourceInputs["pattern"] = state?.pattern;
+            resourceInputs["refreshOnCreate"] = state?.refreshOnCreate;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["tableFormat"] = state?.tableFormat;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ExternalTableArgs | undefined;
-            if ((!args || args.columns === undefined) && !opts.urn) {
+            if (args?.columns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columns'");
             }
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.fileFormat === undefined) && !opts.urn) {
+            if (args?.fileFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileFormat'");
             }
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["autoRefresh"] = args ? args.autoRefresh : undefined;
-            resourceInputs["awsSnsTopic"] = args ? args.awsSnsTopic : undefined;
-            resourceInputs["columns"] = args ? args.columns : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["copyGrants"] = args ? args.copyGrants : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partitionBies"] = args ? args.partitionBies : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["refreshOnCreate"] = args ? args.refreshOnCreate : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["tableFormat"] = args ? args.tableFormat : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoRefresh"] = args?.autoRefresh;
+            resourceInputs["awsSnsTopic"] = args?.awsSnsTopic;
+            resourceInputs["columns"] = args?.columns;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["copyGrants"] = args?.copyGrants;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["fileFormat"] = args?.fileFormat;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partitionBies"] = args?.partitionBies;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["refreshOnCreate"] = args?.refreshOnCreate;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["tableFormat"] = args?.tableFormat;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
         }

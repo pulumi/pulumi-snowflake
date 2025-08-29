@@ -18,83 +18,53 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-	// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-	// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+	// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
 	AccountName pulumi.StringPtrOutput `pulumi:"accountName"`
-	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-	// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-	// `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-	// `SNOWFLAKE_AUTHENTICATOR` environment variable.
+	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 	Authenticator pulumi.StringPtrOutput `pulumi:"authenticator"`
 	// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 	ClientIp pulumi.StringPtrOutput `pulumi:"clientIp"`
-	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-	// be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
 	ClientRequestMfaToken pulumi.StringPtrOutput `pulumi:"clientRequestMfaToken"`
-	// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-	// sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+	// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
 	ClientStoreTemporaryCredential pulumi.StringPtrOutput `pulumi:"clientStoreTemporaryCredential"`
-	// Indicates whether console login should be disabled in the driver. Can also be sourced from the
-	// `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+	// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 	DisableConsoleLogin pulumi.StringPtrOutput `pulumi:"disableConsoleLogin"`
-	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-	// `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
 	DriverTracing pulumi.StringPtrOutput `pulumi:"driverTracing"`
-	// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-	// `SNOWFLAKE_HOST` environment variable.
+	// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
 	Host pulumi.StringPtrOutput `pulumi:"host"`
-	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-	// variable.
+	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 	IncludeRetryReason pulumi.StringPtrOutput `pulumi:"includeRetryReason"`
-	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-	// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
 	OcspFailOpen pulumi.StringPtrOutput `pulumi:"ocspFailOpen"`
-	// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-	// in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-	// `SNOWFLAKE_OKTA_URL` environment variable.
+	// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
 	OktaUrl pulumi.StringPtrOutput `pulumi:"oktaUrl"`
-	// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-	// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-	// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+	// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
 	OrganizationName pulumi.StringPtrOutput `pulumi:"organizationName"`
-	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-	// the `SNOWFLAKE_PASSCODE` environment variable.
+	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
 	Passcode pulumi.StringPtrOutput `pulumi:"passcode"`
-	// Password for user + password or
-	// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-	// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
-	// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+	// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
-	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-	// des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
 	PrivateKeyPassphrase pulumi.StringPtrOutput `pulumi:"privateKeyPassphrase"`
-	// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-	// variable.
+	// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
-	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-	// `SNOWFLAKE_PROTOCOL` environment variable.
+	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
-	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-	// `SNOWFLAKE_ROLE` environment variable.
+	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 	TmpDirectoryPath pulumi.StringPtrOutput `pulumi:"tmpDirectoryPath"`
-	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-	// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-	// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 	Token pulumi.StringPtrOutput `pulumi:"token"`
 	// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
 	User pulumi.StringPtrOutput `pulumi:"user"`
-	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-	// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 	ValidateDefaultParameters pulumi.StringPtrOutput `pulumi:"validateDefaultParameters"`
-	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-	// from the `SNOWFLAKE_WAREHOUSE` environment variable.
+	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
 	Warehouse pulumi.StringPtrOutput `pulumi:"warehouse"`
 }
 
@@ -173,269 +143,173 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-	// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-	// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+	// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
 	AccountName *string `pulumi:"accountName"`
-	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-	// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-	// `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-	// `SNOWFLAKE_AUTHENTICATOR` environment variable.
+	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 	Authenticator *string `pulumi:"authenticator"`
 	// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 	ClientIp *string `pulumi:"clientIp"`
-	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-	// be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
 	ClientRequestMfaToken *string `pulumi:"clientRequestMfaToken"`
-	// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-	// sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+	// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
 	ClientStoreTemporaryCredential *string `pulumi:"clientStoreTemporaryCredential"`
-	// The timeout in seconds for the client to complete the authentication. Can also be sourced from the
-	// `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+	// The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
 	ClientTimeout *int `pulumi:"clientTimeout"`
-	// Indicates whether console login should be disabled in the driver. Can also be sourced from the
-	// `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+	// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 	DisableConsoleLogin *string `pulumi:"disableConsoleLogin"`
-	// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
-	// environment variable.
+	// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
 	DisableQueryContextCache *bool `pulumi:"disableQueryContextCache"`
 	// Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
 	DisableTelemetry *bool `pulumi:"disableTelemetry"`
-	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-	// `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
 	DriverTracing *string `pulumi:"driverTracing"`
-	// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
-	// `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+	// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
 	ExternalBrowserTimeout *int `pulumi:"externalBrowserTimeout"`
-	// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-	// `SNOWFLAKE_HOST` environment variable.
+	// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
 	Host *string `pulumi:"host"`
-	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-	// variable.
+	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 	IncludeRetryReason *string `pulumi:"includeRetryReason"`
-	// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-	// default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
-	// environment variable.
+	// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
 	InsecureMode *bool `pulumi:"insecureMode"`
-	// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
-	// `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+	// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
 	JwtClientTimeout *int `pulumi:"jwtClientTimeout"`
 	// JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
 	JwtExpireTimeout *int `pulumi:"jwtExpireTimeout"`
-	// Enables the session to persist even after the connection is closed. Can also be sourced from the
-	// `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+	// Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
 	KeepSessionAlive *bool `pulumi:"keepSessionAlive"`
-	// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-	// `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
+	// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
 	LoginTimeout *int `pulumi:"loginTimeout"`
-	// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
-	// `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+	// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
 	MaxRetryCount *int `pulumi:"maxRetryCount"`
-	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-	// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
 	OcspFailOpen *string `pulumi:"ocspFailOpen"`
-	// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-	// in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-	// `SNOWFLAKE_OKTA_URL` environment variable.
+	// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
 	OktaUrl *string `pulumi:"oktaUrl"`
-	// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-	// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-	// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+	// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
 	OrganizationName *string `pulumi:"organizationName"`
-	// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
-	// This field can not be set with environmental variables.
+	// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables.
 	Params map[string]string `pulumi:"params"`
-	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-	// the `SNOWFLAKE_PASSCODE` environment variable.
+	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
 	Passcode *string `pulumi:"passcode"`
-	// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
-	// `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+	// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
 	PasscodeInPassword *bool `pulumi:"passcodeInPassword"`
-	// Password for user + password or
-	// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-	// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
-	// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+	// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 	Password *string `pulumi:"password"`
-	// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
-	// `SNOWFLAKE_PORT` environment variable.
+	// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
 	Port                   *int     `pulumi:"port"`
 	PreviewFeaturesEnabled []string `pulumi:"previewFeaturesEnabled"`
-	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
 	PrivateKey *string `pulumi:"privateKey"`
-	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-	// des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
 	PrivateKeyPassphrase *string `pulumi:"privateKeyPassphrase"`
-	// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-	// variable.
+	// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
 	Profile *string `pulumi:"profile"`
-	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-	// `SNOWFLAKE_PROTOCOL` environment variable.
+	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol *string `pulumi:"protocol"`
-	// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-	// `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+	// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
 	RequestTimeout *int `pulumi:"requestTimeout"`
-	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-	// `SNOWFLAKE_ROLE` environment variable.
+	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
 	Role *string `pulumi:"role"`
-	// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-	// the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
-	// the proper privileges - see the section below. Can also be sourced from the
-	// `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
+	// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
 	SkipTomlFilePermissionVerification *bool `pulumi:"skipTomlFilePermissionVerification"`
-	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 	TmpDirectoryPath *string `pulumi:"tmpDirectoryPath"`
-	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-	// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-	// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 	Token         *string                `pulumi:"token"`
 	TokenAccessor *ProviderTokenAccessor `pulumi:"tokenAccessor"`
-	// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
-	// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
-	// variable.
+	// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
 	UseLegacyTomlFile *bool `pulumi:"useLegacyTomlFile"`
 	// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
 	User *string `pulumi:"user"`
-	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-	// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 	ValidateDefaultParameters *string `pulumi:"validateDefaultParameters"`
-	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-	// from the `SNOWFLAKE_WAREHOUSE` environment variable.
+	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
 	Warehouse *string `pulumi:"warehouse"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-	// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-	// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+	// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
 	AccountName pulumi.StringPtrInput
-	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-	// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-	// `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-	// `SNOWFLAKE_AUTHENTICATOR` environment variable.
+	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 	Authenticator pulumi.StringPtrInput
 	// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 	ClientIp pulumi.StringPtrInput
-	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-	// be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
 	ClientRequestMfaToken pulumi.StringPtrInput
-	// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-	// sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+	// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
 	ClientStoreTemporaryCredential pulumi.StringPtrInput
-	// The timeout in seconds for the client to complete the authentication. Can also be sourced from the
-	// `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+	// The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
 	ClientTimeout pulumi.IntPtrInput
-	// Indicates whether console login should be disabled in the driver. Can also be sourced from the
-	// `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+	// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 	DisableConsoleLogin pulumi.StringPtrInput
-	// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE`
-	// environment variable.
+	// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
 	DisableQueryContextCache pulumi.BoolPtrInput
 	// Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
 	DisableTelemetry pulumi.BoolPtrInput
-	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-	// `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
 	DriverTracing pulumi.StringPtrInput
-	// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the
-	// `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
+	// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
 	ExternalBrowserTimeout pulumi.IntPtrInput
-	// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-	// `SNOWFLAKE_HOST` environment variable.
+	// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
 	Host pulumi.StringPtrInput
-	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-	// variable.
+	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 	IncludeRetryReason pulumi.StringPtrInput
-	// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the
-	// default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE`
-	// environment variable.
+	// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
 	InsecureMode pulumi.BoolPtrInput
-	// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the
-	// `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
+	// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
 	JwtClientTimeout pulumi.IntPtrInput
 	// JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
 	JwtExpireTimeout pulumi.IntPtrInput
-	// Enables the session to persist even after the connection is closed. Can also be sourced from the
-	// `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+	// Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
 	KeepSessionAlive pulumi.BoolPtrInput
-	// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-	// `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
+	// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
 	LoginTimeout pulumi.IntPtrInput
-	// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the
-	// `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+	// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
 	MaxRetryCount pulumi.IntPtrInput
-	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-	// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+	// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
 	OcspFailOpen pulumi.StringPtrInput
-	// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-	// in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-	// `SNOWFLAKE_OKTA_URL` environment variable.
+	// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
 	OktaUrl pulumi.StringPtrInput
-	// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-	// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-	// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+	// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
 	OrganizationName pulumi.StringPtrInput
-	// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters).
-	// This field can not be set with environmental variables.
+	// Sets other connection (i.e. session) parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters). This field can not be set with environmental variables.
 	Params pulumi.StringMapInput
-	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-	// the `SNOWFLAKE_PASSCODE` environment variable.
+	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
 	Passcode pulumi.StringPtrInput
-	// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
-	// `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
+	// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
 	PasscodeInPassword pulumi.BoolPtrInput
-	// Password for user + password or
-	// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-	// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
-	// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+	// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 	Password pulumi.StringPtrInput
-	// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
-	// `SNOWFLAKE_PORT` environment variable.
+	// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
 	Port                   pulumi.IntPtrInput
 	PreviewFeaturesEnabled pulumi.StringArrayInput
-	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
 	PrivateKey pulumi.StringPtrInput
-	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-	// des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+	// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
 	PrivateKeyPassphrase pulumi.StringPtrInput
-	// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-	// variable.
+	// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
 	Profile pulumi.StringPtrInput
-	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-	// `SNOWFLAKE_PROTOCOL` environment variable.
+	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol pulumi.StringPtrInput
-	// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
-	// `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
+	// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
 	RequestTimeout pulumi.IntPtrInput
-	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-	// `SNOWFLAKE_ROLE` environment variable.
+	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrInput
-	// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-	// the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
-	// the proper privileges - see the section below. Can also be sourced from the
-	// `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
+	// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
 	SkipTomlFilePermissionVerification pulumi.BoolPtrInput
-	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 	TmpDirectoryPath pulumi.StringPtrInput
-	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-	// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-	// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+	// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 	Token         pulumi.StringPtrInput
 	TokenAccessor ProviderTokenAccessorPtrInput
-	// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
-	// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
-	// variable.
+	// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
 	UseLegacyTomlFile pulumi.BoolPtrInput
 	// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
 	User pulumi.StringPtrInput
-	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-	// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 	ValidateDefaultParameters pulumi.StringPtrInput
-	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-	// from the `SNOWFLAKE_WAREHOUSE` environment variable.
+	// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
 	Warehouse pulumi.StringPtrInput
 }
 
@@ -499,17 +373,12 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
-// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
-// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
-// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
 func (o ProviderOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
-// `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the
-// `SNOWFLAKE_AUTHENTICATOR` environment variable.
+// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 func (o ProviderOutput) Authenticator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Authenticator }).(pulumi.StringPtrOutput)
 }
@@ -519,115 +388,92 @@ func (o ProviderOutput) ClientIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIp }).(pulumi.StringPtrOutput)
 }
 
-// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also
-// be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
+// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
 func (o ProviderOutput) ClientRequestMfaToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientRequestMfaToken }).(pulumi.StringPtrOutput)
 }
 
-// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be
-// sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
+// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
 func (o ProviderOutput) ClientStoreTemporaryCredential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientStoreTemporaryCredential }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether console login should be disabled in the driver. Can also be sourced from the
-// `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 func (o ProviderOutput) DisableConsoleLogin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.DisableConsoleLogin }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` |
-// `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
 func (o ProviderOutput) DriverTracing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.DriverTracing }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the
-// `SNOWFLAKE_HOST` environment variable.
+// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
 func (o ProviderOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment
-// variable.
+// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 func (o ProviderOutput) IncludeRetryReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.IncludeRetryReason }).(pulumi.StringPtrOutput)
 }
 
-// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
-// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
+// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
 func (o ProviderOutput) OcspFailOpen() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OcspFailOpen }).(pulumi.StringPtrOutput)
 }
 
-// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more
-// in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the
-// `SNOWFLAKE_OKTA_URL` environment variable.
+// The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
 func (o ProviderOutput) OktaUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OktaUrl }).(pulumi.StringPtrOutput)
 }
 
-// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the
-// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required
-// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
 func (o ProviderOutput) OrganizationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OrganizationName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
-// the `SNOWFLAKE_PASSCODE` environment variable.
+// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from the `SNOWFLAKE_PASSCODE` environment variable.
 func (o ProviderOutput) Passcode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Passcode }).(pulumi.StringPtrOutput)
 }
 
-// Password for user + password or
-// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
-// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
-// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 func (o ProviderOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
-// `SNOWFLAKE_PRIVATE_KEY` environment variable.
+// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
 func (o ProviderOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
-// des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+// Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
 func (o ProviderOutput) PrivateKeyPassphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.PrivateKeyPassphrase }).(pulumi.StringPtrOutput)
 }
 
-// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
-// variable.
+// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
 func (o ProviderOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the
-// `SNOWFLAKE_PROTOCOL` environment variable.
+// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 func (o ProviderOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
-// `SNOWFLAKE_ROLE` environment variable.
+// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
 func (o ProviderOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
-// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
+// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 func (o ProviderOutput) TmpDirectoryPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TmpDirectoryPath }).(pulumi.StringPtrOutput)
 }
 
-// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the
-// provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to
-// use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
 func (o ProviderOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -637,14 +483,12 @@ func (o ProviderOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.User }).(pulumi.StringPtrOutput)
 }
 
-// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
-// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
+// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 func (o ProviderOutput) ValidateDefaultParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ValidateDefaultParameters }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced
-// from the `SNOWFLAKE_WAREHOUSE` environment variable.
+// Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
 func (o ProviderOutput) Warehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Warehouse }).(pulumi.StringPtrOutput)
 }

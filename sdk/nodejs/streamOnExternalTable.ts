@@ -41,50 +41,50 @@ export class StreamOnExternalTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamOnExternalTable.__pulumiType;
     }
 
-    public readonly at!: pulumi.Output<outputs.StreamOnExternalTableAt | undefined>;
-    public readonly before!: pulumi.Output<outputs.StreamOnExternalTableBefore | undefined>;
+    declare public readonly at: pulumi.Output<outputs.StreamOnExternalTableAt | undefined>;
+    declare public readonly before: pulumi.Output<outputs.StreamOnExternalTableBefore | undefined>;
     /**
      * Specifies a comment for the stream.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
-    public readonly copyGrants!: pulumi.Output<boolean | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
+    declare public readonly copyGrants: pulumi.Output<boolean | undefined>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Outputs the result of `DESCRIBE STREAM` for the given stream.
      */
-    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.StreamOnExternalTableDescribeOutput[]>;
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.StreamOnExternalTableDescribeOutput[]>;
     /**
      * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
-    public readonly externalTable!: pulumi.Output<string>;
+    declare public readonly externalTable: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly insertOnly!: pulumi.Output<string | undefined>;
+    declare public readonly insertOnly: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW STREAMS` for the given stream.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.StreamOnExternalTableShowOutput[]>;
-    public /*out*/ readonly stale!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.StreamOnExternalTableShowOutput[]>;
+    declare public /*out*/ readonly stale: pulumi.Output<boolean>;
     /**
      * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
      */
-    public /*out*/ readonly streamType!: pulumi.Output<string>;
+    declare public /*out*/ readonly streamType: pulumi.Output<string>;
 
     /**
      * Create a StreamOnExternalTable resource with the given unique name, arguments, and options.
@@ -99,40 +99,40 @@ export class StreamOnExternalTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamOnExternalTableState | undefined;
-            resourceInputs["at"] = state ? state.at : undefined;
-            resourceInputs["before"] = state ? state.before : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["copyGrants"] = state ? state.copyGrants : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
-            resourceInputs["externalTable"] = state ? state.externalTable : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["insertOnly"] = state ? state.insertOnly : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["stale"] = state ? state.stale : undefined;
-            resourceInputs["streamType"] = state ? state.streamType : undefined;
+            resourceInputs["at"] = state?.at;
+            resourceInputs["before"] = state?.before;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["copyGrants"] = state?.copyGrants;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
+            resourceInputs["externalTable"] = state?.externalTable;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["insertOnly"] = state?.insertOnly;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["stale"] = state?.stale;
+            resourceInputs["streamType"] = state?.streamType;
         } else {
             const args = argsOrState as StreamOnExternalTableArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.externalTable === undefined) && !opts.urn) {
+            if (args?.externalTable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'externalTable'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["at"] = args ? args.at : undefined;
-            resourceInputs["before"] = args ? args.before : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["copyGrants"] = args ? args.copyGrants : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["externalTable"] = args ? args.externalTable : undefined;
-            resourceInputs["insertOnly"] = args ? args.insertOnly : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["at"] = args?.at;
+            resourceInputs["before"] = args?.before;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["copyGrants"] = args?.copyGrants;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["externalTable"] = args?.externalTable;
+            resourceInputs["insertOnly"] = args?.insertOnly;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;

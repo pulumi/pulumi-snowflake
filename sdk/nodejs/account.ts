@@ -41,54 +41,54 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
-    public readonly adminName!: pulumi.Output<string>;
-    public readonly adminPassword!: pulumi.Output<string | undefined>;
-    public readonly adminRsaPublicKey!: pulumi.Output<string | undefined>;
-    public readonly adminUserType!: pulumi.Output<string | undefined>;
+    declare public readonly adminName: pulumi.Output<string>;
+    declare public readonly adminPassword: pulumi.Output<string | undefined>;
+    declare public readonly adminRsaPublicKey: pulumi.Output<string | undefined>;
+    declare public readonly adminUserType: pulumi.Output<string | undefined>;
     /**
      * Specifies a comment for the account.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Determines which billing entity is responsible for the account's consumption-based billing.
      */
-    public readonly consumptionBillingEntity!: pulumi.Output<string | undefined>;
+    declare public readonly consumptionBillingEntity: pulumi.Output<string | undefined>;
     /**
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
-    public readonly edition!: pulumi.Output<string>;
-    public readonly email!: pulumi.Output<string>;
-    public readonly firstName!: pulumi.Output<string | undefined>;
+    declare public readonly edition: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
+    declare public readonly firstName: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
      */
-    public readonly gracePeriodInDays!: pulumi.Output<number>;
+    declare public readonly gracePeriodInDays: pulumi.Output<number>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
-    public readonly isOrgAdmin!: pulumi.Output<string | undefined>;
-    public readonly lastName!: pulumi.Output<string | undefined>;
-    public readonly mustChangePassword!: pulumi.Output<string | undefined>;
+    declare public readonly isOrgAdmin: pulumi.Output<string | undefined>;
+    declare public readonly lastName: pulumi.Output<string | undefined>;
+    declare public readonly mustChangePassword: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    declare public readonly region: pulumi.Output<string | undefined>;
     /**
      * ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
      */
-    public readonly regionGroup!: pulumi.Output<string | undefined>;
+    declare public readonly regionGroup: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `SHOW ACCOUNTS` for the given account.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.AccountShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.AccountShowOutput[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -103,54 +103,54 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["adminName"] = state ? state.adminName : undefined;
-            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
-            resourceInputs["adminRsaPublicKey"] = state ? state.adminRsaPublicKey : undefined;
-            resourceInputs["adminUserType"] = state ? state.adminUserType : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["consumptionBillingEntity"] = state ? state.consumptionBillingEntity : undefined;
-            resourceInputs["edition"] = state ? state.edition : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["firstName"] = state ? state.firstName : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["gracePeriodInDays"] = state ? state.gracePeriodInDays : undefined;
-            resourceInputs["isOrgAdmin"] = state ? state.isOrgAdmin : undefined;
-            resourceInputs["lastName"] = state ? state.lastName : undefined;
-            resourceInputs["mustChangePassword"] = state ? state.mustChangePassword : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["regionGroup"] = state ? state.regionGroup : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["adminName"] = state?.adminName;
+            resourceInputs["adminPassword"] = state?.adminPassword;
+            resourceInputs["adminRsaPublicKey"] = state?.adminRsaPublicKey;
+            resourceInputs["adminUserType"] = state?.adminUserType;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["consumptionBillingEntity"] = state?.consumptionBillingEntity;
+            resourceInputs["edition"] = state?.edition;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["firstName"] = state?.firstName;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["gracePeriodInDays"] = state?.gracePeriodInDays;
+            resourceInputs["isOrgAdmin"] = state?.isOrgAdmin;
+            resourceInputs["lastName"] = state?.lastName;
+            resourceInputs["mustChangePassword"] = state?.mustChangePassword;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["regionGroup"] = state?.regionGroup;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.adminName === undefined) && !opts.urn) {
+            if (args?.adminName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminName'");
             }
-            if ((!args || args.edition === undefined) && !opts.urn) {
+            if (args?.edition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edition'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.gracePeriodInDays === undefined) && !opts.urn) {
+            if (args?.gracePeriodInDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gracePeriodInDays'");
             }
             resourceInputs["adminName"] = args?.adminName ? pulumi.secret(args.adminName) : undefined;
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
-            resourceInputs["adminRsaPublicKey"] = args ? args.adminRsaPublicKey : undefined;
-            resourceInputs["adminUserType"] = args ? args.adminUserType : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["consumptionBillingEntity"] = args ? args.consumptionBillingEntity : undefined;
-            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["adminRsaPublicKey"] = args?.adminRsaPublicKey;
+            resourceInputs["adminUserType"] = args?.adminUserType;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["consumptionBillingEntity"] = args?.consumptionBillingEntity;
+            resourceInputs["edition"] = args?.edition;
             resourceInputs["email"] = args?.email ? pulumi.secret(args.email) : undefined;
             resourceInputs["firstName"] = args?.firstName ? pulumi.secret(args.firstName) : undefined;
-            resourceInputs["gracePeriodInDays"] = args ? args.gracePeriodInDays : undefined;
-            resourceInputs["isOrgAdmin"] = args ? args.isOrgAdmin : undefined;
+            resourceInputs["gracePeriodInDays"] = args?.gracePeriodInDays;
+            resourceInputs["isOrgAdmin"] = args?.isOrgAdmin;
             resourceInputs["lastName"] = args?.lastName ? pulumi.secret(args.lastName) : undefined;
-            resourceInputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
-            resourceInputs["regionGroup"] = args ? args.regionGroup : undefined;
+            resourceInputs["mustChangePassword"] = args?.mustChangePassword;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["region"] = args?.region;
+            resourceInputs["regionGroup"] = args?.regionGroup;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }

@@ -42,75 +42,75 @@ export class SharedDatabase extends pulumi.CustomResource {
     /**
      * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      */
-    public readonly catalog!: pulumi.Output<string>;
+    declare public readonly catalog: pulumi.Output<string>;
     /**
      * Specifies a comment for the database.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
-    public readonly defaultDdlCollation!: pulumi.Output<string>;
+    declare public readonly defaultDdlCollation: pulumi.Output<string>;
     /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
-    public readonly enableConsoleOutput!: pulumi.Output<boolean>;
+    declare public readonly enableConsoleOutput: pulumi.Output<boolean>;
     /**
      * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      */
-    public readonly externalVolume!: pulumi.Output<string>;
+    declare public readonly externalVolume: pulumi.Output<string>;
     /**
      * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
      */
-    public readonly fromShare!: pulumi.Output<string>;
+    declare public readonly fromShare: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      */
-    public readonly logLevel!: pulumi.Output<string>;
+    declare public readonly logLevel: pulumi.Output<string>;
     /**
      * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */
-    public readonly quotedIdentifiersIgnoreCase!: pulumi.Output<boolean>;
+    declare public readonly quotedIdentifiersIgnoreCase: pulumi.Output<boolean>;
     /**
      * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      */
-    public readonly replaceInvalidCharacters!: pulumi.Output<boolean>;
+    declare public readonly replaceInvalidCharacters: pulumi.Output<boolean>;
     /**
      * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      */
-    public readonly storageSerializationPolicy!: pulumi.Output<string>;
+    declare public readonly storageSerializationPolicy: pulumi.Output<string>;
     /**
      * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      */
-    public readonly suspendTaskAfterNumFailures!: pulumi.Output<number>;
+    declare public readonly suspendTaskAfterNumFailures: pulumi.Output<number>;
     /**
      * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      */
-    public readonly taskAutoRetryAttempts!: pulumi.Output<number>;
+    declare public readonly taskAutoRetryAttempts: pulumi.Output<number>;
     /**
      * Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
      */
-    public readonly traceLevel!: pulumi.Output<string>;
+    declare public readonly traceLevel: pulumi.Output<string>;
     /**
      * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      */
-    public readonly userTaskManagedInitialWarehouseSize!: pulumi.Output<string>;
+    declare public readonly userTaskManagedInitialWarehouseSize: pulumi.Output<string>;
     /**
      * Minimum amount of time between Triggered Task executions in seconds.
      */
-    public readonly userTaskMinimumTriggerIntervalInSeconds!: pulumi.Output<number>;
+    declare public readonly userTaskMinimumTriggerIntervalInSeconds: pulumi.Output<number>;
     /**
      * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      */
-    public readonly userTaskTimeoutMs!: pulumi.Output<number>;
+    declare public readonly userTaskTimeoutMs: pulumi.Output<number>;
 
     /**
      * Create a SharedDatabase resource with the given unique name, arguments, and options.
@@ -125,46 +125,46 @@ export class SharedDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedDatabaseState | undefined;
-            resourceInputs["catalog"] = state ? state.catalog : undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["defaultDdlCollation"] = state ? state.defaultDdlCollation : undefined;
-            resourceInputs["enableConsoleOutput"] = state ? state.enableConsoleOutput : undefined;
-            resourceInputs["externalVolume"] = state ? state.externalVolume : undefined;
-            resourceInputs["fromShare"] = state ? state.fromShare : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["logLevel"] = state ? state.logLevel : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["quotedIdentifiersIgnoreCase"] = state ? state.quotedIdentifiersIgnoreCase : undefined;
-            resourceInputs["replaceInvalidCharacters"] = state ? state.replaceInvalidCharacters : undefined;
-            resourceInputs["storageSerializationPolicy"] = state ? state.storageSerializationPolicy : undefined;
-            resourceInputs["suspendTaskAfterNumFailures"] = state ? state.suspendTaskAfterNumFailures : undefined;
-            resourceInputs["taskAutoRetryAttempts"] = state ? state.taskAutoRetryAttempts : undefined;
-            resourceInputs["traceLevel"] = state ? state.traceLevel : undefined;
-            resourceInputs["userTaskManagedInitialWarehouseSize"] = state ? state.userTaskManagedInitialWarehouseSize : undefined;
-            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = state ? state.userTaskMinimumTriggerIntervalInSeconds : undefined;
-            resourceInputs["userTaskTimeoutMs"] = state ? state.userTaskTimeoutMs : undefined;
+            resourceInputs["catalog"] = state?.catalog;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["defaultDdlCollation"] = state?.defaultDdlCollation;
+            resourceInputs["enableConsoleOutput"] = state?.enableConsoleOutput;
+            resourceInputs["externalVolume"] = state?.externalVolume;
+            resourceInputs["fromShare"] = state?.fromShare;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["logLevel"] = state?.logLevel;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["quotedIdentifiersIgnoreCase"] = state?.quotedIdentifiersIgnoreCase;
+            resourceInputs["replaceInvalidCharacters"] = state?.replaceInvalidCharacters;
+            resourceInputs["storageSerializationPolicy"] = state?.storageSerializationPolicy;
+            resourceInputs["suspendTaskAfterNumFailures"] = state?.suspendTaskAfterNumFailures;
+            resourceInputs["taskAutoRetryAttempts"] = state?.taskAutoRetryAttempts;
+            resourceInputs["traceLevel"] = state?.traceLevel;
+            resourceInputs["userTaskManagedInitialWarehouseSize"] = state?.userTaskManagedInitialWarehouseSize;
+            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = state?.userTaskMinimumTriggerIntervalInSeconds;
+            resourceInputs["userTaskTimeoutMs"] = state?.userTaskTimeoutMs;
         } else {
             const args = argsOrState as SharedDatabaseArgs | undefined;
-            if ((!args || args.fromShare === undefined) && !opts.urn) {
+            if (args?.fromShare === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fromShare'");
             }
-            resourceInputs["catalog"] = args ? args.catalog : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["defaultDdlCollation"] = args ? args.defaultDdlCollation : undefined;
-            resourceInputs["enableConsoleOutput"] = args ? args.enableConsoleOutput : undefined;
-            resourceInputs["externalVolume"] = args ? args.externalVolume : undefined;
-            resourceInputs["fromShare"] = args ? args.fromShare : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["quotedIdentifiersIgnoreCase"] = args ? args.quotedIdentifiersIgnoreCase : undefined;
-            resourceInputs["replaceInvalidCharacters"] = args ? args.replaceInvalidCharacters : undefined;
-            resourceInputs["storageSerializationPolicy"] = args ? args.storageSerializationPolicy : undefined;
-            resourceInputs["suspendTaskAfterNumFailures"] = args ? args.suspendTaskAfterNumFailures : undefined;
-            resourceInputs["taskAutoRetryAttempts"] = args ? args.taskAutoRetryAttempts : undefined;
-            resourceInputs["traceLevel"] = args ? args.traceLevel : undefined;
-            resourceInputs["userTaskManagedInitialWarehouseSize"] = args ? args.userTaskManagedInitialWarehouseSize : undefined;
-            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = args ? args.userTaskMinimumTriggerIntervalInSeconds : undefined;
-            resourceInputs["userTaskTimeoutMs"] = args ? args.userTaskTimeoutMs : undefined;
+            resourceInputs["catalog"] = args?.catalog;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["defaultDdlCollation"] = args?.defaultDdlCollation;
+            resourceInputs["enableConsoleOutput"] = args?.enableConsoleOutput;
+            resourceInputs["externalVolume"] = args?.externalVolume;
+            resourceInputs["fromShare"] = args?.fromShare;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["quotedIdentifiersIgnoreCase"] = args?.quotedIdentifiersIgnoreCase;
+            resourceInputs["replaceInvalidCharacters"] = args?.replaceInvalidCharacters;
+            resourceInputs["storageSerializationPolicy"] = args?.storageSerializationPolicy;
+            resourceInputs["suspendTaskAfterNumFailures"] = args?.suspendTaskAfterNumFailures;
+            resourceInputs["taskAutoRetryAttempts"] = args?.taskAutoRetryAttempts;
+            resourceInputs["traceLevel"] = args?.traceLevel;
+            resourceInputs["userTaskManagedInitialWarehouseSize"] = args?.userTaskManagedInitialWarehouseSize;
+            resourceInputs["userTaskMinimumTriggerIntervalInSeconds"] = args?.userTaskMinimumTriggerIntervalInSeconds;
+            resourceInputs["userTaskTimeoutMs"] = args?.userTaskTimeoutMs;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -44,45 +44,45 @@ export class UserProgrammaticAccessToken extends pulumi.CustomResource {
     /**
      * Descriptive comment about the programmatic access token.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
-    public readonly daysToExpiry!: pulumi.Output<number | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
+    declare public readonly daysToExpiry: pulumi.Output<number | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    public readonly disabled!: pulumi.Output<string | undefined>;
+    declare public readonly disabled: pulumi.Output<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
      */
-    public readonly expireRotatedTokenAfterHours!: pulumi.Output<number | undefined>;
+    declare public readonly expireRotatedTokenAfterHours: pulumi.Output<number | undefined>;
     /**
      * Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotatedTokenName` fields are marked as computed.
      */
-    public readonly keeper!: pulumi.Output<string | undefined>;
-    public readonly minsToBypassNetworkPolicyRequirement!: pulumi.Output<number | undefined>;
+    declare public readonly keeper: pulumi.Output<string | undefined>;
+    declare public readonly minsToBypassNetworkPolicyRequirement: pulumi.Output<number | undefined>;
     /**
      * Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly roleRestriction!: pulumi.Output<string | undefined>;
+    declare public readonly roleRestriction: pulumi.Output<string | undefined>;
     /**
      * Name of the token that represents the prior secret. This field is updated only when the token is rotated. In this case, the field is marked as computed.
      */
-    public /*out*/ readonly rotatedTokenName!: pulumi.Output<string>;
+    declare public /*out*/ readonly rotatedTokenName: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW USER PROGRAMMATIC ACCESS TOKENS` for the given user programmatic access token.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.UserProgrammaticAccessTokenShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.UserProgrammaticAccessTokenShowOutput[]>;
     /**
      * The token itself. Use this to authenticate to an endpoint. The data in this field is updated only when the token is created or rotated. In this case, the field is marked as computed.
      */
-    public /*out*/ readonly token!: pulumi.Output<string>;
+    declare public /*out*/ readonly token: pulumi.Output<string>;
     /**
      * The name of the user that the token is associated with. A user cannot use another user's programmatic access token to authenticate. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly user!: pulumi.Output<string>;
+    declare public readonly user: pulumi.Output<string>;
 
     /**
      * Create a UserProgrammaticAccessToken resource with the given unique name, arguments, and options.
@@ -97,32 +97,32 @@ export class UserProgrammaticAccessToken extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserProgrammaticAccessTokenState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["daysToExpiry"] = state ? state.daysToExpiry : undefined;
-            resourceInputs["disabled"] = state ? state.disabled : undefined;
-            resourceInputs["expireRotatedTokenAfterHours"] = state ? state.expireRotatedTokenAfterHours : undefined;
-            resourceInputs["keeper"] = state ? state.keeper : undefined;
-            resourceInputs["minsToBypassNetworkPolicyRequirement"] = state ? state.minsToBypassNetworkPolicyRequirement : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["roleRestriction"] = state ? state.roleRestriction : undefined;
-            resourceInputs["rotatedTokenName"] = state ? state.rotatedTokenName : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
-            resourceInputs["token"] = state ? state.token : undefined;
-            resourceInputs["user"] = state ? state.user : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["daysToExpiry"] = state?.daysToExpiry;
+            resourceInputs["disabled"] = state?.disabled;
+            resourceInputs["expireRotatedTokenAfterHours"] = state?.expireRotatedTokenAfterHours;
+            resourceInputs["keeper"] = state?.keeper;
+            resourceInputs["minsToBypassNetworkPolicyRequirement"] = state?.minsToBypassNetworkPolicyRequirement;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["roleRestriction"] = state?.roleRestriction;
+            resourceInputs["rotatedTokenName"] = state?.rotatedTokenName;
+            resourceInputs["showOutputs"] = state?.showOutputs;
+            resourceInputs["token"] = state?.token;
+            resourceInputs["user"] = state?.user;
         } else {
             const args = argsOrState as UserProgrammaticAccessTokenArgs | undefined;
-            if ((!args || args.user === undefined) && !opts.urn) {
+            if (args?.user === undefined && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["daysToExpiry"] = args ? args.daysToExpiry : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["expireRotatedTokenAfterHours"] = args ? args.expireRotatedTokenAfterHours : undefined;
-            resourceInputs["keeper"] = args ? args.keeper : undefined;
-            resourceInputs["minsToBypassNetworkPolicyRequirement"] = args ? args.minsToBypassNetworkPolicyRequirement : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleRestriction"] = args ? args.roleRestriction : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["daysToExpiry"] = args?.daysToExpiry;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["expireRotatedTokenAfterHours"] = args?.expireRotatedTokenAfterHours;
+            resourceInputs["keeper"] = args?.keeper;
+            resourceInputs["minsToBypassNetworkPolicyRequirement"] = args?.minsToBypassNetworkPolicyRequirement;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleRestriction"] = args?.roleRestriction;
+            resourceInputs["user"] = args?.user;
             resourceInputs["rotatedTokenName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
             resourceInputs["token"] = undefined /*out*/;

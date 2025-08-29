@@ -46,45 +46,45 @@ export class MaterializedView extends pulumi.CustomResource {
     /**
      * Specifies a comment for the view.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the view. Don't use the | character.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: `false`) Specifies that the view is secure.
      */
-    public readonly isSecure!: pulumi.Output<boolean | undefined>;
+    declare public readonly isSecure: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Default: `false`) Overwrites the View if it exists.
      */
-    public readonly orReplace!: pulumi.Output<boolean | undefined>;
+    declare public readonly orReplace: pulumi.Output<boolean | undefined>;
     /**
      * The schema in which to create the view. Don't use the | character.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
     /**
      * Specifies the query used to create the view.
      */
-    public readonly statement!: pulumi.Output<string>;
+    declare public readonly statement: pulumi.Output<string>;
     /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    public readonly tags!: pulumi.Output<outputs.MaterializedViewTag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.MaterializedViewTag[] | undefined>;
     /**
      * The warehouse name.
      */
-    public readonly warehouse!: pulumi.Output<string>;
+    declare public readonly warehouse: pulumi.Output<string>;
 
     /**
      * Create a MaterializedView resource with the given unique name, arguments, and options.
@@ -99,39 +99,39 @@ export class MaterializedView extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaterializedViewState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["isSecure"] = state ? state.isSecure : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["orReplace"] = state ? state.orReplace : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["statement"] = state ? state.statement : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["warehouse"] = state ? state.warehouse : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["isSecure"] = state?.isSecure;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["orReplace"] = state?.orReplace;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["statement"] = state?.statement;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["warehouse"] = state?.warehouse;
         } else {
             const args = argsOrState as MaterializedViewArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            if ((!args || args.statement === undefined) && !opts.urn) {
+            if (args?.statement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statement'");
             }
-            if ((!args || args.warehouse === undefined) && !opts.urn) {
+            if (args?.warehouse === undefined && !opts.urn) {
                 throw new Error("Missing required property 'warehouse'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["isSecure"] = args ? args.isSecure : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["orReplace"] = args ? args.orReplace : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["statement"] = args ? args.statement : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["warehouse"] = args ? args.warehouse : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["isSecure"] = args?.isSecure;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["orReplace"] = args?.orReplace;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["statement"] = args?.statement;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["warehouse"] = args?.warehouse;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

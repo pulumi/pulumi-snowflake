@@ -44,35 +44,35 @@ export class Sequence extends pulumi.CustomResource {
     /**
      * (Default: ``) Specifies a comment for the sequence.
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * The database in which to create the sequence. Don't use the | character.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * (Default: `1`) The amount the sequence will increase by each time it is used
      */
-    public readonly increment!: pulumi.Output<number | undefined>;
+    declare public readonly increment: pulumi.Output<number | undefined>;
     /**
      * Specifies the name for the sequence.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The increment sequence interval.
      */
-    public /*out*/ readonly nextValue!: pulumi.Output<number>;
+    declare public /*out*/ readonly nextValue: pulumi.Output<number>;
     /**
      * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      */
-    public readonly ordering!: pulumi.Output<string | undefined>;
+    declare public readonly ordering: pulumi.Output<string | undefined>;
     /**
      * The schema in which to create the sequence. Don't use the | character.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
 
     /**
      * Create a Sequence resource with the given unique name, arguments, and options.
@@ -87,28 +87,28 @@ export class Sequence extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SequenceState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["increment"] = state ? state.increment : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nextValue"] = state ? state.nextValue : undefined;
-            resourceInputs["ordering"] = state ? state.ordering : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["increment"] = state?.increment;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nextValue"] = state?.nextValue;
+            resourceInputs["ordering"] = state?.ordering;
+            resourceInputs["schema"] = state?.schema;
         } else {
             const args = argsOrState as SequenceArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["increment"] = args ? args.increment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ordering"] = args ? args.ordering : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["increment"] = args?.increment;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ordering"] = args?.ordering;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["nextValue"] = undefined /*out*/;
         }

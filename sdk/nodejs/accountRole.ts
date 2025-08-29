@@ -41,19 +41,19 @@ export class AccountRole extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountRole.__pulumiType;
     }
 
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
      * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Outputs the result of `SHOW ROLES` for the given role.
      */
-    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.AccountRoleShowOutput[]>;
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.AccountRoleShowOutput[]>;
 
     /**
      * Create a AccountRole resource with the given unique name, arguments, and options.
@@ -68,14 +68,14 @@ export class AccountRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountRoleState | undefined;
-            resourceInputs["comment"] = state ? state.comment : undefined;
-            resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
+            resourceInputs["comment"] = state?.comment;
+            resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
             const args = argsOrState as AccountRoleArgs | undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["name"] = args?.name;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
