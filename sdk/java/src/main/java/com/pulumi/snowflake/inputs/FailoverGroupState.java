@@ -20,14 +20,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     public static final FailoverGroupState Empty = new FailoverGroupState();
 
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
      * 
      */
     @Import(name="allowedAccounts")
     private @Nullable Output<List<String>> allowedAccounts;
 
     /**
-     * @return Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+     * @return Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
      * 
      */
     public Optional<Output<List<String>>> allowedAccounts() {
@@ -203,7 +203,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
          * 
          * @return builder
          * 
