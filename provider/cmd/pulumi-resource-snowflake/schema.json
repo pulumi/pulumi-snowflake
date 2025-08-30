@@ -40962,7 +40962,7 @@
             }
         },
         "snowflake:index/database:Database": {
-            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/database:Database example '\"\u003cdatabase_name\u003e\"'\n```\n\n",
+            "description": "\n\n## Import\n\nMake sure that `is_transient` and `with_managed_access` are set in your config explicitly before import to avoid diff and recreation\n\n(reasons are presented in this migration guide entry).\n\n```sh\n$ pulumi import snowflake:index/database:Database example '\"\u003cdatabase_name\u003e\"'\n```\n\n",
             "properties": {
                 "catalog": {
                     "type": "string",
@@ -42828,7 +42828,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \\n\\n.\\n\\n\n"
+                    "description": "Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `\u003corg_name\u003e.\u003ctarget_account_name\u003e`. This value is case-sensitive.\n"
                 },
                 "allowedDatabases": {
                     "type": "array",
@@ -42889,7 +42889,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \\n\\n.\\n\\n\n"
+                    "description": "Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `\u003corg_name\u003e.\u003ctarget_account_name\u003e`. This value is case-sensitive.\n"
                 },
                 "allowedDatabases": {
                     "type": "array",
@@ -42946,7 +42946,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \\n\\n.\\n\\n\n"
+                        "description": "Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `\u003corg_name\u003e.\u003ctarget_account_name\u003e`. This value is case-sensitive.\n"
                     },
                     "allowedDatabases": {
                         "type": "array",
@@ -52107,7 +52107,7 @@
             }
         },
         "snowflake:index/schema:Schema": {
-            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/schema:Schema example '\"\u003cdatabase_name\u003e\".\"\u003cschema_name\u003e\"'\n```\n\n",
+            "description": "\n\n## Import\n\nMake sure that `is_transient` and `with_managed_access` are set in your config explicitly before import to avoid diff and recreation\n\n(reasons are presented in this migration guide entry).\n\n```sh\n$ pulumi import snowflake:index/schema:Schema example '\"\u003cdatabase_name\u003e\".\"\u003cschema_name\u003e\"'\n```\n\n",
             "properties": {
                 "catalog": {
                     "type": "string",
@@ -52712,7 +52712,7 @@
             }
         },
         "snowflake:index/secondaryDatabase:SecondaryDatabase": {
-            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '\"\u003csecondary_database_name\u003e\"'\n```\n\n",
+            "description": "\n\n## Import\n\nMake sure that `is_transient` is set in your config explicitly before import to avoid diff and recreation\n\n(reasons are presented in this migration guide entry).\n\n```sh\n$ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '\"\u003csecondary_database_name\u003e\"'\n```\n\n",
             "properties": {
                 "asReplicaOf": {
                     "type": "string",
