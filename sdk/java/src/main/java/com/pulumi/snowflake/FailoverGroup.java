@@ -29,14 +29,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/failoverGroup:FailoverGroup")
 public class FailoverGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
      * 
      */
     @Export(name="allowedAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedAccounts;
 
     /**
-     * @return Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+     * @return Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
      * 
      */
     public Output<Optional<List<String>>> allowedAccounts() {

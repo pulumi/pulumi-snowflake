@@ -717,6 +717,10 @@ class SecondaryDatabase(pulumi.CustomResource):
         """
         ## Import
 
+        Make sure that `is_transient` is set in your config explicitly before import to avoid diff and recreation
+
+        (reasons are presented in this migration guide entry).
+
         ```sh
         $ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '"<secondary_database_name>"'
         ```
@@ -752,6 +756,10 @@ class SecondaryDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
+
+        Make sure that `is_transient` is set in your config explicitly before import to avoid diff and recreation
+
+        (reasons are presented in this migration guide entry).
 
         ```sh
         $ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '"<secondary_database_name>"'

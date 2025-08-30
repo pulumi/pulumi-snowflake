@@ -20,7 +20,7 @@ namespace Pulumi.Snowflake
     public partial class FailoverGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
         /// </summary>
         [Output("allowedAccounts")]
         public Output<ImmutableArray<string>> AllowedAccounts { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedAccounts;
 
         /// <summary>
-        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
         /// </summary>
         public InputList<string> AllowedAccounts
         {
@@ -221,7 +221,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedAccounts;
 
         /// <summary>
-        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `&lt;org_name&gt;.&lt;target_account_name&gt;`. This value is case-sensitive.
         /// </summary>
         public InputList<string> AllowedAccounts
         {

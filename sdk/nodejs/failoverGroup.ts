@@ -42,7 +42,7 @@ export class FailoverGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
      */
     declare public readonly allowedAccounts: pulumi.Output<string[] | undefined>;
     /**
@@ -128,7 +128,7 @@ export class FailoverGroup extends pulumi.CustomResource {
  */
 export interface FailoverGroupState {
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
      */
     allowedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -174,7 +174,7 @@ export interface FailoverGroupState {
  */
 export interface FailoverGroupArgs {
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
      */
     allowedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**

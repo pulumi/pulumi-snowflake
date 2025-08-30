@@ -19,7 +19,7 @@ import (
 type FailoverGroup struct {
 	pulumi.CustomResourceState
 
-	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
 	AllowedAccounts pulumi.StringArrayOutput `pulumi:"allowedAccounts"`
 	// Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
 	AllowedDatabases pulumi.StringArrayOutput `pulumi:"allowedDatabases"`
@@ -71,7 +71,7 @@ func GetFailoverGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FailoverGroup resources.
 type failoverGroupState struct {
-	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
 	AllowedAccounts []string `pulumi:"allowedAccounts"`
 	// Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
 	AllowedDatabases []string `pulumi:"allowedDatabases"`
@@ -94,7 +94,7 @@ type failoverGroupState struct {
 }
 
 type FailoverGroupState struct {
-	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
 	AllowedAccounts pulumi.StringArrayInput
 	// Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
 	AllowedDatabases pulumi.StringArrayInput
@@ -121,7 +121,7 @@ func (FailoverGroupState) ElementType() reflect.Type {
 }
 
 type failoverGroupArgs struct {
-	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
 	AllowedAccounts []string `pulumi:"allowedAccounts"`
 	// Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
 	AllowedDatabases []string `pulumi:"allowedDatabases"`
@@ -143,7 +143,7 @@ type failoverGroupArgs struct {
 
 // The set of arguments for constructing a FailoverGroup resource.
 type FailoverGroupArgs struct {
-	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
 	AllowedAccounts pulumi.StringArrayInput
 	// Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
 	AllowedDatabases pulumi.StringArrayInput
@@ -250,7 +250,7 @@ func (o FailoverGroupOutput) ToFailoverGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
+// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
 func (o FailoverGroupOutput) AllowedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FailoverGroup) pulumi.StringArrayOutput { return v.AllowedAccounts }).(pulumi.StringArrayOutput)
 }

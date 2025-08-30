@@ -13,6 +13,10 @@ import (
 
 // ## Import
 //
+// Make sure that `is_transient` and `with_managed_access` are set in your config explicitly before import to avoid diff and recreation
+//
+// (reasons are presented in this migration guide entry).
+//
 // ```sh
 // $ pulumi import snowflake:index/database:Database example '"<database_name>"'
 // ```
