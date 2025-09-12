@@ -1,5 +1,7 @@
 provider: snowflake
 major-version: 2
+esc:
+  enabled: true
 env:
   SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
   SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
@@ -15,18 +17,18 @@ plugins:
     kind: converter
   - name: random
     version: "4.2.0"
-  - name: aws 
+  - name: aws
     version: "4.10.0"
-  - name: gcp 
+  - name: gcp
     version: "5.10.0"
-  - name: azure 
+  - name: azure
     version: "4.7.0"
 team: ecosystem
 license:
   ignore:
-  # These projects don't have a LICENSE file, but do say mention (in README.md) that
-  # they are under Apache-2.0.
-  - github.com/apache/arrow
+    # These projects don't have a LICENSE file, but do say mention (in README.md) that
+    # they are under Apache-2.0.
+    - github.com/apache/arrow
 pulumiConvert: 1
 registryDocs: true
 integrationTestProvider: true
