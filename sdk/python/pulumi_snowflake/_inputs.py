@@ -12587,7 +12587,7 @@ if not MYPY:
         """
         object_type: pulumi.Input[_builtins.str]
         """
-        The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
 elif False:
     GrantPrivilegesToAccountRoleOnAccountObjectArgsDict: TypeAlias = Mapping[str, Any]
@@ -12599,7 +12599,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
                  object_type: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+        :param pulumi.Input[_builtins.str] object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
         pulumi.set(__self__, "object_name", object_name)
         pulumi.set(__self__, "object_type", object_type)
@@ -12620,7 +12620,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
         return pulumi.get(self, "object_type")
 
@@ -55992,6 +55992,7 @@ if not MYPY:
         comment: NotRequired[pulumi.Input[_builtins.str]]
         created_on: NotRequired[pulumi.Input[_builtins.str]]
         enable_query_acceleration: NotRequired[pulumi.Input[_builtins.bool]]
+        generation: NotRequired[pulumi.Input[_builtins.str]]
         is_current: NotRequired[pulumi.Input[_builtins.bool]]
         is_default: NotRequired[pulumi.Input[_builtins.bool]]
         max_cluster_count: NotRequired[pulumi.Input[_builtins.int]]
@@ -56004,6 +56005,7 @@ if not MYPY:
         query_acceleration_max_scale_factor: NotRequired[pulumi.Input[_builtins.int]]
         queued: NotRequired[pulumi.Input[_builtins.int]]
         quiescing: NotRequired[pulumi.Input[_builtins.float]]
+        resource_constraint: NotRequired[pulumi.Input[_builtins.str]]
         resource_monitor: NotRequired[pulumi.Input[_builtins.str]]
         resumed_on: NotRequired[pulumi.Input[_builtins.str]]
         running: NotRequired[pulumi.Input[_builtins.int]]
@@ -56025,6 +56027,7 @@ class WarehouseShowOutputArgs:
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  created_on: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_query_acceleration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 generation: Optional[pulumi.Input[_builtins.str]] = None,
                  is_current: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -56037,6 +56040,7 @@ class WarehouseShowOutputArgs:
                  query_acceleration_max_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
                  queued: Optional[pulumi.Input[_builtins.int]] = None,
                  quiescing: Optional[pulumi.Input[_builtins.float]] = None,
+                 resource_constraint: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  resumed_on: Optional[pulumi.Input[_builtins.str]] = None,
                  running: Optional[pulumi.Input[_builtins.int]] = None,
@@ -56058,6 +56062,8 @@ class WarehouseShowOutputArgs:
             pulumi.set(__self__, "created_on", created_on)
         if enable_query_acceleration is not None:
             pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
         if is_current is not None:
             pulumi.set(__self__, "is_current", is_current)
         if is_default is not None:
@@ -56082,6 +56088,8 @@ class WarehouseShowOutputArgs:
             pulumi.set(__self__, "queued", queued)
         if quiescing is not None:
             pulumi.set(__self__, "quiescing", quiescing)
+        if resource_constraint is not None:
+            pulumi.set(__self__, "resource_constraint", resource_constraint)
         if resource_monitor is not None:
             pulumi.set(__self__, "resource_monitor", resource_monitor)
         if resumed_on is not None:
@@ -56154,6 +56162,15 @@ class WarehouseShowOutputArgs:
     @enable_query_acceleration.setter
     def enable_query_acceleration(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_query_acceleration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "generation")
+
+    @generation.setter
+    def generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter(name="isCurrent")
@@ -56262,6 +56279,15 @@ class WarehouseShowOutputArgs:
     @quiescing.setter
     def quiescing(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "quiescing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConstraint")
+    def resource_constraint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "resource_constraint")
+
+    @resource_constraint.setter
+    def resource_constraint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_constraint", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")

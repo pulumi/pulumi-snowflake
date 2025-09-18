@@ -16870,7 +16870,7 @@ func (o GrantOwnershipOnFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutp
 type GrantPrivilegesToAccountRoleOnAccountObject struct {
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName string `pulumi:"objectName"`
-	// The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+	// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
 	ObjectType string `pulumi:"objectType"`
 }
 
@@ -16888,7 +16888,7 @@ type GrantPrivilegesToAccountRoleOnAccountObjectInput interface {
 type GrantPrivilegesToAccountRoleOnAccountObjectArgs struct {
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringInput `pulumi:"objectName"`
-	// The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+	// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
 	ObjectType pulumi.StringInput `pulumi:"objectType"`
 }
 
@@ -16974,7 +16974,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ObjectName() pulumi.S
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObject) string { return v.ObjectName }).(pulumi.StringOutput)
 }
 
-// The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
 func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObject) string { return v.ObjectType }).(pulumi.StringOutput)
 }
@@ -17013,7 +17013,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ObjectName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
 func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObject) *string {
 		if v == nil {

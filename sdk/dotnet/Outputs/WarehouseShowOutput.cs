@@ -19,6 +19,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? Comment;
         public readonly string? CreatedOn;
         public readonly bool? EnableQueryAcceleration;
+        public readonly string? Generation;
         public readonly bool? IsCurrent;
         public readonly bool? IsDefault;
         public readonly int? MaxClusterCount;
@@ -31,6 +32,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly int? QueryAccelerationMaxScaleFactor;
         public readonly int? Queued;
         public readonly double? Quiescing;
+        public readonly string? ResourceConstraint;
         public readonly string? ResourceMonitor;
         public readonly string? ResumedOn;
         public readonly int? Running;
@@ -54,6 +56,8 @@ namespace Pulumi.Snowflake.Outputs
             string? createdOn,
 
             bool? enableQueryAcceleration,
+
+            string? generation,
 
             bool? isCurrent,
 
@@ -79,6 +83,8 @@ namespace Pulumi.Snowflake.Outputs
 
             double? quiescing,
 
+            string? resourceConstraint,
+
             string? resourceMonitor,
 
             string? resumedOn,
@@ -103,6 +109,7 @@ namespace Pulumi.Snowflake.Outputs
             Comment = comment;
             CreatedOn = createdOn;
             EnableQueryAcceleration = enableQueryAcceleration;
+            Generation = generation;
             IsCurrent = isCurrent;
             IsDefault = isDefault;
             MaxClusterCount = maxClusterCount;
@@ -115,6 +122,7 @@ namespace Pulumi.Snowflake.Outputs
             QueryAccelerationMaxScaleFactor = queryAccelerationMaxScaleFactor;
             Queued = queued;
             Quiescing = quiescing;
+            ResourceConstraint = resourceConstraint;
             ResourceMonitor = resourceMonitor;
             ResumedOn = resumedOn;
             Running = running;

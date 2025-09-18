@@ -30,6 +30,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("enableQueryAcceleration")]
         public Input<bool>? EnableQueryAcceleration { get; set; }
 
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
         [Input("isCurrent")]
         public Input<bool>? IsCurrent { get; set; }
 
@@ -65,6 +68,9 @@ namespace Pulumi.Snowflake.Inputs
 
         [Input("quiescing")]
         public Input<double>? Quiescing { get; set; }
+
+        [Input("resourceConstraint")]
+        public Input<string>? ResourceConstraint { get; set; }
 
         [Input("resourceMonitor")]
         public Input<string>? ResourceMonitor { get; set; }

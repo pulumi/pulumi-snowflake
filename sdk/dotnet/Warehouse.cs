@@ -50,6 +50,12 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        /// </summary>
+        [Output("generation")]
+        public Output<string?> Generation { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         /// </summary>
         [Output("initiallySuspended")]
@@ -90,6 +96,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("queryAccelerationMaxScaleFactor")]
         public Output<int?> QueryAccelerationMaxScaleFactor { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        /// </summary>
+        [Output("resourceConstraint")]
+        public Output<string?> ResourceConstraint { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
@@ -204,6 +216,12 @@ namespace Pulumi.Snowflake
         public Input<string>? EnableQueryAcceleration { get; set; }
 
         /// <summary>
+        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        /// </summary>
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
+        /// <summary>
         /// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         /// </summary>
         [Input("initiallySuspended")]
@@ -238,6 +256,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("queryAccelerationMaxScaleFactor")]
         public Input<int>? QueryAccelerationMaxScaleFactor { get; set; }
+
+        /// <summary>
+        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        /// </summary>
+        [Input("resourceConstraint")]
+        public Input<string>? ResourceConstraint { get; set; }
 
         /// <summary>
         /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
@@ -314,6 +338,12 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
+        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        /// </summary>
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
+        /// <summary>
         /// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         /// </summary>
         [Input("initiallySuspended")]
@@ -360,6 +390,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("queryAccelerationMaxScaleFactor")]
         public Input<int>? QueryAccelerationMaxScaleFactor { get; set; }
+
+        /// <summary>
+        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        /// </summary>
+        [Input("resourceConstraint")]
+        public Input<string>? ResourceConstraint { get; set; }
 
         /// <summary>
         /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.

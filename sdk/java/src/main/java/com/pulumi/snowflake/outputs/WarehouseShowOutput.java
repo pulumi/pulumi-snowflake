@@ -20,6 +20,7 @@ public final class WarehouseShowOutput {
     private @Nullable String comment;
     private @Nullable String createdOn;
     private @Nullable Boolean enableQueryAcceleration;
+    private @Nullable String generation;
     private @Nullable Boolean isCurrent;
     private @Nullable Boolean isDefault;
     private @Nullable Integer maxClusterCount;
@@ -32,6 +33,7 @@ public final class WarehouseShowOutput {
     private @Nullable Integer queryAccelerationMaxScaleFactor;
     private @Nullable Integer queued;
     private @Nullable Double quiescing;
+    private @Nullable String resourceConstraint;
     private @Nullable String resourceMonitor;
     private @Nullable String resumedOn;
     private @Nullable Integer running;
@@ -60,6 +62,9 @@ public final class WarehouseShowOutput {
     }
     public Optional<Boolean> enableQueryAcceleration() {
         return Optional.ofNullable(this.enableQueryAcceleration);
+    }
+    public Optional<String> generation() {
+        return Optional.ofNullable(this.generation);
     }
     public Optional<Boolean> isCurrent() {
         return Optional.ofNullable(this.isCurrent);
@@ -96,6 +101,9 @@ public final class WarehouseShowOutput {
     }
     public Optional<Double> quiescing() {
         return Optional.ofNullable(this.quiescing);
+    }
+    public Optional<String> resourceConstraint() {
+        return Optional.ofNullable(this.resourceConstraint);
     }
     public Optional<String> resourceMonitor() {
         return Optional.ofNullable(this.resourceMonitor);
@@ -140,6 +148,7 @@ public final class WarehouseShowOutput {
         private @Nullable String comment;
         private @Nullable String createdOn;
         private @Nullable Boolean enableQueryAcceleration;
+        private @Nullable String generation;
         private @Nullable Boolean isCurrent;
         private @Nullable Boolean isDefault;
         private @Nullable Integer maxClusterCount;
@@ -152,6 +161,7 @@ public final class WarehouseShowOutput {
         private @Nullable Integer queryAccelerationMaxScaleFactor;
         private @Nullable Integer queued;
         private @Nullable Double quiescing;
+        private @Nullable String resourceConstraint;
         private @Nullable String resourceMonitor;
         private @Nullable String resumedOn;
         private @Nullable Integer running;
@@ -170,6 +180,7 @@ public final class WarehouseShowOutput {
     	      this.comment = defaults.comment;
     	      this.createdOn = defaults.createdOn;
     	      this.enableQueryAcceleration = defaults.enableQueryAcceleration;
+    	      this.generation = defaults.generation;
     	      this.isCurrent = defaults.isCurrent;
     	      this.isDefault = defaults.isDefault;
     	      this.maxClusterCount = defaults.maxClusterCount;
@@ -182,6 +193,7 @@ public final class WarehouseShowOutput {
     	      this.queryAccelerationMaxScaleFactor = defaults.queryAccelerationMaxScaleFactor;
     	      this.queued = defaults.queued;
     	      this.quiescing = defaults.quiescing;
+    	      this.resourceConstraint = defaults.resourceConstraint;
     	      this.resourceMonitor = defaults.resourceMonitor;
     	      this.resumedOn = defaults.resumedOn;
     	      this.running = defaults.running;
@@ -227,6 +239,12 @@ public final class WarehouseShowOutput {
         public Builder enableQueryAcceleration(@Nullable Boolean enableQueryAcceleration) {
 
             this.enableQueryAcceleration = enableQueryAcceleration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder generation(@Nullable String generation) {
+
+            this.generation = generation;
             return this;
         }
         @CustomType.Setter
@@ -302,6 +320,12 @@ public final class WarehouseShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceConstraint(@Nullable String resourceConstraint) {
+
+            this.resourceConstraint = resourceConstraint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceMonitor(@Nullable String resourceMonitor) {
 
             this.resourceMonitor = resourceMonitor;
@@ -363,6 +387,7 @@ public final class WarehouseShowOutput {
             _resultValue.comment = comment;
             _resultValue.createdOn = createdOn;
             _resultValue.enableQueryAcceleration = enableQueryAcceleration;
+            _resultValue.generation = generation;
             _resultValue.isCurrent = isCurrent;
             _resultValue.isDefault = isDefault;
             _resultValue.maxClusterCount = maxClusterCount;
@@ -375,6 +400,7 @@ public final class WarehouseShowOutput {
             _resultValue.queryAccelerationMaxScaleFactor = queryAccelerationMaxScaleFactor;
             _resultValue.queued = queued;
             _resultValue.quiescing = quiescing;
+            _resultValue.resourceConstraint = resourceConstraint;
             _resultValue.resourceMonitor = resourceMonitor;
             _resultValue.resumedOn = resumedOn;
             _resultValue.running = running;
