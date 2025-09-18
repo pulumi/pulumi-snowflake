@@ -4885,6 +4885,7 @@ export interface GetWarehousesWarehouseShowOutput {
     comment: string;
     createdOn: string;
     enableQueryAcceleration: boolean;
+    generation: string;
     isCurrent: boolean;
     isDefault: boolean;
     maxClusterCount: number;
@@ -4897,6 +4898,7 @@ export interface GetWarehousesWarehouseShowOutput {
     queryAccelerationMaxScaleFactor: number;
     queued: number;
     quiescing: number;
+    resourceConstraint: string;
     resourceMonitor: string;
     resumedOn: string;
     running: number;
@@ -4991,7 +4993,7 @@ export interface GrantPrivilegesToAccountRoleOnAccountObject {
      */
     objectName: string;
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
      */
     objectType: string;
 }
@@ -9751,6 +9753,7 @@ export interface WarehouseShowOutput {
     comment: string;
     createdOn: string;
     enableQueryAcceleration: boolean;
+    generation: string;
     isCurrent: boolean;
     isDefault: boolean;
     maxClusterCount: number;
@@ -9763,6 +9766,7 @@ export interface WarehouseShowOutput {
     queryAccelerationMaxScaleFactor: number;
     queued: number;
     quiescing: number;
+    resourceConstraint: string;
     resourceMonitor: string;
     resumedOn: string;
     running: number;

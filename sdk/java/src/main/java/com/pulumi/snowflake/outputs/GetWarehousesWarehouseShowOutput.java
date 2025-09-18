@@ -19,6 +19,7 @@ public final class GetWarehousesWarehouseShowOutput {
     private String comment;
     private String createdOn;
     private Boolean enableQueryAcceleration;
+    private String generation;
     private Boolean isCurrent;
     private Boolean isDefault;
     private Integer maxClusterCount;
@@ -31,6 +32,7 @@ public final class GetWarehousesWarehouseShowOutput {
     private Integer queryAccelerationMaxScaleFactor;
     private Integer queued;
     private Double quiescing;
+    private String resourceConstraint;
     private String resourceMonitor;
     private String resumedOn;
     private Integer running;
@@ -59,6 +61,9 @@ public final class GetWarehousesWarehouseShowOutput {
     }
     public Boolean enableQueryAcceleration() {
         return this.enableQueryAcceleration;
+    }
+    public String generation() {
+        return this.generation;
     }
     public Boolean isCurrent() {
         return this.isCurrent;
@@ -95,6 +100,9 @@ public final class GetWarehousesWarehouseShowOutput {
     }
     public Double quiescing() {
         return this.quiescing;
+    }
+    public String resourceConstraint() {
+        return this.resourceConstraint;
     }
     public String resourceMonitor() {
         return this.resourceMonitor;
@@ -139,6 +147,7 @@ public final class GetWarehousesWarehouseShowOutput {
         private String comment;
         private String createdOn;
         private Boolean enableQueryAcceleration;
+        private String generation;
         private Boolean isCurrent;
         private Boolean isDefault;
         private Integer maxClusterCount;
@@ -151,6 +160,7 @@ public final class GetWarehousesWarehouseShowOutput {
         private Integer queryAccelerationMaxScaleFactor;
         private Integer queued;
         private Double quiescing;
+        private String resourceConstraint;
         private String resourceMonitor;
         private String resumedOn;
         private Integer running;
@@ -169,6 +179,7 @@ public final class GetWarehousesWarehouseShowOutput {
     	      this.comment = defaults.comment;
     	      this.createdOn = defaults.createdOn;
     	      this.enableQueryAcceleration = defaults.enableQueryAcceleration;
+    	      this.generation = defaults.generation;
     	      this.isCurrent = defaults.isCurrent;
     	      this.isDefault = defaults.isDefault;
     	      this.maxClusterCount = defaults.maxClusterCount;
@@ -181,6 +192,7 @@ public final class GetWarehousesWarehouseShowOutput {
     	      this.queryAccelerationMaxScaleFactor = defaults.queryAccelerationMaxScaleFactor;
     	      this.queued = defaults.queued;
     	      this.quiescing = defaults.quiescing;
+    	      this.resourceConstraint = defaults.resourceConstraint;
     	      this.resourceMonitor = defaults.resourceMonitor;
     	      this.resumedOn = defaults.resumedOn;
     	      this.running = defaults.running;
@@ -238,6 +250,14 @@ public final class GetWarehousesWarehouseShowOutput {
               throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "enableQueryAcceleration");
             }
             this.enableQueryAcceleration = enableQueryAcceleration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder generation(String generation) {
+            if (generation == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "generation");
+            }
+            this.generation = generation;
             return this;
         }
         @CustomType.Setter
@@ -337,6 +357,14 @@ public final class GetWarehousesWarehouseShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceConstraint(String resourceConstraint) {
+            if (resourceConstraint == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "resourceConstraint");
+            }
+            this.resourceConstraint = resourceConstraint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceMonitor(String resourceMonitor) {
             if (resourceMonitor == null) {
               throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "resourceMonitor");
@@ -416,6 +444,7 @@ public final class GetWarehousesWarehouseShowOutput {
             _resultValue.comment = comment;
             _resultValue.createdOn = createdOn;
             _resultValue.enableQueryAcceleration = enableQueryAcceleration;
+            _resultValue.generation = generation;
             _resultValue.isCurrent = isCurrent;
             _resultValue.isDefault = isDefault;
             _resultValue.maxClusterCount = maxClusterCount;
@@ -428,6 +457,7 @@ public final class GetWarehousesWarehouseShowOutput {
             _resultValue.queryAccelerationMaxScaleFactor = queryAccelerationMaxScaleFactor;
             _resultValue.queued = queued;
             _resultValue.quiescing = quiescing;
+            _resultValue.resourceConstraint = resourceConstraint;
             _resultValue.resourceMonitor = resourceMonitor;
             _resultValue.resumedOn = resumedOn;
             _resultValue.running = running;

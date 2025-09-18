@@ -60,6 +60,13 @@ public final class WarehouseShowOutputArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.enableQueryAcceleration);
     }
 
+    @Import(name="generation")
+    private @Nullable Output<String> generation;
+
+    public Optional<Output<String>> generation() {
+        return Optional.ofNullable(this.generation);
+    }
+
     @Import(name="isCurrent")
     private @Nullable Output<Boolean> isCurrent;
 
@@ -144,6 +151,13 @@ public final class WarehouseShowOutputArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.quiescing);
     }
 
+    @Import(name="resourceConstraint")
+    private @Nullable Output<String> resourceConstraint;
+
+    public Optional<Output<String>> resourceConstraint() {
+        return Optional.ofNullable(this.resourceConstraint);
+    }
+
     @Import(name="resourceMonitor")
     private @Nullable Output<String> resourceMonitor;
 
@@ -216,6 +230,7 @@ public final class WarehouseShowOutputArgs extends com.pulumi.resources.Resource
         this.comment = $.comment;
         this.createdOn = $.createdOn;
         this.enableQueryAcceleration = $.enableQueryAcceleration;
+        this.generation = $.generation;
         this.isCurrent = $.isCurrent;
         this.isDefault = $.isDefault;
         this.maxClusterCount = $.maxClusterCount;
@@ -228,6 +243,7 @@ public final class WarehouseShowOutputArgs extends com.pulumi.resources.Resource
         this.queryAccelerationMaxScaleFactor = $.queryAccelerationMaxScaleFactor;
         this.queued = $.queued;
         this.quiescing = $.quiescing;
+        this.resourceConstraint = $.resourceConstraint;
         this.resourceMonitor = $.resourceMonitor;
         this.resumedOn = $.resumedOn;
         this.running = $.running;
@@ -309,6 +325,15 @@ public final class WarehouseShowOutputArgs extends com.pulumi.resources.Resource
 
         public Builder enableQueryAcceleration(Boolean enableQueryAcceleration) {
             return enableQueryAcceleration(Output.of(enableQueryAcceleration));
+        }
+
+        public Builder generation(@Nullable Output<String> generation) {
+            $.generation = generation;
+            return this;
+        }
+
+        public Builder generation(String generation) {
+            return generation(Output.of(generation));
         }
 
         public Builder isCurrent(@Nullable Output<Boolean> isCurrent) {
@@ -417,6 +442,15 @@ public final class WarehouseShowOutputArgs extends com.pulumi.resources.Resource
 
         public Builder quiescing(Double quiescing) {
             return quiescing(Output.of(quiescing));
+        }
+
+        public Builder resourceConstraint(@Nullable Output<String> resourceConstraint) {
+            $.resourceConstraint = resourceConstraint;
+            return this;
+        }
+
+        public Builder resourceConstraint(String resourceConstraint) {
+            return resourceConstraint(Output.of(resourceConstraint));
         }
 
         public Builder resourceMonitor(@Nullable Output<String> resourceMonitor) {

@@ -25,12 +25,14 @@ class WarehouseArgs:
                  auto_suspend: Optional[pulumi.Input[_builtins.int]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_query_acceleration: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: Optional[pulumi.Input[_builtins.str]] = None,
                  initially_suspended: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
                  min_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query_acceleration_max_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_constraint: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  scaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -43,12 +45,14 @@ class WarehouseArgs:
         :param pulumi.Input[_builtins.int] auto_suspend: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the warehouse.
         :param pulumi.Input[_builtins.str] enable_query_acceleration: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] generation: Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
         :param pulumi.Input[_builtins.bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[_builtins.int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[_builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[_builtins.int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[_builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        :param pulumi.Input[_builtins.str] resource_constraint: Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
         :param pulumi.Input[_builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -64,6 +68,8 @@ class WarehouseArgs:
             pulumi.set(__self__, "comment", comment)
         if enable_query_acceleration is not None:
             pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
         if initially_suspended is not None:
             pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
@@ -76,6 +82,8 @@ class WarehouseArgs:
             pulumi.set(__self__, "name", name)
         if query_acceleration_max_scale_factor is not None:
             pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
+        if resource_constraint is not None:
+            pulumi.set(__self__, "resource_constraint", resource_constraint)
         if resource_monitor is not None:
             pulumi.set(__self__, "resource_monitor", resource_monitor)
         if scaling_policy is not None:
@@ -136,6 +144,18 @@ class WarehouseArgs:
     @enable_query_acceleration.setter
     def enable_query_acceleration(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "enable_query_acceleration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        """
+        return pulumi.get(self, "generation")
+
+    @generation.setter
+    def generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter(name="initiallySuspended")
@@ -208,6 +228,18 @@ class WarehouseArgs:
     @query_acceleration_max_scale_factor.setter
     def query_acceleration_max_scale_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "query_acceleration_max_scale_factor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConstraint")
+    def resource_constraint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        """
+        return pulumi.get(self, "resource_constraint")
+
+    @resource_constraint.setter
+    def resource_constraint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_constraint", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")
@@ -290,6 +322,7 @@ class _WarehouseState:
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_query_acceleration: Optional[pulumi.Input[_builtins.str]] = None,
                  fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: Optional[pulumi.Input[_builtins.str]] = None,
                  initially_suspended: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
@@ -297,6 +330,7 @@ class _WarehouseState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseParameterArgs']]]] = None,
                  query_acceleration_max_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_constraint: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  scaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseShowOutputArgs']]]] = None,
@@ -311,6 +345,7 @@ class _WarehouseState:
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the warehouse.
         :param pulumi.Input[_builtins.str] enable_query_acceleration: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[_builtins.str] generation: Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
         :param pulumi.Input[_builtins.bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[_builtins.int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[_builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
@@ -318,6 +353,7 @@ class _WarehouseState:
         :param pulumi.Input[_builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['WarehouseParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
         :param pulumi.Input[_builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        :param pulumi.Input[_builtins.str] resource_constraint: Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
         :param pulumi.Input[_builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         :param pulumi.Input[Sequence[pulumi.Input['WarehouseShowOutputArgs']]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
@@ -336,6 +372,8 @@ class _WarehouseState:
             pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
         if fully_qualified_name is not None:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
         if initially_suspended is not None:
             pulumi.set(__self__, "initially_suspended", initially_suspended)
         if max_cluster_count is not None:
@@ -350,6 +388,8 @@ class _WarehouseState:
             pulumi.set(__self__, "parameters", parameters)
         if query_acceleration_max_scale_factor is not None:
             pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
+        if resource_constraint is not None:
+            pulumi.set(__self__, "resource_constraint", resource_constraint)
         if resource_monitor is not None:
             pulumi.set(__self__, "resource_monitor", resource_monitor)
         if scaling_policy is not None:
@@ -424,6 +464,18 @@ class _WarehouseState:
     @fully_qualified_name.setter
     def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        """
+        return pulumi.get(self, "generation")
+
+    @generation.setter
+    def generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter(name="initiallySuspended")
@@ -508,6 +560,18 @@ class _WarehouseState:
     @query_acceleration_max_scale_factor.setter
     def query_acceleration_max_scale_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "query_acceleration_max_scale_factor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConstraint")
+    def resource_constraint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        """
+        return pulumi.get(self, "resource_constraint")
+
+    @resource_constraint.setter
+    def resource_constraint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_constraint", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")
@@ -604,12 +668,14 @@ class Warehouse(pulumi.CustomResource):
                  auto_suspend: Optional[pulumi.Input[_builtins.int]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_query_acceleration: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: Optional[pulumi.Input[_builtins.str]] = None,
                  initially_suspended: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
                  min_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query_acceleration_max_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_constraint: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  scaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -630,12 +696,14 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] auto_suspend: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the warehouse.
         :param pulumi.Input[_builtins.str] enable_query_acceleration: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] generation: Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
         :param pulumi.Input[_builtins.bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[_builtins.int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[_builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[_builtins.int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[_builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        :param pulumi.Input[_builtins.str] resource_constraint: Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
         :param pulumi.Input[_builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -675,12 +743,14 @@ class Warehouse(pulumi.CustomResource):
                  auto_suspend: Optional[pulumi.Input[_builtins.int]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_query_acceleration: Optional[pulumi.Input[_builtins.str]] = None,
+                 generation: Optional[pulumi.Input[_builtins.str]] = None,
                  initially_suspended: Optional[pulumi.Input[_builtins.bool]] = None,
                  max_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
                  max_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
                  min_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query_acceleration_max_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_constraint: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  scaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -700,12 +770,14 @@ class Warehouse(pulumi.CustomResource):
             __props__.__dict__["auto_suspend"] = auto_suspend
             __props__.__dict__["comment"] = comment
             __props__.__dict__["enable_query_acceleration"] = enable_query_acceleration
+            __props__.__dict__["generation"] = generation
             __props__.__dict__["initially_suspended"] = initially_suspended
             __props__.__dict__["max_cluster_count"] = max_cluster_count
             __props__.__dict__["max_concurrency_level"] = max_concurrency_level
             __props__.__dict__["min_cluster_count"] = min_cluster_count
             __props__.__dict__["name"] = name
             __props__.__dict__["query_acceleration_max_scale_factor"] = query_acceleration_max_scale_factor
+            __props__.__dict__["resource_constraint"] = resource_constraint
             __props__.__dict__["resource_monitor"] = resource_monitor
             __props__.__dict__["scaling_policy"] = scaling_policy
             __props__.__dict__["statement_queued_timeout_in_seconds"] = statement_queued_timeout_in_seconds
@@ -730,6 +802,7 @@ class Warehouse(pulumi.CustomResource):
             comment: Optional[pulumi.Input[_builtins.str]] = None,
             enable_query_acceleration: Optional[pulumi.Input[_builtins.str]] = None,
             fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
+            generation: Optional[pulumi.Input[_builtins.str]] = None,
             initially_suspended: Optional[pulumi.Input[_builtins.bool]] = None,
             max_cluster_count: Optional[pulumi.Input[_builtins.int]] = None,
             max_concurrency_level: Optional[pulumi.Input[_builtins.int]] = None,
@@ -737,6 +810,7 @@ class Warehouse(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]]] = None,
             query_acceleration_max_scale_factor: Optional[pulumi.Input[_builtins.int]] = None,
+            resource_constraint: Optional[pulumi.Input[_builtins.str]] = None,
             resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
             scaling_policy: Optional[pulumi.Input[_builtins.str]] = None,
             show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict']]]]] = None,
@@ -756,6 +830,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the warehouse.
         :param pulumi.Input[_builtins.str] enable_query_acceleration: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[_builtins.str] generation: Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
         :param pulumi.Input[_builtins.bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[_builtins.int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[_builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
@@ -763,6 +838,7 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
         :param pulumi.Input[_builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        :param pulumi.Input[_builtins.str] resource_constraint: Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
         :param pulumi.Input[_builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
@@ -780,6 +856,7 @@ class Warehouse(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["enable_query_acceleration"] = enable_query_acceleration
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
+        __props__.__dict__["generation"] = generation
         __props__.__dict__["initially_suspended"] = initially_suspended
         __props__.__dict__["max_cluster_count"] = max_cluster_count
         __props__.__dict__["max_concurrency_level"] = max_concurrency_level
@@ -787,6 +864,7 @@ class Warehouse(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["query_acceleration_max_scale_factor"] = query_acceleration_max_scale_factor
+        __props__.__dict__["resource_constraint"] = resource_constraint
         __props__.__dict__["resource_monitor"] = resource_monitor
         __props__.__dict__["scaling_policy"] = scaling_policy
         __props__.__dict__["show_outputs"] = show_outputs
@@ -835,6 +913,14 @@ class Warehouse(pulumi.CustomResource):
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        """
+        return pulumi.get(self, "generation")
 
     @_builtins.property
     @pulumi.getter(name="initiallySuspended")
@@ -891,6 +977,14 @@ class Warehouse(pulumi.CustomResource):
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         """
         return pulumi.get(self, "query_acceleration_max_scale_factor")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConstraint")
+    def resource_constraint(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        """
+        return pulumi.get(self, "resource_constraint")
 
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")

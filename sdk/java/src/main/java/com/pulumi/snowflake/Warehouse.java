@@ -100,6 +100,20 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
+     * Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+     * 
+     */
+    @Export(name="generation", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> generation;
+
+    /**
+     * @return Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+     * 
+     */
+    public Output<Optional<String>> generation() {
+        return Codegen.optional(this.generation);
+    }
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      * 
      */
@@ -196,6 +210,20 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> queryAccelerationMaxScaleFactor() {
         return Codegen.optional(this.queryAccelerationMaxScaleFactor);
+    }
+    /**
+     * Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+     * 
+     */
+    @Export(name="resourceConstraint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceConstraint;
+
+    /**
+     * @return Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+     * 
+     */
+    public Output<Optional<String>> resourceConstraint() {
+        return Codegen.optional(this.resourceConstraint);
     }
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.

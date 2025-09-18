@@ -62,6 +62,10 @@ export class Warehouse extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
+     * Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+     */
+    declare public readonly generation: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
     declare public readonly initiallySuspended: pulumi.Output<boolean | undefined>;
@@ -89,6 +93,10 @@ export class Warehouse extends pulumi.CustomResource {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
     declare public readonly queryAccelerationMaxScaleFactor: pulumi.Output<number | undefined>;
+    /**
+     * Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+     */
+    declare public readonly resourceConstraint: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      */
@@ -136,6 +144,7 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["comment"] = state?.comment;
             resourceInputs["enableQueryAcceleration"] = state?.enableQueryAcceleration;
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["generation"] = state?.generation;
             resourceInputs["initiallySuspended"] = state?.initiallySuspended;
             resourceInputs["maxClusterCount"] = state?.maxClusterCount;
             resourceInputs["maxConcurrencyLevel"] = state?.maxConcurrencyLevel;
@@ -143,6 +152,7 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["parameters"] = state?.parameters;
             resourceInputs["queryAccelerationMaxScaleFactor"] = state?.queryAccelerationMaxScaleFactor;
+            resourceInputs["resourceConstraint"] = state?.resourceConstraint;
             resourceInputs["resourceMonitor"] = state?.resourceMonitor;
             resourceInputs["scalingPolicy"] = state?.scalingPolicy;
             resourceInputs["showOutputs"] = state?.showOutputs;
@@ -156,12 +166,14 @@ export class Warehouse extends pulumi.CustomResource {
             resourceInputs["autoSuspend"] = args?.autoSuspend;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["enableQueryAcceleration"] = args?.enableQueryAcceleration;
+            resourceInputs["generation"] = args?.generation;
             resourceInputs["initiallySuspended"] = args?.initiallySuspended;
             resourceInputs["maxClusterCount"] = args?.maxClusterCount;
             resourceInputs["maxConcurrencyLevel"] = args?.maxConcurrencyLevel;
             resourceInputs["minClusterCount"] = args?.minClusterCount;
             resourceInputs["name"] = args?.name;
             resourceInputs["queryAccelerationMaxScaleFactor"] = args?.queryAccelerationMaxScaleFactor;
+            resourceInputs["resourceConstraint"] = args?.resourceConstraint;
             resourceInputs["resourceMonitor"] = args?.resourceMonitor;
             resourceInputs["scalingPolicy"] = args?.scalingPolicy;
             resourceInputs["statementQueuedTimeoutInSeconds"] = args?.statementQueuedTimeoutInSeconds;
@@ -202,6 +214,10 @@ export interface WarehouseState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
+     * Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+     */
+    generation?: pulumi.Input<string>;
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
     initiallySuspended?: pulumi.Input<boolean>;
@@ -229,6 +245,10 @@ export interface WarehouseState {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
     queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
+    /**
+     * Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+     */
+    resourceConstraint?: pulumi.Input<string>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      */
@@ -280,6 +300,10 @@ export interface WarehouseArgs {
      */
     enableQueryAcceleration?: pulumi.Input<string>;
     /**
+     * Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+     */
+    generation?: pulumi.Input<string>;
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
     initiallySuspended?: pulumi.Input<boolean>;
@@ -303,6 +327,10 @@ export interface WarehouseArgs {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
     queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
+    /**
+     * Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+     */
+    resourceConstraint?: pulumi.Input<string>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      */

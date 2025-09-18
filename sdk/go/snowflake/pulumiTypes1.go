@@ -12826,6 +12826,7 @@ type WarehouseShowOutput struct {
 	Comment                         *string  `pulumi:"comment"`
 	CreatedOn                       *string  `pulumi:"createdOn"`
 	EnableQueryAcceleration         *bool    `pulumi:"enableQueryAcceleration"`
+	Generation                      *string  `pulumi:"generation"`
 	IsCurrent                       *bool    `pulumi:"isCurrent"`
 	IsDefault                       *bool    `pulumi:"isDefault"`
 	MaxClusterCount                 *int     `pulumi:"maxClusterCount"`
@@ -12838,6 +12839,7 @@ type WarehouseShowOutput struct {
 	QueryAccelerationMaxScaleFactor *int     `pulumi:"queryAccelerationMaxScaleFactor"`
 	Queued                          *int     `pulumi:"queued"`
 	Quiescing                       *float64 `pulumi:"quiescing"`
+	ResourceConstraint              *string  `pulumi:"resourceConstraint"`
 	ResourceMonitor                 *string  `pulumi:"resourceMonitor"`
 	ResumedOn                       *string  `pulumi:"resumedOn"`
 	Running                         *int     `pulumi:"running"`
@@ -12867,6 +12869,7 @@ type WarehouseShowOutputArgs struct {
 	Comment                         pulumi.StringPtrInput  `pulumi:"comment"`
 	CreatedOn                       pulumi.StringPtrInput  `pulumi:"createdOn"`
 	EnableQueryAcceleration         pulumi.BoolPtrInput    `pulumi:"enableQueryAcceleration"`
+	Generation                      pulumi.StringPtrInput  `pulumi:"generation"`
 	IsCurrent                       pulumi.BoolPtrInput    `pulumi:"isCurrent"`
 	IsDefault                       pulumi.BoolPtrInput    `pulumi:"isDefault"`
 	MaxClusterCount                 pulumi.IntPtrInput     `pulumi:"maxClusterCount"`
@@ -12879,6 +12882,7 @@ type WarehouseShowOutputArgs struct {
 	QueryAccelerationMaxScaleFactor pulumi.IntPtrInput     `pulumi:"queryAccelerationMaxScaleFactor"`
 	Queued                          pulumi.IntPtrInput     `pulumi:"queued"`
 	Quiescing                       pulumi.Float64PtrInput `pulumi:"quiescing"`
+	ResourceConstraint              pulumi.StringPtrInput  `pulumi:"resourceConstraint"`
 	ResourceMonitor                 pulumi.StringPtrInput  `pulumi:"resourceMonitor"`
 	ResumedOn                       pulumi.StringPtrInput  `pulumi:"resumedOn"`
 	Running                         pulumi.IntPtrInput     `pulumi:"running"`
@@ -12965,6 +12969,10 @@ func (o WarehouseShowOutputOutput) EnableQueryAcceleration() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v WarehouseShowOutput) *bool { return v.EnableQueryAcceleration }).(pulumi.BoolPtrOutput)
 }
 
+func (o WarehouseShowOutputOutput) Generation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WarehouseShowOutput) *string { return v.Generation }).(pulumi.StringPtrOutput)
+}
+
 func (o WarehouseShowOutputOutput) IsCurrent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WarehouseShowOutput) *bool { return v.IsCurrent }).(pulumi.BoolPtrOutput)
 }
@@ -13011,6 +13019,10 @@ func (o WarehouseShowOutputOutput) Queued() pulumi.IntPtrOutput {
 
 func (o WarehouseShowOutputOutput) Quiescing() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v WarehouseShowOutput) *float64 { return v.Quiescing }).(pulumi.Float64PtrOutput)
+}
+
+func (o WarehouseShowOutputOutput) ResourceConstraint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WarehouseShowOutput) *string { return v.ResourceConstraint }).(pulumi.StringPtrOutput)
 }
 
 func (o WarehouseShowOutputOutput) ResourceMonitor() pulumi.StringPtrOutput {
@@ -57671,6 +57683,7 @@ type GetWarehousesWarehouseShowOutput struct {
 	Comment                         string  `pulumi:"comment"`
 	CreatedOn                       string  `pulumi:"createdOn"`
 	EnableQueryAcceleration         bool    `pulumi:"enableQueryAcceleration"`
+	Generation                      string  `pulumi:"generation"`
 	IsCurrent                       bool    `pulumi:"isCurrent"`
 	IsDefault                       bool    `pulumi:"isDefault"`
 	MaxClusterCount                 int     `pulumi:"maxClusterCount"`
@@ -57683,6 +57696,7 @@ type GetWarehousesWarehouseShowOutput struct {
 	QueryAccelerationMaxScaleFactor int     `pulumi:"queryAccelerationMaxScaleFactor"`
 	Queued                          int     `pulumi:"queued"`
 	Quiescing                       float64 `pulumi:"quiescing"`
+	ResourceConstraint              string  `pulumi:"resourceConstraint"`
 	ResourceMonitor                 string  `pulumi:"resourceMonitor"`
 	ResumedOn                       string  `pulumi:"resumedOn"`
 	Running                         int     `pulumi:"running"`
@@ -57712,6 +57726,7 @@ type GetWarehousesWarehouseShowOutputArgs struct {
 	Comment                         pulumi.StringInput  `pulumi:"comment"`
 	CreatedOn                       pulumi.StringInput  `pulumi:"createdOn"`
 	EnableQueryAcceleration         pulumi.BoolInput    `pulumi:"enableQueryAcceleration"`
+	Generation                      pulumi.StringInput  `pulumi:"generation"`
 	IsCurrent                       pulumi.BoolInput    `pulumi:"isCurrent"`
 	IsDefault                       pulumi.BoolInput    `pulumi:"isDefault"`
 	MaxClusterCount                 pulumi.IntInput     `pulumi:"maxClusterCount"`
@@ -57724,6 +57739,7 @@ type GetWarehousesWarehouseShowOutputArgs struct {
 	QueryAccelerationMaxScaleFactor pulumi.IntInput     `pulumi:"queryAccelerationMaxScaleFactor"`
 	Queued                          pulumi.IntInput     `pulumi:"queued"`
 	Quiescing                       pulumi.Float64Input `pulumi:"quiescing"`
+	ResourceConstraint              pulumi.StringInput  `pulumi:"resourceConstraint"`
 	ResourceMonitor                 pulumi.StringInput  `pulumi:"resourceMonitor"`
 	ResumedOn                       pulumi.StringInput  `pulumi:"resumedOn"`
 	Running                         pulumi.IntInput     `pulumi:"running"`
@@ -57810,6 +57826,10 @@ func (o GetWarehousesWarehouseShowOutputOutput) EnableQueryAcceleration() pulumi
 	return o.ApplyT(func(v GetWarehousesWarehouseShowOutput) bool { return v.EnableQueryAcceleration }).(pulumi.BoolOutput)
 }
 
+func (o GetWarehousesWarehouseShowOutputOutput) Generation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWarehousesWarehouseShowOutput) string { return v.Generation }).(pulumi.StringOutput)
+}
+
 func (o GetWarehousesWarehouseShowOutputOutput) IsCurrent() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetWarehousesWarehouseShowOutput) bool { return v.IsCurrent }).(pulumi.BoolOutput)
 }
@@ -57856,6 +57876,10 @@ func (o GetWarehousesWarehouseShowOutputOutput) Queued() pulumi.IntOutput {
 
 func (o GetWarehousesWarehouseShowOutputOutput) Quiescing() pulumi.Float64Output {
 	return o.ApplyT(func(v GetWarehousesWarehouseShowOutput) float64 { return v.Quiescing }).(pulumi.Float64Output)
+}
+
+func (o GetWarehousesWarehouseShowOutputOutput) ResourceConstraint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWarehousesWarehouseShowOutput) string { return v.ResourceConstraint }).(pulumi.StringOutput)
 }
 
 func (o GetWarehousesWarehouseShowOutputOutput) ResourceMonitor() pulumi.StringOutput {

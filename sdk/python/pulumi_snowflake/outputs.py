@@ -9246,7 +9246,7 @@ class GrantPrivilegesToAccountRoleOnAccountObject(dict):
                  object_type: _builtins.str):
         """
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param _builtins.str object_type: The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+        :param _builtins.str object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
         pulumi.set(__self__, "object_name", object_name)
         pulumi.set(__self__, "object_type", object_type)
@@ -9263,7 +9263,7 @@ class GrantPrivilegesToAccountRoleOnAccountObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
         """
-        The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
         return pulumi.get(self, "object_type")
 
@@ -38707,6 +38707,8 @@ class WarehouseShowOutput(dict):
             suggest = "owner_role_type"
         elif key == "queryAccelerationMaxScaleFactor":
             suggest = "query_acceleration_max_scale_factor"
+        elif key == "resourceConstraint":
+            suggest = "resource_constraint"
         elif key == "resourceMonitor":
             suggest = "resource_monitor"
         elif key == "resumedOn":
@@ -38736,6 +38738,7 @@ class WarehouseShowOutput(dict):
                  comment: Optional[_builtins.str] = None,
                  created_on: Optional[_builtins.str] = None,
                  enable_query_acceleration: Optional[_builtins.bool] = None,
+                 generation: Optional[_builtins.str] = None,
                  is_current: Optional[_builtins.bool] = None,
                  is_default: Optional[_builtins.bool] = None,
                  max_cluster_count: Optional[_builtins.int] = None,
@@ -38748,6 +38751,7 @@ class WarehouseShowOutput(dict):
                  query_acceleration_max_scale_factor: Optional[_builtins.int] = None,
                  queued: Optional[_builtins.int] = None,
                  quiescing: Optional[_builtins.float] = None,
+                 resource_constraint: Optional[_builtins.str] = None,
                  resource_monitor: Optional[_builtins.str] = None,
                  resumed_on: Optional[_builtins.str] = None,
                  running: Optional[_builtins.int] = None,
@@ -38769,6 +38773,8 @@ class WarehouseShowOutput(dict):
             pulumi.set(__self__, "created_on", created_on)
         if enable_query_acceleration is not None:
             pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
         if is_current is not None:
             pulumi.set(__self__, "is_current", is_current)
         if is_default is not None:
@@ -38793,6 +38799,8 @@ class WarehouseShowOutput(dict):
             pulumi.set(__self__, "queued", queued)
         if quiescing is not None:
             pulumi.set(__self__, "quiescing", quiescing)
+        if resource_constraint is not None:
+            pulumi.set(__self__, "resource_constraint", resource_constraint)
         if resource_monitor is not None:
             pulumi.set(__self__, "resource_monitor", resource_monitor)
         if resumed_on is not None:
@@ -38841,6 +38849,11 @@ class WarehouseShowOutput(dict):
     @pulumi.getter(name="enableQueryAcceleration")
     def enable_query_acceleration(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "enable_query_acceleration")
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "generation")
 
     @_builtins.property
     @pulumi.getter(name="isCurrent")
@@ -38901,6 +38914,11 @@ class WarehouseShowOutput(dict):
     @pulumi.getter
     def quiescing(self) -> Optional[_builtins.float]:
         return pulumi.get(self, "quiescing")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConstraint")
+    def resource_constraint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "resource_constraint")
 
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")
@@ -55500,6 +55518,7 @@ class GetWarehousesWarehouseShowOutputResult(dict):
                  comment: _builtins.str,
                  created_on: _builtins.str,
                  enable_query_acceleration: _builtins.bool,
+                 generation: _builtins.str,
                  is_current: _builtins.bool,
                  is_default: _builtins.bool,
                  max_cluster_count: _builtins.int,
@@ -55512,6 +55531,7 @@ class GetWarehousesWarehouseShowOutputResult(dict):
                  query_acceleration_max_scale_factor: _builtins.int,
                  queued: _builtins.int,
                  quiescing: _builtins.float,
+                 resource_constraint: _builtins.str,
                  resource_monitor: _builtins.str,
                  resumed_on: _builtins.str,
                  running: _builtins.int,
@@ -55527,6 +55547,7 @@ class GetWarehousesWarehouseShowOutputResult(dict):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "enable_query_acceleration", enable_query_acceleration)
+        pulumi.set(__self__, "generation", generation)
         pulumi.set(__self__, "is_current", is_current)
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "max_cluster_count", max_cluster_count)
@@ -55539,6 +55560,7 @@ class GetWarehousesWarehouseShowOutputResult(dict):
         pulumi.set(__self__, "query_acceleration_max_scale_factor", query_acceleration_max_scale_factor)
         pulumi.set(__self__, "queued", queued)
         pulumi.set(__self__, "quiescing", quiescing)
+        pulumi.set(__self__, "resource_constraint", resource_constraint)
         pulumi.set(__self__, "resource_monitor", resource_monitor)
         pulumi.set(__self__, "resumed_on", resumed_on)
         pulumi.set(__self__, "running", running)
@@ -55578,6 +55600,11 @@ class GetWarehousesWarehouseShowOutputResult(dict):
     @pulumi.getter(name="enableQueryAcceleration")
     def enable_query_acceleration(self) -> _builtins.bool:
         return pulumi.get(self, "enable_query_acceleration")
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> _builtins.str:
+        return pulumi.get(self, "generation")
 
     @_builtins.property
     @pulumi.getter(name="isCurrent")
@@ -55638,6 +55665,11 @@ class GetWarehousesWarehouseShowOutputResult(dict):
     @pulumi.getter
     def quiescing(self) -> _builtins.float:
         return pulumi.get(self, "quiescing")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConstraint")
+    def resource_constraint(self) -> _builtins.str:
+        return pulumi.get(self, "resource_constraint")
 
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")

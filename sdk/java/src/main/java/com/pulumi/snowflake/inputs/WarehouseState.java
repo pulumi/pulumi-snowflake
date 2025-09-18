@@ -96,6 +96,21 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+     * 
+     */
+    @Import(name="generation")
+    private @Nullable Output<String> generation;
+
+    /**
+     * @return Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+     * 
+     */
+    public Optional<Output<String>> generation() {
+        return Optional.ofNullable(this.generation);
+    }
+
+    /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      * 
      */
@@ -198,6 +213,21 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> queryAccelerationMaxScaleFactor() {
         return Optional.ofNullable(this.queryAccelerationMaxScaleFactor);
+    }
+
+    /**
+     * Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+     * 
+     */
+    @Import(name="resourceConstraint")
+    private @Nullable Output<String> resourceConstraint;
+
+    /**
+     * @return Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+     * 
+     */
+    public Optional<Output<String>> resourceConstraint() {
+        return Optional.ofNullable(this.resourceConstraint);
     }
 
     /**
@@ -313,6 +343,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.enableQueryAcceleration = $.enableQueryAcceleration;
         this.fullyQualifiedName = $.fullyQualifiedName;
+        this.generation = $.generation;
         this.initiallySuspended = $.initiallySuspended;
         this.maxClusterCount = $.maxClusterCount;
         this.maxConcurrencyLevel = $.maxConcurrencyLevel;
@@ -320,6 +351,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.parameters = $.parameters;
         this.queryAccelerationMaxScaleFactor = $.queryAccelerationMaxScaleFactor;
+        this.resourceConstraint = $.resourceConstraint;
         this.resourceMonitor = $.resourceMonitor;
         this.scalingPolicy = $.scalingPolicy;
         this.showOutputs = $.showOutputs;
@@ -450,6 +482,27 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder fullyQualifiedName(String fullyQualifiedName) {
             return fullyQualifiedName(Output.of(fullyQualifiedName));
+        }
+
+        /**
+         * @param generation Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generation(@Nullable Output<String> generation) {
+            $.generation = generation;
+            return this;
+        }
+
+        /**
+         * @param generation Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generation(String generation) {
+            return generation(Output.of(generation));
         }
 
         /**
@@ -607,6 +660,27 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder queryAccelerationMaxScaleFactor(Integer queryAccelerationMaxScaleFactor) {
             return queryAccelerationMaxScaleFactor(Output.of(queryAccelerationMaxScaleFactor));
+        }
+
+        /**
+         * @param resourceConstraint Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceConstraint(@Nullable Output<String> resourceConstraint) {
+            $.resourceConstraint = resourceConstraint;
+            return this;
+        }
+
+        /**
+         * @param resourceConstraint Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceConstraint(String resourceConstraint) {
+            return resourceConstraint(Output.of(resourceConstraint));
         }
 
         /**

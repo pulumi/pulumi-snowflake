@@ -2450,7 +2450,7 @@ export interface GrantPrivilegesToAccountRoleOnAccountObject {
      */
     objectName: pulumi.Input<string>;
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: USER | RESOURCE MONITOR | WAREHOUSE | COMPUTE POOL | DATABASE | INTEGRATION | FAILOVER GROUP | REPLICATION GROUP | EXTERNAL VOLUME
+     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
      */
     objectType: pulumi.Input<string>;
 }
@@ -7233,6 +7233,7 @@ export interface WarehouseShowOutput {
     comment?: pulumi.Input<string>;
     createdOn?: pulumi.Input<string>;
     enableQueryAcceleration?: pulumi.Input<boolean>;
+    generation?: pulumi.Input<string>;
     isCurrent?: pulumi.Input<boolean>;
     isDefault?: pulumi.Input<boolean>;
     maxClusterCount?: pulumi.Input<number>;
@@ -7245,6 +7246,7 @@ export interface WarehouseShowOutput {
     queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
     queued?: pulumi.Input<number>;
     quiescing?: pulumi.Input<number>;
+    resourceConstraint?: pulumi.Input<string>;
     resourceMonitor?: pulumi.Input<string>;
     resumedOn?: pulumi.Input<string>;
     running?: pulumi.Input<number>;
