@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
     public partial class Pipe : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Default: `false`) Specifies a auto_ingest param for the pipe.
+        /// (Default: `False`) Specifies a AutoIngest param for the pipe.
         /// </summary>
         [Output("autoIngest")]
         public Output<bool?> AutoIngest { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Snowflake
     public sealed class PipeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `false`) Specifies a auto_ingest param for the pipe.
+        /// (Default: `False`) Specifies a AutoIngest param for the pipe.
         /// </summary>
         [Input("autoIngest")]
         public Input<bool>? AutoIngest { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Snowflake
     public sealed class PipeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `false`) Specifies a auto_ingest param for the pipe.
+        /// (Default: `False`) Specifies a AutoIngest param for the pipe.
         /// </summary>
         [Input("autoIngest")]
         public Input<bool>? AutoIngest { get; set; }

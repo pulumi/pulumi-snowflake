@@ -14,7 +14,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// !&gt; **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
-        /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
+        /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `RowAccessPolicies`.
         /// </summary>
         public static Task<GetRowAccessPoliciesResult> InvokeAsync(GetRowAccessPoliciesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// !&gt; **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
-        /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
+        /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `RowAccessPolicies`.
         /// </summary>
         public static Output<GetRowAccessPoliciesResult> Invoke(GetRowAccessPoliciesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// !&gt; **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
-        /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
+        /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `RowAccessPolicies`.
         /// </summary>
         public static Output<GetRowAccessPoliciesResult> Invoke(GetRowAccessPoliciesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesInvokeArgs(), options.WithDefaults());
@@ -52,13 +52,13 @@ namespace Pulumi.Snowflake
         public string? Like { get; set; }
 
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
         /// </summary>
         [Input("limit")]
         public Inputs.GetRowAccessPoliciesLimitArgs? Limit { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
@@ -84,13 +84,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Like { get; set; }
 
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
         /// </summary>
         [Input("limit")]
         public Input<Inputs.GetRowAccessPoliciesLimitInputArgs>? Limit { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
@@ -118,7 +118,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string? Like;
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
         /// </summary>
         public readonly Outputs.GetRowAccessPoliciesLimitResult? Limit;
         /// <summary>
@@ -126,7 +126,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRowAccessPoliciesRowAccessPolicyResult> RowAccessPolicies;
         /// <summary>
-        /// (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         public readonly bool? WithDescribe;
 

@@ -12,19 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetDatabases
     {
         /// <summary>
-        /// Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+        /// Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`Like`, `StartsWith`, and `Limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Task<GetDatabasesResult> InvokeAsync(GetDatabasesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabasesResult>("snowflake:index/getDatabases:getDatabases", args ?? new GetDatabasesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+        /// Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`Like`, `StartsWith`, and `Limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Output<GetDatabasesResult> Invoke(GetDatabasesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesResult>("snowflake:index/getDatabases:getDatabases", args ?? new GetDatabasesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+        /// Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`Like`, `StartsWith`, and `Limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Output<GetDatabasesResult> Invoke(GetDatabasesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabasesResult>("snowflake:index/getDatabases:getDatabases", args ?? new GetDatabasesInvokeArgs(), options.WithDefaults());
@@ -40,7 +40,7 @@ namespace Pulumi.Snowflake
         public string? Like { get; set; }
 
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
         /// </summary>
         [Input("limit")]
         public Inputs.GetDatabasesLimitArgs? Limit { get; set; }
@@ -52,13 +52,13 @@ namespace Pulumi.Snowflake
         public string? StartsWith { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         [Input("withParameters")]
         public bool? WithParameters { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Like { get; set; }
 
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
         /// </summary>
         [Input("limit")]
         public Input<Inputs.GetDatabasesLimitInputArgs>? Limit { get; set; }
@@ -90,13 +90,13 @@ namespace Pulumi.Snowflake
         public Input<string>? StartsWith { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         [Input("withParameters")]
         public Input<bool>? WithParameters { get; set; }
@@ -124,7 +124,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string? Like;
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `StartsWith` or `Like`.
         /// </summary>
         public readonly Outputs.GetDatabasesLimitResult? Limit;
         /// <summary>
@@ -132,11 +132,11 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string? StartsWith;
         /// <summary>
-        /// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         public readonly bool? WithDescribe;
         /// <summary>
-        /// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         public readonly bool? WithParameters;
 

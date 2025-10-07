@@ -32,7 +32,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> AllowedNetworkRuleLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `BlockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `AllowedIpList`.
         /// </summary>
         [Output("blockedIpLists")]
         public Output<ImmutableArray<string>> BlockedIpLists { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `BlockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `AllowedIpList`.
         /// </summary>
         public InputList<string> BlockedIpLists
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedIpLists;
 
         /// <summary>
-        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
+        /// Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `BlockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `AllowedIpList`.
         /// </summary>
         public InputList<string> BlockedIpLists
         {
