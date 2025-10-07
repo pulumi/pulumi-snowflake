@@ -56,28 +56,28 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
         return this.azureMultiTenantAppName;
     }
     /**
-     * (Default: ``)
+     * (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
      * 
      */
     @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
     /**
-     * @return (Default: ``)
+     * @return (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
      * 
      */
     public Output<Optional<String>> azureTenantId() {
         return Codegen.optional(this.azureTenantId);
     }
     /**
-     * (Default: ``)
+     * (Default: ``) Specifies a comment for the storage integration.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return (Default: ``)
+     * @return (Default: ``) Specifies a comment for the storage integration.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -139,9 +139,17 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
+    /**
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -160,14 +168,14 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
         return this.storageAllowedLocations;
     }
     /**
-     * The external ID that Snowflake will use when assuming the AWS role.
+     * Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
      * 
      */
     @Export(name="storageAwsExternalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAwsExternalId;
 
     /**
-     * @return The external ID that Snowflake will use when assuming the AWS role.
+     * @return Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
      * 
      */
     public Output<Optional<String>> storageAwsExternalId() {
@@ -202,14 +210,14 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageAwsObjectAcl);
     }
     /**
-     * (Default: ``)
+     * (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
      * 
      */
     @Export(name="storageAwsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAwsRoleArn;
 
     /**
-     * @return (Default: ``)
+     * @return (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
      * 
      */
     public Output<Optional<String>> storageAwsRoleArn() {
@@ -258,18 +266,32 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
         return this.storageProvider;
     }
     /**
-     * (Default: `EXTERNAL_STAGE`)
+     * (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return (Default: `EXTERNAL_STAGE`)
+     * @return (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
      * 
      */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
+    }
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Export(name="usePrivatelinkEndpoint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> usePrivatelinkEndpoint;
+
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Output<Optional<String>> usePrivatelinkEndpoint() {
+        return Codegen.optional(this.usePrivatelinkEndpoint);
     }
 
     /**

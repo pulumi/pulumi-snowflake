@@ -31,19 +31,22 @@ class StorageIntegrationArgs:
                  storage_aws_object_acl: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageIntegration resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[_builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
-        :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``)
-        :param pulumi.Input[_builtins.str] comment: (Default: ``)
+        :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
+        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the storage integration.
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
-        :param pulumi.Input[_builtins.str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
+        :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        :param pulumi.Input[_builtins.str] storage_aws_external_id: Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
         :param pulumi.Input[_builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
-        :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``)
+        :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
-        :param pulumi.Input[_builtins.str] type: (Default: `EXTERNAL_STAGE`)
+        :param pulumi.Input[_builtins.str] type: (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
+        :param pulumi.Input[_builtins.str] use_privatelink_endpoint: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         pulumi.set(__self__, "storage_allowed_locations", storage_allowed_locations)
         pulumi.set(__self__, "storage_provider", storage_provider)
@@ -65,6 +68,8 @@ class StorageIntegrationArgs:
             pulumi.set(__self__, "storage_blocked_locations", storage_blocked_locations)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="storageAllowedLocations")
@@ -94,7 +99,7 @@ class StorageIntegrationArgs:
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -106,7 +111,7 @@ class StorageIntegrationArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies a comment for the storage integration.
         """
         return pulumi.get(self, "comment")
 
@@ -129,6 +134,9 @@ class StorageIntegrationArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -139,7 +147,7 @@ class StorageIntegrationArgs:
     @pulumi.getter(name="storageAwsExternalId")
     def storage_aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The external ID that Snowflake will use when assuming the AWS role.
+        Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
         """
         return pulumi.get(self, "storage_aws_external_id")
 
@@ -163,7 +171,7 @@ class StorageIntegrationArgs:
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
         """
         return pulumi.get(self, "storage_aws_role_arn")
 
@@ -187,13 +195,25 @@ class StorageIntegrationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: `EXTERNAL_STAGE`)
+        (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+    @use_privatelink_endpoint.setter
+    def use_privatelink_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "use_privatelink_endpoint", value)
 
 
 @pulumi.input_type
@@ -216,26 +236,29 @@ class _StorageIntegrationState:
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_gcp_service_account: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageIntegration resources.
         :param pulumi.Input[_builtins.str] azure_consent_url: The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
         :param pulumi.Input[_builtins.str] azure_multi_tenant_app_name: This is the name of the Snowflake client application created for your account.
-        :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``)
-        :param pulumi.Input[_builtins.str] comment: (Default: ``)
+        :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
+        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the storage integration.
         :param pulumi.Input[_builtins.str] created_on: Date and time when the storage integration was created.
         :param pulumi.Input[Sequence[pulumi.Input['StorageIntegrationDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
-        :param pulumi.Input[_builtins.str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
+        :param pulumi.Input[_builtins.str] storage_aws_external_id: Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
         :param pulumi.Input[_builtins.str] storage_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[_builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
-        :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``)
+        :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[_builtins.str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
         :param pulumi.Input[_builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
-        :param pulumi.Input[_builtins.str] type: (Default: `EXTERNAL_STAGE`)
+        :param pulumi.Input[_builtins.str] type: (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
+        :param pulumi.Input[_builtins.str] use_privatelink_endpoint: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         if azure_consent_url is not None:
             pulumi.set(__self__, "azure_consent_url", azure_consent_url)
@@ -273,6 +296,8 @@ class _StorageIntegrationState:
             pulumi.set(__self__, "storage_provider", storage_provider)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="azureConsentUrl")
@@ -302,7 +327,7 @@ class _StorageIntegrationState:
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -314,7 +339,7 @@ class _StorageIntegrationState:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies a comment for the storage integration.
         """
         return pulumi.get(self, "comment")
 
@@ -373,6 +398,9 @@ class _StorageIntegrationState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -395,7 +423,7 @@ class _StorageIntegrationState:
     @pulumi.getter(name="storageAwsExternalId")
     def storage_aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The external ID that Snowflake will use when assuming the AWS role.
+        Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
         """
         return pulumi.get(self, "storage_aws_external_id")
 
@@ -431,7 +459,7 @@ class _StorageIntegrationState:
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
         """
         return pulumi.get(self, "storage_aws_role_arn")
 
@@ -479,13 +507,25 @@ class _StorageIntegrationState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: `EXTERNAL_STAGE`)
+        (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+    @use_privatelink_endpoint.setter
+    def use_privatelink_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "use_privatelink_endpoint", value)
 
 
 @pulumi.type_token("snowflake:index/storageIntegration:StorageIntegration")
@@ -505,6 +545,7 @@ class StorageIntegration(pulumi.CustomResource):
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_provider: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         ## Import
@@ -515,16 +556,18 @@ class StorageIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``)
-        :param pulumi.Input[_builtins.str] comment: (Default: ``)
+        :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
+        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the storage integration.
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
+        :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
-        :param pulumi.Input[_builtins.str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
+        :param pulumi.Input[_builtins.str] storage_aws_external_id: Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
         :param pulumi.Input[_builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
-        :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``)
+        :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[_builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
-        :param pulumi.Input[_builtins.str] type: (Default: `EXTERNAL_STAGE`)
+        :param pulumi.Input[_builtins.str] type: (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
+        :param pulumi.Input[_builtins.str] use_privatelink_endpoint: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         ...
     @overload
@@ -565,6 +608,7 @@ class StorageIntegration(pulumi.CustomResource):
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_provider: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -589,6 +633,7 @@ class StorageIntegration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_provider'")
             __props__.__dict__["storage_provider"] = storage_provider
             __props__.__dict__["type"] = type
+            __props__.__dict__["use_privatelink_endpoint"] = use_privatelink_endpoint
             __props__.__dict__["azure_consent_url"] = None
             __props__.__dict__["azure_multi_tenant_app_name"] = None
             __props__.__dict__["created_on"] = None
@@ -625,7 +670,8 @@ class StorageIntegration(pulumi.CustomResource):
             storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             storage_gcp_service_account: Optional[pulumi.Input[_builtins.str]] = None,
             storage_provider: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'StorageIntegration':
+            type: Optional[pulumi.Input[_builtins.str]] = None,
+            use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None) -> 'StorageIntegration':
         """
         Get an existing StorageIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -635,21 +681,23 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_consent_url: The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
         :param pulumi.Input[_builtins.str] azure_multi_tenant_app_name: This is the name of the Snowflake client application created for your account.
-        :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``)
-        :param pulumi.Input[_builtins.str] comment: (Default: ``)
+        :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
+        :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the storage integration.
         :param pulumi.Input[_builtins.str] created_on: Date and time when the storage integration was created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationDescribeOutputArgs', 'StorageIntegrationDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
-        :param pulumi.Input[_builtins.str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
+        :param pulumi.Input[_builtins.str] storage_aws_external_id: Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
         :param pulumi.Input[_builtins.str] storage_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[_builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
-        :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``)
+        :param pulumi.Input[_builtins.str] storage_aws_role_arn: (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[_builtins.str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
         :param pulumi.Input[_builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
-        :param pulumi.Input[_builtins.str] type: (Default: `EXTERNAL_STAGE`)
+        :param pulumi.Input[_builtins.str] type: (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
+        :param pulumi.Input[_builtins.str] use_privatelink_endpoint: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -673,6 +721,7 @@ class StorageIntegration(pulumi.CustomResource):
         __props__.__dict__["storage_gcp_service_account"] = storage_gcp_service_account
         __props__.__dict__["storage_provider"] = storage_provider
         __props__.__dict__["type"] = type
+        __props__.__dict__["use_privatelink_endpoint"] = use_privatelink_endpoint
         return StorageIntegration(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -695,7 +744,7 @@ class StorageIntegration(pulumi.CustomResource):
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -703,7 +752,7 @@ class StorageIntegration(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies a comment for the storage integration.
         """
         return pulumi.get(self, "comment")
 
@@ -742,6 +791,9 @@ class StorageIntegration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        String that specifies the identifier (i.e. name) for the integration; must be unique in your account.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -756,7 +808,7 @@ class StorageIntegration(pulumi.CustomResource):
     @pulumi.getter(name="storageAwsExternalId")
     def storage_aws_external_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The external ID that Snowflake will use when assuming the AWS role.
+        Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
         """
         return pulumi.get(self, "storage_aws_external_id")
 
@@ -780,7 +832,7 @@ class StorageIntegration(pulumi.CustomResource):
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Default: ``)
+        (Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
         """
         return pulumi.get(self, "storage_aws_role_arn")
 
@@ -812,7 +864,15 @@ class StorageIntegration(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Default: `EXTERNAL_STAGE`)
+        (Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_privatelink_endpoint")
 
