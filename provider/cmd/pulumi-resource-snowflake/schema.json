@@ -4852,7 +4852,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT | DATASET\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4870,7 +4870,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS | DATASETS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4891,7 +4891,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4939,7 +4939,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | MASKING POLICY | MATERIALIZED VIEW | MODEL | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | STAGE | STREAM | TABLE | TAG | TASK | VIEW | STREAMLIT | DATASET\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4959,7 +4959,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TAGS | TASKS | VIEWS | STREAMLITS | DATASETS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4982,7 +4982,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -55585,11 +55585,11 @@
                 },
                 "azureTenantId": {
                     "type": "string",
-                    "description": "(Default: ``)\n"
+                    "description": "(Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.\n"
                 },
                 "comment": {
                     "type": "string",
-                    "description": "(Default: ``)\n"
+                    "description": "(Default: ``) Specifies a comment for the storage integration.\n"
                 },
                 "createdOn": {
                     "type": "string",
@@ -55611,7 +55611,8 @@
                     "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "String that specifies the identifier (i.e. name) for the integration; must be unique in your account.\n"
                 },
                 "storageAllowedLocations": {
                     "type": "array",
@@ -55622,7 +55623,7 @@
                 },
                 "storageAwsExternalId": {
                     "type": "string",
-                    "description": "The external ID that Snowflake will use when assuming the AWS role.\n"
+                    "description": "Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.\n"
                 },
                 "storageAwsIamUserArn": {
                     "type": "string",
@@ -55634,7 +55635,7 @@
                 },
                 "storageAwsRoleArn": {
                     "type": "string",
-                    "description": "(Default: ``)\n"
+                    "description": "(Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.\n"
                 },
                 "storageBlockedLocations": {
                     "type": "array",
@@ -55653,7 +55654,11 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Default: `EXTERNAL_STAGE`)\n"
+                    "description": "(Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.\n"
+                },
+                "usePrivatelinkEndpoint": {
+                    "type": "string",
+                    "description": "(Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
                 }
             },
             "required": [
@@ -55671,11 +55676,11 @@
             "inputProperties": {
                 "azureTenantId": {
                     "type": "string",
-                    "description": "(Default: ``)\n"
+                    "description": "(Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.\n"
                 },
                 "comment": {
                     "type": "string",
-                    "description": "(Default: ``)\n"
+                    "description": "(Default: ``) Specifies a comment for the storage integration.\n"
                 },
                 "enabled": {
                     "type": "boolean",
@@ -55683,6 +55688,7 @@
                 },
                 "name": {
                     "type": "string",
+                    "description": "String that specifies the identifier (i.e. name) for the integration; must be unique in your account.\n",
                     "willReplaceOnChanges": true
                 },
                 "storageAllowedLocations": {
@@ -55694,7 +55700,7 @@
                 },
                 "storageAwsExternalId": {
                     "type": "string",
-                    "description": "The external ID that Snowflake will use when assuming the AWS role.\n"
+                    "description": "Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.\n"
                 },
                 "storageAwsObjectAcl": {
                     "type": "string",
@@ -55702,7 +55708,7 @@
                 },
                 "storageAwsRoleArn": {
                     "type": "string",
-                    "description": "(Default: ``)\n"
+                    "description": "(Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.\n"
                 },
                 "storageBlockedLocations": {
                     "type": "array",
@@ -55718,8 +55724,12 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "(Default: `EXTERNAL_STAGE`)\n",
+                    "description": "(Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.\n",
                     "willReplaceOnChanges": true
+                },
+                "usePrivatelinkEndpoint": {
+                    "type": "string",
+                    "description": "(Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
                 }
             },
             "requiredInputs": [
@@ -55740,11 +55750,11 @@
                     },
                     "azureTenantId": {
                         "type": "string",
-                        "description": "(Default: ``)\n"
+                        "description": "(Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.\n"
                     },
                     "comment": {
                         "type": "string",
-                        "description": "(Default: ``)\n"
+                        "description": "(Default: ``) Specifies a comment for the storage integration.\n"
                     },
                     "createdOn": {
                         "type": "string",
@@ -55767,6 +55777,7 @@
                     },
                     "name": {
                         "type": "string",
+                        "description": "String that specifies the identifier (i.e. name) for the integration; must be unique in your account.\n",
                         "willReplaceOnChanges": true
                     },
                     "storageAllowedLocations": {
@@ -55778,7 +55789,7 @@
                     },
                     "storageAwsExternalId": {
                         "type": "string",
-                        "description": "The external ID that Snowflake will use when assuming the AWS role.\n"
+                        "description": "Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.\n"
                     },
                     "storageAwsIamUserArn": {
                         "type": "string",
@@ -55790,7 +55801,7 @@
                     },
                     "storageAwsRoleArn": {
                         "type": "string",
-                        "description": "(Default: ``)\n"
+                        "description": "(Default: ``) Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.\n"
                     },
                     "storageBlockedLocations": {
                         "type": "array",
@@ -55810,8 +55821,12 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "(Default: `EXTERNAL_STAGE`)\n",
+                        "description": "(Default: `EXTERNAL_STAGE`) Specifies the type of the storage integration.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "usePrivatelinkEndpoint": {
+                        "type": "string",
+                        "description": "(Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
                     }
                 },
                 "type": "object"
@@ -62638,7 +62653,7 @@
             }
         },
         "snowflake:index/getTables:getTables": {
-            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nDatasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nvariables:\n  current:\n    fn::invoke:\n      function: snowflake:getTables\n      arguments:\n        database: MYDB\n        schema: MYSCHEMA\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note** If a field has a default value, it is shown next to the type in the schema.\n",
+            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nDatasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getTables.\n",
                 "properties": {
