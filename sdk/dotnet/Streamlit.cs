@@ -56,7 +56,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+        /// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `DirectoryLocation`
         /// </summary>
         [Output("mainFile")]
         public Output<string> MainFile { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+        /// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `DirectoryLocation`
         /// </summary>
         [Input("mainFile", required: true)]
         public Input<string> MainFile { get; set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+        /// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `DirectoryLocation`
         /// </summary>
         [Input("mainFile")]
         public Input<string>? MainFile { get; set; }

@@ -43,14 +43,14 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
     }
 
     /**
-     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      * 
      */
     @Import(name="alwaysApplyTrigger")
     private @Nullable Output<String> alwaysApplyTrigger;
 
     /**
-     * @return (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * @return (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      * 
      */
     public Optional<Output<String>> alwaysApplyTrigger() {
@@ -210,7 +210,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param alwaysApplyTrigger (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+         * @param alwaysApplyTrigger (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param alwaysApplyTrigger (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+         * @param alwaysApplyTrigger (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
          * 
          * @return builder
          * 

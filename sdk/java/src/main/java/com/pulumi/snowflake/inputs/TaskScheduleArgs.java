@@ -17,14 +17,14 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
     public static final TaskScheduleArgs Empty = new TaskScheduleArgs();
 
     /**
-     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
      * 
      */
     @Import(name="minutes")
     private @Nullable Output<Integer> minutes;
 
     /**
-     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
      * 
      */
     public Optional<Output<Integer>> minutes() {
@@ -72,7 +72,7 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
          * 
          * @return builder
          * 

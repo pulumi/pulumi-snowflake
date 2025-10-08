@@ -12,19 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetNetworkPolicies
     {
         /// <summary>
-        /// Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+        /// Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
         /// </summary>
         public static Task<GetNetworkPoliciesResult> InvokeAsync(GetNetworkPoliciesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkPoliciesResult>("snowflake:index/getNetworkPolicies:getNetworkPolicies", args ?? new GetNetworkPoliciesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+        /// Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
         /// </summary>
         public static Output<GetNetworkPoliciesResult> Invoke(GetNetworkPoliciesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPoliciesResult>("snowflake:index/getNetworkPolicies:getNetworkPolicies", args ?? new GetNetworkPoliciesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+        /// Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
         /// </summary>
         public static Output<GetNetworkPoliciesResult> Invoke(GetNetworkPoliciesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPoliciesResult>("snowflake:index/getNetworkPolicies:getNetworkPolicies", args ?? new GetNetworkPoliciesInvokeArgs(), options.WithDefaults());
@@ -40,7 +40,7 @@ namespace Pulumi.Snowflake
         public string? Like { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
@@ -60,7 +60,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Like { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
@@ -88,7 +88,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkPoliciesNetworkPolicyResult> NetworkPolicies;
         /// <summary>
-        /// (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         public readonly bool? WithDescribe;
 

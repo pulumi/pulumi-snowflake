@@ -109,14 +109,14 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
      * 
      */
     @Import(name="mainFile")
     private @Nullable Output<String> mainFile;
 
     /**
-     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
      * 
      */
     public Optional<Output<String>> mainFile() {
@@ -396,7 +396,7 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+         * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class StreamlitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+         * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
          * 
          * @return builder
          * 

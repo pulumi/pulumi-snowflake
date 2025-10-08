@@ -34,7 +34,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _accountName = new __Value<string?>(() => __config.Get("accountName"));
         /// <summary>
-        /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+        /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
         /// </summary>
         public static string? AccountName
         {
@@ -124,7 +124,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _driverTracing = new __Value<string?>(() => __config.Get("driverTracing"));
         /// <summary>
-        /// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+        /// Specifies the logging level to be used by the driver. Valid options are: `Trace` | `Debug` | `Info` | `Print` | `Warning` | `Error` | `Fatal` | `Panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
         /// </summary>
         public static string? DriverTracing
         {
@@ -244,7 +244,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _organizationName = new __Value<string?>(() => __config.Get("organizationName"));
         /// <summary>
-        /// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+        /// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
         /// </summary>
         public static string? OrganizationName
         {
@@ -284,7 +284,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password") ?? Utilities.GetEnv("SNOWFLAKE_PASSWORD"));
         /// <summary>
-        /// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+        /// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `PrivateKey` and `PrivateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         public static string? Password
         {
@@ -311,7 +311,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _privateKey = new __Value<string?>(() => __config.Get("privateKey"));
         /// <summary>
-        /// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// Private Key for username+private-key auth. Cannot be used with `Password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         public static string? PrivateKey
         {
@@ -341,7 +341,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _protocol = new __Value<string?>(() => __config.Get("protocol") ?? Utilities.GetEnv("SNOWFLAKE_PROTOCOL"));
         /// <summary>
-        /// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        /// A protocol used in the connection. Valid options are: `Http` | `Https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
         /// </summary>
         public static string? Protocol
         {
@@ -391,7 +391,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _token = new __Value<string?>(() => __config.Get("token"));
         /// <summary>
-        /// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+        /// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `Authenticator` to `OAUTH`. Optionally, set the `Authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
         /// </summary>
         public static string? Token
         {
@@ -418,7 +418,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _user = new __Value<string?>(() => __config.Get("user"));
         /// <summary>
-        /// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        /// Username. Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         /// </summary>
         public static string? User
         {
