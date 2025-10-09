@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.OauthIntegrationForPartnerApplicationsDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("enabled")]
         public Output<string?> Enabled { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.Snowflake
         public Output<string> OauthClient { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("oauthIssueRefreshTokens")]
         public Output<string?> OauthIssueRefreshTokens { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Snowflake
         public Input<string> OauthClient { get; set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Snowflake
         public Input<string>? OauthClient { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }

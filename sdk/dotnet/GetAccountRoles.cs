@@ -12,19 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetAccountRoles
     {
         /// <summary>
-        /// Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
+        /// Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`Like` and `InClass` are all supported). The results of SHOW are encapsulated in one output collection.
         /// </summary>
         public static Task<GetAccountRolesResult> InvokeAsync(GetAccountRolesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountRolesResult>("snowflake:index/getAccountRoles:getAccountRoles", args ?? new GetAccountRolesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
+        /// Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`Like` and `InClass` are all supported). The results of SHOW are encapsulated in one output collection.
         /// </summary>
         public static Output<GetAccountRolesResult> Invoke(GetAccountRolesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountRolesResult>("snowflake:index/getAccountRoles:getAccountRoles", args ?? new GetAccountRolesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
+        /// Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`Like` and `InClass` are all supported). The results of SHOW are encapsulated in one output collection.
         /// </summary>
         public static Output<GetAccountRolesResult> Invoke(GetAccountRolesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountRolesResult>("snowflake:index/getAccountRoles:getAccountRoles", args ?? new GetAccountRolesInvokeArgs(), options.WithDefaults());

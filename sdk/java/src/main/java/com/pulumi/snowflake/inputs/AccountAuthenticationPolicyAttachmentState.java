@@ -16,14 +16,14 @@ public final class AccountAuthenticationPolicyAttachmentState extends com.pulumi
     public static final AccountAuthenticationPolicyAttachmentState Empty = new AccountAuthenticationPolicyAttachmentState();
 
     /**
-     * Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the authentication policy to apply to the current account.
+     * Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the authentication policy to apply to the current account.
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the authentication policy to apply to the current account.
+     * @return Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the authentication policy to apply to the current account.
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
@@ -55,7 +55,7 @@ public final class AccountAuthenticationPolicyAttachmentState extends com.pulumi
         }
 
         /**
-         * @param authenticationPolicy Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the authentication policy to apply to the current account.
+         * @param authenticationPolicy Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the authentication policy to apply to the current account.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AccountAuthenticationPolicyAttachmentState extends com.pulumi
         }
 
         /**
-         * @param authenticationPolicy Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the authentication policy to apply to the current account.
+         * @param authenticationPolicy Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the authentication policy to apply to the current account.
          * 
          * @return builder
          * 

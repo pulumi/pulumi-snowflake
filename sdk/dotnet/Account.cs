@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<int> GracePeriodInDays { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
         /// </summary>
         [Output("isOrgAdmin")]
         public Output<string?> IsOrgAdmin { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Snowflake
         public Input<int> GracePeriodInDays { get; set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
         /// </summary>
         [Input("isOrgAdmin")]
         public Input<string>? IsOrgAdmin { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Snowflake
         public Input<int>? GracePeriodInDays { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
         /// </summary>
         [Input("isOrgAdmin")]
         public Input<string>? IsOrgAdmin { get; set; }

@@ -605,14 +605,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.s3StageVpceDnsName;
     }
     /**
-     * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+     * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
      * 
      */
     @Export(name="schedule", refs={TaskSchedule.class}, tree="[0]")
     private Output</* @Nullable */ TaskSchedule> schedule;
 
     /**
-     * @return The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+     * @return The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
      * 
      */
     public Output<Optional<TaskSchedule>> schedule() {

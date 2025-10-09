@@ -12,19 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetWarehouses
     {
         /// <summary>
-        /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+        /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `Like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Task<GetWarehousesResult> InvokeAsync(GetWarehousesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWarehousesResult>("snowflake:index/getWarehouses:getWarehouses", args ?? new GetWarehousesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+        /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `Like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Output<GetWarehousesResult> Invoke(GetWarehousesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWarehousesResult>("snowflake:index/getWarehouses:getWarehouses", args ?? new GetWarehousesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+        /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `Like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Output<GetWarehousesResult> Invoke(GetWarehousesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWarehousesResult>("snowflake:index/getWarehouses:getWarehouses", args ?? new GetWarehousesInvokeArgs(), options.WithDefaults());
@@ -40,13 +40,13 @@ namespace Pulumi.Snowflake
         public string? Like { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         [Input("withParameters")]
         public bool? WithParameters { get; set; }
@@ -66,13 +66,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Like { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         [Input("withParameters")]
         public Input<bool>? WithParameters { get; set; }
@@ -100,11 +100,11 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWarehousesWarehouseResult> Warehouses;
         /// <summary>
-        /// (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `True`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         public readonly bool? WithDescribe;
         /// <summary>
-        /// (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `True`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         public readonly bool? WithParameters;
 
