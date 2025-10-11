@@ -56,14 +56,14 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowedNetworkRuleLists);
     }
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowedIpList`.
      * 
      */
     @Export(name="blockedIpLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedIpLists;
 
     /**
-     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
+     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowedIpList`.
      * 
      */
     public Output<Optional<List<String>>> blockedIpLists() {

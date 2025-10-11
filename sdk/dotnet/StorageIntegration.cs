@@ -56,7 +56,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.StorageIntegrationDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`)
+        /// (Default: `True`)
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("usePrivatelinkEndpoint")]
         public Output<string?> UsePrivatelinkEndpoint { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `true`)
+        /// (Default: `True`)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("usePrivatelinkEndpoint")]
         public Input<string>? UsePrivatelinkEndpoint { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: `true`)
+        /// (Default: `True`)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether to use outbound private connectivity to harden the security posture. Supported for AWS S3 and Azure storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("usePrivatelinkEndpoint")]
         public Input<string>? UsePrivatelinkEndpoint { get; set; }

@@ -112,7 +112,7 @@ namespace Pulumi.Snowflake
         public Output<string> ReturnBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// (Default: `True`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Output("returnNullAllowed")]
         public Output<bool?> ReturnNullAllowed { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Snowflake
         public Input<string> ReturnBehavior { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// (Default: `True`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Input("returnNullAllowed")]
         public Input<bool>? ReturnNullAllowed { get; set; }
@@ -418,7 +418,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ReturnBehavior { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// (Default: `True`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Input("returnNullAllowed")]
         public Input<bool>? ReturnNullAllowed { get; set; }

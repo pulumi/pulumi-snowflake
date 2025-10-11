@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     public partial class AccountPasswordPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Qualified name (`"db"."schema"."policy_name"`) of the password policy to apply to the current account.
+        /// Qualified name (`"db"."schema"."PolicyName"`) of the password policy to apply to the current account.
         /// </summary>
         [Output("passwordPolicy")]
         public Output<string> PasswordPolicy { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.Snowflake
     public sealed class AccountPasswordPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Qualified name (`"db"."schema"."policy_name"`) of the password policy to apply to the current account.
+        /// Qualified name (`"db"."schema"."PolicyName"`) of the password policy to apply to the current account.
         /// </summary>
         [Input("passwordPolicy", required: true)]
         public Input<string> PasswordPolicy { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Snowflake
     public sealed class AccountPasswordPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Qualified name (`"db"."schema"."policy_name"`) of the password policy to apply to the current account.
+        /// Qualified name (`"db"."schema"."PolicyName"`) of the password policy to apply to the current account.
         /// </summary>
         [Input("passwordPolicy")]
         public Input<string>? PasswordPolicy { get; set; }
