@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        /// (Default: `True`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         /// </summary>
         public readonly bool? Nullable;
         /// <summary>

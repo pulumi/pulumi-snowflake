@@ -114,14 +114,14 @@ public final class FunctionScalaState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     @Import(name="functionDefinition")
     private @Nullable Output<String> functionDefinition;
 
     /**
-     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     public Optional<Output<String>> functionDefinition() {
@@ -241,14 +241,14 @@ public final class FunctionScalaState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+     * The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `packageName` is `snowflake_domain:package`.
      * 
      */
     @Import(name="packages")
     private @Nullable Output<List<String>> packages;
 
     /**
-     * @return The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+     * @return The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `packageName` is `snowflake_domain:package`.
      * 
      */
     public Optional<Output<List<String>>> packages() {
@@ -585,7 +585,7 @@ public final class FunctionScalaState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class FunctionScalaState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class FunctionScalaState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `packageName` is `snowflake_domain:package`.
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class FunctionScalaState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `packageName` is `snowflake_domain:package`.
          * 
          * @return builder
          * 
@@ -793,7 +793,7 @@ public final class FunctionScalaState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `packageName` is `snowflake_domain:package`.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
     public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+        /// (Default: `False`) Specifies whether to enable change tracking on the table. Default false.
         /// </summary>
         [Output("changeTracking")]
         public Output<bool?> ChangeTracking { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Snowflake
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+        /// (Default: `False`) Specifies whether to enable change tracking on the table. Default false.
         /// </summary>
         [Input("changeTracking")]
         public Input<bool>? ChangeTracking { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Snowflake
     public sealed class TableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+        /// (Default: `False`) Specifies whether to enable change tracking on the table. Default false.
         /// </summary>
         [Input("changeTracking")]
         public Input<bool>? ChangeTracking { get; set; }

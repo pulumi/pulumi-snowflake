@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Direction { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`)
+        /// (Default: `True`)
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Direction { get; set; }
 
         /// <summary>
-        /// (Default: `true`)
+        /// (Default: `True`)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Direction { get; set; }
 
         /// <summary>
-        /// (Default: `true`)
+        /// (Default: `True`)
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -60,7 +60,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Java source code. For more information, see [Introduction to Java UDFs](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `FunctionDefinition` value must be Java source code. For more information, see [Introduction to Java UDFs](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         /// </summary>
         [Output("functionDefinition")]
         public Output<string?> FunctionDefinition { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Snowflake
         public Output<string?> NullInputBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        /// The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `PackageName` is `snowflake_domain:package`.
         /// </summary>
         [Output("packages")]
         public Output<ImmutableArray<string>> Packages { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Java source code. For more information, see [Introduction to Java UDFs](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `FunctionDefinition` value must be Java source code. For more information, see [Introduction to Java UDFs](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         /// </summary>
         [Input("functionDefinition")]
         public Input<string>? FunctionDefinition { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _packages;
 
         /// <summary>
-        /// The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        /// The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `PackageName` is `snowflake_domain:package`.
         /// </summary>
         public InputList<string> Packages
         {
@@ -426,7 +426,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Java source code. For more information, see [Introduction to Java UDFs](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        /// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `FunctionDefinition` value must be Java source code. For more information, see [Introduction to Java UDFs](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         /// </summary>
         [Input("functionDefinition")]
         public Input<string>? FunctionDefinition { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _packages;
 
         /// <summary>
-        /// The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        /// The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `PackageName` is `snowflake_domain:package`.
         /// </summary>
         public InputList<string> Packages
         {

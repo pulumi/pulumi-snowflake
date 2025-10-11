@@ -28,14 +28,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/pipe:Pipe")
 public class Pipe extends com.pulumi.resources.CustomResource {
     /**
-     * (Default: `false`) Specifies a auto_ingest param for the pipe.
+     * (Default: `false`) Specifies a autoIngest param for the pipe.
      * 
      */
     @Export(name="autoIngest", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoIngest;
 
     /**
-     * @return (Default: `false`) Specifies a auto_ingest param for the pipe.
+     * @return (Default: `false`) Specifies a autoIngest param for the pipe.
      * 
      */
     public Output<Optional<Boolean>> autoIngest() {

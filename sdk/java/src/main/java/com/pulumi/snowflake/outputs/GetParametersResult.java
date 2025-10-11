@@ -45,7 +45,7 @@ public final class GetParametersResult {
      */
     private @Nullable String pattern;
     /**
-     * @return If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+     * @return If parameterType is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
      * 
      */
     private @Nullable String user;
@@ -94,7 +94,7 @@ public final class GetParametersResult {
         return Optional.ofNullable(this.pattern);
     }
     /**
-     * @return If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+     * @return If parameterType is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
      * 
      */
     public Optional<String> user() {

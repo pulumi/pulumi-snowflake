@@ -112,14 +112,14 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
      * 
      */
     @Export(name="mainFile", refs={String.class}, tree="[0]")
     private Output<String> mainFile;
 
     /**
-     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
      * 
      */
     public Output<String> mainFile() {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
     /// 
     /// !&gt; **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-password-policy#usage-notes), a password policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
     /// 
@@ -46,7 +46,7 @@ namespace Pulumi.Snowflake
         public Output<int?> History { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Prevent overwriting a previous password policy with the same name.
+        /// (Default: `False`) Prevent overwriting a previous password policy with the same name.
         /// </summary>
         [Output("ifNotExists")]
         public Output<bool?> IfNotExists { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Whether to override a previous password policy with the same name.
+        /// (Default: `False`) Whether to override a previous password policy with the same name.
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Snowflake
         public Input<int>? History { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Prevent overwriting a previous password policy with the same name.
+        /// (Default: `False`) Prevent overwriting a previous password policy with the same name.
         /// </summary>
         [Input("ifNotExists")]
         public Input<bool>? IfNotExists { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Whether to override a previous password policy with the same name.
+        /// (Default: `False`) Whether to override a previous password policy with the same name.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Snowflake
         public Input<int>? History { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Prevent overwriting a previous password policy with the same name.
+        /// (Default: `False`) Prevent overwriting a previous password policy with the same name.
         /// </summary>
         [Input("ifNotExists")]
         public Input<bool>? IfNotExists { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Whether to override a previous password policy with the same name.
+        /// (Default: `False`) Whether to override a previous password policy with the same name.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }

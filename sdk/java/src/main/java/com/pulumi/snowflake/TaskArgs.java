@@ -606,14 +606,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+     * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<TaskScheduleArgs> schedule;
 
     /**
-     * @return The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+     * @return The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
      * 
      */
     public Optional<Output<TaskScheduleArgs>> schedule() {
@@ -2025,7 +2025,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
          * 
          * @return builder
          * 
@@ -2036,7 +2036,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
          * 
          * @return builder
          * 

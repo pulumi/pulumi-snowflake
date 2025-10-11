@@ -15,14 +15,14 @@ public final class AccountPasswordPolicyAttachmentArgs extends com.pulumi.resour
     public static final AccountPasswordPolicyAttachmentArgs Empty = new AccountPasswordPolicyAttachmentArgs();
 
     /**
-     * Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the password policy to apply to the current account.
+     * Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the password policy to apply to the current account.
      * 
      */
     @Import(name="passwordPolicy", required=true)
     private Output<String> passwordPolicy;
 
     /**
-     * @return Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the password policy to apply to the current account.
+     * @return Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the password policy to apply to the current account.
      * 
      */
     public Output<String> passwordPolicy() {
@@ -54,7 +54,7 @@ public final class AccountPasswordPolicyAttachmentArgs extends com.pulumi.resour
         }
 
         /**
-         * @param passwordPolicy Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the password policy to apply to the current account.
+         * @param passwordPolicy Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the password policy to apply to the current account.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AccountPasswordPolicyAttachmentArgs extends com.pulumi.resour
         }
 
         /**
-         * @param passwordPolicy Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the password policy to apply to the current account.
+         * @param passwordPolicy Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the password policy to apply to the current account.
          * 
          * @return builder
          * 

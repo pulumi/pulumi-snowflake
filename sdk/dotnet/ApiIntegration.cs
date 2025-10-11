@@ -95,7 +95,7 @@ namespace Pulumi.Snowflake
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// (Default: `True`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// (Default: `True`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -365,7 +365,7 @@ namespace Pulumi.Snowflake
         public Input<string>? CreatedOn { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// (Default: `True`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

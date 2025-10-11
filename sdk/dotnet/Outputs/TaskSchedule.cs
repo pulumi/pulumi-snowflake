@@ -14,11 +14,11 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class TaskSchedule
     {
         /// <summary>
-        /// Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        /// Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `UsingCron`)
         /// </summary>
         public readonly int? Minutes;
         /// <summary>
-        /// Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        /// Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `Minutes`)
         /// </summary>
         public readonly string? UsingCron;
 

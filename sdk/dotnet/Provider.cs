@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+        /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
         /// </summary>
         [Output("accountName")]
         public Output<string?> AccountName { get; private set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.Snowflake
         public Output<string?> DisableConsoleLogin { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+        /// Specifies the logging level to be used by the driver. Valid options are: `Trace` | `Debug` | `Info` | `Print` | `Warning` | `Error` | `Fatal` | `Panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
         /// </summary>
         [Output("driverTracing")]
         public Output<string?> DriverTracing { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Snowflake
         public Output<string?> OktaUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+        /// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
         /// </summary>
         [Output("organizationName")]
         public Output<string?> OrganizationName { get; private set; } = null!;
@@ -97,13 +97,13 @@ namespace Pulumi.Snowflake
         public Output<string?> Passcode { get; private set; } = null!;
 
         /// <summary>
-        /// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+        /// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `PrivateKey` and `PrivateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// Private Key for username+private-key auth. Cannot be used with `Password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Profile { get; private set; } = null!;
 
         /// <summary>
-        /// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        /// A protocol used in the connection. Valid options are: `Http` | `Https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -139,13 +139,13 @@ namespace Pulumi.Snowflake
         public Output<string?> TmpDirectoryPath { get; private set; } = null!;
 
         /// <summary>
-        /// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+        /// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `Authenticator` to `OAUTH`. Optionally, set the `Authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
         /// </summary>
         [Output("token")]
         public Output<string?> Token { get; private set; } = null!;
 
         /// <summary>
-        /// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        /// Username. Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         /// </summary>
         [Output("user")]
         public Output<string?> User { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Snowflake
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+        /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? DisableTelemetry { get; set; }
 
         /// <summary>
-        /// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+        /// Specifies the logging level to be used by the driver. Valid options are: `Trace` | `Debug` | `Info` | `Print` | `Warning` | `Error` | `Fatal` | `Panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
         /// </summary>
         [Input("driverTracing")]
         public Input<string>? DriverTracing { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Snowflake
         public Input<string>? OktaUrl { get; set; }
 
         /// <summary>
-        /// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+        /// Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
         /// </summary>
         [Input("organizationName")]
         public Input<string>? OrganizationName { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _password;
 
         /// <summary>
-        /// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+        /// Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `PrivateKey` and `PrivateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         public Input<string>? Password
         {
@@ -404,7 +404,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// Private Key for username+private-key auth. Cannot be used with `Password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -439,7 +439,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Profile { get; set; }
 
         /// <summary>
-        /// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        /// A protocol used in the connection. Valid options are: `Http` | `Https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -472,7 +472,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _token;
 
         /// <summary>
-        /// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+        /// Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `Authenticator` to `OAUTH`. Optionally, set the `Authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
         /// </summary>
         public Input<string>? Token
         {
@@ -494,7 +494,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? UseLegacyTomlFile { get; set; }
 
         /// <summary>
-        /// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+        /// Username. Required unless using `Profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }

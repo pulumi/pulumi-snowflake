@@ -76,14 +76,14 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+     * If parameterType is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
      * 
      */
     @Import(name="user")
     private @Nullable Output<String> user;
 
     /**
-     * @return If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+     * @return If parameterType is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
      * 
      */
     public Optional<Output<String>> user() {
@@ -203,7 +203,7 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param user If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+         * @param user If parameterType is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param user If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
+         * @param user If parameterType is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
          * 
          * @return builder
          * 

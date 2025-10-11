@@ -16,14 +16,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment")
 public class AccountPasswordPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the password policy to apply to the current account.
+     * Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the password policy to apply to the current account.
      * 
      */
     @Export(name="passwordPolicy", refs={String.class}, tree="[0]")
     private Output<String> passwordPolicy;
 
     /**
-     * @return Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policy_name&#34;`) of the password policy to apply to the current account.
+     * @return Qualified name (`&#34;db&#34;.&#34;schema&#34;.&#34;policyName&#34;`) of the password policy to apply to the current account.
      * 
      */
     public Output<String> passwordPolicy() {

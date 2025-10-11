@@ -40,7 +40,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies that the view is secure.
+        /// (Default: `False`) Specifies that the view is secure.
         /// </summary>
         [Output("isSecure")]
         public Output<bool?> IsSecure { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Overwrites the View if it exists.
+        /// (Default: `False`) Overwrites the View if it exists.
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies that the view is secure.
+        /// (Default: `False`) Specifies that the view is secure.
         /// </summary>
         [Input("isSecure")]
         public Input<bool>? IsSecure { get; set; }
@@ -152,7 +152,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Overwrites the View if it exists.
+        /// (Default: `False`) Overwrites the View if it exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies that the view is secure.
+        /// (Default: `False`) Specifies that the view is secure.
         /// </summary>
         [Input("isSecure")]
         public Input<bool>? IsSecure { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Overwrites the View if it exists.
+        /// (Default: `False`) Overwrites the View if it exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }

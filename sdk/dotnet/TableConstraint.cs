@@ -32,19 +32,19 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Whether the constraint is deferrable
+        /// (Default: `True`) Whether the constraint is deferrable
         /// </summary>
         [Output("deferrable")]
         public Output<bool?> Deferrable { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        /// (Default: `True`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         /// </summary>
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Whether the constraint is enforced
+        /// (Default: `False`) Whether the constraint is enforced
         /// </summary>
         [Output("enforced")]
         public Output<bool?> Enforced { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        /// (Default: `True`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         /// </summary>
         [Output("rely")]
         public Output<bool?> Rely { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Snowflake
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        /// (Default: `False`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         /// </summary>
         [Output("validate")]
         public Output<bool?> Validate { get; private set; } = null!;
@@ -156,19 +156,19 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Whether the constraint is deferrable
+        /// (Default: `True`) Whether the constraint is deferrable
         /// </summary>
         [Input("deferrable")]
         public Input<bool>? Deferrable { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        /// (Default: `True`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Whether the constraint is enforced
+        /// (Default: `False`) Whether the constraint is enforced
         /// </summary>
         [Input("enforced")]
         public Input<bool>? Enforced { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        /// (Default: `True`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         /// </summary>
         [Input("rely")]
         public Input<bool>? Rely { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Snowflake
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        /// (Default: `False`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
@@ -242,19 +242,19 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Whether the constraint is deferrable
+        /// (Default: `True`) Whether the constraint is deferrable
         /// </summary>
         [Input("deferrable")]
         public Input<bool>? Deferrable { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        /// (Default: `True`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Whether the constraint is enforced
+        /// (Default: `False`) Whether the constraint is enforced
         /// </summary>
         [Input("enforced")]
         public Input<bool>? Enforced { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        /// (Default: `True`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         /// </summary>
         [Input("rely")]
         public Input<bool>? Rely { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        /// (Default: `False`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }

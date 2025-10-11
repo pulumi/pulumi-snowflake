@@ -49,7 +49,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        /// (Default: `True`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         /// </summary>
         [Input("nullable")]
         public Input<bool>? Nullable { get; set; }

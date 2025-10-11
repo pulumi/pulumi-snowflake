@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `False`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `False`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -350,7 +350,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `False`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
