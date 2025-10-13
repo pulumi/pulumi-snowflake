@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
     public partial class ExternalTable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        /// (Default: `True`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         /// </summary>
         [Output("autoRefresh")]
         public Output<bool?> AutoRefresh { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        /// (Default: `False`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         /// </summary>
         [Output("copyGrants")]
         public Output<bool?> CopyGrants { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Pattern { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Specifies weather to refresh when an external table is created.
+        /// (Default: `True`) Specifies weather to refresh when an external table is created.
         /// </summary>
         [Output("refreshOnCreate")]
         public Output<bool?> RefreshOnCreate { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Snowflake
     public sealed class ExternalTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        /// (Default: `True`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         /// </summary>
         [Input("autoRefresh")]
         public Input<bool>? AutoRefresh { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        /// (Default: `False`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies weather to refresh when an external table is created.
+        /// (Default: `True`) Specifies weather to refresh when an external table is created.
         /// </summary>
         [Input("refreshOnCreate")]
         public Input<bool>? RefreshOnCreate { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Snowflake
     public sealed class ExternalTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        /// (Default: `True`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         /// </summary>
         [Input("autoRefresh")]
         public Input<bool>? AutoRefresh { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        /// (Default: `False`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies weather to refresh when an external table is created.
+        /// (Default: `True`) Specifies weather to refresh when an external table is created.
         /// </summary>
         [Input("refreshOnCreate")]
         public Input<bool>? RefreshOnCreate { get; set; }
