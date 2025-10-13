@@ -12,19 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetResourceMonitors
     {
         /// <summary>
-        /// Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
+        /// Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`Like` is supported). The results of SHOW is encapsulated in ShowOutput collection.
         /// </summary>
         public static Task<GetResourceMonitorsResult> InvokeAsync(GetResourceMonitorsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", args ?? new GetResourceMonitorsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
+        /// Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`Like` is supported). The results of SHOW is encapsulated in ShowOutput collection.
         /// </summary>
         public static Output<GetResourceMonitorsResult> Invoke(GetResourceMonitorsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", args ?? new GetResourceMonitorsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
+        /// Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`Like` is supported). The results of SHOW is encapsulated in ShowOutput collection.
         /// </summary>
         public static Output<GetResourceMonitorsResult> Invoke(GetResourceMonitorsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceMonitorsResult>("snowflake:index/getResourceMonitors:getResourceMonitors", args ?? new GetResourceMonitorsInvokeArgs(), options.WithDefaults());

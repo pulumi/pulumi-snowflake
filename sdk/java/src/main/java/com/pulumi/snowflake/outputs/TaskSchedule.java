@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TaskSchedule {
     /**
-     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
      * 
      */
     private @Nullable Integer minutes;
@@ -25,7 +25,7 @@ public final class TaskSchedule {
 
     private TaskSchedule() {}
     /**
-     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
      * 
      */
     public Optional<Integer> minutes() {

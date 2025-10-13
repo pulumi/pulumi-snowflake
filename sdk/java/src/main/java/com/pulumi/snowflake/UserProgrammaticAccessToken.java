@@ -76,14 +76,14 @@ public class UserProgrammaticAccessToken extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.expireRotatedTokenAfterHours);
     }
     /**
-     * Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotated_token_name` fields are marked as computed.
+     * Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotatedTokenName` fields are marked as computed.
      * 
      */
     @Export(name="keeper", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keeper;
 
     /**
-     * @return Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotated_token_name` fields are marked as computed.
+     * @return Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotatedTokenName` fields are marked as computed.
      * 
      */
     public Output<Optional<String>> keeper() {
