@@ -32,7 +32,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly accountName: pulumi.Output<string | undefined>;
     /**
-     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      */
     declare public readonly authenticator: pulumi.Output<string | undefined>;
     /**
@@ -63,6 +63,30 @@ export class Provider extends pulumi.ProviderResource {
      * Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
      */
     declare public readonly includeRetryReason: pulumi.Output<string | undefined>;
+    /**
+     * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+     */
+    declare public readonly oauthAuthorizationUrl: pulumi.Output<string | undefined>;
+    /**
+     * Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+     */
+    declare public readonly oauthClientId: pulumi.Output<string | undefined>;
+    /**
+     * Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+     */
+    declare public readonly oauthClientSecret: pulumi.Output<string | undefined>;
+    /**
+     * Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+     */
+    declare public readonly oauthRedirectUri: pulumi.Output<string | undefined>;
+    /**
+     * Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+     */
+    declare public readonly oauthScope: pulumi.Output<string | undefined>;
+    /**
+     * Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+     */
+    declare public readonly oauthTokenRequestUrl: pulumi.Output<string | undefined>;
     /**
      * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
      */
@@ -145,6 +169,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["disableQueryContextCache"] = pulumi.output(args?.disableQueryContextCache).apply(JSON.stringify);
             resourceInputs["disableTelemetry"] = pulumi.output(args?.disableTelemetry).apply(JSON.stringify);
             resourceInputs["driverTracing"] = args?.driverTracing;
+            resourceInputs["enableSingleUseRefreshTokens"] = pulumi.output(args?.enableSingleUseRefreshTokens).apply(JSON.stringify);
             resourceInputs["externalBrowserTimeout"] = pulumi.output(args?.externalBrowserTimeout).apply(JSON.stringify);
             resourceInputs["host"] = (args?.host) ?? utilities.getEnv("SNOWFLAKE_HOST");
             resourceInputs["includeRetryReason"] = args?.includeRetryReason;
@@ -154,6 +179,12 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["keepSessionAlive"] = pulumi.output(args?.keepSessionAlive).apply(JSON.stringify);
             resourceInputs["loginTimeout"] = pulumi.output(args?.loginTimeout).apply(JSON.stringify);
             resourceInputs["maxRetryCount"] = pulumi.output(args?.maxRetryCount).apply(JSON.stringify);
+            resourceInputs["oauthAuthorizationUrl"] = args?.oauthAuthorizationUrl ? pulumi.secret(args.oauthAuthorizationUrl) : undefined;
+            resourceInputs["oauthClientId"] = args?.oauthClientId ? pulumi.secret(args.oauthClientId) : undefined;
+            resourceInputs["oauthClientSecret"] = args?.oauthClientSecret ? pulumi.secret(args.oauthClientSecret) : undefined;
+            resourceInputs["oauthRedirectUri"] = args?.oauthRedirectUri ? pulumi.secret(args.oauthRedirectUri) : undefined;
+            resourceInputs["oauthScope"] = args?.oauthScope;
+            resourceInputs["oauthTokenRequestUrl"] = args?.oauthTokenRequestUrl ? pulumi.secret(args.oauthTokenRequestUrl) : undefined;
             resourceInputs["ocspFailOpen"] = args?.ocspFailOpen;
             resourceInputs["oktaUrl"] = args?.oktaUrl;
             resourceInputs["organizationName"] = args?.organizationName;
@@ -179,7 +210,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["warehouse"] = (args?.warehouse) ?? utilities.getEnv("SNOWFLAKE_WAREHOUSE");
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["passcode", "password", "privateKey", "privateKeyPassphrase", "token"] };
+        const secretOpts = { additionalSecretOutputs: ["oauthAuthorizationUrl", "oauthClientId", "oauthClientSecret", "oauthRedirectUri", "oauthTokenRequestUrl", "passcode", "password", "privateKey", "privateKeyPassphrase", "token"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -203,7 +234,7 @@ export interface ProviderArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      */
     authenticator?: pulumi.Input<string>;
     /**
@@ -238,6 +269,10 @@ export interface ProviderArgs {
      * Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
      */
     driverTracing?: pulumi.Input<string>;
+    /**
+     * Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+     */
+    enableSingleUseRefreshTokens?: pulumi.Input<boolean>;
     /**
      * The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
      */
@@ -274,6 +309,30 @@ export interface ProviderArgs {
      * Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
      */
     maxRetryCount?: pulumi.Input<number>;
+    /**
+     * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+     */
+    oauthAuthorizationUrl?: pulumi.Input<string>;
+    /**
+     * Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+     */
+    oauthClientId?: pulumi.Input<string>;
+    /**
+     * Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+     */
+    oauthClientSecret?: pulumi.Input<string>;
+    /**
+     * Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+     */
+    oauthRedirectUri?: pulumi.Input<string>;
+    /**
+     * Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+     */
+    oauthScope?: pulumi.Input<string>;
+    /**
+     * Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+     */
+    oauthTokenRequestUrl?: pulumi.Input<string>;
     /**
      * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
      */
@@ -343,6 +402,9 @@ export interface ProviderArgs {
      * Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
      */
     token?: pulumi.Input<string>;
+    /**
+     * If you are using the OAuth authentication flows, use the dedicated `authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
+     */
     tokenAccessor?: pulumi.Input<inputs.ProviderTokenAccessor>;
     /**
      * False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.

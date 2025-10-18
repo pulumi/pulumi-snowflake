@@ -30,6 +30,7 @@ class ProviderArgs:
                  disable_query_context_cache: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_browser_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  host: Optional[pulumi.Input[_builtins.str]] = None,
                  include_retry_reason: Optional[pulumi.Input[_builtins.str]] = None,
@@ -39,6 +40,12 @@ class ProviderArgs:
                  keep_session_alive: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_token_request_url: Optional[pulumi.Input[_builtins.str]] = None,
                  ocsp_fail_open: Optional[pulumi.Input[_builtins.str]] = None,
                  okta_url: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -65,7 +72,7 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
-        :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         :param pulumi.Input[_builtins.str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         :param pulumi.Input[_builtins.str] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] client_store_temporary_credential: When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
@@ -74,6 +81,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.bool] disable_query_context_cache: Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
         :param pulumi.Input[_builtins.bool] disable_telemetry: Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
         :param pulumi.Input[_builtins.str] driver_tracing: Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+        :param pulumi.Input[_builtins.bool] enable_single_use_refresh_tokens: Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
         :param pulumi.Input[_builtins.int] external_browser_timeout: The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.str] host: Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
         :param pulumi.Input[_builtins.str] include_retry_reason: Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
@@ -83,6 +91,12 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.bool] keep_session_alive: Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
         :param pulumi.Input[_builtins.int] login_timeout: Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] max_retry_count: Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_authorization_url: Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_client_id: Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_client_secret: Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_redirect_uri: Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_scope: Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_token_request_url: Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
         :param pulumi.Input[_builtins.str] ocsp_fail_open: True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         :param pulumi.Input[_builtins.str] okta_url: The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
         :param pulumi.Input[_builtins.str] organization_name: Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
@@ -100,6 +114,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.bool] skip_toml_file_permission_verification: False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
         :param pulumi.Input[_builtins.str] tmp_directory_path: Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
         :param pulumi.Input[_builtins.str] token: Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+        :param pulumi.Input['ProviderTokenAccessorArgs'] token_accessor: If you are using the OAuth authentication flows, use the dedicated `authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
         :param pulumi.Input[_builtins.bool] use_legacy_toml_file: False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
         :param pulumi.Input[_builtins.str] user: Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[_builtins.str] validate_default_parameters: True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
@@ -125,6 +140,8 @@ class ProviderArgs:
             pulumi.set(__self__, "disable_telemetry", disable_telemetry)
         if driver_tracing is not None:
             pulumi.set(__self__, "driver_tracing", driver_tracing)
+        if enable_single_use_refresh_tokens is not None:
+            pulumi.set(__self__, "enable_single_use_refresh_tokens", enable_single_use_refresh_tokens)
         if external_browser_timeout is not None:
             pulumi.set(__self__, "external_browser_timeout", external_browser_timeout)
         if host is None:
@@ -145,6 +162,18 @@ class ProviderArgs:
             pulumi.set(__self__, "login_timeout", login_timeout)
         if max_retry_count is not None:
             pulumi.set(__self__, "max_retry_count", max_retry_count)
+        if oauth_authorization_url is not None:
+            pulumi.set(__self__, "oauth_authorization_url", oauth_authorization_url)
+        if oauth_client_id is not None:
+            pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        if oauth_client_secret is not None:
+            pulumi.set(__self__, "oauth_client_secret", oauth_client_secret)
+        if oauth_redirect_uri is not None:
+            pulumi.set(__self__, "oauth_redirect_uri", oauth_redirect_uri)
+        if oauth_scope is not None:
+            pulumi.set(__self__, "oauth_scope", oauth_scope)
+        if oauth_token_request_url is not None:
+            pulumi.set(__self__, "oauth_token_request_url", oauth_token_request_url)
         if ocsp_fail_open is not None:
             pulumi.set(__self__, "ocsp_fail_open", ocsp_fail_open)
         if okta_url is not None:
@@ -220,7 +249,7 @@ class ProviderArgs:
     @pulumi.getter
     def authenticator(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return pulumi.get(self, "authenticator")
 
@@ -323,6 +352,18 @@ class ProviderArgs:
     @driver_tracing.setter
     def driver_tracing(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "driver_tracing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableSingleUseRefreshTokens")
+    def enable_single_use_refresh_tokens(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+        """
+        return pulumi.get(self, "enable_single_use_refresh_tokens")
+
+    @enable_single_use_refresh_tokens.setter
+    def enable_single_use_refresh_tokens(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_single_use_refresh_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="externalBrowserTimeout")
@@ -431,6 +472,78 @@ class ProviderArgs:
     @max_retry_count.setter
     def max_retry_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "max_retry_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAuthorizationUrl")
+    def oauth_authorization_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+        """
+        return pulumi.get(self, "oauth_authorization_url")
+
+    @oauth_authorization_url.setter
+    def oauth_authorization_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_authorization_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        """
+        return pulumi.get(self, "oauth_client_id")
+
+    @oauth_client_id.setter
+    def oauth_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientSecret")
+    def oauth_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        """
+        return pulumi.get(self, "oauth_client_secret")
+
+    @oauth_client_secret.setter
+    def oauth_client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthRedirectUri")
+    def oauth_redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+        """
+        return pulumi.get(self, "oauth_redirect_uri")
+
+    @oauth_redirect_uri.setter
+    def oauth_redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_redirect_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthScope")
+    def oauth_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+        """
+        return pulumi.get(self, "oauth_scope")
+
+    @oauth_scope.setter
+    def oauth_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenRequestUrl")
+    def oauth_token_request_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+        """
+        return pulumi.get(self, "oauth_token_request_url")
+
+    @oauth_token_request_url.setter
+    def oauth_token_request_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_token_request_url", value)
 
     @_builtins.property
     @pulumi.getter(name="ocspFailOpen")
@@ -648,6 +761,9 @@ class ProviderArgs:
     @_builtins.property
     @pulumi.getter(name="tokenAccessor")
     def token_accessor(self) -> Optional[pulumi.Input['ProviderTokenAccessorArgs']]:
+        """
+        If you are using the OAuth authentication flows, use the dedicated `authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
+        """
         return pulumi.get(self, "token_accessor")
 
     @token_accessor.setter
@@ -719,6 +835,7 @@ class Provider(pulumi.ProviderResource):
                  disable_query_context_cache: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_browser_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  host: Optional[pulumi.Input[_builtins.str]] = None,
                  include_retry_reason: Optional[pulumi.Input[_builtins.str]] = None,
@@ -728,6 +845,12 @@ class Provider(pulumi.ProviderResource):
                  keep_session_alive: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_token_request_url: Optional[pulumi.Input[_builtins.str]] = None,
                  ocsp_fail_open: Optional[pulumi.Input[_builtins.str]] = None,
                  okta_url: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -761,7 +884,7 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
-        :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         :param pulumi.Input[_builtins.str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         :param pulumi.Input[_builtins.str] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] client_store_temporary_credential: When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
@@ -770,6 +893,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] disable_query_context_cache: Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
         :param pulumi.Input[_builtins.bool] disable_telemetry: Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
         :param pulumi.Input[_builtins.str] driver_tracing: Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+        :param pulumi.Input[_builtins.bool] enable_single_use_refresh_tokens: Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
         :param pulumi.Input[_builtins.int] external_browser_timeout: The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.str] host: Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
         :param pulumi.Input[_builtins.str] include_retry_reason: Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
@@ -779,6 +903,12 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] keep_session_alive: Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
         :param pulumi.Input[_builtins.int] login_timeout: Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] max_retry_count: Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_authorization_url: Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_client_id: Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_client_secret: Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_redirect_uri: Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_scope: Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+        :param pulumi.Input[_builtins.str] oauth_token_request_url: Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
         :param pulumi.Input[_builtins.str] ocsp_fail_open: True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         :param pulumi.Input[_builtins.str] okta_url: The URL of the Okta server. e.g. https://example.okta.com. Okta URL host needs to to have a suffix `okta.com`. Read more in Snowflake [docs](https://docs.snowflake.com/en/user-guide/oauth-okta). Can also be sourced from the `SNOWFLAKE_OKTA_URL` environment variable.
         :param pulumi.Input[_builtins.str] organization_name: Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
@@ -796,6 +926,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] skip_toml_file_permission_verification: False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
         :param pulumi.Input[_builtins.str] tmp_directory_path: Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
         :param pulumi.Input[_builtins.str] token: Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+        :param pulumi.Input[Union['ProviderTokenAccessorArgs', 'ProviderTokenAccessorArgsDict']] token_accessor: If you are using the OAuth authentication flows, use the dedicated `authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
         :param pulumi.Input[_builtins.bool] use_legacy_toml_file: False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment variable.
         :param pulumi.Input[_builtins.str] user: Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[_builtins.str] validate_default_parameters: True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
@@ -838,6 +969,7 @@ class Provider(pulumi.ProviderResource):
                  disable_query_context_cache: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
                  external_browser_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  host: Optional[pulumi.Input[_builtins.str]] = None,
                  include_retry_reason: Optional[pulumi.Input[_builtins.str]] = None,
@@ -847,6 +979,12 @@ class Provider(pulumi.ProviderResource):
                  keep_session_alive: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_token_request_url: Optional[pulumi.Input[_builtins.str]] = None,
                  ocsp_fail_open: Optional[pulumi.Input[_builtins.str]] = None,
                  okta_url: Optional[pulumi.Input[_builtins.str]] = None,
                  organization_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -889,6 +1027,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["disable_query_context_cache"] = pulumi.Output.from_input(disable_query_context_cache).apply(pulumi.runtime.to_json) if disable_query_context_cache is not None else None
             __props__.__dict__["disable_telemetry"] = pulumi.Output.from_input(disable_telemetry).apply(pulumi.runtime.to_json) if disable_telemetry is not None else None
             __props__.__dict__["driver_tracing"] = driver_tracing
+            __props__.__dict__["enable_single_use_refresh_tokens"] = pulumi.Output.from_input(enable_single_use_refresh_tokens).apply(pulumi.runtime.to_json) if enable_single_use_refresh_tokens is not None else None
             __props__.__dict__["external_browser_timeout"] = pulumi.Output.from_input(external_browser_timeout).apply(pulumi.runtime.to_json) if external_browser_timeout is not None else None
             if host is None:
                 host = _utilities.get_env('SNOWFLAKE_HOST')
@@ -900,6 +1039,12 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["keep_session_alive"] = pulumi.Output.from_input(keep_session_alive).apply(pulumi.runtime.to_json) if keep_session_alive is not None else None
             __props__.__dict__["login_timeout"] = pulumi.Output.from_input(login_timeout).apply(pulumi.runtime.to_json) if login_timeout is not None else None
             __props__.__dict__["max_retry_count"] = pulumi.Output.from_input(max_retry_count).apply(pulumi.runtime.to_json) if max_retry_count is not None else None
+            __props__.__dict__["oauth_authorization_url"] = None if oauth_authorization_url is None else pulumi.Output.secret(oauth_authorization_url)
+            __props__.__dict__["oauth_client_id"] = None if oauth_client_id is None else pulumi.Output.secret(oauth_client_id)
+            __props__.__dict__["oauth_client_secret"] = None if oauth_client_secret is None else pulumi.Output.secret(oauth_client_secret)
+            __props__.__dict__["oauth_redirect_uri"] = None if oauth_redirect_uri is None else pulumi.Output.secret(oauth_redirect_uri)
+            __props__.__dict__["oauth_scope"] = oauth_scope
+            __props__.__dict__["oauth_token_request_url"] = None if oauth_token_request_url is None else pulumi.Output.secret(oauth_token_request_url)
             __props__.__dict__["ocsp_fail_open"] = ocsp_fail_open
             __props__.__dict__["okta_url"] = okta_url
             __props__.__dict__["organization_name"] = organization_name
@@ -935,7 +1080,7 @@ class Provider(pulumi.ProviderResource):
             if warehouse is None:
                 warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
             __props__.__dict__["warehouse"] = warehouse
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["passcode", "password", "privateKey", "privateKeyPassphrase", "token"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthAuthorizationUrl", "oauthClientId", "oauthClientSecret", "oauthRedirectUri", "oauthTokenRequestUrl", "passcode", "password", "privateKey", "privateKeyPassphrase", "token"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'snowflake',
@@ -955,7 +1100,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def authenticator(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return pulumi.get(self, "authenticator")
 
@@ -1014,6 +1159,54 @@ class Provider(pulumi.ProviderResource):
         Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
         """
         return pulumi.get(self, "include_retry_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAuthorizationUrl")
+    def oauth_authorization_url(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+        """
+        return pulumi.get(self, "oauth_authorization_url")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        """
+        return pulumi.get(self, "oauth_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientSecret")
+    def oauth_client_secret(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        """
+        return pulumi.get(self, "oauth_client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthRedirectUri")
+    def oauth_redirect_uri(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+        """
+        return pulumi.get(self, "oauth_redirect_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthScope")
+    def oauth_scope(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+        """
+        return pulumi.get(self, "oauth_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenRequestUrl")
+    def oauth_token_request_url(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+        """
+        return pulumi.get(self, "oauth_token_request_url")
 
     @_builtins.property
     @pulumi.getter(name="ocspFailOpen")

@@ -44,7 +44,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _authenticator = new __Value<string?>(() => __config.Get("authenticator"));
         /// <summary>
-        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         public static string? Authenticator
         {
@@ -130,6 +130,16 @@ namespace Pulumi.Snowflake
         {
             get => _driverTracing.Get();
             set => _driverTracing.Set(value);
+        }
+
+        private static readonly __Value<bool?> _enableSingleUseRefreshTokens = new __Value<bool?>(() => __config.GetBoolean("enableSingleUseRefreshTokens"));
+        /// <summary>
+        /// Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+        /// </summary>
+        public static bool? EnableSingleUseRefreshTokens
+        {
+            get => _enableSingleUseRefreshTokens.Get();
+            set => _enableSingleUseRefreshTokens.Set(value);
         }
 
         private static readonly __Value<int?> _externalBrowserTimeout = new __Value<int?>(() => __config.GetInt32("externalBrowserTimeout"));
@@ -220,6 +230,66 @@ namespace Pulumi.Snowflake
         {
             get => _maxRetryCount.Get();
             set => _maxRetryCount.Set(value);
+        }
+
+        private static readonly __Value<string?> _oauthAuthorizationUrl = new __Value<string?>(() => __config.Get("oauthAuthorizationUrl"));
+        /// <summary>
+        /// Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+        /// </summary>
+        public static string? OauthAuthorizationUrl
+        {
+            get => _oauthAuthorizationUrl.Get();
+            set => _oauthAuthorizationUrl.Set(value);
+        }
+
+        private static readonly __Value<string?> _oauthClientId = new __Value<string?>(() => __config.Get("oauthClientId"));
+        /// <summary>
+        /// Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        /// </summary>
+        public static string? OauthClientId
+        {
+            get => _oauthClientId.Get();
+            set => _oauthClientId.Set(value);
+        }
+
+        private static readonly __Value<string?> _oauthClientSecret = new __Value<string?>(() => __config.Get("oauthClientSecret"));
+        /// <summary>
+        /// Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        /// </summary>
+        public static string? OauthClientSecret
+        {
+            get => _oauthClientSecret.Get();
+            set => _oauthClientSecret.Set(value);
+        }
+
+        private static readonly __Value<string?> _oauthRedirectUri = new __Value<string?>(() => __config.Get("oauthRedirectUri"));
+        /// <summary>
+        /// Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+        /// </summary>
+        public static string? OauthRedirectUri
+        {
+            get => _oauthRedirectUri.Get();
+            set => _oauthRedirectUri.Set(value);
+        }
+
+        private static readonly __Value<string?> _oauthScope = new __Value<string?>(() => __config.Get("oauthScope"));
+        /// <summary>
+        /// Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+        /// </summary>
+        public static string? OauthScope
+        {
+            get => _oauthScope.Get();
+            set => _oauthScope.Set(value);
+        }
+
+        private static readonly __Value<string?> _oauthTokenRequestUrl = new __Value<string?>(() => __config.Get("oauthTokenRequestUrl"));
+        /// <summary>
+        /// Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+        /// </summary>
+        public static string? OauthTokenRequestUrl
+        {
+            get => _oauthTokenRequestUrl.Get();
+            set => _oauthTokenRequestUrl.Set(value);
         }
 
         private static readonly __Value<string?> _ocspFailOpen = new __Value<string?>(() => __config.Get("ocspFailOpen"));
@@ -400,6 +470,9 @@ namespace Pulumi.Snowflake
         }
 
         private static readonly __Value<Pulumi.Snowflake.Config.Types.TokenAccessor?> _tokenAccessor = new __Value<Pulumi.Snowflake.Config.Types.TokenAccessor?>(() => __config.GetObject<Pulumi.Snowflake.Config.Types.TokenAccessor>("tokenAccessor"));
+        /// <summary>
+        /// If you are using the OAuth authentication flows, use the dedicated `Authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
+        /// </summary>
         public static Pulumi.Snowflake.Config.Types.TokenAccessor? TokenAccessor
         {
             get => _tokenAccessor.Get();
