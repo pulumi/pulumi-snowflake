@@ -54,7 +54,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
@@ -87,6 +87,10 @@
             "driverTracing": {
                 "type": "string",
                 "description": "Specifies the logging level to be used by the driver. Valid options are: \u003cspan pulumi-lang-nodejs=\"`trace`\" pulumi-lang-dotnet=\"`Trace`\" pulumi-lang-go=\"`trace`\" pulumi-lang-python=\"`trace`\" pulumi-lang-yaml=\"`trace`\" pulumi-lang-java=\"`trace`\"\u003e`trace`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`debug`\" pulumi-lang-dotnet=\"`Debug`\" pulumi-lang-go=\"`debug`\" pulumi-lang-python=\"`debug`\" pulumi-lang-yaml=\"`debug`\" pulumi-lang-java=\"`debug`\"\u003e`debug`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`info`\" pulumi-lang-dotnet=\"`Info`\" pulumi-lang-go=\"`info`\" pulumi-lang-python=\"`info`\" pulumi-lang-yaml=\"`info`\" pulumi-lang-java=\"`info`\"\u003e`info`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`print`\" pulumi-lang-dotnet=\"`Print`\" pulumi-lang-go=\"`print`\" pulumi-lang-python=\"`print`\" pulumi-lang-yaml=\"`print`\" pulumi-lang-java=\"`print`\"\u003e`print`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`warning`\" pulumi-lang-dotnet=\"`Warning`\" pulumi-lang-go=\"`warning`\" pulumi-lang-python=\"`warning`\" pulumi-lang-yaml=\"`warning`\" pulumi-lang-java=\"`warning`\"\u003e`warning`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`error`\" pulumi-lang-dotnet=\"`Error`\" pulumi-lang-go=\"`error`\" pulumi-lang-python=\"`error`\" pulumi-lang-yaml=\"`error`\" pulumi-lang-java=\"`error`\"\u003e`error`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`fatal`\" pulumi-lang-dotnet=\"`Fatal`\" pulumi-lang-go=\"`fatal`\" pulumi-lang-python=\"`fatal`\" pulumi-lang-yaml=\"`fatal`\" pulumi-lang-java=\"`fatal`\"\u003e`fatal`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`panic`\" pulumi-lang-dotnet=\"`Panic`\" pulumi-lang-go=\"`panic`\" pulumi-lang-python=\"`panic`\" pulumi-lang-yaml=\"`panic`\" pulumi-lang-java=\"`panic`\"\u003e`panic`\u003c/span\u003e. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable."
+            },
+            "enableSingleUseRefreshTokens": {
+                "type": "boolean",
+                "description": "Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
@@ -128,6 +132,35 @@
             "maxRetryCount": {
                 "type": "integer",
                 "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
+            },
+            "oauthAuthorizationUrl": {
+                "type": "string",
+                "description": "Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.",
+                "secret": true
+            },
+            "oauthClientId": {
+                "type": "string",
+                "description": "Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.",
+                "secret": true
+            },
+            "oauthClientSecret": {
+                "type": "string",
+                "description": "Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.",
+                "secret": true
+            },
+            "oauthRedirectUri": {
+                "type": "string",
+                "description": "Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.",
+                "secret": true
+            },
+            "oauthScope": {
+                "type": "string",
+                "description": "Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable."
+            },
+            "oauthTokenRequestUrl": {
+                "type": "string",
+                "description": "Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.",
+                "secret": true
             },
             "ocspFailOpen": {
                 "type": "string",
@@ -237,7 +270,8 @@
                 "secret": true
             },
             "tokenAccessor": {
-                "$ref": "#/types/snowflake:config/tokenAccessor:tokenAccessor"
+                "$ref": "#/types/snowflake:config/tokenAccessor:tokenAccessor",
+                "description": "If you are using the OAuth authentication flows, use the dedicated \u003cspan pulumi-lang-nodejs=\"`authenticator`\" pulumi-lang-dotnet=\"`Authenticator`\" pulumi-lang-go=\"`authenticator`\" pulumi-lang-python=\"`authenticator`\" pulumi-lang-yaml=\"`authenticator`\" pulumi-lang-java=\"`authenticator`\"\u003e`authenticator`\u003c/span\u003e and `oauth...` fields instead. See our authentication methods guide for more information."
             },
             "useLegacyTomlFile": {
                 "type": "boolean",
@@ -35370,7 +35404,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
@@ -35403,6 +35437,10 @@
             "driverTracing": {
                 "type": "string",
                 "description": "Specifies the logging level to be used by the driver. Valid options are: \u003cspan pulumi-lang-nodejs=\"`trace`\" pulumi-lang-dotnet=\"`Trace`\" pulumi-lang-go=\"`trace`\" pulumi-lang-python=\"`trace`\" pulumi-lang-yaml=\"`trace`\" pulumi-lang-java=\"`trace`\"\u003e`trace`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`debug`\" pulumi-lang-dotnet=\"`Debug`\" pulumi-lang-go=\"`debug`\" pulumi-lang-python=\"`debug`\" pulumi-lang-yaml=\"`debug`\" pulumi-lang-java=\"`debug`\"\u003e`debug`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`info`\" pulumi-lang-dotnet=\"`Info`\" pulumi-lang-go=\"`info`\" pulumi-lang-python=\"`info`\" pulumi-lang-yaml=\"`info`\" pulumi-lang-java=\"`info`\"\u003e`info`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`print`\" pulumi-lang-dotnet=\"`Print`\" pulumi-lang-go=\"`print`\" pulumi-lang-python=\"`print`\" pulumi-lang-yaml=\"`print`\" pulumi-lang-java=\"`print`\"\u003e`print`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`warning`\" pulumi-lang-dotnet=\"`Warning`\" pulumi-lang-go=\"`warning`\" pulumi-lang-python=\"`warning`\" pulumi-lang-yaml=\"`warning`\" pulumi-lang-java=\"`warning`\"\u003e`warning`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`error`\" pulumi-lang-dotnet=\"`Error`\" pulumi-lang-go=\"`error`\" pulumi-lang-python=\"`error`\" pulumi-lang-yaml=\"`error`\" pulumi-lang-java=\"`error`\"\u003e`error`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`fatal`\" pulumi-lang-dotnet=\"`Fatal`\" pulumi-lang-go=\"`fatal`\" pulumi-lang-python=\"`fatal`\" pulumi-lang-yaml=\"`fatal`\" pulumi-lang-java=\"`fatal`\"\u003e`fatal`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`panic`\" pulumi-lang-dotnet=\"`Panic`\" pulumi-lang-go=\"`panic`\" pulumi-lang-python=\"`panic`\" pulumi-lang-yaml=\"`panic`\" pulumi-lang-java=\"`panic`\"\u003e`panic`\u003c/span\u003e. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable."
+            },
+            "enableSingleUseRefreshTokens": {
+                "type": "boolean",
+                "description": "Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
@@ -35439,6 +35477,35 @@
             "maxRetryCount": {
                 "type": "integer",
                 "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
+            },
+            "oauthAuthorizationUrl": {
+                "type": "string",
+                "description": "Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.",
+                "secret": true
+            },
+            "oauthClientId": {
+                "type": "string",
+                "description": "Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.",
+                "secret": true
+            },
+            "oauthClientSecret": {
+                "type": "string",
+                "description": "Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.",
+                "secret": true
+            },
+            "oauthRedirectUri": {
+                "type": "string",
+                "description": "Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.",
+                "secret": true
+            },
+            "oauthScope": {
+                "type": "string",
+                "description": "Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable."
+            },
+            "oauthTokenRequestUrl": {
+                "type": "string",
+                "description": "Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.",
+                "secret": true
             },
             "ocspFailOpen": {
                 "type": "string",
@@ -35523,7 +35590,8 @@
                 "secret": true
             },
             "tokenAccessor": {
-                "$ref": "#/types/snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor"
+                "$ref": "#/types/snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor",
+                "description": "If you are using the OAuth authentication flows, use the dedicated \u003cspan pulumi-lang-nodejs=\"`authenticator`\" pulumi-lang-dotnet=\"`Authenticator`\" pulumi-lang-go=\"`authenticator`\" pulumi-lang-python=\"`authenticator`\" pulumi-lang-yaml=\"`authenticator`\" pulumi-lang-java=\"`authenticator`\"\u003e`authenticator`\u003c/span\u003e and `oauth...` fields instead. See our authentication methods guide for more information."
             },
             "useLegacyTomlFile": {
                 "type": "boolean",
@@ -35549,7 +35617,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
@@ -35582,6 +35650,10 @@
             "driverTracing": {
                 "type": "string",
                 "description": "Specifies the logging level to be used by the driver. Valid options are: \u003cspan pulumi-lang-nodejs=\"`trace`\" pulumi-lang-dotnet=\"`Trace`\" pulumi-lang-go=\"`trace`\" pulumi-lang-python=\"`trace`\" pulumi-lang-yaml=\"`trace`\" pulumi-lang-java=\"`trace`\"\u003e`trace`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`debug`\" pulumi-lang-dotnet=\"`Debug`\" pulumi-lang-go=\"`debug`\" pulumi-lang-python=\"`debug`\" pulumi-lang-yaml=\"`debug`\" pulumi-lang-java=\"`debug`\"\u003e`debug`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`info`\" pulumi-lang-dotnet=\"`Info`\" pulumi-lang-go=\"`info`\" pulumi-lang-python=\"`info`\" pulumi-lang-yaml=\"`info`\" pulumi-lang-java=\"`info`\"\u003e`info`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`print`\" pulumi-lang-dotnet=\"`Print`\" pulumi-lang-go=\"`print`\" pulumi-lang-python=\"`print`\" pulumi-lang-yaml=\"`print`\" pulumi-lang-java=\"`print`\"\u003e`print`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`warning`\" pulumi-lang-dotnet=\"`Warning`\" pulumi-lang-go=\"`warning`\" pulumi-lang-python=\"`warning`\" pulumi-lang-yaml=\"`warning`\" pulumi-lang-java=\"`warning`\"\u003e`warning`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`error`\" pulumi-lang-dotnet=\"`Error`\" pulumi-lang-go=\"`error`\" pulumi-lang-python=\"`error`\" pulumi-lang-yaml=\"`error`\" pulumi-lang-java=\"`error`\"\u003e`error`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`fatal`\" pulumi-lang-dotnet=\"`Fatal`\" pulumi-lang-go=\"`fatal`\" pulumi-lang-python=\"`fatal`\" pulumi-lang-yaml=\"`fatal`\" pulumi-lang-java=\"`fatal`\"\u003e`fatal`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`panic`\" pulumi-lang-dotnet=\"`Panic`\" pulumi-lang-go=\"`panic`\" pulumi-lang-python=\"`panic`\" pulumi-lang-yaml=\"`panic`\" pulumi-lang-java=\"`panic`\"\u003e`panic`\u003c/span\u003e. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable."
+            },
+            "enableSingleUseRefreshTokens": {
+                "type": "boolean",
+                "description": "Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
@@ -35623,6 +35695,35 @@
             "maxRetryCount": {
                 "type": "integer",
                 "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
+            },
+            "oauthAuthorizationUrl": {
+                "type": "string",
+                "description": "Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.",
+                "secret": true
+            },
+            "oauthClientId": {
+                "type": "string",
+                "description": "Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.",
+                "secret": true
+            },
+            "oauthClientSecret": {
+                "type": "string",
+                "description": "Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.",
+                "secret": true
+            },
+            "oauthRedirectUri": {
+                "type": "string",
+                "description": "Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.",
+                "secret": true
+            },
+            "oauthScope": {
+                "type": "string",
+                "description": "Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable."
+            },
+            "oauthTokenRequestUrl": {
+                "type": "string",
+                "description": "Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.",
+                "secret": true
             },
             "ocspFailOpen": {
                 "type": "string",
@@ -35732,7 +35833,8 @@
                 "secret": true
             },
             "tokenAccessor": {
-                "$ref": "#/types/snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor"
+                "$ref": "#/types/snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor",
+                "description": "If you are using the OAuth authentication flows, use the dedicated \u003cspan pulumi-lang-nodejs=\"`authenticator`\" pulumi-lang-dotnet=\"`Authenticator`\" pulumi-lang-go=\"`authenticator`\" pulumi-lang-python=\"`authenticator`\" pulumi-lang-yaml=\"`authenticator`\" pulumi-lang-java=\"`authenticator`\"\u003e`authenticator`\u003c/span\u003e and `oauth...` fields instead. See our authentication methods guide for more information."
             },
             "useLegacyTomlFile": {
                 "type": "boolean",
@@ -37212,7 +37314,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.\n"
+                    "description": "A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.\n",
+                    "deprecationMessage": "This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details."
                 },
                 "mfaEnrollment": {
                     "type": "string",
@@ -37278,7 +37381,8 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.\n"
+                    "description": "A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.\n",
+                    "deprecationMessage": "This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details."
                 },
                 "mfaEnrollment": {
                     "type": "string",
@@ -37347,7 +37451,8 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.\n"
+                        "description": "A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.\n",
+                        "deprecationMessage": "This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details."
                     },
                     "mfaEnrollment": {
                         "type": "string",
