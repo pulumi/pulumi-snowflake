@@ -51,6 +51,9 @@ class AuthenticationPolicyArgs:
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if mfa_authentication_methods is not None:
+            warnings.warn("""This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""", DeprecationWarning)
+            pulumi.log.warn("""mfa_authentication_methods is deprecated: This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""")
+        if mfa_authentication_methods is not None:
             pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         if mfa_enrollment is not None:
             pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
@@ -121,6 +124,7 @@ class AuthenticationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="mfaAuthenticationMethods")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""")
     def mfa_authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
@@ -211,6 +215,9 @@ class _AuthenticationPolicyState:
         if fully_qualified_name is not None:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if mfa_authentication_methods is not None:
+            warnings.warn("""This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""", DeprecationWarning)
+            pulumi.log.warn("""mfa_authentication_methods is deprecated: This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""")
+        if mfa_authentication_methods is not None:
             pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         if mfa_enrollment is not None:
             pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
@@ -297,6 +304,7 @@ class _AuthenticationPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="mfaAuthenticationMethods")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""")
     def mfa_authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
@@ -575,6 +583,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="mfaAuthenticationMethods")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""")
     def mfa_authentication_methods(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.

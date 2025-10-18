@@ -24,7 +24,7 @@ public final class Config {
         return Codegen.stringProp("accountName").config(config).get();
     }
 /**
- * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+ * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
  * 
  */
     public Optional<String> authenticator() {
@@ -85,6 +85,13 @@ public final class Config {
  */
     public Optional<String> driverTracing() {
         return Codegen.stringProp("driverTracing").config(config).get();
+    }
+/**
+ * Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+ * 
+ */
+    public Optional<Boolean> enableSingleUseRefreshTokens() {
+        return Codegen.booleanProp("enableSingleUseRefreshTokens").config(config).get();
     }
 /**
  * The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
@@ -148,6 +155,48 @@ public final class Config {
  */
     public Optional<Integer> maxRetryCount() {
         return Codegen.integerProp("maxRetryCount").config(config).get();
+    }
+/**
+ * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+ * 
+ */
+    public Optional<String> oauthAuthorizationUrl() {
+        return Codegen.stringProp("oauthAuthorizationUrl").config(config).get();
+    }
+/**
+ * Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+ * 
+ */
+    public Optional<String> oauthClientId() {
+        return Codegen.stringProp("oauthClientId").config(config).get();
+    }
+/**
+ * Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+ * 
+ */
+    public Optional<String> oauthClientSecret() {
+        return Codegen.stringProp("oauthClientSecret").config(config).get();
+    }
+/**
+ * Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+ * 
+ */
+    public Optional<String> oauthRedirectUri() {
+        return Codegen.stringProp("oauthRedirectUri").config(config).get();
+    }
+/**
+ * Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+ * 
+ */
+    public Optional<String> oauthScope() {
+        return Codegen.stringProp("oauthScope").config(config).get();
+    }
+/**
+ * Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+ * 
+ */
+    public Optional<String> oauthTokenRequestUrl() {
+        return Codegen.stringProp("oauthTokenRequestUrl").config(config).get();
     }
 /**
  * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
@@ -271,6 +320,10 @@ public final class Config {
     public Optional<String> token() {
         return Codegen.stringProp("token").config(config).get();
     }
+/**
+ * If you are using the OAuth authentication flows, use the dedicated `authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
+ * 
+ */
     public Optional<TokenAccessor> tokenAccessor() {
         return Codegen.objectProp("tokenAccessor", TokenAccessor.class).config(config).get();
     }

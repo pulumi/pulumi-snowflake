@@ -21,7 +21,7 @@ Object.defineProperty(exports, "accountName", {
 });
 
 /**
- * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+ * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
  */
 export declare const authenticator: string | undefined;
 Object.defineProperty(exports, "authenticator", {
@@ -115,6 +115,17 @@ export declare const driverTracing: string | undefined;
 Object.defineProperty(exports, "driverTracing", {
     get() {
         return __config.get("driverTracing");
+    },
+    enumerable: true,
+});
+
+/**
+ * Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+ */
+export declare const enableSingleUseRefreshTokens: boolean | undefined;
+Object.defineProperty(exports, "enableSingleUseRefreshTokens", {
+    get() {
+        return __config.getObject<boolean>("enableSingleUseRefreshTokens");
     },
     enumerable: true,
 });
@@ -214,6 +225,72 @@ export declare const maxRetryCount: number | undefined;
 Object.defineProperty(exports, "maxRetryCount", {
     get() {
         return __config.getObject<number>("maxRetryCount");
+    },
+    enumerable: true,
+});
+
+/**
+ * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+ */
+export declare const oauthAuthorizationUrl: string | undefined;
+Object.defineProperty(exports, "oauthAuthorizationUrl", {
+    get() {
+        return __config.get("oauthAuthorizationUrl");
+    },
+    enumerable: true,
+});
+
+/**
+ * Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+ */
+export declare const oauthClientId: string | undefined;
+Object.defineProperty(exports, "oauthClientId", {
+    get() {
+        return __config.get("oauthClientId");
+    },
+    enumerable: true,
+});
+
+/**
+ * Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+ */
+export declare const oauthClientSecret: string | undefined;
+Object.defineProperty(exports, "oauthClientSecret", {
+    get() {
+        return __config.get("oauthClientSecret");
+    },
+    enumerable: true,
+});
+
+/**
+ * Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+ */
+export declare const oauthRedirectUri: string | undefined;
+Object.defineProperty(exports, "oauthRedirectUri", {
+    get() {
+        return __config.get("oauthRedirectUri");
+    },
+    enumerable: true,
+});
+
+/**
+ * Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+ */
+export declare const oauthScope: string | undefined;
+Object.defineProperty(exports, "oauthScope", {
+    get() {
+        return __config.get("oauthScope");
+    },
+    enumerable: true,
+});
+
+/**
+ * Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+ */
+export declare const oauthTokenRequestUrl: string | undefined;
+Object.defineProperty(exports, "oauthTokenRequestUrl", {
+    get() {
+        return __config.get("oauthTokenRequestUrl");
     },
     enumerable: true,
 });
@@ -413,6 +490,9 @@ Object.defineProperty(exports, "token", {
     enumerable: true,
 });
 
+/**
+ * If you are using the OAuth authentication flows, use the dedicated `authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
+ */
 export declare const tokenAccessor: outputs.config.TokenAccessor | undefined;
 Object.defineProperty(exports, "tokenAccessor", {
     get() {

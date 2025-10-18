@@ -31,7 +31,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def authenticator(self) -> Optional[str]:
         """
-        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return __config__.get('authenticator')
 
@@ -90,6 +90,13 @@ class _ExportableConfig(types.ModuleType):
         Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
         """
         return __config__.get('driverTracing')
+
+    @_builtins.property
+    def enable_single_use_refresh_tokens(self) -> Optional[bool]:
+        """
+        Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+        """
+        return __config__.get_bool('enableSingleUseRefreshTokens')
 
     @_builtins.property
     def external_browser_timeout(self) -> Optional[int]:
@@ -153,6 +160,48 @@ class _ExportableConfig(types.ModuleType):
         Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
         """
         return __config__.get_int('maxRetryCount')
+
+    @_builtins.property
+    def oauth_authorization_url(self) -> Optional[str]:
+        """
+        Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+        """
+        return __config__.get('oauthAuthorizationUrl')
+
+    @_builtins.property
+    def oauth_client_id(self) -> Optional[str]:
+        """
+        Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        """
+        return __config__.get('oauthClientId')
+
+    @_builtins.property
+    def oauth_client_secret(self) -> Optional[str]:
+        """
+        Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        """
+        return __config__.get('oauthClientSecret')
+
+    @_builtins.property
+    def oauth_redirect_uri(self) -> Optional[str]:
+        """
+        Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+        """
+        return __config__.get('oauthRedirectUri')
+
+    @_builtins.property
+    def oauth_scope(self) -> Optional[str]:
+        """
+        Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+        """
+        return __config__.get('oauthScope')
+
+    @_builtins.property
+    def oauth_token_request_url(self) -> Optional[str]:
+        """
+        Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+        """
+        return __config__.get('oauthTokenRequestUrl')
 
     @_builtins.property
     def ocsp_fail_open(self) -> Optional[str]:
@@ -279,6 +328,9 @@ class _ExportableConfig(types.ModuleType):
 
     @_builtins.property
     def token_accessor(self) -> Optional[str]:
+        """
+        If you are using the OAuth authentication flows, use the dedicated `authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
+        """
         return __config__.get('tokenAccessor')
 
     @_builtins.property

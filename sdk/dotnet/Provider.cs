@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake
         public Output<string?> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         [Output("authenticator")]
         public Output<string?> Authenticator { get; private set; } = null!;
@@ -71,6 +71,42 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("includeRetryReason")]
         public Output<string?> IncludeRetryReason { get; private set; } = null!;
+
+        /// <summary>
+        /// Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+        /// </summary>
+        [Output("oauthAuthorizationUrl")]
+        public Output<string?> OauthAuthorizationUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        /// </summary>
+        [Output("oauthClientId")]
+        public Output<string?> OauthClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        /// </summary>
+        [Output("oauthClientSecret")]
+        public Output<string?> OauthClientSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+        /// </summary>
+        [Output("oauthRedirectUri")]
+        public Output<string?> OauthRedirectUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+        /// </summary>
+        [Output("oauthScope")]
+        public Output<string?> OauthScope { get; private set; } = null!;
+
+        /// <summary>
+        /// Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+        /// </summary>
+        [Output("oauthTokenRequestUrl")]
+        public Output<string?> OauthTokenRequestUrl { get; private set; } = null!;
 
         /// <summary>
         /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
@@ -182,6 +218,11 @@ namespace Pulumi.Snowflake
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "oauthAuthorizationUrl",
+                    "oauthClientId",
+                    "oauthClientSecret",
+                    "oauthRedirectUri",
+                    "oauthTokenRequestUrl",
                     "passcode",
                     "password",
                     "privateKey",
@@ -211,7 +252,7 @@ namespace Pulumi.Snowflake
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         [Input("authenticator")]
         public Input<string>? Authenticator { get; set; }
@@ -263,6 +304,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("driverTracing")]
         public Input<string>? DriverTracing { get; set; }
+
+        /// <summary>
+        /// Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+        /// </summary>
+        [Input("enableSingleUseRefreshTokens", json: true)]
+        public Input<bool>? EnableSingleUseRefreshTokens { get; set; }
 
         /// <summary>
         /// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
@@ -317,6 +364,92 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("maxRetryCount", json: true)]
         public Input<int>? MaxRetryCount { get; set; }
+
+        [Input("oauthAuthorizationUrl")]
+        private Input<string>? _oauthAuthorizationUrl;
+
+        /// <summary>
+        /// Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+        /// </summary>
+        public Input<string>? OauthAuthorizationUrl
+        {
+            get => _oauthAuthorizationUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthAuthorizationUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oauthClientId")]
+        private Input<string>? _oauthClientId;
+
+        /// <summary>
+        /// Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+        /// </summary>
+        public Input<string>? OauthClientId
+        {
+            get => _oauthClientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthClientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oauthClientSecret")]
+        private Input<string>? _oauthClientSecret;
+
+        /// <summary>
+        /// Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+        /// </summary>
+        public Input<string>? OauthClientSecret
+        {
+            get => _oauthClientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthClientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oauthRedirectUri")]
+        private Input<string>? _oauthRedirectUri;
+
+        /// <summary>
+        /// Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+        /// </summary>
+        public Input<string>? OauthRedirectUri
+        {
+            get => _oauthRedirectUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthRedirectUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+        /// </summary>
+        [Input("oauthScope")]
+        public Input<string>? OauthScope { get; set; }
+
+        [Input("oauthTokenRequestUrl")]
+        private Input<string>? _oauthTokenRequestUrl;
+
+        /// <summary>
+        /// Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+        /// </summary>
+        public Input<string>? OauthTokenRequestUrl
+        {
+            get => _oauthTokenRequestUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthTokenRequestUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
@@ -484,6 +617,9 @@ namespace Pulumi.Snowflake
             }
         }
 
+        /// <summary>
+        /// If you are using the OAuth authentication flows, use the dedicated `Authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
+        /// </summary>
         [Input("tokenAccessor", json: true)]
         public Input<Inputs.ProviderTokenAccessorArgs>? TokenAccessor { get; set; }
 

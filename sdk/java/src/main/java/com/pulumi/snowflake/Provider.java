@@ -38,14 +38,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.accountName);
     }
     /**
-     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      * 
      */
     @Export(name="authenticator", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticator;
 
     /**
-     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      * 
      */
     public Output<Optional<String>> authenticator() {
@@ -148,6 +148,90 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> includeRetryReason() {
         return Codegen.optional(this.includeRetryReason);
+    }
+    /**
+     * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+     * 
+     */
+    @Export(name="oauthAuthorizationUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oauthAuthorizationUrl;
+
+    /**
+     * @return Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+     * 
+     */
+    public Output<Optional<String>> oauthAuthorizationUrl() {
+        return Codegen.optional(this.oauthAuthorizationUrl);
+    }
+    /**
+     * Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+     * 
+     */
+    @Export(name="oauthClientId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oauthClientId;
+
+    /**
+     * @return Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+     * 
+     */
+    public Output<Optional<String>> oauthClientId() {
+        return Codegen.optional(this.oauthClientId);
+    }
+    /**
+     * Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+     * 
+     */
+    @Export(name="oauthClientSecret", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oauthClientSecret;
+
+    /**
+     * @return Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+     * 
+     */
+    public Output<Optional<String>> oauthClientSecret() {
+        return Codegen.optional(this.oauthClientSecret);
+    }
+    /**
+     * Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+     * 
+     */
+    @Export(name="oauthRedirectUri", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oauthRedirectUri;
+
+    /**
+     * @return Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+     * 
+     */
+    public Output<Optional<String>> oauthRedirectUri() {
+        return Codegen.optional(this.oauthRedirectUri);
+    }
+    /**
+     * Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+     * 
+     */
+    @Export(name="oauthScope", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oauthScope;
+
+    /**
+     * @return Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+     * 
+     */
+    public Output<Optional<String>> oauthScope() {
+        return Codegen.optional(this.oauthScope);
+    }
+    /**
+     * Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+     * 
+     */
+    @Export(name="oauthTokenRequestUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> oauthTokenRequestUrl;
+
+    /**
+     * @return Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+     * 
+     */
+    public Output<Optional<String>> oauthTokenRequestUrl() {
+        return Codegen.optional(this.oauthTokenRequestUrl);
     }
     /**
      * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
@@ -396,6 +480,11 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
+                "oauthAuthorizationUrl",
+                "oauthClientId",
+                "oauthClientSecret",
+                "oauthRedirectUri",
+                "oauthTokenRequestUrl",
                 "passcode",
                 "password",
                 "privateKey",

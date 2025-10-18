@@ -16,7 +16,7 @@ func GetAccountName(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:accountName")
 }
 
-// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 func GetAuthenticator(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:authenticator")
 }
@@ -59,6 +59,11 @@ func GetDisableTelemetry(ctx *pulumi.Context) bool {
 // Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
 func GetDriverTracing(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:driverTracing")
+}
+
+// Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+func GetEnableSingleUseRefreshTokens(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:enableSingleUseRefreshTokens")
 }
 
 // The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
@@ -112,6 +117,36 @@ func GetLoginTimeout(ctx *pulumi.Context) int {
 // Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
 func GetMaxRetryCount(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:maxRetryCount")
+}
+
+// Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+func GetOauthAuthorizationUrl(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:oauthAuthorizationUrl")
+}
+
+// Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+func GetOauthClientId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:oauthClientId")
+}
+
+// Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+func GetOauthClientSecret(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:oauthClientSecret")
+}
+
+// Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+func GetOauthRedirectUri(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:oauthRedirectUri")
+}
+
+// Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+func GetOauthScope(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:oauthScope")
+}
+
+// Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+func GetOauthTokenRequestUrl(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:oauthTokenRequestUrl")
 }
 
 // True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
@@ -241,6 +276,8 @@ func GetTmpDirectoryPath(ctx *pulumi.Context) string {
 func GetToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:token")
 }
+
+// If you are using the OAuth authentication flows, use the dedicated `authenticator` and `oauth...` fields instead. See our authentication methods guide for more information.
 func GetTokenAccessor(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:tokenAccessor")
 }
