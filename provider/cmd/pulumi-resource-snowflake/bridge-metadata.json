@@ -228,11 +228,43 @@
                     "mfa_authentication_methods": {
                         "maxItemsOne": false
                     },
+                    "mfa_policy": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "allowed_methods": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "pat_policy": {
+                        "maxItemsOne": true
+                    },
                     "security_integrations": {
                         "maxItemsOne": false
                     },
                     "show_output": {
                         "maxItemsOne": false
+                    },
+                    "workload_identity_policy": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "allowed_aws_accounts": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_azure_issuers": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_oidc_issuers": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_providers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -2996,6 +3028,34 @@
                 "fields": {
                     "alerts": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_authentication_policies": {
+                "current": "snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies",
+                "majorVersion": 2,
+                "fields": {
+                    "authentication_policies": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "on": {
+                        "maxItemsOne": true
                     }
                 }
             },

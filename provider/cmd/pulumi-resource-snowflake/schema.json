@@ -54,7 +54,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
@@ -91,6 +91,13 @@
             "enableSingleUseRefreshTokens": {
                 "type": "boolean",
                 "description": "Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable."
+            },
+            "experimentalFeaturesEnableds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
@@ -293,6 +300,14 @@
                         "SNOWFLAKE_WAREHOUSE"
                     ]
                 }
+            },
+            "workloadIdentityEntraResource": {
+                "type": "string",
+                "description": "The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable."
+            },
+            "workloadIdentityProvider": {
+                "type": "string",
+                "description": "The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable."
             }
         }
     },
@@ -1824,13 +1839,22 @@
                 "mfaEnrollment": {
                     "type": "string"
                 },
+                "mfaPolicy": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 },
                 "owner": {
                     "type": "string"
                 },
+                "patPolicy": {
+                    "type": "string"
+                },
                 "securityIntegrations": {
+                    "type": "string"
+                },
+                "workloadIdentityPolicy": {
                     "type": "string"
                 }
             },
@@ -1843,12 +1867,47 @@
                         "comment",
                         "mfaAuthenticationMethods",
                         "mfaEnrollment",
+                        "mfaPolicy",
                         "name",
                         "owner",
-                        "securityIntegrations"
+                        "patPolicy",
+                        "securityIntegrations",
+                        "workloadIdentityPolicy"
                     ]
                 }
             }
+        },
+        "snowflake:index/AuthenticationPolicyMfaPolicy:AuthenticationPolicyMfaPolicy": {
+            "properties": {
+                "allowedMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "enforceMfaOnExternalAuthentication": {
+                    "type": "string",
+                    "description": "Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/AuthenticationPolicyPatPolicy:AuthenticationPolicyPatPolicy": {
+            "properties": {
+                "defaultExpiryInDays": {
+                    "type": "integer",
+                    "description": "Specifies the default expiration time (in days) for a programmatic access token.\n"
+                },
+                "maxExpiryInDays": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.\n"
+                },
+                "networkPolicyEvaluation": {
+                    "type": "string",
+                    "description": "Specifies the network policy evaluation for the PAT.\n"
+                }
+            },
+            "type": "object"
         },
         "snowflake:index/AuthenticationPolicyShowOutput:AuthenticationPolicyShowOutput": {
             "properties": {
@@ -1859,6 +1918,9 @@
                     "type": "string"
                 },
                 "databaseName": {
+                    "type": "string"
+                },
+                "kind": {
                     "type": "string"
                 },
                 "name": {
@@ -1884,6 +1946,7 @@
                         "comment",
                         "createdOn",
                         "databaseName",
+                        "kind",
                         "name",
                         "options",
                         "owner",
@@ -1892,6 +1955,38 @@
                     ]
                 }
             }
+        },
+        "snowflake:index/AuthenticationPolicyWorkloadIdentityPolicy:AuthenticationPolicyWorkloadIdentityPolicy": {
+            "properties": {
+                "allowedAwsAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.\n"
+                },
+                "allowedAzureIssuers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.\n"
+                },
+                "allowedOidcIssuers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.\n"
+                },
+                "allowedProviders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
         },
         "snowflake:index/ComputePoolDescribeOutput:ComputePoolDescribeOutput": {
             "properties": {
@@ -22979,6 +23074,192 @@
                 }
             }
         },
+        "snowflake:index/getAuthenticationPoliciesAuthenticationPolicy:getAuthenticationPoliciesAuthenticationPolicy": {
+            "properties": {
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getAuthenticationPoliciesAuthenticationPolicyDescribeOutput:getAuthenticationPoliciesAuthenticationPolicyDescribeOutput"
+                    },
+                    "description": "Holds the output of DESCRIBE AUTHENTICATION POLICY.\n"
+                },
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getAuthenticationPoliciesAuthenticationPolicyShowOutput:getAuthenticationPoliciesAuthenticationPolicyShowOutput"
+                    },
+                    "description": "Holds the output of SHOW AUTHENTICATION POLICIES.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "describeOutputs",
+                "showOutputs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getAuthenticationPoliciesAuthenticationPolicyDescribeOutput:getAuthenticationPoliciesAuthenticationPolicyDescribeOutput": {
+            "properties": {
+                "authenticationMethods": {
+                    "type": "string"
+                },
+                "clientTypes": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "mfaAuthenticationMethods": {
+                    "type": "string"
+                },
+                "mfaEnrollment": {
+                    "type": "string"
+                },
+                "mfaPolicy": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "patPolicy": {
+                    "type": "string"
+                },
+                "securityIntegrations": {
+                    "type": "string"
+                },
+                "workloadIdentityPolicy": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "authenticationMethods",
+                "clientTypes",
+                "comment",
+                "mfaAuthenticationMethods",
+                "mfaEnrollment",
+                "mfaPolicy",
+                "name",
+                "owner",
+                "patPolicy",
+                "securityIntegrations",
+                "workloadIdentityPolicy"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getAuthenticationPoliciesAuthenticationPolicyShowOutput:getAuthenticationPoliciesAuthenticationPolicyShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "options": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "createdOn",
+                "databaseName",
+                "kind",
+                "name",
+                "options",
+                "owner",
+                "ownerRoleType",
+                "schemaName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getAuthenticationPoliciesIn:getAuthenticationPoliciesIn": {
+            "properties": {
+                "account": {
+                    "type": "boolean",
+                    "description": "Returns records for the entire account.\n"
+                },
+                "application": {
+                    "type": "string",
+                    "description": "Returns records for the specified application.\n"
+                },
+                "applicationPackage": {
+                    "type": "string",
+                    "description": "Returns records for the specified application package.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "Returns records for the current database in use or for a specified database.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Returns records for the current schema in use or a specified schema. Use fully qualified name.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/getAuthenticationPoliciesLimit:getAuthenticationPoliciesLimit": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.\n"
+                },
+                "rows": {
+                    "type": "integer",
+                    "description": "The maximum number of rows to return.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rows"
+            ]
+        },
+        "snowflake:index/getAuthenticationPoliciesOn:getAuthenticationPoliciesOn": {
+            "properties": {
+                "account": {
+                    "type": "boolean",
+                    "description": "Returns records for the entire account.\n"
+                },
+                "user": {
+                    "type": "string",
+                    "description": "Returns records for the specified user.\n"
+                }
+            },
+            "type": "object"
+        },
         "snowflake:index/getComputePoolsComputePool:getComputePoolsComputePool": {
             "properties": {
                 "describeOutputs": {
@@ -35404,7 +35685,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
@@ -35441,6 +35722,13 @@
             "enableSingleUseRefreshTokens": {
                 "type": "boolean",
                 "description": "Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable."
+            },
+            "experimentalFeaturesEnableds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
@@ -35608,6 +35896,14 @@
             "warehouse": {
                 "type": "string",
                 "description": "Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable."
+            },
+            "workloadIdentityEntraResource": {
+                "type": "string",
+                "description": "The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable."
+            },
+            "workloadIdentityProvider": {
+                "type": "string",
+                "description": "The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable."
             }
         },
         "inputProperties": {
@@ -35617,7 +35913,7 @@
             },
             "authenticator": {
                 "type": "string",
-                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
+                "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
             "clientIp": {
                 "type": "string",
@@ -35654,6 +35950,13 @@
             "enableSingleUseRefreshTokens": {
                 "type": "boolean",
                 "description": "Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable."
+            },
+            "experimentalFeaturesEnableds": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`."
             },
             "externalBrowserTimeout": {
                 "type": "integer",
@@ -35856,6 +36159,14 @@
                         "SNOWFLAKE_WAREHOUSE"
                     ]
                 }
+            },
+            "workloadIdentityEntraResource": {
+                "type": "string",
+                "description": "The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable."
+            },
+            "workloadIdentityProvider": {
+                "type": "string",
+                "description": "The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable."
             }
         },
         "methods": {
@@ -37281,14 +37592,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`\n"
+                    "description": "A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.\n"
                 },
                 "clientTypes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.\n"
+                    "description": "A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.\n"
                 },
                 "comment": {
                     "type": "string",
@@ -37319,11 +37630,19 @@
                 },
                 "mfaEnrollment": {
                     "type": "string",
-                    "description": "(Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).\n"
+                    "description": "Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e parameter must include \u003cspan pulumi-lang-nodejs=\"`snowflakeUi`\" pulumi-lang-dotnet=\"`SnowflakeUi`\" pulumi-lang-go=\"`snowflakeUi`\" pulumi-lang-python=\"`snowflake_ui`\" pulumi-lang-yaml=\"`snowflakeUi`\" pulumi-lang-java=\"`snowflakeUi`\"\u003e`snowflake_ui`\u003c/span\u003e, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).\n"
+                },
+                "mfaPolicy": {
+                    "$ref": "#/types/snowflake:index/AuthenticationPolicyMfaPolicy:AuthenticationPolicyMfaPolicy",
+                    "description": "Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.\n"
                 },
                 "name": {
                     "type": "string",
                     "description": "Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "patPolicy": {
+                    "$ref": "#/types/snowflake:index/AuthenticationPolicyPatPolicy:AuthenticationPolicyPatPolicy",
+                    "description": "Specifies the policy for programmatic access tokens.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -37334,7 +37653,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.\n"
+                    "description": "A list of security integrations the authentication policy is associated with. This parameter has no effect when \u003cspan pulumi-lang-nodejs=\"`saml`\" pulumi-lang-dotnet=\"`Saml`\" pulumi-lang-go=\"`saml`\" pulumi-lang-python=\"`saml`\" pulumi-lang-yaml=\"`saml`\" pulumi-lang-java=\"`saml`\"\u003e`saml`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`oauth`\" pulumi-lang-dotnet=\"`Oauth`\" pulumi-lang-go=\"`oauth`\" pulumi-lang-python=\"`oauth`\" pulumi-lang-yaml=\"`oauth`\" pulumi-lang-java=\"`oauth`\"\u003e`oauth`\u003c/span\u003e are not in the \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e list. All values in the \u003cspan pulumi-lang-nodejs=\"`securityIntegrations`\" pulumi-lang-dotnet=\"`SecurityIntegrations`\" pulumi-lang-go=\"`securityIntegrations`\" pulumi-lang-python=\"`security_integrations`\" pulumi-lang-yaml=\"`securityIntegrations`\" pulumi-lang-java=\"`securityIntegrations`\"\u003e`security_integrations`\u003c/span\u003e list must be compatible with the values in the \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e list. For example, if \u003cspan pulumi-lang-nodejs=\"`securityIntegrations`\" pulumi-lang-dotnet=\"`SecurityIntegrations`\" pulumi-lang-go=\"`securityIntegrations`\" pulumi-lang-python=\"`security_integrations`\" pulumi-lang-yaml=\"`securityIntegrations`\" pulumi-lang-java=\"`securityIntegrations`\"\u003e`security_integrations`\u003c/span\u003e contains a SAML security integration, and \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.\n"
                 },
                 "showOutputs": {
                     "type": "array",
@@ -37342,6 +37661,10 @@
                         "$ref": "#/types/snowflake:index/AuthenticationPolicyShowOutput:AuthenticationPolicyShowOutput"
                     },
                     "description": "Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.\n"
+                },
+                "workloadIdentityPolicy": {
+                    "$ref": "#/types/snowflake:index/AuthenticationPolicyWorkloadIdentityPolicy:AuthenticationPolicyWorkloadIdentityPolicy",
+                    "description": "Specifies the policy for workload identity federation.\n"
                 }
             },
             "required": [
@@ -37358,14 +37681,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`\n"
+                    "description": "A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.\n"
                 },
                 "clientTypes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.\n"
+                    "description": "A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.\n"
                 },
                 "comment": {
                     "type": "string",
@@ -37386,11 +37709,19 @@
                 },
                 "mfaEnrollment": {
                     "type": "string",
-                    "description": "(Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).\n"
+                    "description": "Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e parameter must include \u003cspan pulumi-lang-nodejs=\"`snowflakeUi`\" pulumi-lang-dotnet=\"`SnowflakeUi`\" pulumi-lang-go=\"`snowflakeUi`\" pulumi-lang-python=\"`snowflake_ui`\" pulumi-lang-yaml=\"`snowflakeUi`\" pulumi-lang-java=\"`snowflakeUi`\"\u003e`snowflake_ui`\u003c/span\u003e, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).\n"
+                },
+                "mfaPolicy": {
+                    "$ref": "#/types/snowflake:index/AuthenticationPolicyMfaPolicy:AuthenticationPolicyMfaPolicy",
+                    "description": "Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.\n"
                 },
                 "name": {
                     "type": "string",
                     "description": "Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "patPolicy": {
+                    "$ref": "#/types/snowflake:index/AuthenticationPolicyPatPolicy:AuthenticationPolicyPatPolicy",
+                    "description": "Specifies the policy for programmatic access tokens.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -37402,7 +37733,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.\n"
+                    "description": "A list of security integrations the authentication policy is associated with. This parameter has no effect when \u003cspan pulumi-lang-nodejs=\"`saml`\" pulumi-lang-dotnet=\"`Saml`\" pulumi-lang-go=\"`saml`\" pulumi-lang-python=\"`saml`\" pulumi-lang-yaml=\"`saml`\" pulumi-lang-java=\"`saml`\"\u003e`saml`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`oauth`\" pulumi-lang-dotnet=\"`Oauth`\" pulumi-lang-go=\"`oauth`\" pulumi-lang-python=\"`oauth`\" pulumi-lang-yaml=\"`oauth`\" pulumi-lang-java=\"`oauth`\"\u003e`oauth`\u003c/span\u003e are not in the \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e list. All values in the \u003cspan pulumi-lang-nodejs=\"`securityIntegrations`\" pulumi-lang-dotnet=\"`SecurityIntegrations`\" pulumi-lang-go=\"`securityIntegrations`\" pulumi-lang-python=\"`security_integrations`\" pulumi-lang-yaml=\"`securityIntegrations`\" pulumi-lang-java=\"`securityIntegrations`\"\u003e`security_integrations`\u003c/span\u003e list must be compatible with the values in the \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e list. For example, if \u003cspan pulumi-lang-nodejs=\"`securityIntegrations`\" pulumi-lang-dotnet=\"`SecurityIntegrations`\" pulumi-lang-go=\"`securityIntegrations`\" pulumi-lang-python=\"`security_integrations`\" pulumi-lang-yaml=\"`securityIntegrations`\" pulumi-lang-java=\"`securityIntegrations`\"\u003e`security_integrations`\u003c/span\u003e contains a SAML security integration, and \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.\n"
+                },
+                "workloadIdentityPolicy": {
+                    "$ref": "#/types/snowflake:index/AuthenticationPolicyWorkloadIdentityPolicy:AuthenticationPolicyWorkloadIdentityPolicy",
+                    "description": "Specifies the policy for workload identity federation.\n"
                 }
             },
             "requiredInputs": [
@@ -37417,14 +37752,14 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`\n"
+                        "description": "A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.\n"
                     },
                     "clientTypes": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.\n"
+                        "description": "A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.\n"
                     },
                     "comment": {
                         "type": "string",
@@ -37456,11 +37791,19 @@
                     },
                     "mfaEnrollment": {
                         "type": "string",
-                        "description": "(Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).\n"
+                        "description": "Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the \u003cspan pulumi-lang-nodejs=\"`clientTypes`\" pulumi-lang-dotnet=\"`ClientTypes`\" pulumi-lang-go=\"`clientTypes`\" pulumi-lang-python=\"`client_types`\" pulumi-lang-yaml=\"`clientTypes`\" pulumi-lang-java=\"`clientTypes`\"\u003e`client_types`\u003c/span\u003e parameter must include \u003cspan pulumi-lang-nodejs=\"`snowflakeUi`\" pulumi-lang-dotnet=\"`SnowflakeUi`\" pulumi-lang-go=\"`snowflakeUi`\" pulumi-lang-python=\"`snowflake_ui`\" pulumi-lang-yaml=\"`snowflakeUi`\" pulumi-lang-java=\"`snowflakeUi`\"\u003e`snowflake_ui`\u003c/span\u003e, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).\n"
+                    },
+                    "mfaPolicy": {
+                        "$ref": "#/types/snowflake:index/AuthenticationPolicyMfaPolicy:AuthenticationPolicyMfaPolicy",
+                        "description": "Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.\n"
                     },
                     "name": {
                         "type": "string",
                         "description": "Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                    },
+                    "patPolicy": {
+                        "$ref": "#/types/snowflake:index/AuthenticationPolicyPatPolicy:AuthenticationPolicyPatPolicy",
+                        "description": "Specifies the policy for programmatic access tokens.\n"
                     },
                     "schema": {
                         "type": "string",
@@ -37472,7 +37815,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.\n"
+                        "description": "A list of security integrations the authentication policy is associated with. This parameter has no effect when \u003cspan pulumi-lang-nodejs=\"`saml`\" pulumi-lang-dotnet=\"`Saml`\" pulumi-lang-go=\"`saml`\" pulumi-lang-python=\"`saml`\" pulumi-lang-yaml=\"`saml`\" pulumi-lang-java=\"`saml`\"\u003e`saml`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`oauth`\" pulumi-lang-dotnet=\"`Oauth`\" pulumi-lang-go=\"`oauth`\" pulumi-lang-python=\"`oauth`\" pulumi-lang-yaml=\"`oauth`\" pulumi-lang-java=\"`oauth`\"\u003e`oauth`\u003c/span\u003e are not in the \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e list. All values in the \u003cspan pulumi-lang-nodejs=\"`securityIntegrations`\" pulumi-lang-dotnet=\"`SecurityIntegrations`\" pulumi-lang-go=\"`securityIntegrations`\" pulumi-lang-python=\"`security_integrations`\" pulumi-lang-yaml=\"`securityIntegrations`\" pulumi-lang-java=\"`securityIntegrations`\"\u003e`security_integrations`\u003c/span\u003e list must be compatible with the values in the \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e list. For example, if \u003cspan pulumi-lang-nodejs=\"`securityIntegrations`\" pulumi-lang-dotnet=\"`SecurityIntegrations`\" pulumi-lang-go=\"`securityIntegrations`\" pulumi-lang-python=\"`security_integrations`\" pulumi-lang-yaml=\"`securityIntegrations`\" pulumi-lang-java=\"`securityIntegrations`\"\u003e`security_integrations`\u003c/span\u003e contains a SAML security integration, and \u003cspan pulumi-lang-nodejs=\"`authenticationMethods`\" pulumi-lang-dotnet=\"`AuthenticationMethods`\" pulumi-lang-go=\"`authenticationMethods`\" pulumi-lang-python=\"`authentication_methods`\" pulumi-lang-yaml=\"`authenticationMethods`\" pulumi-lang-java=\"`authenticationMethods`\"\u003e`authentication_methods`\u003c/span\u003e contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.\n"
                     },
                     "showOutputs": {
                         "type": "array",
@@ -37480,6 +37823,10 @@
                             "$ref": "#/types/snowflake:index/AuthenticationPolicyShowOutput:AuthenticationPolicyShowOutput"
                         },
                         "description": "Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.\n"
+                    },
+                    "workloadIdentityPolicy": {
+                        "$ref": "#/types/snowflake:index/AuthenticationPolicyWorkloadIdentityPolicy:AuthenticationPolicyWorkloadIdentityPolicy",
+                        "description": "Specifies the policy for workload identity federation.\n"
                     }
                 },
                 "type": "object"
@@ -37521,7 +37868,7 @@
                 },
                 "instanceFamily": {
                     "type": "string",
-                    "description": "Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL`.\n"
+                    "description": "Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G`. Not all instance families are supported in all regions. Run `SHOW COMPUTE POOL INSTANCE FAMILIES` to see the list of supported instance families in your region.\n"
                 },
                 "maxNodes": {
                     "type": "integer",
@@ -37576,7 +37923,7 @@
                 },
                 "instanceFamily": {
                     "type": "string",
-                    "description": "Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL`.\n",
+                    "description": "Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G`. Not all instance families are supported in all regions. Run `SHOW COMPUTE POOL INSTANCE FAMILIES` to see the list of supported instance families in your region.\n",
                     "willReplaceOnChanges": true
                 },
                 "maxNodes": {
@@ -37635,7 +37982,7 @@
                     },
                     "instanceFamily": {
                         "type": "string",
-                        "description": "Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL`.\n",
+                        "description": "Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G`. Not all instance families are supported in all regions. Run `SHOW COMPUTE POOL INSTANCE FAMILIES` to see the list of supported instance families in your region.\n",
                         "willReplaceOnChanges": true
                     },
                     "maxNodes": {
@@ -60655,8 +61002,86 @@
                 "type": "object"
             }
         },
+        "snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies": {
+            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nData source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`authenticationPolicies`\" pulumi-lang-dotnet=\"`AuthenticationPolicies`\" pulumi-lang-go=\"`authenticationPolicies`\" pulumi-lang-python=\"`authentication_policies`\" pulumi-lang-yaml=\"`authenticationPolicies`\" pulumi-lang-java=\"`authenticationPolicies`\"\u003e`authentication_policies`\u003c/span\u003e.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getAuthenticationPolicies.\n",
+                "properties": {
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getAuthenticationPoliciesIn:getAuthenticationPoliciesIn",
+                        "description": "IN clause to filter the list of objects\n"
+                    },
+                    "like": {
+                        "type": "string",
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getAuthenticationPoliciesLimit:getAuthenticationPoliciesLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e.\n"
+                    },
+                    "on": {
+                        "$ref": "#/types/snowflake:index/getAuthenticationPoliciesOn:getAuthenticationPoliciesOn",
+                        "description": "Lists the policies that are effective on the specified object.\n"
+                    },
+                    "startsWith": {
+                        "type": "string",
+                        "description": "Filters the output with **case-sensitive** characters indicating the beginning of the object name.\n"
+                    },
+                    "withDescribe": {
+                        "type": "boolean",
+                        "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e) Runs DESC AUTHENTICATION POLICY for each service returned by SHOW AUTHENTICATION POLICIES. The output of describe is saved to the description field. By default this value is set to true.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAuthenticationPolicies.\n",
+                "properties": {
+                    "authenticationPolicies": {
+                        "description": "Holds the aggregated output of all authentication policies details queries.\n",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getAuthenticationPoliciesAuthenticationPolicy:getAuthenticationPoliciesAuthenticationPolicy"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getAuthenticationPoliciesIn:getAuthenticationPoliciesIn",
+                        "description": "IN clause to filter the list of objects\n"
+                    },
+                    "like": {
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getAuthenticationPoliciesLimit:getAuthenticationPoliciesLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e.\n"
+                    },
+                    "on": {
+                        "$ref": "#/types/snowflake:index/getAuthenticationPoliciesOn:getAuthenticationPoliciesOn",
+                        "description": "Lists the policies that are effective on the specified object.\n"
+                    },
+                    "startsWith": {
+                        "description": "Filters the output with **case-sensitive** characters indicating the beginning of the object name.\n",
+                        "type": "string"
+                    },
+                    "withDescribe": {
+                        "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e) Runs DESC AUTHENTICATION POLICY for each service returned by SHOW AUTHENTICATION POLICIES. The output of describe is saved to the description field. By default this value is set to true.\n",
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "authenticationPolicies",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "snowflake:index/getComputePools:getComputePools": {
-            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nData source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`computePools`\" pulumi-lang-dotnet=\"`ComputePools`\" pulumi-lang-go=\"`computePools`\" pulumi-lang-python=\"`compute_pools`\" pulumi-lang-yaml=\"`computePools`\" pulumi-lang-java=\"`computePools`\"\u003e`compute_pools`\u003c/span\u003e.\n\n",
+            "description": "Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`computePools`\" pulumi-lang-dotnet=\"`ComputePools`\" pulumi-lang-go=\"`computePools`\" pulumi-lang-python=\"`compute_pools`\" pulumi-lang-yaml=\"`computePools`\" pulumi-lang-java=\"`computePools`\"\u003e`compute_pools`\u003c/span\u003e.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getComputePools.\n",
                 "properties": {
@@ -60818,7 +61243,7 @@
             }
         },
         "snowflake:index/getCurrentAccount:getCurrentAccount": {
-            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst _this = snowflake.getCurrentAccount({});\nconst snowflakeAccountUrl = new aws.index.SsmParameter(\"snowflake_account_url\", {\n    name: \"/snowflake/account_url\",\n    type: \"String\",\n    value: _this.url,\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_current_account()\nsnowflake_account_url = aws.index.SsmParameter(\"snowflake_account_url\",\n    name=/snowflake/account_url,\n    type=String,\n    value=this.url)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetCurrentAccount.Invoke();\n\n    var snowflakeAccountUrl = new Aws.Index.SsmParameter(\"snowflake_account_url\", new()\n    {\n        Name = \"/snowflake/account_url\",\n        Type = \"String\",\n        Value = @this.Apply(getCurrentAccountResult =\u003e getCurrentAccountResult.Url),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v4/go/aws\"\n\t\"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tthis, err := snowflake.LookupCurrentAccount(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = aws.NewSsmParameter(ctx, \"snowflake_account_url\", \u0026aws.SsmParameterArgs{\n\t\t\tName:  \"/snowflake/account_url\",\n\t\t\tType:  \"String\",\n\t\t\tValue: this.Url,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.aws.ssmParameter;\nimport com.pulumi.aws.ssmParameterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var snowflakeAccountUrl = new SsmParameter(\"snowflakeAccountUrl\", SsmParameterArgs.builder()\n            .name(\"/snowflake/account_url\")\n            .type(\"String\")\n            .value(this_.url())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  snowflakeAccountUrl:\n    type: aws:ssmParameter\n    name: snowflake_account_url\n    properties:\n      name: /snowflake/account_url\n      type: String\n      value: ${this.url}\nvariables:\n  this:\n    fn::invoke:\n      function: snowflake:getCurrentAccount\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note** If a field has a default value, it is shown next to the type in the schema.\n",
+            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst _this = snowflake.getCurrentAccount({});\nconst snowflakeAccountUrl = new aws.index.SsmParameter(\"snowflake_account_url\", {\n    name: \"/snowflake/account_url\",\n    type: \"String\",\n    value: _this.url,\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\nimport pulumi_snowflake as snowflake\n\nthis = snowflake.get_current_account()\nsnowflake_account_url = aws.index.SsmParameter(\"snowflake_account_url\",\n    name=/snowflake/account_url,\n    type=String,\n    value=this.url)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Snowflake.GetCurrentAccount.Invoke();\n\n    var snowflakeAccountUrl = new Aws.Index.SsmParameter(\"snowflake_account_url\", new()\n    {\n        Name = \"/snowflake/account_url\",\n        Type = \"String\",\n        Value = @this.Apply(getCurrentAccountResult =\u003e getCurrentAccountResult.Url),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v7/go/aws\"\n\t\"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tthis, err := snowflake.LookupCurrentAccount(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = aws.NewSsmParameter(ctx, \"snowflake_account_url\", \u0026aws.SsmParameterArgs{\n\t\t\tName:  \"/snowflake/account_url\",\n\t\t\tType:  \"String\",\n\t\t\tValue: this.Url,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.aws.SsmParameter;\nimport com.pulumi.aws.SsmParameterArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var snowflakeAccountUrl = new SsmParameter(\"snowflakeAccountUrl\", SsmParameterArgs.builder()\n            .name(\"/snowflake/account_url\")\n            .type(\"String\")\n            .value(this_.url())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  snowflakeAccountUrl:\n    type: aws:SsmParameter\n    name: snowflake_account_url\n    properties:\n      name: /snowflake/account_url\n      type: String\n      value: ${this.url}\nvariables:\n  this:\n    fn::invoke:\n      function: snowflake:getCurrentAccount\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note** If a field has a default value, it is shown next to the type in the schema.\n",
             "outputs": {
                 "description": "A collection of values returned by getCurrentAccount.\n",
                 "properties": {
@@ -61420,7 +61845,7 @@
             }
         },
         "snowflake:index/getGitRepositories:getGitRepositories": {
-            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nData source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`gitRepositories`\" pulumi-lang-dotnet=\"`GitRepositories`\" pulumi-lang-go=\"`gitRepositories`\" pulumi-lang-python=\"`git_repositories`\" pulumi-lang-yaml=\"`gitRepositories`\" pulumi-lang-java=\"`gitRepositories`\"\u003e`git_repositories`\u003c/span\u003e.\n\n",
+            "description": "Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`gitRepositories`\" pulumi-lang-dotnet=\"`GitRepositories`\" pulumi-lang-go=\"`gitRepositories`\" pulumi-lang-python=\"`git_repositories`\" pulumi-lang-yaml=\"`gitRepositories`\" pulumi-lang-java=\"`gitRepositories`\"\u003e`git_repositories`\u003c/span\u003e.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getGitRepositories.\n",
                 "properties": {
@@ -61552,7 +61977,7 @@
             }
         },
         "snowflake:index/getImageRepositories:getImageRepositories": {
-            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nData source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`imageRepositories`\" pulumi-lang-dotnet=\"`ImageRepositories`\" pulumi-lang-go=\"`imageRepositories`\" pulumi-lang-python=\"`image_repositories`\" pulumi-lang-yaml=\"`imageRepositories`\" pulumi-lang-java=\"`imageRepositories`\"\u003e`image_repositories`\u003c/span\u003e.\n\n",
+            "description": "Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`imageRepositories`\" pulumi-lang-dotnet=\"`ImageRepositories`\" pulumi-lang-go=\"`imageRepositories`\" pulumi-lang-python=\"`image_repositories`\" pulumi-lang-yaml=\"`imageRepositories`\" pulumi-lang-java=\"`imageRepositories`\"\u003e`image_repositories`\u003c/span\u003e.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getImageRepositories.\n",
                 "properties": {
@@ -62262,7 +62687,7 @@
             }
         },
         "snowflake:index/getServices:getServices": {
-            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nData source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`services`\" pulumi-lang-dotnet=\"`Services`\" pulumi-lang-go=\"`services`\" pulumi-lang-python=\"`services`\" pulumi-lang-yaml=\"`services`\" pulumi-lang-java=\"`services`\"\u003e`services`\u003c/span\u003e. By default, the results includes both services and job services. If you want to filter only services or job service, set \u003cspan pulumi-lang-nodejs=\"`serviceType`\" pulumi-lang-dotnet=\"`ServiceType`\" pulumi-lang-go=\"`serviceType`\" pulumi-lang-python=\"`service_type`\" pulumi-lang-yaml=\"`serviceType`\" pulumi-lang-java=\"`serviceType`\"\u003e`service_type`\u003c/span\u003e with a relevant option.\n\n",
+            "description": "Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`services`\" pulumi-lang-dotnet=\"`Services`\" pulumi-lang-go=\"`services`\" pulumi-lang-python=\"`services`\" pulumi-lang-yaml=\"`services`\" pulumi-lang-java=\"`services`\"\u003e`services`\u003c/span\u003e. By default, the results includes both services and job services. If you want to filter only services or job service, set \u003cspan pulumi-lang-nodejs=\"`serviceType`\" pulumi-lang-dotnet=\"`ServiceType`\" pulumi-lang-go=\"`serviceType`\" pulumi-lang-python=\"`service_type`\" pulumi-lang-yaml=\"`serviceType`\" pulumi-lang-java=\"`serviceType`\"\u003e`service_type`\u003c/span\u003e with a relevant option.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getServices.\n",
                 "properties": {
@@ -62665,7 +63090,7 @@
             }
         },
         "snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig": {
-            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst snowflakePrivateLink = snowflake.getSystemGetPrivateLinkConfig({});\nconst snowflakePrivateLinkSecurityGroup = new aws.index.SecurityGroup(\"snowflake_private_link\", {\n    vpcId: vpcId,\n    ingress: [\n        {\n            fromPort: 80,\n            toPort: 80,\n            cidrBlocks: vpcCidr,\n            protocol: \"tcp\",\n        },\n        {\n            fromPort: 443,\n            toPort: 443,\n            cidrBlocks: vpcCidr,\n            protocol: \"tcp\",\n        },\n    ],\n});\nconst snowflakePrivateLinkVpcEndpoint = new aws.index.VpcEndpoint(\"snowflake_private_link\", {\n    vpcId: vpcId,\n    serviceName: snowflakePrivateLink.awsVpceId,\n    vpcEndpointType: \"Interface\",\n    securityGroupIds: [snowflakePrivateLinkSecurityGroup.id],\n    subnetIds: subnetIds,\n    privateDnsEnabled: false,\n});\nconst snowflakePrivateLinkRoute53Zone = new aws.index.Route53Zone(\"snowflake_private_link\", {\n    name: \"privatelink.snowflakecomputing.com\",\n    vpc: [{\n        vpcId: vpcId,\n    }],\n});\nconst snowflakePrivateLinkUrl = new aws.index.Route53Record(\"snowflake_private_link_url\", {\n    zoneId: snowflakePrivateLinkRoute53Zone.zoneId,\n    name: snowflakePrivateLink.accountUrl,\n    type: \"CNAME\",\n    ttl: \"300\",\n    records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],\n});\nconst snowflakePrivateLinkOcspUrl = new aws.index.Route53Record(\"snowflake_private_link_ocsp_url\", {\n    zoneId: snowflakePrivateLinkRoute53Zone.zoneId,\n    name: snowflakePrivateLink.ocspUrl,\n    type: \"CNAME\",\n    ttl: \"300\",\n    records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\nimport pulumi_snowflake as snowflake\n\nsnowflake_private_link = snowflake.get_system_get_private_link_config()\nsnowflake_private_link_security_group = aws.index.SecurityGroup(\"snowflake_private_link\",\n    vpc_id=vpc_id,\n    ingress=[\n        {\n            fromPort: 80,\n            toPort: 80,\n            cidrBlocks: vpc_cidr,\n            protocol: tcp,\n        },\n        {\n            fromPort: 443,\n            toPort: 443,\n            cidrBlocks: vpc_cidr,\n            protocol: tcp,\n        },\n    ])\nsnowflake_private_link_vpc_endpoint = aws.index.VpcEndpoint(\"snowflake_private_link\",\n    vpc_id=vpc_id,\n    service_name=snowflake_private_link.aws_vpce_id,\n    vpc_endpoint_type=Interface,\n    security_group_ids=[snowflake_private_link_security_group.id],\n    subnet_ids=subnet_ids,\n    private_dns_enabled=False)\nsnowflake_private_link_route53_zone = aws.index.Route53Zone(\"snowflake_private_link\",\n    name=privatelink.snowflakecomputing.com,\n    vpc=[{\n        vpcId: vpc_id,\n    }])\nsnowflake_private_link_url = aws.index.Route53Record(\"snowflake_private_link_url\",\n    zone_id=snowflake_private_link_route53_zone.zone_id,\n    name=snowflake_private_link.account_url,\n    type=CNAME,\n    ttl=300,\n    records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])\nsnowflake_private_link_ocsp_url = aws.index.Route53Record(\"snowflake_private_link_ocsp_url\",\n    zone_id=snowflake_private_link_route53_zone.zone_id,\n    name=snowflake_private_link.ocsp_url,\n    type=CNAME,\n    ttl=300,\n    records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();\n\n    var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup(\"snowflake_private_link\", new()\n    {\n        VpcId = vpcId,\n        Ingress = new[]\n        {\n            \n            {\n                { \"fromPort\", 80 },\n                { \"toPort\", 80 },\n                { \"cidrBlocks\", vpcCidr },\n                { \"protocol\", \"tcp\" },\n            },\n            \n            {\n                { \"fromPort\", 443 },\n                { \"toPort\", 443 },\n                { \"cidrBlocks\", vpcCidr },\n                { \"protocol\", \"tcp\" },\n            },\n        },\n    });\n\n    var snowflakePrivateLinkVpcEndpoint = new Aws.Index.VpcEndpoint(\"snowflake_private_link\", new()\n    {\n        VpcId = vpcId,\n        ServiceName = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =\u003e getSystemGetPrivateLinkConfigResult.AwsVpceId),\n        VpcEndpointType = \"Interface\",\n        SecurityGroupIds = new[]\n        {\n            snowflakePrivateLinkSecurityGroup.Id,\n        },\n        SubnetIds = subnetIds,\n        PrivateDnsEnabled = false,\n    });\n\n    var snowflakePrivateLinkRoute53Zone = new Aws.Index.Route53Zone(\"snowflake_private_link\", new()\n    {\n        Name = \"privatelink.snowflakecomputing.com\",\n        Vpc = new[]\n        {\n            \n            {\n                { \"vpcId\", vpcId },\n            },\n        },\n    });\n\n    var snowflakePrivateLinkUrl = new Aws.Index.Route53Record(\"snowflake_private_link_url\", new()\n    {\n        ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,\n        Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =\u003e getSystemGetPrivateLinkConfigResult.AccountUrl),\n        Type = \"CNAME\",\n        Ttl = \"300\",\n        Records = new[]\n        {\n            snowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,\n        },\n    });\n\n    var snowflakePrivateLinkOcspUrl = new Aws.Index.Route53Record(\"snowflake_private_link_ocsp_url\", new()\n    {\n        ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,\n        Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =\u003e getSystemGetPrivateLinkConfigResult.OcspUrl),\n        Type = \"CNAME\",\n        Ttl = \"300\",\n        Records = new[]\n        {\n            snowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v4/go/aws\"\n\t\"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsnowflakePrivateLink, err := snowflake.GetSystemGetPrivateLinkConfig(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsnowflakePrivateLinkSecurityGroup, err := aws.NewSecurityGroup(ctx, \"snowflake_private_link\", \u0026aws.SecurityGroupArgs{\n\t\t\tVpcId: vpcId,\n\t\t\tIngress: []interface{}{\n\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\"fromPort\":   80,\n\t\t\t\t\t\"toPort\":     80,\n\t\t\t\t\t\"cidrBlocks\": vpcCidr,\n\t\t\t\t\t\"protocol\":   \"tcp\",\n\t\t\t\t},\n\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\"fromPort\":   443,\n\t\t\t\t\t\"toPort\":     443,\n\t\t\t\t\t\"cidrBlocks\": vpcCidr,\n\t\t\t\t\t\"protocol\":   \"tcp\",\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsnowflakePrivateLinkVpcEndpoint, err := aws.NewVpcEndpoint(ctx, \"snowflake_private_link\", \u0026aws.VpcEndpointArgs{\n\t\t\tVpcId:           vpcId,\n\t\t\tServiceName:     snowflakePrivateLink.AwsVpceId,\n\t\t\tVpcEndpointType: \"Interface\",\n\t\t\tSecurityGroupIds: []interface{}{\n\t\t\t\tsnowflakePrivateLinkSecurityGroup.Id,\n\t\t\t},\n\t\t\tSubnetIds:         subnetIds,\n\t\t\tPrivateDnsEnabled: false,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsnowflakePrivateLinkRoute53Zone, err := aws.NewRoute53Zone(ctx, \"snowflake_private_link\", \u0026aws.Route53ZoneArgs{\n\t\t\tName: \"privatelink.snowflakecomputing.com\",\n\t\t\tVpc: []map[string]interface{}{\n\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\"vpcId\": vpcId,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = aws.NewRoute53Record(ctx, \"snowflake_private_link_url\", \u0026aws.Route53RecordArgs{\n\t\t\tZoneId: snowflakePrivateLinkRoute53Zone.ZoneId,\n\t\t\tName:   snowflakePrivateLink.AccountUrl,\n\t\t\tType:   \"CNAME\",\n\t\t\tTtl:    \"300\",\n\t\t\tRecords: []interface{}{\n\t\t\t\tsnowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = aws.NewRoute53Record(ctx, \"snowflake_private_link_ocsp_url\", \u0026aws.Route53RecordArgs{\n\t\t\tZoneId: snowflakePrivateLinkRoute53Zone.ZoneId,\n\t\t\tName:   snowflakePrivateLink.OcspUrl,\n\t\t\tType:   \"CNAME\",\n\t\t\tTtl:    \"300\",\n\t\t\tRecords: []interface{}{\n\t\t\t\tsnowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.aws.securityGroup;\nimport com.pulumi.aws.securityGroupArgs;\nimport com.pulumi.aws.vpcEndpoint;\nimport com.pulumi.aws.vpcEndpointArgs;\nimport com.pulumi.aws.route53Zone;\nimport com.pulumi.aws.route53ZoneArgs;\nimport com.pulumi.aws.route53Record;\nimport com.pulumi.aws.route53RecordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var snowflakePrivateLinkSecurityGroup = new SecurityGroup(\"snowflakePrivateLinkSecurityGroup\", SecurityGroupArgs.builder()\n            .vpcId(vpcId)\n            .ingress(List.of(            \n                Map.ofEntries(\n                    Map.entry(\"fromPort\", 80),\n                    Map.entry(\"toPort\", 80),\n                    Map.entry(\"cidrBlocks\", vpcCidr),\n                    Map.entry(\"protocol\", \"tcp\")\n                ),\n                Map.ofEntries(\n                    Map.entry(\"fromPort\", 443),\n                    Map.entry(\"toPort\", 443),\n                    Map.entry(\"cidrBlocks\", vpcCidr),\n                    Map.entry(\"protocol\", \"tcp\")\n                )))\n            .build());\n\n        var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint(\"snowflakePrivateLinkVpcEndpoint\", VpcEndpointArgs.builder()\n            .vpcId(vpcId)\n            .serviceName(snowflakePrivateLink.awsVpceId())\n            .vpcEndpointType(\"Interface\")\n            .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))\n            .subnetIds(subnetIds)\n            .privateDnsEnabled(false)\n            .build());\n\n        var snowflakePrivateLinkRoute53Zone = new Route53Zone(\"snowflakePrivateLinkRoute53Zone\", Route53ZoneArgs.builder()\n            .name(\"privatelink.snowflakecomputing.com\")\n            .vpc(List.of(Map.of(\"vpcId\", vpcId)))\n            .build());\n\n        var snowflakePrivateLinkUrl = new Route53Record(\"snowflakePrivateLinkUrl\", Route53RecordArgs.builder()\n            .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())\n            .name(snowflakePrivateLink.accountUrl())\n            .type(\"CNAME\")\n            .ttl(\"300\")\n            .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))\n            .build());\n\n        var snowflakePrivateLinkOcspUrl = new Route53Record(\"snowflakePrivateLinkOcspUrl\", Route53RecordArgs.builder()\n            .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())\n            .name(snowflakePrivateLink.ocspUrl())\n            .type(\"CNAME\")\n            .ttl(\"300\")\n            .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  snowflakePrivateLinkSecurityGroup:\n    type: aws:securityGroup\n    name: snowflake_private_link\n    properties:\n      vpcId: ${vpcId}\n      ingress:\n        - fromPort: 80\n          toPort: 80\n          cidrBlocks: ${vpcCidr}\n          protocol: tcp\n        - fromPort: 443\n          toPort: 443\n          cidrBlocks: ${vpcCidr}\n          protocol: tcp\n  snowflakePrivateLinkVpcEndpoint:\n    type: aws:vpcEndpoint\n    name: snowflake_private_link\n    properties:\n      vpcId: ${vpcId}\n      serviceName: ${snowflakePrivateLink.awsVpceId}\n      vpcEndpointType: Interface\n      securityGroupIds:\n        - ${snowflakePrivateLinkSecurityGroup.id}\n      subnetIds: ${subnetIds}\n      privateDnsEnabled: false\n  snowflakePrivateLinkRoute53Zone:\n    type: aws:route53Zone\n    name: snowflake_private_link\n    properties:\n      name: privatelink.snowflakecomputing.com\n      vpc:\n        - vpcId: ${vpcId}\n  snowflakePrivateLinkUrl:\n    type: aws:route53Record\n    name: snowflake_private_link_url\n    properties:\n      zoneId: ${snowflakePrivateLinkRoute53Zone.zoneId}\n      name: ${snowflakePrivateLink.accountUrl}\n      type: CNAME\n      ttl: '300'\n      records:\n        - ${snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name}\n  snowflakePrivateLinkOcspUrl:\n    type: aws:route53Record\n    name: snowflake_private_link_ocsp_url\n    properties:\n      zoneId: ${snowflakePrivateLinkRoute53Zone.zoneId}\n      name: ${snowflakePrivateLink.ocspUrl}\n      type: CNAME\n      ttl: '300'\n      records:\n        - ${snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name}\nvariables:\n  snowflakePrivateLink:\n    fn::invoke:\n      function: snowflake:getSystemGetPrivateLinkConfig\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note** If a field has a default value, it is shown next to the type in the schema.\n",
+            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws from \"@pulumi/aws\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst snowflakePrivateLink = snowflake.getSystemGetPrivateLinkConfig({});\nconst snowflakePrivateLinkSecurityGroup = new aws.index.SecurityGroup(\"snowflake_private_link\", {\n    vpcId: vpcId,\n    ingress: [\n        {\n            fromPort: 80,\n            toPort: 80,\n            cidrBlocks: vpcCidr,\n            protocol: \"tcp\",\n        },\n        {\n            fromPort: 443,\n            toPort: 443,\n            cidrBlocks: vpcCidr,\n            protocol: \"tcp\",\n        },\n    ],\n});\nconst snowflakePrivateLinkVpcEndpoint = new aws.index.VpcEndpoint(\"snowflake_private_link\", {\n    vpcId: vpcId,\n    serviceName: snowflakePrivateLink.awsVpceId,\n    vpcEndpointType: \"Interface\",\n    securityGroupIds: [snowflakePrivateLinkSecurityGroup.id],\n    subnetIds: subnetIds,\n    privateDnsEnabled: false,\n});\nconst snowflakePrivateLinkRoute53Zone = new aws.index.Route53Zone(\"snowflake_private_link\", {\n    name: \"privatelink.snowflakecomputing.com\",\n    vpc: [{\n        vpcId: vpcId,\n    }],\n});\nconst snowflakePrivateLinkUrl = new aws.index.Route53Record(\"snowflake_private_link_url\", {\n    zoneId: snowflakePrivateLinkRoute53Zone.zoneId,\n    name: snowflakePrivateLink.accountUrl,\n    type: \"CNAME\",\n    ttl: \"300\",\n    records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],\n});\nconst snowflakePrivateLinkOcspUrl = new aws.index.Route53Record(\"snowflake_private_link_ocsp_url\", {\n    zoneId: snowflakePrivateLinkRoute53Zone.zoneId,\n    name: snowflakePrivateLink.ocspUrl,\n    type: \"CNAME\",\n    ttl: \"300\",\n    records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],\n});\n```\n```python\nimport pulumi\nimport pulumi_aws as aws\nimport pulumi_snowflake as snowflake\n\nsnowflake_private_link = snowflake.get_system_get_private_link_config()\nsnowflake_private_link_security_group = aws.index.SecurityGroup(\"snowflake_private_link\",\n    vpc_id=vpc_id,\n    ingress=[\n        {\n            fromPort: 80,\n            toPort: 80,\n            cidrBlocks: vpc_cidr,\n            protocol: tcp,\n        },\n        {\n            fromPort: 443,\n            toPort: 443,\n            cidrBlocks: vpc_cidr,\n            protocol: tcp,\n        },\n    ])\nsnowflake_private_link_vpc_endpoint = aws.index.VpcEndpoint(\"snowflake_private_link\",\n    vpc_id=vpc_id,\n    service_name=snowflake_private_link.aws_vpce_id,\n    vpc_endpoint_type=Interface,\n    security_group_ids=[snowflake_private_link_security_group.id],\n    subnet_ids=subnet_ids,\n    private_dns_enabled=False)\nsnowflake_private_link_route53_zone = aws.index.Route53Zone(\"snowflake_private_link\",\n    name=privatelink.snowflakecomputing.com,\n    vpc=[{\n        vpcId: vpc_id,\n    }])\nsnowflake_private_link_url = aws.index.Route53Record(\"snowflake_private_link_url\",\n    zone_id=snowflake_private_link_route53_zone.zone_id,\n    name=snowflake_private_link.account_url,\n    type=CNAME,\n    ttl=300,\n    records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])\nsnowflake_private_link_ocsp_url = aws.index.Route53Record(\"snowflake_private_link_ocsp_url\",\n    zone_id=snowflake_private_link_route53_zone.zone_id,\n    name=snowflake_private_link.ocsp_url,\n    type=CNAME,\n    ttl=300,\n    records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Aws = Pulumi.Aws;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();\n\n    var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup(\"snowflake_private_link\", new()\n    {\n        VpcId = vpcId,\n        Ingress = new[]\n        {\n            \n            {\n                { \"fromPort\", 80 },\n                { \"toPort\", 80 },\n                { \"cidrBlocks\", vpcCidr },\n                { \"protocol\", \"tcp\" },\n            },\n            \n            {\n                { \"fromPort\", 443 },\n                { \"toPort\", 443 },\n                { \"cidrBlocks\", vpcCidr },\n                { \"protocol\", \"tcp\" },\n            },\n        },\n    });\n\n    var snowflakePrivateLinkVpcEndpoint = new Aws.Index.VpcEndpoint(\"snowflake_private_link\", new()\n    {\n        VpcId = vpcId,\n        ServiceName = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =\u003e getSystemGetPrivateLinkConfigResult.AwsVpceId),\n        VpcEndpointType = \"Interface\",\n        SecurityGroupIds = new[]\n        {\n            snowflakePrivateLinkSecurityGroup.Id,\n        },\n        SubnetIds = subnetIds,\n        PrivateDnsEnabled = false,\n    });\n\n    var snowflakePrivateLinkRoute53Zone = new Aws.Index.Route53Zone(\"snowflake_private_link\", new()\n    {\n        Name = \"privatelink.snowflakecomputing.com\",\n        Vpc = new[]\n        {\n            \n            {\n                { \"vpcId\", vpcId },\n            },\n        },\n    });\n\n    var snowflakePrivateLinkUrl = new Aws.Index.Route53Record(\"snowflake_private_link_url\", new()\n    {\n        ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,\n        Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =\u003e getSystemGetPrivateLinkConfigResult.AccountUrl),\n        Type = \"CNAME\",\n        Ttl = \"300\",\n        Records = new[]\n        {\n            snowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,\n        },\n    });\n\n    var snowflakePrivateLinkOcspUrl = new Aws.Index.Route53Record(\"snowflake_private_link_ocsp_url\", new()\n    {\n        ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,\n        Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =\u003e getSystemGetPrivateLinkConfigResult.OcspUrl),\n        Type = \"CNAME\",\n        Ttl = \"300\",\n        Records = new[]\n        {\n            snowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-aws/sdk/v7/go/aws\"\n\t\"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsnowflakePrivateLink, err := snowflake.GetSystemGetPrivateLinkConfig(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsnowflakePrivateLinkSecurityGroup, err := aws.NewSecurityGroup(ctx, \"snowflake_private_link\", \u0026aws.SecurityGroupArgs{\n\t\t\tVpcId: vpcId,\n\t\t\tIngress: []interface{}{\n\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\"fromPort\":   80,\n\t\t\t\t\t\"toPort\":     80,\n\t\t\t\t\t\"cidrBlocks\": vpcCidr,\n\t\t\t\t\t\"protocol\":   \"tcp\",\n\t\t\t\t},\n\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\"fromPort\":   443,\n\t\t\t\t\t\"toPort\":     443,\n\t\t\t\t\t\"cidrBlocks\": vpcCidr,\n\t\t\t\t\t\"protocol\":   \"tcp\",\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsnowflakePrivateLinkVpcEndpoint, err := aws.NewVpcEndpoint(ctx, \"snowflake_private_link\", \u0026aws.VpcEndpointArgs{\n\t\t\tVpcId:           vpcId,\n\t\t\tServiceName:     snowflakePrivateLink.AwsVpceId,\n\t\t\tVpcEndpointType: \"Interface\",\n\t\t\tSecurityGroupIds: []interface{}{\n\t\t\t\tsnowflakePrivateLinkSecurityGroup.Id,\n\t\t\t},\n\t\t\tSubnetIds:         subnetIds,\n\t\t\tPrivateDnsEnabled: false,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tsnowflakePrivateLinkRoute53Zone, err := aws.NewRoute53Zone(ctx, \"snowflake_private_link\", \u0026aws.Route53ZoneArgs{\n\t\t\tName: \"privatelink.snowflakecomputing.com\",\n\t\t\tVpc: []map[string]interface{}{\n\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\"vpcId\": vpcId,\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = aws.NewRoute53Record(ctx, \"snowflake_private_link_url\", \u0026aws.Route53RecordArgs{\n\t\t\tZoneId: snowflakePrivateLinkRoute53Zone.ZoneId,\n\t\t\tName:   snowflakePrivateLink.AccountUrl,\n\t\t\tType:   \"CNAME\",\n\t\t\tTtl:    \"300\",\n\t\t\tRecords: []interface{}{\n\t\t\t\tsnowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = aws.NewRoute53Record(ctx, \"snowflake_private_link_ocsp_url\", \u0026aws.Route53RecordArgs{\n\t\t\tZoneId: snowflakePrivateLinkRoute53Zone.ZoneId,\n\t\t\tName:   snowflakePrivateLink.OcspUrl,\n\t\t\tType:   \"CNAME\",\n\t\t\tTtl:    \"300\",\n\t\t\tRecords: []interface{}{\n\t\t\t\tsnowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.aws.SecurityGroup;\nimport com.pulumi.aws.SecurityGroupArgs;\nimport com.pulumi.aws.VpcEndpoint;\nimport com.pulumi.aws.VpcEndpointArgs;\nimport com.pulumi.aws.Route53Zone;\nimport com.pulumi.aws.Route53ZoneArgs;\nimport com.pulumi.aws.Route53Record;\nimport com.pulumi.aws.Route53RecordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var snowflakePrivateLinkSecurityGroup = new SecurityGroup(\"snowflakePrivateLinkSecurityGroup\", SecurityGroupArgs.builder()\n            .vpcId(vpcId)\n            .ingress(List.of(            \n                Map.ofEntries(\n                    Map.entry(\"fromPort\", 80),\n                    Map.entry(\"toPort\", 80),\n                    Map.entry(\"cidrBlocks\", vpcCidr),\n                    Map.entry(\"protocol\", \"tcp\")\n                ),\n                Map.ofEntries(\n                    Map.entry(\"fromPort\", 443),\n                    Map.entry(\"toPort\", 443),\n                    Map.entry(\"cidrBlocks\", vpcCidr),\n                    Map.entry(\"protocol\", \"tcp\")\n                )))\n            .build());\n\n        var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint(\"snowflakePrivateLinkVpcEndpoint\", VpcEndpointArgs.builder()\n            .vpcId(vpcId)\n            .serviceName(snowflakePrivateLink.awsVpceId())\n            .vpcEndpointType(\"Interface\")\n            .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))\n            .subnetIds(subnetIds)\n            .privateDnsEnabled(false)\n            .build());\n\n        var snowflakePrivateLinkRoute53Zone = new Route53Zone(\"snowflakePrivateLinkRoute53Zone\", Route53ZoneArgs.builder()\n            .name(\"privatelink.snowflakecomputing.com\")\n            .vpc(List.of(Map.of(\"vpcId\", vpcId)))\n            .build());\n\n        var snowflakePrivateLinkUrl = new Route53Record(\"snowflakePrivateLinkUrl\", Route53RecordArgs.builder()\n            .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())\n            .name(snowflakePrivateLink.accountUrl())\n            .type(\"CNAME\")\n            .ttl(\"300\")\n            .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))\n            .build());\n\n        var snowflakePrivateLinkOcspUrl = new Route53Record(\"snowflakePrivateLinkOcspUrl\", Route53RecordArgs.builder()\n            .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())\n            .name(snowflakePrivateLink.ocspUrl())\n            .type(\"CNAME\")\n            .ttl(\"300\")\n            .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  snowflakePrivateLinkSecurityGroup:\n    type: aws:SecurityGroup\n    name: snowflake_private_link\n    properties:\n      vpcId: ${vpcId}\n      ingress:\n        - fromPort: 80\n          toPort: 80\n          cidrBlocks: ${vpcCidr}\n          protocol: tcp\n        - fromPort: 443\n          toPort: 443\n          cidrBlocks: ${vpcCidr}\n          protocol: tcp\n  snowflakePrivateLinkVpcEndpoint:\n    type: aws:VpcEndpoint\n    name: snowflake_private_link\n    properties:\n      vpcId: ${vpcId}\n      serviceName: ${snowflakePrivateLink.awsVpceId}\n      vpcEndpointType: Interface\n      securityGroupIds:\n        - ${snowflakePrivateLinkSecurityGroup.id}\n      subnetIds: ${subnetIds}\n      privateDnsEnabled: false\n  snowflakePrivateLinkRoute53Zone:\n    type: aws:Route53Zone\n    name: snowflake_private_link\n    properties:\n      name: privatelink.snowflakecomputing.com\n      vpc:\n        - vpcId: ${vpcId}\n  snowflakePrivateLinkUrl:\n    type: aws:Route53Record\n    name: snowflake_private_link_url\n    properties:\n      zoneId: ${snowflakePrivateLinkRoute53Zone.zoneId}\n      name: ${snowflakePrivateLink.accountUrl}\n      type: CNAME\n      ttl: '300'\n      records:\n        - ${snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name}\n  snowflakePrivateLinkOcspUrl:\n    type: aws:Route53Record\n    name: snowflake_private_link_ocsp_url\n    properties:\n      zoneId: ${snowflakePrivateLinkRoute53Zone.zoneId}\n      name: ${snowflakePrivateLink.ocspUrl}\n      type: CNAME\n      ttl: '300'\n      records:\n        - ${snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name}\nvariables:\n  snowflakePrivateLink:\n    fn::invoke:\n      function: snowflake:getSystemGetPrivateLinkConfig\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note** If a field has a default value, it is shown next to the type in the schema.\n",
             "outputs": {
                 "description": "A collection of values returned by getSystemGetPrivateLinkConfig.\n",
                 "properties": {
@@ -62952,7 +63377,7 @@
             }
         },
         "snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens": {
-            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nData source used to get details of filtered user programmatic access tokens. Filtering is aligned with the current possibilities for [SHOW USER PROGRAMMATIC ACCESS TOKENS](https://docs.snowflake.com/en/sql-reference/sql/show-user-programmatic-access-tokens) query. The results of SHOW are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`userProgrammaticAccessTokens`\" pulumi-lang-dotnet=\"`UserProgrammaticAccessTokens`\" pulumi-lang-go=\"`userProgrammaticAccessTokens`\" pulumi-lang-python=\"`user_programmatic_access_tokens`\" pulumi-lang-yaml=\"`userProgrammaticAccessTokens`\" pulumi-lang-java=\"`userProgrammaticAccessTokens`\"\u003e`user_programmatic_access_tokens`\u003c/span\u003e.\n\n",
+            "description": "Data source used to get details of filtered user programmatic access tokens. Filtering is aligned with the current possibilities for [SHOW USER PROGRAMMATIC ACCESS TOKENS](https://docs.snowflake.com/en/sql-reference/sql/show-user-programmatic-access-tokens) query. The results of SHOW are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`userProgrammaticAccessTokens`\" pulumi-lang-dotnet=\"`UserProgrammaticAccessTokens`\" pulumi-lang-go=\"`userProgrammaticAccessTokens`\" pulumi-lang-python=\"`user_programmatic_access_tokens`\" pulumi-lang-yaml=\"`userProgrammaticAccessTokens`\" pulumi-lang-java=\"`userProgrammaticAccessTokens`\"\u003e`user_programmatic_access_tokens`\u003c/span\u003e.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getUserProgrammaticAccessTokens.\n",
                 "properties": {
@@ -63134,7 +63559,7 @@
             }
         },
         "snowflake:index/getWarehouses:getWarehouses": {
-            "description": "Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.\n\n",
+            "description": "\u003e **Note** Since \u003cspan pulumi-lang-nodejs=\"[202507 \" pulumi-lang-dotnet=\"[202507 \" pulumi-lang-go=\"[202507 \" pulumi-lang-python=\"[2025_07 \" pulumi-lang-yaml=\"[202507 \" pulumi-lang-java=\"[202507 \"\u003e[2025_07 \u003c/span\u003eBCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), \u003cspan pulumi-lang-nodejs=\"`describeOutput`\" pulumi-lang-dotnet=\"`DescribeOutput`\" pulumi-lang-go=\"`describeOutput`\" pulumi-lang-python=\"`describe_output`\" pulumi-lang-yaml=\"`describeOutput`\" pulumi-lang-java=\"`describeOutput`\"\u003e`describe_output`\u003c/span\u003e field is different from Snowflake. Now, in Snowflake always \u003cspan pulumi-lang-nodejs=\"`resourceConstraint`\" pulumi-lang-dotnet=\"`ResourceConstraint`\" pulumi-lang-go=\"`resourceConstraint`\" pulumi-lang-python=\"`resource_constraint`\" pulumi-lang-yaml=\"`resourceConstraint`\" pulumi-lang-java=\"`resourceConstraint`\"\u003e`resource_constraint`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`generation`\" pulumi-lang-dotnet=\"`Generation`\" pulumi-lang-go=\"`generation`\" pulumi-lang-python=\"`generation`\" pulumi-lang-yaml=\"`generation`\" pulumi-lang-java=\"`generation`\"\u003e`generation`\u003c/span\u003e are present. The provider, always takes the value from \u003cspan pulumi-lang-nodejs=\"`resourceConstraint`\" pulumi-lang-dotnet=\"`ResourceConstraint`\" pulumi-lang-go=\"`resourceConstraint`\" pulumi-lang-python=\"`resource_constraint`\" pulumi-lang-yaml=\"`resourceConstraint`\" pulumi-lang-java=\"`resourceConstraint`\"\u003e`resource_constraint`\u003c/span\u003e and dispatches it based on the warehouse type: for Standard warehouses, it sets \u003cspan pulumi-lang-nodejs=\"`generation`\" pulumi-lang-dotnet=\"`Generation`\" pulumi-lang-go=\"`generation`\" pulumi-lang-python=\"`generation`\" pulumi-lang-yaml=\"`generation`\" pulumi-lang-java=\"`generation`\"\u003e`generation`\u003c/span\u003e, for Snowpark-optimized warehouses, it sets \u003cspan pulumi-lang-nodejs=\"`resourceConstraint`\" pulumi-lang-dotnet=\"`ResourceConstraint`\" pulumi-lang-go=\"`resourceConstraint`\" pulumi-lang-python=\"`resource_constraint`\" pulumi-lang-yaml=\"`resourceConstraint`\" pulumi-lang-java=\"`resourceConstraint`\"\u003e`resource_constraint`\u003c/span\u003e. This will be adjusted later.\n\nData source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getWarehouses.\n",
                 "properties": {
