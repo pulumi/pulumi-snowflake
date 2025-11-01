@@ -16,7 +16,7 @@ func GetAccountName(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:accountName")
 }
 
-// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 func GetAuthenticator(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:authenticator")
 }
@@ -64,6 +64,11 @@ func GetDriverTracing(ctx *pulumi.Context) string {
 // Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
 func GetEnableSingleUseRefreshTokens(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:enableSingleUseRefreshTokens")
+}
+
+// A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+func GetExperimentalFeaturesEnableds(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:experimentalFeaturesEnableds")
 }
 
 // The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
@@ -308,4 +313,14 @@ func GetWarehouse(ctx *pulumi.Context) string {
 		value = d.(string)
 	}
 	return value
+}
+
+// The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+func GetWorkloadIdentityEntraResource(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:workloadIdentityEntraResource")
+}
+
+// The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+func GetWorkloadIdentityProvider(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:workloadIdentityProvider")
 }

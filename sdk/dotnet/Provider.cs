@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake
         public Output<string?> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         [Output("authenticator")]
         public Output<string?> Authenticator { get; private set; } = null!;
@@ -198,6 +198,18 @@ namespace Pulumi.Snowflake
         [Output("warehouse")]
         public Output<string?> Warehouse { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+        /// </summary>
+        [Output("workloadIdentityEntraResource")]
+        public Output<string?> WorkloadIdentityEntraResource { get; private set; } = null!;
+
+        /// <summary>
+        /// The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+        /// </summary>
+        [Output("workloadIdentityProvider")]
+        public Output<string?> WorkloadIdentityProvider { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
@@ -252,7 +264,7 @@ namespace Pulumi.Snowflake
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         [Input("authenticator")]
         public Input<string>? Authenticator { get; set; }
@@ -310,6 +322,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("enableSingleUseRefreshTokens", json: true)]
         public Input<bool>? EnableSingleUseRefreshTokens { get; set; }
+
+        [Input("experimentalFeaturesEnableds", json: true)]
+        private InputList<string>? _experimentalFeaturesEnableds;
+
+        /// <summary>
+        /// A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+        /// </summary>
+        public InputList<string> ExperimentalFeaturesEnableds
+        {
+            get => _experimentalFeaturesEnableds ?? (_experimentalFeaturesEnableds = new InputList<string>());
+            set => _experimentalFeaturesEnableds = value;
+        }
 
         /// <summary>
         /// The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
@@ -646,6 +670,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }
+
+        /// <summary>
+        /// The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+        /// </summary>
+        [Input("workloadIdentityEntraResource")]
+        public Input<string>? WorkloadIdentityEntraResource { get; set; }
+
+        /// <summary>
+        /// The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+        /// </summary>
+        [Input("workloadIdentityProvider")]
+        public Input<string>? WorkloadIdentityProvider { get; set; }
 
         public ProviderArgs()
         {

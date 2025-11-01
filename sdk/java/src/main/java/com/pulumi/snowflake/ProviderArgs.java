@@ -37,14 +37,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      * 
      */
     @Import(name="authenticator")
     private @Nullable Output<String> authenticator;
 
     /**
-     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * @return Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      * 
      */
     public Optional<Output<String>> authenticator() {
@@ -184,6 +184,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> enableSingleUseRefreshTokens() {
         return Optional.ofNullable(this.enableSingleUseRefreshTokens);
+    }
+
+    /**
+     * A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+     * 
+     */
+    @Import(name="experimentalFeaturesEnableds", json=true)
+    private @Nullable Output<List<String>> experimentalFeaturesEnableds;
+
+    /**
+     * @return A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+     * 
+     */
+    public Optional<Output<List<String>>> experimentalFeaturesEnableds() {
+        return Optional.ofNullable(this.experimentalFeaturesEnableds);
     }
 
     /**
@@ -748,6 +763,36 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.warehouse);
     }
 
+    /**
+     * The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+     * 
+     */
+    @Import(name="workloadIdentityEntraResource")
+    private @Nullable Output<String> workloadIdentityEntraResource;
+
+    /**
+     * @return The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+     * 
+     */
+    public Optional<Output<String>> workloadIdentityEntraResource() {
+        return Optional.ofNullable(this.workloadIdentityEntraResource);
+    }
+
+    /**
+     * The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+     * 
+     */
+    @Import(name="workloadIdentityProvider")
+    private @Nullable Output<String> workloadIdentityProvider;
+
+    /**
+     * @return The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+     * 
+     */
+    public Optional<Output<String>> workloadIdentityProvider() {
+        return Optional.ofNullable(this.workloadIdentityProvider);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
@@ -762,6 +807,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.disableTelemetry = $.disableTelemetry;
         this.driverTracing = $.driverTracing;
         this.enableSingleUseRefreshTokens = $.enableSingleUseRefreshTokens;
+        this.experimentalFeaturesEnableds = $.experimentalFeaturesEnableds;
         this.externalBrowserTimeout = $.externalBrowserTimeout;
         this.host = $.host;
         this.includeRetryReason = $.includeRetryReason;
@@ -800,6 +846,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.user = $.user;
         this.validateDefaultParameters = $.validateDefaultParameters;
         this.warehouse = $.warehouse;
+        this.workloadIdentityEntraResource = $.workloadIdentityEntraResource;
+        this.workloadIdentityProvider = $.workloadIdentityProvider;
     }
 
     public static Builder builder() {
@@ -842,7 +890,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
          * 
          * @return builder
          * 
@@ -853,7 +901,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+         * @param authenticator Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
          * 
          * @return builder
          * 
@@ -1049,6 +1097,37 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableSingleUseRefreshTokens(Boolean enableSingleUseRefreshTokens) {
             return enableSingleUseRefreshTokens(Output.of(enableSingleUseRefreshTokens));
+        }
+
+        /**
+         * @param experimentalFeaturesEnableds A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalFeaturesEnableds(@Nullable Output<List<String>> experimentalFeaturesEnableds) {
+            $.experimentalFeaturesEnableds = experimentalFeaturesEnableds;
+            return this;
+        }
+
+        /**
+         * @param experimentalFeaturesEnableds A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalFeaturesEnableds(List<String> experimentalFeaturesEnableds) {
+            return experimentalFeaturesEnableds(Output.of(experimentalFeaturesEnableds));
+        }
+
+        /**
+         * @param experimentalFeaturesEnableds A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalFeaturesEnableds(String... experimentalFeaturesEnableds) {
+            return experimentalFeaturesEnableds(List.of(experimentalFeaturesEnableds));
         }
 
         /**
@@ -1839,6 +1918,48 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder warehouse(String warehouse) {
             return warehouse(Output.of(warehouse));
+        }
+
+        /**
+         * @param workloadIdentityEntraResource The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityEntraResource(@Nullable Output<String> workloadIdentityEntraResource) {
+            $.workloadIdentityEntraResource = workloadIdentityEntraResource;
+            return this;
+        }
+
+        /**
+         * @param workloadIdentityEntraResource The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityEntraResource(String workloadIdentityEntraResource) {
+            return workloadIdentityEntraResource(Output.of(workloadIdentityEntraResource));
+        }
+
+        /**
+         * @param workloadIdentityProvider The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityProvider(@Nullable Output<String> workloadIdentityProvider) {
+            $.workloadIdentityProvider = workloadIdentityProvider;
+            return this;
+        }
+
+        /**
+         * @param workloadIdentityProvider The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityProvider(String workloadIdentityProvider) {
+            return workloadIdentityProvider(Output.of(workloadIdentityProvider));
         }
 
         public ProviderArgs build() {

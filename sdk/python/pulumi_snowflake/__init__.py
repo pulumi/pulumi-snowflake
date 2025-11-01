@@ -40,6 +40,7 @@ from .function_sql import *
 from .get_account_roles import *
 from .get_accounts import *
 from .get_alerts import *
+from .get_authentication_policies import *
 from .get_compute_pools import *
 from .get_connections import *
 from .get_cortex_search_services import *

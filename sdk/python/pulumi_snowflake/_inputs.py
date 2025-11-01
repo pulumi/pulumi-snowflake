@@ -103,8 +103,14 @@ __all__ = [
     'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict',
     'AuthenticationPolicyDescribeOutputArgs',
     'AuthenticationPolicyDescribeOutputArgsDict',
+    'AuthenticationPolicyMfaPolicyArgs',
+    'AuthenticationPolicyMfaPolicyArgsDict',
+    'AuthenticationPolicyPatPolicyArgs',
+    'AuthenticationPolicyPatPolicyArgsDict',
     'AuthenticationPolicyShowOutputArgs',
     'AuthenticationPolicyShowOutputArgsDict',
+    'AuthenticationPolicyWorkloadIdentityPolicyArgs',
+    'AuthenticationPolicyWorkloadIdentityPolicyArgsDict',
     'ComputePoolDescribeOutputArgs',
     'ComputePoolDescribeOutputArgsDict',
     'ComputePoolShowOutputArgs',
@@ -1219,6 +1225,12 @@ __all__ = [
     'WarehouseParameterStatementTimeoutInSecondArgsDict',
     'WarehouseShowOutputArgs',
     'WarehouseShowOutputArgsDict',
+    'GetAuthenticationPoliciesInArgs',
+    'GetAuthenticationPoliciesInArgsDict',
+    'GetAuthenticationPoliciesLimitArgs',
+    'GetAuthenticationPoliciesLimitArgsDict',
+    'GetAuthenticationPoliciesOnArgs',
+    'GetAuthenticationPoliciesOnArgsDict',
     'GetComputePoolsLimitArgs',
     'GetComputePoolsLimitArgsDict',
     'GetCortexSearchServicesInArgs',
@@ -4704,9 +4716,12 @@ if not MYPY:
         comment: NotRequired[pulumi.Input[_builtins.str]]
         mfa_authentication_methods: NotRequired[pulumi.Input[_builtins.str]]
         mfa_enrollment: NotRequired[pulumi.Input[_builtins.str]]
+        mfa_policy: NotRequired[pulumi.Input[_builtins.str]]
         name: NotRequired[pulumi.Input[_builtins.str]]
         owner: NotRequired[pulumi.Input[_builtins.str]]
+        pat_policy: NotRequired[pulumi.Input[_builtins.str]]
         security_integrations: NotRequired[pulumi.Input[_builtins.str]]
+        workload_identity_policy: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     AuthenticationPolicyDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4718,9 +4733,12 @@ class AuthenticationPolicyDescribeOutputArgs:
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_authentication_methods: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
+                 mfa_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_integrations: Optional[pulumi.Input[_builtins.str]] = None):
+                 pat_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_integrations: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_identity_policy: Optional[pulumi.Input[_builtins.str]] = None):
         if authentication_methods is not None:
             pulumi.set(__self__, "authentication_methods", authentication_methods)
         if client_types is not None:
@@ -4731,12 +4749,18 @@ class AuthenticationPolicyDescribeOutputArgs:
             pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         if mfa_enrollment is not None:
             pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
+        if mfa_policy is not None:
+            pulumi.set(__self__, "mfa_policy", mfa_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if pat_policy is not None:
+            pulumi.set(__self__, "pat_policy", pat_policy)
         if security_integrations is not None:
             pulumi.set(__self__, "security_integrations", security_integrations)
+        if workload_identity_policy is not None:
+            pulumi.set(__self__, "workload_identity_policy", workload_identity_policy)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
@@ -4784,6 +4808,15 @@ class AuthenticationPolicyDescribeOutputArgs:
         pulumi.set(self, "mfa_enrollment", value)
 
     @_builtins.property
+    @pulumi.getter(name="mfaPolicy")
+    def mfa_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "mfa_policy")
+
+    @mfa_policy.setter
+    def mfa_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mfa_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "name")
@@ -4802,6 +4835,15 @@ class AuthenticationPolicyDescribeOutputArgs:
         pulumi.set(self, "owner", value)
 
     @_builtins.property
+    @pulumi.getter(name="patPolicy")
+    def pat_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "pat_policy")
+
+    @pat_policy.setter
+    def pat_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pat_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityIntegrations")
     def security_integrations(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "security_integrations")
@@ -4810,12 +4852,139 @@ class AuthenticationPolicyDescribeOutputArgs:
     def security_integrations(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "security_integrations", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPolicy")
+    def workload_identity_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "workload_identity_policy")
+
+    @workload_identity_policy.setter
+    def workload_identity_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workload_identity_policy", value)
+
+
+if not MYPY:
+    class AuthenticationPolicyMfaPolicyArgsDict(TypedDict):
+        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        enforce_mfa_on_external_authentication: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+        """
+elif False:
+    AuthenticationPolicyMfaPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AuthenticationPolicyMfaPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enforce_mfa_on_external_authentication: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] enforce_mfa_on_external_authentication: Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+        """
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if enforce_mfa_on_external_authentication is not None:
+            pulumi.set(__self__, "enforce_mfa_on_external_authentication", enforce_mfa_on_external_authentication)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enforceMfaOnExternalAuthentication")
+    def enforce_mfa_on_external_authentication(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+        """
+        return pulumi.get(self, "enforce_mfa_on_external_authentication")
+
+    @enforce_mfa_on_external_authentication.setter
+    def enforce_mfa_on_external_authentication(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "enforce_mfa_on_external_authentication", value)
+
+
+if not MYPY:
+    class AuthenticationPolicyPatPolicyArgsDict(TypedDict):
+        default_expiry_in_days: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies the default expiration time (in days) for a programmatic access token.
+        """
+        max_expiry_in_days: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+        """
+        network_policy_evaluation: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the network policy evaluation for the PAT.
+        """
+elif False:
+    AuthenticationPolicyPatPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AuthenticationPolicyPatPolicyArgs:
+    def __init__(__self__, *,
+                 default_expiry_in_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_expiry_in_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 network_policy_evaluation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] default_expiry_in_days: Specifies the default expiration time (in days) for a programmatic access token.
+        :param pulumi.Input[_builtins.int] max_expiry_in_days: Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+        :param pulumi.Input[_builtins.str] network_policy_evaluation: Specifies the network policy evaluation for the PAT.
+        """
+        if default_expiry_in_days is not None:
+            pulumi.set(__self__, "default_expiry_in_days", default_expiry_in_days)
+        if max_expiry_in_days is not None:
+            pulumi.set(__self__, "max_expiry_in_days", max_expiry_in_days)
+        if network_policy_evaluation is not None:
+            pulumi.set(__self__, "network_policy_evaluation", network_policy_evaluation)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultExpiryInDays")
+    def default_expiry_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the default expiration time (in days) for a programmatic access token.
+        """
+        return pulumi.get(self, "default_expiry_in_days")
+
+    @default_expiry_in_days.setter
+    def default_expiry_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "default_expiry_in_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxExpiryInDays")
+    def max_expiry_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+        """
+        return pulumi.get(self, "max_expiry_in_days")
+
+    @max_expiry_in_days.setter
+    def max_expiry_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_expiry_in_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkPolicyEvaluation")
+    def network_policy_evaluation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the network policy evaluation for the PAT.
+        """
+        return pulumi.get(self, "network_policy_evaluation")
+
+    @network_policy_evaluation.setter
+    def network_policy_evaluation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "network_policy_evaluation", value)
+
 
 if not MYPY:
     class AuthenticationPolicyShowOutputArgsDict(TypedDict):
         comment: NotRequired[pulumi.Input[_builtins.str]]
         created_on: NotRequired[pulumi.Input[_builtins.str]]
         database_name: NotRequired[pulumi.Input[_builtins.str]]
+        kind: NotRequired[pulumi.Input[_builtins.str]]
         name: NotRequired[pulumi.Input[_builtins.str]]
         options: NotRequired[pulumi.Input[_builtins.str]]
         owner: NotRequired[pulumi.Input[_builtins.str]]
@@ -4830,6 +4999,7 @@ class AuthenticationPolicyShowOutputArgs:
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  created_on: Optional[pulumi.Input[_builtins.str]] = None,
                  database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  options: Optional[pulumi.Input[_builtins.str]] = None,
                  owner: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4841,6 +5011,8 @@ class AuthenticationPolicyShowOutputArgs:
             pulumi.set(__self__, "created_on", created_on)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if options is not None:
@@ -4878,6 +5050,15 @@ class AuthenticationPolicyShowOutputArgs:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
@@ -4923,6 +5104,91 @@ class AuthenticationPolicyShowOutputArgs:
     @schema_name.setter
     def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
+
+
+if not MYPY:
+    class AuthenticationPolicyWorkloadIdentityPolicyArgsDict(TypedDict):
+        allowed_aws_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+        """
+        allowed_azure_issuers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+        """
+        allowed_oidc_issuers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+        """
+        allowed_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+elif False:
+    AuthenticationPolicyWorkloadIdentityPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AuthenticationPolicyWorkloadIdentityPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_azure_issuers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_oidc_issuers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_aws_accounts: Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_azure_issuers: Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oidc_issuers: Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+        """
+        if allowed_aws_accounts is not None:
+            pulumi.set(__self__, "allowed_aws_accounts", allowed_aws_accounts)
+        if allowed_azure_issuers is not None:
+            pulumi.set(__self__, "allowed_azure_issuers", allowed_azure_issuers)
+        if allowed_oidc_issuers is not None:
+            pulumi.set(__self__, "allowed_oidc_issuers", allowed_oidc_issuers)
+        if allowed_providers is not None:
+            pulumi.set(__self__, "allowed_providers", allowed_providers)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAwsAccounts")
+    def allowed_aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+        """
+        return pulumi.get(self, "allowed_aws_accounts")
+
+    @allowed_aws_accounts.setter
+    def allowed_aws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_aws_accounts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAzureIssuers")
+    def allowed_azure_issuers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+        """
+        return pulumi.get(self, "allowed_azure_issuers")
+
+    @allowed_azure_issuers.setter
+    def allowed_azure_issuers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_azure_issuers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOidcIssuers")
+    def allowed_oidc_issuers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+        """
+        return pulumi.get(self, "allowed_oidc_issuers")
+
+    @allowed_oidc_issuers.setter
+    def allowed_oidc_issuers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_oidc_issuers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedProviders")
+    def allowed_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_providers")
+
+    @allowed_providers.setter
+    def allowed_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_providers", value)
 
 
 if not MYPY:
@@ -56369,6 +56635,221 @@ class WarehouseShowOutputArgs:
     @updated_on.setter
     def updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "updated_on", value)
+
+
+if not MYPY:
+    class GetAuthenticationPoliciesInArgsDict(TypedDict):
+        account: NotRequired[_builtins.bool]
+        """
+        Returns records for the entire account.
+        """
+        application: NotRequired[_builtins.str]
+        """
+        Returns records for the specified application.
+        """
+        application_package: NotRequired[_builtins.str]
+        """
+        Returns records for the specified application package.
+        """
+        database: NotRequired[_builtins.str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[_builtins.str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetAuthenticationPoliciesInArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetAuthenticationPoliciesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application_package", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetAuthenticationPoliciesLimitArgsDict(TypedDict):
+        rows: _builtins.int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[_builtins.str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetAuthenticationPoliciesLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetAuthenticationPoliciesLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+if not MYPY:
+    class GetAuthenticationPoliciesOnArgsDict(TypedDict):
+        account: NotRequired[_builtins.bool]
+        """
+        Returns records for the entire account.
+        """
+        user: NotRequired[_builtins.str]
+        """
+        Returns records for the specified user.
+        """
+elif False:
+    GetAuthenticationPoliciesOnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetAuthenticationPoliciesOnArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 user: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str user: Returns records for the specified user.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified user.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "user", value)
 
 
 if not MYPY:

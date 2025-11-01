@@ -18,9 +18,12 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? Comment;
         public readonly string? MfaAuthenticationMethods;
         public readonly string? MfaEnrollment;
+        public readonly string? MfaPolicy;
         public readonly string? Name;
         public readonly string? Owner;
+        public readonly string? PatPolicy;
         public readonly string? SecurityIntegrations;
+        public readonly string? WorkloadIdentityPolicy;
 
         [OutputConstructor]
         private AuthenticationPolicyDescribeOutput(
@@ -34,20 +37,29 @@ namespace Pulumi.Snowflake.Outputs
 
             string? mfaEnrollment,
 
+            string? mfaPolicy,
+
             string? name,
 
             string? owner,
 
-            string? securityIntegrations)
+            string? patPolicy,
+
+            string? securityIntegrations,
+
+            string? workloadIdentityPolicy)
         {
             AuthenticationMethods = authenticationMethods;
             ClientTypes = clientTypes;
             Comment = comment;
             MfaAuthenticationMethods = mfaAuthenticationMethods;
             MfaEnrollment = mfaEnrollment;
+            MfaPolicy = mfaPolicy;
             Name = name;
             Owner = owner;
+            PatPolicy = patPolicy;
             SecurityIntegrations = securityIntegrations;
+            WorkloadIdentityPolicy = workloadIdentityPolicy;
         }
     }
 }

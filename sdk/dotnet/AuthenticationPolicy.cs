@@ -20,13 +20,13 @@ namespace Pulumi.Snowflake
     public partial class AuthenticationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+        /// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         /// </summary>
         [Output("authenticationMethods")]
         public Output<ImmutableArray<string>> AuthenticationMethods { get; private set; } = null!;
 
         /// <summary>
-        /// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        /// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `ClientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `ClientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         /// </summary>
         [Output("clientTypes")]
         public Output<ImmutableArray<string>> ClientTypes { get; private set; } = null!;
@@ -62,10 +62,16 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> MfaAuthenticationMethods { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
         /// </summary>
         [Output("mfaEnrollment")]
         public Output<string?> MfaEnrollment { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
+        /// </summary>
+        [Output("mfaPolicy")]
+        public Output<Outputs.AuthenticationPolicyMfaPolicy?> MfaPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -74,13 +80,19 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the policy for programmatic access tokens.
+        /// </summary>
+        [Output("patPolicy")]
+        public Output<Outputs.AuthenticationPolicyPatPolicy?> PatPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        /// A list of security integrations the authentication policy is associated with. This parameter has no effect when `Saml` or `Oauth` are not in the `AuthenticationMethods` list. All values in the `SecurityIntegrations` list must be compatible with the values in the `AuthenticationMethods` list. For example, if `SecurityIntegrations` contains a SAML security integration, and `AuthenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         /// </summary>
         [Output("securityIntegrations")]
         public Output<ImmutableArray<string>> SecurityIntegrations { get; private set; } = null!;
@@ -90,6 +102,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.AuthenticationPolicyShowOutput>> ShowOutputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the policy for workload identity federation.
+        /// </summary>
+        [Output("workloadIdentityPolicy")]
+        public Output<Outputs.AuthenticationPolicyWorkloadIdentityPolicy?> WorkloadIdentityPolicy { get; private set; } = null!;
 
 
         /// <summary>
@@ -141,7 +159,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _authenticationMethods;
 
         /// <summary>
-        /// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+        /// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         /// </summary>
         public InputList<string> AuthenticationMethods
         {
@@ -153,7 +171,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _clientTypes;
 
         /// <summary>
-        /// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        /// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `ClientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `ClientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         /// </summary>
         public InputList<string> ClientTypes
         {
@@ -187,16 +205,28 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
         /// </summary>
         [Input("mfaEnrollment")]
         public Input<string>? MfaEnrollment { get; set; }
+
+        /// <summary>
+        /// Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
+        /// </summary>
+        [Input("mfaPolicy")]
+        public Input<Inputs.AuthenticationPolicyMfaPolicyArgs>? MfaPolicy { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the policy for programmatic access tokens.
+        /// </summary>
+        [Input("patPolicy")]
+        public Input<Inputs.AuthenticationPolicyPatPolicyArgs>? PatPolicy { get; set; }
 
         /// <summary>
         /// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -208,13 +238,19 @@ namespace Pulumi.Snowflake
         private InputList<string>? _securityIntegrations;
 
         /// <summary>
-        /// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        /// A list of security integrations the authentication policy is associated with. This parameter has no effect when `Saml` or `Oauth` are not in the `AuthenticationMethods` list. All values in the `SecurityIntegrations` list must be compatible with the values in the `AuthenticationMethods` list. For example, if `SecurityIntegrations` contains a SAML security integration, and `AuthenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         /// </summary>
         public InputList<string> SecurityIntegrations
         {
             get => _securityIntegrations ?? (_securityIntegrations = new InputList<string>());
             set => _securityIntegrations = value;
         }
+
+        /// <summary>
+        /// Specifies the policy for workload identity federation.
+        /// </summary>
+        [Input("workloadIdentityPolicy")]
+        public Input<Inputs.AuthenticationPolicyWorkloadIdentityPolicyArgs>? WorkloadIdentityPolicy { get; set; }
 
         public AuthenticationPolicyArgs()
         {
@@ -228,7 +264,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _authenticationMethods;
 
         /// <summary>
-        /// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+        /// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         /// </summary>
         public InputList<string> AuthenticationMethods
         {
@@ -240,7 +276,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _clientTypes;
 
         /// <summary>
-        /// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        /// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `ClientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `ClientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         /// </summary>
         public InputList<string> ClientTypes
         {
@@ -292,16 +328,28 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
         /// </summary>
         [Input("mfaEnrollment")]
         public Input<string>? MfaEnrollment { get; set; }
+
+        /// <summary>
+        /// Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
+        /// </summary>
+        [Input("mfaPolicy")]
+        public Input<Inputs.AuthenticationPolicyMfaPolicyGetArgs>? MfaPolicy { get; set; }
 
         /// <summary>
         /// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the policy for programmatic access tokens.
+        /// </summary>
+        [Input("patPolicy")]
+        public Input<Inputs.AuthenticationPolicyPatPolicyGetArgs>? PatPolicy { get; set; }
 
         /// <summary>
         /// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -313,7 +361,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _securityIntegrations;
 
         /// <summary>
-        /// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        /// A list of security integrations the authentication policy is associated with. This parameter has no effect when `Saml` or `Oauth` are not in the `AuthenticationMethods` list. All values in the `SecurityIntegrations` list must be compatible with the values in the `AuthenticationMethods` list. For example, if `SecurityIntegrations` contains a SAML security integration, and `AuthenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         /// </summary>
         public InputList<string> SecurityIntegrations
         {
@@ -332,6 +380,12 @@ namespace Pulumi.Snowflake
             get => _showOutputs ?? (_showOutputs = new InputList<Inputs.AuthenticationPolicyShowOutputGetArgs>());
             set => _showOutputs = value;
         }
+
+        /// <summary>
+        /// Specifies the policy for workload identity federation.
+        /// </summary>
+        [Input("workloadIdentityPolicy")]
+        public Input<Inputs.AuthenticationPolicyWorkloadIdentityPolicyGetArgs>? WorkloadIdentityPolicy { get; set; }
 
         public AuthenticationPolicyState()
         {

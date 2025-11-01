@@ -49,6 +49,7 @@
         "getAccountRoles.ts",
         "getAccounts.ts",
         "getAlerts.ts",
+        "getAuthenticationPolicies.ts",
         "getComputePools.ts",
         "getConnections.ts",
         "getCortexSearchServices.ts",

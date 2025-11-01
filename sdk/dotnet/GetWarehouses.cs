@@ -12,18 +12,24 @@ namespace Pulumi.Snowflake
     public static class GetWarehouses
     {
         /// <summary>
+        /// &gt; **Note** Since [202507 BCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), `DescribeOutput` field is different from Snowflake. Now, in Snowflake always `ResourceConstraint` and `Generation` are present. The provider, always takes the value from `ResourceConstraint` and dispatches it based on the warehouse type: for Standard warehouses, it sets `Generation`, for Snowpark-optimized warehouses, it sets `ResourceConstraint`. This will be adjusted later.
+        /// 
         /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `Like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Task<GetWarehousesResult> InvokeAsync(GetWarehousesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWarehousesResult>("snowflake:index/getWarehouses:getWarehouses", args ?? new GetWarehousesArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Note** Since [202507 BCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), `DescribeOutput` field is different from Snowflake. Now, in Snowflake always `ResourceConstraint` and `Generation` are present. The provider, always takes the value from `ResourceConstraint` and dispatches it based on the warehouse type: for Standard warehouses, it sets `Generation`, for Snowpark-optimized warehouses, it sets `ResourceConstraint`. This will be adjusted later.
+        /// 
         /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `Like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Output<GetWarehousesResult> Invoke(GetWarehousesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWarehousesResult>("snowflake:index/getWarehouses:getWarehouses", args ?? new GetWarehousesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// &gt; **Note** Since [202507 BCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), `DescribeOutput` field is different from Snowflake. Now, in Snowflake always `ResourceConstraint` and `Generation` are present. The provider, always takes the value from `ResourceConstraint` and dispatches it based on the warehouse type: for Standard warehouses, it sets `Generation`, for Snowpark-optimized warehouses, it sets `ResourceConstraint`. This will be adjusted later.
+        /// 
         /// Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `Like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
         /// </summary>
         public static Output<GetWarehousesResult> Invoke(GetWarehousesInvokeArgs args, InvokeOutputOptions options)

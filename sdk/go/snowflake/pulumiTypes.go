@@ -5555,9 +5555,12 @@ type AuthenticationPolicyDescribeOutput struct {
 	Comment                  *string `pulumi:"comment"`
 	MfaAuthenticationMethods *string `pulumi:"mfaAuthenticationMethods"`
 	MfaEnrollment            *string `pulumi:"mfaEnrollment"`
+	MfaPolicy                *string `pulumi:"mfaPolicy"`
 	Name                     *string `pulumi:"name"`
 	Owner                    *string `pulumi:"owner"`
+	PatPolicy                *string `pulumi:"patPolicy"`
 	SecurityIntegrations     *string `pulumi:"securityIntegrations"`
+	WorkloadIdentityPolicy   *string `pulumi:"workloadIdentityPolicy"`
 }
 
 // AuthenticationPolicyDescribeOutputInput is an input type that accepts AuthenticationPolicyDescribeOutputArgs and AuthenticationPolicyDescribeOutputOutput values.
@@ -5577,9 +5580,12 @@ type AuthenticationPolicyDescribeOutputArgs struct {
 	Comment                  pulumi.StringPtrInput `pulumi:"comment"`
 	MfaAuthenticationMethods pulumi.StringPtrInput `pulumi:"mfaAuthenticationMethods"`
 	MfaEnrollment            pulumi.StringPtrInput `pulumi:"mfaEnrollment"`
+	MfaPolicy                pulumi.StringPtrInput `pulumi:"mfaPolicy"`
 	Name                     pulumi.StringPtrInput `pulumi:"name"`
 	Owner                    pulumi.StringPtrInput `pulumi:"owner"`
+	PatPolicy                pulumi.StringPtrInput `pulumi:"patPolicy"`
 	SecurityIntegrations     pulumi.StringPtrInput `pulumi:"securityIntegrations"`
+	WorkloadIdentityPolicy   pulumi.StringPtrInput `pulumi:"workloadIdentityPolicy"`
 }
 
 func (AuthenticationPolicyDescribeOutputArgs) ElementType() reflect.Type {
@@ -5653,6 +5659,10 @@ func (o AuthenticationPolicyDescribeOutputOutput) MfaEnrollment() pulumi.StringP
 	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.MfaEnrollment }).(pulumi.StringPtrOutput)
 }
 
+func (o AuthenticationPolicyDescribeOutputOutput) MfaPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.MfaPolicy }).(pulumi.StringPtrOutput)
+}
+
 func (o AuthenticationPolicyDescribeOutputOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5661,8 +5671,16 @@ func (o AuthenticationPolicyDescribeOutputOutput) Owner() pulumi.StringPtrOutput
 	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
+func (o AuthenticationPolicyDescribeOutputOutput) PatPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.PatPolicy }).(pulumi.StringPtrOutput)
+}
+
 func (o AuthenticationPolicyDescribeOutputOutput) SecurityIntegrations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.SecurityIntegrations }).(pulumi.StringPtrOutput)
+}
+
+func (o AuthenticationPolicyDescribeOutputOutput) WorkloadIdentityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.WorkloadIdentityPolicy }).(pulumi.StringPtrOutput)
 }
 
 type AuthenticationPolicyDescribeOutputArrayOutput struct{ *pulumi.OutputState }
@@ -5685,10 +5703,338 @@ func (o AuthenticationPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) 
 	}).(AuthenticationPolicyDescribeOutputOutput)
 }
 
+type AuthenticationPolicyMfaPolicy struct {
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+	EnforceMfaOnExternalAuthentication *string `pulumi:"enforceMfaOnExternalAuthentication"`
+}
+
+// AuthenticationPolicyMfaPolicyInput is an input type that accepts AuthenticationPolicyMfaPolicyArgs and AuthenticationPolicyMfaPolicyOutput values.
+// You can construct a concrete instance of `AuthenticationPolicyMfaPolicyInput` via:
+//
+//	AuthenticationPolicyMfaPolicyArgs{...}
+type AuthenticationPolicyMfaPolicyInput interface {
+	pulumi.Input
+
+	ToAuthenticationPolicyMfaPolicyOutput() AuthenticationPolicyMfaPolicyOutput
+	ToAuthenticationPolicyMfaPolicyOutputWithContext(context.Context) AuthenticationPolicyMfaPolicyOutput
+}
+
+type AuthenticationPolicyMfaPolicyArgs struct {
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+	EnforceMfaOnExternalAuthentication pulumi.StringPtrInput `pulumi:"enforceMfaOnExternalAuthentication"`
+}
+
+func (AuthenticationPolicyMfaPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationPolicyMfaPolicy)(nil)).Elem()
+}
+
+func (i AuthenticationPolicyMfaPolicyArgs) ToAuthenticationPolicyMfaPolicyOutput() AuthenticationPolicyMfaPolicyOutput {
+	return i.ToAuthenticationPolicyMfaPolicyOutputWithContext(context.Background())
+}
+
+func (i AuthenticationPolicyMfaPolicyArgs) ToAuthenticationPolicyMfaPolicyOutputWithContext(ctx context.Context) AuthenticationPolicyMfaPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyMfaPolicyOutput)
+}
+
+func (i AuthenticationPolicyMfaPolicyArgs) ToAuthenticationPolicyMfaPolicyPtrOutput() AuthenticationPolicyMfaPolicyPtrOutput {
+	return i.ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticationPolicyMfaPolicyArgs) ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyMfaPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyMfaPolicyOutput).ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(ctx)
+}
+
+// AuthenticationPolicyMfaPolicyPtrInput is an input type that accepts AuthenticationPolicyMfaPolicyArgs, AuthenticationPolicyMfaPolicyPtr and AuthenticationPolicyMfaPolicyPtrOutput values.
+// You can construct a concrete instance of `AuthenticationPolicyMfaPolicyPtrInput` via:
+//
+//	        AuthenticationPolicyMfaPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthenticationPolicyMfaPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticationPolicyMfaPolicyPtrOutput() AuthenticationPolicyMfaPolicyPtrOutput
+	ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(context.Context) AuthenticationPolicyMfaPolicyPtrOutput
+}
+
+type authenticationPolicyMfaPolicyPtrType AuthenticationPolicyMfaPolicyArgs
+
+func AuthenticationPolicyMfaPolicyPtr(v *AuthenticationPolicyMfaPolicyArgs) AuthenticationPolicyMfaPolicyPtrInput {
+	return (*authenticationPolicyMfaPolicyPtrType)(v)
+}
+
+func (*authenticationPolicyMfaPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationPolicyMfaPolicy)(nil)).Elem()
+}
+
+func (i *authenticationPolicyMfaPolicyPtrType) ToAuthenticationPolicyMfaPolicyPtrOutput() AuthenticationPolicyMfaPolicyPtrOutput {
+	return i.ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticationPolicyMfaPolicyPtrType) ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyMfaPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyMfaPolicyPtrOutput)
+}
+
+type AuthenticationPolicyMfaPolicyOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationPolicyMfaPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationPolicyMfaPolicy)(nil)).Elem()
+}
+
+func (o AuthenticationPolicyMfaPolicyOutput) ToAuthenticationPolicyMfaPolicyOutput() AuthenticationPolicyMfaPolicyOutput {
+	return o
+}
+
+func (o AuthenticationPolicyMfaPolicyOutput) ToAuthenticationPolicyMfaPolicyOutputWithContext(ctx context.Context) AuthenticationPolicyMfaPolicyOutput {
+	return o
+}
+
+func (o AuthenticationPolicyMfaPolicyOutput) ToAuthenticationPolicyMfaPolicyPtrOutput() AuthenticationPolicyMfaPolicyPtrOutput {
+	return o.ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationPolicyMfaPolicyOutput) ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyMfaPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationPolicyMfaPolicy) *AuthenticationPolicyMfaPolicy {
+		return &v
+	}).(AuthenticationPolicyMfaPolicyPtrOutput)
+}
+
+func (o AuthenticationPolicyMfaPolicyOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticationPolicyMfaPolicy) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+func (o AuthenticationPolicyMfaPolicyOutput) EnforceMfaOnExternalAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyMfaPolicy) *string { return v.EnforceMfaOnExternalAuthentication }).(pulumi.StringPtrOutput)
+}
+
+type AuthenticationPolicyMfaPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationPolicyMfaPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationPolicyMfaPolicy)(nil)).Elem()
+}
+
+func (o AuthenticationPolicyMfaPolicyPtrOutput) ToAuthenticationPolicyMfaPolicyPtrOutput() AuthenticationPolicyMfaPolicyPtrOutput {
+	return o
+}
+
+func (o AuthenticationPolicyMfaPolicyPtrOutput) ToAuthenticationPolicyMfaPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyMfaPolicyPtrOutput {
+	return o
+}
+
+func (o AuthenticationPolicyMfaPolicyPtrOutput) Elem() AuthenticationPolicyMfaPolicyOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyMfaPolicy) AuthenticationPolicyMfaPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationPolicyMfaPolicy
+		return ret
+	}).(AuthenticationPolicyMfaPolicyOutput)
+}
+
+func (o AuthenticationPolicyMfaPolicyPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyMfaPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+func (o AuthenticationPolicyMfaPolicyPtrOutput) EnforceMfaOnExternalAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyMfaPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceMfaOnExternalAuthentication
+	}).(pulumi.StringPtrOutput)
+}
+
+type AuthenticationPolicyPatPolicy struct {
+	// Specifies the default expiration time (in days) for a programmatic access token.
+	DefaultExpiryInDays *int `pulumi:"defaultExpiryInDays"`
+	// Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+	MaxExpiryInDays *int `pulumi:"maxExpiryInDays"`
+	// Specifies the network policy evaluation for the PAT.
+	NetworkPolicyEvaluation *string `pulumi:"networkPolicyEvaluation"`
+}
+
+// AuthenticationPolicyPatPolicyInput is an input type that accepts AuthenticationPolicyPatPolicyArgs and AuthenticationPolicyPatPolicyOutput values.
+// You can construct a concrete instance of `AuthenticationPolicyPatPolicyInput` via:
+//
+//	AuthenticationPolicyPatPolicyArgs{...}
+type AuthenticationPolicyPatPolicyInput interface {
+	pulumi.Input
+
+	ToAuthenticationPolicyPatPolicyOutput() AuthenticationPolicyPatPolicyOutput
+	ToAuthenticationPolicyPatPolicyOutputWithContext(context.Context) AuthenticationPolicyPatPolicyOutput
+}
+
+type AuthenticationPolicyPatPolicyArgs struct {
+	// Specifies the default expiration time (in days) for a programmatic access token.
+	DefaultExpiryInDays pulumi.IntPtrInput `pulumi:"defaultExpiryInDays"`
+	// Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+	MaxExpiryInDays pulumi.IntPtrInput `pulumi:"maxExpiryInDays"`
+	// Specifies the network policy evaluation for the PAT.
+	NetworkPolicyEvaluation pulumi.StringPtrInput `pulumi:"networkPolicyEvaluation"`
+}
+
+func (AuthenticationPolicyPatPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationPolicyPatPolicy)(nil)).Elem()
+}
+
+func (i AuthenticationPolicyPatPolicyArgs) ToAuthenticationPolicyPatPolicyOutput() AuthenticationPolicyPatPolicyOutput {
+	return i.ToAuthenticationPolicyPatPolicyOutputWithContext(context.Background())
+}
+
+func (i AuthenticationPolicyPatPolicyArgs) ToAuthenticationPolicyPatPolicyOutputWithContext(ctx context.Context) AuthenticationPolicyPatPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyPatPolicyOutput)
+}
+
+func (i AuthenticationPolicyPatPolicyArgs) ToAuthenticationPolicyPatPolicyPtrOutput() AuthenticationPolicyPatPolicyPtrOutput {
+	return i.ToAuthenticationPolicyPatPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticationPolicyPatPolicyArgs) ToAuthenticationPolicyPatPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyPatPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyPatPolicyOutput).ToAuthenticationPolicyPatPolicyPtrOutputWithContext(ctx)
+}
+
+// AuthenticationPolicyPatPolicyPtrInput is an input type that accepts AuthenticationPolicyPatPolicyArgs, AuthenticationPolicyPatPolicyPtr and AuthenticationPolicyPatPolicyPtrOutput values.
+// You can construct a concrete instance of `AuthenticationPolicyPatPolicyPtrInput` via:
+//
+//	        AuthenticationPolicyPatPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthenticationPolicyPatPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticationPolicyPatPolicyPtrOutput() AuthenticationPolicyPatPolicyPtrOutput
+	ToAuthenticationPolicyPatPolicyPtrOutputWithContext(context.Context) AuthenticationPolicyPatPolicyPtrOutput
+}
+
+type authenticationPolicyPatPolicyPtrType AuthenticationPolicyPatPolicyArgs
+
+func AuthenticationPolicyPatPolicyPtr(v *AuthenticationPolicyPatPolicyArgs) AuthenticationPolicyPatPolicyPtrInput {
+	return (*authenticationPolicyPatPolicyPtrType)(v)
+}
+
+func (*authenticationPolicyPatPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationPolicyPatPolicy)(nil)).Elem()
+}
+
+func (i *authenticationPolicyPatPolicyPtrType) ToAuthenticationPolicyPatPolicyPtrOutput() AuthenticationPolicyPatPolicyPtrOutput {
+	return i.ToAuthenticationPolicyPatPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticationPolicyPatPolicyPtrType) ToAuthenticationPolicyPatPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyPatPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyPatPolicyPtrOutput)
+}
+
+type AuthenticationPolicyPatPolicyOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationPolicyPatPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationPolicyPatPolicy)(nil)).Elem()
+}
+
+func (o AuthenticationPolicyPatPolicyOutput) ToAuthenticationPolicyPatPolicyOutput() AuthenticationPolicyPatPolicyOutput {
+	return o
+}
+
+func (o AuthenticationPolicyPatPolicyOutput) ToAuthenticationPolicyPatPolicyOutputWithContext(ctx context.Context) AuthenticationPolicyPatPolicyOutput {
+	return o
+}
+
+func (o AuthenticationPolicyPatPolicyOutput) ToAuthenticationPolicyPatPolicyPtrOutput() AuthenticationPolicyPatPolicyPtrOutput {
+	return o.ToAuthenticationPolicyPatPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationPolicyPatPolicyOutput) ToAuthenticationPolicyPatPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyPatPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationPolicyPatPolicy) *AuthenticationPolicyPatPolicy {
+		return &v
+	}).(AuthenticationPolicyPatPolicyPtrOutput)
+}
+
+// Specifies the default expiration time (in days) for a programmatic access token.
+func (o AuthenticationPolicyPatPolicyOutput) DefaultExpiryInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *int { return v.DefaultExpiryInDays }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+func (o AuthenticationPolicyPatPolicyOutput) MaxExpiryInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *int { return v.MaxExpiryInDays }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the network policy evaluation for the PAT.
+func (o AuthenticationPolicyPatPolicyOutput) NetworkPolicyEvaluation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *string { return v.NetworkPolicyEvaluation }).(pulumi.StringPtrOutput)
+}
+
+type AuthenticationPolicyPatPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationPolicyPatPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationPolicyPatPolicy)(nil)).Elem()
+}
+
+func (o AuthenticationPolicyPatPolicyPtrOutput) ToAuthenticationPolicyPatPolicyPtrOutput() AuthenticationPolicyPatPolicyPtrOutput {
+	return o
+}
+
+func (o AuthenticationPolicyPatPolicyPtrOutput) ToAuthenticationPolicyPatPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyPatPolicyPtrOutput {
+	return o
+}
+
+func (o AuthenticationPolicyPatPolicyPtrOutput) Elem() AuthenticationPolicyPatPolicyOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) AuthenticationPolicyPatPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationPolicyPatPolicy
+		return ret
+	}).(AuthenticationPolicyPatPolicyOutput)
+}
+
+// Specifies the default expiration time (in days) for a programmatic access token.
+func (o AuthenticationPolicyPatPolicyPtrOutput) DefaultExpiryInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultExpiryInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+func (o AuthenticationPolicyPatPolicyPtrOutput) MaxExpiryInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExpiryInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the network policy evaluation for the PAT.
+func (o AuthenticationPolicyPatPolicyPtrOutput) NetworkPolicyEvaluation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkPolicyEvaluation
+	}).(pulumi.StringPtrOutput)
+}
+
 type AuthenticationPolicyShowOutput struct {
 	Comment       *string `pulumi:"comment"`
 	CreatedOn     *string `pulumi:"createdOn"`
 	DatabaseName  *string `pulumi:"databaseName"`
+	Kind          *string `pulumi:"kind"`
 	Name          *string `pulumi:"name"`
 	Options       *string `pulumi:"options"`
 	Owner         *string `pulumi:"owner"`
@@ -5711,6 +6057,7 @@ type AuthenticationPolicyShowOutputArgs struct {
 	Comment       pulumi.StringPtrInput `pulumi:"comment"`
 	CreatedOn     pulumi.StringPtrInput `pulumi:"createdOn"`
 	DatabaseName  pulumi.StringPtrInput `pulumi:"databaseName"`
+	Kind          pulumi.StringPtrInput `pulumi:"kind"`
 	Name          pulumi.StringPtrInput `pulumi:"name"`
 	Options       pulumi.StringPtrInput `pulumi:"options"`
 	Owner         pulumi.StringPtrInput `pulumi:"owner"`
@@ -5781,6 +6128,10 @@ func (o AuthenticationPolicyShowOutputOutput) DatabaseName() pulumi.StringPtrOut
 	return o.ApplyT(func(v AuthenticationPolicyShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
+func (o AuthenticationPolicyShowOutputOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyShowOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
 func (o AuthenticationPolicyShowOutputOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5819,6 +6170,196 @@ func (o AuthenticationPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) Auth
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthenticationPolicyShowOutput {
 		return vs[0].([]AuthenticationPolicyShowOutput)[vs[1].(int)]
 	}).(AuthenticationPolicyShowOutputOutput)
+}
+
+type AuthenticationPolicyWorkloadIdentityPolicy struct {
+	// Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+	AllowedAwsAccounts []string `pulumi:"allowedAwsAccounts"`
+	// Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+	AllowedAzureIssuers []string `pulumi:"allowedAzureIssuers"`
+	// Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+	AllowedOidcIssuers []string `pulumi:"allowedOidcIssuers"`
+	AllowedProviders   []string `pulumi:"allowedProviders"`
+}
+
+// AuthenticationPolicyWorkloadIdentityPolicyInput is an input type that accepts AuthenticationPolicyWorkloadIdentityPolicyArgs and AuthenticationPolicyWorkloadIdentityPolicyOutput values.
+// You can construct a concrete instance of `AuthenticationPolicyWorkloadIdentityPolicyInput` via:
+//
+//	AuthenticationPolicyWorkloadIdentityPolicyArgs{...}
+type AuthenticationPolicyWorkloadIdentityPolicyInput interface {
+	pulumi.Input
+
+	ToAuthenticationPolicyWorkloadIdentityPolicyOutput() AuthenticationPolicyWorkloadIdentityPolicyOutput
+	ToAuthenticationPolicyWorkloadIdentityPolicyOutputWithContext(context.Context) AuthenticationPolicyWorkloadIdentityPolicyOutput
+}
+
+type AuthenticationPolicyWorkloadIdentityPolicyArgs struct {
+	// Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+	AllowedAwsAccounts pulumi.StringArrayInput `pulumi:"allowedAwsAccounts"`
+	// Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+	AllowedAzureIssuers pulumi.StringArrayInput `pulumi:"allowedAzureIssuers"`
+	// Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+	AllowedOidcIssuers pulumi.StringArrayInput `pulumi:"allowedOidcIssuers"`
+	AllowedProviders   pulumi.StringArrayInput `pulumi:"allowedProviders"`
+}
+
+func (AuthenticationPolicyWorkloadIdentityPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationPolicyWorkloadIdentityPolicy)(nil)).Elem()
+}
+
+func (i AuthenticationPolicyWorkloadIdentityPolicyArgs) ToAuthenticationPolicyWorkloadIdentityPolicyOutput() AuthenticationPolicyWorkloadIdentityPolicyOutput {
+	return i.ToAuthenticationPolicyWorkloadIdentityPolicyOutputWithContext(context.Background())
+}
+
+func (i AuthenticationPolicyWorkloadIdentityPolicyArgs) ToAuthenticationPolicyWorkloadIdentityPolicyOutputWithContext(ctx context.Context) AuthenticationPolicyWorkloadIdentityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyWorkloadIdentityPolicyOutput)
+}
+
+func (i AuthenticationPolicyWorkloadIdentityPolicyArgs) ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutput() AuthenticationPolicyWorkloadIdentityPolicyPtrOutput {
+	return i.ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticationPolicyWorkloadIdentityPolicyArgs) ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyWorkloadIdentityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyWorkloadIdentityPolicyOutput).ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(ctx)
+}
+
+// AuthenticationPolicyWorkloadIdentityPolicyPtrInput is an input type that accepts AuthenticationPolicyWorkloadIdentityPolicyArgs, AuthenticationPolicyWorkloadIdentityPolicyPtr and AuthenticationPolicyWorkloadIdentityPolicyPtrOutput values.
+// You can construct a concrete instance of `AuthenticationPolicyWorkloadIdentityPolicyPtrInput` via:
+//
+//	        AuthenticationPolicyWorkloadIdentityPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthenticationPolicyWorkloadIdentityPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutput() AuthenticationPolicyWorkloadIdentityPolicyPtrOutput
+	ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(context.Context) AuthenticationPolicyWorkloadIdentityPolicyPtrOutput
+}
+
+type authenticationPolicyWorkloadIdentityPolicyPtrType AuthenticationPolicyWorkloadIdentityPolicyArgs
+
+func AuthenticationPolicyWorkloadIdentityPolicyPtr(v *AuthenticationPolicyWorkloadIdentityPolicyArgs) AuthenticationPolicyWorkloadIdentityPolicyPtrInput {
+	return (*authenticationPolicyWorkloadIdentityPolicyPtrType)(v)
+}
+
+func (*authenticationPolicyWorkloadIdentityPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationPolicyWorkloadIdentityPolicy)(nil)).Elem()
+}
+
+func (i *authenticationPolicyWorkloadIdentityPolicyPtrType) ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutput() AuthenticationPolicyWorkloadIdentityPolicyPtrOutput {
+	return i.ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticationPolicyWorkloadIdentityPolicyPtrType) ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyWorkloadIdentityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyWorkloadIdentityPolicyPtrOutput)
+}
+
+type AuthenticationPolicyWorkloadIdentityPolicyOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationPolicyWorkloadIdentityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationPolicyWorkloadIdentityPolicy)(nil)).Elem()
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) ToAuthenticationPolicyWorkloadIdentityPolicyOutput() AuthenticationPolicyWorkloadIdentityPolicyOutput {
+	return o
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) ToAuthenticationPolicyWorkloadIdentityPolicyOutputWithContext(ctx context.Context) AuthenticationPolicyWorkloadIdentityPolicyOutput {
+	return o
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutput() AuthenticationPolicyWorkloadIdentityPolicyPtrOutput {
+	return o.ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyWorkloadIdentityPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationPolicyWorkloadIdentityPolicy) *AuthenticationPolicyWorkloadIdentityPolicy {
+		return &v
+	}).(AuthenticationPolicyWorkloadIdentityPolicyPtrOutput)
+}
+
+// Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) AllowedAwsAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticationPolicyWorkloadIdentityPolicy) []string { return v.AllowedAwsAccounts }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) AllowedAzureIssuers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticationPolicyWorkloadIdentityPolicy) []string { return v.AllowedAzureIssuers }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) AllowedOidcIssuers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticationPolicyWorkloadIdentityPolicy) []string { return v.AllowedOidcIssuers }).(pulumi.StringArrayOutput)
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) AllowedProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticationPolicyWorkloadIdentityPolicy) []string { return v.AllowedProviders }).(pulumi.StringArrayOutput)
+}
+
+type AuthenticationPolicyWorkloadIdentityPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationPolicyWorkloadIdentityPolicy)(nil)).Elem()
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutput() AuthenticationPolicyWorkloadIdentityPolicyPtrOutput {
+	return o
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) ToAuthenticationPolicyWorkloadIdentityPolicyPtrOutputWithContext(ctx context.Context) AuthenticationPolicyWorkloadIdentityPolicyPtrOutput {
+	return o
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) Elem() AuthenticationPolicyWorkloadIdentityPolicyOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyWorkloadIdentityPolicy) AuthenticationPolicyWorkloadIdentityPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationPolicyWorkloadIdentityPolicy
+		return ret
+	}).(AuthenticationPolicyWorkloadIdentityPolicyOutput)
+}
+
+// Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) AllowedAwsAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyWorkloadIdentityPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAwsAccounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) AllowedAzureIssuers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyWorkloadIdentityPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedAzureIssuers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) AllowedOidcIssuers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyWorkloadIdentityPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOidcIssuers
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) AllowedProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyWorkloadIdentityPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedProviders
+	}).(pulumi.StringArrayOutput)
 }
 
 type ComputePoolDescribeOutput struct {
@@ -65784,360 +66325,6 @@ func (o TaskParameterS3StageVpceDnsNameArrayOutput) Index(i pulumi.IntInput) Tas
 	}).(TaskParameterS3StageVpceDnsNameOutput)
 }
 
-type TaskParameterSearchPath struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterSearchPathInput is an input type that accepts TaskParameterSearchPathArgs and TaskParameterSearchPathOutput values.
-// You can construct a concrete instance of `TaskParameterSearchPathInput` via:
-//
-//	TaskParameterSearchPathArgs{...}
-type TaskParameterSearchPathInput interface {
-	pulumi.Input
-
-	ToTaskParameterSearchPathOutput() TaskParameterSearchPathOutput
-	ToTaskParameterSearchPathOutputWithContext(context.Context) TaskParameterSearchPathOutput
-}
-
-type TaskParameterSearchPathArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterSearchPathArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterSearchPath)(nil)).Elem()
-}
-
-func (i TaskParameterSearchPathArgs) ToTaskParameterSearchPathOutput() TaskParameterSearchPathOutput {
-	return i.ToTaskParameterSearchPathOutputWithContext(context.Background())
-}
-
-func (i TaskParameterSearchPathArgs) ToTaskParameterSearchPathOutputWithContext(ctx context.Context) TaskParameterSearchPathOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterSearchPathOutput)
-}
-
-// TaskParameterSearchPathArrayInput is an input type that accepts TaskParameterSearchPathArray and TaskParameterSearchPathArrayOutput values.
-// You can construct a concrete instance of `TaskParameterSearchPathArrayInput` via:
-//
-//	TaskParameterSearchPathArray{ TaskParameterSearchPathArgs{...} }
-type TaskParameterSearchPathArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterSearchPathArrayOutput() TaskParameterSearchPathArrayOutput
-	ToTaskParameterSearchPathArrayOutputWithContext(context.Context) TaskParameterSearchPathArrayOutput
-}
-
-type TaskParameterSearchPathArray []TaskParameterSearchPathInput
-
-func (TaskParameterSearchPathArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterSearchPath)(nil)).Elem()
-}
-
-func (i TaskParameterSearchPathArray) ToTaskParameterSearchPathArrayOutput() TaskParameterSearchPathArrayOutput {
-	return i.ToTaskParameterSearchPathArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterSearchPathArray) ToTaskParameterSearchPathArrayOutputWithContext(ctx context.Context) TaskParameterSearchPathArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterSearchPathArrayOutput)
-}
-
-type TaskParameterSearchPathOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterSearchPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterSearchPath)(nil)).Elem()
-}
-
-func (o TaskParameterSearchPathOutput) ToTaskParameterSearchPathOutput() TaskParameterSearchPathOutput {
-	return o
-}
-
-func (o TaskParameterSearchPathOutput) ToTaskParameterSearchPathOutputWithContext(ctx context.Context) TaskParameterSearchPathOutput {
-	return o
-}
-
-func (o TaskParameterSearchPathOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterSearchPathOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterSearchPathOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterSearchPathOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterSearchPathOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterSearchPathArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterSearchPathArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterSearchPath)(nil)).Elem()
-}
-
-func (o TaskParameterSearchPathArrayOutput) ToTaskParameterSearchPathArrayOutput() TaskParameterSearchPathArrayOutput {
-	return o
-}
-
-func (o TaskParameterSearchPathArrayOutput) ToTaskParameterSearchPathArrayOutputWithContext(ctx context.Context) TaskParameterSearchPathArrayOutput {
-	return o
-}
-
-func (o TaskParameterSearchPathArrayOutput) Index(i pulumi.IntInput) TaskParameterSearchPathOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterSearchPath {
-		return vs[0].([]TaskParameterSearchPath)[vs[1].(int)]
-	}).(TaskParameterSearchPathOutput)
-}
-
-type TaskParameterStatementQueuedTimeoutInSecond struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterStatementQueuedTimeoutInSecondInput is an input type that accepts TaskParameterStatementQueuedTimeoutInSecondArgs and TaskParameterStatementQueuedTimeoutInSecondOutput values.
-// You can construct a concrete instance of `TaskParameterStatementQueuedTimeoutInSecondInput` via:
-//
-//	TaskParameterStatementQueuedTimeoutInSecondArgs{...}
-type TaskParameterStatementQueuedTimeoutInSecondInput interface {
-	pulumi.Input
-
-	ToTaskParameterStatementQueuedTimeoutInSecondOutput() TaskParameterStatementQueuedTimeoutInSecondOutput
-	ToTaskParameterStatementQueuedTimeoutInSecondOutputWithContext(context.Context) TaskParameterStatementQueuedTimeoutInSecondOutput
-}
-
-type TaskParameterStatementQueuedTimeoutInSecondArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterStatementQueuedTimeoutInSecondArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecond)(nil)).Elem()
-}
-
-func (i TaskParameterStatementQueuedTimeoutInSecondArgs) ToTaskParameterStatementQueuedTimeoutInSecondOutput() TaskParameterStatementQueuedTimeoutInSecondOutput {
-	return i.ToTaskParameterStatementQueuedTimeoutInSecondOutputWithContext(context.Background())
-}
-
-func (i TaskParameterStatementQueuedTimeoutInSecondArgs) ToTaskParameterStatementQueuedTimeoutInSecondOutputWithContext(ctx context.Context) TaskParameterStatementQueuedTimeoutInSecondOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStatementQueuedTimeoutInSecondOutput)
-}
-
-// TaskParameterStatementQueuedTimeoutInSecondArrayInput is an input type that accepts TaskParameterStatementQueuedTimeoutInSecondArray and TaskParameterStatementQueuedTimeoutInSecondArrayOutput values.
-// You can construct a concrete instance of `TaskParameterStatementQueuedTimeoutInSecondArrayInput` via:
-//
-//	TaskParameterStatementQueuedTimeoutInSecondArray{ TaskParameterStatementQueuedTimeoutInSecondArgs{...} }
-type TaskParameterStatementQueuedTimeoutInSecondArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterStatementQueuedTimeoutInSecondArrayOutput() TaskParameterStatementQueuedTimeoutInSecondArrayOutput
-	ToTaskParameterStatementQueuedTimeoutInSecondArrayOutputWithContext(context.Context) TaskParameterStatementQueuedTimeoutInSecondArrayOutput
-}
-
-type TaskParameterStatementQueuedTimeoutInSecondArray []TaskParameterStatementQueuedTimeoutInSecondInput
-
-func (TaskParameterStatementQueuedTimeoutInSecondArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterStatementQueuedTimeoutInSecond)(nil)).Elem()
-}
-
-func (i TaskParameterStatementQueuedTimeoutInSecondArray) ToTaskParameterStatementQueuedTimeoutInSecondArrayOutput() TaskParameterStatementQueuedTimeoutInSecondArrayOutput {
-	return i.ToTaskParameterStatementQueuedTimeoutInSecondArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterStatementQueuedTimeoutInSecondArray) ToTaskParameterStatementQueuedTimeoutInSecondArrayOutputWithContext(ctx context.Context) TaskParameterStatementQueuedTimeoutInSecondArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStatementQueuedTimeoutInSecondArrayOutput)
-}
-
-type TaskParameterStatementQueuedTimeoutInSecondOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterStatementQueuedTimeoutInSecondOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecond)(nil)).Elem()
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondOutput) ToTaskParameterStatementQueuedTimeoutInSecondOutput() TaskParameterStatementQueuedTimeoutInSecondOutput {
-	return o
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondOutput) ToTaskParameterStatementQueuedTimeoutInSecondOutputWithContext(ctx context.Context) TaskParameterStatementQueuedTimeoutInSecondOutput {
-	return o
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterStatementQueuedTimeoutInSecondArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterStatementQueuedTimeoutInSecondArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterStatementQueuedTimeoutInSecond)(nil)).Elem()
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondArrayOutput) ToTaskParameterStatementQueuedTimeoutInSecondArrayOutput() TaskParameterStatementQueuedTimeoutInSecondArrayOutput {
-	return o
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondArrayOutput) ToTaskParameterStatementQueuedTimeoutInSecondArrayOutputWithContext(ctx context.Context) TaskParameterStatementQueuedTimeoutInSecondArrayOutput {
-	return o
-}
-
-func (o TaskParameterStatementQueuedTimeoutInSecondArrayOutput) Index(i pulumi.IntInput) TaskParameterStatementQueuedTimeoutInSecondOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterStatementQueuedTimeoutInSecond {
-		return vs[0].([]TaskParameterStatementQueuedTimeoutInSecond)[vs[1].(int)]
-	}).(TaskParameterStatementQueuedTimeoutInSecondOutput)
-}
-
-type TaskParameterStatementTimeoutInSecond struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterStatementTimeoutInSecondInput is an input type that accepts TaskParameterStatementTimeoutInSecondArgs and TaskParameterStatementTimeoutInSecondOutput values.
-// You can construct a concrete instance of `TaskParameterStatementTimeoutInSecondInput` via:
-//
-//	TaskParameterStatementTimeoutInSecondArgs{...}
-type TaskParameterStatementTimeoutInSecondInput interface {
-	pulumi.Input
-
-	ToTaskParameterStatementTimeoutInSecondOutput() TaskParameterStatementTimeoutInSecondOutput
-	ToTaskParameterStatementTimeoutInSecondOutputWithContext(context.Context) TaskParameterStatementTimeoutInSecondOutput
-}
-
-type TaskParameterStatementTimeoutInSecondArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterStatementTimeoutInSecondArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterStatementTimeoutInSecond)(nil)).Elem()
-}
-
-func (i TaskParameterStatementTimeoutInSecondArgs) ToTaskParameterStatementTimeoutInSecondOutput() TaskParameterStatementTimeoutInSecondOutput {
-	return i.ToTaskParameterStatementTimeoutInSecondOutputWithContext(context.Background())
-}
-
-func (i TaskParameterStatementTimeoutInSecondArgs) ToTaskParameterStatementTimeoutInSecondOutputWithContext(ctx context.Context) TaskParameterStatementTimeoutInSecondOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStatementTimeoutInSecondOutput)
-}
-
-// TaskParameterStatementTimeoutInSecondArrayInput is an input type that accepts TaskParameterStatementTimeoutInSecondArray and TaskParameterStatementTimeoutInSecondArrayOutput values.
-// You can construct a concrete instance of `TaskParameterStatementTimeoutInSecondArrayInput` via:
-//
-//	TaskParameterStatementTimeoutInSecondArray{ TaskParameterStatementTimeoutInSecondArgs{...} }
-type TaskParameterStatementTimeoutInSecondArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterStatementTimeoutInSecondArrayOutput() TaskParameterStatementTimeoutInSecondArrayOutput
-	ToTaskParameterStatementTimeoutInSecondArrayOutputWithContext(context.Context) TaskParameterStatementTimeoutInSecondArrayOutput
-}
-
-type TaskParameterStatementTimeoutInSecondArray []TaskParameterStatementTimeoutInSecondInput
-
-func (TaskParameterStatementTimeoutInSecondArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterStatementTimeoutInSecond)(nil)).Elem()
-}
-
-func (i TaskParameterStatementTimeoutInSecondArray) ToTaskParameterStatementTimeoutInSecondArrayOutput() TaskParameterStatementTimeoutInSecondArrayOutput {
-	return i.ToTaskParameterStatementTimeoutInSecondArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterStatementTimeoutInSecondArray) ToTaskParameterStatementTimeoutInSecondArrayOutputWithContext(ctx context.Context) TaskParameterStatementTimeoutInSecondArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStatementTimeoutInSecondArrayOutput)
-}
-
-type TaskParameterStatementTimeoutInSecondOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterStatementTimeoutInSecondOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterStatementTimeoutInSecond)(nil)).Elem()
-}
-
-func (o TaskParameterStatementTimeoutInSecondOutput) ToTaskParameterStatementTimeoutInSecondOutput() TaskParameterStatementTimeoutInSecondOutput {
-	return o
-}
-
-func (o TaskParameterStatementTimeoutInSecondOutput) ToTaskParameterStatementTimeoutInSecondOutputWithContext(ctx context.Context) TaskParameterStatementTimeoutInSecondOutput {
-	return o
-}
-
-func (o TaskParameterStatementTimeoutInSecondOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStatementTimeoutInSecondOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStatementTimeoutInSecondOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStatementTimeoutInSecondOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterStatementTimeoutInSecondOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterStatementTimeoutInSecondArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterStatementTimeoutInSecondArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterStatementTimeoutInSecond)(nil)).Elem()
-}
-
-func (o TaskParameterStatementTimeoutInSecondArrayOutput) ToTaskParameterStatementTimeoutInSecondArrayOutput() TaskParameterStatementTimeoutInSecondArrayOutput {
-	return o
-}
-
-func (o TaskParameterStatementTimeoutInSecondArrayOutput) ToTaskParameterStatementTimeoutInSecondArrayOutputWithContext(ctx context.Context) TaskParameterStatementTimeoutInSecondArrayOutput {
-	return o
-}
-
-func (o TaskParameterStatementTimeoutInSecondArrayOutput) Index(i pulumi.IntInput) TaskParameterStatementTimeoutInSecondOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterStatementTimeoutInSecond {
-		return vs[0].([]TaskParameterStatementTimeoutInSecond)[vs[1].(int)]
-	}).(TaskParameterStatementTimeoutInSecondOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -66227,8 +66414,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerShowOutputArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyDescribeOutputInput)(nil)).Elem(), AuthenticationPolicyDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyDescribeOutputArrayInput)(nil)).Elem(), AuthenticationPolicyDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyMfaPolicyInput)(nil)).Elem(), AuthenticationPolicyMfaPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyMfaPolicyPtrInput)(nil)).Elem(), AuthenticationPolicyMfaPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyPatPolicyInput)(nil)).Elem(), AuthenticationPolicyPatPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyPatPolicyPtrInput)(nil)).Elem(), AuthenticationPolicyPatPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyShowOutputInput)(nil)).Elem(), AuthenticationPolicyShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyShowOutputArrayInput)(nil)).Elem(), AuthenticationPolicyShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyWorkloadIdentityPolicyInput)(nil)).Elem(), AuthenticationPolicyWorkloadIdentityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyWorkloadIdentityPolicyPtrInput)(nil)).Elem(), AuthenticationPolicyWorkloadIdentityPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputInput)(nil)).Elem(), ComputePoolDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputArrayInput)(nil)).Elem(), ComputePoolDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolShowOutputInput)(nil)).Elem(), ComputePoolShowOutputArgs{})
@@ -67133,12 +67326,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterRowsPerResultsetArrayInput)(nil)).Elem(), TaskParameterRowsPerResultsetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterS3StageVpceDnsNameInput)(nil)).Elem(), TaskParameterS3StageVpceDnsNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterS3StageVpceDnsNameArrayInput)(nil)).Elem(), TaskParameterS3StageVpceDnsNameArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSearchPathInput)(nil)).Elem(), TaskParameterSearchPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSearchPathArrayInput)(nil)).Elem(), TaskParameterSearchPathArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecondInput)(nil)).Elem(), TaskParameterStatementQueuedTimeoutInSecondArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecondArrayInput)(nil)).Elem(), TaskParameterStatementQueuedTimeoutInSecondArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementTimeoutInSecondInput)(nil)).Elem(), TaskParameterStatementTimeoutInSecondArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementTimeoutInSecondArrayInput)(nil)).Elem(), TaskParameterStatementTimeoutInSecondArray{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -67227,8 +67414,14 @@ func init() {
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyDescribeOutputOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(AuthenticationPolicyMfaPolicyOutput{})
+	pulumi.RegisterOutputType(AuthenticationPolicyMfaPolicyPtrOutput{})
+	pulumi.RegisterOutputType(AuthenticationPolicyPatPolicyOutput{})
+	pulumi.RegisterOutputType(AuthenticationPolicyPatPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyShowOutputOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(AuthenticationPolicyWorkloadIdentityPolicyOutput{})
+	pulumi.RegisterOutputType(AuthenticationPolicyWorkloadIdentityPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ComputePoolDescribeOutputOutput{})
 	pulumi.RegisterOutputType(ComputePoolDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(ComputePoolShowOutputOutput{})
@@ -68133,10 +68326,4 @@ func init() {
 	pulumi.RegisterOutputType(TaskParameterRowsPerResultsetArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterS3StageVpceDnsNameOutput{})
 	pulumi.RegisterOutputType(TaskParameterS3StageVpceDnsNameArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterSearchPathOutput{})
-	pulumi.RegisterOutputType(TaskParameterSearchPathArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterStatementQueuedTimeoutInSecondOutput{})
-	pulumi.RegisterOutputType(TaskParameterStatementQueuedTimeoutInSecondArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterStatementTimeoutInSecondOutput{})
-	pulumi.RegisterOutputType(TaskParameterStatementTimeoutInSecondArrayOutput{})
 }

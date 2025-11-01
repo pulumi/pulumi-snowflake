@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note** Since [202507 BCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), `describeOutput` field is different from Snowflake. Now, in Snowflake always `resourceConstraint` and `generation` are present. The provider, always takes the value from `resourceConstraint` and dispatches it based on the warehouse type: for Standard warehouses, it sets `generation`, for Snowpark-optimized warehouses, it sets `resourceConstraint`. This will be adjusted later.
+//
 // Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 func GetWarehouses(ctx *pulumi.Context, args *GetWarehousesArgs, opts ...pulumi.InvokeOption) (*GetWarehousesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

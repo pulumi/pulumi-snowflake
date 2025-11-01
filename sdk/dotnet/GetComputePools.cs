@@ -12,24 +12,18 @@ namespace Pulumi.Snowflake
     public static class GetComputePools
     {
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `ComputePools`.
         /// </summary>
         public static Task<GetComputePoolsResult> InvokeAsync(GetComputePoolsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputePoolsResult>("snowflake:index/getComputePools:getComputePools", args ?? new GetComputePoolsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `ComputePools`.
         /// </summary>
         public static Output<GetComputePoolsResult> Invoke(GetComputePoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputePoolsResult>("snowflake:index/getComputePools:getComputePools", args ?? new GetComputePoolsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `ComputePools`.
         /// </summary>
         public static Output<GetComputePoolsResult> Invoke(GetComputePoolsInvokeArgs args, InvokeOutputOptions options)

@@ -24,7 +24,7 @@ public final class Config {
         return Codegen.stringProp("accountName").config(config).get();
     }
 /**
- * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+ * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
  * 
  */
     public Optional<String> authenticator() {
@@ -92,6 +92,13 @@ public final class Config {
  */
     public Optional<Boolean> enableSingleUseRefreshTokens() {
         return Codegen.booleanProp("enableSingleUseRefreshTokens").config(config).get();
+    }
+/**
+ * A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+ * 
+ */
+    public Optional<List<String>> experimentalFeaturesEnableds() {
+        return Codegen.objectProp("experimentalFeaturesEnableds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
  * The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
@@ -354,5 +361,19 @@ public final class Config {
  */
     public Optional<String> warehouse() {
         return Codegen.stringProp("warehouse").config(config).env("SNOWFLAKE_WAREHOUSE").get();
+    }
+/**
+ * The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+ * 
+ */
+    public Optional<String> workloadIdentityEntraResource() {
+        return Codegen.stringProp("workloadIdentityEntraResource").config(config).get();
+    }
+/**
+ * The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+ * 
+ */
+    public Optional<String> workloadIdentityProvider() {
+        return Codegen.stringProp("workloadIdentityProvider").config(config).get();
     }
 }

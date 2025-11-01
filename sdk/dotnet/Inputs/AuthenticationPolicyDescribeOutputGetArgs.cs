@@ -27,14 +27,23 @@ namespace Pulumi.Snowflake.Inputs
         [Input("mfaEnrollment")]
         public Input<string>? MfaEnrollment { get; set; }
 
+        [Input("mfaPolicy")]
+        public Input<string>? MfaPolicy { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
+        [Input("patPolicy")]
+        public Input<string>? PatPolicy { get; set; }
+
         [Input("securityIntegrations")]
         public Input<string>? SecurityIntegrations { get; set; }
+
+        [Input("workloadIdentityPolicy")]
+        public Input<string>? WorkloadIdentityPolicy { get; set; }
 
         public AuthenticationPolicyDescribeOutputGetArgs()
         {

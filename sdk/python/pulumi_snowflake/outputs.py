@@ -60,7 +60,10 @@ __all__ = [
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration',
     'ApiAuthenticationIntegrationWithJwtBearerShowOutput',
     'AuthenticationPolicyDescribeOutput',
+    'AuthenticationPolicyMfaPolicy',
+    'AuthenticationPolicyPatPolicy',
     'AuthenticationPolicyShowOutput',
+    'AuthenticationPolicyWorkloadIdentityPolicy',
     'ComputePoolDescribeOutput',
     'ComputePoolShowOutput',
     'CortexSearchServiceDescribeOutput',
@@ -622,6 +625,12 @@ __all__ = [
     'GetAccountsAccountResult',
     'GetAccountsAccountShowOutputResult',
     'GetAlertsAlertResult',
+    'GetAuthenticationPoliciesAuthenticationPolicyResult',
+    'GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult',
+    'GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult',
+    'GetAuthenticationPoliciesInResult',
+    'GetAuthenticationPoliciesLimitResult',
+    'GetAuthenticationPoliciesOnResult',
     'GetComputePoolsComputePoolResult',
     'GetComputePoolsComputePoolDescribeOutputResult',
     'GetComputePoolsComputePoolShowOutputResult',
@@ -3277,8 +3286,14 @@ class AuthenticationPolicyDescribeOutput(dict):
             suggest = "mfa_authentication_methods"
         elif key == "mfaEnrollment":
             suggest = "mfa_enrollment"
+        elif key == "mfaPolicy":
+            suggest = "mfa_policy"
+        elif key == "patPolicy":
+            suggest = "pat_policy"
         elif key == "securityIntegrations":
             suggest = "security_integrations"
+        elif key == "workloadIdentityPolicy":
+            suggest = "workload_identity_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AuthenticationPolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
@@ -3297,9 +3312,12 @@ class AuthenticationPolicyDescribeOutput(dict):
                  comment: Optional[_builtins.str] = None,
                  mfa_authentication_methods: Optional[_builtins.str] = None,
                  mfa_enrollment: Optional[_builtins.str] = None,
+                 mfa_policy: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
                  owner: Optional[_builtins.str] = None,
-                 security_integrations: Optional[_builtins.str] = None):
+                 pat_policy: Optional[_builtins.str] = None,
+                 security_integrations: Optional[_builtins.str] = None,
+                 workload_identity_policy: Optional[_builtins.str] = None):
         if authentication_methods is not None:
             pulumi.set(__self__, "authentication_methods", authentication_methods)
         if client_types is not None:
@@ -3310,12 +3328,18 @@ class AuthenticationPolicyDescribeOutput(dict):
             pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         if mfa_enrollment is not None:
             pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
+        if mfa_policy is not None:
+            pulumi.set(__self__, "mfa_policy", mfa_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if pat_policy is not None:
+            pulumi.set(__self__, "pat_policy", pat_policy)
         if security_integrations is not None:
             pulumi.set(__self__, "security_integrations", security_integrations)
+        if workload_identity_policy is not None:
+            pulumi.set(__self__, "workload_identity_policy", workload_identity_policy)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
@@ -3343,6 +3367,11 @@ class AuthenticationPolicyDescribeOutput(dict):
         return pulumi.get(self, "mfa_enrollment")
 
     @_builtins.property
+    @pulumi.getter(name="mfaPolicy")
+    def mfa_policy(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "mfa_policy")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "name")
@@ -3353,9 +3382,129 @@ class AuthenticationPolicyDescribeOutput(dict):
         return pulumi.get(self, "owner")
 
     @_builtins.property
+    @pulumi.getter(name="patPolicy")
+    def pat_policy(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pat_policy")
+
+    @_builtins.property
     @pulumi.getter(name="securityIntegrations")
     def security_integrations(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "security_integrations")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPolicy")
+    def workload_identity_policy(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "workload_identity_policy")
+
+
+@pulumi.output_type
+class AuthenticationPolicyMfaPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "enforceMfaOnExternalAuthentication":
+            suggest = "enforce_mfa_on_external_authentication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticationPolicyMfaPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticationPolicyMfaPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticationPolicyMfaPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_methods: Optional[Sequence[_builtins.str]] = None,
+                 enforce_mfa_on_external_authentication: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str enforce_mfa_on_external_authentication: Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+        """
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if enforce_mfa_on_external_authentication is not None:
+            pulumi.set(__self__, "enforce_mfa_on_external_authentication", enforce_mfa_on_external_authentication)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="enforceMfaOnExternalAuthentication")
+    def enforce_mfa_on_external_authentication(self) -> Optional[_builtins.str]:
+        """
+        Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+        """
+        return pulumi.get(self, "enforce_mfa_on_external_authentication")
+
+
+@pulumi.output_type
+class AuthenticationPolicyPatPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultExpiryInDays":
+            suggest = "default_expiry_in_days"
+        elif key == "maxExpiryInDays":
+            suggest = "max_expiry_in_days"
+        elif key == "networkPolicyEvaluation":
+            suggest = "network_policy_evaluation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticationPolicyPatPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticationPolicyPatPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticationPolicyPatPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_expiry_in_days: Optional[_builtins.int] = None,
+                 max_expiry_in_days: Optional[_builtins.int] = None,
+                 network_policy_evaluation: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int default_expiry_in_days: Specifies the default expiration time (in days) for a programmatic access token.
+        :param _builtins.int max_expiry_in_days: Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+        :param _builtins.str network_policy_evaluation: Specifies the network policy evaluation for the PAT.
+        """
+        if default_expiry_in_days is not None:
+            pulumi.set(__self__, "default_expiry_in_days", default_expiry_in_days)
+        if max_expiry_in_days is not None:
+            pulumi.set(__self__, "max_expiry_in_days", max_expiry_in_days)
+        if network_policy_evaluation is not None:
+            pulumi.set(__self__, "network_policy_evaluation", network_policy_evaluation)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultExpiryInDays")
+    def default_expiry_in_days(self) -> Optional[_builtins.int]:
+        """
+        Specifies the default expiration time (in days) for a programmatic access token.
+        """
+        return pulumi.get(self, "default_expiry_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="maxExpiryInDays")
+    def max_expiry_in_days(self) -> Optional[_builtins.int]:
+        """
+        Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+        """
+        return pulumi.get(self, "max_expiry_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="networkPolicyEvaluation")
+    def network_policy_evaluation(self) -> Optional[_builtins.str]:
+        """
+        Specifies the network policy evaluation for the PAT.
+        """
+        return pulumi.get(self, "network_policy_evaluation")
 
 
 @pulumi.output_type
@@ -3387,6 +3536,7 @@ class AuthenticationPolicyShowOutput(dict):
                  comment: Optional[_builtins.str] = None,
                  created_on: Optional[_builtins.str] = None,
                  database_name: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
                  options: Optional[_builtins.str] = None,
                  owner: Optional[_builtins.str] = None,
@@ -3398,6 +3548,8 @@ class AuthenticationPolicyShowOutput(dict):
             pulumi.set(__self__, "created_on", created_on)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if options is not None:
@@ -3426,6 +3578,11 @@ class AuthenticationPolicyShowOutput(dict):
 
     @_builtins.property
     @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "name")
 
@@ -3448,6 +3605,80 @@ class AuthenticationPolicyShowOutput(dict):
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class AuthenticationPolicyWorkloadIdentityPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAwsAccounts":
+            suggest = "allowed_aws_accounts"
+        elif key == "allowedAzureIssuers":
+            suggest = "allowed_azure_issuers"
+        elif key == "allowedOidcIssuers":
+            suggest = "allowed_oidc_issuers"
+        elif key == "allowedProviders":
+            suggest = "allowed_providers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticationPolicyWorkloadIdentityPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticationPolicyWorkloadIdentityPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticationPolicyWorkloadIdentityPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_aws_accounts: Optional[Sequence[_builtins.str]] = None,
+                 allowed_azure_issuers: Optional[Sequence[_builtins.str]] = None,
+                 allowed_oidc_issuers: Optional[Sequence[_builtins.str]] = None,
+                 allowed_providers: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] allowed_aws_accounts: Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+        :param Sequence[_builtins.str] allowed_azure_issuers: Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+        :param Sequence[_builtins.str] allowed_oidc_issuers: Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+        """
+        if allowed_aws_accounts is not None:
+            pulumi.set(__self__, "allowed_aws_accounts", allowed_aws_accounts)
+        if allowed_azure_issuers is not None:
+            pulumi.set(__self__, "allowed_azure_issuers", allowed_azure_issuers)
+        if allowed_oidc_issuers is not None:
+            pulumi.set(__self__, "allowed_oidc_issuers", allowed_oidc_issuers)
+        if allowed_providers is not None:
+            pulumi.set(__self__, "allowed_providers", allowed_providers)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAwsAccounts")
+    def allowed_aws_accounts(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+        """
+        return pulumi.get(self, "allowed_aws_accounts")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAzureIssuers")
+    def allowed_azure_issuers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+        """
+        return pulumi.get(self, "allowed_azure_issuers")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOidcIssuers")
+    def allowed_oidc_issuers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+        """
+        return pulumi.get(self, "allowed_oidc_issuers")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedProviders")
+    def allowed_providers(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_providers")
 
 
 @pulumi.output_type
@@ -39367,6 +39598,313 @@ class GetAlertsAlertResult(dict):
         Schema in which the alert is stored.
         """
         return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetAuthenticationPoliciesAuthenticationPolicyResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult']):
+        """
+        :param Sequence['GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE AUTHENTICATION POLICY.
+        :param Sequence['GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs'] show_outputs: Holds the output of SHOW AUTHENTICATION POLICIES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE AUTHENTICATION POLICY.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult']:
+        """
+        Holds the output of SHOW AUTHENTICATION POLICIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 authentication_methods: _builtins.str,
+                 client_types: _builtins.str,
+                 comment: _builtins.str,
+                 mfa_authentication_methods: _builtins.str,
+                 mfa_enrollment: _builtins.str,
+                 mfa_policy: _builtins.str,
+                 name: _builtins.str,
+                 owner: _builtins.str,
+                 pat_policy: _builtins.str,
+                 security_integrations: _builtins.str,
+                 workload_identity_policy: _builtins.str):
+        pulumi.set(__self__, "authentication_methods", authentication_methods)
+        pulumi.set(__self__, "client_types", client_types)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
+        pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
+        pulumi.set(__self__, "mfa_policy", mfa_policy)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "pat_policy", pat_policy)
+        pulumi.set(__self__, "security_integrations", security_integrations)
+        pulumi.set(__self__, "workload_identity_policy", workload_identity_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationMethods")
+    def authentication_methods(self) -> _builtins.str:
+        return pulumi.get(self, "authentication_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="clientTypes")
+    def client_types(self) -> _builtins.str:
+        return pulumi.get(self, "client_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="mfaAuthenticationMethods")
+    def mfa_authentication_methods(self) -> _builtins.str:
+        return pulumi.get(self, "mfa_authentication_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="mfaEnrollment")
+    def mfa_enrollment(self) -> _builtins.str:
+        return pulumi.get(self, "mfa_enrollment")
+
+    @_builtins.property
+    @pulumi.getter(name="mfaPolicy")
+    def mfa_policy(self) -> _builtins.str:
+        return pulumi.get(self, "mfa_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="patPolicy")
+    def pat_policy(self) -> _builtins.str:
+        return pulumi.get(self, "pat_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="securityIntegrations")
+    def security_integrations(self) -> _builtins.str:
+        return pulumi.get(self, "security_integrations")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPolicy")
+    def workload_identity_policy(self) -> _builtins.str:
+        return pulumi.get(self, "workload_identity_policy")
+
+
+@pulumi.output_type
+class GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 kind: _builtins.str,
+                 name: _builtins.str,
+                 options: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 schema_name: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> _builtins.str:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetAuthenticationPoliciesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetAuthenticationPoliciesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetAuthenticationPoliciesOnResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 user: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str user: Returns records for the specified user.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified user.
+        """
+        return pulumi.get(self, "user")
 
 
 @pulumi.output_type

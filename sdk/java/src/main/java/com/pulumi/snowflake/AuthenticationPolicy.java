@@ -11,7 +11,10 @@ import com.pulumi.snowflake.AuthenticationPolicyArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.AuthenticationPolicyState;
 import com.pulumi.snowflake.outputs.AuthenticationPolicyDescribeOutput;
+import com.pulumi.snowflake.outputs.AuthenticationPolicyMfaPolicy;
+import com.pulumi.snowflake.outputs.AuthenticationPolicyPatPolicy;
 import com.pulumi.snowflake.outputs.AuthenticationPolicyShowOutput;
+import com.pulumi.snowflake.outputs.AuthenticationPolicyWorkloadIdentityPolicy;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -28,28 +31,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/authenticationPolicy:AuthenticationPolicy")
 public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+     * A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
      * 
      */
     @Export(name="authenticationMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authenticationMethods;
 
     /**
-     * @return A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+     * @return A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
      * 
      */
     public Output<Optional<List<String>>> authenticationMethods() {
         return Codegen.optional(this.authenticationMethods);
     }
     /**
-     * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+     * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      * 
      */
     @Export(name="clientTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> clientTypes;
 
     /**
-     * @return A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+     * @return A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      * 
      */
     public Output<Optional<List<String>>> clientTypes() {
@@ -130,18 +133,32 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mfaAuthenticationMethods);
     }
     /**
-     * (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+     * Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `clientTypes` parameter must include `snowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
      * 
      */
     @Export(name="mfaEnrollment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfaEnrollment;
 
     /**
-     * @return (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+     * @return Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `clientTypes` parameter must include `snowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
      * 
      */
     public Output<Optional<String>> mfaEnrollment() {
         return Codegen.optional(this.mfaEnrollment);
+    }
+    /**
+     * Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
+     * 
+     */
+    @Export(name="mfaPolicy", refs={AuthenticationPolicyMfaPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ AuthenticationPolicyMfaPolicy> mfaPolicy;
+
+    /**
+     * @return Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
+     * 
+     */
+    public Output<Optional<AuthenticationPolicyMfaPolicy>> mfaPolicy() {
+        return Codegen.optional(this.mfaPolicy);
     }
     /**
      * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
@@ -158,6 +175,20 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Specifies the policy for programmatic access tokens.
+     * 
+     */
+    @Export(name="patPolicy", refs={AuthenticationPolicyPatPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ AuthenticationPolicyPatPolicy> patPolicy;
+
+    /**
+     * @return Specifies the policy for programmatic access tokens.
+     * 
+     */
+    public Output<Optional<AuthenticationPolicyPatPolicy>> patPolicy() {
+        return Codegen.optional(this.patPolicy);
+    }
+    /**
      * The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
@@ -172,14 +203,14 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+     * A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authenticationMethods` list. All values in the `securityIntegrations` list must be compatible with the values in the `authenticationMethods` list. For example, if `securityIntegrations` contains a SAML security integration, and `authenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
      * 
      */
     @Export(name="securityIntegrations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityIntegrations;
 
     /**
-     * @return A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+     * @return A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authenticationMethods` list. All values in the `securityIntegrations` list must be compatible with the values in the `authenticationMethods` list. For example, if `securityIntegrations` contains a SAML security integration, and `authenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
      * 
      */
     public Output<Optional<List<String>>> securityIntegrations() {
@@ -198,6 +229,20 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<List<AuthenticationPolicyShowOutput>> showOutputs() {
         return this.showOutputs;
+    }
+    /**
+     * Specifies the policy for workload identity federation.
+     * 
+     */
+    @Export(name="workloadIdentityPolicy", refs={AuthenticationPolicyWorkloadIdentityPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ AuthenticationPolicyWorkloadIdentityPolicy> workloadIdentityPolicy;
+
+    /**
+     * @return Specifies the policy for workload identity federation.
+     * 
+     */
+    public Output<Optional<AuthenticationPolicyWorkloadIdentityPolicy>> workloadIdentityPolicy() {
+        return Codegen.optional(this.workloadIdentityPolicy);
     }
 
     /**

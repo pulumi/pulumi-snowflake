@@ -31,6 +31,7 @@ class ProviderArgs:
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
+                 experimental_features_enableds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  external_browser_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  host: Optional[pulumi.Input[_builtins.str]] = None,
                  include_retry_reason: Optional[pulumi.Input[_builtins.str]] = None,
@@ -68,11 +69,13 @@ class ProviderArgs:
                  use_legacy_toml_file: Optional[pulumi.Input[_builtins.bool]] = None,
                  user: Optional[pulumi.Input[_builtins.str]] = None,
                  validate_default_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None):
+                 warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_identity_entra_resource: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_identity_provider: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
-        :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         :param pulumi.Input[_builtins.str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         :param pulumi.Input[_builtins.str] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] client_store_temporary_credential: When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
@@ -82,6 +85,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.bool] disable_telemetry: Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
         :param pulumi.Input[_builtins.str] driver_tracing: Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
         :param pulumi.Input[_builtins.bool] enable_single_use_refresh_tokens: Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] experimental_features_enableds: A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
         :param pulumi.Input[_builtins.int] external_browser_timeout: The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.str] host: Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
         :param pulumi.Input[_builtins.str] include_retry_reason: Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
@@ -119,6 +123,8 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] user: Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[_builtins.str] validate_default_parameters: True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         :param pulumi.Input[_builtins.str] warehouse: Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
+        :param pulumi.Input[_builtins.str] workload_identity_entra_resource: The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+        :param pulumi.Input[_builtins.str] workload_identity_provider: The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -142,6 +148,8 @@ class ProviderArgs:
             pulumi.set(__self__, "driver_tracing", driver_tracing)
         if enable_single_use_refresh_tokens is not None:
             pulumi.set(__self__, "enable_single_use_refresh_tokens", enable_single_use_refresh_tokens)
+        if experimental_features_enableds is not None:
+            pulumi.set(__self__, "experimental_features_enableds", experimental_features_enableds)
         if external_browser_timeout is not None:
             pulumi.set(__self__, "external_browser_timeout", external_browser_timeout)
         if host is None:
@@ -232,6 +240,10 @@ class ProviderArgs:
             warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
         if warehouse is not None:
             pulumi.set(__self__, "warehouse", warehouse)
+        if workload_identity_entra_resource is not None:
+            pulumi.set(__self__, "workload_identity_entra_resource", workload_identity_entra_resource)
+        if workload_identity_provider is not None:
+            pulumi.set(__self__, "workload_identity_provider", workload_identity_provider)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -249,7 +261,7 @@ class ProviderArgs:
     @pulumi.getter
     def authenticator(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return pulumi.get(self, "authenticator")
 
@@ -364,6 +376,18 @@ class ProviderArgs:
     @enable_single_use_refresh_tokens.setter
     def enable_single_use_refresh_tokens(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_single_use_refresh_tokens", value)
+
+    @_builtins.property
+    @pulumi.getter(name="experimentalFeaturesEnableds")
+    def experimental_features_enableds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+        """
+        return pulumi.get(self, "experimental_features_enableds")
+
+    @experimental_features_enableds.setter
+    def experimental_features_enableds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "experimental_features_enableds", value)
 
     @_builtins.property
     @pulumi.getter(name="externalBrowserTimeout")
@@ -818,6 +842,30 @@ class ProviderArgs:
     def warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "warehouse", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityEntraResource")
+    def workload_identity_entra_resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+        """
+        return pulumi.get(self, "workload_identity_entra_resource")
+
+    @workload_identity_entra_resource.setter
+    def workload_identity_entra_resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workload_identity_entra_resource", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityProvider")
+    def workload_identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+        """
+        return pulumi.get(self, "workload_identity_provider")
+
+    @workload_identity_provider.setter
+    def workload_identity_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workload_identity_provider", value)
+
 
 @pulumi.type_token("pulumi:providers:snowflake")
 class Provider(pulumi.ProviderResource):
@@ -836,6 +884,7 @@ class Provider(pulumi.ProviderResource):
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
+                 experimental_features_enableds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  external_browser_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  host: Optional[pulumi.Input[_builtins.str]] = None,
                  include_retry_reason: Optional[pulumi.Input[_builtins.str]] = None,
@@ -874,6 +923,8 @@ class Provider(pulumi.ProviderResource):
                  user: Optional[pulumi.Input[_builtins.str]] = None,
                  validate_default_parameters: Optional[pulumi.Input[_builtins.str]] = None,
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_identity_entra_resource: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the snowflake package. By default, resources use package-wide configuration
@@ -884,7 +935,7 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
-        :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         :param pulumi.Input[_builtins.str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         :param pulumi.Input[_builtins.str] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] client_store_temporary_credential: When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
@@ -894,6 +945,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] disable_telemetry: Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
         :param pulumi.Input[_builtins.str] driver_tracing: Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
         :param pulumi.Input[_builtins.bool] enable_single_use_refresh_tokens: Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] experimental_features_enableds: A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
         :param pulumi.Input[_builtins.int] external_browser_timeout: The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.str] host: Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
         :param pulumi.Input[_builtins.str] include_retry_reason: Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
@@ -931,6 +983,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] user: Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[_builtins.str] validate_default_parameters: True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         :param pulumi.Input[_builtins.str] warehouse: Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
+        :param pulumi.Input[_builtins.str] workload_identity_entra_resource: The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+        :param pulumi.Input[_builtins.str] workload_identity_provider: The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
         """
         ...
     @overload
@@ -970,6 +1024,7 @@ class Provider(pulumi.ProviderResource):
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
+                 experimental_features_enableds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  external_browser_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  host: Optional[pulumi.Input[_builtins.str]] = None,
                  include_retry_reason: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1008,6 +1063,8 @@ class Provider(pulumi.ProviderResource):
                  user: Optional[pulumi.Input[_builtins.str]] = None,
                  validate_default_parameters: Optional[pulumi.Input[_builtins.str]] = None,
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_identity_entra_resource: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1028,6 +1085,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["disable_telemetry"] = pulumi.Output.from_input(disable_telemetry).apply(pulumi.runtime.to_json) if disable_telemetry is not None else None
             __props__.__dict__["driver_tracing"] = driver_tracing
             __props__.__dict__["enable_single_use_refresh_tokens"] = pulumi.Output.from_input(enable_single_use_refresh_tokens).apply(pulumi.runtime.to_json) if enable_single_use_refresh_tokens is not None else None
+            __props__.__dict__["experimental_features_enableds"] = pulumi.Output.from_input(experimental_features_enableds).apply(pulumi.runtime.to_json) if experimental_features_enableds is not None else None
             __props__.__dict__["external_browser_timeout"] = pulumi.Output.from_input(external_browser_timeout).apply(pulumi.runtime.to_json) if external_browser_timeout is not None else None
             if host is None:
                 host = _utilities.get_env('SNOWFLAKE_HOST')
@@ -1080,6 +1138,8 @@ class Provider(pulumi.ProviderResource):
             if warehouse is None:
                 warehouse = _utilities.get_env('SNOWFLAKE_WAREHOUSE')
             __props__.__dict__["warehouse"] = warehouse
+            __props__.__dict__["workload_identity_entra_resource"] = workload_identity_entra_resource
+            __props__.__dict__["workload_identity_provider"] = workload_identity_provider
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthAuthorizationUrl", "oauthClientId", "oauthClientSecret", "oauthRedirectUri", "oauthTokenRequestUrl", "passcode", "password", "privateKey", "privateKeyPassphrase", "token"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
@@ -1100,7 +1160,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def authenticator(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return pulumi.get(self, "authenticator")
 
@@ -1327,6 +1387,22 @@ class Provider(pulumi.ProviderResource):
         Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
         return pulumi.get(self, "warehouse")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityEntraResource")
+    def workload_identity_entra_resource(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+        """
+        return pulumi.get(self, "workload_identity_entra_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityProvider")
+    def workload_identity_provider(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+        """
+        return pulumi.get(self, "workload_identity_provider")
 
     @pulumi.output_type
     class TerraformConfigResult:

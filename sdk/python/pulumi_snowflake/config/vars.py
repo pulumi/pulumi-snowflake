@@ -31,7 +31,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def authenticator(self) -> Optional[str]:
         """
-        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return __config__.get('authenticator')
 
@@ -97,6 +97,13 @@ class _ExportableConfig(types.ModuleType):
         Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
         """
         return __config__.get_bool('enableSingleUseRefreshTokens')
+
+    @_builtins.property
+    def experimental_features_enableds(self) -> Optional[str]:
+        """
+        A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+        """
+        return __config__.get('experimentalFeaturesEnableds')
 
     @_builtins.property
     def external_browser_timeout(self) -> Optional[int]:
@@ -360,4 +367,18 @@ class _ExportableConfig(types.ModuleType):
         Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
         """
         return __config__.get('warehouse') or _utilities.get_env('SNOWFLAKE_WAREHOUSE')
+
+    @_builtins.property
+    def workload_identity_entra_resource(self) -> Optional[str]:
+        """
+        The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+        """
+        return __config__.get('workloadIdentityEntraResource')
+
+    @_builtins.property
+    def workload_identity_provider(self) -> Optional[str]:
+        """
+        The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+        """
+        return __config__.get('workloadIdentityProvider')
 

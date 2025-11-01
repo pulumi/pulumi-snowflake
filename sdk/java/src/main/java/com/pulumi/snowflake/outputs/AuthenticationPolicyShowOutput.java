@@ -14,6 +14,7 @@ public final class AuthenticationPolicyShowOutput {
     private @Nullable String comment;
     private @Nullable String createdOn;
     private @Nullable String databaseName;
+    private @Nullable String kind;
     private @Nullable String name;
     private @Nullable String options;
     private @Nullable String owner;
@@ -29,6 +30,9 @@ public final class AuthenticationPolicyShowOutput {
     }
     public Optional<String> databaseName() {
         return Optional.ofNullable(this.databaseName);
+    }
+    public Optional<String> kind() {
+        return Optional.ofNullable(this.kind);
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -58,6 +62,7 @@ public final class AuthenticationPolicyShowOutput {
         private @Nullable String comment;
         private @Nullable String createdOn;
         private @Nullable String databaseName;
+        private @Nullable String kind;
         private @Nullable String name;
         private @Nullable String options;
         private @Nullable String owner;
@@ -69,6 +74,7 @@ public final class AuthenticationPolicyShowOutput {
     	      this.comment = defaults.comment;
     	      this.createdOn = defaults.createdOn;
     	      this.databaseName = defaults.databaseName;
+    	      this.kind = defaults.kind;
     	      this.name = defaults.name;
     	      this.options = defaults.options;
     	      this.owner = defaults.owner;
@@ -92,6 +98,12 @@ public final class AuthenticationPolicyShowOutput {
         public Builder databaseName(@Nullable String databaseName) {
 
             this.databaseName = databaseName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kind(@Nullable String kind) {
+
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
@@ -129,6 +141,7 @@ public final class AuthenticationPolicyShowOutput {
             _resultValue.comment = comment;
             _resultValue.createdOn = createdOn;
             _resultValue.databaseName = databaseName;
+            _resultValue.kind = kind;
             _resultValue.name = name;
             _resultValue.options = options;
             _resultValue.owner = owner;

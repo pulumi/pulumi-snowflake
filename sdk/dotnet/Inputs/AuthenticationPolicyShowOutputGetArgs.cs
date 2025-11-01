@@ -21,6 +21,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
