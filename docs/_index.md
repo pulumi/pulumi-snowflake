@@ -17,7 +17,7 @@ The Snowflake provider is available as a package in all Pulumi languages:
 
 ## Overview
 
-> **Disclaimer** The project is in GA version, but some features are in preview. Such resources and functions are considered preview features in the provider, regardless of their state in Snowflake. We do not guarantee their stability. They will be reworked and marked as a stable feature in future releases. Breaking changes in these features are expected, even without bumping the major version. They are disabled by default. To use them, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. The list of preview features is available below. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+> **Disclaimer** The project is in GA version, but some features are in preview. Such resources and functions are considered preview features in the provider, regardless of their state in Snowflake. We do not guarantee their stability. They will be reworked and marked as a stable feature in future releases. Breaking changes in these features are expected, even without bumping the major version. They are disabled by default. To use them, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. The list of preview features is available below. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions. You can also use `experimentalFeaturesEnabled` to alter the provider's behavior. **It's still considered a preview feature, even when applied to the stable resources.**
 
 !> **Sensitive values** Important: Do not include credentials, personal identifiers, or other regulated or sensitive information (e.g., GDPR, HIPAA, PCI-DSS data) in non-sensitive fields. Snowflake marks specific fields as sensitive—such as passwords, private keys, and tokens, meaning these fields will not appear in logs. Each sensitive field is properly marked in the documentation. All other fields are treated as non-sensitive by default. Some of them, like task's configuration, may contain sensitive information but are not marked as sensitive - you are responsible for safeguarding these fields according to your organization's security standards and regulatory requirements. Snowflake will not be liable for any exposure of data placed in non-sensitive fields. Read more in the Sensitive values limitations section.
 
@@ -281,7 +281,7 @@ config:
 ## Configuration Reference
 
 - `accountName` (String) Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
-- `authenticator` (String) Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+- `authenticator` (String) Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 - `clientIp` (String) IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 - `clientRequestMfaToken` (String) When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
 - `clientStoreTemporaryCredential` (String) When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
@@ -291,6 +291,7 @@ config:
 - `disableTelemetry` (Boolean) Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
 - `driverTracing` (String) Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
 - `enableSingleUseRefreshTokens` (Boolean) Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
+- `experimentalFeaturesEnabled` (Set of String) A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
 - `externalBrowserTimeout` (Number) The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
 - `host` (String) Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
 - `includeRetryReason` (String) Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
@@ -314,7 +315,7 @@ config:
 - `passcodeInPassword` (Boolean) False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
 - `password` (String, Sensitive) Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 - `port` (Number) Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
-- `previewFeaturesEnabled` (Set of String) A list of preview features that are handled by the provider. See preview features list. Preview features may have breaking changes in future releases, even without raising the major version. This field can not be set with environmental variables. Valid options are: `snowflakeAccountAuthenticationPolicyAttachmentResource` | `snowflakeAccountPasswordPolicyAttachmentResource` | `snowflakeAlertResource` | `snowflakeAlertsFunction` | `snowflakeApiIntegrationResource` | `snowflakeAuthenticationPolicyResource` | `snowflakeComputePoolResource` | `snowflakeComputePoolsFunction` | `snowflakeCortexSearchServiceResource` | `snowflakeCortexSearchServicesFunction` | `snowflakeCurrentAccountResource` | `snowflakeCurrentAccountFunction` | `snowflakeCurrentOrganizationAccountResource` | `snowflakeDatabaseFunction` | `snowflakeDatabaseRoleFunction` | `snowflakeDynamicTableResource` | `snowflakeDynamicTablesFunction` | `snowflakeExternalFunctionResource` | `snowflakeExternalFunctionsFunction` | `snowflakeExternalTableResource` | `snowflakeExternalTablesFunction` | `snowflakeExternalVolumeResource` | `snowflakeFailoverGroupResource` | `snowflakeFailoverGroupsFunction` | `snowflakeFileFormatResource` | `snowflakeFileFormatsFunction` | `snowflakeFunctionJavaResource` | `snowflakeFunctionJavascriptResource` | `snowflakeFunctionPythonResource` | `snowflakeFunctionScalaResource` | `snowflakeFunctionSqlResource` | `snowflakeFunctionsFunction` | `snowflakeGitRepositoryResource` | `snowflakeGitRepositoriesFunction` | `snowflakeImageRepositoryResource` | `snowflakeImageRepositoriesFunction` | `snowflakeJobServiceResource` | `snowflakeListingResource` | `snowflakeManagedAccountResource` | `snowflakeMaterializedViewResource` | `snowflakeMaterializedViewsFunction` | `snowflakeNetworkPolicyAttachmentResource` | `snowflakeNetworkRuleResource` | `snowflakeEmailNotificationIntegrationResource` | `snowflakeNotificationIntegrationResource` | `snowflakeObjectParameterResource` | `snowflakePasswordPolicyResource` | `snowflakePipeResource` | `snowflakePipesFunction` | `snowflakeCurrentRoleFunction` | `snowflakeServiceResource` | `snowflakeServicesFunction` | `snowflakeSequenceResource` | `snowflakeSequencesFunction` | `snowflakeShareResource` | `snowflakeSharesFunction` | `snowflakeParametersFunction` | `snowflakeProcedureJavaResource` | `snowflakeProcedureJavascriptResource` | `snowflakeProcedurePythonResource` | `snowflakeProcedureScalaResource` | `snowflakeProcedureSqlResource` | `snowflakeProceduresFunction` | `snowflakeStageResource` | `snowflakeStagesFunction` | `snowflakeStorageIntegrationResource` | `snowflakeStorageIntegrationsFunction` | `snowflakeSystemGenerateScimAccessTokenFunction` | `snowflakeSystemGetAwsSnsIamPolicyFunction` | `snowflakeSystemGetPrivatelinkConfigFunction` | `snowflakeSystemGetSnowflakePlatformInfoFunction` | `snowflakeTableColumnMaskingPolicyApplicationResource` | `snowflakeTableConstraintResource` | `snowflakeTableResource` | `snowflakeTablesFunction` | `snowflakeUserAuthenticationPolicyAttachmentResource` | `snowflakeUserPublicKeysResource` | `snowflakeUserPasswordPolicyAttachmentResource` | `snowflakeUserProgrammaticAccessTokenResource` | `snowflakeUserProgrammaticAccessTokensFunction`.
+- `previewFeaturesEnabled` (Set of String) A list of preview features that are handled by the provider. See preview features list. Preview features may have breaking changes in future releases, even without raising the major version. This field can not be set with environmental variables. Preview features that can be enabled are: `snowflakeAccountAuthenticationPolicyAttachmentResource` | `snowflakeAccountPasswordPolicyAttachmentResource` | `snowflakeAlertResource` | `snowflakeAlertsFunction` | `snowflakeApiIntegrationResource` | `snowflakeAuthenticationPolicyResource` | `snowflakeAuthenticationPoliciesFunction` | `snowflakeCortexSearchServiceResource` | `snowflakeCortexSearchServicesFunction` | `snowflakeCurrentAccountResource` | `snowflakeCurrentAccountFunction` | `snowflakeCurrentOrganizationAccountResource` | `snowflakeDatabaseFunction` | `snowflakeDatabaseRoleFunction` | `snowflakeDynamicTableResource` | `snowflakeDynamicTablesFunction` | `snowflakeExternalFunctionResource` | `snowflakeExternalFunctionsFunction` | `snowflakeExternalTableResource` | `snowflakeExternalTablesFunction` | `snowflakeExternalVolumeResource` | `snowflakeFailoverGroupResource` | `snowflakeFailoverGroupsFunction` | `snowflakeFileFormatResource` | `snowflakeFileFormatsFunction` | `snowflakeFunctionJavaResource` | `snowflakeFunctionJavascriptResource` | `snowflakeFunctionPythonResource` | `snowflakeFunctionScalaResource` | `snowflakeFunctionSqlResource` | `snowflakeFunctionsFunction` | `snowflakeJobServiceResource` | `snowflakeManagedAccountResource` | `snowflakeMaterializedViewResource` | `snowflakeMaterializedViewsFunction` | `snowflakeNetworkPolicyAttachmentResource` | `snowflakeNetworkRuleResource` | `snowflakeEmailNotificationIntegrationResource` | `snowflakeNotificationIntegrationResource` | `snowflakeObjectParameterResource` | `snowflakePasswordPolicyResource` | `snowflakePipeResource` | `snowflakePipesFunction` | `snowflakeCurrentRoleFunction` | `snowflakeSequenceResource` | `snowflakeSequencesFunction` | `snowflakeShareResource` | `snowflakeSharesFunction` | `snowflakeParametersFunction` | `snowflakeProcedureJavaResource` | `snowflakeProcedureJavascriptResource` | `snowflakeProcedurePythonResource` | `snowflakeProcedureScalaResource` | `snowflakeProcedureSqlResource` | `snowflakeProceduresFunction` | `snowflakeStageResource` | `snowflakeStagesFunction` | `snowflakeStorageIntegrationResource` | `snowflakeStorageIntegrationsFunction` | `snowflakeSystemGenerateScimAccessTokenFunction` | `snowflakeSystemGetAwsSnsIamPolicyFunction` | `snowflakeSystemGetPrivatelinkConfigFunction` | `snowflakeSystemGetSnowflakePlatformInfoFunction` | `snowflakeTableColumnMaskingPolicyApplicationResource` | `snowflakeTableConstraintResource` | `snowflakeTableResource` | `snowflakeTablesFunction` | `snowflakeUserAuthenticationPolicyAttachmentResource` | `snowflakeUserPublicKeysResource` | `snowflakeUserPasswordPolicyAttachmentResource`. Promoted features that are stable and are enabled by default are: `snowflakeComputePoolResource` | `snowflakeComputePoolsFunction` | `snowflakeGitRepositoryResource` | `snowflakeGitRepositoriesFunction` | `snowflakeImageRepositoryResource` | `snowflakeImageRepositoriesFunction` | `snowflakeListingResource` | `snowflakeServiceResource` | `snowflakeServicesFunction` | `snowflakeUserProgrammaticAccessTokenResource` | `snowflakeUserProgrammaticAccessTokensFunction`. Promoted features can be safely removed from this field. They will be removed in the next major version.
 - `privateKey` (String, Sensitive) Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
 - `privateKeyPassphrase` (String, Sensitive) Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
 - `profile` (String) Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
@@ -329,6 +330,8 @@ config:
 - `user` (String) Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
 - `validateDefaultParameters` (String) True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
 - `warehouse` (String) Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
+- `workloadIdentityEntraResource` (String) The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+- `workloadIdentityProvider` (String) The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
 
 <a id="nestedblock--token_accessor"></a>
 ### Nested Schema for `tokenAccessor`
@@ -353,6 +356,7 @@ The Snowflake provider supports multiple ways to authenticate:
 * Config File
 * Oauth with Client Credentials
 * Oauth with Authorization Code
+* Workload Identity Federation (WIF)
 
 In all cases `organizationName`, and `accountName` are required. In all cases except for Oauth with Client Credentials, `user` is required.
 
@@ -447,6 +451,14 @@ export SNOWFLAKE_OAUTH_AUTHORIZATION_URL='...'
 export SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL='...'
 export SNOWFLAKE_OAUTH_REDIRECT_URI='...'
 export SNOWFLAKE_OAUTH_SCOPE='...'
+```
+### Workload Identity Federation (WIF) Authentication
+
+If you choose to use Workload Identity Federation (WIF) Authentication, export these credentials:
+
+```shell
+export SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER='...'
+export SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE='...'
 ```
 ## Order Precedence
 
@@ -578,6 +590,8 @@ oauth_token_request_url = 'oauth_token_request_url'
 oauth_authorization_url = 'oauth_authorization_url'
 oauth_redirect_uri = 'oauth_redirect_uri'
 oauth_scope = 'oauth_scope'
+workload_identity_provider = 'azure'
+workload_identity_entra_resource = 'workload_identity_entra_resource'
 enable_single_use_refresh_tokens = true
 
 [example.params]
@@ -624,6 +638,8 @@ oauthtokenrequesturl = 'oauth_token_request_url'
 oauthauthorizationurl = 'oauth_authorization_url'
 oauthredirecturi = 'oauth_redirect_uri'
 oauthscope = 'oauth_scope'
+workloadidentityprovider = 'azure'
+workloadidentityentraresource = 'workload_identity_entra_resource'
 enablesingleuserefreshtokens = true
 
 [example.params]
@@ -716,6 +732,10 @@ config:
         value: true
     snowflake:warehouse:
         value: SNOWFLAKE
+    snowflake:workloadIdentityEntraResource:
+        value: workload_identity_entra_resource
+    snowflake:workloadIdentityProvider:
+        value: azure
 
 ```
 ```typescript
@@ -812,6 +832,10 @@ config:
         value: true
     snowflake:warehouse:
         value: SNOWFLAKE
+    snowflake:workloadIdentityEntraResource:
+        value: workload_identity_entra_resource
+    snowflake:workloadIdentityProvider:
+        value: azure
 
 ```
 ```python
@@ -908,6 +932,10 @@ config:
         value: true
     snowflake:warehouse:
         value: SNOWFLAKE
+    snowflake:workloadIdentityEntraResource:
+        value: workload_identity_entra_resource
+    snowflake:workloadIdentityProvider:
+        value: azure
 
 ```
 ```csharp
@@ -1010,6 +1038,10 @@ config:
         value: true
     snowflake:warehouse:
         value: SNOWFLAKE
+    snowflake:workloadIdentityEntraResource:
+        value: workload_identity_entra_resource
+    snowflake:workloadIdentityProvider:
+        value: azure
 
 ```
 ```go
@@ -1116,6 +1148,10 @@ config:
         value: true
     snowflake:warehouse:
         value: SNOWFLAKE
+    snowflake:workloadIdentityEntraResource:
+        value: workload_identity_entra_resource
+    snowflake:workloadIdentityProvider:
+        value: azure
 
 ```
 ```yaml
@@ -1220,6 +1256,10 @@ config:
         value: true
     snowflake:warehouse:
         value: SNOWFLAKE
+    snowflake:workloadIdentityEntraResource:
+        value: workload_identity_entra_resource
+    snowflake:workloadIdentityProvider:
+        value: azure
 
 ```
 ```java
@@ -1416,10 +1456,12 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.ApiAuthenticationIntegrationWithAuthorizationCodeGrant
 - snowflake.ApiAuthenticationIntegrationWithClientCredentials
 - snowflake.ApiAuthenticationIntegrationWithJwtBearer
+- snowflake.ComputePool
 - snowflake.Database
 - snowflake.DatabaseRole
 - snowflake.Execute
 - snowflake.ExternalOauthIntegration
+- snowflake.GitRepository
 - snowflake.GrantAccountRole
 - snowflake.GrantApplicationRole
 - snowflake.GrantDatabaseRole
@@ -1427,7 +1469,9 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.GrantPrivilegesToAccountRole
 - snowflake.GrantPrivilegesToDatabaseRole
 - snowflake.GrantPrivilegesToShare
+- snowflake.ImageRepository
 - snowflake.LegacyServiceUser
+- snowflake.Listing
 - snowflake.MaskingPolicy
 - snowflake.NetworkPolicy
 - snowflake.OauthIntegrationForCustomClients
@@ -1444,6 +1488,7 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.SecretWithBasicAuthentication
 - snowflake.SecretWithClientCredentials
 - snowflake.SecretWithGenericString
+- snowflake.Service
 - snowflake.ServiceUser
 - snowflake.SharedDatabase
 - snowflake.StreamOnDirectoryTable
@@ -1455,6 +1500,7 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.TagAssociation
 - snowflake.Task
 - snowflake.User
+- snowflake.UserProgrammaticAccessToken
 - snowflake.View
 - snowflake.Warehouse
 
@@ -1463,10 +1509,13 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 
 - snowflake.getAccountRoles
 - snowflake.getAccounts
+- snowflake.getComputePools
 - snowflake.getConnections
 - snowflake.getDatabaseRoles
 - snowflake.getDatabases
+- snowflake.getGitRepositories
 - snowflake.getGrants
+- snowflake.getImageRepositories
 - snowflake.getMaskingPolicies
 - snowflake.getNetworkPolicies
 - snowflake.getResourceMonitors
@@ -1474,10 +1523,12 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.getSchemas
 - snowflake.getSecrets
 - snowflake.getSecurityIntegrations
+- snowflake.getServices
 - snowflake.getStreamlits
 - snowflake.getStreams
 - snowflake.getTags
 - snowflake.getTasks
+- snowflake.getUserProgrammaticAccessTokens
 - snowflake.getUsers
 - snowflake.getViews
 - snowflake.getWarehouses
@@ -1490,7 +1541,6 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.Alert
 - snowflake.ApiIntegration
 - snowflake.AuthenticationPolicy
-- snowflake.ComputePool
 - snowflake.CortexSearchService
 - snowflake.CurrentAccount
 - snowflake.CurrentOrganizationAccount
@@ -1506,10 +1556,7 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.FunctionPython
 - snowflake.FunctionScala
 - snowflake.FunctionSql
-- snowflake.GitRepository
-- snowflake.ImageRepository
 - snowflake.JobService
-- snowflake.Listing
 - snowflake.ManagedAccount
 - snowflake.MaterializedView
 - snowflake.NetworkPolicyAttachment
@@ -1524,7 +1571,6 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.ProcedureScala
 - snowflake.ProcedureSql
 - snowflake.Sequence
-- snowflake.Service
 - snowflake.Share
 - snowflake.Stage
 - snowflake.StorageIntegration
@@ -1533,14 +1579,13 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.TableConstraint
 - snowflake.UserAuthenticationPolicyAttachment
 - snowflake.UserPasswordPolicyAttachment
-- snowflake.UserProgrammaticAccessToken
 - snowflake.UserPublicKeys
 
 <!-- Section of preview functions -->
 ## Currently preview functions
 
 - snowflake.getAlerts
-- snowflake.getComputePools
+- snowflake.getAuthenticationPolicies
 - snowflake.getCortexSearchServices
 - snowflake.CurrentAccount
 - snowflake.getCurrentRole
@@ -1552,14 +1597,11 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.getFailoverGroups
 - snowflake.getFileFormats
 - snowflake.getFunctions
-- snowflake.getGitRepositories
-- snowflake.getImageRepositories
 - snowflake.getMaterializedViews
 - snowflake.getParameters
 - snowflake.getPipes
 - snowflake.getProcedures
 - snowflake.getSequences
-- snowflake.getServices
 - snowflake.getShares
 - snowflake.getStages
 - snowflake.getStorageIntegrations
@@ -1568,4 +1610,3 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.getSystemGetPrivateLinkConfig
 - snowflake.getSystemGetSnowflakePlatformInfo
 - snowflake.getTables
-- snowflake.getUserProgrammaticAccessTokens

@@ -175,6 +175,11 @@ export const getAlerts: typeof import("./getAlerts").getAlerts = null as any;
 export const getAlertsOutput: typeof import("./getAlerts").getAlertsOutput = null as any;
 utilities.lazyLoad(exports, ["getAlerts","getAlertsOutput"], () => require("./getAlerts"));
 
+export { GetAuthenticationPoliciesArgs, GetAuthenticationPoliciesResult, GetAuthenticationPoliciesOutputArgs } from "./getAuthenticationPolicies";
+export const getAuthenticationPolicies: typeof import("./getAuthenticationPolicies").getAuthenticationPolicies = null as any;
+export const getAuthenticationPoliciesOutput: typeof import("./getAuthenticationPolicies").getAuthenticationPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthenticationPolicies","getAuthenticationPoliciesOutput"], () => require("./getAuthenticationPolicies"));
+
 export { GetComputePoolsArgs, GetComputePoolsResult, GetComputePoolsOutputArgs } from "./getComputePools";
 export const getComputePools: typeof import("./getComputePools").getComputePools = null as any;
 export const getComputePoolsOutput: typeof import("./getComputePools").getComputePoolsOutput = null as any;

@@ -21,7 +21,7 @@ Object.defineProperty(exports, "accountName", {
 });
 
 /**
- * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+ * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
  */
 export declare const authenticator: string | undefined;
 Object.defineProperty(exports, "authenticator", {
@@ -126,6 +126,17 @@ export declare const enableSingleUseRefreshTokens: boolean | undefined;
 Object.defineProperty(exports, "enableSingleUseRefreshTokens", {
     get() {
         return __config.getObject<boolean>("enableSingleUseRefreshTokens");
+    },
+    enumerable: true,
+});
+
+/**
+ * A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+ */
+export declare const experimentalFeaturesEnableds: string[] | undefined;
+Object.defineProperty(exports, "experimentalFeaturesEnableds", {
+    get() {
+        return __config.getObject<string[]>("experimentalFeaturesEnableds");
     },
     enumerable: true,
 });
@@ -541,6 +552,28 @@ export declare const warehouse: string | undefined;
 Object.defineProperty(exports, "warehouse", {
     get() {
         return __config.get("warehouse") ?? utilities.getEnv("SNOWFLAKE_WAREHOUSE");
+    },
+    enumerable: true,
+});
+
+/**
+ * The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+ */
+export declare const workloadIdentityEntraResource: string | undefined;
+Object.defineProperty(exports, "workloadIdentityEntraResource", {
+    get() {
+        return __config.get("workloadIdentityEntraResource");
+    },
+    enumerable: true,
+});
+
+/**
+ * The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+ */
+export declare const workloadIdentityProvider: string | undefined;
+Object.defineProperty(exports, "workloadIdentityProvider", {
+    get() {
+        return __config.get("workloadIdentityProvider");
     },
     enumerable: true,
 });

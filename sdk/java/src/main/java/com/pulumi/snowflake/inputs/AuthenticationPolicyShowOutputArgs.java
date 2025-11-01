@@ -36,6 +36,13 @@ public final class AuthenticationPolicyShowOutputArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.databaseName);
     }
 
+    @Import(name="kind")
+    private @Nullable Output<String> kind;
+
+    public Optional<Output<String>> kind() {
+        return Optional.ofNullable(this.kind);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -77,6 +84,7 @@ public final class AuthenticationPolicyShowOutputArgs extends com.pulumi.resourc
         this.comment = $.comment;
         this.createdOn = $.createdOn;
         this.databaseName = $.databaseName;
+        this.kind = $.kind;
         this.name = $.name;
         this.options = $.options;
         this.owner = $.owner;
@@ -127,6 +135,15 @@ public final class AuthenticationPolicyShowOutputArgs extends com.pulumi.resourc
 
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        public Builder kind(@Nullable Output<String> kind) {
+            $.kind = kind;
+            return this;
+        }
+
+        public Builder kind(String kind) {
+            return kind(Output.of(kind));
         }
 
         public Builder name(@Nullable Output<String> name) {

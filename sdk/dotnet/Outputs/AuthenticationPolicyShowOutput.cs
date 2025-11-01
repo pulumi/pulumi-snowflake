@@ -16,6 +16,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? Comment;
         public readonly string? CreatedOn;
         public readonly string? DatabaseName;
+        public readonly string? Kind;
         public readonly string? Name;
         public readonly string? Options;
         public readonly string? Owner;
@@ -30,6 +31,8 @@ namespace Pulumi.Snowflake.Outputs
 
             string? databaseName,
 
+            string? kind,
+
             string? name,
 
             string? options,
@@ -43,6 +46,7 @@ namespace Pulumi.Snowflake.Outputs
             Comment = comment;
             CreatedOn = createdOn;
             DatabaseName = databaseName;
+            Kind = kind;
             Name = name;
             Options = options;
             Owner = owner;

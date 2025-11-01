@@ -13,6 +13,360 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TaskParameterSearchPath struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterSearchPathInput is an input type that accepts TaskParameterSearchPathArgs and TaskParameterSearchPathOutput values.
+// You can construct a concrete instance of `TaskParameterSearchPathInput` via:
+//
+//	TaskParameterSearchPathArgs{...}
+type TaskParameterSearchPathInput interface {
+	pulumi.Input
+
+	ToTaskParameterSearchPathOutput() TaskParameterSearchPathOutput
+	ToTaskParameterSearchPathOutputWithContext(context.Context) TaskParameterSearchPathOutput
+}
+
+type TaskParameterSearchPathArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterSearchPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterSearchPath)(nil)).Elem()
+}
+
+func (i TaskParameterSearchPathArgs) ToTaskParameterSearchPathOutput() TaskParameterSearchPathOutput {
+	return i.ToTaskParameterSearchPathOutputWithContext(context.Background())
+}
+
+func (i TaskParameterSearchPathArgs) ToTaskParameterSearchPathOutputWithContext(ctx context.Context) TaskParameterSearchPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterSearchPathOutput)
+}
+
+// TaskParameterSearchPathArrayInput is an input type that accepts TaskParameterSearchPathArray and TaskParameterSearchPathArrayOutput values.
+// You can construct a concrete instance of `TaskParameterSearchPathArrayInput` via:
+//
+//	TaskParameterSearchPathArray{ TaskParameterSearchPathArgs{...} }
+type TaskParameterSearchPathArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterSearchPathArrayOutput() TaskParameterSearchPathArrayOutput
+	ToTaskParameterSearchPathArrayOutputWithContext(context.Context) TaskParameterSearchPathArrayOutput
+}
+
+type TaskParameterSearchPathArray []TaskParameterSearchPathInput
+
+func (TaskParameterSearchPathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterSearchPath)(nil)).Elem()
+}
+
+func (i TaskParameterSearchPathArray) ToTaskParameterSearchPathArrayOutput() TaskParameterSearchPathArrayOutput {
+	return i.ToTaskParameterSearchPathArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterSearchPathArray) ToTaskParameterSearchPathArrayOutputWithContext(ctx context.Context) TaskParameterSearchPathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterSearchPathArrayOutput)
+}
+
+type TaskParameterSearchPathOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterSearchPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterSearchPath)(nil)).Elem()
+}
+
+func (o TaskParameterSearchPathOutput) ToTaskParameterSearchPathOutput() TaskParameterSearchPathOutput {
+	return o
+}
+
+func (o TaskParameterSearchPathOutput) ToTaskParameterSearchPathOutputWithContext(ctx context.Context) TaskParameterSearchPathOutput {
+	return o
+}
+
+func (o TaskParameterSearchPathOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterSearchPathOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterSearchPathOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterSearchPathOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterSearchPathOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterSearchPath) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterSearchPathArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterSearchPathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterSearchPath)(nil)).Elem()
+}
+
+func (o TaskParameterSearchPathArrayOutput) ToTaskParameterSearchPathArrayOutput() TaskParameterSearchPathArrayOutput {
+	return o
+}
+
+func (o TaskParameterSearchPathArrayOutput) ToTaskParameterSearchPathArrayOutputWithContext(ctx context.Context) TaskParameterSearchPathArrayOutput {
+	return o
+}
+
+func (o TaskParameterSearchPathArrayOutput) Index(i pulumi.IntInput) TaskParameterSearchPathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterSearchPath {
+		return vs[0].([]TaskParameterSearchPath)[vs[1].(int)]
+	}).(TaskParameterSearchPathOutput)
+}
+
+type TaskParameterStatementQueuedTimeoutInSecond struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterStatementQueuedTimeoutInSecondInput is an input type that accepts TaskParameterStatementQueuedTimeoutInSecondArgs and TaskParameterStatementQueuedTimeoutInSecondOutput values.
+// You can construct a concrete instance of `TaskParameterStatementQueuedTimeoutInSecondInput` via:
+//
+//	TaskParameterStatementQueuedTimeoutInSecondArgs{...}
+type TaskParameterStatementQueuedTimeoutInSecondInput interface {
+	pulumi.Input
+
+	ToTaskParameterStatementQueuedTimeoutInSecondOutput() TaskParameterStatementQueuedTimeoutInSecondOutput
+	ToTaskParameterStatementQueuedTimeoutInSecondOutputWithContext(context.Context) TaskParameterStatementQueuedTimeoutInSecondOutput
+}
+
+type TaskParameterStatementQueuedTimeoutInSecondArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterStatementQueuedTimeoutInSecondArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecond)(nil)).Elem()
+}
+
+func (i TaskParameterStatementQueuedTimeoutInSecondArgs) ToTaskParameterStatementQueuedTimeoutInSecondOutput() TaskParameterStatementQueuedTimeoutInSecondOutput {
+	return i.ToTaskParameterStatementQueuedTimeoutInSecondOutputWithContext(context.Background())
+}
+
+func (i TaskParameterStatementQueuedTimeoutInSecondArgs) ToTaskParameterStatementQueuedTimeoutInSecondOutputWithContext(ctx context.Context) TaskParameterStatementQueuedTimeoutInSecondOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStatementQueuedTimeoutInSecondOutput)
+}
+
+// TaskParameterStatementQueuedTimeoutInSecondArrayInput is an input type that accepts TaskParameterStatementQueuedTimeoutInSecondArray and TaskParameterStatementQueuedTimeoutInSecondArrayOutput values.
+// You can construct a concrete instance of `TaskParameterStatementQueuedTimeoutInSecondArrayInput` via:
+//
+//	TaskParameterStatementQueuedTimeoutInSecondArray{ TaskParameterStatementQueuedTimeoutInSecondArgs{...} }
+type TaskParameterStatementQueuedTimeoutInSecondArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterStatementQueuedTimeoutInSecondArrayOutput() TaskParameterStatementQueuedTimeoutInSecondArrayOutput
+	ToTaskParameterStatementQueuedTimeoutInSecondArrayOutputWithContext(context.Context) TaskParameterStatementQueuedTimeoutInSecondArrayOutput
+}
+
+type TaskParameterStatementQueuedTimeoutInSecondArray []TaskParameterStatementQueuedTimeoutInSecondInput
+
+func (TaskParameterStatementQueuedTimeoutInSecondArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterStatementQueuedTimeoutInSecond)(nil)).Elem()
+}
+
+func (i TaskParameterStatementQueuedTimeoutInSecondArray) ToTaskParameterStatementQueuedTimeoutInSecondArrayOutput() TaskParameterStatementQueuedTimeoutInSecondArrayOutput {
+	return i.ToTaskParameterStatementQueuedTimeoutInSecondArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterStatementQueuedTimeoutInSecondArray) ToTaskParameterStatementQueuedTimeoutInSecondArrayOutputWithContext(ctx context.Context) TaskParameterStatementQueuedTimeoutInSecondArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStatementQueuedTimeoutInSecondArrayOutput)
+}
+
+type TaskParameterStatementQueuedTimeoutInSecondOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterStatementQueuedTimeoutInSecondOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecond)(nil)).Elem()
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondOutput) ToTaskParameterStatementQueuedTimeoutInSecondOutput() TaskParameterStatementQueuedTimeoutInSecondOutput {
+	return o
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondOutput) ToTaskParameterStatementQueuedTimeoutInSecondOutputWithContext(ctx context.Context) TaskParameterStatementQueuedTimeoutInSecondOutput {
+	return o
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementQueuedTimeoutInSecond) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterStatementQueuedTimeoutInSecondArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterStatementQueuedTimeoutInSecondArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterStatementQueuedTimeoutInSecond)(nil)).Elem()
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondArrayOutput) ToTaskParameterStatementQueuedTimeoutInSecondArrayOutput() TaskParameterStatementQueuedTimeoutInSecondArrayOutput {
+	return o
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondArrayOutput) ToTaskParameterStatementQueuedTimeoutInSecondArrayOutputWithContext(ctx context.Context) TaskParameterStatementQueuedTimeoutInSecondArrayOutput {
+	return o
+}
+
+func (o TaskParameterStatementQueuedTimeoutInSecondArrayOutput) Index(i pulumi.IntInput) TaskParameterStatementQueuedTimeoutInSecondOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterStatementQueuedTimeoutInSecond {
+		return vs[0].([]TaskParameterStatementQueuedTimeoutInSecond)[vs[1].(int)]
+	}).(TaskParameterStatementQueuedTimeoutInSecondOutput)
+}
+
+type TaskParameterStatementTimeoutInSecond struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// TaskParameterStatementTimeoutInSecondInput is an input type that accepts TaskParameterStatementTimeoutInSecondArgs and TaskParameterStatementTimeoutInSecondOutput values.
+// You can construct a concrete instance of `TaskParameterStatementTimeoutInSecondInput` via:
+//
+//	TaskParameterStatementTimeoutInSecondArgs{...}
+type TaskParameterStatementTimeoutInSecondInput interface {
+	pulumi.Input
+
+	ToTaskParameterStatementTimeoutInSecondOutput() TaskParameterStatementTimeoutInSecondOutput
+	ToTaskParameterStatementTimeoutInSecondOutputWithContext(context.Context) TaskParameterStatementTimeoutInSecondOutput
+}
+
+type TaskParameterStatementTimeoutInSecondArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskParameterStatementTimeoutInSecondArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterStatementTimeoutInSecond)(nil)).Elem()
+}
+
+func (i TaskParameterStatementTimeoutInSecondArgs) ToTaskParameterStatementTimeoutInSecondOutput() TaskParameterStatementTimeoutInSecondOutput {
+	return i.ToTaskParameterStatementTimeoutInSecondOutputWithContext(context.Background())
+}
+
+func (i TaskParameterStatementTimeoutInSecondArgs) ToTaskParameterStatementTimeoutInSecondOutputWithContext(ctx context.Context) TaskParameterStatementTimeoutInSecondOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStatementTimeoutInSecondOutput)
+}
+
+// TaskParameterStatementTimeoutInSecondArrayInput is an input type that accepts TaskParameterStatementTimeoutInSecondArray and TaskParameterStatementTimeoutInSecondArrayOutput values.
+// You can construct a concrete instance of `TaskParameterStatementTimeoutInSecondArrayInput` via:
+//
+//	TaskParameterStatementTimeoutInSecondArray{ TaskParameterStatementTimeoutInSecondArgs{...} }
+type TaskParameterStatementTimeoutInSecondArrayInput interface {
+	pulumi.Input
+
+	ToTaskParameterStatementTimeoutInSecondArrayOutput() TaskParameterStatementTimeoutInSecondArrayOutput
+	ToTaskParameterStatementTimeoutInSecondArrayOutputWithContext(context.Context) TaskParameterStatementTimeoutInSecondArrayOutput
+}
+
+type TaskParameterStatementTimeoutInSecondArray []TaskParameterStatementTimeoutInSecondInput
+
+func (TaskParameterStatementTimeoutInSecondArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterStatementTimeoutInSecond)(nil)).Elem()
+}
+
+func (i TaskParameterStatementTimeoutInSecondArray) ToTaskParameterStatementTimeoutInSecondArrayOutput() TaskParameterStatementTimeoutInSecondArrayOutput {
+	return i.ToTaskParameterStatementTimeoutInSecondArrayOutputWithContext(context.Background())
+}
+
+func (i TaskParameterStatementTimeoutInSecondArray) ToTaskParameterStatementTimeoutInSecondArrayOutputWithContext(ctx context.Context) TaskParameterStatementTimeoutInSecondArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterStatementTimeoutInSecondArrayOutput)
+}
+
+type TaskParameterStatementTimeoutInSecondOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterStatementTimeoutInSecondOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskParameterStatementTimeoutInSecond)(nil)).Elem()
+}
+
+func (o TaskParameterStatementTimeoutInSecondOutput) ToTaskParameterStatementTimeoutInSecondOutput() TaskParameterStatementTimeoutInSecondOutput {
+	return o
+}
+
+func (o TaskParameterStatementTimeoutInSecondOutput) ToTaskParameterStatementTimeoutInSecondOutputWithContext(ctx context.Context) TaskParameterStatementTimeoutInSecondOutput {
+	return o
+}
+
+func (o TaskParameterStatementTimeoutInSecondOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStatementTimeoutInSecondOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStatementTimeoutInSecondOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStatementTimeoutInSecondOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskParameterStatementTimeoutInSecondOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskParameterStatementTimeoutInSecond) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskParameterStatementTimeoutInSecondArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskParameterStatementTimeoutInSecondArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskParameterStatementTimeoutInSecond)(nil)).Elem()
+}
+
+func (o TaskParameterStatementTimeoutInSecondArrayOutput) ToTaskParameterStatementTimeoutInSecondArrayOutput() TaskParameterStatementTimeoutInSecondArrayOutput {
+	return o
+}
+
+func (o TaskParameterStatementTimeoutInSecondArrayOutput) ToTaskParameterStatementTimeoutInSecondArrayOutputWithContext(ctx context.Context) TaskParameterStatementTimeoutInSecondArrayOutput {
+	return o
+}
+
+func (o TaskParameterStatementTimeoutInSecondArrayOutput) Index(i pulumi.IntInput) TaskParameterStatementTimeoutInSecondOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterStatementTimeoutInSecond {
+		return vs[0].([]TaskParameterStatementTimeoutInSecond)[vs[1].(int)]
+	}).(TaskParameterStatementTimeoutInSecondOutput)
+}
+
 type TaskParameterStrictJsonOutput struct {
 	Default     *string `pulumi:"default"`
 	Description *string `pulumi:"description"`
@@ -13834,6 +14188,945 @@ func (o GetAlertsAlertArrayOutput) Index(i pulumi.IntInput) GetAlertsAlertOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertsAlert {
 		return vs[0].([]GetAlertsAlert)[vs[1].(int)]
 	}).(GetAlertsAlertOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicy struct {
+	// Holds the output of DESCRIBE AUTHENTICATION POLICY.
+	DescribeOutputs []GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW AUTHENTICATION POLICIES.
+	ShowOutputs []GetAuthenticationPoliciesAuthenticationPolicyShowOutput `pulumi:"showOutputs"`
+}
+
+// GetAuthenticationPoliciesAuthenticationPolicyInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyArgs and GetAuthenticationPoliciesAuthenticationPolicyOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyInput` via:
+//
+//	GetAuthenticationPoliciesAuthenticationPolicyArgs{...}
+type GetAuthenticationPoliciesAuthenticationPolicyInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesAuthenticationPolicyOutput() GetAuthenticationPoliciesAuthenticationPolicyOutput
+	ToGetAuthenticationPoliciesAuthenticationPolicyOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyOutput
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyArgs struct {
+	// Holds the output of DESCRIBE AUTHENTICATION POLICY.
+	DescribeOutputs GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW AUTHENTICATION POLICIES.
+	ShowOutputs GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetAuthenticationPoliciesAuthenticationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicy)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyArgs) ToGetAuthenticationPoliciesAuthenticationPolicyOutput() GetAuthenticationPoliciesAuthenticationPolicyOutput {
+	return i.ToGetAuthenticationPoliciesAuthenticationPolicyOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyArgs) ToGetAuthenticationPoliciesAuthenticationPolicyOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyOutput)
+}
+
+// GetAuthenticationPoliciesAuthenticationPolicyArrayInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyArray and GetAuthenticationPoliciesAuthenticationPolicyArrayOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyArrayInput` via:
+//
+//	GetAuthenticationPoliciesAuthenticationPolicyArray{ GetAuthenticationPoliciesAuthenticationPolicyArgs{...} }
+type GetAuthenticationPoliciesAuthenticationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyArrayOutput
+	ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyArrayOutput
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyArray []GetAuthenticationPoliciesAuthenticationPolicyInput
+
+func (GetAuthenticationPoliciesAuthenticationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicy)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyArray) ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyArrayOutput {
+	return i.ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyArray) ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyArrayOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesAuthenticationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicy)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyOutput) ToGetAuthenticationPoliciesAuthenticationPolicyOutput() GetAuthenticationPoliciesAuthenticationPolicyOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyOutput) ToGetAuthenticationPoliciesAuthenticationPolicyOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyOutput {
+	return o
+}
+
+// Holds the output of DESCRIBE AUTHENTICATION POLICY.
+func (o GetAuthenticationPoliciesAuthenticationPolicyOutput) DescribeOutputs() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicy) []GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
+		return v.DescribeOutputs
+	}).(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput)
+}
+
+// Holds the output of SHOW AUTHENTICATION POLICIES.
+func (o GetAuthenticationPoliciesAuthenticationPolicyOutput) ShowOutputs() GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicy) []GetAuthenticationPoliciesAuthenticationPolicyShowOutput {
+		return v.ShowOutputs
+	}).(GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesAuthenticationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicy)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyArrayOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyArrayOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyArrayOutput) Index(i pulumi.IntInput) GetAuthenticationPoliciesAuthenticationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthenticationPoliciesAuthenticationPolicy {
+		return vs[0].([]GetAuthenticationPoliciesAuthenticationPolicy)[vs[1].(int)]
+	}).(GetAuthenticationPoliciesAuthenticationPolicyOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput struct {
+	AuthenticationMethods    string `pulumi:"authenticationMethods"`
+	ClientTypes              string `pulumi:"clientTypes"`
+	Comment                  string `pulumi:"comment"`
+	MfaAuthenticationMethods string `pulumi:"mfaAuthenticationMethods"`
+	MfaEnrollment            string `pulumi:"mfaEnrollment"`
+	MfaPolicy                string `pulumi:"mfaPolicy"`
+	Name                     string `pulumi:"name"`
+	Owner                    string `pulumi:"owner"`
+	PatPolicy                string `pulumi:"patPolicy"`
+	SecurityIntegrations     string `pulumi:"securityIntegrations"`
+	WorkloadIdentityPolicy   string `pulumi:"workloadIdentityPolicy"`
+}
+
+// GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs and GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput` via:
+//
+//	GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs{...}
+type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput
+	ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs struct {
+	AuthenticationMethods    pulumi.StringInput `pulumi:"authenticationMethods"`
+	ClientTypes              pulumi.StringInput `pulumi:"clientTypes"`
+	Comment                  pulumi.StringInput `pulumi:"comment"`
+	MfaAuthenticationMethods pulumi.StringInput `pulumi:"mfaAuthenticationMethods"`
+	MfaEnrollment            pulumi.StringInput `pulumi:"mfaEnrollment"`
+	MfaPolicy                pulumi.StringInput `pulumi:"mfaPolicy"`
+	Name                     pulumi.StringInput `pulumi:"name"`
+	Owner                    pulumi.StringInput `pulumi:"owner"`
+	PatPolicy                pulumi.StringInput `pulumi:"patPolicy"`
+	SecurityIntegrations     pulumi.StringInput `pulumi:"securityIntegrations"`
+	WorkloadIdentityPolicy   pulumi.StringInput `pulumi:"workloadIdentityPolicy"`
+}
+
+func (GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
+	return i.ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput)
+}
+
+// GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray and GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput` via:
+//
+//	GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray{ GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs{...} }
+type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput
+	ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray []GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput
+
+func (GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
+	return i.ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) AuthenticationMethods() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string {
+		return v.AuthenticationMethods
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ClientTypes() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.ClientTypes }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) MfaAuthenticationMethods() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string {
+		return v.MfaAuthenticationMethods
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) MfaEnrollment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.MfaEnrollment }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) MfaPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.MfaPolicy }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) PatPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.PatPolicy }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) SecurityIntegrations() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string {
+		return v.SecurityIntegrations
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) WorkloadIdentityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string {
+		return v.WorkloadIdentityPolicy
+	}).(pulumi.StringOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
+		return vs[0].([]GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)[vs[1].(int)]
+	}).(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyShowOutput struct {
+	Comment       string `pulumi:"comment"`
+	CreatedOn     string `pulumi:"createdOn"`
+	DatabaseName  string `pulumi:"databaseName"`
+	Kind          string `pulumi:"kind"`
+	Name          string `pulumi:"name"`
+	Options       string `pulumi:"options"`
+	Owner         string `pulumi:"owner"`
+	OwnerRoleType string `pulumi:"ownerRoleType"`
+	SchemaName    string `pulumi:"schemaName"`
+}
+
+// GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs and GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput` via:
+//
+//	GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs{...}
+type GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput
+	ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs struct {
+	Comment       pulumi.StringInput `pulumi:"comment"`
+	CreatedOn     pulumi.StringInput `pulumi:"createdOn"`
+	DatabaseName  pulumi.StringInput `pulumi:"databaseName"`
+	Kind          pulumi.StringInput `pulumi:"kind"`
+	Name          pulumi.StringInput `pulumi:"name"`
+	Options       pulumi.StringInput `pulumi:"options"`
+	Owner         pulumi.StringInput `pulumi:"owner"`
+	OwnerRoleType pulumi.StringInput `pulumi:"ownerRoleType"`
+	SchemaName    pulumi.StringInput `pulumi:"schemaName"`
+}
+
+func (GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyShowOutput)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
+	return i.ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput)
+}
+
+// GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray and GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput` via:
+//
+//	GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray{ GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs{...} }
+type GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput
+	ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray []GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput
+
+func (GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicyShowOutput)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
+	return i.ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyShowOutput)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Options() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Options }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) OwnerRoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.OwnerRoleType }).(pulumi.StringOutput)
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+type GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicyShowOutput)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthenticationPoliciesAuthenticationPolicyShowOutput {
+		return vs[0].([]GetAuthenticationPoliciesAuthenticationPolicyShowOutput)[vs[1].(int)]
+	}).(GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput)
+}
+
+type GetAuthenticationPoliciesIn struct {
+	// Returns records for the entire account.
+	Account *bool `pulumi:"account"`
+	// Returns records for the specified application.
+	Application *string `pulumi:"application"`
+	// Returns records for the specified application package.
+	ApplicationPackage *string `pulumi:"applicationPackage"`
+	// Returns records for the current database in use or for a specified database.
+	Database *string `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+	Schema *string `pulumi:"schema"`
+}
+
+// GetAuthenticationPoliciesInInput is an input type that accepts GetAuthenticationPoliciesInArgs and GetAuthenticationPoliciesInOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesInInput` via:
+//
+//	GetAuthenticationPoliciesInArgs{...}
+type GetAuthenticationPoliciesInInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesInOutput() GetAuthenticationPoliciesInOutput
+	ToGetAuthenticationPoliciesInOutputWithContext(context.Context) GetAuthenticationPoliciesInOutput
+}
+
+type GetAuthenticationPoliciesInArgs struct {
+	// Returns records for the entire account.
+	Account pulumi.BoolPtrInput `pulumi:"account"`
+	// Returns records for the specified application.
+	Application pulumi.StringPtrInput `pulumi:"application"`
+	// Returns records for the specified application package.
+	ApplicationPackage pulumi.StringPtrInput `pulumi:"applicationPackage"`
+	// Returns records for the current database in use or for a specified database.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (GetAuthenticationPoliciesInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesIn)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesInArgs) ToGetAuthenticationPoliciesInOutput() GetAuthenticationPoliciesInOutput {
+	return i.ToGetAuthenticationPoliciesInOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesInArgs) ToGetAuthenticationPoliciesInOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesInOutput)
+}
+
+func (i GetAuthenticationPoliciesInArgs) ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput {
+	return i.ToGetAuthenticationPoliciesInPtrOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesInArgs) ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesInOutput).ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx)
+}
+
+// GetAuthenticationPoliciesInPtrInput is an input type that accepts GetAuthenticationPoliciesInArgs, GetAuthenticationPoliciesInPtr and GetAuthenticationPoliciesInPtrOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesInPtrInput` via:
+//
+//	        GetAuthenticationPoliciesInArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAuthenticationPoliciesInPtrInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput
+	ToGetAuthenticationPoliciesInPtrOutputWithContext(context.Context) GetAuthenticationPoliciesInPtrOutput
+}
+
+type getAuthenticationPoliciesInPtrType GetAuthenticationPoliciesInArgs
+
+func GetAuthenticationPoliciesInPtr(v *GetAuthenticationPoliciesInArgs) GetAuthenticationPoliciesInPtrInput {
+	return (*getAuthenticationPoliciesInPtrType)(v)
+}
+
+func (*getAuthenticationPoliciesInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticationPoliciesIn)(nil)).Elem()
+}
+
+func (i *getAuthenticationPoliciesInPtrType) ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput {
+	return i.ToGetAuthenticationPoliciesInPtrOutputWithContext(context.Background())
+}
+
+func (i *getAuthenticationPoliciesInPtrType) ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesInPtrOutput)
+}
+
+type GetAuthenticationPoliciesInOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesIn)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesInOutput) ToGetAuthenticationPoliciesInOutput() GetAuthenticationPoliciesInOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesInOutput) ToGetAuthenticationPoliciesInOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesInOutput) ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput {
+	return o.ToGetAuthenticationPoliciesInPtrOutputWithContext(context.Background())
+}
+
+func (o GetAuthenticationPoliciesInOutput) ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticationPoliciesIn) *GetAuthenticationPoliciesIn {
+		return &v
+	}).(GetAuthenticationPoliciesInPtrOutput)
+}
+
+// Returns records for the entire account.
+func (o GetAuthenticationPoliciesInOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the specified application.
+func (o GetAuthenticationPoliciesInOutput) Application() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *string { return v.Application }).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the specified application package.
+func (o GetAuthenticationPoliciesInOutput) ApplicationPackage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *string { return v.ApplicationPackage }).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database.
+func (o GetAuthenticationPoliciesInOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+func (o GetAuthenticationPoliciesInOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type GetAuthenticationPoliciesInPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticationPoliciesIn)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesInPtrOutput) ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesInPtrOutput) ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInPtrOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesInPtrOutput) Elem() GetAuthenticationPoliciesInOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) GetAuthenticationPoliciesIn {
+		if v != nil {
+			return *v
+		}
+		var ret GetAuthenticationPoliciesIn
+		return ret
+	}).(GetAuthenticationPoliciesInOutput)
+}
+
+// Returns records for the entire account.
+func (o GetAuthenticationPoliciesInPtrOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Account
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the specified application.
+func (o GetAuthenticationPoliciesInPtrOutput) Application() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Application
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the specified application package.
+func (o GetAuthenticationPoliciesInPtrOutput) ApplicationPackage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationPackage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database.
+func (o GetAuthenticationPoliciesInPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+func (o GetAuthenticationPoliciesInPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetAuthenticationPoliciesLimit struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From *string `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows int `pulumi:"rows"`
+}
+
+// GetAuthenticationPoliciesLimitInput is an input type that accepts GetAuthenticationPoliciesLimitArgs and GetAuthenticationPoliciesLimitOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesLimitInput` via:
+//
+//	GetAuthenticationPoliciesLimitArgs{...}
+type GetAuthenticationPoliciesLimitInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesLimitOutput() GetAuthenticationPoliciesLimitOutput
+	ToGetAuthenticationPoliciesLimitOutputWithContext(context.Context) GetAuthenticationPoliciesLimitOutput
+}
+
+type GetAuthenticationPoliciesLimitArgs struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows pulumi.IntInput `pulumi:"rows"`
+}
+
+func (GetAuthenticationPoliciesLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesLimit)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesLimitArgs) ToGetAuthenticationPoliciesLimitOutput() GetAuthenticationPoliciesLimitOutput {
+	return i.ToGetAuthenticationPoliciesLimitOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesLimitArgs) ToGetAuthenticationPoliciesLimitOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesLimitOutput)
+}
+
+func (i GetAuthenticationPoliciesLimitArgs) ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput {
+	return i.ToGetAuthenticationPoliciesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesLimitArgs) ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesLimitOutput).ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx)
+}
+
+// GetAuthenticationPoliciesLimitPtrInput is an input type that accepts GetAuthenticationPoliciesLimitArgs, GetAuthenticationPoliciesLimitPtr and GetAuthenticationPoliciesLimitPtrOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesLimitPtrInput` via:
+//
+//	        GetAuthenticationPoliciesLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAuthenticationPoliciesLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput
+	ToGetAuthenticationPoliciesLimitPtrOutputWithContext(context.Context) GetAuthenticationPoliciesLimitPtrOutput
+}
+
+type getAuthenticationPoliciesLimitPtrType GetAuthenticationPoliciesLimitArgs
+
+func GetAuthenticationPoliciesLimitPtr(v *GetAuthenticationPoliciesLimitArgs) GetAuthenticationPoliciesLimitPtrInput {
+	return (*getAuthenticationPoliciesLimitPtrType)(v)
+}
+
+func (*getAuthenticationPoliciesLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticationPoliciesLimit)(nil)).Elem()
+}
+
+func (i *getAuthenticationPoliciesLimitPtrType) ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput {
+	return i.ToGetAuthenticationPoliciesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getAuthenticationPoliciesLimitPtrType) ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesLimitPtrOutput)
+}
+
+type GetAuthenticationPoliciesLimitOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesLimit)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesLimitOutput) ToGetAuthenticationPoliciesLimitOutput() GetAuthenticationPoliciesLimitOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesLimitOutput) ToGetAuthenticationPoliciesLimitOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesLimitOutput) ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput {
+	return o.ToGetAuthenticationPoliciesLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetAuthenticationPoliciesLimitOutput) ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticationPoliciesLimit) *GetAuthenticationPoliciesLimit {
+		return &v
+	}).(GetAuthenticationPoliciesLimitPtrOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetAuthenticationPoliciesLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetAuthenticationPoliciesLimitOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesLimit) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+type GetAuthenticationPoliciesLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticationPoliciesLimit)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesLimitPtrOutput) ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesLimitPtrOutput) ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitPtrOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesLimitPtrOutput) Elem() GetAuthenticationPoliciesLimitOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesLimit) GetAuthenticationPoliciesLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetAuthenticationPoliciesLimit
+		return ret
+	}).(GetAuthenticationPoliciesLimitOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetAuthenticationPoliciesLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetAuthenticationPoliciesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Rows
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetAuthenticationPoliciesOn struct {
+	// Returns records for the entire account.
+	Account *bool `pulumi:"account"`
+	// Returns records for the specified user.
+	User *string `pulumi:"user"`
+}
+
+// GetAuthenticationPoliciesOnInput is an input type that accepts GetAuthenticationPoliciesOnArgs and GetAuthenticationPoliciesOnOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesOnInput` via:
+//
+//	GetAuthenticationPoliciesOnArgs{...}
+type GetAuthenticationPoliciesOnInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesOnOutput() GetAuthenticationPoliciesOnOutput
+	ToGetAuthenticationPoliciesOnOutputWithContext(context.Context) GetAuthenticationPoliciesOnOutput
+}
+
+type GetAuthenticationPoliciesOnArgs struct {
+	// Returns records for the entire account.
+	Account pulumi.BoolPtrInput `pulumi:"account"`
+	// Returns records for the specified user.
+	User pulumi.StringPtrInput `pulumi:"user"`
+}
+
+func (GetAuthenticationPoliciesOnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesOn)(nil)).Elem()
+}
+
+func (i GetAuthenticationPoliciesOnArgs) ToGetAuthenticationPoliciesOnOutput() GetAuthenticationPoliciesOnOutput {
+	return i.ToGetAuthenticationPoliciesOnOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesOnArgs) ToGetAuthenticationPoliciesOnOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesOnOutput)
+}
+
+func (i GetAuthenticationPoliciesOnArgs) ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput {
+	return i.ToGetAuthenticationPoliciesOnPtrOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticationPoliciesOnArgs) ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesOnOutput).ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx)
+}
+
+// GetAuthenticationPoliciesOnPtrInput is an input type that accepts GetAuthenticationPoliciesOnArgs, GetAuthenticationPoliciesOnPtr and GetAuthenticationPoliciesOnPtrOutput values.
+// You can construct a concrete instance of `GetAuthenticationPoliciesOnPtrInput` via:
+//
+//	        GetAuthenticationPoliciesOnArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAuthenticationPoliciesOnPtrInput interface {
+	pulumi.Input
+
+	ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput
+	ToGetAuthenticationPoliciesOnPtrOutputWithContext(context.Context) GetAuthenticationPoliciesOnPtrOutput
+}
+
+type getAuthenticationPoliciesOnPtrType GetAuthenticationPoliciesOnArgs
+
+func GetAuthenticationPoliciesOnPtr(v *GetAuthenticationPoliciesOnArgs) GetAuthenticationPoliciesOnPtrInput {
+	return (*getAuthenticationPoliciesOnPtrType)(v)
+}
+
+func (*getAuthenticationPoliciesOnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticationPoliciesOn)(nil)).Elem()
+}
+
+func (i *getAuthenticationPoliciesOnPtrType) ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput {
+	return i.ToGetAuthenticationPoliciesOnPtrOutputWithContext(context.Background())
+}
+
+func (i *getAuthenticationPoliciesOnPtrType) ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesOnPtrOutput)
+}
+
+type GetAuthenticationPoliciesOnOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticationPoliciesOn)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesOnOutput) ToGetAuthenticationPoliciesOnOutput() GetAuthenticationPoliciesOnOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesOnOutput) ToGetAuthenticationPoliciesOnOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesOnOutput) ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput {
+	return o.ToGetAuthenticationPoliciesOnPtrOutputWithContext(context.Background())
+}
+
+func (o GetAuthenticationPoliciesOnOutput) ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticationPoliciesOn) *GetAuthenticationPoliciesOn {
+		return &v
+	}).(GetAuthenticationPoliciesOnPtrOutput)
+}
+
+// Returns records for the entire account.
+func (o GetAuthenticationPoliciesOnOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesOn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the specified user.
+func (o GetAuthenticationPoliciesOnOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAuthenticationPoliciesOn) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+type GetAuthenticationPoliciesOnPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticationPoliciesOnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticationPoliciesOn)(nil)).Elem()
+}
+
+func (o GetAuthenticationPoliciesOnPtrOutput) ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesOnPtrOutput) ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnPtrOutput {
+	return o
+}
+
+func (o GetAuthenticationPoliciesOnPtrOutput) Elem() GetAuthenticationPoliciesOnOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesOn) GetAuthenticationPoliciesOn {
+		if v != nil {
+			return *v
+		}
+		var ret GetAuthenticationPoliciesOn
+		return ret
+	}).(GetAuthenticationPoliciesOnOutput)
+}
+
+// Returns records for the entire account.
+func (o GetAuthenticationPoliciesOnPtrOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesOn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Account
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the specified user.
+func (o GetAuthenticationPoliciesOnPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticationPoliciesOn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.User
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetComputePoolsComputePool struct {
@@ -57939,6 +59232,12 @@ func (o GetWarehousesWarehouseShowOutputArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSearchPathInput)(nil)).Elem(), TaskParameterSearchPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSearchPathArrayInput)(nil)).Elem(), TaskParameterSearchPathArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecondInput)(nil)).Elem(), TaskParameterStatementQueuedTimeoutInSecondArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementQueuedTimeoutInSecondArrayInput)(nil)).Elem(), TaskParameterStatementQueuedTimeoutInSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementTimeoutInSecondInput)(nil)).Elem(), TaskParameterStatementTimeoutInSecondArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStatementTimeoutInSecondArrayInput)(nil)).Elem(), TaskParameterStatementTimeoutInSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStrictJsonOutputInput)(nil)).Elem(), TaskParameterStrictJsonOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterStrictJsonOutputArrayInput)(nil)).Elem(), TaskParameterStrictJsonOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterSuspendTaskAfterNumFailureInput)(nil)).Elem(), TaskParameterSuspendTaskAfterNumFailureArgs{})
@@ -58153,6 +59452,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountShowOutputArrayInput)(nil)).Elem(), GetAccountsAccountShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertsAlertInput)(nil)).Elem(), GetAlertsAlertArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertsAlertArrayInput)(nil)).Elem(), GetAlertsAlertArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyArrayInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesInInput)(nil)).Elem(), GetAuthenticationPoliciesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesInPtrInput)(nil)).Elem(), GetAuthenticationPoliciesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesLimitInput)(nil)).Elem(), GetAuthenticationPoliciesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesLimitPtrInput)(nil)).Elem(), GetAuthenticationPoliciesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesOnInput)(nil)).Elem(), GetAuthenticationPoliciesOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesOnPtrInput)(nil)).Elem(), GetAuthenticationPoliciesOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolInput)(nil)).Elem(), GetComputePoolsComputePoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolArrayInput)(nil)).Elem(), GetComputePoolsComputePoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolDescribeOutputInput)(nil)).Elem(), GetComputePoolsComputePoolDescribeOutputArgs{})
@@ -58809,6 +60120,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseParameterStatementTimeoutInSecondArrayInput)(nil)).Elem(), GetWarehousesWarehouseParameterStatementTimeoutInSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputArrayInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArray{})
+	pulumi.RegisterOutputType(TaskParameterSearchPathOutput{})
+	pulumi.RegisterOutputType(TaskParameterSearchPathArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterStatementQueuedTimeoutInSecondOutput{})
+	pulumi.RegisterOutputType(TaskParameterStatementQueuedTimeoutInSecondArrayOutput{})
+	pulumi.RegisterOutputType(TaskParameterStatementTimeoutInSecondOutput{})
+	pulumi.RegisterOutputType(TaskParameterStatementTimeoutInSecondArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterStrictJsonOutputOutput{})
 	pulumi.RegisterOutputType(TaskParameterStrictJsonOutputArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterSuspendTaskAfterNumFailureOutput{})
@@ -59023,6 +60340,18 @@ func init() {
 	pulumi.RegisterOutputType(GetAccountsAccountShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertsAlertOutput{})
 	pulumi.RegisterOutputType(GetAlertsAlertArrayOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesInOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesInPtrOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesLimitOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesLimitPtrOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesOnOutput{})
+	pulumi.RegisterOutputType(GetAuthenticationPoliciesOnPtrOutput{})
 	pulumi.RegisterOutputType(GetComputePoolsComputePoolOutput{})
 	pulumi.RegisterOutputType(GetComputePoolsComputePoolArrayOutput{})
 	pulumi.RegisterOutputType(GetComputePoolsComputePoolDescribeOutputOutput{})

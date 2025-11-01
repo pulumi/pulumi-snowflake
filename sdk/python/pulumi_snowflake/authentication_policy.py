@@ -28,19 +28,25 @@ class AuthenticationPolicyArgs:
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
+                 mfa_policy: Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 pat_policy: Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']] = None,
+                 security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workload_identity_policy: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']] = None):
         """
         The set of arguments for constructing a AuthenticationPolicy resource.
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mfa_authentication_methods: A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
-        :param pulumi.Input[_builtins.str] mfa_enrollment: (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        :param pulumi.Input[_builtins.str] mfa_enrollment: Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        :param pulumi.Input['AuthenticationPolicyMfaPolicyArgs'] mfa_policy: Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_integrations: A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        :param pulumi.Input['AuthenticationPolicyPatPolicyArgs'] pat_policy: Specifies the policy for programmatic access tokens.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_integrations: A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
+        :param pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs'] workload_identity_policy: Specifies the policy for workload identity federation.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -57,10 +63,16 @@ class AuthenticationPolicyArgs:
             pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         if mfa_enrollment is not None:
             pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
+        if mfa_policy is not None:
+            pulumi.set(__self__, "mfa_policy", mfa_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pat_policy is not None:
+            pulumi.set(__self__, "pat_policy", pat_policy)
         if security_integrations is not None:
             pulumi.set(__self__, "security_integrations", security_integrations)
+        if workload_identity_policy is not None:
+            pulumi.set(__self__, "workload_identity_policy", workload_identity_policy)
 
     @_builtins.property
     @pulumi.getter
@@ -90,7 +102,7 @@ class AuthenticationPolicyArgs:
     @pulumi.getter(name="authenticationMethods")
     def authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+        A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         """
         return pulumi.get(self, "authentication_methods")
 
@@ -102,7 +114,7 @@ class AuthenticationPolicyArgs:
     @pulumi.getter(name="clientTypes")
     def client_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         """
         return pulumi.get(self, "client_types")
 
@@ -139,13 +151,25 @@ class AuthenticationPolicyArgs:
     @pulumi.getter(name="mfaEnrollment")
     def mfa_enrollment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
         """
         return pulumi.get(self, "mfa_enrollment")
 
     @mfa_enrollment.setter
     def mfa_enrollment(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "mfa_enrollment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mfaPolicy")
+    def mfa_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']]:
+        """
+        Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
+        """
+        return pulumi.get(self, "mfa_policy")
+
+    @mfa_policy.setter
+    def mfa_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']]):
+        pulumi.set(self, "mfa_policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -160,16 +184,40 @@ class AuthenticationPolicyArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="patPolicy")
+    def pat_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']]:
+        """
+        Specifies the policy for programmatic access tokens.
+        """
+        return pulumi.get(self, "pat_policy")
+
+    @pat_policy.setter
+    def pat_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']]):
+        pulumi.set(self, "pat_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityIntegrations")
     def security_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         """
         return pulumi.get(self, "security_integrations")
 
     @security_integrations.setter
     def security_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_integrations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPolicy")
+    def workload_identity_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']]:
+        """
+        Specifies the policy for workload identity federation.
+        """
+        return pulumi.get(self, "workload_identity_policy")
+
+    @workload_identity_policy.setter
+    def workload_identity_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']]):
+        pulumi.set(self, "workload_identity_policy", value)
 
 
 @pulumi.input_type
@@ -183,24 +231,30 @@ class _AuthenticationPolicyState:
                  fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
+                 mfa_policy: Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pat_policy: Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]] = None):
+                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]] = None,
+                 workload_identity_policy: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']] = None):
         """
         Input properties used for looking up and filtering AuthenticationPolicy resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mfa_authentication_methods: A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
-        :param pulumi.Input[_builtins.str] mfa_enrollment: (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        :param pulumi.Input[_builtins.str] mfa_enrollment: Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        :param pulumi.Input['AuthenticationPolicyMfaPolicyArgs'] mfa_policy: Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input['AuthenticationPolicyPatPolicyArgs'] pat_policy: Specifies the policy for programmatic access tokens.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_integrations: A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_integrations: A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         :param pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]] show_outputs: Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+        :param pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs'] workload_identity_policy: Specifies the policy for workload identity federation.
         """
         if authentication_methods is not None:
             pulumi.set(__self__, "authentication_methods", authentication_methods)
@@ -221,20 +275,26 @@ class _AuthenticationPolicyState:
             pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         if mfa_enrollment is not None:
             pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
+        if mfa_policy is not None:
+            pulumi.set(__self__, "mfa_policy", mfa_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pat_policy is not None:
+            pulumi.set(__self__, "pat_policy", pat_policy)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if security_integrations is not None:
             pulumi.set(__self__, "security_integrations", security_integrations)
         if show_outputs is not None:
             pulumi.set(__self__, "show_outputs", show_outputs)
+        if workload_identity_policy is not None:
+            pulumi.set(__self__, "workload_identity_policy", workload_identity_policy)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
     def authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+        A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         """
         return pulumi.get(self, "authentication_methods")
 
@@ -246,7 +306,7 @@ class _AuthenticationPolicyState:
     @pulumi.getter(name="clientTypes")
     def client_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         """
         return pulumi.get(self, "client_types")
 
@@ -319,13 +379,25 @@ class _AuthenticationPolicyState:
     @pulumi.getter(name="mfaEnrollment")
     def mfa_enrollment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
         """
         return pulumi.get(self, "mfa_enrollment")
 
     @mfa_enrollment.setter
     def mfa_enrollment(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "mfa_enrollment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mfaPolicy")
+    def mfa_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']]:
+        """
+        Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
+        """
+        return pulumi.get(self, "mfa_policy")
+
+    @mfa_policy.setter
+    def mfa_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']]):
+        pulumi.set(self, "mfa_policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -338,6 +410,18 @@ class _AuthenticationPolicyState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="patPolicy")
+    def pat_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']]:
+        """
+        Specifies the policy for programmatic access tokens.
+        """
+        return pulumi.get(self, "pat_policy")
+
+    @pat_policy.setter
+    def pat_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']]):
+        pulumi.set(self, "pat_policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -355,7 +439,7 @@ class _AuthenticationPolicyState:
     @pulumi.getter(name="securityIntegrations")
     def security_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         """
         return pulumi.get(self, "security_integrations")
 
@@ -375,6 +459,18 @@ class _AuthenticationPolicyState:
     def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPolicy")
+    def workload_identity_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']]:
+        """
+        Specifies the policy for workload identity federation.
+        """
+        return pulumi.get(self, "workload_identity_policy")
+
+    @workload_identity_policy.setter
+    def workload_identity_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']]):
+        pulumi.set(self, "workload_identity_policy", value)
+
 
 @pulumi.type_token("snowflake:index/authenticationPolicy:AuthenticationPolicy")
 class AuthenticationPolicy(pulumi.CustomResource):
@@ -388,9 +484,12 @@ class AuthenticationPolicy(pulumi.CustomResource):
                  database: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
+                 mfa_policy: Optional[pulumi.Input[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pat_policy: Optional[pulumi.Input[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workload_identity_policy: Optional[pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None,
                  __props__=None):
         """
         ## Import
@@ -401,15 +500,18 @@ class AuthenticationPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mfa_authentication_methods: A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
-        :param pulumi.Input[_builtins.str] mfa_enrollment: (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        :param pulumi.Input[_builtins.str] mfa_enrollment: Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        :param pulumi.Input[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']] mfa_policy: Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']] pat_policy: Specifies the policy for programmatic access tokens.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_integrations: A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_integrations: A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
+        :param pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']] workload_identity_policy: Specifies the policy for workload identity federation.
         """
         ...
     @overload
@@ -445,9 +547,12 @@ class AuthenticationPolicy(pulumi.CustomResource):
                  database: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
+                 mfa_policy: Optional[pulumi.Input[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pat_policy: Optional[pulumi.Input[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workload_identity_policy: Optional[pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -465,11 +570,14 @@ class AuthenticationPolicy(pulumi.CustomResource):
             __props__.__dict__["database"] = database
             __props__.__dict__["mfa_authentication_methods"] = mfa_authentication_methods
             __props__.__dict__["mfa_enrollment"] = mfa_enrollment
+            __props__.__dict__["mfa_policy"] = mfa_policy
             __props__.__dict__["name"] = name
+            __props__.__dict__["pat_policy"] = pat_policy
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
             __props__.__dict__["security_integrations"] = security_integrations
+            __props__.__dict__["workload_identity_policy"] = workload_identity_policy
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
@@ -491,10 +599,13 @@ class AuthenticationPolicy(pulumi.CustomResource):
             fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
             mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
+            mfa_policy: Optional[pulumi.Input[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            pat_policy: Optional[pulumi.Input[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
             schema: Optional[pulumi.Input[_builtins.str]] = None,
             security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyShowOutputArgs', 'AuthenticationPolicyShowOutputArgsDict']]]]] = None) -> 'AuthenticationPolicy':
+            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyShowOutputArgs', 'AuthenticationPolicyShowOutputArgsDict']]]]] = None,
+            workload_identity_policy: Optional[pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None) -> 'AuthenticationPolicy':
         """
         Get an existing AuthenticationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -502,18 +613,21 @@ class AuthenticationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyDescribeOutputArgs', 'AuthenticationPolicyDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mfa_authentication_methods: A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
-        :param pulumi.Input[_builtins.str] mfa_enrollment: (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        :param pulumi.Input[_builtins.str] mfa_enrollment: Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        :param pulumi.Input[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']] mfa_policy: Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']] pat_policy: Specifies the policy for programmatic access tokens.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_integrations: A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_integrations: A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyShowOutputArgs', 'AuthenticationPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
+        :param pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']] workload_identity_policy: Specifies the policy for workload identity federation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -527,17 +641,20 @@ class AuthenticationPolicy(pulumi.CustomResource):
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["mfa_authentication_methods"] = mfa_authentication_methods
         __props__.__dict__["mfa_enrollment"] = mfa_enrollment
+        __props__.__dict__["mfa_policy"] = mfa_policy
         __props__.__dict__["name"] = name
+        __props__.__dict__["pat_policy"] = pat_policy
         __props__.__dict__["schema"] = schema
         __props__.__dict__["security_integrations"] = security_integrations
         __props__.__dict__["show_outputs"] = show_outputs
+        __props__.__dict__["workload_identity_policy"] = workload_identity_policy
         return AuthenticationPolicy(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
     def authentication_methods(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+        A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         """
         return pulumi.get(self, "authentication_methods")
 
@@ -545,7 +662,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
     @pulumi.getter(name="clientTypes")
     def client_types(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
+        A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         """
         return pulumi.get(self, "client_types")
 
@@ -594,9 +711,17 @@ class AuthenticationPolicy(pulumi.CustomResource):
     @pulumi.getter(name="mfaEnrollment")
     def mfa_enrollment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
         """
         return pulumi.get(self, "mfa_enrollment")
+
+    @_builtins.property
+    @pulumi.getter(name="mfaPolicy")
+    def mfa_policy(self) -> pulumi.Output[Optional['outputs.AuthenticationPolicyMfaPolicy']]:
+        """
+        Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
+        """
+        return pulumi.get(self, "mfa_policy")
 
     @_builtins.property
     @pulumi.getter
@@ -605,6 +730,14 @@ class AuthenticationPolicy(pulumi.CustomResource):
         Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="patPolicy")
+    def pat_policy(self) -> pulumi.Output[Optional['outputs.AuthenticationPolicyPatPolicy']]:
+        """
+        Specifies the policy for programmatic access tokens.
+        """
+        return pulumi.get(self, "pat_policy")
 
     @_builtins.property
     @pulumi.getter
@@ -618,7 +751,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
     @pulumi.getter(name="securityIntegrations")
     def security_integrations(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
+        A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         """
         return pulumi.get(self, "security_integrations")
 
@@ -629,4 +762,12 @@ class AuthenticationPolicy(pulumi.CustomResource):
         Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
         """
         return pulumi.get(self, "show_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityPolicy")
+    def workload_identity_policy(self) -> pulumi.Output[Optional['outputs.AuthenticationPolicyWorkloadIdentityPolicy']]:
+        """
+        Specifies the policy for workload identity federation.
+        """
+        return pulumi.get(self, "workload_identity_policy")
 

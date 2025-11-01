@@ -32,7 +32,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly accountName: pulumi.Output<string | undefined>;
     /**
-     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      */
     declare public readonly authenticator: pulumi.Output<string | undefined>;
     /**
@@ -147,6 +147,14 @@ export class Provider extends pulumi.ProviderResource {
      * Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
      */
     declare public readonly warehouse: pulumi.Output<string | undefined>;
+    /**
+     * The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+     */
+    declare public readonly workloadIdentityEntraResource: pulumi.Output<string | undefined>;
+    /**
+     * The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+     */
+    declare public readonly workloadIdentityProvider: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -170,6 +178,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["disableTelemetry"] = pulumi.output(args?.disableTelemetry).apply(JSON.stringify);
             resourceInputs["driverTracing"] = args?.driverTracing;
             resourceInputs["enableSingleUseRefreshTokens"] = pulumi.output(args?.enableSingleUseRefreshTokens).apply(JSON.stringify);
+            resourceInputs["experimentalFeaturesEnableds"] = pulumi.output(args?.experimentalFeaturesEnableds).apply(JSON.stringify);
             resourceInputs["externalBrowserTimeout"] = pulumi.output(args?.externalBrowserTimeout).apply(JSON.stringify);
             resourceInputs["host"] = (args?.host) ?? utilities.getEnv("SNOWFLAKE_HOST");
             resourceInputs["includeRetryReason"] = args?.includeRetryReason;
@@ -208,6 +217,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["user"] = args?.user;
             resourceInputs["validateDefaultParameters"] = args?.validateDefaultParameters;
             resourceInputs["warehouse"] = (args?.warehouse) ?? utilities.getEnv("SNOWFLAKE_WAREHOUSE");
+            resourceInputs["workloadIdentityEntraResource"] = args?.workloadIdentityEntraResource;
+            resourceInputs["workloadIdentityProvider"] = args?.workloadIdentityProvider;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["oauthAuthorizationUrl", "oauthClientId", "oauthClientSecret", "oauthRedirectUri", "oauthTokenRequestUrl", "passcode", "password", "privateKey", "privateKeyPassphrase", "token"] };
@@ -234,7 +245,7 @@ export interface ProviderArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+     * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
      */
     authenticator?: pulumi.Input<string>;
     /**
@@ -273,6 +284,10 @@ export interface ProviderArgs {
      * Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
      */
     enableSingleUseRefreshTokens?: pulumi.Input<boolean>;
+    /**
+     * A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+     */
+    experimentalFeaturesEnableds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
      */
@@ -422,6 +437,14 @@ export interface ProviderArgs {
      * Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
      */
     warehouse?: pulumi.Input<string>;
+    /**
+     * The resource to use for WIF authentication on Azure environment. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_ENTRA_RESOURCE` environment variable.
+     */
+    workloadIdentityEntraResource?: pulumi.Input<string>;
+    /**
+     * The workload identity provider to use for WIF authentication. Can also be sourced from the `SNOWFLAKE_WORKLOAD_IDENTITY_PROVIDER` environment variable.
+     */
+    workloadIdentityProvider?: pulumi.Input<string>;
 }
 
 export namespace Provider {

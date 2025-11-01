@@ -50,6 +50,13 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
         return Optional.ofNullable(this.mfaEnrollment);
     }
 
+    @Import(name="mfaPolicy")
+    private @Nullable Output<String> mfaPolicy;
+
+    public Optional<Output<String>> mfaPolicy() {
+        return Optional.ofNullable(this.mfaPolicy);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -64,11 +71,25 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
         return Optional.ofNullable(this.owner);
     }
 
+    @Import(name="patPolicy")
+    private @Nullable Output<String> patPolicy;
+
+    public Optional<Output<String>> patPolicy() {
+        return Optional.ofNullable(this.patPolicy);
+    }
+
     @Import(name="securityIntegrations")
     private @Nullable Output<String> securityIntegrations;
 
     public Optional<Output<String>> securityIntegrations() {
         return Optional.ofNullable(this.securityIntegrations);
+    }
+
+    @Import(name="workloadIdentityPolicy")
+    private @Nullable Output<String> workloadIdentityPolicy;
+
+    public Optional<Output<String>> workloadIdentityPolicy() {
+        return Optional.ofNullable(this.workloadIdentityPolicy);
     }
 
     private AuthenticationPolicyDescribeOutputArgs() {}
@@ -79,9 +100,12 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
         this.comment = $.comment;
         this.mfaAuthenticationMethods = $.mfaAuthenticationMethods;
         this.mfaEnrollment = $.mfaEnrollment;
+        this.mfaPolicy = $.mfaPolicy;
         this.name = $.name;
         this.owner = $.owner;
+        this.patPolicy = $.patPolicy;
         this.securityIntegrations = $.securityIntegrations;
+        this.workloadIdentityPolicy = $.workloadIdentityPolicy;
     }
 
     public static Builder builder() {
@@ -147,6 +171,15 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
             return mfaEnrollment(Output.of(mfaEnrollment));
         }
 
+        public Builder mfaPolicy(@Nullable Output<String> mfaPolicy) {
+            $.mfaPolicy = mfaPolicy;
+            return this;
+        }
+
+        public Builder mfaPolicy(String mfaPolicy) {
+            return mfaPolicy(Output.of(mfaPolicy));
+        }
+
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -165,6 +198,15 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
             return owner(Output.of(owner));
         }
 
+        public Builder patPolicy(@Nullable Output<String> patPolicy) {
+            $.patPolicy = patPolicy;
+            return this;
+        }
+
+        public Builder patPolicy(String patPolicy) {
+            return patPolicy(Output.of(patPolicy));
+        }
+
         public Builder securityIntegrations(@Nullable Output<String> securityIntegrations) {
             $.securityIntegrations = securityIntegrations;
             return this;
@@ -172,6 +214,15 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
 
         public Builder securityIntegrations(String securityIntegrations) {
             return securityIntegrations(Output.of(securityIntegrations));
+        }
+
+        public Builder workloadIdentityPolicy(@Nullable Output<String> workloadIdentityPolicy) {
+            $.workloadIdentityPolicy = workloadIdentityPolicy;
+            return this;
+        }
+
+        public Builder workloadIdentityPolicy(String workloadIdentityPolicy) {
+            return workloadIdentityPolicy(Output.of(workloadIdentityPolicy));
         }
 
         public AuthenticationPolicyDescribeOutputArgs build() {

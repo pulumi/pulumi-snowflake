@@ -378,20 +378,63 @@ export interface AuthenticationPolicyDescribeOutput {
     comment?: pulumi.Input<string>;
     mfaAuthenticationMethods?: pulumi.Input<string>;
     mfaEnrollment?: pulumi.Input<string>;
+    mfaPolicy?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     owner?: pulumi.Input<string>;
+    patPolicy?: pulumi.Input<string>;
     securityIntegrations?: pulumi.Input<string>;
+    workloadIdentityPolicy?: pulumi.Input<string>;
+}
+
+export interface AuthenticationPolicyMfaPolicy {
+    allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+     */
+    enforceMfaOnExternalAuthentication?: pulumi.Input<string>;
+}
+
+export interface AuthenticationPolicyPatPolicy {
+    /**
+     * Specifies the default expiration time (in days) for a programmatic access token.
+     */
+    defaultExpiryInDays?: pulumi.Input<number>;
+    /**
+     * Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+     */
+    maxExpiryInDays?: pulumi.Input<number>;
+    /**
+     * Specifies the network policy evaluation for the PAT.
+     */
+    networkPolicyEvaluation?: pulumi.Input<string>;
 }
 
 export interface AuthenticationPolicyShowOutput {
     comment?: pulumi.Input<string>;
     createdOn?: pulumi.Input<string>;
     databaseName?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     options?: pulumi.Input<string>;
     owner?: pulumi.Input<string>;
     ownerRoleType?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
+}
+
+export interface AuthenticationPolicyWorkloadIdentityPolicy {
+    /**
+     * Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+     */
+    allowedAwsAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+     */
+    allowedAzureIssuers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+     */
+    allowedOidcIssuers?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedProviders?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ComputePoolDescribeOutput {
@@ -1241,6 +1284,96 @@ export interface FunctionSqlShowOutput {
     schemaName?: pulumi.Input<string>;
     secrets?: pulumi.Input<string>;
     validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface GetAuthenticationPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetAuthenticationPoliciesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetAuthenticationPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetAuthenticationPoliciesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetAuthenticationPoliciesOn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: string;
+}
+
+export interface GetAuthenticationPoliciesOnArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: pulumi.Input<string>;
 }
 
 export interface GetComputePoolsLimit {

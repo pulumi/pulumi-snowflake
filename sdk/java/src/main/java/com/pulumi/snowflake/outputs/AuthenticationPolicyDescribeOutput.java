@@ -16,9 +16,12 @@ public final class AuthenticationPolicyDescribeOutput {
     private @Nullable String comment;
     private @Nullable String mfaAuthenticationMethods;
     private @Nullable String mfaEnrollment;
+    private @Nullable String mfaPolicy;
     private @Nullable String name;
     private @Nullable String owner;
+    private @Nullable String patPolicy;
     private @Nullable String securityIntegrations;
+    private @Nullable String workloadIdentityPolicy;
 
     private AuthenticationPolicyDescribeOutput() {}
     public Optional<String> authenticationMethods() {
@@ -36,14 +39,23 @@ public final class AuthenticationPolicyDescribeOutput {
     public Optional<String> mfaEnrollment() {
         return Optional.ofNullable(this.mfaEnrollment);
     }
+    public Optional<String> mfaPolicy() {
+        return Optional.ofNullable(this.mfaPolicy);
+    }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
+    public Optional<String> patPolicy() {
+        return Optional.ofNullable(this.patPolicy);
+    }
     public Optional<String> securityIntegrations() {
         return Optional.ofNullable(this.securityIntegrations);
+    }
+    public Optional<String> workloadIdentityPolicy() {
+        return Optional.ofNullable(this.workloadIdentityPolicy);
     }
 
     public static Builder builder() {
@@ -60,9 +72,12 @@ public final class AuthenticationPolicyDescribeOutput {
         private @Nullable String comment;
         private @Nullable String mfaAuthenticationMethods;
         private @Nullable String mfaEnrollment;
+        private @Nullable String mfaPolicy;
         private @Nullable String name;
         private @Nullable String owner;
+        private @Nullable String patPolicy;
         private @Nullable String securityIntegrations;
+        private @Nullable String workloadIdentityPolicy;
         public Builder() {}
         public Builder(AuthenticationPolicyDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,9 +86,12 @@ public final class AuthenticationPolicyDescribeOutput {
     	      this.comment = defaults.comment;
     	      this.mfaAuthenticationMethods = defaults.mfaAuthenticationMethods;
     	      this.mfaEnrollment = defaults.mfaEnrollment;
+    	      this.mfaPolicy = defaults.mfaPolicy;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
+    	      this.patPolicy = defaults.patPolicy;
     	      this.securityIntegrations = defaults.securityIntegrations;
+    	      this.workloadIdentityPolicy = defaults.workloadIdentityPolicy;
         }
 
         @CustomType.Setter
@@ -107,6 +125,12 @@ public final class AuthenticationPolicyDescribeOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder mfaPolicy(@Nullable String mfaPolicy) {
+
+            this.mfaPolicy = mfaPolicy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
 
             this.name = name;
@@ -119,9 +143,21 @@ public final class AuthenticationPolicyDescribeOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder patPolicy(@Nullable String patPolicy) {
+
+            this.patPolicy = patPolicy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityIntegrations(@Nullable String securityIntegrations) {
 
             this.securityIntegrations = securityIntegrations;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder workloadIdentityPolicy(@Nullable String workloadIdentityPolicy) {
+
+            this.workloadIdentityPolicy = workloadIdentityPolicy;
             return this;
         }
         public AuthenticationPolicyDescribeOutput build() {
@@ -131,9 +167,12 @@ public final class AuthenticationPolicyDescribeOutput {
             _resultValue.comment = comment;
             _resultValue.mfaAuthenticationMethods = mfaAuthenticationMethods;
             _resultValue.mfaEnrollment = mfaEnrollment;
+            _resultValue.mfaPolicy = mfaPolicy;
             _resultValue.name = name;
             _resultValue.owner = owner;
+            _resultValue.patPolicy = patPolicy;
             _resultValue.securityIntegrations = securityIntegrations;
+            _resultValue.workloadIdentityPolicy = workloadIdentityPolicy;
             return _resultValue;
         }
     }

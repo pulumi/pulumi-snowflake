@@ -378,20 +378,63 @@ export interface AuthenticationPolicyDescribeOutput {
     comment: string;
     mfaAuthenticationMethods: string;
     mfaEnrollment: string;
+    mfaPolicy: string;
     name: string;
     owner: string;
+    patPolicy: string;
     securityIntegrations: string;
+    workloadIdentityPolicy: string;
+}
+
+export interface AuthenticationPolicyMfaPolicy {
+    allowedMethods?: string[];
+    /**
+     * Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
+     */
+    enforceMfaOnExternalAuthentication?: string;
+}
+
+export interface AuthenticationPolicyPatPolicy {
+    /**
+     * Specifies the default expiration time (in days) for a programmatic access token.
+     */
+    defaultExpiryInDays?: number;
+    /**
+     * Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
+     */
+    maxExpiryInDays?: number;
+    /**
+     * Specifies the network policy evaluation for the PAT.
+     */
+    networkPolicyEvaluation?: string;
 }
 
 export interface AuthenticationPolicyShowOutput {
     comment: string;
     createdOn: string;
     databaseName: string;
+    kind: string;
     name: string;
     options: string;
     owner: string;
     ownerRoleType: string;
     schemaName: string;
+}
+
+export interface AuthenticationPolicyWorkloadIdentityPolicy {
+    /**
+     * Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
+     */
+    allowedAwsAccounts?: string[];
+    /**
+     * Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
+     */
+    allowedAzureIssuers?: string[];
+    /**
+     * Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+     */
+    allowedOidcIssuers?: string[];
+    allowedProviders?: string[];
 }
 
 export interface ComputePoolDescribeOutput {
@@ -1331,6 +1374,88 @@ export interface GetAlertsAlert {
      * Schema in which the alert is stored.
      */
     schemaName: string;
+}
+
+export interface GetAuthenticationPoliciesAuthenticationPolicy {
+    /**
+     * Holds the output of DESCRIBE AUTHENTICATION POLICY.
+     */
+    describeOutputs: outputs.GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW AUTHENTICATION POLICIES.
+     */
+    showOutputs: outputs.GetAuthenticationPoliciesAuthenticationPolicyShowOutput[];
+}
+
+export interface GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
+    authenticationMethods: string;
+    clientTypes: string;
+    comment: string;
+    mfaAuthenticationMethods: string;
+    mfaEnrollment: string;
+    mfaPolicy: string;
+    name: string;
+    owner: string;
+    patPolicy: string;
+    securityIntegrations: string;
+    workloadIdentityPolicy: string;
+}
+
+export interface GetAuthenticationPoliciesAuthenticationPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface GetAuthenticationPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetAuthenticationPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetAuthenticationPoliciesOn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: string;
 }
 
 export interface GetComputePoolsComputePool {
