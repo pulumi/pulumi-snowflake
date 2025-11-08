@@ -1,8 +1,8 @@
 module github.com/pulumi/pulumi-snowflake/provider/v2
 
-go 1.24.0
+go 1.24.9
 
-toolchain go1.24.1
+toolchain go1.24.10
 
 replace (
 	github.com/Snowflake-Labs/terraform-provider-snowflake => ../upstream
