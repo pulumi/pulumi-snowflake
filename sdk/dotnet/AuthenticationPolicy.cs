@@ -62,7 +62,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> MfaAuthenticationMethods { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA). Note that when you set this value to OPTIONAL, and your account setup forces users to enroll in MFA, then Snowflake may set quietly this value to `REQUIRED_PASSWORD_ONLY`, which may cause permadiff. In this case, you may want to adjust this field value.
         /// </summary>
         [Output("mfaEnrollment")]
         public Output<string?> MfaEnrollment { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA). Note that when you set this value to OPTIONAL, and your account setup forces users to enroll in MFA, then Snowflake may set quietly this value to `REQUIRED_PASSWORD_ONLY`, which may cause permadiff. In this case, you may want to adjust this field value.
         /// </summary>
         [Input("mfaEnrollment")]
         public Input<string>? MfaEnrollment { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+        /// Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `ClientTypes` parameter must include `SnowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA). Note that when you set this value to OPTIONAL, and your account setup forces users to enroll in MFA, then Snowflake may set quietly this value to `REQUIRED_PASSWORD_ONLY`, which may cause permadiff. In this case, you may want to adjust this field value.
         /// </summary>
         [Input("mfaEnrollment")]
         public Input<string>? MfaEnrollment { get; set; }
