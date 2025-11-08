@@ -144,7 +144,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<ImmutableArray<string>> _experimentalFeaturesEnableds = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("experimentalFeaturesEnableds"));
         /// <summary>
-        /// A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+        /// A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `PARAMETERS_IGNORE_VALUE_CHANGES_IF_NOT_ON_OBJECT_LEVEL` | `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
         /// </summary>
         public static ImmutableArray<string> ExperimentalFeaturesEnableds
         {
