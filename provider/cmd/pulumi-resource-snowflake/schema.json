@@ -132,6 +132,14 @@
                 "type": "boolean",
                 "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable."
             },
+            "logQueryParameters": {
+                "type": "boolean",
+                "description": "When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable."
+            },
+            "logQueryText": {
+                "type": "boolean",
+                "description": "When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable."
+            },
             "loginTimeout": {
                 "type": "integer",
                 "description": "Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable."
@@ -4871,7 +4879,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE\n",
+                    "description": "Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4891,7 +4899,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
+                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4914,7 +4922,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
+                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4932,7 +4940,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`\n",
+                    "description": "The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4981,7 +4989,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4999,7 +5007,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -5020,7 +5028,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -5068,7 +5076,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW\n",
+                    "description": "The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -5088,7 +5096,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -5111,7 +5119,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -8192,6 +8200,202 @@
                         "entriesInBlockedIpList",
                         "entriesInBlockedNetworkRules",
                         "name"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/NotebookDescribeOutput:NotebookDescribeOutput": {
+            "properties": {
+                "codeWarehouse": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "computePool": {
+                    "type": "string"
+                },
+                "defaultPackages": {
+                    "type": "string"
+                },
+                "defaultVersion": {
+                    "type": "string"
+                },
+                "defaultVersionAlias": {
+                    "type": "string"
+                },
+                "defaultVersionGitCommitHash": {
+                    "type": "string"
+                },
+                "defaultVersionLocationUri": {
+                    "type": "string"
+                },
+                "defaultVersionName": {
+                    "type": "string"
+                },
+                "defaultVersionSourceLocationUri": {
+                    "type": "string"
+                },
+                "externalAccessIntegrations": {
+                    "type": "string"
+                },
+                "externalAccessSecrets": {
+                    "type": "string"
+                },
+                "idleAutoShutdownTimeSeconds": {
+                    "type": "integer"
+                },
+                "importUrls": {
+                    "type": "string"
+                },
+                "lastVersionAlias": {
+                    "type": "string"
+                },
+                "lastVersionGitCommitHash": {
+                    "type": "string"
+                },
+                "lastVersionLocationUri": {
+                    "type": "string"
+                },
+                "lastVersionName": {
+                    "type": "string"
+                },
+                "lastVersionSourceLocationUri": {
+                    "type": "string"
+                },
+                "liveVersionLocationUri": {
+                    "type": "string"
+                },
+                "mainFile": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "queryWarehouse": {
+                    "type": "string"
+                },
+                "runtimeEnvironmentVersion": {
+                    "type": "string"
+                },
+                "runtimeName": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "urlId": {
+                    "type": "string"
+                },
+                "userPackages": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "codeWarehouse",
+                        "comment",
+                        "computePool",
+                        "defaultPackages",
+                        "defaultVersion",
+                        "defaultVersionAlias",
+                        "defaultVersionGitCommitHash",
+                        "defaultVersionLocationUri",
+                        "defaultVersionName",
+                        "defaultVersionSourceLocationUri",
+                        "externalAccessIntegrations",
+                        "externalAccessSecrets",
+                        "idleAutoShutdownTimeSeconds",
+                        "importUrls",
+                        "lastVersionAlias",
+                        "lastVersionGitCommitHash",
+                        "lastVersionLocationUri",
+                        "lastVersionName",
+                        "lastVersionSourceLocationUri",
+                        "liveVersionLocationUri",
+                        "mainFile",
+                        "name",
+                        "owner",
+                        "queryWarehouse",
+                        "runtimeEnvironmentVersion",
+                        "runtimeName",
+                        "title",
+                        "urlId",
+                        "userPackages"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/NotebookFrom:NotebookFrom": {
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "description": "Location of the .ipynb file in the stage.\n",
+                    "willReplaceOnChanges": true
+                },
+                "stage": {
+                    "type": "string",
+                    "description": "Identifier of the stage where the .ipynb file is located.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "stage"
+            ]
+        },
+        "snowflake:index/NotebookShowOutput:NotebookShowOutput": {
+            "properties": {
+                "codeWarehouse": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "queryWarehouse": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                },
+                "urlId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "codeWarehouse",
+                        "comment",
+                        "createdOn",
+                        "databaseName",
+                        "name",
+                        "owner",
+                        "ownerRoleType",
+                        "queryWarehouse",
+                        "schemaName",
+                        "urlId"
                     ]
                 }
             }
@@ -13358,6 +13562,304 @@
                     ]
                 }
             }
+        },
+        "snowflake:index/SemanticViewDimension:SemanticViewDimension": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the dimension.\n"
+                },
+                "qualifiedExpressionName": {
+                    "type": "string",
+                    "description": "Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `\u003ctable_alias\u003e.\u003csemantic_expression_name\u003e`. Remember to wrap each part in double quotes like `\"\\\"\u003ctable_alias\u003e\\\".\\\"\u003csemantic_expression_name\u003e\\\"\"`.\n"
+                },
+                "sqlExpression": {
+                    "type": "string",
+                    "description": "The SQL expression used to compute the dimension.\n"
+                },
+                "synonyms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of synonyms for the dimension.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "qualifiedExpressionName",
+                "sqlExpression"
+            ]
+        },
+        "snowflake:index/SemanticViewFact:SemanticViewFact": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the fact.\n"
+                },
+                "qualifiedExpressionName": {
+                    "type": "string",
+                    "description": "Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `\u003ctable_alias\u003e.\u003csemantic_expression_name\u003e`. Remember to wrap each part in double quotes like `\"\\\"\u003ctable_alias\u003e\\\".\\\"\u003csemantic_expression_name\u003e\\\"\"`.\n"
+                },
+                "sqlExpression": {
+                    "type": "string",
+                    "description": "The SQL expression used to compute the fact.\n"
+                },
+                "synonyms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of synonyms for the fact.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "qualifiedExpressionName",
+                "sqlExpression"
+            ]
+        },
+        "snowflake:index/SemanticViewMetric:SemanticViewMetric": {
+            "properties": {
+                "semanticExpression": {
+                    "$ref": "#/types/snowflake:index/SemanticViewMetricSemanticExpression:SemanticViewMetricSemanticExpression",
+                    "description": "Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.\n"
+                },
+                "windowFunction": {
+                    "$ref": "#/types/snowflake:index/SemanticViewMetricWindowFunction:SemanticViewMetricWindowFunction",
+                    "description": "Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/SemanticViewMetricSemanticExpression:SemanticViewMetricSemanticExpression": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the semantic expression.\n"
+                },
+                "qualifiedExpressionName": {
+                    "type": "string",
+                    "description": "Specifies a qualified name for the metric: `\u003ctable_alias\u003e.\u003csemantic_expression_name\u003e`. Remember to wrap each part in double quotes like `\"\\\"\u003ctable_alias\u003e\\\".\\\"\u003csemantic_expression_name\u003e\\\"\"`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `\u003ctable_alias\u003e.` part but still wrap in double quotes, e.g. `\"\\\"\u003csemantic_expression_name\u003e\\\"\"`.\n"
+                },
+                "sqlExpression": {
+                    "type": "string",
+                    "description": "The SQL expression used to compute the metric.\n"
+                },
+                "synonyms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of synonyms for this semantic expression.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "qualifiedExpressionName",
+                "sqlExpression"
+            ]
+        },
+        "snowflake:index/SemanticViewMetricWindowFunction:SemanticViewMetricWindowFunction": {
+            "properties": {
+                "overClause": {
+                    "$ref": "#/types/snowflake:index/SemanticViewMetricWindowFunctionOverClause:SemanticViewMetricWindowFunctionOverClause",
+                    "description": "Specify the partition by, order by or frame over which the window function is to be computed.\n"
+                },
+                "qualifiedExpressionName": {
+                    "type": "string",
+                    "description": "Specifies a qualified name for the metric: `\u003ctable_alias\u003e.\u003csemantic_expression_name\u003e`. Remember to wrap each part in double quotes like `\"\\\"\u003ctable_alias\u003e\\\".\\\"\u003csemantic_expression_name\u003e\\\"\"`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `\u003ctable_alias\u003e.` part but still wrap in double quotes, e.g. `\"\\\"\u003csemantic_expression_name\u003e\\\"\"`.\n"
+                },
+                "sqlExpression": {
+                    "type": "string",
+                    "description": "The SQL expression used to compute the metric following the `\u003cwindow_function\u003e(\u003cmetric\u003e)` format.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "overClause",
+                "qualifiedExpressionName",
+                "sqlExpression"
+            ]
+        },
+        "snowflake:index/SemanticViewMetricWindowFunctionOverClause:SemanticViewMetricWindowFunctionOverClause": {
+            "properties": {
+                "orderBy": {
+                    "type": "string",
+                    "description": "Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.\n"
+                },
+                "partitionBy": {
+                    "type": "string",
+                    "description": "Specifies a partition by clause.\n"
+                },
+                "windowFrameClause": {
+                    "type": "string",
+                    "description": "Specifies a window frame clause.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/SemanticViewRelationship:SemanticViewRelationship": {
+            "properties": {
+                "referencedRelationshipColumns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.\n"
+                },
+                "referencedTableNameOrAlias": {
+                    "$ref": "#/types/snowflake:index/SemanticViewRelationshipReferencedTableNameOrAlias:SemanticViewRelationshipReferencedTableNameOrAlias",
+                    "description": "Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a \u003cspan pulumi-lang-nodejs=\"`tableName`\" pulumi-lang-dotnet=\"`TableName`\" pulumi-lang-go=\"`tableName`\" pulumi-lang-python=\"`table_name`\" pulumi-lang-yaml=\"`tableName`\" pulumi-lang-java=\"`tableName`\"\u003e`table_name`\u003c/span\u003e or a \u003cspan pulumi-lang-nodejs=\"`tableAlias`\" pulumi-lang-dotnet=\"`TableAlias`\" pulumi-lang-go=\"`tableAlias`\" pulumi-lang-python=\"`table_alias`\" pulumi-lang-yaml=\"`tableAlias`\" pulumi-lang-java=\"`tableAlias`\"\u003e`table_alias`\u003c/span\u003e, not both.\n"
+                },
+                "relationshipColumns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies one or more columns in the first logical table that refers to columns in another logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.\n"
+                },
+                "relationshipIdentifier": {
+                    "type": "string",
+                    "description": "Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.\n"
+                },
+                "tableNameOrAlias": {
+                    "$ref": "#/types/snowflake:index/SemanticViewRelationshipTableNameOrAlias:SemanticViewRelationshipTableNameOrAlias",
+                    "description": "Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a \u003cspan pulumi-lang-nodejs=\"`tableName`\" pulumi-lang-dotnet=\"`TableName`\" pulumi-lang-go=\"`tableName`\" pulumi-lang-python=\"`table_name`\" pulumi-lang-yaml=\"`tableName`\" pulumi-lang-java=\"`tableName`\"\u003e`table_name`\u003c/span\u003e or a \u003cspan pulumi-lang-nodejs=\"`tableAlias`\" pulumi-lang-dotnet=\"`TableAlias`\" pulumi-lang-go=\"`tableAlias`\" pulumi-lang-python=\"`table_alias`\" pulumi-lang-yaml=\"`tableAlias`\" pulumi-lang-java=\"`tableAlias`\"\u003e`table_alias`\u003c/span\u003e, not both.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "referencedTableNameOrAlias",
+                "relationshipColumns",
+                "tableNameOrAlias"
+            ]
+        },
+        "snowflake:index/SemanticViewRelationshipReferencedTableNameOrAlias:SemanticViewRelationshipReferencedTableNameOrAlias": {
+            "properties": {
+                "tableAlias": {
+                    "type": "string",
+                    "description": "The alias used for the logical table, cannot be used in combination with the \u003cspan pulumi-lang-nodejs=\"`tableName`\" pulumi-lang-dotnet=\"`TableName`\" pulumi-lang-go=\"`tableName`\" pulumi-lang-python=\"`table_name`\" pulumi-lang-yaml=\"`tableName`\" pulumi-lang-java=\"`tableName`\"\u003e`table_name`\u003c/span\u003e. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the logical table, cannot be used in combination with the \u003cspan pulumi-lang-nodejs=\"`tableAlias`\" pulumi-lang-dotnet=\"`TableAlias`\" pulumi-lang-go=\"`tableAlias`\" pulumi-lang-python=\"`table_alias`\" pulumi-lang-yaml=\"`tableAlias`\" pulumi-lang-java=\"`tableAlias`\"\u003e`table_alias`\u003c/span\u003e. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/SemanticViewRelationshipTableNameOrAlias:SemanticViewRelationshipTableNameOrAlias": {
+            "properties": {
+                "tableAlias": {
+                    "type": "string",
+                    "description": "The alias used for the logical table, cannot be used in combination with the \u003cspan pulumi-lang-nodejs=\"`tableName`\" pulumi-lang-dotnet=\"`TableName`\" pulumi-lang-go=\"`tableName`\" pulumi-lang-python=\"`table_name`\" pulumi-lang-yaml=\"`tableName`\" pulumi-lang-java=\"`tableName`\"\u003e`table_name`\u003c/span\u003e. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "The name of the logical table, cannot be used in combination with the \u003cspan pulumi-lang-nodejs=\"`tableAlias`\" pulumi-lang-dotnet=\"`TableAlias`\" pulumi-lang-go=\"`tableAlias`\" pulumi-lang-python=\"`table_alias`\" pulumi-lang-yaml=\"`tableAlias`\" pulumi-lang-java=\"`tableAlias`\"\u003e`table_alias`\u003c/span\u003e. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/SemanticViewShowOutput:SemanticViewShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "extension": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "comment",
+                        "createdOn",
+                        "databaseName",
+                        "extension",
+                        "name",
+                        "owner",
+                        "ownerRoleType",
+                        "schemaName"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/SemanticViewTable:SemanticViewTable": {
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the logical table.\n"
+                },
+                "primaryKeys": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.\n"
+                },
+                "synonyms": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of synonyms for the logical table.\n"
+                },
+                "tableAlias": {
+                    "type": "string",
+                    "description": "Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.\n"
+                },
+                "tableName": {
+                    "type": "string",
+                    "description": "Specifies an identifier for the logical table. Example: `\"\\\"\u003cdb_name\u003e\\\".\\\"\u003cschema_name\u003e\\\".\\\"\u003ctable_name\u003e\\\"\"`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "uniques": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewTableUnique:SemanticViewTableUnique"
+                    },
+                    "description": "Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "tableAlias",
+                "tableName"
+            ]
+        },
+        "snowflake:index/SemanticViewTableUnique:SemanticViewTableUnique": {
+            "properties": {
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Unique key combinations in the logical table.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "values"
+            ]
         },
         "snowflake:index/ServiceDescribeOutput:ServiceDescribeOutput": {
             "properties": {
@@ -19772,13 +20274,21 @@
         },
         "snowflake:index/TaskSchedule:TaskSchedule": {
             "properties": {
+                "hours": {
+                    "type": "integer",
+                    "description": "Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e)\n"
+                },
                 "minutes": {
                     "type": "integer",
-                    "description": "Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e)\n"
+                    "description": "Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e)\n"
+                },
+                "seconds": {
+                    "type": "integer",
+                    "description": "Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e)\n"
                 },
                 "usingCron": {
                     "type": "string",
-                    "description": "Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e)\n"
+                    "description": "Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e)\n"
                 }
             },
             "type": "object"
@@ -25615,6 +26125,230 @@
                 }
             }
         },
+        "snowflake:index/getNotebooksLimit:getNotebooksLimit": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.\n"
+                },
+                "rows": {
+                    "type": "integer",
+                    "description": "The maximum number of rows to return.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rows"
+            ]
+        },
+        "snowflake:index/getNotebooksNotebook:getNotebooksNotebook": {
+            "properties": {
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getNotebooksNotebookDescribeOutput:getNotebooksNotebookDescribeOutput"
+                    },
+                    "description": "Holds the output of DESCRIBE NOTEBOOK\n"
+                },
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getNotebooksNotebookShowOutput:getNotebooksNotebookShowOutput"
+                    },
+                    "description": "Holds the output of SHOW NOTEBOOKS.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "describeOutputs",
+                "showOutputs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getNotebooksNotebookDescribeOutput:getNotebooksNotebookDescribeOutput": {
+            "properties": {
+                "codeWarehouse": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "computePool": {
+                    "type": "string"
+                },
+                "defaultPackages": {
+                    "type": "string"
+                },
+                "defaultVersion": {
+                    "type": "string"
+                },
+                "defaultVersionAlias": {
+                    "type": "string"
+                },
+                "defaultVersionGitCommitHash": {
+                    "type": "string"
+                },
+                "defaultVersionLocationUri": {
+                    "type": "string"
+                },
+                "defaultVersionName": {
+                    "type": "string"
+                },
+                "defaultVersionSourceLocationUri": {
+                    "type": "string"
+                },
+                "externalAccessIntegrations": {
+                    "type": "string"
+                },
+                "externalAccessSecrets": {
+                    "type": "string"
+                },
+                "idleAutoShutdownTimeSeconds": {
+                    "type": "integer"
+                },
+                "importUrls": {
+                    "type": "string"
+                },
+                "lastVersionAlias": {
+                    "type": "string"
+                },
+                "lastVersionGitCommitHash": {
+                    "type": "string"
+                },
+                "lastVersionLocationUri": {
+                    "type": "string"
+                },
+                "lastVersionName": {
+                    "type": "string"
+                },
+                "lastVersionSourceLocationUri": {
+                    "type": "string"
+                },
+                "liveVersionLocationUri": {
+                    "type": "string"
+                },
+                "mainFile": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "queryWarehouse": {
+                    "type": "string"
+                },
+                "runtimeEnvironmentVersion": {
+                    "type": "string"
+                },
+                "runtimeName": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "urlId": {
+                    "type": "string"
+                },
+                "userPackages": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "codeWarehouse",
+                "comment",
+                "computePool",
+                "defaultPackages",
+                "defaultVersion",
+                "defaultVersionAlias",
+                "defaultVersionGitCommitHash",
+                "defaultVersionLocationUri",
+                "defaultVersionName",
+                "defaultVersionSourceLocationUri",
+                "externalAccessIntegrations",
+                "externalAccessSecrets",
+                "idleAutoShutdownTimeSeconds",
+                "importUrls",
+                "lastVersionAlias",
+                "lastVersionGitCommitHash",
+                "lastVersionLocationUri",
+                "lastVersionName",
+                "lastVersionSourceLocationUri",
+                "liveVersionLocationUri",
+                "mainFile",
+                "name",
+                "owner",
+                "queryWarehouse",
+                "runtimeEnvironmentVersion",
+                "runtimeName",
+                "title",
+                "urlId",
+                "userPackages"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getNotebooksNotebookShowOutput:getNotebooksNotebookShowOutput": {
+            "properties": {
+                "codeWarehouse": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "queryWarehouse": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                },
+                "urlId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "codeWarehouse",
+                "comment",
+                "createdOn",
+                "databaseName",
+                "name",
+                "owner",
+                "ownerRoleType",
+                "queryWarehouse",
+                "schemaName",
+                "urlId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "snowflake:index/getParametersParameter:getParametersParameter": {
             "properties": {
                 "default": {
@@ -28859,6 +29593,103 @@
                 "enabled",
                 "integrationType",
                 "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getSemanticViewsIn:getSemanticViewsIn": {
+            "properties": {
+                "account": {
+                    "type": "boolean",
+                    "description": "Returns records for the entire account.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "Returns records for the current database in use or for a specified database.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "Returns records for the current schema in use or a specified schema. Use fully qualified name.\n"
+                }
+            },
+            "type": "object"
+        },
+        "snowflake:index/getSemanticViewsLimit:getSemanticViewsLimit": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.\n"
+                },
+                "rows": {
+                    "type": "integer",
+                    "description": "The maximum number of rows to return.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rows"
+            ]
+        },
+        "snowflake:index/getSemanticViewsSemanticView:getSemanticViewsSemanticView": {
+            "properties": {
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getSemanticViewsSemanticViewShowOutput:getSemanticViewsSemanticViewShowOutput"
+                    },
+                    "description": "Holds the output of SHOW SEMANTIC VIEWS.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "showOutputs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getSemanticViewsSemanticViewShowOutput:getSemanticViewsSemanticViewShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "databaseName": {
+                    "type": "string"
+                },
+                "extension": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "schemaName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "createdOn",
+                "databaseName",
+                "extension",
+                "name",
+                "owner",
+                "ownerRoleType",
+                "schemaName"
             ],
             "language": {
                 "nodejs": {
@@ -35758,6 +36589,14 @@
                 "type": "boolean",
                 "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable."
             },
+            "logQueryParameters": {
+                "type": "boolean",
+                "description": "When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable."
+            },
+            "logQueryText": {
+                "type": "boolean",
+                "description": "When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable."
+            },
             "loginTimeout": {
                 "type": "integer",
                 "description": "Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable."
@@ -35990,6 +36829,14 @@
             "keepSessionAlive": {
                 "type": "boolean",
                 "description": "Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable."
+            },
+            "logQueryParameters": {
+                "type": "boolean",
+                "description": "When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable."
+            },
+            "logQueryText": {
+                "type": "boolean",
+                "description": "When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable."
             },
             "loginTimeout": {
                 "type": "integer",
@@ -48850,6 +49697,192 @@
                 "type": "object"
             }
         },
+        "snowflake:index/notebook:Notebook": {
+            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/notebook:Notebook example '\"\u003cdb_name\u003e\".\"\u003cschema_name\u003e\".\"\u003cnotebook_name\u003e\"'\n```\n\n",
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the notebook.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/NotebookDescribeOutput:NotebookDescribeOutput"
+                    },
+                    "description": "Outputs the result of `DESCRIBE NOTEBOOK` for the given notebook.\n"
+                },
+                "froms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/NotebookFrom:NotebookFrom"
+                    },
+                    "description": "Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.\n"
+                },
+                "fullyQualifiedName": {
+                    "type": "string",
+                    "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
+                },
+                "idleAutoShutdownTimeSeconds": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds of idle time before the notebook is shut down automatically.\n"
+                },
+                "mainFile": {
+                    "type": "string",
+                    "description": "Specifies a user-specified identifier for the notebook file name.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "queryWarehouse": {
+                    "type": "string",
+                    "description": "Specifies the warehouse where SQL queries in the notebook are run.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/NotebookShowOutput:NotebookShowOutput"
+                    },
+                    "description": "Outputs the result of `SHOW NOTEBOOKS` for the given notebook\n"
+                },
+                "warehouse": {
+                    "type": "string",
+                    "description": "Specifies the warehouse that runs the notebook kernel and python code.\n"
+                }
+            },
+            "required": [
+                "database",
+                "describeOutputs",
+                "fullyQualifiedName",
+                "name",
+                "schema",
+                "showOutputs"
+            ],
+            "inputProperties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the notebook.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "froms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/NotebookFrom:NotebookFrom"
+                    },
+                    "description": "Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.\n",
+                    "willReplaceOnChanges": true
+                },
+                "idleAutoShutdownTimeSeconds": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds of idle time before the notebook is shut down automatically.\n"
+                },
+                "mainFile": {
+                    "type": "string",
+                    "description": "Specifies a user-specified identifier for the notebook file name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "queryWarehouse": {
+                    "type": "string",
+                    "description": "Specifies the warehouse where SQL queries in the notebook are run.\n"
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "warehouse": {
+                    "type": "string",
+                    "description": "Specifies the warehouse that runs the notebook kernel and python code.\n"
+                }
+            },
+            "requiredInputs": [
+                "database",
+                "schema"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Notebook resources.\n",
+                "properties": {
+                    "comment": {
+                        "type": "string",
+                        "description": "Specifies a comment for the notebook.\n"
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "describeOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/NotebookDescribeOutput:NotebookDescribeOutput"
+                        },
+                        "description": "Outputs the result of `DESCRIBE NOTEBOOK` for the given notebook.\n"
+                    },
+                    "froms": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/NotebookFrom:NotebookFrom"
+                        },
+                        "description": "Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "fullyQualifiedName": {
+                        "type": "string",
+                        "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
+                    },
+                    "idleAutoShutdownTimeSeconds": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds of idle time before the notebook is shut down automatically.\n"
+                    },
+                    "mainFile": {
+                        "type": "string",
+                        "description": "Specifies a user-specified identifier for the notebook file name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                    },
+                    "queryWarehouse": {
+                        "type": "string",
+                        "description": "Specifies the warehouse where SQL queries in the notebook are run.\n"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "showOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/NotebookShowOutput:NotebookShowOutput"
+                        },
+                        "description": "Outputs the result of `SHOW NOTEBOOKS` for the given notebook\n"
+                    },
+                    "warehouse": {
+                        "type": "string",
+                        "description": "Specifies the warehouse that runs the notebook kernel and python code.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/notificationIntegration:NotificationIntegration": {
             "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name\n```\n\n",
             "properties": {
@@ -54088,6 +55121,202 @@
                 "type": "object"
             }
         },
+        "snowflake:index/semanticView:SemanticView": {
+            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/semanticView:SemanticView example '\"\u003cdb_name\u003e\".\"\u003cschema_name\u003e\".\"\u003csemantic_view_name\u003e\"'\n```\n\nNote: Because the external changes for `dimensions`, `facts`, `metrics`, `relationships`, and `tables` are not currently handled, then import won't populate these fields too.\n\n",
+            "properties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the semantic view.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "dimensions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewDimension:SemanticViewDimension"
+                    }
+                },
+                "facts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewFact:SemanticViewFact"
+                    }
+                },
+                "fullyQualifiedName": {
+                    "type": "string",
+                    "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewMetric:SemanticViewMetric"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the semantic view; must be unique within the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "relationships": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewRelationship:SemanticViewRelationship"
+                    }
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewShowOutput:SemanticViewShowOutput"
+                    },
+                    "description": "Outputs the result of `SHOW SEMANTIC VIEWS` for the given semantic view.\n"
+                },
+                "tables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewTable:SemanticViewTable"
+                    }
+                }
+            },
+            "required": [
+                "database",
+                "fullyQualifiedName",
+                "name",
+                "schema",
+                "showOutputs",
+                "tables"
+            ],
+            "inputProperties": {
+                "comment": {
+                    "type": "string",
+                    "description": "Specifies a comment for the semantic view.\n"
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "dimensions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewDimension:SemanticViewDimension"
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "facts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewFact:SemanticViewFact"
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewMetric:SemanticViewMetric"
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the identifier for the semantic view; must be unique within the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "relationships": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewRelationship:SemanticViewRelationship"
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "schema": {
+                    "type": "string",
+                    "description": "The schema in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                },
+                "tables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/SemanticViewTable:SemanticViewTable"
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "database",
+                "schema",
+                "tables"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SemanticView resources.\n",
+                "properties": {
+                    "comment": {
+                        "type": "string",
+                        "description": "Specifies a comment for the semantic view.\n"
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                    },
+                    "dimensions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/SemanticViewDimension:SemanticViewDimension"
+                        },
+                        "willReplaceOnChanges": true
+                    },
+                    "facts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/SemanticViewFact:SemanticViewFact"
+                        },
+                        "willReplaceOnChanges": true
+                    },
+                    "fullyQualifiedName": {
+                        "type": "string",
+                        "description": "Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).\n"
+                    },
+                    "metrics": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/SemanticViewMetric:SemanticViewMetric"
+                        },
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the identifier for the semantic view; must be unique within the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                    },
+                    "relationships": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/SemanticViewRelationship:SemanticViewRelationship"
+                        },
+                        "willReplaceOnChanges": true
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `\"`.\n"
+                    },
+                    "showOutputs": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/SemanticViewShowOutput:SemanticViewShowOutput"
+                        },
+                        "description": "Outputs the result of `SHOW SEMANTIC VIEWS` for the given semantic view.\n"
+                    },
+                    "tables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/SemanticViewTable:SemanticViewTable"
+                        },
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "snowflake:index/sequence:Sequence": {
             "description": "\n\n## Import\n\nformat is database name | schema name | sequence name\n\n```sh\n$ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'\n```\n\n",
             "properties": {
@@ -58082,7 +59311,7 @@
                 },
                 "schedule": {
                     "$ref": "#/types/snowflake:index/TaskSchedule:TaskSchedule",
-                    "description": "The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e should be set)\n"
+                    "description": "The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the\u003cspan pulumi-lang-nodejs=\" snowflake.Execute \" pulumi-lang-dotnet=\" snowflake.Execute \" pulumi-lang-go=\" Execute \" pulumi-lang-python=\" Execute \" pulumi-lang-yaml=\" snowflake.Execute \" pulumi-lang-java=\" snowflake.Execute \"\u003e snowflake.Execute \u003c/span\u003eresource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).\n"
                 },
                 "schema": {
                     "type": "string",
@@ -58452,7 +59681,7 @@
                 },
                 "schedule": {
                     "$ref": "#/types/snowflake:index/TaskSchedule:TaskSchedule",
-                    "description": "The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e should be set)\n"
+                    "description": "The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the\u003cspan pulumi-lang-nodejs=\" snowflake.Execute \" pulumi-lang-dotnet=\" snowflake.Execute \" pulumi-lang-go=\" Execute \" pulumi-lang-python=\" Execute \" pulumi-lang-yaml=\" snowflake.Execute \" pulumi-lang-java=\" snowflake.Execute \"\u003e snowflake.Execute \u003c/span\u003eresource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).\n"
                 },
                 "schema": {
                     "type": "string",
@@ -58767,7 +59996,7 @@
                     },
                     "schedule": {
                         "$ref": "#/types/snowflake:index/TaskSchedule:TaskSchedule",
-                        "description": "The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e should be set)\n"
+                        "description": "The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`usingCron`\" pulumi-lang-dotnet=\"`UsingCron`\" pulumi-lang-go=\"`usingCron`\" pulumi-lang-python=\"`using_cron`\" pulumi-lang-yaml=\"`usingCron`\" pulumi-lang-java=\"`usingCron`\"\u003e`using_cron`\u003c/span\u003e should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the\u003cspan pulumi-lang-nodejs=\" snowflake.Execute \" pulumi-lang-dotnet=\" snowflake.Execute \" pulumi-lang-go=\" Execute \" pulumi-lang-python=\" Execute \" pulumi-lang-yaml=\" snowflake.Execute \" pulumi-lang-java=\" snowflake.Execute \"\u003e snowflake.Execute \u003c/span\u003eresource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).\n"
                     },
                     "schema": {
                         "type": "string",
@@ -62182,6 +63411,68 @@
                 "type": "object"
             }
         },
+        "snowflake:index/getNotebooks:getNotebooks": {
+            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\nData source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`notebooks`\" pulumi-lang-dotnet=\"`Notebooks`\" pulumi-lang-go=\"`notebooks`\" pulumi-lang-python=\"`notebooks`\" pulumi-lang-yaml=\"`notebooks`\" pulumi-lang-java=\"`notebooks`\"\u003e`notebooks`\u003c/span\u003e.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getNotebooks.\n",
+                "properties": {
+                    "like": {
+                        "type": "string",
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getNotebooksLimit:getNotebooksLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e.\n"
+                    },
+                    "startsWith": {
+                        "type": "string",
+                        "description": "Filters the output with **case-sensitive** characters indicating the beginning of the object name.\n"
+                    },
+                    "withDescribe": {
+                        "type": "boolean",
+                        "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e) Runs DESC NOTEBOOK for each notebook returned by SHOW NOTEBOOKS. The output of describe is saved to the description field. By default this value is set to true.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNotebooks.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "like": {
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getNotebooksLimit:getNotebooksLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e.\n"
+                    },
+                    "notebooks": {
+                        "description": "Holds the aggregated output of all notebooks details queries.\n",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getNotebooksNotebook:getNotebooksNotebook"
+                        },
+                        "type": "array"
+                    },
+                    "startsWith": {
+                        "description": "Filters the output with **case-sensitive** characters indicating the beginning of the object name.\n",
+                        "type": "string"
+                    },
+                    "withDescribe": {
+                        "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e) Runs DESC NOTEBOOK for each notebook returned by SHOW NOTEBOOKS. The output of describe is saved to the description field. By default this value is set to true.\n",
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "notebooks",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "snowflake:index/getParameters:getParameters": {
             "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as snowflake from \"@pulumi/snowflake\";\n\nconst d = new snowflake.Database(\"d\", {name: \"TEST_DB\"});\n// read all object parameters in database TEST_DB\nconst p = snowflake.getParametersOutput({\n    parameterType: \"OBJECT\",\n    objectType: \"DATABASE\",\n    objectName: d.name,\n});\n// read all account parameters with the pattern '%TIMESTAMP%'\nconst p2 = snowflake.getParameters({\n    parameterType: \"ACCOUNT\",\n    pattern: \"%TIMESTAMP%\",\n});\n// read the exact session parameter ROWS_PER_RESULTSET\nconst p3 = snowflake.getParameters({\n    parameterType: \"SESSION\",\n    pattern: \"ROWS_PER_RESULTSET\",\n    user: \"TEST_USER\",\n});\n```\n```python\nimport pulumi\nimport pulumi_snowflake as snowflake\n\nd = snowflake.Database(\"d\", name=\"TEST_DB\")\n# read all object parameters in database TEST_DB\np = snowflake.get_parameters_output(parameter_type=\"OBJECT\",\n    object_type=\"DATABASE\",\n    object_name=d.name)\n# read all account parameters with the pattern '%TIMESTAMP%'\np2 = snowflake.get_parameters(parameter_type=\"ACCOUNT\",\n    pattern=\"%TIMESTAMP%\")\n# read the exact session parameter ROWS_PER_RESULTSET\np3 = snowflake.get_parameters(parameter_type=\"SESSION\",\n    pattern=\"ROWS_PER_RESULTSET\",\n    user=\"TEST_USER\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Snowflake = Pulumi.Snowflake;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var d = new Snowflake.Database(\"d\", new()\n    {\n        Name = \"TEST_DB\",\n    });\n\n    // read all object parameters in database TEST_DB\n    var p = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"OBJECT\",\n        ObjectType = \"DATABASE\",\n        ObjectName = d.Name,\n    });\n\n    // read all account parameters with the pattern '%TIMESTAMP%'\n    var p2 = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"ACCOUNT\",\n        Pattern = \"%TIMESTAMP%\",\n    });\n\n    // read the exact session parameter ROWS_PER_RESULTSET\n    var p3 = Snowflake.GetParameters.Invoke(new()\n    {\n        ParameterType = \"SESSION\",\n        Pattern = \"ROWS_PER_RESULTSET\",\n        User = \"TEST_USER\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\td, err := snowflake.NewDatabase(ctx, \"d\", \u0026snowflake.DatabaseArgs{\n\t\t\tName: pulumi.String(\"TEST_DB\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// read all object parameters in database TEST_DB\n\t\t_ = snowflake.GetParametersOutput(ctx, snowflake.GetParametersOutputArgs{\n\t\t\tParameterType: pulumi.String(\"OBJECT\"),\n\t\t\tObjectType:    pulumi.String(\"DATABASE\"),\n\t\t\tObjectName:    d.Name,\n\t\t}, nil)\n\t\t// read all account parameters with the pattern '%TIMESTAMP%'\n\t\t_, err = snowflake.GetParameters(ctx, \u0026snowflake.GetParametersArgs{\n\t\t\tParameterType: pulumi.StringRef(\"ACCOUNT\"),\n\t\t\tPattern:       pulumi.StringRef(\"%TIMESTAMP%\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// read the exact session parameter ROWS_PER_RESULTSET\n\t\t_, err = snowflake.GetParameters(ctx, \u0026snowflake.GetParametersArgs{\n\t\t\tParameterType: pulumi.StringRef(\"SESSION\"),\n\t\t\tPattern:       pulumi.StringRef(\"ROWS_PER_RESULTSET\"),\n\t\t\tUser:          pulumi.StringRef(\"TEST_USER\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.snowflake.Database;\nimport com.pulumi.snowflake.DatabaseArgs;\nimport com.pulumi.snowflake.SnowflakeFunctions;\nimport com.pulumi.snowflake.inputs.GetParametersArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var d = new Database(\"d\", DatabaseArgs.builder()\n            .name(\"TEST_DB\")\n            .build());\n\n        // read all object parameters in database TEST_DB\n        final var p = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"OBJECT\")\n            .objectType(\"DATABASE\")\n            .objectName(d.name())\n            .build());\n\n        // read all account parameters with the pattern '%TIMESTAMP%'\n        final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"ACCOUNT\")\n            .pattern(\"%TIMESTAMP%\")\n            .build());\n\n        // read the exact session parameter ROWS_PER_RESULTSET\n        final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()\n            .parameterType(\"SESSION\")\n            .pattern(\"ROWS_PER_RESULTSET\")\n            .user(\"TEST_USER\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  d:\n    type: snowflake:Database\n    properties:\n      name: TEST_DB\nvariables:\n  # read all object parameters in database TEST_DB\n  p:\n    fn::invoke:\n      function: snowflake:getParameters\n      arguments:\n        parameterType: OBJECT\n        objectType: DATABASE\n        objectName: ${d.name}\n  # read all account parameters with the pattern '%TIMESTAMP%'\n  p2:\n    fn::invoke:\n      function: snowflake:getParameters\n      arguments:\n        parameterType: ACCOUNT\n        pattern: '%TIMESTAMP%'\n  # read the exact session parameter ROWS_PER_RESULTSET\n  p3:\n    fn::invoke:\n      function: snowflake:getParameters\n      arguments:\n        parameterType: SESSION\n        pattern: ROWS_PER_RESULTSET\n        user: TEST_USER\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note** If a field has a default value, it is shown next to the type in the schema.\n",
             "inputs": {
@@ -62629,6 +63920,68 @@
                 },
                 "required": [
                     "securityIntegrations",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "snowflake:index/getSemanticViews:getSemanticViews": {
+            "description": "!\u003e **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.\n\n\u003e **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.\n\nData source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection \u003cspan pulumi-lang-nodejs=\"`semanticViews`\" pulumi-lang-dotnet=\"`SemanticViews`\" pulumi-lang-go=\"`semanticViews`\" pulumi-lang-python=\"`semantic_views`\" pulumi-lang-yaml=\"`semanticViews`\" pulumi-lang-java=\"`semanticViews`\"\u003e`semantic_views`\u003c/span\u003e. DESCRIBE is not currently supported and will be added before promoting the resource to stable.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSemanticViews.\n",
+                "properties": {
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getSemanticViewsIn:getSemanticViewsIn",
+                        "description": "IN clause to filter the list of objects\n"
+                    },
+                    "like": {
+                        "type": "string",
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getSemanticViewsLimit:getSemanticViewsLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e.\n"
+                    },
+                    "startsWith": {
+                        "type": "string",
+                        "description": "Filters the output with **case-sensitive** characters indicating the beginning of the object name.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSemanticViews.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "in": {
+                        "$ref": "#/types/snowflake:index/getSemanticViewsIn:getSemanticViewsIn",
+                        "description": "IN clause to filter the list of objects\n"
+                    },
+                    "like": {
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getSemanticViewsLimit:getSemanticViewsLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e.\n"
+                    },
+                    "semanticViews": {
+                        "description": "Holds the aggregated output of all semantic view details queries.\n",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getSemanticViewsSemanticView:getSemanticViewsSemanticView"
+                        },
+                        "type": "array"
+                    },
+                    "startsWith": {
+                        "description": "Filters the output with **case-sensitive** characters indicating the beginning of the object name.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "semanticViews",
                     "id"
                 ],
                 "type": "object"
