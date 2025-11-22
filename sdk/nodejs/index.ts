@@ -285,6 +285,11 @@ export const getNetworkPolicies: typeof import("./getNetworkPolicies").getNetwor
 export const getNetworkPoliciesOutput: typeof import("./getNetworkPolicies").getNetworkPoliciesOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkPolicies","getNetworkPoliciesOutput"], () => require("./getNetworkPolicies"));
 
+export { GetNotebooksArgs, GetNotebooksResult, GetNotebooksOutputArgs } from "./getNotebooks";
+export const getNotebooks: typeof import("./getNotebooks").getNotebooks = null as any;
+export const getNotebooksOutput: typeof import("./getNotebooks").getNotebooksOutput = null as any;
+utilities.lazyLoad(exports, ["getNotebooks","getNotebooksOutput"], () => require("./getNotebooks"));
+
 export { GetParametersArgs, GetParametersResult, GetParametersOutputArgs } from "./getParameters";
 export const getParameters: typeof import("./getParameters").getParameters = null as any;
 export const getParametersOutput: typeof import("./getParameters").getParametersOutput = null as any;
@@ -324,6 +329,11 @@ export { GetSecurityIntegrationsArgs, GetSecurityIntegrationsResult, GetSecurity
 export const getSecurityIntegrations: typeof import("./getSecurityIntegrations").getSecurityIntegrations = null as any;
 export const getSecurityIntegrationsOutput: typeof import("./getSecurityIntegrations").getSecurityIntegrationsOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityIntegrations","getSecurityIntegrationsOutput"], () => require("./getSecurityIntegrations"));
+
+export { GetSemanticViewsArgs, GetSemanticViewsResult, GetSemanticViewsOutputArgs } from "./getSemanticViews";
+export const getSemanticViews: typeof import("./getSemanticViews").getSemanticViews = null as any;
+export const getSemanticViewsOutput: typeof import("./getSemanticViews").getSemanticViewsOutput = null as any;
+utilities.lazyLoad(exports, ["getSemanticViews","getSemanticViewsOutput"], () => require("./getSemanticViews"));
 
 export { GetSequencesArgs, GetSequencesResult, GetSequencesOutputArgs } from "./getSequences";
 export const getSequences: typeof import("./getSequences").getSequences = null as any;
@@ -505,6 +515,11 @@ export type NetworkRule = import("./networkRule").NetworkRule;
 export const NetworkRule: typeof import("./networkRule").NetworkRule = null as any;
 utilities.lazyLoad(exports, ["NetworkRule"], () => require("./networkRule"));
 
+export { NotebookArgs, NotebookState } from "./notebook";
+export type Notebook = import("./notebook").Notebook;
+export const Notebook: typeof import("./notebook").Notebook = null as any;
+utilities.lazyLoad(exports, ["Notebook"], () => require("./notebook"));
+
 export { NotificationIntegrationArgs, NotificationIntegrationState } from "./notificationIntegration";
 export type NotificationIntegration = import("./notificationIntegration").NotificationIntegration;
 export const NotificationIntegration: typeof import("./notificationIntegration").NotificationIntegration = null as any;
@@ -622,6 +637,11 @@ export { SecretWithGenericStringArgs, SecretWithGenericStringState } from "./sec
 export type SecretWithGenericString = import("./secretWithGenericString").SecretWithGenericString;
 export const SecretWithGenericString: typeof import("./secretWithGenericString").SecretWithGenericString = null as any;
 utilities.lazyLoad(exports, ["SecretWithGenericString"], () => require("./secretWithGenericString"));
+
+export { SemanticViewArgs, SemanticViewState } from "./semanticView";
+export type SemanticView = import("./semanticView").SemanticView;
+export const SemanticView: typeof import("./semanticView").SemanticView = null as any;
+utilities.lazyLoad(exports, ["SemanticView"], () => require("./semanticView"));
 
 export { SequenceArgs, SequenceState } from "./sequence";
 export type Sequence = import("./sequence").Sequence;
@@ -860,6 +880,8 @@ const _module = {
                 return new NetworkPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/networkRule:NetworkRule":
                 return new NetworkRule(name, <any>undefined, { urn })
+            case "snowflake:index/notebook:Notebook":
+                return new Notebook(name, <any>undefined, { urn })
             case "snowflake:index/notificationIntegration:NotificationIntegration":
                 return new NotificationIntegration(name, <any>undefined, { urn })
             case "snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients":
@@ -906,6 +928,8 @@ const _module = {
                 return new SecretWithClientCredentials(name, <any>undefined, { urn })
             case "snowflake:index/secretWithGenericString:SecretWithGenericString":
                 return new SecretWithGenericString(name, <any>undefined, { urn })
+            case "snowflake:index/semanticView:SemanticView":
+                return new SemanticView(name, <any>undefined, { urn })
             case "snowflake:index/sequence:Sequence":
                 return new Sequence(name, <any>undefined, { urn })
             case "snowflake:index/service:Service":
@@ -1010,6 +1034,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/materializedView", _mo
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkRule", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/notebook", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForCustomClients", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForPartnerApplications", _module)
@@ -1033,6 +1058,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/secretWithAuthorizatio
 pulumi.runtime.registerResourceModule("snowflake", "index/secretWithBasicAuthentication", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/secretWithClientCredentials", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/secretWithGenericString", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/semanticView", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sequence", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/service", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/serviceUser", _module)

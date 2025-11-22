@@ -222,6 +222,26 @@ namespace Pulumi.Snowflake
             set => _keepSessionAlive.Set(value);
         }
 
+        private static readonly __Value<bool?> _logQueryParameters = new __Value<bool?>(() => __config.GetBoolean("logQueryParameters"));
+        /// <summary>
+        /// When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+        /// </summary>
+        public static bool? LogQueryParameters
+        {
+            get => _logQueryParameters.Get();
+            set => _logQueryParameters.Set(value);
+        }
+
+        private static readonly __Value<bool?> _logQueryText = new __Value<bool?>(() => __config.GetBoolean("logQueryText"));
+        /// <summary>
+        /// When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+        /// </summary>
+        public static bool? LogQueryText
+        {
+            get => _logQueryText.Get();
+            set => _logQueryText.Set(value);
+        }
+
         private static readonly __Value<int?> _loginTimeout = new __Value<int?>(() => __config.GetInt32("loginTimeout"));
         /// <summary>
         /// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.

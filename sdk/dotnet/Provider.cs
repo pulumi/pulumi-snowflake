@@ -378,6 +378,18 @@ namespace Pulumi.Snowflake
         public Input<bool>? KeepSessionAlive { get; set; }
 
         /// <summary>
+        /// When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+        /// </summary>
+        [Input("logQueryParameters", json: true)]
+        public Input<bool>? LogQueryParameters { get; set; }
+
+        /// <summary>
+        /// When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+        /// </summary>
+        [Input("logQueryText", json: true)]
+        public Input<bool>? LogQueryText { get; set; }
+
+        /// <summary>
         /// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         /// </summary>
         [Input("loginTimeout", json: true)]

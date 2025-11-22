@@ -119,6 +119,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkPolicyAttachment{}
 	case "snowflake:index/networkRule:NetworkRule":
 		r = &NetworkRule{}
+	case "snowflake:index/notebook:Notebook":
+		r = &Notebook{}
 	case "snowflake:index/notificationIntegration:NotificationIntegration":
 		r = &NotificationIntegration{}
 	case "snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients":
@@ -165,6 +167,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecretWithClientCredentials{}
 	case "snowflake:index/secretWithGenericString:SecretWithGenericString":
 		r = &SecretWithGenericString{}
+	case "snowflake:index/semanticView:SemanticView":
+		r = &SemanticView{}
 	case "snowflake:index/sequence:Sequence":
 		r = &Sequence{}
 	case "snowflake:index/service:Service":
@@ -493,6 +497,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/notebook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/notificationIntegration",
 		&module{version},
 	)
@@ -604,6 +613,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/secretWithGenericString",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/semanticView",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -2373,6 +2373,73 @@ export interface GetNetworkPoliciesNetworkPolicyShowOutput {
     name: string;
 }
 
+export interface GetNotebooksLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetNotebooksNotebook {
+    /**
+     * Holds the output of DESCRIBE NOTEBOOK
+     */
+    describeOutputs: outputs.GetNotebooksNotebookDescribeOutput[];
+    /**
+     * Holds the output of SHOW NOTEBOOKS.
+     */
+    showOutputs: outputs.GetNotebooksNotebookShowOutput[];
+}
+
+export interface GetNotebooksNotebookDescribeOutput {
+    codeWarehouse: string;
+    comment: string;
+    computePool: string;
+    defaultPackages: string;
+    defaultVersion: string;
+    defaultVersionAlias: string;
+    defaultVersionGitCommitHash: string;
+    defaultVersionLocationUri: string;
+    defaultVersionName: string;
+    defaultVersionSourceLocationUri: string;
+    externalAccessIntegrations: string;
+    externalAccessSecrets: string;
+    idleAutoShutdownTimeSeconds: number;
+    importUrls: string;
+    lastVersionAlias: string;
+    lastVersionGitCommitHash: string;
+    lastVersionLocationUri: string;
+    lastVersionName: string;
+    lastVersionSourceLocationUri: string;
+    liveVersionLocationUri: string;
+    mainFile: string;
+    name: string;
+    owner: string;
+    queryWarehouse: string;
+    runtimeEnvironmentVersion: string;
+    runtimeName: string;
+    title: string;
+    urlId: string;
+    userPackages: string;
+}
+
+export interface GetNotebooksNotebookShowOutput {
+    codeWarehouse: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    schemaName: string;
+    urlId: string;
+}
+
 export interface GetParametersParameter {
     /**
      * The default value of the parameter
@@ -3224,6 +3291,50 @@ export interface GetSecurityIntegrationsSecurityIntegrationShowOutput {
     enabled: boolean;
     integrationType: string;
     name: string;
+}
+
+export interface GetSemanticViewsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetSemanticViewsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetSemanticViewsSemanticView {
+    /**
+     * Holds the output of SHOW SEMANTIC VIEWS.
+     */
+    showOutputs: outputs.GetSemanticViewsSemanticViewShowOutput[];
+}
+
+export interface GetSemanticViewsSemanticViewShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    extension: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
 }
 
 export interface GetSequencesSequence {
@@ -5077,7 +5188,7 @@ export interface GrantOwnershipOn {
      */
     objectName?: string;
     /**
-     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
      */
     objectType?: string;
 }
@@ -5092,7 +5203,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -5107,7 +5218,7 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -5118,7 +5229,7 @@ export interface GrantPrivilegesToAccountRoleOnAccountObject {
      */
     objectName: string;
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
      */
     objectType: string;
 }
@@ -5152,7 +5263,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: string;
 }
@@ -5161,7 +5272,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -5170,7 +5281,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -5204,7 +5315,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: string;
 }
@@ -5219,7 +5330,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -5234,7 +5345,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -6051,6 +6162,62 @@ export interface NetworkPolicyShowOutput {
     entriesInBlockedIpList: number;
     entriesInBlockedNetworkRules: number;
     name: string;
+}
+
+export interface NotebookDescribeOutput {
+    codeWarehouse: string;
+    comment: string;
+    computePool: string;
+    defaultPackages: string;
+    defaultVersion: string;
+    defaultVersionAlias: string;
+    defaultVersionGitCommitHash: string;
+    defaultVersionLocationUri: string;
+    defaultVersionName: string;
+    defaultVersionSourceLocationUri: string;
+    externalAccessIntegrations: string;
+    externalAccessSecrets: string;
+    idleAutoShutdownTimeSeconds: number;
+    importUrls: string;
+    lastVersionAlias: string;
+    lastVersionGitCommitHash: string;
+    lastVersionLocationUri: string;
+    lastVersionName: string;
+    lastVersionSourceLocationUri: string;
+    liveVersionLocationUri: string;
+    mainFile: string;
+    name: string;
+    owner: string;
+    queryWarehouse: string;
+    runtimeEnvironmentVersion: string;
+    runtimeName: string;
+    title: string;
+    urlId: string;
+    userPackages: string;
+}
+
+export interface NotebookFrom {
+    /**
+     * Location of the .ipynb file in the stage.
+     */
+    path?: string;
+    /**
+     * Identifier of the stage where the .ipynb file is located.
+     */
+    stage: string;
+}
+
+export interface NotebookShowOutput {
+    codeWarehouse: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    schemaName: string;
+    urlId: string;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutput {
@@ -7374,6 +7541,194 @@ export interface SecretWithGenericStringShowOutput {
     ownerRoleType: string;
     schemaName: string;
     secretType: string;
+}
+
+export interface SemanticViewDimension {
+    /**
+     * Specifies a comment for the dimension.
+     */
+    comment?: string;
+    /**
+     * Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
+     */
+    qualifiedExpressionName: string;
+    /**
+     * The SQL expression used to compute the dimension.
+     */
+    sqlExpression: string;
+    /**
+     * List of synonyms for the dimension.
+     */
+    synonyms?: string[];
+}
+
+export interface SemanticViewFact {
+    /**
+     * Specifies a comment for the fact.
+     */
+    comment?: string;
+    /**
+     * Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
+     */
+    qualifiedExpressionName: string;
+    /**
+     * The SQL expression used to compute the fact.
+     */
+    sqlExpression: string;
+    /**
+     * List of synonyms for the fact.
+     */
+    synonyms?: string[];
+}
+
+export interface SemanticViewMetric {
+    /**
+     * Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
+     */
+    semanticExpression?: outputs.SemanticViewMetricSemanticExpression;
+    /**
+     * Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
+     */
+    windowFunction?: outputs.SemanticViewMetricWindowFunction;
+}
+
+export interface SemanticViewMetricSemanticExpression {
+    /**
+     * Specifies a comment for the semantic expression.
+     */
+    comment?: string;
+    /**
+     * Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\"<semantic_expression_name>\""`.
+     */
+    qualifiedExpressionName: string;
+    /**
+     * The SQL expression used to compute the metric.
+     */
+    sqlExpression: string;
+    /**
+     * List of synonyms for this semantic expression.
+     */
+    synonyms?: string[];
+}
+
+export interface SemanticViewMetricWindowFunction {
+    /**
+     * Specify the partition by, order by or frame over which the window function is to be computed.
+     */
+    overClause: outputs.SemanticViewMetricWindowFunctionOverClause;
+    /**
+     * Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\"<semantic_expression_name>\""`.
+     */
+    qualifiedExpressionName: string;
+    /**
+     * The SQL expression used to compute the metric following the `<window_function>(<metric>)` format.
+     */
+    sqlExpression: string;
+}
+
+export interface SemanticViewMetricWindowFunctionOverClause {
+    /**
+     * Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.
+     */
+    orderBy?: string;
+    /**
+     * Specifies a partition by clause.
+     */
+    partitionBy?: string;
+    /**
+     * Specifies a window frame clause.
+     */
+    windowFrameClause?: string;
+}
+
+export interface SemanticViewRelationship {
+    /**
+     * Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+     */
+    referencedRelationshipColumns?: string[];
+    /**
+     * Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a `tableName` or a `tableAlias`, not both.
+     */
+    referencedTableNameOrAlias: outputs.SemanticViewRelationshipReferencedTableNameOrAlias;
+    /**
+     * Specifies one or more columns in the first logical table that refers to columns in another logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+     */
+    relationshipColumns: string[];
+    /**
+     * Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    relationshipIdentifier?: string;
+    /**
+     * Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a `tableName` or a `tableAlias`, not both.
+     */
+    tableNameOrAlias: outputs.SemanticViewRelationshipTableNameOrAlias;
+}
+
+export interface SemanticViewRelationshipReferencedTableNameOrAlias {
+    /**
+     * The alias used for the logical table, cannot be used in combination with the `tableName`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableAlias?: string;
+    /**
+     * The name of the logical table, cannot be used in combination with the `tableAlias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableName?: string;
+}
+
+export interface SemanticViewRelationshipTableNameOrAlias {
+    /**
+     * The alias used for the logical table, cannot be used in combination with the `tableName`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableAlias?: string;
+    /**
+     * The name of the logical table, cannot be used in combination with the `tableAlias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableName?: string;
+}
+
+export interface SemanticViewShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    extension: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface SemanticViewTable {
+    /**
+     * Specifies a comment for the logical table.
+     */
+    comment?: string;
+    /**
+     * Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    primaryKeys?: string[];
+    /**
+     * List of synonyms for the logical table.
+     */
+    synonyms?: string[];
+    /**
+     * Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableAlias: string;
+    /**
+     * Specifies an identifier for the logical table. Example: `"\"<db_name>\".\"<schema_name>\".\"<table_name>\""`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     */
+    tableName: string;
+    /**
+     * Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    uniques?: outputs.SemanticViewTableUnique[];
+}
+
+export interface SemanticViewTableUnique {
+    /**
+     * Unique key combinations in the logical table.
+     */
+    values: string[];
 }
 
 export interface ServiceDescribeOutput {
@@ -9122,11 +9477,19 @@ export interface TaskParameterWeekStart {
 
 export interface TaskSchedule {
     /**
-     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+     * Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
+     */
+    hours?: number;
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
      */
     minutes?: number;
     /**
-     * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+     * Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
+     */
+    seconds?: number;
+    /**
+     * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
      */
     usingCron?: string;
 }

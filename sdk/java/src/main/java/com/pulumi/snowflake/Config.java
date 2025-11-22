@@ -150,6 +150,20 @@ public final class Config {
         return Codegen.booleanProp("keepSessionAlive").config(config).get();
     }
 /**
+ * When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+ * 
+ */
+    public Optional<Boolean> logQueryParameters() {
+        return Codegen.booleanProp("logQueryParameters").config(config).get();
+    }
+/**
+ * When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+ * 
+ */
+    public Optional<Boolean> logQueryText() {
+        return Codegen.booleanProp("logQueryText").config(config).get();
+    }
+/**
  * Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
  * 
  */

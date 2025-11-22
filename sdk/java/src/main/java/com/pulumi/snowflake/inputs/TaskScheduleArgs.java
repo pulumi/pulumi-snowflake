@@ -17,14 +17,29 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
     public static final TaskScheduleArgs Empty = new TaskScheduleArgs();
 
     /**
-     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+     * Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
+     * 
+     */
+    @Import(name="hours")
+    private @Nullable Output<Integer> hours;
+
+    /**
+     * @return Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
+     * 
+     */
+    public Optional<Output<Integer>> hours() {
+        return Optional.ofNullable(this.hours);
+    }
+
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
      * 
      */
     @Import(name="minutes")
     private @Nullable Output<Integer> minutes;
 
     /**
-     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
      * 
      */
     public Optional<Output<Integer>> minutes() {
@@ -32,14 +47,29 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+     * Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
+     * 
+     */
+    @Import(name="seconds")
+    private @Nullable Output<Integer> seconds;
+
+    /**
+     * @return Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
+     * 
+     */
+    public Optional<Output<Integer>> seconds() {
+        return Optional.ofNullable(this.seconds);
+    }
+
+    /**
+     * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
      * 
      */
     @Import(name="usingCron")
     private @Nullable Output<String> usingCron;
 
     /**
-     * @return Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+     * @return Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
      * 
      */
     public Optional<Output<String>> usingCron() {
@@ -49,7 +79,9 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
     private TaskScheduleArgs() {}
 
     private TaskScheduleArgs(TaskScheduleArgs $) {
+        this.hours = $.hours;
         this.minutes = $.minutes;
+        this.seconds = $.seconds;
         this.usingCron = $.usingCron;
     }
 
@@ -72,7 +104,28 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+         * @param hours Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hours(@Nullable Output<Integer> hours) {
+            $.hours = hours;
+            return this;
+        }
+
+        /**
+         * @param hours Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hours(Integer hours) {
+            return hours(Output.of(hours));
+        }
+
+        /**
+         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
          * 
          * @return builder
          * 
@@ -83,7 +136,7 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
          * 
          * @return builder
          * 
@@ -93,7 +146,28 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usingCron Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+         * @param seconds Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder seconds(@Nullable Output<Integer> seconds) {
+            $.seconds = seconds;
+            return this;
+        }
+
+        /**
+         * @param seconds Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder seconds(Integer seconds) {
+            return seconds(Output.of(seconds));
+        }
+
+        /**
+         * @param usingCron Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
          * 
          * @return builder
          * 
@@ -104,7 +178,7 @@ public final class TaskScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usingCron Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+         * @param usingCron Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
          * 
          * @return builder
          * 

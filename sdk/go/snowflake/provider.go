@@ -217,6 +217,10 @@ type providerArgs struct {
 	JwtExpireTimeout *int `pulumi:"jwtExpireTimeout"`
 	// Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
 	KeepSessionAlive *bool `pulumi:"keepSessionAlive"`
+	// When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+	LogQueryParameters *bool `pulumi:"logQueryParameters"`
+	// When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+	LogQueryText *bool `pulumi:"logQueryText"`
 	// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
 	LoginTimeout *int `pulumi:"loginTimeout"`
 	// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
@@ -324,6 +328,10 @@ type ProviderArgs struct {
 	JwtExpireTimeout pulumi.IntPtrInput
 	// Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
 	KeepSessionAlive pulumi.BoolPtrInput
+	// When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+	LogQueryParameters pulumi.BoolPtrInput
+	// When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+	LogQueryText pulumi.BoolPtrInput
 	// Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
 	LoginTimeout pulumi.IntPtrInput
 	// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
