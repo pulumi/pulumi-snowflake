@@ -155,6 +155,20 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('keepSessionAlive')
 
     @_builtins.property
+    def log_query_parameters(self) -> Optional[bool]:
+        """
+        When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+        """
+        return __config__.get_bool('logQueryParameters')
+
+    @_builtins.property
+    def log_query_text(self) -> Optional[bool]:
+        """
+        When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+        """
+        return __config__.get_bool('logQueryText')
+
+    @_builtins.property
     def login_timeout(self) -> Optional[int]:
         """
         Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.

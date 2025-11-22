@@ -1174,6 +1174,21 @@
                     }
                 }
             },
+            "snowflake_notebook": {
+                "current": "snowflake:index/notebook:Notebook",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "from": {
+                        "maxItemsOne": false
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_notification_integration": {
                 "current": "snowflake:index/notificationIntegration:NotificationIntegration",
                 "majorVersion": 2
@@ -1906,6 +1921,104 @@
                             "fields": {
                                 "oauth_scopes": {
                                     "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_semantic_view": {
+                "current": "snowflake:index/semanticView:SemanticView",
+                "majorVersion": 2,
+                "fields": {
+                    "dimensions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "synonym": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "facts": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "synonym": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "metrics": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "semantic_expression": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "synonym": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "window_function": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "over_clause": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "relationships": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "referenced_relationship_columns": {
+                                    "maxItemsOne": false
+                                },
+                                "referenced_table_name_or_alias": {
+                                    "maxItemsOne": true
+                                },
+                                "relationship_columns": {
+                                    "maxItemsOne": false
+                                },
+                                "table_name_or_alias": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    },
+                    "tables": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "primary_key": {
+                                    "maxItemsOne": false
+                                },
+                                "synonym": {
+                                    "maxItemsOne": false
+                                },
+                                "unique": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "values": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -3449,6 +3562,28 @@
                     }
                 }
             },
+            "snowflake_notebooks": {
+                "current": "snowflake:index/getNotebooks:getNotebooks",
+                "majorVersion": 2,
+                "fields": {
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "notebooks": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "snowflake_parameters": {
                 "current": "snowflake:index/getParameters:getParameters",
                 "majorVersion": 2,
@@ -3821,6 +3956,28 @@
                                         }
                                     }
                                 },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_semantic_views": {
+                "current": "snowflake:index/getSemanticViews:getSemanticViews",
+                "majorVersion": 2,
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "semantic_views": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
                                 "show_output": {
                                     "maxItemsOne": false
                                 }

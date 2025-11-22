@@ -30,14 +30,14 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
     }
 
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
      * 
      */
     @Import(name="objectType", required=true)
     private Output<String> objectType;
 
     /**
-     * @return The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * @return The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
      * 
      */
     public Output<String> objectType() {
@@ -91,7 +91,7 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
         }
 
         /**
-         * @param objectType The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+         * @param objectType The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
         }
 
         /**
-         * @param objectType The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+         * @param objectType The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
          * 
          * @return builder
          * 

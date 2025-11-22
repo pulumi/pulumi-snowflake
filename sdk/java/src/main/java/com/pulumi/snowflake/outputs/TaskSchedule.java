@@ -13,26 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TaskSchedule {
     /**
-     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+     * @return Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
+     * 
+     */
+    private @Nullable Integer hours;
+    /**
+     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
      * 
      */
     private @Nullable Integer minutes;
     /**
-     * @return Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+     * @return Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
+     * 
+     */
+    private @Nullable Integer seconds;
+    /**
+     * @return Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
      * 
      */
     private @Nullable String usingCron;
 
     private TaskSchedule() {}
     /**
-     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+     * @return Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
+     * 
+     */
+    public Optional<Integer> hours() {
+        return Optional.ofNullable(this.hours);
+    }
+    /**
+     * @return Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
      * 
      */
     public Optional<Integer> minutes() {
         return Optional.ofNullable(this.minutes);
     }
     /**
-     * @return Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+     * @return Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
+     * 
+     */
+    public Optional<Integer> seconds() {
+        return Optional.ofNullable(this.seconds);
+    }
+    /**
+     * @return Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
      * 
      */
     public Optional<String> usingCron() {
@@ -48,19 +72,35 @@ public final class TaskSchedule {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer hours;
         private @Nullable Integer minutes;
+        private @Nullable Integer seconds;
         private @Nullable String usingCron;
         public Builder() {}
         public Builder(TaskSchedule defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.hours = defaults.hours;
     	      this.minutes = defaults.minutes;
+    	      this.seconds = defaults.seconds;
     	      this.usingCron = defaults.usingCron;
         }
 
         @CustomType.Setter
+        public Builder hours(@Nullable Integer hours) {
+
+            this.hours = hours;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minutes(@Nullable Integer minutes) {
 
             this.minutes = minutes;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder seconds(@Nullable Integer seconds) {
+
+            this.seconds = seconds;
             return this;
         }
         @CustomType.Setter
@@ -71,7 +111,9 @@ public final class TaskSchedule {
         }
         public TaskSchedule build() {
             final var _resultValue = new TaskSchedule();
+            _resultValue.hours = hours;
             _resultValue.minutes = minutes;
+            _resultValue.seconds = seconds;
             _resultValue.usingCron = usingCron;
             return _resultValue;
         }

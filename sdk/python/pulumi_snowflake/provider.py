@@ -39,6 +39,8 @@ class ProviderArgs:
                  jwt_client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  jwt_expire_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  keep_session_alive: Optional[pulumi.Input[_builtins.bool]] = None,
+                 log_query_parameters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 log_query_text: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
                  oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -93,6 +95,8 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.int] jwt_client_timeout: The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] jwt_expire_timeout: JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.bool] keep_session_alive: Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+        :param pulumi.Input[_builtins.bool] log_query_parameters: When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+        :param pulumi.Input[_builtins.bool] log_query_text: When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
         :param pulumi.Input[_builtins.int] login_timeout: Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] max_retry_count: Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
         :param pulumi.Input[_builtins.str] oauth_authorization_url: Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
@@ -166,6 +170,10 @@ class ProviderArgs:
             pulumi.set(__self__, "jwt_expire_timeout", jwt_expire_timeout)
         if keep_session_alive is not None:
             pulumi.set(__self__, "keep_session_alive", keep_session_alive)
+        if log_query_parameters is not None:
+            pulumi.set(__self__, "log_query_parameters", log_query_parameters)
+        if log_query_text is not None:
+            pulumi.set(__self__, "log_query_text", log_query_text)
         if login_timeout is not None:
             pulumi.set(__self__, "login_timeout", login_timeout)
         if max_retry_count is not None:
@@ -472,6 +480,30 @@ class ProviderArgs:
     @keep_session_alive.setter
     def keep_session_alive(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "keep_session_alive", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logQueryParameters")
+    def log_query_parameters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+        """
+        return pulumi.get(self, "log_query_parameters")
+
+    @log_query_parameters.setter
+    def log_query_parameters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "log_query_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logQueryText")
+    def log_query_text(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+        """
+        return pulumi.get(self, "log_query_text")
+
+    @log_query_text.setter
+    def log_query_text(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "log_query_text", value)
 
     @_builtins.property
     @pulumi.getter(name="loginTimeout")
@@ -892,6 +924,8 @@ class Provider(pulumi.ProviderResource):
                  jwt_client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  jwt_expire_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  keep_session_alive: Optional[pulumi.Input[_builtins.bool]] = None,
+                 log_query_parameters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 log_query_text: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
                  oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -953,6 +987,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.int] jwt_client_timeout: The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] jwt_expire_timeout: JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.bool] keep_session_alive: Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
+        :param pulumi.Input[_builtins.bool] log_query_parameters: When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+        :param pulumi.Input[_builtins.bool] log_query_text: When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
         :param pulumi.Input[_builtins.int] login_timeout: Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] max_retry_count: Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
         :param pulumi.Input[_builtins.str] oauth_authorization_url: Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
@@ -1032,6 +1068,8 @@ class Provider(pulumi.ProviderResource):
                  jwt_client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  jwt_expire_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  keep_session_alive: Optional[pulumi.Input[_builtins.bool]] = None,
+                 log_query_parameters: Optional[pulumi.Input[_builtins.bool]] = None,
+                 log_query_text: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
                  oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1095,6 +1133,8 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["jwt_client_timeout"] = pulumi.Output.from_input(jwt_client_timeout).apply(pulumi.runtime.to_json) if jwt_client_timeout is not None else None
             __props__.__dict__["jwt_expire_timeout"] = pulumi.Output.from_input(jwt_expire_timeout).apply(pulumi.runtime.to_json) if jwt_expire_timeout is not None else None
             __props__.__dict__["keep_session_alive"] = pulumi.Output.from_input(keep_session_alive).apply(pulumi.runtime.to_json) if keep_session_alive is not None else None
+            __props__.__dict__["log_query_parameters"] = pulumi.Output.from_input(log_query_parameters).apply(pulumi.runtime.to_json) if log_query_parameters is not None else None
+            __props__.__dict__["log_query_text"] = pulumi.Output.from_input(log_query_text).apply(pulumi.runtime.to_json) if log_query_text is not None else None
             __props__.__dict__["login_timeout"] = pulumi.Output.from_input(login_timeout).apply(pulumi.runtime.to_json) if login_timeout is not None else None
             __props__.__dict__["max_retry_count"] = pulumi.Output.from_input(max_retry_count).apply(pulumi.runtime.to_json) if max_retry_count is not None else None
             __props__.__dict__["oauth_authorization_url"] = None if oauth_authorization_url is None else pulumi.Output.secret(oauth_authorization_url)

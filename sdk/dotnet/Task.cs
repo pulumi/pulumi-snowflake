@@ -266,7 +266,7 @@ namespace Pulumi.Snowflake
         public Output<string> S3StageVpceDnsName { get; private set; } = null!;
 
         /// <summary>
-        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `Minutes` or `UsingCron` should be set)
+        /// The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `Seconds`, `Minutes`, `Hours`, or `UsingCron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the snowflake.Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.TaskSchedule?> Schedule { get; private set; } = null!;
@@ -756,7 +756,7 @@ namespace Pulumi.Snowflake
         public Input<string>? S3StageVpceDnsName { get; set; }
 
         /// <summary>
-        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `Minutes` or `UsingCron` should be set)
+        /// The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `Seconds`, `Minutes`, `Hours`, or `UsingCron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the snowflake.Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.TaskScheduleArgs>? Schedule { get; set; }
@@ -1220,7 +1220,7 @@ namespace Pulumi.Snowflake
         public Input<string>? S3StageVpceDnsName { get; set; }
 
         /// <summary>
-        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `Minutes` or `UsingCron` should be set)
+        /// The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `Seconds`, `Minutes`, `Hours`, or `UsingCron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the snowflake.Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.TaskScheduleGetArgs>? Schedule { get; set; }

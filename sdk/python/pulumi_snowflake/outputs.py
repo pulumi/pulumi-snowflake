@@ -232,6 +232,9 @@ __all__ = [
     'MaterializedViewTag',
     'NetworkPolicyDescribeOutput',
     'NetworkPolicyShowOutput',
+    'NotebookDescribeOutput',
+    'NotebookFrom',
+    'NotebookShowOutput',
     'OauthIntegrationForCustomClientsDescribeOutput',
     'OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList',
     'OauthIntegrationForCustomClientsDescribeOutputComment',
@@ -379,6 +382,18 @@ __all__ = [
     'SecretWithClientCredentialsShowOutput',
     'SecretWithGenericStringDescribeOutput',
     'SecretWithGenericStringShowOutput',
+    'SemanticViewDimension',
+    'SemanticViewFact',
+    'SemanticViewMetric',
+    'SemanticViewMetricSemanticExpression',
+    'SemanticViewMetricWindowFunction',
+    'SemanticViewMetricWindowFunctionOverClause',
+    'SemanticViewRelationship',
+    'SemanticViewRelationshipReferencedTableNameOrAlias',
+    'SemanticViewRelationshipTableNameOrAlias',
+    'SemanticViewShowOutput',
+    'SemanticViewTable',
+    'SemanticViewTableUnique',
     'ServiceDescribeOutput',
     'ServiceFromSpecification',
     'ServiceFromSpecificationTemplate',
@@ -698,6 +713,10 @@ __all__ = [
     'GetNetworkPoliciesNetworkPolicyResult',
     'GetNetworkPoliciesNetworkPolicyDescribeOutputResult',
     'GetNetworkPoliciesNetworkPolicyShowOutputResult',
+    'GetNotebooksLimitResult',
+    'GetNotebooksNotebookResult',
+    'GetNotebooksNotebookDescribeOutputResult',
+    'GetNotebooksNotebookShowOutputResult',
     'GetParametersParameterResult',
     'GetPipesPipeResult',
     'GetProceduresProcedureResult',
@@ -791,6 +810,10 @@ __all__ = [
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult',
     'GetSecurityIntegrationsSecurityIntegrationShowOutputResult',
+    'GetSemanticViewsInResult',
+    'GetSemanticViewsLimitResult',
+    'GetSemanticViewsSemanticViewResult',
+    'GetSemanticViewsSemanticViewShowOutputResult',
     'GetSequencesSequenceResult',
     'GetServicesInResult',
     'GetServicesLimitResult',
@@ -9281,7 +9304,7 @@ class GrantOwnershipOn(dict):
         :param 'GrantOwnershipOnAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantOwnershipOnFutureArgs' future: Configures the privilege to be granted on all objects in either a database or schema.
         :param _builtins.str object_name: Specifies the identifier for the object on which you are transferring ownership.
-        :param _builtins.str object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        :param _builtins.str object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9320,7 +9343,7 @@ class GrantOwnershipOn(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[_builtins.str]:
         """
-        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         return pulumi.get(self, "object_type")
 
@@ -9353,7 +9376,7 @@ class GrantOwnershipOnAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param _builtins.str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -9367,7 +9390,7 @@ class GrantOwnershipOnAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -9416,7 +9439,7 @@ class GrantOwnershipOnFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param _builtins.str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -9430,7 +9453,7 @@ class GrantOwnershipOnFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -9477,7 +9500,7 @@ class GrantPrivilegesToAccountRoleOnAccountObject(dict):
                  object_type: _builtins.str):
         """
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param _builtins.str object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        :param _builtins.str object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
         pulumi.set(__self__, "object_name", object_name)
         pulumi.set(__self__, "object_type", object_type)
@@ -9494,7 +9517,7 @@ class GrantPrivilegesToAccountRoleOnAccountObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> _builtins.str:
         """
-        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
         return pulumi.get(self, "object_type")
 
@@ -9593,7 +9616,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
         :param 'GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in either a database or schema.
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9632,7 +9655,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[_builtins.str]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         return pulumi.get(self, "object_type")
 
@@ -9665,7 +9688,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -9677,7 +9700,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -9720,7 +9743,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -9732,7 +9755,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -9841,7 +9864,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
         :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in either a database or schema.
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9880,7 +9903,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[_builtins.str]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         return pulumi.get(self, "object_type")
 
@@ -9913,7 +9936,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         :param _builtins.str in_database: The fully qualified name of the database.
         :param _builtins.str in_schema: The fully qualified name of the schema.
         """
@@ -9927,7 +9950,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -9976,7 +9999,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         :param _builtins.str in_database: The fully qualified name of the database.
         :param _builtins.str in_schema: The fully qualified name of the schema.
         """
@@ -9990,7 +10013,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -15139,6 +15162,452 @@ class NetworkPolicyShowOutput(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class NotebookDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeWarehouse":
+            suggest = "code_warehouse"
+        elif key == "computePool":
+            suggest = "compute_pool"
+        elif key == "defaultPackages":
+            suggest = "default_packages"
+        elif key == "defaultVersion":
+            suggest = "default_version"
+        elif key == "defaultVersionAlias":
+            suggest = "default_version_alias"
+        elif key == "defaultVersionGitCommitHash":
+            suggest = "default_version_git_commit_hash"
+        elif key == "defaultVersionLocationUri":
+            suggest = "default_version_location_uri"
+        elif key == "defaultVersionName":
+            suggest = "default_version_name"
+        elif key == "defaultVersionSourceLocationUri":
+            suggest = "default_version_source_location_uri"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "externalAccessSecrets":
+            suggest = "external_access_secrets"
+        elif key == "idleAutoShutdownTimeSeconds":
+            suggest = "idle_auto_shutdown_time_seconds"
+        elif key == "importUrls":
+            suggest = "import_urls"
+        elif key == "lastVersionAlias":
+            suggest = "last_version_alias"
+        elif key == "lastVersionGitCommitHash":
+            suggest = "last_version_git_commit_hash"
+        elif key == "lastVersionLocationUri":
+            suggest = "last_version_location_uri"
+        elif key == "lastVersionName":
+            suggest = "last_version_name"
+        elif key == "lastVersionSourceLocationUri":
+            suggest = "last_version_source_location_uri"
+        elif key == "liveVersionLocationUri":
+            suggest = "live_version_location_uri"
+        elif key == "mainFile":
+            suggest = "main_file"
+        elif key == "queryWarehouse":
+            suggest = "query_warehouse"
+        elif key == "runtimeEnvironmentVersion":
+            suggest = "runtime_environment_version"
+        elif key == "runtimeName":
+            suggest = "runtime_name"
+        elif key == "urlId":
+            suggest = "url_id"
+        elif key == "userPackages":
+            suggest = "user_packages"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotebookDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotebookDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotebookDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_warehouse: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 compute_pool: Optional[_builtins.str] = None,
+                 default_packages: Optional[_builtins.str] = None,
+                 default_version: Optional[_builtins.str] = None,
+                 default_version_alias: Optional[_builtins.str] = None,
+                 default_version_git_commit_hash: Optional[_builtins.str] = None,
+                 default_version_location_uri: Optional[_builtins.str] = None,
+                 default_version_name: Optional[_builtins.str] = None,
+                 default_version_source_location_uri: Optional[_builtins.str] = None,
+                 external_access_integrations: Optional[_builtins.str] = None,
+                 external_access_secrets: Optional[_builtins.str] = None,
+                 idle_auto_shutdown_time_seconds: Optional[_builtins.int] = None,
+                 import_urls: Optional[_builtins.str] = None,
+                 last_version_alias: Optional[_builtins.str] = None,
+                 last_version_git_commit_hash: Optional[_builtins.str] = None,
+                 last_version_location_uri: Optional[_builtins.str] = None,
+                 last_version_name: Optional[_builtins.str] = None,
+                 last_version_source_location_uri: Optional[_builtins.str] = None,
+                 live_version_location_uri: Optional[_builtins.str] = None,
+                 main_file: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 query_warehouse: Optional[_builtins.str] = None,
+                 runtime_environment_version: Optional[_builtins.str] = None,
+                 runtime_name: Optional[_builtins.str] = None,
+                 title: Optional[_builtins.str] = None,
+                 url_id: Optional[_builtins.str] = None,
+                 user_packages: Optional[_builtins.str] = None):
+        if code_warehouse is not None:
+            pulumi.set(__self__, "code_warehouse", code_warehouse)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if default_packages is not None:
+            pulumi.set(__self__, "default_packages", default_packages)
+        if default_version is not None:
+            pulumi.set(__self__, "default_version", default_version)
+        if default_version_alias is not None:
+            pulumi.set(__self__, "default_version_alias", default_version_alias)
+        if default_version_git_commit_hash is not None:
+            pulumi.set(__self__, "default_version_git_commit_hash", default_version_git_commit_hash)
+        if default_version_location_uri is not None:
+            pulumi.set(__self__, "default_version_location_uri", default_version_location_uri)
+        if default_version_name is not None:
+            pulumi.set(__self__, "default_version_name", default_version_name)
+        if default_version_source_location_uri is not None:
+            pulumi.set(__self__, "default_version_source_location_uri", default_version_source_location_uri)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if external_access_secrets is not None:
+            pulumi.set(__self__, "external_access_secrets", external_access_secrets)
+        if idle_auto_shutdown_time_seconds is not None:
+            pulumi.set(__self__, "idle_auto_shutdown_time_seconds", idle_auto_shutdown_time_seconds)
+        if import_urls is not None:
+            pulumi.set(__self__, "import_urls", import_urls)
+        if last_version_alias is not None:
+            pulumi.set(__self__, "last_version_alias", last_version_alias)
+        if last_version_git_commit_hash is not None:
+            pulumi.set(__self__, "last_version_git_commit_hash", last_version_git_commit_hash)
+        if last_version_location_uri is not None:
+            pulumi.set(__self__, "last_version_location_uri", last_version_location_uri)
+        if last_version_name is not None:
+            pulumi.set(__self__, "last_version_name", last_version_name)
+        if last_version_source_location_uri is not None:
+            pulumi.set(__self__, "last_version_source_location_uri", last_version_source_location_uri)
+        if live_version_location_uri is not None:
+            pulumi.set(__self__, "live_version_location_uri", live_version_location_uri)
+        if main_file is not None:
+            pulumi.set(__self__, "main_file", main_file)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if runtime_environment_version is not None:
+            pulumi.set(__self__, "runtime_environment_version", runtime_environment_version)
+        if runtime_name is not None:
+            pulumi.set(__self__, "runtime_name", runtime_name)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url_id is not None:
+            pulumi.set(__self__, "url_id", url_id)
+        if user_packages is not None:
+            pulumi.set(__self__, "user_packages", user_packages)
+
+    @_builtins.property
+    @pulumi.getter(name="codeWarehouse")
+    def code_warehouse(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "code_warehouse")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compute_pool")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPackages")
+    def default_packages(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_packages")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_version")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionAlias")
+    def default_version_alias(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_version_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionGitCommitHash")
+    def default_version_git_commit_hash(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_version_git_commit_hash")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionLocationUri")
+    def default_version_location_uri(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_version_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionName")
+    def default_version_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_version_name")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionSourceLocationUri")
+    def default_version_source_location_uri(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_version_source_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @_builtins.property
+    @pulumi.getter(name="externalAccessSecrets")
+    def external_access_secrets(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_access_secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="idleAutoShutdownTimeSeconds")
+    def idle_auto_shutdown_time_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "idle_auto_shutdown_time_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="importUrls")
+    def import_urls(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "import_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionAlias")
+    def last_version_alias(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_version_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionGitCommitHash")
+    def last_version_git_commit_hash(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_version_git_commit_hash")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionLocationUri")
+    def last_version_location_uri(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_version_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionName")
+    def last_version_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_version_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionSourceLocationUri")
+    def last_version_source_location_uri(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_version_source_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="liveVersionLocationUri")
+    def live_version_location_uri(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "live_version_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="mainFile")
+    def main_file(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "main_file")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "query_warehouse")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeEnvironmentVersion")
+    def runtime_environment_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "runtime_environment_version")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeName")
+    def runtime_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "runtime_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userPackages")
+    def user_packages(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_packages")
+
+
+@pulumi.output_type
+class NotebookFrom(dict):
+    def __init__(__self__, *,
+                 stage: _builtins.str,
+                 path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str stage: Identifier of the stage where the .ipynb file is located.
+        :param _builtins.str path: Location of the .ipynb file in the stage.
+        """
+        pulumi.set(__self__, "stage", stage)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> _builtins.str:
+        """
+        Identifier of the stage where the .ipynb file is located.
+        """
+        return pulumi.get(self, "stage")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[_builtins.str]:
+        """
+        Location of the .ipynb file in the stage.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class NotebookShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeWarehouse":
+            suggest = "code_warehouse"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "queryWarehouse":
+            suggest = "query_warehouse"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "urlId":
+            suggest = "url_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotebookShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotebookShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotebookShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_warehouse: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 query_warehouse: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 url_id: Optional[_builtins.str] = None):
+        if code_warehouse is not None:
+            pulumi.set(__self__, "code_warehouse", code_warehouse)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if url_id is not None:
+            pulumi.set(__self__, "url_id", url_id)
+
+    @_builtins.property
+    @pulumi.getter(name="codeWarehouse")
+    def code_warehouse(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "code_warehouse")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "query_warehouse")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url_id")
 
 
 @pulumi.output_type
@@ -23718,6 +24187,794 @@ class SecretWithGenericStringShowOutput(dict):
     @pulumi.getter(name="secretType")
     def secret_type(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "secret_type")
+
+
+@pulumi.output_type
+class SemanticViewDimension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "qualifiedExpressionName":
+            suggest = "qualified_expression_name"
+        elif key == "sqlExpression":
+            suggest = "sql_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 qualified_expression_name: _builtins.str,
+                 sql_expression: _builtins.str,
+                 comment: Optional[_builtins.str] = None,
+                 synonyms: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str qualified_expression_name: Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        :param _builtins.str sql_expression: The SQL expression used to compute the dimension.
+        :param _builtins.str comment: Specifies a comment for the dimension.
+        :param Sequence[_builtins.str] synonyms: List of synonyms for the dimension.
+        """
+        pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
+        pulumi.set(__self__, "sql_expression", sql_expression)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+
+    @_builtins.property
+    @pulumi.getter(name="qualifiedExpressionName")
+    def qualified_expression_name(self) -> _builtins.str:
+        """
+        Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        """
+        return pulumi.get(self, "qualified_expression_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> _builtins.str:
+        """
+        The SQL expression used to compute the dimension.
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Specifies a comment for the dimension.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def synonyms(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of synonyms for the dimension.
+        """
+        return pulumi.get(self, "synonyms")
+
+
+@pulumi.output_type
+class SemanticViewFact(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "qualifiedExpressionName":
+            suggest = "qualified_expression_name"
+        elif key == "sqlExpression":
+            suggest = "sql_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewFact. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewFact.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewFact.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 qualified_expression_name: _builtins.str,
+                 sql_expression: _builtins.str,
+                 comment: Optional[_builtins.str] = None,
+                 synonyms: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str qualified_expression_name: Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        :param _builtins.str sql_expression: The SQL expression used to compute the fact.
+        :param _builtins.str comment: Specifies a comment for the fact.
+        :param Sequence[_builtins.str] synonyms: List of synonyms for the fact.
+        """
+        pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
+        pulumi.set(__self__, "sql_expression", sql_expression)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+
+    @_builtins.property
+    @pulumi.getter(name="qualifiedExpressionName")
+    def qualified_expression_name(self) -> _builtins.str:
+        """
+        Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        """
+        return pulumi.get(self, "qualified_expression_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> _builtins.str:
+        """
+        The SQL expression used to compute the fact.
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Specifies a comment for the fact.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def synonyms(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of synonyms for the fact.
+        """
+        return pulumi.get(self, "synonyms")
+
+
+@pulumi.output_type
+class SemanticViewMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "semanticExpression":
+            suggest = "semantic_expression"
+        elif key == "windowFunction":
+            suggest = "window_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 semantic_expression: Optional['outputs.SemanticViewMetricSemanticExpression'] = None,
+                 window_function: Optional['outputs.SemanticViewMetricWindowFunction'] = None):
+        """
+        :param 'SemanticViewMetricSemanticExpressionArgs' semantic_expression: Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
+        :param 'SemanticViewMetricWindowFunctionArgs' window_function: Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
+        """
+        if semantic_expression is not None:
+            pulumi.set(__self__, "semantic_expression", semantic_expression)
+        if window_function is not None:
+            pulumi.set(__self__, "window_function", window_function)
+
+    @_builtins.property
+    @pulumi.getter(name="semanticExpression")
+    def semantic_expression(self) -> Optional['outputs.SemanticViewMetricSemanticExpression']:
+        """
+        Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
+        """
+        return pulumi.get(self, "semantic_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="windowFunction")
+    def window_function(self) -> Optional['outputs.SemanticViewMetricWindowFunction']:
+        """
+        Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
+        """
+        return pulumi.get(self, "window_function")
+
+
+@pulumi.output_type
+class SemanticViewMetricSemanticExpression(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "qualifiedExpressionName":
+            suggest = "qualified_expression_name"
+        elif key == "sqlExpression":
+            suggest = "sql_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewMetricSemanticExpression. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewMetricSemanticExpression.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewMetricSemanticExpression.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 qualified_expression_name: _builtins.str,
+                 sql_expression: _builtins.str,
+                 comment: Optional[_builtins.str] = None,
+                 synonyms: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str qualified_expression_name: Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        :param _builtins.str sql_expression: The SQL expression used to compute the metric.
+        :param _builtins.str comment: Specifies a comment for the semantic expression.
+        :param Sequence[_builtins.str] synonyms: List of synonyms for this semantic expression.
+        """
+        pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
+        pulumi.set(__self__, "sql_expression", sql_expression)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+
+    @_builtins.property
+    @pulumi.getter(name="qualifiedExpressionName")
+    def qualified_expression_name(self) -> _builtins.str:
+        """
+        Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        """
+        return pulumi.get(self, "qualified_expression_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> _builtins.str:
+        """
+        The SQL expression used to compute the metric.
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Specifies a comment for the semantic expression.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def synonyms(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of synonyms for this semantic expression.
+        """
+        return pulumi.get(self, "synonyms")
+
+
+@pulumi.output_type
+class SemanticViewMetricWindowFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "overClause":
+            suggest = "over_clause"
+        elif key == "qualifiedExpressionName":
+            suggest = "qualified_expression_name"
+        elif key == "sqlExpression":
+            suggest = "sql_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewMetricWindowFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewMetricWindowFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewMetricWindowFunction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 over_clause: 'outputs.SemanticViewMetricWindowFunctionOverClause',
+                 qualified_expression_name: _builtins.str,
+                 sql_expression: _builtins.str):
+        """
+        :param 'SemanticViewMetricWindowFunctionOverClauseArgs' over_clause: Specify the partition by, order by or frame over which the window function is to be computed.
+        :param _builtins.str qualified_expression_name: Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        :param _builtins.str sql_expression: The SQL expression used to compute the metric following the `<window_function>(<metric>)` format.
+        """
+        pulumi.set(__self__, "over_clause", over_clause)
+        pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
+        pulumi.set(__self__, "sql_expression", sql_expression)
+
+    @_builtins.property
+    @pulumi.getter(name="overClause")
+    def over_clause(self) -> 'outputs.SemanticViewMetricWindowFunctionOverClause':
+        """
+        Specify the partition by, order by or frame over which the window function is to be computed.
+        """
+        return pulumi.get(self, "over_clause")
+
+    @_builtins.property
+    @pulumi.getter(name="qualifiedExpressionName")
+    def qualified_expression_name(self) -> _builtins.str:
+        """
+        Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        """
+        return pulumi.get(self, "qualified_expression_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> _builtins.str:
+        """
+        The SQL expression used to compute the metric following the `<window_function>(<metric>)` format.
+        """
+        return pulumi.get(self, "sql_expression")
+
+
+@pulumi.output_type
+class SemanticViewMetricWindowFunctionOverClause(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orderBy":
+            suggest = "order_by"
+        elif key == "partitionBy":
+            suggest = "partition_by"
+        elif key == "windowFrameClause":
+            suggest = "window_frame_clause"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewMetricWindowFunctionOverClause. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewMetricWindowFunctionOverClause.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewMetricWindowFunctionOverClause.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 order_by: Optional[_builtins.str] = None,
+                 partition_by: Optional[_builtins.str] = None,
+                 window_frame_clause: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str order_by: Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.
+        :param _builtins.str partition_by: Specifies a partition by clause.
+        :param _builtins.str window_frame_clause: Specifies a window frame clause.
+        """
+        if order_by is not None:
+            pulumi.set(__self__, "order_by", order_by)
+        if partition_by is not None:
+            pulumi.set(__self__, "partition_by", partition_by)
+        if window_frame_clause is not None:
+            pulumi.set(__self__, "window_frame_clause", window_frame_clause)
+
+    @_builtins.property
+    @pulumi.getter(name="orderBy")
+    def order_by(self) -> Optional[_builtins.str]:
+        """
+        Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.
+        """
+        return pulumi.get(self, "order_by")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionBy")
+    def partition_by(self) -> Optional[_builtins.str]:
+        """
+        Specifies a partition by clause.
+        """
+        return pulumi.get(self, "partition_by")
+
+    @_builtins.property
+    @pulumi.getter(name="windowFrameClause")
+    def window_frame_clause(self) -> Optional[_builtins.str]:
+        """
+        Specifies a window frame clause.
+        """
+        return pulumi.get(self, "window_frame_clause")
+
+
+@pulumi.output_type
+class SemanticViewRelationship(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referencedTableNameOrAlias":
+            suggest = "referenced_table_name_or_alias"
+        elif key == "relationshipColumns":
+            suggest = "relationship_columns"
+        elif key == "tableNameOrAlias":
+            suggest = "table_name_or_alias"
+        elif key == "referencedRelationshipColumns":
+            suggest = "referenced_relationship_columns"
+        elif key == "relationshipIdentifier":
+            suggest = "relationship_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewRelationship. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewRelationship.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewRelationship.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 referenced_table_name_or_alias: 'outputs.SemanticViewRelationshipReferencedTableNameOrAlias',
+                 relationship_columns: Sequence[_builtins.str],
+                 table_name_or_alias: 'outputs.SemanticViewRelationshipTableNameOrAlias',
+                 referenced_relationship_columns: Optional[Sequence[_builtins.str]] = None,
+                 relationship_identifier: Optional[_builtins.str] = None):
+        """
+        :param 'SemanticViewRelationshipReferencedTableNameOrAliasArgs' referenced_table_name_or_alias: Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a `table_name` or a `table_alias`, not both.
+        :param Sequence[_builtins.str] relationship_columns: Specifies one or more columns in the first logical table that refers to columns in another logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        :param 'SemanticViewRelationshipTableNameOrAliasArgs' table_name_or_alias: Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a `table_name` or a `table_alias`, not both.
+        :param Sequence[_builtins.str] referenced_relationship_columns: Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        :param _builtins.str relationship_identifier: Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        pulumi.set(__self__, "referenced_table_name_or_alias", referenced_table_name_or_alias)
+        pulumi.set(__self__, "relationship_columns", relationship_columns)
+        pulumi.set(__self__, "table_name_or_alias", table_name_or_alias)
+        if referenced_relationship_columns is not None:
+            pulumi.set(__self__, "referenced_relationship_columns", referenced_relationship_columns)
+        if relationship_identifier is not None:
+            pulumi.set(__self__, "relationship_identifier", relationship_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="referencedTableNameOrAlias")
+    def referenced_table_name_or_alias(self) -> 'outputs.SemanticViewRelationshipReferencedTableNameOrAlias':
+        """
+        Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a `table_name` or a `table_alias`, not both.
+        """
+        return pulumi.get(self, "referenced_table_name_or_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="relationshipColumns")
+    def relationship_columns(self) -> Sequence[_builtins.str]:
+        """
+        Specifies one or more columns in the first logical table that refers to columns in another logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "relationship_columns")
+
+    @_builtins.property
+    @pulumi.getter(name="tableNameOrAlias")
+    def table_name_or_alias(self) -> 'outputs.SemanticViewRelationshipTableNameOrAlias':
+        """
+        Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a `table_name` or a `table_alias`, not both.
+        """
+        return pulumi.get(self, "table_name_or_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="referencedRelationshipColumns")
+    def referenced_relationship_columns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "referenced_relationship_columns")
+
+    @_builtins.property
+    @pulumi.getter(name="relationshipIdentifier")
+    def relationship_identifier(self) -> Optional[_builtins.str]:
+        """
+        Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "relationship_identifier")
+
+
+@pulumi.output_type
+class SemanticViewRelationshipReferencedTableNameOrAlias(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableAlias":
+            suggest = "table_alias"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewRelationshipReferencedTableNameOrAlias. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewRelationshipReferencedTableNameOrAlias.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewRelationshipReferencedTableNameOrAlias.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_alias: Optional[_builtins.str] = None,
+                 table_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str table_alias: The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        :param _builtins.str table_name: The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        if table_alias is not None:
+            pulumi.set(__self__, "table_alias", table_alias)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="tableAlias")
+    def table_alias(self) -> Optional[_builtins.str]:
+        """
+        The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class SemanticViewRelationshipTableNameOrAlias(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableAlias":
+            suggest = "table_alias"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewRelationshipTableNameOrAlias. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewRelationshipTableNameOrAlias.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewRelationshipTableNameOrAlias.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_alias: Optional[_builtins.str] = None,
+                 table_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str table_alias: The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        :param _builtins.str table_name: The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        if table_alias is not None:
+            pulumi.set(__self__, "table_alias", table_alias)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="tableAlias")
+    def table_alias(self) -> Optional[_builtins.str]:
+        """
+        The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class SemanticViewShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 extension: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "extension")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class SemanticViewTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableAlias":
+            suggest = "table_alias"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "primaryKeys":
+            suggest = "primary_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SemanticViewTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SemanticViewTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SemanticViewTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_alias: _builtins.str,
+                 table_name: _builtins.str,
+                 comment: Optional[_builtins.str] = None,
+                 primary_keys: Optional[Sequence[_builtins.str]] = None,
+                 synonyms: Optional[Sequence[_builtins.str]] = None,
+                 uniques: Optional[Sequence['outputs.SemanticViewTableUnique']] = None):
+        """
+        :param _builtins.str table_alias: Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        :param _builtins.str table_name: Specifies an identifier for the logical table. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<table_name>\\""`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param _builtins.str comment: Specifies a comment for the logical table.
+        :param Sequence[_builtins.str] primary_keys: Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        :param Sequence[_builtins.str] synonyms: List of synonyms for the logical table.
+        :param Sequence['SemanticViewTableUniqueArgs'] uniques: Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        pulumi.set(__self__, "table_alias", table_alias)
+        pulumi.set(__self__, "table_name", table_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if primary_keys is not None:
+            pulumi.set(__self__, "primary_keys", primary_keys)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+        if uniques is not None:
+            pulumi.set(__self__, "uniques", uniques)
+
+    @_builtins.property
+    @pulumi.getter(name="tableAlias")
+    def table_alias(self) -> _builtins.str:
+        """
+        Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        """
+        Specifies an identifier for the logical table. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<table_name>\\""`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        """
+        return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Specifies a comment for the logical table.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKeys")
+    def primary_keys(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "primary_keys")
+
+    @_builtins.property
+    @pulumi.getter
+    def synonyms(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of synonyms for the logical table.
+        """
+        return pulumi.get(self, "synonyms")
+
+    @_builtins.property
+    @pulumi.getter
+    def uniques(self) -> Optional[Sequence['outputs.SemanticViewTableUnique']]:
+        """
+        Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "uniques")
+
+
+@pulumi.output_type
+class SemanticViewTableUnique(dict):
+    def __init__(__self__, *,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] values: Unique key combinations in the logical table.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Unique key combinations in the logical table.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type
@@ -34215,30 +35472,54 @@ class TaskSchedule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 hours: Optional[_builtins.int] = None,
                  minutes: Optional[_builtins.int] = None,
+                 seconds: Optional[_builtins.int] = None,
                  using_cron: Optional[_builtins.str] = None):
         """
-        :param _builtins.int minutes: Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
-        :param _builtins.str using_cron: Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        :param _builtins.int hours: Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `using_cron`)
+        :param _builtins.int minutes: Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `using_cron`)
+        :param _builtins.int seconds: Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `using_cron`)
+        :param _builtins.str using_cron: Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
         """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
         if minutes is not None:
             pulumi.set(__self__, "minutes", minutes)
+        if seconds is not None:
+            pulumi.set(__self__, "seconds", seconds)
         if using_cron is not None:
             pulumi.set(__self__, "using_cron", using_cron)
 
     @_builtins.property
     @pulumi.getter
+    def hours(self) -> Optional[_builtins.int]:
+        """
+        Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `using_cron`)
+        """
+        return pulumi.get(self, "hours")
+
+    @_builtins.property
+    @pulumi.getter
     def minutes(self) -> Optional[_builtins.int]:
         """
-        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `using_cron`)
         """
         return pulumi.get(self, "minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def seconds(self) -> Optional[_builtins.int]:
+        """
+        Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `using_cron`)
+        """
+        return pulumi.get(self, "seconds")
 
     @_builtins.property
     @pulumi.getter(name="usingCron")
     def using_cron(self) -> Optional[_builtins.str]:
         """
-        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
         """
         return pulumi.get(self, "using_cron")
 
@@ -43407,6 +44688,348 @@ class GetNetworkPoliciesNetworkPolicyShowOutputResult(dict):
 
 
 @pulumi.output_type
+class GetNotebooksLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetNotebooksNotebookResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetNotebooksNotebookDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetNotebooksNotebookShowOutputResult']):
+        """
+        :param Sequence['GetNotebooksNotebookDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE NOTEBOOK
+        :param Sequence['GetNotebooksNotebookShowOutputArgs'] show_outputs: Holds the output of SHOW NOTEBOOKS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetNotebooksNotebookDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE NOTEBOOK
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetNotebooksNotebookShowOutputResult']:
+        """
+        Holds the output of SHOW NOTEBOOKS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetNotebooksNotebookDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 code_warehouse: _builtins.str,
+                 comment: _builtins.str,
+                 compute_pool: _builtins.str,
+                 default_packages: _builtins.str,
+                 default_version: _builtins.str,
+                 default_version_alias: _builtins.str,
+                 default_version_git_commit_hash: _builtins.str,
+                 default_version_location_uri: _builtins.str,
+                 default_version_name: _builtins.str,
+                 default_version_source_location_uri: _builtins.str,
+                 external_access_integrations: _builtins.str,
+                 external_access_secrets: _builtins.str,
+                 idle_auto_shutdown_time_seconds: _builtins.int,
+                 import_urls: _builtins.str,
+                 last_version_alias: _builtins.str,
+                 last_version_git_commit_hash: _builtins.str,
+                 last_version_location_uri: _builtins.str,
+                 last_version_name: _builtins.str,
+                 last_version_source_location_uri: _builtins.str,
+                 live_version_location_uri: _builtins.str,
+                 main_file: _builtins.str,
+                 name: _builtins.str,
+                 owner: _builtins.str,
+                 query_warehouse: _builtins.str,
+                 runtime_environment_version: _builtins.str,
+                 runtime_name: _builtins.str,
+                 title: _builtins.str,
+                 url_id: _builtins.str,
+                 user_packages: _builtins.str):
+        pulumi.set(__self__, "code_warehouse", code_warehouse)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "compute_pool", compute_pool)
+        pulumi.set(__self__, "default_packages", default_packages)
+        pulumi.set(__self__, "default_version", default_version)
+        pulumi.set(__self__, "default_version_alias", default_version_alias)
+        pulumi.set(__self__, "default_version_git_commit_hash", default_version_git_commit_hash)
+        pulumi.set(__self__, "default_version_location_uri", default_version_location_uri)
+        pulumi.set(__self__, "default_version_name", default_version_name)
+        pulumi.set(__self__, "default_version_source_location_uri", default_version_source_location_uri)
+        pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        pulumi.set(__self__, "external_access_secrets", external_access_secrets)
+        pulumi.set(__self__, "idle_auto_shutdown_time_seconds", idle_auto_shutdown_time_seconds)
+        pulumi.set(__self__, "import_urls", import_urls)
+        pulumi.set(__self__, "last_version_alias", last_version_alias)
+        pulumi.set(__self__, "last_version_git_commit_hash", last_version_git_commit_hash)
+        pulumi.set(__self__, "last_version_location_uri", last_version_location_uri)
+        pulumi.set(__self__, "last_version_name", last_version_name)
+        pulumi.set(__self__, "last_version_source_location_uri", last_version_source_location_uri)
+        pulumi.set(__self__, "live_version_location_uri", live_version_location_uri)
+        pulumi.set(__self__, "main_file", main_file)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "query_warehouse", query_warehouse)
+        pulumi.set(__self__, "runtime_environment_version", runtime_environment_version)
+        pulumi.set(__self__, "runtime_name", runtime_name)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "url_id", url_id)
+        pulumi.set(__self__, "user_packages", user_packages)
+
+    @_builtins.property
+    @pulumi.getter(name="codeWarehouse")
+    def code_warehouse(self) -> _builtins.str:
+        return pulumi.get(self, "code_warehouse")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> _builtins.str:
+        return pulumi.get(self, "compute_pool")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPackages")
+    def default_packages(self) -> _builtins.str:
+        return pulumi.get(self, "default_packages")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> _builtins.str:
+        return pulumi.get(self, "default_version")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionAlias")
+    def default_version_alias(self) -> _builtins.str:
+        return pulumi.get(self, "default_version_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionGitCommitHash")
+    def default_version_git_commit_hash(self) -> _builtins.str:
+        return pulumi.get(self, "default_version_git_commit_hash")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionLocationUri")
+    def default_version_location_uri(self) -> _builtins.str:
+        return pulumi.get(self, "default_version_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionName")
+    def default_version_name(self) -> _builtins.str:
+        return pulumi.get(self, "default_version_name")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionSourceLocationUri")
+    def default_version_source_location_uri(self) -> _builtins.str:
+        return pulumi.get(self, "default_version_source_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> _builtins.str:
+        return pulumi.get(self, "external_access_integrations")
+
+    @_builtins.property
+    @pulumi.getter(name="externalAccessSecrets")
+    def external_access_secrets(self) -> _builtins.str:
+        return pulumi.get(self, "external_access_secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="idleAutoShutdownTimeSeconds")
+    def idle_auto_shutdown_time_seconds(self) -> _builtins.int:
+        return pulumi.get(self, "idle_auto_shutdown_time_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="importUrls")
+    def import_urls(self) -> _builtins.str:
+        return pulumi.get(self, "import_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionAlias")
+    def last_version_alias(self) -> _builtins.str:
+        return pulumi.get(self, "last_version_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionGitCommitHash")
+    def last_version_git_commit_hash(self) -> _builtins.str:
+        return pulumi.get(self, "last_version_git_commit_hash")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionLocationUri")
+    def last_version_location_uri(self) -> _builtins.str:
+        return pulumi.get(self, "last_version_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionName")
+    def last_version_name(self) -> _builtins.str:
+        return pulumi.get(self, "last_version_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionSourceLocationUri")
+    def last_version_source_location_uri(self) -> _builtins.str:
+        return pulumi.get(self, "last_version_source_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="liveVersionLocationUri")
+    def live_version_location_uri(self) -> _builtins.str:
+        return pulumi.get(self, "live_version_location_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="mainFile")
+    def main_file(self) -> _builtins.str:
+        return pulumi.get(self, "main_file")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> _builtins.str:
+        return pulumi.get(self, "query_warehouse")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeEnvironmentVersion")
+    def runtime_environment_version(self) -> _builtins.str:
+        return pulumi.get(self, "runtime_environment_version")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeName")
+    def runtime_name(self) -> _builtins.str:
+        return pulumi.get(self, "runtime_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> _builtins.str:
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> _builtins.str:
+        return pulumi.get(self, "url_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userPackages")
+    def user_packages(self) -> _builtins.str:
+        return pulumi.get(self, "user_packages")
+
+
+@pulumi.output_type
+class GetNotebooksNotebookShowOutputResult(dict):
+    def __init__(__self__, *,
+                 code_warehouse: _builtins.str,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 name: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 query_warehouse: _builtins.str,
+                 schema_name: _builtins.str,
+                 url_id: _builtins.str):
+        pulumi.set(__self__, "code_warehouse", code_warehouse)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "query_warehouse", query_warehouse)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "url_id", url_id)
+
+    @_builtins.property
+    @pulumi.getter(name="codeWarehouse")
+    def code_warehouse(self) -> _builtins.str:
+        return pulumi.get(self, "code_warehouse")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> _builtins.str:
+        return pulumi.get(self, "query_warehouse")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> _builtins.str:
+        return pulumi.get(self, "url_id")
+
+
+@pulumi.output_type
 class GetParametersParameterResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
@@ -47364,6 +48987,158 @@ class GetSecurityIntegrationsSecurityIntegrationShowOutputResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetSemanticViewsInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetSemanticViewsLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetSemanticViewsSemanticViewResult(dict):
+    def __init__(__self__, *,
+                 show_outputs: Sequence['outputs.GetSemanticViewsSemanticViewShowOutputResult']):
+        """
+        :param Sequence['GetSemanticViewsSemanticViewShowOutputArgs'] show_outputs: Holds the output of SHOW SEMANTIC VIEWS.
+        """
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetSemanticViewsSemanticViewShowOutputResult']:
+        """
+        Holds the output of SHOW SEMANTIC VIEWS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetSemanticViewsSemanticViewShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 extension: _builtins.str,
+                 name: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 schema_name: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> _builtins.str:
+        return pulumi.get(self, "extension")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type

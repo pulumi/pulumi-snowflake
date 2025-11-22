@@ -447,6 +447,12 @@ __all__ = [
     'NetworkPolicyDescribeOutputArgsDict',
     'NetworkPolicyShowOutputArgs',
     'NetworkPolicyShowOutputArgsDict',
+    'NotebookDescribeOutputArgs',
+    'NotebookDescribeOutputArgsDict',
+    'NotebookFromArgs',
+    'NotebookFromArgsDict',
+    'NotebookShowOutputArgs',
+    'NotebookShowOutputArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputArgs',
     'OauthIntegrationForCustomClientsDescribeOutputArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs',
@@ -743,6 +749,30 @@ __all__ = [
     'SecretWithGenericStringDescribeOutputArgsDict',
     'SecretWithGenericStringShowOutputArgs',
     'SecretWithGenericStringShowOutputArgsDict',
+    'SemanticViewDimensionArgs',
+    'SemanticViewDimensionArgsDict',
+    'SemanticViewFactArgs',
+    'SemanticViewFactArgsDict',
+    'SemanticViewMetricArgs',
+    'SemanticViewMetricArgsDict',
+    'SemanticViewMetricSemanticExpressionArgs',
+    'SemanticViewMetricSemanticExpressionArgsDict',
+    'SemanticViewMetricWindowFunctionArgs',
+    'SemanticViewMetricWindowFunctionArgsDict',
+    'SemanticViewMetricWindowFunctionOverClauseArgs',
+    'SemanticViewMetricWindowFunctionOverClauseArgsDict',
+    'SemanticViewRelationshipArgs',
+    'SemanticViewRelationshipArgsDict',
+    'SemanticViewRelationshipReferencedTableNameOrAliasArgs',
+    'SemanticViewRelationshipReferencedTableNameOrAliasArgsDict',
+    'SemanticViewRelationshipTableNameOrAliasArgs',
+    'SemanticViewRelationshipTableNameOrAliasArgsDict',
+    'SemanticViewShowOutputArgs',
+    'SemanticViewShowOutputArgsDict',
+    'SemanticViewTableArgs',
+    'SemanticViewTableArgsDict',
+    'SemanticViewTableUniqueArgs',
+    'SemanticViewTableUniqueArgsDict',
     'ServiceDescribeOutputArgs',
     'ServiceDescribeOutputArgsDict',
     'ServiceFromSpecificationArgs',
@@ -1269,6 +1299,8 @@ __all__ = [
     'GetMaskingPoliciesInArgsDict',
     'GetMaskingPoliciesLimitArgs',
     'GetMaskingPoliciesLimitArgsDict',
+    'GetNotebooksLimitArgs',
+    'GetNotebooksLimitArgsDict',
     'GetRowAccessPoliciesInArgs',
     'GetRowAccessPoliciesInArgsDict',
     'GetRowAccessPoliciesLimitArgs',
@@ -1279,6 +1311,10 @@ __all__ = [
     'GetSchemasLimitArgsDict',
     'GetSecretsInArgs',
     'GetSecretsInArgsDict',
+    'GetSemanticViewsInArgs',
+    'GetSemanticViewsInArgsDict',
+    'GetSemanticViewsLimitArgs',
+    'GetSemanticViewsLimitArgsDict',
     'GetServicesInArgs',
     'GetServicesInArgsDict',
     'GetServicesLimitArgs',
@@ -12627,7 +12663,7 @@ if not MYPY:
         """
         object_type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
 elif False:
     GrantOwnershipOnArgsDict: TypeAlias = Mapping[str, Any]
@@ -12643,7 +12679,7 @@ class GrantOwnershipOnArgs:
         :param pulumi.Input['GrantOwnershipOnAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantOwnershipOnFutureArgs'] future: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input[_builtins.str] object_name: Specifies the identifier for the object on which you are transferring ownership.
-        :param pulumi.Input[_builtins.str] object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        :param pulumi.Input[_builtins.str] object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -12694,7 +12730,7 @@ class GrantOwnershipOnArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         return pulumi.get(self, "object_type")
 
@@ -12707,7 +12743,7 @@ if not MYPY:
     class GrantOwnershipOnAllArgsDict(TypedDict):
         object_type_plural: pulumi.Input[_builtins.str]
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         in_database: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -12727,7 +12763,7 @@ class GrantOwnershipOnAllArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -12741,7 +12777,7 @@ class GrantOwnershipOnAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -12778,7 +12814,7 @@ if not MYPY:
     class GrantOwnershipOnFutureArgsDict(TypedDict):
         object_type_plural: pulumi.Input[_builtins.str]
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         in_database: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -12798,7 +12834,7 @@ class GrantOwnershipOnFutureArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -12812,7 +12848,7 @@ class GrantOwnershipOnFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -12853,7 +12889,7 @@ if not MYPY:
         """
         object_type: pulumi.Input[_builtins.str]
         """
-        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
 elif False:
     GrantPrivilegesToAccountRoleOnAccountObjectArgsDict: TypeAlias = Mapping[str, Any]
@@ -12865,7 +12901,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
                  object_type: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        :param pulumi.Input[_builtins.str] object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
         pulumi.set(__self__, "object_name", object_name)
         pulumi.set(__self__, "object_type", object_type)
@@ -12886,7 +12922,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
         """
         return pulumi.get(self, "object_type")
 
@@ -12983,7 +13019,7 @@ if not MYPY:
         """
         object_type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
 elif False:
     GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict: TypeAlias = Mapping[str, Any]
@@ -12999,7 +13035,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -13050,7 +13086,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         return pulumi.get(self, "object_type")
 
@@ -13063,7 +13099,7 @@ if not MYPY:
     class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict(TypedDict):
         object_type_plural: pulumi.Input[_builtins.str]
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         """
         in_database: NotRequired[pulumi.Input[_builtins.str]]
         in_schema: NotRequired[pulumi.Input[_builtins.str]]
@@ -13077,7 +13113,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -13089,7 +13125,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13120,7 +13156,7 @@ if not MYPY:
     class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict(TypedDict):
         object_type_plural: pulumi.Input[_builtins.str]
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         """
         in_database: NotRequired[pulumi.Input[_builtins.str]]
         in_schema: NotRequired[pulumi.Input[_builtins.str]]
@@ -13134,7 +13170,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -13146,7 +13182,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13261,7 +13297,7 @@ if not MYPY:
         """
         object_type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
 elif False:
     GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict: TypeAlias = Mapping[str, Any]
@@ -13277,7 +13313,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -13328,7 +13364,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         return pulumi.get(self, "object_type")
 
@@ -13341,7 +13377,7 @@ if not MYPY:
     class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict(TypedDict):
         object_type_plural: pulumi.Input[_builtins.str]
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         """
         in_database: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -13361,7 +13397,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -13375,7 +13411,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13412,7 +13448,7 @@ if not MYPY:
     class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict(TypedDict):
         object_type_plural: pulumi.Input[_builtins.str]
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         """
         in_database: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -13432,7 +13468,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -13446,7 +13482,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -21125,6 +21161,584 @@ class NetworkPolicyShowOutputArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class NotebookDescribeOutputArgsDict(TypedDict):
+        code_warehouse: NotRequired[pulumi.Input[_builtins.str]]
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        compute_pool: NotRequired[pulumi.Input[_builtins.str]]
+        default_packages: NotRequired[pulumi.Input[_builtins.str]]
+        default_version: NotRequired[pulumi.Input[_builtins.str]]
+        default_version_alias: NotRequired[pulumi.Input[_builtins.str]]
+        default_version_git_commit_hash: NotRequired[pulumi.Input[_builtins.str]]
+        default_version_location_uri: NotRequired[pulumi.Input[_builtins.str]]
+        default_version_name: NotRequired[pulumi.Input[_builtins.str]]
+        default_version_source_location_uri: NotRequired[pulumi.Input[_builtins.str]]
+        external_access_integrations: NotRequired[pulumi.Input[_builtins.str]]
+        external_access_secrets: NotRequired[pulumi.Input[_builtins.str]]
+        idle_auto_shutdown_time_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        import_urls: NotRequired[pulumi.Input[_builtins.str]]
+        last_version_alias: NotRequired[pulumi.Input[_builtins.str]]
+        last_version_git_commit_hash: NotRequired[pulumi.Input[_builtins.str]]
+        last_version_location_uri: NotRequired[pulumi.Input[_builtins.str]]
+        last_version_name: NotRequired[pulumi.Input[_builtins.str]]
+        last_version_source_location_uri: NotRequired[pulumi.Input[_builtins.str]]
+        live_version_location_uri: NotRequired[pulumi.Input[_builtins.str]]
+        main_file: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        owner: NotRequired[pulumi.Input[_builtins.str]]
+        query_warehouse: NotRequired[pulumi.Input[_builtins.str]]
+        runtime_environment_version: NotRequired[pulumi.Input[_builtins.str]]
+        runtime_name: NotRequired[pulumi.Input[_builtins.str]]
+        title: NotRequired[pulumi.Input[_builtins.str]]
+        url_id: NotRequired[pulumi.Input[_builtins.str]]
+        user_packages: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    NotebookDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NotebookDescribeOutputArgs:
+    def __init__(__self__, *,
+                 code_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_packages: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_version_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_version_git_commit_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_version_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_version_source_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_access_integrations: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_access_secrets: Optional[pulumi.Input[_builtins.str]] = None,
+                 idle_auto_shutdown_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 import_urls: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_version_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_version_git_commit_hash: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_version_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_version_source_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 live_version_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 main_file: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 runtime_environment_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 url_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_packages: Optional[pulumi.Input[_builtins.str]] = None):
+        if code_warehouse is not None:
+            pulumi.set(__self__, "code_warehouse", code_warehouse)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if default_packages is not None:
+            pulumi.set(__self__, "default_packages", default_packages)
+        if default_version is not None:
+            pulumi.set(__self__, "default_version", default_version)
+        if default_version_alias is not None:
+            pulumi.set(__self__, "default_version_alias", default_version_alias)
+        if default_version_git_commit_hash is not None:
+            pulumi.set(__self__, "default_version_git_commit_hash", default_version_git_commit_hash)
+        if default_version_location_uri is not None:
+            pulumi.set(__self__, "default_version_location_uri", default_version_location_uri)
+        if default_version_name is not None:
+            pulumi.set(__self__, "default_version_name", default_version_name)
+        if default_version_source_location_uri is not None:
+            pulumi.set(__self__, "default_version_source_location_uri", default_version_source_location_uri)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if external_access_secrets is not None:
+            pulumi.set(__self__, "external_access_secrets", external_access_secrets)
+        if idle_auto_shutdown_time_seconds is not None:
+            pulumi.set(__self__, "idle_auto_shutdown_time_seconds", idle_auto_shutdown_time_seconds)
+        if import_urls is not None:
+            pulumi.set(__self__, "import_urls", import_urls)
+        if last_version_alias is not None:
+            pulumi.set(__self__, "last_version_alias", last_version_alias)
+        if last_version_git_commit_hash is not None:
+            pulumi.set(__self__, "last_version_git_commit_hash", last_version_git_commit_hash)
+        if last_version_location_uri is not None:
+            pulumi.set(__self__, "last_version_location_uri", last_version_location_uri)
+        if last_version_name is not None:
+            pulumi.set(__self__, "last_version_name", last_version_name)
+        if last_version_source_location_uri is not None:
+            pulumi.set(__self__, "last_version_source_location_uri", last_version_source_location_uri)
+        if live_version_location_uri is not None:
+            pulumi.set(__self__, "live_version_location_uri", live_version_location_uri)
+        if main_file is not None:
+            pulumi.set(__self__, "main_file", main_file)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if runtime_environment_version is not None:
+            pulumi.set(__self__, "runtime_environment_version", runtime_environment_version)
+        if runtime_name is not None:
+            pulumi.set(__self__, "runtime_name", runtime_name)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if url_id is not None:
+            pulumi.set(__self__, "url_id", url_id)
+        if user_packages is not None:
+            pulumi.set(__self__, "user_packages", user_packages)
+
+    @_builtins.property
+    @pulumi.getter(name="codeWarehouse")
+    def code_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "code_warehouse")
+
+    @code_warehouse.setter
+    def code_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "code_warehouse", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "compute_pool")
+
+    @compute_pool.setter
+    def compute_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "compute_pool", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPackages")
+    def default_packages(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_packages")
+
+    @default_packages.setter
+    def default_packages(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_packages", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_version")
+
+    @default_version.setter
+    def default_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionAlias")
+    def default_version_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_version_alias")
+
+    @default_version_alias.setter
+    def default_version_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_version_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionGitCommitHash")
+    def default_version_git_commit_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_version_git_commit_hash")
+
+    @default_version_git_commit_hash.setter
+    def default_version_git_commit_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_version_git_commit_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionLocationUri")
+    def default_version_location_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_version_location_uri")
+
+    @default_version_location_uri.setter
+    def default_version_location_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionName")
+    def default_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_version_name")
+
+    @default_version_name.setter
+    def default_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_version_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionSourceLocationUri")
+    def default_version_source_location_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_version_source_location_uri")
+
+    @default_version_source_location_uri.setter
+    def default_version_source_location_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_version_source_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @external_access_integrations.setter
+    def external_access_integrations(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "external_access_integrations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalAccessSecrets")
+    def external_access_secrets(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "external_access_secrets")
+
+    @external_access_secrets.setter
+    def external_access_secrets(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "external_access_secrets", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idleAutoShutdownTimeSeconds")
+    def idle_auto_shutdown_time_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "idle_auto_shutdown_time_seconds")
+
+    @idle_auto_shutdown_time_seconds.setter
+    def idle_auto_shutdown_time_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "idle_auto_shutdown_time_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="importUrls")
+    def import_urls(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "import_urls")
+
+    @import_urls.setter
+    def import_urls(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "import_urls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionAlias")
+    def last_version_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_version_alias")
+
+    @last_version_alias.setter
+    def last_version_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_version_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionGitCommitHash")
+    def last_version_git_commit_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_version_git_commit_hash")
+
+    @last_version_git_commit_hash.setter
+    def last_version_git_commit_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_version_git_commit_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionLocationUri")
+    def last_version_location_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_version_location_uri")
+
+    @last_version_location_uri.setter
+    def last_version_location_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionName")
+    def last_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_version_name")
+
+    @last_version_name.setter
+    def last_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_version_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionSourceLocationUri")
+    def last_version_source_location_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_version_source_location_uri")
+
+    @last_version_source_location_uri.setter
+    def last_version_source_location_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_version_source_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liveVersionLocationUri")
+    def live_version_location_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "live_version_location_uri")
+
+    @live_version_location_uri.setter
+    def live_version_location_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "live_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mainFile")
+    def main_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "main_file")
+
+    @main_file.setter
+    def main_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "main_file", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "query_warehouse")
+
+    @query_warehouse.setter
+    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "query_warehouse", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeEnvironmentVersion")
+    def runtime_environment_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "runtime_environment_version")
+
+    @runtime_environment_version.setter
+    def runtime_environment_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "runtime_environment_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeName")
+    def runtime_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "runtime_name")
+
+    @runtime_name.setter
+    def runtime_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "runtime_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "url_id")
+
+    @url_id.setter
+    def url_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "url_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userPackages")
+    def user_packages(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "user_packages")
+
+    @user_packages.setter
+    def user_packages(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "user_packages", value)
+
+
+if not MYPY:
+    class NotebookFromArgsDict(TypedDict):
+        stage: pulumi.Input[_builtins.str]
+        """
+        Identifier of the stage where the .ipynb file is located.
+        """
+        path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Location of the .ipynb file in the stage.
+        """
+elif False:
+    NotebookFromArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NotebookFromArgs:
+    def __init__(__self__, *,
+                 stage: pulumi.Input[_builtins.str],
+                 path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] stage: Identifier of the stage where the .ipynb file is located.
+        :param pulumi.Input[_builtins.str] path: Location of the .ipynb file in the stage.
+        """
+        pulumi.set(__self__, "stage", stage)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the stage where the .ipynb file is located.
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "stage", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Location of the .ipynb file in the stage.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class NotebookShowOutputArgsDict(TypedDict):
+        code_warehouse: NotRequired[pulumi.Input[_builtins.str]]
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        created_on: NotRequired[pulumi.Input[_builtins.str]]
+        database_name: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        owner: NotRequired[pulumi.Input[_builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[_builtins.str]]
+        query_warehouse: NotRequired[pulumi.Input[_builtins.str]]
+        schema_name: NotRequired[pulumi.Input[_builtins.str]]
+        url_id: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    NotebookShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NotebookShowOutputArgs:
+    def __init__(__self__, *,
+                 code_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 url_id: Optional[pulumi.Input[_builtins.str]] = None):
+        if code_warehouse is not None:
+            pulumi.set(__self__, "code_warehouse", code_warehouse)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if url_id is not None:
+            pulumi.set(__self__, "url_id", url_id)
+
+    @_builtins.property
+    @pulumi.getter(name="codeWarehouse")
+    def code_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "code_warehouse")
+
+    @code_warehouse.setter
+    def code_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "code_warehouse", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "query_warehouse")
+
+    @query_warehouse.setter
+    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "query_warehouse", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="urlId")
+    def url_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "url_id")
+
+    @url_id.setter
+    def url_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "url_id", value)
 
 
 if not MYPY:
@@ -33337,6 +33951,957 @@ class SecretWithGenericStringShowOutputArgs:
     @secret_type.setter
     def secret_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_type", value)
+
+
+if not MYPY:
+    class SemanticViewDimensionArgsDict(TypedDict):
+        qualified_expression_name: pulumi.Input[_builtins.str]
+        """
+        Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        """
+        sql_expression: pulumi.Input[_builtins.str]
+        """
+        The SQL expression used to compute the dimension.
+        """
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a comment for the dimension.
+        """
+        synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of synonyms for the dimension.
+        """
+elif False:
+    SemanticViewDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewDimensionArgs:
+    def __init__(__self__, *,
+                 qualified_expression_name: pulumi.Input[_builtins.str],
+                 sql_expression: pulumi.Input[_builtins.str],
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] qualified_expression_name: Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        :param pulumi.Input[_builtins.str] sql_expression: The SQL expression used to compute the dimension.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the dimension.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] synonyms: List of synonyms for the dimension.
+        """
+        pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
+        pulumi.set(__self__, "sql_expression", sql_expression)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+
+    @_builtins.property
+    @pulumi.getter(name="qualifiedExpressionName")
+    def qualified_expression_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        """
+        return pulumi.get(self, "qualified_expression_name")
+
+    @qualified_expression_name.setter
+    def qualified_expression_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "qualified_expression_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        The SQL expression used to compute the dimension.
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @sql_expression.setter
+    def sql_expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sql_expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a comment for the dimension.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of synonyms for the dimension.
+        """
+        return pulumi.get(self, "synonyms")
+
+    @synonyms.setter
+    def synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "synonyms", value)
+
+
+if not MYPY:
+    class SemanticViewFactArgsDict(TypedDict):
+        qualified_expression_name: pulumi.Input[_builtins.str]
+        """
+        Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        """
+        sql_expression: pulumi.Input[_builtins.str]
+        """
+        The SQL expression used to compute the fact.
+        """
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a comment for the fact.
+        """
+        synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of synonyms for the fact.
+        """
+elif False:
+    SemanticViewFactArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewFactArgs:
+    def __init__(__self__, *,
+                 qualified_expression_name: pulumi.Input[_builtins.str],
+                 sql_expression: pulumi.Input[_builtins.str],
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] qualified_expression_name: Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        :param pulumi.Input[_builtins.str] sql_expression: The SQL expression used to compute the fact.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the fact.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] synonyms: List of synonyms for the fact.
+        """
+        pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
+        pulumi.set(__self__, "sql_expression", sql_expression)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+
+    @_builtins.property
+    @pulumi.getter(name="qualifiedExpressionName")
+    def qualified_expression_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
+        """
+        return pulumi.get(self, "qualified_expression_name")
+
+    @qualified_expression_name.setter
+    def qualified_expression_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "qualified_expression_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        The SQL expression used to compute the fact.
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @sql_expression.setter
+    def sql_expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sql_expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a comment for the fact.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of synonyms for the fact.
+        """
+        return pulumi.get(self, "synonyms")
+
+    @synonyms.setter
+    def synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "synonyms", value)
+
+
+if not MYPY:
+    class SemanticViewMetricArgsDict(TypedDict):
+        semantic_expression: NotRequired[pulumi.Input['SemanticViewMetricSemanticExpressionArgsDict']]
+        """
+        Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
+        """
+        window_function: NotRequired[pulumi.Input['SemanticViewMetricWindowFunctionArgsDict']]
+        """
+        Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
+        """
+elif False:
+    SemanticViewMetricArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewMetricArgs:
+    def __init__(__self__, *,
+                 semantic_expression: Optional[pulumi.Input['SemanticViewMetricSemanticExpressionArgs']] = None,
+                 window_function: Optional[pulumi.Input['SemanticViewMetricWindowFunctionArgs']] = None):
+        """
+        :param pulumi.Input['SemanticViewMetricSemanticExpressionArgs'] semantic_expression: Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
+        :param pulumi.Input['SemanticViewMetricWindowFunctionArgs'] window_function: Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
+        """
+        if semantic_expression is not None:
+            pulumi.set(__self__, "semantic_expression", semantic_expression)
+        if window_function is not None:
+            pulumi.set(__self__, "window_function", window_function)
+
+    @_builtins.property
+    @pulumi.getter(name="semanticExpression")
+    def semantic_expression(self) -> Optional[pulumi.Input['SemanticViewMetricSemanticExpressionArgs']]:
+        """
+        Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
+        """
+        return pulumi.get(self, "semantic_expression")
+
+    @semantic_expression.setter
+    def semantic_expression(self, value: Optional[pulumi.Input['SemanticViewMetricSemanticExpressionArgs']]):
+        pulumi.set(self, "semantic_expression", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowFunction")
+    def window_function(self) -> Optional[pulumi.Input['SemanticViewMetricWindowFunctionArgs']]:
+        """
+        Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
+        """
+        return pulumi.get(self, "window_function")
+
+    @window_function.setter
+    def window_function(self, value: Optional[pulumi.Input['SemanticViewMetricWindowFunctionArgs']]):
+        pulumi.set(self, "window_function", value)
+
+
+if not MYPY:
+    class SemanticViewMetricSemanticExpressionArgsDict(TypedDict):
+        qualified_expression_name: pulumi.Input[_builtins.str]
+        """
+        Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        """
+        sql_expression: pulumi.Input[_builtins.str]
+        """
+        The SQL expression used to compute the metric.
+        """
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a comment for the semantic expression.
+        """
+        synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of synonyms for this semantic expression.
+        """
+elif False:
+    SemanticViewMetricSemanticExpressionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewMetricSemanticExpressionArgs:
+    def __init__(__self__, *,
+                 qualified_expression_name: pulumi.Input[_builtins.str],
+                 sql_expression: pulumi.Input[_builtins.str],
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] qualified_expression_name: Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        :param pulumi.Input[_builtins.str] sql_expression: The SQL expression used to compute the metric.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the semantic expression.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] synonyms: List of synonyms for this semantic expression.
+        """
+        pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
+        pulumi.set(__self__, "sql_expression", sql_expression)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+
+    @_builtins.property
+    @pulumi.getter(name="qualifiedExpressionName")
+    def qualified_expression_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        """
+        return pulumi.get(self, "qualified_expression_name")
+
+    @qualified_expression_name.setter
+    def qualified_expression_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "qualified_expression_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        The SQL expression used to compute the metric.
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @sql_expression.setter
+    def sql_expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sql_expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a comment for the semantic expression.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of synonyms for this semantic expression.
+        """
+        return pulumi.get(self, "synonyms")
+
+    @synonyms.setter
+    def synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "synonyms", value)
+
+
+if not MYPY:
+    class SemanticViewMetricWindowFunctionArgsDict(TypedDict):
+        over_clause: pulumi.Input['SemanticViewMetricWindowFunctionOverClauseArgsDict']
+        """
+        Specify the partition by, order by or frame over which the window function is to be computed.
+        """
+        qualified_expression_name: pulumi.Input[_builtins.str]
+        """
+        Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        """
+        sql_expression: pulumi.Input[_builtins.str]
+        """
+        The SQL expression used to compute the metric following the `<window_function>(<metric>)` format.
+        """
+elif False:
+    SemanticViewMetricWindowFunctionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewMetricWindowFunctionArgs:
+    def __init__(__self__, *,
+                 over_clause: pulumi.Input['SemanticViewMetricWindowFunctionOverClauseArgs'],
+                 qualified_expression_name: pulumi.Input[_builtins.str],
+                 sql_expression: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['SemanticViewMetricWindowFunctionOverClauseArgs'] over_clause: Specify the partition by, order by or frame over which the window function is to be computed.
+        :param pulumi.Input[_builtins.str] qualified_expression_name: Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        :param pulumi.Input[_builtins.str] sql_expression: The SQL expression used to compute the metric following the `<window_function>(<metric>)` format.
+        """
+        pulumi.set(__self__, "over_clause", over_clause)
+        pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
+        pulumi.set(__self__, "sql_expression", sql_expression)
+
+    @_builtins.property
+    @pulumi.getter(name="overClause")
+    def over_clause(self) -> pulumi.Input['SemanticViewMetricWindowFunctionOverClauseArgs']:
+        """
+        Specify the partition by, order by or frame over which the window function is to be computed.
+        """
+        return pulumi.get(self, "over_clause")
+
+    @over_clause.setter
+    def over_clause(self, value: pulumi.Input['SemanticViewMetricWindowFunctionOverClauseArgs']):
+        pulumi.set(self, "over_clause", value)
+
+    @_builtins.property
+    @pulumi.getter(name="qualifiedExpressionName")
+    def qualified_expression_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\\"<semantic_expression_name>\\""`.
+        """
+        return pulumi.get(self, "qualified_expression_name")
+
+    @qualified_expression_name.setter
+    def qualified_expression_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "qualified_expression_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        The SQL expression used to compute the metric following the `<window_function>(<metric>)` format.
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @sql_expression.setter
+    def sql_expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sql_expression", value)
+
+
+if not MYPY:
+    class SemanticViewMetricWindowFunctionOverClauseArgsDict(TypedDict):
+        order_by: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.
+        """
+        partition_by: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a partition by clause.
+        """
+        window_frame_clause: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a window frame clause.
+        """
+elif False:
+    SemanticViewMetricWindowFunctionOverClauseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewMetricWindowFunctionOverClauseArgs:
+    def __init__(__self__, *,
+                 order_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 partition_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 window_frame_clause: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] order_by: Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.
+        :param pulumi.Input[_builtins.str] partition_by: Specifies a partition by clause.
+        :param pulumi.Input[_builtins.str] window_frame_clause: Specifies a window frame clause.
+        """
+        if order_by is not None:
+            pulumi.set(__self__, "order_by", order_by)
+        if partition_by is not None:
+            pulumi.set(__self__, "partition_by", partition_by)
+        if window_frame_clause is not None:
+            pulumi.set(__self__, "window_frame_clause", window_frame_clause)
+
+    @_builtins.property
+    @pulumi.getter(name="orderBy")
+    def order_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.
+        """
+        return pulumi.get(self, "order_by")
+
+    @order_by.setter
+    def order_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "order_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionBy")
+    def partition_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a partition by clause.
+        """
+        return pulumi.get(self, "partition_by")
+
+    @partition_by.setter
+    def partition_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "partition_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowFrameClause")
+    def window_frame_clause(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a window frame clause.
+        """
+        return pulumi.get(self, "window_frame_clause")
+
+    @window_frame_clause.setter
+    def window_frame_clause(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "window_frame_clause", value)
+
+
+if not MYPY:
+    class SemanticViewRelationshipArgsDict(TypedDict):
+        referenced_table_name_or_alias: pulumi.Input['SemanticViewRelationshipReferencedTableNameOrAliasArgsDict']
+        """
+        Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a `table_name` or a `table_alias`, not both.
+        """
+        relationship_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies one or more columns in the first logical table that refers to columns in another logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        """
+        table_name_or_alias: pulumi.Input['SemanticViewRelationshipTableNameOrAliasArgsDict']
+        """
+        Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a `table_name` or a `table_alias`, not both.
+        """
+        referenced_relationship_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        """
+        relationship_identifier: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+elif False:
+    SemanticViewRelationshipArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewRelationshipArgs:
+    def __init__(__self__, *,
+                 referenced_table_name_or_alias: pulumi.Input['SemanticViewRelationshipReferencedTableNameOrAliasArgs'],
+                 relationship_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 table_name_or_alias: pulumi.Input['SemanticViewRelationshipTableNameOrAliasArgs'],
+                 referenced_relationship_columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 relationship_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input['SemanticViewRelationshipReferencedTableNameOrAliasArgs'] referenced_table_name_or_alias: Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a `table_name` or a `table_alias`, not both.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] relationship_columns: Specifies one or more columns in the first logical table that refers to columns in another logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        :param pulumi.Input['SemanticViewRelationshipTableNameOrAliasArgs'] table_name_or_alias: Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a `table_name` or a `table_alias`, not both.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] referenced_relationship_columns: Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        :param pulumi.Input[_builtins.str] relationship_identifier: Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        pulumi.set(__self__, "referenced_table_name_or_alias", referenced_table_name_or_alias)
+        pulumi.set(__self__, "relationship_columns", relationship_columns)
+        pulumi.set(__self__, "table_name_or_alias", table_name_or_alias)
+        if referenced_relationship_columns is not None:
+            pulumi.set(__self__, "referenced_relationship_columns", referenced_relationship_columns)
+        if relationship_identifier is not None:
+            pulumi.set(__self__, "relationship_identifier", relationship_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="referencedTableNameOrAlias")
+    def referenced_table_name_or_alias(self) -> pulumi.Input['SemanticViewRelationshipReferencedTableNameOrAliasArgs']:
+        """
+        Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a `table_name` or a `table_alias`, not both.
+        """
+        return pulumi.get(self, "referenced_table_name_or_alias")
+
+    @referenced_table_name_or_alias.setter
+    def referenced_table_name_or_alias(self, value: pulumi.Input['SemanticViewRelationshipReferencedTableNameOrAliasArgs']):
+        pulumi.set(self, "referenced_table_name_or_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relationshipColumns")
+    def relationship_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies one or more columns in the first logical table that refers to columns in another logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "relationship_columns")
+
+    @relationship_columns.setter
+    def relationship_columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "relationship_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableNameOrAlias")
+    def table_name_or_alias(self) -> pulumi.Input['SemanticViewRelationshipTableNameOrAliasArgs']:
+        """
+        Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a `table_name` or a `table_alias`, not both.
+        """
+        return pulumi.get(self, "table_name_or_alias")
+
+    @table_name_or_alias.setter
+    def table_name_or_alias(self, value: pulumi.Input['SemanticViewRelationshipTableNameOrAliasArgs']):
+        pulumi.set(self, "table_name_or_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="referencedRelationshipColumns")
+    def referenced_relationship_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "referenced_relationship_columns")
+
+    @referenced_relationship_columns.setter
+    def referenced_relationship_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "referenced_relationship_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relationshipIdentifier")
+    def relationship_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "relationship_identifier")
+
+    @relationship_identifier.setter
+    def relationship_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "relationship_identifier", value)
+
+
+if not MYPY:
+    class SemanticViewRelationshipReferencedTableNameOrAliasArgsDict(TypedDict):
+        table_alias: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        table_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+elif False:
+    SemanticViewRelationshipReferencedTableNameOrAliasArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewRelationshipReferencedTableNameOrAliasArgs:
+    def __init__(__self__, *,
+                 table_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] table_alias: The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        :param pulumi.Input[_builtins.str] table_name: The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        if table_alias is not None:
+            pulumi.set(__self__, "table_alias", table_alias)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="tableAlias")
+    def table_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_alias")
+
+    @table_alias.setter
+    def table_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_name", value)
+
+
+if not MYPY:
+    class SemanticViewRelationshipTableNameOrAliasArgsDict(TypedDict):
+        table_alias: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        table_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+elif False:
+    SemanticViewRelationshipTableNameOrAliasArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewRelationshipTableNameOrAliasArgs:
+    def __init__(__self__, *,
+                 table_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] table_alias: The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        :param pulumi.Input[_builtins.str] table_name: The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        if table_alias is not None:
+            pulumi.set(__self__, "table_alias", table_alias)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="tableAlias")
+    def table_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The alias used for the logical table, cannot be used in combination with the `table_name`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_alias")
+
+    @table_alias.setter
+    def table_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the logical table, cannot be used in combination with the `table_alias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_name", value)
+
+
+if not MYPY:
+    class SemanticViewShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        created_on: NotRequired[pulumi.Input[_builtins.str]]
+        database_name: NotRequired[pulumi.Input[_builtins.str]]
+        extension: NotRequired[pulumi.Input[_builtins.str]]
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        owner: NotRequired[pulumi.Input[_builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[_builtins.str]]
+        schema_name: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    SemanticViewShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "extension", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+if not MYPY:
+    class SemanticViewTableArgsDict(TypedDict):
+        table_alias: pulumi.Input[_builtins.str]
+        """
+        Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        table_name: pulumi.Input[_builtins.str]
+        """
+        Specifies an identifier for the logical table. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<table_name>\\""`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        """
+        comment: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies a comment for the logical table.
+        """
+        primary_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        List of synonyms for the logical table.
+        """
+        uniques: NotRequired[pulumi.Input[Sequence[pulumi.Input['SemanticViewTableUniqueArgsDict']]]]
+        """
+        Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+elif False:
+    SemanticViewTableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewTableArgs:
+    def __init__(__self__, *,
+                 table_alias: pulumi.Input[_builtins.str],
+                 table_name: pulumi.Input[_builtins.str],
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 uniques: Optional[pulumi.Input[Sequence[pulumi.Input['SemanticViewTableUniqueArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] table_alias: Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        :param pulumi.Input[_builtins.str] table_name: Specifies an identifier for the logical table. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<table_name>\\""`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] comment: Specifies a comment for the logical table.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] primary_keys: Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] synonyms: List of synonyms for the logical table.
+        :param pulumi.Input[Sequence[pulumi.Input['SemanticViewTableUniqueArgs']]] uniques: Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        pulumi.set(__self__, "table_alias", table_alias)
+        pulumi.set(__self__, "table_name", table_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if primary_keys is not None:
+            pulumi.set(__self__, "primary_keys", primary_keys)
+        if synonyms is not None:
+            pulumi.set(__self__, "synonyms", synonyms)
+        if uniques is not None:
+            pulumi.set(__self__, "uniques", uniques)
+
+    @_builtins.property
+    @pulumi.getter(name="tableAlias")
+    def table_alias(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "table_alias")
+
+    @table_alias.setter
+    def table_alias(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies an identifier for the logical table. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<table_name>\\""`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a comment for the logical table.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKeys")
+    def primary_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "primary_keys")
+
+    @primary_keys.setter
+    def primary_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "primary_keys", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of synonyms for the logical table.
+        """
+        return pulumi.get(self, "synonyms")
+
+    @synonyms.setter
+    def synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "synonyms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def uniques(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SemanticViewTableUniqueArgs']]]]:
+        """
+        Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+        """
+        return pulumi.get(self, "uniques")
+
+    @uniques.setter
+    def uniques(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SemanticViewTableUniqueArgs']]]]):
+        pulumi.set(self, "uniques", value)
+
+
+if not MYPY:
+    class SemanticViewTableUniqueArgsDict(TypedDict):
+        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Unique key combinations in the logical table.
+        """
+elif False:
+    SemanticViewTableUniqueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SemanticViewTableUniqueArgs:
+    def __init__(__self__, *,
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Unique key combinations in the logical table.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Unique key combinations in the logical table.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
 
 
 if not MYPY:
@@ -49227,13 +50792,21 @@ class TaskParameterWeekStartArgs:
 
 if not MYPY:
     class TaskScheduleArgsDict(TypedDict):
+        hours: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `using_cron`)
+        """
         minutes: NotRequired[pulumi.Input[_builtins.int]]
         """
-        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `using_cron`)
+        """
+        seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `using_cron`)
         """
         using_cron: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
         """
 elif False:
     TaskScheduleArgsDict: TypeAlias = Mapping[str, Any]
@@ -49241,22 +50814,42 @@ elif False:
 @pulumi.input_type
 class TaskScheduleArgs:
     def __init__(__self__, *,
+                 hours: Optional[pulumi.Input[_builtins.int]] = None,
                  minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  using_cron: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] minutes: Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
-        :param pulumi.Input[_builtins.str] using_cron: Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        :param pulumi.Input[_builtins.int] hours: Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `using_cron`)
+        :param pulumi.Input[_builtins.int] minutes: Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `using_cron`)
+        :param pulumi.Input[_builtins.int] seconds: Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `using_cron`)
+        :param pulumi.Input[_builtins.str] using_cron: Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
         """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
         if minutes is not None:
             pulumi.set(__self__, "minutes", minutes)
+        if seconds is not None:
+            pulumi.set(__self__, "seconds", seconds)
         if using_cron is not None:
             pulumi.set(__self__, "using_cron", using_cron)
 
     @_builtins.property
     @pulumi.getter
+    def hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `using_cron`)
+        """
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "hours", value)
+
+    @_builtins.property
+    @pulumi.getter
     def minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `using_cron`)
+        Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `using_cron`)
         """
         return pulumi.get(self, "minutes")
 
@@ -49265,10 +50858,22 @@ class TaskScheduleArgs:
         pulumi.set(self, "minutes", value)
 
     @_builtins.property
+    @pulumi.getter
+    def seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `using_cron`)
+        """
+        return pulumi.get(self, "seconds")
+
+    @seconds.setter
+    def seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "seconds", value)
+
+    @_builtins.property
     @pulumi.getter(name="usingCron")
     def using_cron(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+        Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
         """
         return pulumi.get(self, "using_cron")
 
@@ -58073,6 +59678,57 @@ class GetMaskingPoliciesLimitArgs:
 
 
 if not MYPY:
+    class GetNotebooksLimitArgsDict(TypedDict):
+        rows: _builtins.int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[_builtins.str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetNotebooksLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetNotebooksLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+if not MYPY:
     class GetRowAccessPoliciesInArgsDict(TypedDict):
         account: NotRequired[_builtins.bool]
         """
@@ -58488,6 +60144,129 @@ class GetSecretsInArgs:
     @schema.setter
     def schema(self, value: Optional[_builtins.str]):
         pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetSemanticViewsInArgsDict(TypedDict):
+        account: NotRequired[_builtins.bool]
+        """
+        Returns records for the entire account.
+        """
+        database: NotRequired[_builtins.str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[_builtins.str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetSemanticViewsInArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetSemanticViewsInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetSemanticViewsLimitArgsDict(TypedDict):
+        rows: _builtins.int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[_builtins.str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetSemanticViewsLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetSemanticViewsLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
 
 
 if not MYPY:

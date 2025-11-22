@@ -1890,6 +1890,28 @@ export interface GetMaskingPoliciesLimitArgs {
     rows: pulumi.Input<number>;
 }
 
+export interface GetNotebooksLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetNotebooksLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetRowAccessPoliciesIn {
     /**
      * Returns records for the entire account.
@@ -2062,6 +2084,58 @@ export interface GetSecretsInArgs {
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
     schema?: pulumi.Input<string>;
+}
+
+export interface GetSemanticViewsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetSemanticViewsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetSemanticViewsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetSemanticViewsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
 }
 
 export interface GetServicesIn {
@@ -2542,7 +2616,7 @@ export interface GrantOwnershipOn {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
      */
     objectType?: pulumi.Input<string>;
 }
@@ -2557,7 +2631,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2572,7 +2646,7 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2583,7 +2657,7 @@ export interface GrantPrivilegesToAccountRoleOnAccountObject {
      */
     objectName: pulumi.Input<string>;
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
      */
     objectType: pulumi.Input<string>;
 }
@@ -2617,7 +2691,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: pulumi.Input<string>;
 }
@@ -2626,7 +2700,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2635,7 +2709,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2669,7 +2743,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: pulumi.Input<string>;
 }
@@ -2684,7 +2758,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2699,7 +2773,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -3516,6 +3590,62 @@ export interface NetworkPolicyShowOutput {
     entriesInBlockedIpList?: pulumi.Input<number>;
     entriesInBlockedNetworkRules?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
+}
+
+export interface NotebookDescribeOutput {
+    codeWarehouse?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    computePool?: pulumi.Input<string>;
+    defaultPackages?: pulumi.Input<string>;
+    defaultVersion?: pulumi.Input<string>;
+    defaultVersionAlias?: pulumi.Input<string>;
+    defaultVersionGitCommitHash?: pulumi.Input<string>;
+    defaultVersionLocationUri?: pulumi.Input<string>;
+    defaultVersionName?: pulumi.Input<string>;
+    defaultVersionSourceLocationUri?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    externalAccessSecrets?: pulumi.Input<string>;
+    idleAutoShutdownTimeSeconds?: pulumi.Input<number>;
+    importUrls?: pulumi.Input<string>;
+    lastVersionAlias?: pulumi.Input<string>;
+    lastVersionGitCommitHash?: pulumi.Input<string>;
+    lastVersionLocationUri?: pulumi.Input<string>;
+    lastVersionName?: pulumi.Input<string>;
+    lastVersionSourceLocationUri?: pulumi.Input<string>;
+    liveVersionLocationUri?: pulumi.Input<string>;
+    mainFile?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string>;
+    runtimeEnvironmentVersion?: pulumi.Input<string>;
+    runtimeName?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
+    urlId?: pulumi.Input<string>;
+    userPackages?: pulumi.Input<string>;
+}
+
+export interface NotebookFrom {
+    /**
+     * Location of the .ipynb file in the stage.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Identifier of the stage where the .ipynb file is located.
+     */
+    stage: pulumi.Input<string>;
+}
+
+export interface NotebookShowOutput {
+    codeWarehouse?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    urlId?: pulumi.Input<string>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutput {
@@ -4862,6 +4992,194 @@ export interface SecretWithGenericStringShowOutput {
     ownerRoleType?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
     secretType?: pulumi.Input<string>;
+}
+
+export interface SemanticViewDimension {
+    /**
+     * Specifies a comment for the dimension.
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
+     */
+    qualifiedExpressionName: pulumi.Input<string>;
+    /**
+     * The SQL expression used to compute the dimension.
+     */
+    sqlExpression: pulumi.Input<string>;
+    /**
+     * List of synonyms for the dimension.
+     */
+    synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface SemanticViewFact {
+    /**
+     * Specifies a comment for the fact.
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
+     */
+    qualifiedExpressionName: pulumi.Input<string>;
+    /**
+     * The SQL expression used to compute the fact.
+     */
+    sqlExpression: pulumi.Input<string>;
+    /**
+     * List of synonyms for the fact.
+     */
+    synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface SemanticViewMetric {
+    /**
+     * Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
+     */
+    semanticExpression?: pulumi.Input<inputs.SemanticViewMetricSemanticExpression>;
+    /**
+     * Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
+     */
+    windowFunction?: pulumi.Input<inputs.SemanticViewMetricWindowFunction>;
+}
+
+export interface SemanticViewMetricSemanticExpression {
+    /**
+     * Specifies a comment for the semantic expression.
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\"<semantic_expression_name>\""`.
+     */
+    qualifiedExpressionName: pulumi.Input<string>;
+    /**
+     * The SQL expression used to compute the metric.
+     */
+    sqlExpression: pulumi.Input<string>;
+    /**
+     * List of synonyms for this semantic expression.
+     */
+    synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface SemanticViewMetricWindowFunction {
+    /**
+     * Specify the partition by, order by or frame over which the window function is to be computed.
+     */
+    overClause: pulumi.Input<inputs.SemanticViewMetricWindowFunctionOverClause>;
+    /**
+     * Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\"<semantic_expression_name>\""`.
+     */
+    qualifiedExpressionName: pulumi.Input<string>;
+    /**
+     * The SQL expression used to compute the metric following the `<window_function>(<metric>)` format.
+     */
+    sqlExpression: pulumi.Input<string>;
+}
+
+export interface SemanticViewMetricWindowFunctionOverClause {
+    /**
+     * Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.
+     */
+    orderBy?: pulumi.Input<string>;
+    /**
+     * Specifies a partition by clause.
+     */
+    partitionBy?: pulumi.Input<string>;
+    /**
+     * Specifies a window frame clause.
+     */
+    windowFrameClause?: pulumi.Input<string>;
+}
+
+export interface SemanticViewRelationship {
+    /**
+     * Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+     */
+    referencedRelationshipColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a `tableName` or a `tableAlias`, not both.
+     */
+    referencedTableNameOrAlias: pulumi.Input<inputs.SemanticViewRelationshipReferencedTableNameOrAlias>;
+    /**
+     * Specifies one or more columns in the first logical table that refers to columns in another logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
+     */
+    relationshipColumns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    relationshipIdentifier?: pulumi.Input<string>;
+    /**
+     * Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a `tableName` or a `tableAlias`, not both.
+     */
+    tableNameOrAlias: pulumi.Input<inputs.SemanticViewRelationshipTableNameOrAlias>;
+}
+
+export interface SemanticViewRelationshipReferencedTableNameOrAlias {
+    /**
+     * The alias used for the logical table, cannot be used in combination with the `tableName`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableAlias?: pulumi.Input<string>;
+    /**
+     * The name of the logical table, cannot be used in combination with the `tableAlias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableName?: pulumi.Input<string>;
+}
+
+export interface SemanticViewRelationshipTableNameOrAlias {
+    /**
+     * The alias used for the logical table, cannot be used in combination with the `tableName`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableAlias?: pulumi.Input<string>;
+    /**
+     * The name of the logical table, cannot be used in combination with the `tableAlias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableName?: pulumi.Input<string>;
+}
+
+export interface SemanticViewShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    extension?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+}
+
+export interface SemanticViewTable {
+    /**
+     * Specifies a comment for the logical table.
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    primaryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of synonyms for the logical table.
+     */
+    synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    tableAlias: pulumi.Input<string>;
+    /**
+     * Specifies an identifier for the logical table. Example: `"\"<db_name>\".\"<schema_name>\".\"<table_name>\""`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     */
+    tableName: pulumi.Input<string>;
+    /**
+     * Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
+     */
+    uniques?: pulumi.Input<pulumi.Input<inputs.SemanticViewTableUnique>[]>;
+}
+
+export interface SemanticViewTableUnique {
+    /**
+     * Unique key combinations in the logical table.
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ServiceDescribeOutput {
@@ -6610,11 +6928,19 @@ export interface TaskParameterWeekStart {
 
 export interface TaskSchedule {
     /**
-     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
+     * Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
+     */
+    hours?: pulumi.Input<number>;
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
      */
     minutes?: pulumi.Input<number>;
     /**
-     * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
+     * Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
+     */
+    seconds?: pulumi.Input<number>;
+    /**
+     * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
      */
     usingCron?: pulumi.Input<string>;
 }

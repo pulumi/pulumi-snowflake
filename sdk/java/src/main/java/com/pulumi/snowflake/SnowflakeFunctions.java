@@ -56,6 +56,8 @@ import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsPlainArgs;
 import com.pulumi.snowflake.inputs.GetNetworkPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetNetworkPoliciesPlainArgs;
+import com.pulumi.snowflake.inputs.GetNotebooksArgs;
+import com.pulumi.snowflake.inputs.GetNotebooksPlainArgs;
 import com.pulumi.snowflake.inputs.GetParametersArgs;
 import com.pulumi.snowflake.inputs.GetParametersPlainArgs;
 import com.pulumi.snowflake.inputs.GetPipesArgs;
@@ -72,6 +74,8 @@ import com.pulumi.snowflake.inputs.GetSecretsArgs;
 import com.pulumi.snowflake.inputs.GetSecretsPlainArgs;
 import com.pulumi.snowflake.inputs.GetSecurityIntegrationsArgs;
 import com.pulumi.snowflake.inputs.GetSecurityIntegrationsPlainArgs;
+import com.pulumi.snowflake.inputs.GetSemanticViewsArgs;
+import com.pulumi.snowflake.inputs.GetSemanticViewsPlainArgs;
 import com.pulumi.snowflake.inputs.GetSequencesArgs;
 import com.pulumi.snowflake.inputs.GetSequencesPlainArgs;
 import com.pulumi.snowflake.inputs.GetServicesArgs;
@@ -127,6 +131,7 @@ import com.pulumi.snowflake.outputs.GetImageRepositoriesResult;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesResult;
 import com.pulumi.snowflake.outputs.GetMaterializedViewsResult;
 import com.pulumi.snowflake.outputs.GetNetworkPoliciesResult;
+import com.pulumi.snowflake.outputs.GetNotebooksResult;
 import com.pulumi.snowflake.outputs.GetParametersResult;
 import com.pulumi.snowflake.outputs.GetPipesResult;
 import com.pulumi.snowflake.outputs.GetProceduresResult;
@@ -135,6 +140,7 @@ import com.pulumi.snowflake.outputs.GetRowAccessPoliciesResult;
 import com.pulumi.snowflake.outputs.GetSchemasResult;
 import com.pulumi.snowflake.outputs.GetSecretsResult;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsResult;
+import com.pulumi.snowflake.outputs.GetSemanticViewsResult;
 import com.pulumi.snowflake.outputs.GetSequencesResult;
 import com.pulumi.snowflake.outputs.GetServicesResult;
 import com.pulumi.snowflake.outputs.GetSharesResult;
@@ -4804,6 +4810,69 @@ public final class SnowflakeFunctions {
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
+     * 
+     */
+    public static Output<GetNotebooksResult> getNotebooks() {
+        return getNotebooks(GetNotebooksArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
+     * 
+     */
+    public static CompletableFuture<GetNotebooksResult> getNotebooksPlain() {
+        return getNotebooksPlain(GetNotebooksPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
+     * 
+     */
+    public static Output<GetNotebooksResult> getNotebooks(GetNotebooksArgs args) {
+        return getNotebooks(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
+     * 
+     */
+    public static CompletableFuture<GetNotebooksResult> getNotebooksPlain(GetNotebooksPlainArgs args) {
+        return getNotebooksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
+     * 
+     */
+    public static Output<GetNotebooksResult> getNotebooks(GetNotebooksArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getNotebooks:getNotebooks", TypeShape.of(GetNotebooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
+     * 
+     */
+    public static Output<GetNotebooksResult> getNotebooks(GetNotebooksArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getNotebooks:getNotebooks", TypeShape.of(GetNotebooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
+     * 
+     */
+    public static CompletableFuture<GetNotebooksResult> getNotebooksPlain(GetNotebooksPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getNotebooks:getNotebooks", TypeShape.of(GetNotebooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -6399,6 +6468,83 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetSecurityIntegrationsResult> getSecurityIntegrationsPlain(GetSecurityIntegrationsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+     * 
+     * Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semanticViews`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
+     * 
+     */
+    public static Output<GetSemanticViewsResult> getSemanticViews() {
+        return getSemanticViews(GetSemanticViewsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+     * 
+     * Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semanticViews`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
+     * 
+     */
+    public static CompletableFuture<GetSemanticViewsResult> getSemanticViewsPlain() {
+        return getSemanticViewsPlain(GetSemanticViewsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+     * 
+     * Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semanticViews`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
+     * 
+     */
+    public static Output<GetSemanticViewsResult> getSemanticViews(GetSemanticViewsArgs args) {
+        return getSemanticViews(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+     * 
+     * Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semanticViews`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
+     * 
+     */
+    public static CompletableFuture<GetSemanticViewsResult> getSemanticViewsPlain(GetSemanticViewsPlainArgs args) {
+        return getSemanticViewsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+     * 
+     * Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semanticViews`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
+     * 
+     */
+    public static Output<GetSemanticViewsResult> getSemanticViews(GetSemanticViewsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getSemanticViews:getSemanticViews", TypeShape.of(GetSemanticViewsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+     * 
+     * Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semanticViews`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
+     * 
+     */
+    public static Output<GetSemanticViewsResult> getSemanticViews(GetSemanticViewsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getSemanticViews:getSemanticViews", TypeShape.of(GetSemanticViewsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+     * 
+     * Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semanticViews`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
+     * 
+     */
+    public static CompletableFuture<GetSemanticViewsResult> getSemanticViewsPlain(GetSemanticViewsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getSemanticViews:getSemanticViews", TypeShape.of(GetSemanticViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

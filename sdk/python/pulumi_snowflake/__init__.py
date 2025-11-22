@@ -62,6 +62,7 @@ from .get_image_repositories import *
 from .get_masking_policies import *
 from .get_materialized_views import *
 from .get_network_policies import *
+from .get_notebooks import *
 from .get_parameters import *
 from .get_pipes import *
 from .get_procedures import *
@@ -70,6 +71,7 @@ from .get_row_access_policies import *
 from .get_schemas import *
 from .get_secrets import *
 from .get_security_integrations import *
+from .get_semantic_views import *
 from .get_sequences import *
 from .get_services import *
 from .get_shares import *
@@ -106,6 +108,7 @@ from .materialized_view import *
 from .network_policy import *
 from .network_policy_attachment import *
 from .network_rule import *
+from .notebook import *
 from .notification_integration import *
 from .oauth_integration_for_custom_clients import *
 from .oauth_integration_for_partner_applications import *
@@ -130,6 +133,7 @@ from .secret_with_authorization_code_grant import *
 from .secret_with_basic_authentication import *
 from .secret_with_client_credentials import *
 from .secret_with_generic_string import *
+from .semantic_view import *
 from .sequence import *
 from .service import *
 from .service_user import *
@@ -562,6 +566,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/notebook",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/notebook:Notebook": "Notebook"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/notificationIntegration",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -742,6 +754,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/secretWithGenericString:SecretWithGenericString": "SecretWithGenericString"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/semanticView",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/semanticView:SemanticView": "SemanticView"
   }
  },
  {

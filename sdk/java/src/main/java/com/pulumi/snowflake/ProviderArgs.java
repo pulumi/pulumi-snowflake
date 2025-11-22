@@ -307,6 +307,36 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+     * 
+     */
+    @Import(name="logQueryParameters", json=true)
+    private @Nullable Output<Boolean> logQueryParameters;
+
+    /**
+     * @return When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> logQueryParameters() {
+        return Optional.ofNullable(this.logQueryParameters);
+    }
+
+    /**
+     * When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+     * 
+     */
+    @Import(name="logQueryText", json=true)
+    private @Nullable Output<Boolean> logQueryText;
+
+    /**
+     * @return When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> logQueryText() {
+        return Optional.ofNullable(this.logQueryText);
+    }
+
+    /**
      * Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
      * 
      */
@@ -815,6 +845,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.jwtClientTimeout = $.jwtClientTimeout;
         this.jwtExpireTimeout = $.jwtExpireTimeout;
         this.keepSessionAlive = $.keepSessionAlive;
+        this.logQueryParameters = $.logQueryParameters;
+        this.logQueryText = $.logQueryText;
         this.loginTimeout = $.loginTimeout;
         this.maxRetryCount = $.maxRetryCount;
         this.oauthAuthorizationUrl = $.oauthAuthorizationUrl;
@@ -1275,6 +1307,48 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder keepSessionAlive(Boolean keepSessionAlive) {
             return keepSessionAlive(Output.of(keepSessionAlive));
+        }
+
+        /**
+         * @param logQueryParameters When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logQueryParameters(@Nullable Output<Boolean> logQueryParameters) {
+            $.logQueryParameters = logQueryParameters;
+            return this;
+        }
+
+        /**
+         * @param logQueryParameters When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logQueryParameters(Boolean logQueryParameters) {
+            return logQueryParameters(Output.of(logQueryParameters));
+        }
+
+        /**
+         * @param logQueryText When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logQueryText(@Nullable Output<Boolean> logQueryText) {
+            $.logQueryText = logQueryText;
+            return this;
+        }
+
+        /**
+         * @param logQueryText When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logQueryText(Boolean logQueryText) {
+            return logQueryText(Output.of(logQueryText));
         }
 
         /**

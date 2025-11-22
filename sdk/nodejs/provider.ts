@@ -186,6 +186,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["jwtClientTimeout"] = pulumi.output(args?.jwtClientTimeout).apply(JSON.stringify);
             resourceInputs["jwtExpireTimeout"] = pulumi.output(args?.jwtExpireTimeout).apply(JSON.stringify);
             resourceInputs["keepSessionAlive"] = pulumi.output(args?.keepSessionAlive).apply(JSON.stringify);
+            resourceInputs["logQueryParameters"] = pulumi.output(args?.logQueryParameters).apply(JSON.stringify);
+            resourceInputs["logQueryText"] = pulumi.output(args?.logQueryText).apply(JSON.stringify);
             resourceInputs["loginTimeout"] = pulumi.output(args?.loginTimeout).apply(JSON.stringify);
             resourceInputs["maxRetryCount"] = pulumi.output(args?.maxRetryCount).apply(JSON.stringify);
             resourceInputs["oauthAuthorizationUrl"] = args?.oauthAuthorizationUrl ? pulumi.secret(args.oauthAuthorizationUrl) : undefined;
@@ -316,6 +318,14 @@ export interface ProviderArgs {
      * Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
      */
     keepSessionAlive?: pulumi.Input<boolean>;
+    /**
+     * When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+     */
+    logQueryParameters?: pulumi.Input<boolean>;
+    /**
+     * When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+     */
+    logQueryText?: pulumi.Input<boolean>;
     /**
      * Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
      */

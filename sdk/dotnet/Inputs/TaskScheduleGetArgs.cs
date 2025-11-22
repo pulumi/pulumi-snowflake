@@ -13,13 +13,25 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class TaskScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `UsingCron`)
+        /// Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `Seconds`, `Minutes`, and `UsingCron`)
+        /// </summary>
+        [Input("hours")]
+        public Input<int>? Hours { get; set; }
+
+        /// <summary>
+        /// Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `Seconds`, `Hours`, and `UsingCron`)
         /// </summary>
         [Input("minutes")]
         public Input<int>? Minutes { get; set; }
 
         /// <summary>
-        /// Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `Minutes`)
+        /// Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `Minutes`, `Hours`, and `UsingCron`)
+        /// </summary>
+        [Input("seconds")]
+        public Input<int>? Seconds { get; set; }
+
+        /// <summary>
+        /// Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `Seconds`, `Minutes`, and `Hours`)
         /// </summary>
         [Input("usingCron")]
         public Input<string>? UsingCron { get; set; }

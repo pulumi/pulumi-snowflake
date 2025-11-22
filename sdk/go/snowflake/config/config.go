@@ -114,6 +114,16 @@ func GetKeepSessionAlive(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:keepSessionAlive")
 }
 
+// When set to true, the parameters will be logged. Requires logQueryText to be enabled first. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_PARAMETERS` environment variable.
+func GetLogQueryParameters(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:logQueryParameters")
+}
+
+// When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
+func GetLogQueryText(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:logQueryText")
+}
+
 // Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
 func GetLoginTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:loginTimeout")

@@ -637,14 +637,14 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
+     * The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `seconds`, `minutes`, `hours`, or `usingCron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the snowflake.Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<TaskScheduleArgs> schedule;
 
     /**
-     * @return The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
+     * @return The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `seconds`, `minutes`, `hours`, or `usingCron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the snowflake.Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
      * 
      */
     public Optional<Output<TaskScheduleArgs>> schedule() {
@@ -2126,7 +2126,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
+         * @param schedule The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `seconds`, `minutes`, `hours`, or `usingCron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the snowflake.Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
          * 
          * @return builder
          * 
@@ -2137,7 +2137,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `usingCron` should be set)
+         * @param schedule The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `seconds`, `minutes`, `hours`, or `usingCron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the snowflake.Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
          * 
          * @return builder
          * 
