@@ -14,7 +14,7 @@ replace (
 require (
 	github.com/Snowflake-Labs/terraform-provider-snowflake v1.2.1
 	github.com/pulumi/providertest v0.3.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.117.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.118.0
 	github.com/stretchr/testify v1.10.0
 )
 
@@ -127,7 +127,7 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.5.0 // indirect
-	github.com/hashicorp/go-getter v1.7.5 // indirect
+	github.com/hashicorp/go-getter v1.7.9 // indirect
 	github.com/hashicorp/go-hclog v1.6.3 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/go-safetemp v1.0.0 // indirect
@@ -139,7 +139,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-json v0.27.1 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.29.0 // indirect
-	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
+	github.com/hashicorp/terraform-plugin-log v0.10.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.37.0 // indirect
 	github.com/hashicorp/terraform-plugin-testing v1.13.2 // indirect
@@ -187,6 +187,7 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/pgavlin/fx v0.1.6 // indirect
+	github.com/pgavlin/fx/v2 v2.0.10 // indirect
 	github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 // indirect
 	github.com/pierrec/lz4/v4 v4.1.22 // indirect
 	github.com/pjbgf/sha1cd v0.3.2 // indirect
@@ -197,12 +198,12 @@ require (
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.17.0 // indirect
-	github.com/pulumi/inflector v0.1.1 // indirect
+	github.com/pulumi/esc v0.20.0 // indirect
+	github.com/pulumi/inflector v0.2.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v1.12.0 // indirect
 	github.com/pulumi/pulumi-yaml v1.19.1 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.207.0 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.207.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.209.0 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.209.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
@@ -226,13 +227,13 @@ require (
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
-	github.com/ulikunitz/xz v0.5.10 // indirect
+	github.com/ulikunitz/xz v0.5.15 // indirect
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
-	github.com/yuin/goldmark v1.7.4 // indirect
+	github.com/yuin/goldmark v1.7.13 // indirect
 	github.com/zclconf/go-cty v1.17.0 // indirect
 	github.com/zeebo/errs v1.4.0 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
@@ -246,17 +247,18 @@ require (
 	go.opentelemetry.io/otel/sdk/metric v1.37.0 // indirect
 	go.opentelemetry.io/otel/trace v1.37.0 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
-	golang.org/x/crypto v0.42.0 // indirect
-	golang.org/x/exp v0.0.0-20250408133849-7e4ce0ab07d0 // indirect
-	golang.org/x/mod v0.27.0 // indirect
-	golang.org/x/net v0.43.0 // indirect
+	golang.org/x/crypto v0.45.0 // indirect
+	golang.org/x/exp v0.0.0-20250718183923-645b1fa84792 // indirect
+	golang.org/x/mod v0.29.0 // indirect
+	golang.org/x/net v0.47.0 // indirect
 	golang.org/x/oauth2 v0.30.0 // indirect
-	golang.org/x/sync v0.17.0 // indirect
-	golang.org/x/sys v0.36.0 // indirect
-	golang.org/x/term v0.35.0 // indirect
-	golang.org/x/text v0.29.0 // indirect
+	golang.org/x/sync v0.18.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/telemetry v0.0.0-20251008203120-078029d740a8 // indirect
+	golang.org/x/term v0.37.0 // indirect
+	golang.org/x/text v0.31.0 // indirect
 	golang.org/x/time v0.11.0 // indirect
-	golang.org/x/tools v0.36.0 // indirect
+	golang.org/x/tools v0.38.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/api v0.230.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
