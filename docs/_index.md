@@ -53,10 +53,12 @@ config:
         value: '...'
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -83,10 +85,12 @@ config:
         value: '...'
 
 ```
+
 ```python
 import pulumi
 
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -113,6 +117,7 @@ config:
         value: '...'
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -123,6 +128,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -149,6 +155,7 @@ config:
         value: '...'
 
 ```
+
 ```go
 package main
 
@@ -162,6 +169,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -188,9 +196,11 @@ config:
         value: '...'
 
 ```
+
 ```yaml
 {}
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -217,6 +227,7 @@ config:
         value: '...'
 
 ```
+
 ```java
 package generated_program;
 
@@ -239,6 +250,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
@@ -748,6 +760,7 @@ config:
         value: azure
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 
@@ -758,6 +771,7 @@ const oauthTokenRequestUrl = config.require("oauthTokenRequestUrl");
 const oauthAuthorizationUrl = config.require("oauthAuthorizationUrl");
 const oauthRedirectUri = config.require("oauthRedirectUri");
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -852,6 +866,7 @@ config:
         value: azure
 
 ```
+
 ```python
 import pulumi
 
@@ -862,6 +877,7 @@ oauth_token_request_url = config.require("oauthTokenRequestUrl")
 oauth_authorization_url = config.require("oauthAuthorizationUrl")
 oauth_redirect_uri = config.require("oauthRedirectUri")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -956,6 +972,7 @@ config:
         value: azure
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -972,6 +989,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -1066,6 +1084,7 @@ config:
         value: azure
 
 ```
+
 ```go
 package main
 
@@ -1086,6 +1105,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -1180,6 +1200,7 @@ config:
         value: azure
 
 ```
+
 ```yaml
 configuration:
   # Client ID from the Okta application.
@@ -1198,6 +1219,7 @@ configuration:
   oauthRedirectUri:
     type: string
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -1292,6 +1314,7 @@ config:
         value: azure
 
 ```
+
 ```java
 package generated_program;
 
@@ -1320,6 +1343,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
@@ -1363,6 +1387,7 @@ const test = new snowflake.Execute("test", {
     query: "SHOW DATABASES LIKE '%ABC%'",
 });
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```python
@@ -1374,6 +1399,7 @@ test = snowflake.Execute("test",
     revert="DROP DATABASE ABC",
     query="SHOW DATABASES LIKE '%ABC%'")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```csharp
@@ -1394,6 +1420,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```go
@@ -1418,6 +1445,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -1429,6 +1457,7 @@ resources:
       revert: DROP DATABASE ABC
       query: SHOW DATABASES LIKE '%ABC%'
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```java
@@ -1461,6 +1490,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
