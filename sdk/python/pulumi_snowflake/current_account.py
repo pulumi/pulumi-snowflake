@@ -108,7 +108,6 @@ class CurrentAccountArgs:
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  rows_per_resultset: Optional[pulumi.Input[_builtins.int]] = None,
                  s3_stage_vpce_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
                  search_path: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
@@ -232,7 +231,6 @@ class CurrentAccountArgs:
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_operation: Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
         :param pulumi.Input[_builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
-        :param pulumi.Input[_builtins.str] saml_identity_provider: Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
@@ -445,8 +443,6 @@ class CurrentAccountArgs:
             pulumi.set(__self__, "rows_per_resultset", rows_per_resultset)
         if s3_stage_vpce_dns_name is not None:
             pulumi.set(__self__, "s3_stage_vpce_dns_name", s3_stage_vpce_dns_name)
-        if saml_identity_provider is not None:
-            pulumi.set(__self__, "saml_identity_provider", saml_identity_provider)
         if search_path is not None:
             pulumi.set(__self__, "search_path", search_path)
         if serverless_task_max_statement_size is not None:
@@ -1578,18 +1574,6 @@ class CurrentAccountArgs:
     @s3_stage_vpce_dns_name.setter
     def s3_stage_vpce_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "s3_stage_vpce_dns_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="samlIdentityProvider")
-    def saml_identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-        """
-        return pulumi.get(self, "saml_identity_provider")
-
-    @saml_identity_provider.setter
-    def saml_identity_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "saml_identity_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="searchPath")
@@ -2080,7 +2064,6 @@ class _CurrentAccountState:
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  rows_per_resultset: Optional[pulumi.Input[_builtins.int]] = None,
                  s3_stage_vpce_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
                  search_path: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2204,7 +2187,6 @@ class _CurrentAccountState:
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_operation: Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
         :param pulumi.Input[_builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
-        :param pulumi.Input[_builtins.str] saml_identity_provider: Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
@@ -2417,8 +2399,6 @@ class _CurrentAccountState:
             pulumi.set(__self__, "rows_per_resultset", rows_per_resultset)
         if s3_stage_vpce_dns_name is not None:
             pulumi.set(__self__, "s3_stage_vpce_dns_name", s3_stage_vpce_dns_name)
-        if saml_identity_provider is not None:
-            pulumi.set(__self__, "saml_identity_provider", saml_identity_provider)
         if search_path is not None:
             pulumi.set(__self__, "search_path", search_path)
         if serverless_task_max_statement_size is not None:
@@ -3550,18 +3530,6 @@ class _CurrentAccountState:
     @s3_stage_vpce_dns_name.setter
     def s3_stage_vpce_dns_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "s3_stage_vpce_dns_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="samlIdentityProvider")
-    def saml_identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-        """
-        return pulumi.get(self, "saml_identity_provider")
-
-    @saml_identity_provider.setter
-    def saml_identity_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "saml_identity_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="searchPath")
@@ -4055,7 +4023,6 @@ class CurrentAccount(pulumi.CustomResource):
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  rows_per_resultset: Optional[pulumi.Input[_builtins.int]] = None,
                  s3_stage_vpce_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
                  search_path: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4189,7 +4156,6 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_operation: Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
         :param pulumi.Input[_builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
-        :param pulumi.Input[_builtins.str] saml_identity_provider: Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
@@ -4343,7 +4309,6 @@ class CurrentAccount(pulumi.CustomResource):
                  resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
                  rows_per_resultset: Optional[pulumi.Input[_builtins.int]] = None,
                  s3_stage_vpce_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
                  search_path: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4475,7 +4440,6 @@ class CurrentAccount(pulumi.CustomResource):
             __props__.__dict__["resource_monitor"] = resource_monitor
             __props__.__dict__["rows_per_resultset"] = rows_per_resultset
             __props__.__dict__["s3_stage_vpce_dns_name"] = s3_stage_vpce_dns_name
-            __props__.__dict__["saml_identity_provider"] = saml_identity_provider
             __props__.__dict__["search_path"] = search_path
             __props__.__dict__["serverless_task_max_statement_size"] = serverless_task_max_statement_size
             __props__.__dict__["serverless_task_min_statement_size"] = serverless_task_min_statement_size
@@ -4608,7 +4572,6 @@ class CurrentAccount(pulumi.CustomResource):
             resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
             rows_per_resultset: Optional[pulumi.Input[_builtins.int]] = None,
             s3_stage_vpce_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-            saml_identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
             search_path: Optional[pulumi.Input[_builtins.str]] = None,
             serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
             serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4737,7 +4700,6 @@ class CurrentAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_operation: Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
         :param pulumi.Input[_builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
-        :param pulumi.Input[_builtins.str] saml_identity_provider: Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
@@ -4865,7 +4827,6 @@ class CurrentAccount(pulumi.CustomResource):
         __props__.__dict__["resource_monitor"] = resource_monitor
         __props__.__dict__["rows_per_resultset"] = rows_per_resultset
         __props__.__dict__["s3_stage_vpce_dns_name"] = s3_stage_vpce_dns_name
-        __props__.__dict__["saml_identity_provider"] = saml_identity_provider
         __props__.__dict__["search_path"] = search_path
         __props__.__dict__["serverless_task_max_statement_size"] = serverless_task_max_statement_size
         __props__.__dict__["serverless_task_min_statement_size"] = serverless_task_min_statement_size
@@ -5609,14 +5570,6 @@ class CurrentAccount(pulumi.CustomResource):
         Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         """
         return pulumi.get(self, "s3_stage_vpce_dns_name")
-
-    @_builtins.property
-    @pulumi.getter(name="samlIdentityProvider")
-    def saml_identity_provider(self) -> pulumi.Output[_builtins.str]:
-        """
-        Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-        """
-        return pulumi.get(self, "saml_identity_provider")
 
     @_builtins.property
     @pulumi.getter(name="searchPath")

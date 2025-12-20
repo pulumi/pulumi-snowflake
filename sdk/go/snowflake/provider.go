@@ -22,20 +22,28 @@ type Provider struct {
 	AccountName pulumi.StringPtrOutput `pulumi:"accountName"`
 	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 	Authenticator pulumi.StringPtrOutput `pulumi:"authenticator"`
+	// Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+	CertRevocationCheckMode pulumi.StringPtrOutput `pulumi:"certRevocationCheckMode"`
 	// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 	ClientIp pulumi.StringPtrOutput `pulumi:"clientIp"`
 	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
 	ClientRequestMfaToken pulumi.StringPtrOutput `pulumi:"clientRequestMfaToken"`
 	// When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
 	ClientStoreTemporaryCredential pulumi.StringPtrOutput `pulumi:"clientStoreTemporaryCredential"`
+	// Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+	CrlAllowCertificatesWithoutCrlUrl pulumi.StringPtrOutput `pulumi:"crlAllowCertificatesWithoutCrlUrl"`
 	// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 	DisableConsoleLogin pulumi.StringPtrOutput `pulumi:"disableConsoleLogin"`
+	// Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+	DisableSamlUrlCheck pulumi.StringPtrOutput `pulumi:"disableSamlUrlCheck"`
 	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
 	DriverTracing pulumi.StringPtrOutput `pulumi:"driverTracing"`
 	// Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
 	Host pulumi.StringPtrOutput `pulumi:"host"`
 	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 	IncludeRetryReason pulumi.StringPtrOutput `pulumi:"includeRetryReason"`
+	// A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+	NoProxy pulumi.StringPtrOutput `pulumi:"noProxy"`
 	// Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
 	OauthAuthorizationUrl pulumi.StringPtrOutput `pulumi:"oauthAuthorizationUrl"`
 	// Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
@@ -66,6 +74,14 @@ type Provider struct {
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
+	// The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+	ProxyHost pulumi.StringPtrOutput `pulumi:"proxyHost"`
+	// The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+	ProxyPassword pulumi.StringPtrOutput `pulumi:"proxyPassword"`
+	// The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+	ProxyProtocol pulumi.StringPtrOutput `pulumi:"proxyProtocol"`
+	// The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+	ProxyUser pulumi.StringPtrOutput `pulumi:"proxyUser"`
 	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
 	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
@@ -153,6 +169,9 @@ func NewProvider(ctx *pulumi.Context,
 	if args.PrivateKeyPassphrase != nil {
 		args.PrivateKeyPassphrase = pulumi.ToSecret(args.PrivateKeyPassphrase).(pulumi.StringPtrInput)
 	}
+	if args.ProxyPassword != nil {
+		args.ProxyPassword = pulumi.ToSecret(args.ProxyPassword).(pulumi.StringPtrInput)
+	}
 	if args.Token != nil {
 		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrInput)
 	}
@@ -166,6 +185,7 @@ func NewProvider(ctx *pulumi.Context,
 		"password",
 		"privateKey",
 		"privateKeyPassphrase",
+		"proxyPassword",
 		"token",
 	})
 	opts = append(opts, secrets)
@@ -183,6 +203,8 @@ type providerArgs struct {
 	AccountName *string `pulumi:"accountName"`
 	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 	Authenticator *string `pulumi:"authenticator"`
+	// Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+	CertRevocationCheckMode *string `pulumi:"certRevocationCheckMode"`
 	// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 	ClientIp *string `pulumi:"clientIp"`
 	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
@@ -191,10 +213,22 @@ type providerArgs struct {
 	ClientStoreTemporaryCredential *string `pulumi:"clientStoreTemporaryCredential"`
 	// The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
 	ClientTimeout *int `pulumi:"clientTimeout"`
+	// Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+	CrlAllowCertificatesWithoutCrlUrl *string `pulumi:"crlAllowCertificatesWithoutCrlUrl"`
+	// Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+	CrlHttpClientTimeout *int `pulumi:"crlHttpClientTimeout"`
+	// False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+	CrlInMemoryCacheDisabled *bool `pulumi:"crlInMemoryCacheDisabled"`
+	// False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+	CrlOnDiskCacheDisabled *bool `pulumi:"crlOnDiskCacheDisabled"`
 	// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 	DisableConsoleLogin *string `pulumi:"disableConsoleLogin"`
+	// False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+	DisableOcspChecks *bool `pulumi:"disableOcspChecks"`
 	// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
 	DisableQueryContextCache *bool `pulumi:"disableQueryContextCache"`
+	// Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+	DisableSamlUrlCheck *string `pulumi:"disableSamlUrlCheck"`
 	// Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
 	DisableTelemetry *bool `pulumi:"disableTelemetry"`
 	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
@@ -209,7 +243,9 @@ type providerArgs struct {
 	Host *string `pulumi:"host"`
 	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 	IncludeRetryReason *string `pulumi:"includeRetryReason"`
-	// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+	// This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+	//
+	// Deprecated: This field is deprecated. Use `disableOcspChecks` instead.
 	InsecureMode *bool `pulumi:"insecureMode"`
 	// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
 	JwtClientTimeout *int `pulumi:"jwtClientTimeout"`
@@ -225,6 +261,8 @@ type providerArgs struct {
 	LoginTimeout *int `pulumi:"loginTimeout"`
 	// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
 	MaxRetryCount *int `pulumi:"maxRetryCount"`
+	// A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+	NoProxy *string `pulumi:"noProxy"`
 	// Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
 	OauthAuthorizationUrl *string `pulumi:"oauthAuthorizationUrl"`
 	// Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
@@ -262,6 +300,16 @@ type providerArgs struct {
 	Profile *string `pulumi:"profile"`
 	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol *string `pulumi:"protocol"`
+	// The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+	ProxyHost *string `pulumi:"proxyHost"`
+	// The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+	ProxyPassword *string `pulumi:"proxyPassword"`
+	// The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+	ProxyPort *int `pulumi:"proxyPort"`
+	// The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+	ProxyProtocol *string `pulumi:"proxyProtocol"`
+	// The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+	ProxyUser *string `pulumi:"proxyUser"`
 	// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
 	RequestTimeout *int `pulumi:"requestTimeout"`
 	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
@@ -294,6 +342,8 @@ type ProviderArgs struct {
 	AccountName pulumi.StringPtrInput
 	// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 	Authenticator pulumi.StringPtrInput
+	// Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+	CertRevocationCheckMode pulumi.StringPtrInput
 	// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 	ClientIp pulumi.StringPtrInput
 	// When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
@@ -302,10 +352,22 @@ type ProviderArgs struct {
 	ClientStoreTemporaryCredential pulumi.StringPtrInput
 	// The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
 	ClientTimeout pulumi.IntPtrInput
+	// Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+	CrlAllowCertificatesWithoutCrlUrl pulumi.StringPtrInput
+	// Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+	CrlHttpClientTimeout pulumi.IntPtrInput
+	// False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+	CrlInMemoryCacheDisabled pulumi.BoolPtrInput
+	// False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+	CrlOnDiskCacheDisabled pulumi.BoolPtrInput
 	// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 	DisableConsoleLogin pulumi.StringPtrInput
+	// False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+	DisableOcspChecks pulumi.BoolPtrInput
 	// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
 	DisableQueryContextCache pulumi.BoolPtrInput
+	// Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+	DisableSamlUrlCheck pulumi.StringPtrInput
 	// Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
 	DisableTelemetry pulumi.BoolPtrInput
 	// Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
@@ -320,7 +382,9 @@ type ProviderArgs struct {
 	Host pulumi.StringPtrInput
 	// Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 	IncludeRetryReason pulumi.StringPtrInput
-	// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+	// This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+	//
+	// Deprecated: This field is deprecated. Use `disableOcspChecks` instead.
 	InsecureMode pulumi.BoolPtrInput
 	// The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
 	JwtClientTimeout pulumi.IntPtrInput
@@ -336,6 +400,8 @@ type ProviderArgs struct {
 	LoginTimeout pulumi.IntPtrInput
 	// Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
 	MaxRetryCount pulumi.IntPtrInput
+	// A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+	NoProxy pulumi.StringPtrInput
 	// Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
 	OauthAuthorizationUrl pulumi.StringPtrInput
 	// Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
@@ -373,6 +439,16 @@ type ProviderArgs struct {
 	Profile pulumi.StringPtrInput
 	// A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 	Protocol pulumi.StringPtrInput
+	// The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+	ProxyHost pulumi.StringPtrInput
+	// The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+	ProxyPassword pulumi.StringPtrInput
+	// The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+	ProxyPort pulumi.IntPtrInput
+	// The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+	ProxyProtocol pulumi.StringPtrInput
+	// The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+	ProxyUser pulumi.StringPtrInput
 	// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
 	RequestTimeout pulumi.IntPtrInput
 	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
@@ -469,6 +545,11 @@ func (o ProviderOutput) Authenticator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Authenticator }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+func (o ProviderOutput) CertRevocationCheckMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CertRevocationCheckMode }).(pulumi.StringPtrOutput)
+}
+
 // IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 func (o ProviderOutput) ClientIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientIp }).(pulumi.StringPtrOutput)
@@ -484,9 +565,19 @@ func (o ProviderOutput) ClientStoreTemporaryCredential() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ClientStoreTemporaryCredential }).(pulumi.StringPtrOutput)
 }
 
+// Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+func (o ProviderOutput) CrlAllowCertificatesWithoutCrlUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CrlAllowCertificatesWithoutCrlUrl }).(pulumi.StringPtrOutput)
+}
+
 // Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 func (o ProviderOutput) DisableConsoleLogin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.DisableConsoleLogin }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+func (o ProviderOutput) DisableSamlUrlCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.DisableSamlUrlCheck }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
@@ -502,6 +593,11 @@ func (o ProviderOutput) Host() pulumi.StringPtrOutput {
 // Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
 func (o ProviderOutput) IncludeRetryReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.IncludeRetryReason }).(pulumi.StringPtrOutput)
+}
+
+// A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+func (o ProviderOutput) NoProxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.NoProxy }).(pulumi.StringPtrOutput)
 }
 
 // Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
@@ -577,6 +673,26 @@ func (o ProviderOutput) Profile() pulumi.StringPtrOutput {
 // A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
 func (o ProviderOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+func (o ProviderOutput) ProxyHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ProxyHost }).(pulumi.StringPtrOutput)
+}
+
+// The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+func (o ProviderOutput) ProxyPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ProxyPassword }).(pulumi.StringPtrOutput)
+}
+
+// The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+func (o ProviderOutput) ProxyProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ProxyProtocol }).(pulumi.StringPtrOutput)
+}
+
+// The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+func (o ProviderOutput) ProxyUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ProxyUser }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.

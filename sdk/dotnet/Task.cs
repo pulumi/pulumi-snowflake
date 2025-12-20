@@ -284,6 +284,18 @@ namespace Pulumi.Snowflake
         public Output<string> SearchPath { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        /// </summary>
+        [Output("serverlessTaskMaxStatementSize")]
+        public Output<string> ServerlessTaskMaxStatementSize { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        /// </summary>
+        [Output("serverlessTaskMinStatementSize")]
+        public Output<string> ServerlessTaskMinStatementSize { get; private set; } = null!;
+
+        /// <summary>
         /// Outputs the result of `SHOW TASKS` for the given task.
         /// </summary>
         [Output("showOutputs")]
@@ -324,6 +336,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("suspendTaskAfterNumFailures")]
         public Output<int> SuspendTaskAfterNumFailures { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `Hours`, `Minutes`, or `Seconds` should be set)
+        /// </summary>
+        [Output("targetCompletionInterval")]
+        public Output<Outputs.TaskTargetCompletionInterval?> TargetCompletionInterval { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
@@ -774,6 +792,18 @@ namespace Pulumi.Snowflake
         public Input<string>? SearchPath { get; set; }
 
         /// <summary>
+        /// Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        /// </summary>
+        [Input("serverlessTaskMaxStatementSize")]
+        public Input<string>? ServerlessTaskMaxStatementSize { get; set; }
+
+        /// <summary>
+        /// Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        /// </summary>
+        [Input("serverlessTaskMinStatementSize")]
+        public Input<string>? ServerlessTaskMinStatementSize { get; set; }
+
+        /// <summary>
         /// Any single SQL statement, or a call to a stored procedure, executed when the task runs.
         /// </summary>
         [Input("sqlStatement", required: true)]
@@ -808,6 +838,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("suspendTaskAfterNumFailures")]
         public Input<int>? SuspendTaskAfterNumFailures { get; set; }
+
+        /// <summary>
+        /// Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `Hours`, `Minutes`, or `Seconds` should be set)
+        /// </summary>
+        [Input("targetCompletionInterval")]
+        public Input<Inputs.TaskTargetCompletionIntervalArgs>? TargetCompletionInterval { get; set; }
 
         /// <summary>
         /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
@@ -1237,6 +1273,18 @@ namespace Pulumi.Snowflake
         [Input("searchPath")]
         public Input<string>? SearchPath { get; set; }
 
+        /// <summary>
+        /// Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        /// </summary>
+        [Input("serverlessTaskMaxStatementSize")]
+        public Input<string>? ServerlessTaskMaxStatementSize { get; set; }
+
+        /// <summary>
+        /// Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        /// </summary>
+        [Input("serverlessTaskMinStatementSize")]
+        public Input<string>? ServerlessTaskMinStatementSize { get; set; }
+
         [Input("showOutputs")]
         private InputList<Inputs.TaskShowOutputGetArgs>? _showOutputs;
 
@@ -1284,6 +1332,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("suspendTaskAfterNumFailures")]
         public Input<int>? SuspendTaskAfterNumFailures { get; set; }
+
+        /// <summary>
+        /// Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `Hours`, `Minutes`, or `Seconds` should be set)
+        /// </summary>
+        [Input("targetCompletionInterval")]
+        public Input<Inputs.TaskTargetCompletionIntervalGetArgs>? TargetCompletionInterval { get; set; }
 
         /// <summary>
         /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).

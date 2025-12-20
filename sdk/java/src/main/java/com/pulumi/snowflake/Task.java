@@ -13,6 +13,7 @@ import com.pulumi.snowflake.inputs.TaskState;
 import com.pulumi.snowflake.outputs.TaskParameter;
 import com.pulumi.snowflake.outputs.TaskSchedule;
 import com.pulumi.snowflake.outputs.TaskShowOutput;
+import com.pulumi.snowflake.outputs.TaskTargetCompletionInterval;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -647,6 +648,34 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.searchPath;
     }
     /**
+     * Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+     * 
+     */
+    @Export(name="serverlessTaskMaxStatementSize", refs={String.class}, tree="[0]")
+    private Output<String> serverlessTaskMaxStatementSize;
+
+    /**
+     * @return Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+     * 
+     */
+    public Output<String> serverlessTaskMaxStatementSize() {
+        return this.serverlessTaskMaxStatementSize;
+    }
+    /**
+     * Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+     * 
+     */
+    @Export(name="serverlessTaskMinStatementSize", refs={String.class}, tree="[0]")
+    private Output<String> serverlessTaskMinStatementSize;
+
+    /**
+     * @return Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+     * 
+     */
+    public Output<String> serverlessTaskMinStatementSize() {
+        return this.serverlessTaskMinStatementSize;
+    }
+    /**
      * Outputs the result of `SHOW TASKS` for the given task.
      * 
      */
@@ -743,6 +772,20 @@ public class Task extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> suspendTaskAfterNumFailures() {
         return this.suspendTaskAfterNumFailures;
+    }
+    /**
+     * Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+     * 
+     */
+    @Export(name="targetCompletionInterval", refs={TaskTargetCompletionInterval.class}, tree="[0]")
+    private Output</* @Nullable */ TaskTargetCompletionInterval> targetCompletionInterval;
+
+    /**
+     * @return Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+     * 
+     */
+    public Output<Optional<TaskTargetCompletionInterval>> targetCompletionInterval() {
+        return Codegen.optional(this.targetCompletionInterval);
     }
     /**
      * Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).

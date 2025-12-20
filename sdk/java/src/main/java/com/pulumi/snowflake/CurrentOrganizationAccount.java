@@ -1253,20 +1253,6 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.s3StageVpceDnsName;
     }
     /**
-     * Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-     * 
-     */
-    @Export(name="samlIdentityProvider", refs={String.class}, tree="[0]")
-    private Output<String> samlIdentityProvider;
-
-    /**
-     * @return Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-     * 
-     */
-    public Output<String> samlIdentityProvider() {
-        return this.samlIdentityProvider;
-    }
-    /**
      * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      * 
      */

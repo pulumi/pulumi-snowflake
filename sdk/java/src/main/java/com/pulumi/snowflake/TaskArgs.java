@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.inputs.TaskScheduleArgs;
+import com.pulumi.snowflake.inputs.TaskTargetCompletionIntervalArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -651,6 +652,36 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+     * 
+     */
+    @Import(name="serverlessTaskMaxStatementSize")
+    private @Nullable Output<String> serverlessTaskMaxStatementSize;
+
+    /**
+     * @return Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+     * 
+     */
+    public Optional<Output<String>> serverlessTaskMaxStatementSize() {
+        return Optional.ofNullable(this.serverlessTaskMaxStatementSize);
+    }
+
+    /**
+     * Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+     * 
+     */
+    @Import(name="serverlessTaskMinStatementSize")
+    private @Nullable Output<String> serverlessTaskMinStatementSize;
+
+    /**
+     * @return Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+     * 
+     */
+    public Optional<Output<String>> serverlessTaskMinStatementSize() {
+        return Optional.ofNullable(this.serverlessTaskMinStatementSize);
+    }
+
+    /**
      * Any single SQL statement, or a call to a stored procedure, executed when the task runs.
      * 
      */
@@ -738,6 +769,21 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> suspendTaskAfterNumFailures() {
         return Optional.ofNullable(this.suspendTaskAfterNumFailures);
+    }
+
+    /**
+     * Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+     * 
+     */
+    @Import(name="targetCompletionInterval")
+    private @Nullable Output<TaskTargetCompletionIntervalArgs> targetCompletionInterval;
+
+    /**
+     * @return Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+     * 
+     */
+    public Optional<Output<TaskTargetCompletionIntervalArgs>> targetCompletionInterval() {
+        return Optional.ofNullable(this.targetCompletionInterval);
     }
 
     /**
@@ -1145,12 +1191,15 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         this.schedule = $.schedule;
         this.schema = $.schema;
         this.searchPath = $.searchPath;
+        this.serverlessTaskMaxStatementSize = $.serverlessTaskMaxStatementSize;
+        this.serverlessTaskMinStatementSize = $.serverlessTaskMinStatementSize;
         this.sqlStatement = $.sqlStatement;
         this.started = $.started;
         this.statementQueuedTimeoutInSeconds = $.statementQueuedTimeoutInSeconds;
         this.statementTimeoutInSeconds = $.statementTimeoutInSeconds;
         this.strictJsonOutput = $.strictJsonOutput;
         this.suspendTaskAfterNumFailures = $.suspendTaskAfterNumFailures;
+        this.targetCompletionInterval = $.targetCompletionInterval;
         this.taskAutoRetryAttempts = $.taskAutoRetryAttempts;
         this.timeInputFormat = $.timeInputFormat;
         this.timeOutputFormat = $.timeOutputFormat;
@@ -2088,6 +2137,48 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param serverlessTaskMaxStatementSize Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessTaskMaxStatementSize(@Nullable Output<String> serverlessTaskMaxStatementSize) {
+            $.serverlessTaskMaxStatementSize = serverlessTaskMaxStatementSize;
+            return this;
+        }
+
+        /**
+         * @param serverlessTaskMaxStatementSize Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessTaskMaxStatementSize(String serverlessTaskMaxStatementSize) {
+            return serverlessTaskMaxStatementSize(Output.of(serverlessTaskMaxStatementSize));
+        }
+
+        /**
+         * @param serverlessTaskMinStatementSize Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessTaskMinStatementSize(@Nullable Output<String> serverlessTaskMinStatementSize) {
+            $.serverlessTaskMinStatementSize = serverlessTaskMinStatementSize;
+            return this;
+        }
+
+        /**
+         * @param serverlessTaskMinStatementSize Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessTaskMinStatementSize(String serverlessTaskMinStatementSize) {
+            return serverlessTaskMinStatementSize(Output.of(serverlessTaskMinStatementSize));
+        }
+
+        /**
          * @param sqlStatement Any single SQL statement, or a call to a stored procedure, executed when the task runs.
          * 
          * @return builder
@@ -2211,6 +2302,27 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder suspendTaskAfterNumFailures(Integer suspendTaskAfterNumFailures) {
             return suspendTaskAfterNumFailures(Output.of(suspendTaskAfterNumFailures));
+        }
+
+        /**
+         * @param targetCompletionInterval Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetCompletionInterval(@Nullable Output<TaskTargetCompletionIntervalArgs> targetCompletionInterval) {
+            $.targetCompletionInterval = targetCompletionInterval;
+            return this;
+        }
+
+        /**
+         * @param targetCompletionInterval Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetCompletionInterval(TaskTargetCompletionIntervalArgs targetCompletionInterval) {
+            return targetCompletionInterval(Output.of(targetCompletionInterval));
         }
 
         /**

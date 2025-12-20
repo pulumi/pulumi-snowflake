@@ -135,6 +135,13 @@ public final class UserShowOutputArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.hasRsaPublicKey);
     }
 
+    @Import(name="hasWorkloadIdentity")
+    private @Nullable Output<Boolean> hasWorkloadIdentity;
+
+    public Optional<Output<Boolean>> hasWorkloadIdentity() {
+        return Optional.ofNullable(this.hasWorkloadIdentity);
+    }
+
     @Import(name="lastName")
     private @Nullable Output<String> lastName;
 
@@ -232,6 +239,7 @@ public final class UserShowOutputArgs extends com.pulumi.resources.ResourceArgs 
         this.hasMfa = $.hasMfa;
         this.hasPassword = $.hasPassword;
         this.hasRsaPublicKey = $.hasRsaPublicKey;
+        this.hasWorkloadIdentity = $.hasWorkloadIdentity;
         this.lastName = $.lastName;
         this.lastSuccessLogin = $.lastSuccessLogin;
         this.lockedUntilTime = $.lockedUntilTime;
@@ -414,6 +422,15 @@ public final class UserShowOutputArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder hasRsaPublicKey(Boolean hasRsaPublicKey) {
             return hasRsaPublicKey(Output.of(hasRsaPublicKey));
+        }
+
+        public Builder hasWorkloadIdentity(@Nullable Output<Boolean> hasWorkloadIdentity) {
+            $.hasWorkloadIdentity = hasWorkloadIdentity;
+            return this;
+        }
+
+        public Builder hasWorkloadIdentity(Boolean hasWorkloadIdentity) {
+            return hasWorkloadIdentity(Output.of(hasWorkloadIdentity));
         }
 
         public Builder lastName(@Nullable Output<String> lastName) {

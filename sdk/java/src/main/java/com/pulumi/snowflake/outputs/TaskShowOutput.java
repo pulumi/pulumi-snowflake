@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.snowflake.outputs.TaskShowOutputTargetCompletionInterval;
 import com.pulumi.snowflake.outputs.TaskShowOutputTaskRelation;
 import java.lang.Boolean;
 import java.lang.String;
@@ -34,6 +35,7 @@ public final class TaskShowOutput {
     private @Nullable String schedule;
     private @Nullable String schemaName;
     private @Nullable String state;
+    private @Nullable List<TaskShowOutputTargetCompletionInterval> targetCompletionIntervals;
     private @Nullable List<TaskShowOutputTaskRelation> taskRelations;
     private @Nullable String warehouse;
 
@@ -98,6 +100,9 @@ public final class TaskShowOutput {
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
+    public List<TaskShowOutputTargetCompletionInterval> targetCompletionIntervals() {
+        return this.targetCompletionIntervals == null ? List.of() : this.targetCompletionIntervals;
+    }
     public List<TaskShowOutputTaskRelation> taskRelations() {
         return this.taskRelations == null ? List.of() : this.taskRelations;
     }
@@ -134,6 +139,7 @@ public final class TaskShowOutput {
         private @Nullable String schedule;
         private @Nullable String schemaName;
         private @Nullable String state;
+        private @Nullable List<TaskShowOutputTargetCompletionInterval> targetCompletionIntervals;
         private @Nullable List<TaskShowOutputTaskRelation> taskRelations;
         private @Nullable String warehouse;
         public Builder() {}
@@ -159,6 +165,7 @@ public final class TaskShowOutput {
     	      this.schedule = defaults.schedule;
     	      this.schemaName = defaults.schemaName;
     	      this.state = defaults.state;
+    	      this.targetCompletionIntervals = defaults.targetCompletionIntervals;
     	      this.taskRelations = defaults.taskRelations;
     	      this.warehouse = defaults.warehouse;
         }
@@ -287,6 +294,15 @@ public final class TaskShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder targetCompletionIntervals(@Nullable List<TaskShowOutputTargetCompletionInterval> targetCompletionIntervals) {
+
+            this.targetCompletionIntervals = targetCompletionIntervals;
+            return this;
+        }
+        public Builder targetCompletionIntervals(TaskShowOutputTargetCompletionInterval... targetCompletionIntervals) {
+            return targetCompletionIntervals(List.of(targetCompletionIntervals));
+        }
+        @CustomType.Setter
         public Builder taskRelations(@Nullable List<TaskShowOutputTaskRelation> taskRelations) {
 
             this.taskRelations = taskRelations;
@@ -323,6 +339,7 @@ public final class TaskShowOutput {
             _resultValue.schedule = schedule;
             _resultValue.schemaName = schemaName;
             _resultValue.state = state;
+            _resultValue.targetCompletionIntervals = targetCompletionIntervals;
             _resultValue.taskRelations = taskRelations;
             _resultValue.warehouse = warehouse;
             return _resultValue;

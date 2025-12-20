@@ -64,7 +64,7 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      */
     declare public readonly orReplace: pulumi.Output<boolean | undefined>;
     /**
@@ -72,7 +72,7 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     declare public readonly schema: pulumi.Output<string>;
     /**
-     * Specifies the query used to create the view.
+     * Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
      */
     declare public readonly statement: pulumi.Output<string>;
     /**
@@ -164,7 +164,7 @@ export interface MaterializedViewState {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      */
     orReplace?: pulumi.Input<boolean>;
     /**
@@ -172,7 +172,7 @@ export interface MaterializedViewState {
      */
     schema?: pulumi.Input<string>;
     /**
-     * Specifies the query used to create the view.
+     * Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
      */
     statement?: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface MaterializedViewArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      */
     orReplace?: pulumi.Input<boolean>;
     /**
@@ -216,7 +216,7 @@ export interface MaterializedViewArgs {
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies the query used to create the view.
+     * Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
      */
     statement: pulumi.Input<string>;
     /**

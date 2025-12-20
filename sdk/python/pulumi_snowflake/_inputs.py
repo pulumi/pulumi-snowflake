@@ -1047,6 +1047,10 @@ __all__ = [
     'TaskParameterS3StageVpceDnsNameArgsDict',
     'TaskParameterSearchPathArgs',
     'TaskParameterSearchPathArgsDict',
+    'TaskParameterServerlessTaskMaxStatementSizeArgs',
+    'TaskParameterServerlessTaskMaxStatementSizeArgsDict',
+    'TaskParameterServerlessTaskMinStatementSizeArgs',
+    'TaskParameterServerlessTaskMinStatementSizeArgsDict',
     'TaskParameterStatementQueuedTimeoutInSecondArgs',
     'TaskParameterStatementQueuedTimeoutInSecondArgsDict',
     'TaskParameterStatementTimeoutInSecondArgs',
@@ -1103,8 +1107,12 @@ __all__ = [
     'TaskScheduleArgsDict',
     'TaskShowOutputArgs',
     'TaskShowOutputArgsDict',
+    'TaskShowOutputTargetCompletionIntervalArgs',
+    'TaskShowOutputTargetCompletionIntervalArgsDict',
     'TaskShowOutputTaskRelationArgs',
     'TaskShowOutputTaskRelationArgsDict',
+    'TaskTargetCompletionIntervalArgs',
+    'TaskTargetCompletionIntervalArgsDict',
     'UserParameterArgs',
     'UserParameterArgsDict',
     'UserParameterAbortDetachedQueryArgs',
@@ -1295,6 +1303,8 @@ __all__ = [
     'GetGrantsGrantsToShareArgsDict',
     'GetImageRepositoriesInArgs',
     'GetImageRepositoriesInArgsDict',
+    'GetListingsLimitArgs',
+    'GetListingsLimitArgsDict',
     'GetMaskingPoliciesInArgs',
     'GetMaskingPoliciesInArgsDict',
     'GetMaskingPoliciesLimitArgs',
@@ -19789,6 +19799,7 @@ if not MYPY:
         has_mfa: NotRequired[pulumi.Input[_builtins.bool]]
         has_password: NotRequired[pulumi.Input[_builtins.bool]]
         has_rsa_public_key: NotRequired[pulumi.Input[_builtins.bool]]
+        has_workload_identity: NotRequired[pulumi.Input[_builtins.bool]]
         last_name: NotRequired[pulumi.Input[_builtins.str]]
         last_success_login: NotRequired[pulumi.Input[_builtins.str]]
         locked_until_time: NotRequired[pulumi.Input[_builtins.str]]
@@ -19823,6 +19834,7 @@ class LegacyServiceUserShowOutputArgs:
                  has_mfa: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_password: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_rsa_public_key: Optional[pulumi.Input[_builtins.bool]] = None,
+                 has_workload_identity: Optional[pulumi.Input[_builtins.bool]] = None,
                  last_name: Optional[pulumi.Input[_builtins.str]] = None,
                  last_success_login: Optional[pulumi.Input[_builtins.str]] = None,
                  locked_until_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -19868,6 +19880,8 @@ class LegacyServiceUserShowOutputArgs:
             pulumi.set(__self__, "has_password", has_password)
         if has_rsa_public_key is not None:
             pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+        if has_workload_identity is not None:
+            pulumi.set(__self__, "has_workload_identity", has_workload_identity)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if last_success_login is not None:
@@ -20043,6 +20057,15 @@ class LegacyServiceUserShowOutputArgs:
     @has_rsa_public_key.setter
     def has_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "has_rsa_public_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hasWorkloadIdentity")
+    def has_workload_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "has_workload_identity")
+
+    @has_workload_identity.setter
+    def has_workload_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "has_workload_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
@@ -41051,6 +41074,7 @@ if not MYPY:
         has_mfa: NotRequired[pulumi.Input[_builtins.bool]]
         has_password: NotRequired[pulumi.Input[_builtins.bool]]
         has_rsa_public_key: NotRequired[pulumi.Input[_builtins.bool]]
+        has_workload_identity: NotRequired[pulumi.Input[_builtins.bool]]
         last_name: NotRequired[pulumi.Input[_builtins.str]]
         last_success_login: NotRequired[pulumi.Input[_builtins.str]]
         locked_until_time: NotRequired[pulumi.Input[_builtins.str]]
@@ -41085,6 +41109,7 @@ class ServiceUserShowOutputArgs:
                  has_mfa: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_password: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_rsa_public_key: Optional[pulumi.Input[_builtins.bool]] = None,
+                 has_workload_identity: Optional[pulumi.Input[_builtins.bool]] = None,
                  last_name: Optional[pulumi.Input[_builtins.str]] = None,
                  last_success_login: Optional[pulumi.Input[_builtins.str]] = None,
                  locked_until_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41130,6 +41155,8 @@ class ServiceUserShowOutputArgs:
             pulumi.set(__self__, "has_password", has_password)
         if has_rsa_public_key is not None:
             pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+        if has_workload_identity is not None:
+            pulumi.set(__self__, "has_workload_identity", has_workload_identity)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if last_success_login is not None:
@@ -41305,6 +41332,15 @@ class ServiceUserShowOutputArgs:
     @has_rsa_public_key.setter
     def has_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "has_rsa_public_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hasWorkloadIdentity")
+    def has_workload_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "has_workload_identity")
+
+    @has_workload_identity.setter
+    def has_workload_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "has_workload_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
@@ -45710,6 +45746,8 @@ if not MYPY:
         rows_per_resultsets: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterRowsPerResultsetArgsDict']]]]
         s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterS3StageVpceDnsNameArgsDict']]]]
         search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterSearchPathArgsDict']]]]
+        serverless_task_max_statement_sizes: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterServerlessTaskMaxStatementSizeArgsDict']]]]
+        serverless_task_min_statement_sizes: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterServerlessTaskMinStatementSizeArgsDict']]]]
         statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementQueuedTimeoutInSecondArgsDict']]]]
         statement_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementTimeoutInSecondArgsDict']]]]
         strict_json_outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskParameterStrictJsonOutputArgsDict']]]]
@@ -45774,6 +45812,8 @@ class TaskParameterArgs:
                  rows_per_resultsets: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterRowsPerResultsetArgs']]]] = None,
                  s3_stage_vpce_dns_names: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterS3StageVpceDnsNameArgs']]]] = None,
                  search_paths: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterSearchPathArgs']]]] = None,
+                 serverless_task_max_statement_sizes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterServerlessTaskMaxStatementSizeArgs']]]] = None,
+                 serverless_task_min_statement_sizes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterServerlessTaskMinStatementSizeArgs']]]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementQueuedTimeoutInSecondArgs']]]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStatementTimeoutInSecondArgs']]]] = None,
                  strict_json_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterStrictJsonOutputArgs']]]] = None,
@@ -45864,6 +45904,10 @@ class TaskParameterArgs:
             pulumi.set(__self__, "s3_stage_vpce_dns_names", s3_stage_vpce_dns_names)
         if search_paths is not None:
             pulumi.set(__self__, "search_paths", search_paths)
+        if serverless_task_max_statement_sizes is not None:
+            pulumi.set(__self__, "serverless_task_max_statement_sizes", serverless_task_max_statement_sizes)
+        if serverless_task_min_statement_sizes is not None:
+            pulumi.set(__self__, "serverless_task_min_statement_sizes", serverless_task_min_statement_sizes)
         if statement_queued_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
@@ -46204,6 +46248,24 @@ class TaskParameterArgs:
     @search_paths.setter
     def search_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterSearchPathArgs']]]]):
         pulumi.set(self, "search_paths", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMaxStatementSizes")
+    def serverless_task_max_statement_sizes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterServerlessTaskMaxStatementSizeArgs']]]]:
+        return pulumi.get(self, "serverless_task_max_statement_sizes")
+
+    @serverless_task_max_statement_sizes.setter
+    def serverless_task_max_statement_sizes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterServerlessTaskMaxStatementSizeArgs']]]]):
+        pulumi.set(self, "serverless_task_max_statement_sizes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMinStatementSizes")
+    def serverless_task_min_statement_sizes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterServerlessTaskMinStatementSizeArgs']]]]:
+        return pulumi.get(self, "serverless_task_min_statement_sizes")
+
+    @serverless_task_min_statement_sizes.setter
+    def serverless_task_min_statement_sizes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskParameterServerlessTaskMinStatementSizeArgs']]]]):
+        pulumi.set(self, "serverless_task_min_statement_sizes", value)
 
     @_builtins.property
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
@@ -48841,6 +48903,156 @@ class TaskParameterSearchPathArgs:
 
 
 if not MYPY:
+    class TaskParameterServerlessTaskMaxStatementSizeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        key: NotRequired[pulumi.Input[_builtins.str]]
+        level: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    TaskParameterServerlessTaskMaxStatementSizeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterServerlessTaskMaxStatementSizeArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 level: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class TaskParameterServerlessTaskMinStatementSizeArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input[_builtins.str]]
+        description: NotRequired[pulumi.Input[_builtins.str]]
+        key: NotRequired[pulumi.Input[_builtins.str]]
+        level: NotRequired[pulumi.Input[_builtins.str]]
+        value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    TaskParameterServerlessTaskMinStatementSizeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskParameterServerlessTaskMinStatementSizeArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 level: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class TaskParameterStatementQueuedTimeoutInSecondArgsDict(TypedDict):
         default: NotRequired[pulumi.Input[_builtins.str]]
         description: NotRequired[pulumi.Input[_builtins.str]]
@@ -50904,6 +51116,7 @@ if not MYPY:
         schedule: NotRequired[pulumi.Input[_builtins.str]]
         schema_name: NotRequired[pulumi.Input[_builtins.str]]
         state: NotRequired[pulumi.Input[_builtins.str]]
+        target_completion_intervals: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTargetCompletionIntervalArgsDict']]]]
         task_relations: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgsDict']]]]
         warehouse: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
@@ -50932,6 +51145,7 @@ class TaskShowOutputArgs:
                  schedule: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_name: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_completion_intervals: Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTargetCompletionIntervalArgs']]]] = None,
                  task_relations: Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgs']]]] = None,
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         if allow_overlapping_execution is not None:
@@ -50974,6 +51188,8 @@ class TaskShowOutputArgs:
             pulumi.set(__self__, "schema_name", schema_name)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if target_completion_intervals is not None:
+            pulumi.set(__self__, "target_completion_intervals", target_completion_intervals)
         if task_relations is not None:
             pulumi.set(__self__, "task_relations", task_relations)
         if warehouse is not None:
@@ -51160,6 +51376,15 @@ class TaskShowOutputArgs:
         pulumi.set(self, "state", value)
 
     @_builtins.property
+    @pulumi.getter(name="targetCompletionIntervals")
+    def target_completion_intervals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTargetCompletionIntervalArgs']]]]:
+        return pulumi.get(self, "target_completion_intervals")
+
+    @target_completion_intervals.setter
+    def target_completion_intervals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTargetCompletionIntervalArgs']]]]):
+        pulumi.set(self, "target_completion_intervals", value)
+
+    @_builtins.property
     @pulumi.getter(name="taskRelations")
     def task_relations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgs']]]]:
         return pulumi.get(self, "task_relations")
@@ -51176,6 +51401,55 @@ class TaskShowOutputArgs:
     @warehouse.setter
     def warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "warehouse", value)
+
+
+if not MYPY:
+    class TaskShowOutputTargetCompletionIntervalArgsDict(TypedDict):
+        hours: NotRequired[pulumi.Input[_builtins.int]]
+        minutes: NotRequired[pulumi.Input[_builtins.int]]
+        seconds: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    TaskShowOutputTargetCompletionIntervalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskShowOutputTargetCompletionIntervalArgs:
+    def __init__(__self__, *,
+                 hours: Optional[pulumi.Input[_builtins.int]] = None,
+                 minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if seconds is not None:
+            pulumi.set(__self__, "seconds", seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "hours", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "seconds")
+
+    @seconds.setter
+    def seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "seconds", value)
 
 
 if not MYPY:
@@ -51225,6 +51499,78 @@ class TaskShowOutputTaskRelationArgs:
     @predecessors.setter
     def predecessors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "predecessors", value)
+
+
+if not MYPY:
+    class TaskTargetCompletionIntervalArgsDict(TypedDict):
+        hours: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies the target completion interval in hours. (conflicts with `minutes` and `seconds`)
+        """
+        minutes: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies the target completion interval in minutes. (conflicts with `hours` and `seconds`)
+        """
+        seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies the target completion interval in seconds. (conflicts with `hours` and `minutes`)
+        """
+elif False:
+    TaskTargetCompletionIntervalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TaskTargetCompletionIntervalArgs:
+    def __init__(__self__, *,
+                 hours: Optional[pulumi.Input[_builtins.int]] = None,
+                 minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] hours: Specifies the target completion interval in hours. (conflicts with `minutes` and `seconds`)
+        :param pulumi.Input[_builtins.int] minutes: Specifies the target completion interval in minutes. (conflicts with `hours` and `seconds`)
+        :param pulumi.Input[_builtins.int] seconds: Specifies the target completion interval in seconds. (conflicts with `hours` and `minutes`)
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if seconds is not None:
+            pulumi.set(__self__, "seconds", seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the target completion interval in hours. (conflicts with `minutes` and `seconds`)
+        """
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "hours", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the target completion interval in minutes. (conflicts with `hours` and `seconds`)
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the target completion interval in seconds. (conflicts with `hours` and `minutes`)
+        """
+        return pulumi.get(self, "seconds")
+
+    @seconds.setter
+    def seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "seconds", value)
 
 
 if not MYPY:
@@ -56500,6 +56846,7 @@ if not MYPY:
         has_mfa: NotRequired[pulumi.Input[_builtins.bool]]
         has_password: NotRequired[pulumi.Input[_builtins.bool]]
         has_rsa_public_key: NotRequired[pulumi.Input[_builtins.bool]]
+        has_workload_identity: NotRequired[pulumi.Input[_builtins.bool]]
         last_name: NotRequired[pulumi.Input[_builtins.str]]
         last_success_login: NotRequired[pulumi.Input[_builtins.str]]
         locked_until_time: NotRequired[pulumi.Input[_builtins.str]]
@@ -56534,6 +56881,7 @@ class UserShowOutputArgs:
                  has_mfa: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_password: Optional[pulumi.Input[_builtins.bool]] = None,
                  has_rsa_public_key: Optional[pulumi.Input[_builtins.bool]] = None,
+                 has_workload_identity: Optional[pulumi.Input[_builtins.bool]] = None,
                  last_name: Optional[pulumi.Input[_builtins.str]] = None,
                  last_success_login: Optional[pulumi.Input[_builtins.str]] = None,
                  locked_until_time: Optional[pulumi.Input[_builtins.str]] = None,
@@ -56579,6 +56927,8 @@ class UserShowOutputArgs:
             pulumi.set(__self__, "has_password", has_password)
         if has_rsa_public_key is not None:
             pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+        if has_workload_identity is not None:
+            pulumi.set(__self__, "has_workload_identity", has_workload_identity)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if last_success_login is not None:
@@ -56754,6 +57104,15 @@ class UserShowOutputArgs:
     @has_rsa_public_key.setter
     def has_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "has_rsa_public_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hasWorkloadIdentity")
+    def has_workload_identity(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "has_workload_identity")
+
+    @has_workload_identity.setter
+    def has_workload_identity(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "has_workload_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
@@ -59512,6 +59871,57 @@ class GetImageRepositoriesInArgs:
     @schema.setter
     def schema(self, value: Optional[_builtins.str]):
         pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetListingsLimitArgsDict(TypedDict):
+        rows: _builtins.int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[_builtins.str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetListingsLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListingsLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
 
 
 if not MYPY:

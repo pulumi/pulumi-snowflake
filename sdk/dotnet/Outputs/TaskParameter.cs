@@ -45,6 +45,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.TaskParameterRowsPerResultset> RowsPerResultsets;
         public readonly ImmutableArray<Outputs.TaskParameterS3StageVpceDnsName> S3StageVpceDnsNames;
         public readonly ImmutableArray<Outputs.TaskParameterSearchPath> SearchPaths;
+        public readonly ImmutableArray<Outputs.TaskParameterServerlessTaskMaxStatementSize> ServerlessTaskMaxStatementSizes;
+        public readonly ImmutableArray<Outputs.TaskParameterServerlessTaskMinStatementSize> ServerlessTaskMinStatementSizes;
         public readonly ImmutableArray<Outputs.TaskParameterStatementQueuedTimeoutInSecond> StatementQueuedTimeoutInSeconds;
         public readonly ImmutableArray<Outputs.TaskParameterStatementTimeoutInSecond> StatementTimeoutInSeconds;
         public readonly ImmutableArray<Outputs.TaskParameterStrictJsonOutput> StrictJsonOutputs;
@@ -138,6 +140,10 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.TaskParameterSearchPath> searchPaths,
 
+            ImmutableArray<Outputs.TaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes,
+
+            ImmutableArray<Outputs.TaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes,
+
             ImmutableArray<Outputs.TaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds,
 
             ImmutableArray<Outputs.TaskParameterStatementTimeoutInSecond> statementTimeoutInSeconds,
@@ -222,6 +228,8 @@ namespace Pulumi.Snowflake.Outputs
             RowsPerResultsets = rowsPerResultsets;
             S3StageVpceDnsNames = s3StageVpceDnsNames;
             SearchPaths = searchPaths;
+            ServerlessTaskMaxStatementSizes = serverlessTaskMaxStatementSizes;
+            ServerlessTaskMinStatementSizes = serverlessTaskMinStatementSizes;
             StatementQueuedTimeoutInSeconds = statementQueuedTimeoutInSeconds;
             StatementTimeoutInSeconds = statementTimeoutInSeconds;
             StrictJsonOutputs = strictJsonOutputs;

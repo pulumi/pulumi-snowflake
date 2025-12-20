@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
+ * The `pulumi import` command can be used, for example:
+ * 
  * ```sh
  * $ pulumi import snowflake:index/authenticationPolicy:AuthenticationPolicy example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;authentication_policy_name&gt;&#34;&#39;
  * ```

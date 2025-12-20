@@ -2269,6 +2269,119 @@ export interface GetImageRepositoriesIn {
     schema?: string;
 }
 
+export interface GetListingsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetListingsListing {
+    /**
+     * Holds the output of DESCRIBE LISTING.
+     */
+    describeOutputs: outputs.GetListingsListingDescribeOutput[];
+    /**
+     * Holds the output of SHOW LISTINGS.
+     */
+    showOutputs: outputs.GetListingsListingShowOutput[];
+}
+
+export interface GetListingsListingDescribeOutput {
+    applicationPackage: string;
+    approverContact: string;
+    businessNeeds: string;
+    categories: string;
+    comment: string;
+    createdOn: string;
+    customizedContactInfo: string;
+    dataAttributes: string;
+    dataDictionary: string;
+    dataPreview: string;
+    description: string;
+    distribution: string;
+    globalName: string;
+    isApplication: boolean;
+    isByRequest: boolean;
+    isLimitedTrial: boolean;
+    isMonetized: boolean;
+    isMountlessQueryable: boolean;
+    isShare: boolean;
+    isTargeted: boolean;
+    lastCommittedVersionAlias: string;
+    lastCommittedVersionName: string;
+    lastCommittedVersionUri: string;
+    legacyUniformListingLocators: string;
+    limitedTrialPlan: string;
+    listingTerms: string;
+    liveVersionUri: string;
+    manifestYaml: string;
+    monetizationDisplayOrder: string;
+    name: string;
+    organizationProfileName: string;
+    owner: string;
+    ownerRoleType: string;
+    profile: string;
+    publishedOn: string;
+    publishedVersionAlias: string;
+    publishedVersionName: string;
+    publishedVersionUri: string;
+    refreshSchedule: string;
+    refreshType: string;
+    regions: string;
+    rejectionReason: string;
+    requestApprovalType: string;
+    resources: string;
+    retriedOn: string;
+    reviewState: string;
+    revisions: string;
+    scheduledDropTime: string;
+    share: string;
+    state: string;
+    subtitle: string;
+    supportContact: string;
+    targetAccounts: string;
+    title: string;
+    trialDetails: string;
+    uniformListingLocator: string;
+    unpublishedByAdminReasons: string;
+    updatedOn: string;
+    usageExamples: string;
+}
+
+export interface GetListingsListingShowOutput {
+    comment: string;
+    createdOn: string;
+    detailedTargetAccounts: string;
+    distribution: string;
+    globalName: string;
+    isApplication: boolean;
+    isByRequest: boolean;
+    isLimitedTrial: boolean;
+    isMonetized: boolean;
+    isMountlessQueryable: boolean;
+    isTargeted: boolean;
+    name: string;
+    organizationProfileName: string;
+    owner: string;
+    ownerRoleType: string;
+    profile: string;
+    publishedOn: string;
+    regions: string;
+    rejectedOn: string;
+    reviewState: string;
+    state: string;
+    subtitle: string;
+    targetAccounts: string;
+    title: string;
+    uniformListingLocator: string;
+    updatedOn: string;
+}
+
 export interface GetMaskingPoliciesIn {
     /**
      * Returns records for the entire account.
@@ -3836,6 +3949,8 @@ export interface GetTasksTaskParameter {
     rowsPerResultsets: outputs.GetTasksTaskParameterRowsPerResultset[];
     s3StageVpceDnsNames: outputs.GetTasksTaskParameterS3StageVpceDnsName[];
     searchPaths: outputs.GetTasksTaskParameterSearchPath[];
+    serverlessTaskMaxStatementSizes: outputs.GetTasksTaskParameterServerlessTaskMaxStatementSize[];
+    serverlessTaskMinStatementSizes: outputs.GetTasksTaskParameterServerlessTaskMinStatementSize[];
     statementQueuedTimeoutInSeconds: outputs.GetTasksTaskParameterStatementQueuedTimeoutInSecond[];
     statementTimeoutInSeconds: outputs.GetTasksTaskParameterStatementTimeoutInSecond[];
     strictJsonOutputs: outputs.GetTasksTaskParameterStrictJsonOutput[];
@@ -4120,6 +4235,22 @@ export interface GetTasksTaskParameterSearchPath {
     value: string;
 }
 
+export interface GetTasksTaskParameterServerlessTaskMaxStatementSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterServerlessTaskMinStatementSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface GetTasksTaskParameterStatementQueuedTimeoutInSecond {
     default: string;
     description: string;
@@ -4349,8 +4480,15 @@ export interface GetTasksTaskShowOutput {
     schedule: string;
     schemaName: string;
     state: string;
+    targetCompletionIntervals: outputs.GetTasksTaskShowOutputTargetCompletionInterval[];
     taskRelations: outputs.GetTasksTaskShowOutputTaskRelation[];
     warehouse: string;
+}
+
+export interface GetTasksTaskShowOutputTargetCompletionInterval {
+    hours: number;
+    minutes: number;
+    seconds: number;
 }
 
 export interface GetTasksTaskShowOutputTaskRelation {
@@ -4421,6 +4559,7 @@ export interface GetUsersUserDescribeOutput {
     extAuthnUid: string;
     firstName: string;
     hasMfa: boolean;
+    hasWorkloadIdentity: boolean;
     lastName: string;
     loginName: string;
     middleName: string;
@@ -4982,6 +5121,7 @@ export interface GetUsersUserShowOutput {
     hasMfa: boolean;
     hasPassword: boolean;
     hasRsaPublicKey: boolean;
+    hasWorkloadIdentity: boolean;
     lastName: string;
     lastSuccessLogin: string;
     lockedUntilTime: string;
@@ -6021,6 +6161,7 @@ export interface LegacyServiceUserShowOutput {
     hasMfa: boolean;
     hasPassword: boolean;
     hasRsaPublicKey: boolean;
+    hasWorkloadIdentity: boolean;
     lastName: string;
     lastSuccessLogin: string;
     lockedUntilTime: string;
@@ -8390,6 +8531,7 @@ export interface ServiceUserShowOutput {
     hasMfa: boolean;
     hasPassword: boolean;
     hasRsaPublicKey: boolean;
+    hasWorkloadIdentity: boolean;
     lastName: string;
     lastSuccessLogin: string;
     lockedUntilTime: string;
@@ -8983,6 +9125,8 @@ export interface TaskParameter {
     rowsPerResultsets: outputs.TaskParameterRowsPerResultset[];
     s3StageVpceDnsNames: outputs.TaskParameterS3StageVpceDnsName[];
     searchPaths: outputs.TaskParameterSearchPath[];
+    serverlessTaskMaxStatementSizes: outputs.TaskParameterServerlessTaskMaxStatementSize[];
+    serverlessTaskMinStatementSizes: outputs.TaskParameterServerlessTaskMinStatementSize[];
     statementQueuedTimeoutInSeconds: outputs.TaskParameterStatementQueuedTimeoutInSecond[];
     statementTimeoutInSeconds: outputs.TaskParameterStatementTimeoutInSecond[];
     strictJsonOutputs: outputs.TaskParameterStrictJsonOutput[];
@@ -9267,6 +9411,22 @@ export interface TaskParameterSearchPath {
     value: string;
 }
 
+export interface TaskParameterServerlessTaskMaxStatementSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterServerlessTaskMinStatementSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface TaskParameterStatementQueuedTimeoutInSecond {
     default: string;
     description: string;
@@ -9515,14 +9675,36 @@ export interface TaskShowOutput {
     schedule: string;
     schemaName: string;
     state: string;
+    targetCompletionIntervals: outputs.TaskShowOutputTargetCompletionInterval[];
     taskRelations: outputs.TaskShowOutputTaskRelation[];
     warehouse: string;
+}
+
+export interface TaskShowOutputTargetCompletionInterval {
+    hours: number;
+    minutes: number;
+    seconds: number;
 }
 
 export interface TaskShowOutputTaskRelation {
     finalizedRootTask: string;
     finalizer: string;
     predecessors: string[];
+}
+
+export interface TaskTargetCompletionInterval {
+    /**
+     * Specifies the target completion interval in hours. (conflicts with `minutes` and `seconds`)
+     */
+    hours?: number;
+    /**
+     * Specifies the target completion interval in minutes. (conflicts with `hours` and `seconds`)
+     */
+    minutes?: number;
+    /**
+     * Specifies the target completion interval in seconds. (conflicts with `hours` and `minutes`)
+     */
+    seconds?: number;
 }
 
 export interface UserParameter {
@@ -10081,6 +10263,7 @@ export interface UserShowOutput {
     hasMfa: boolean;
     hasPassword: boolean;
     hasRsaPublicKey: boolean;
+    hasWorkloadIdentity: boolean;
     lastName: string;
     lastSuccessLogin: string;
     lockedUntilTime: string;

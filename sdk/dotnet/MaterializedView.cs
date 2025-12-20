@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `False`) Overwrites the View if it exists.
+        /// (Default: `False`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the query used to create the view.
+        /// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         /// </summary>
         [Output("statement")]
         public Output<string> Statement { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `False`) Overwrites the View if it exists.
+        /// (Default: `False`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -164,7 +164,7 @@ namespace Pulumi.Snowflake
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the query used to create the view.
+        /// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         /// </summary>
         [Input("statement", required: true)]
         public Input<string> Statement { get; set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `False`) Overwrites the View if it exists.
+        /// (Default: `False`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Schema { get; set; }
 
         /// <summary>
-        /// Specifies the query used to create the view.
+        /// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         /// </summary>
         [Input("statement")]
         public Input<string>? Statement { get; set; }

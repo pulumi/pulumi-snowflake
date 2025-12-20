@@ -395,10 +395,6 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly s3StageVpceDnsName: pulumi.Output<string>;
     /**
-     * Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-     */
-    declare public readonly samlIdentityProvider: pulumi.Output<string>;
-    /**
      * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      */
     declare public readonly searchPath: pulumi.Output<string>;
@@ -633,7 +629,6 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["resourceMonitor"] = state?.resourceMonitor;
             resourceInputs["rowsPerResultset"] = state?.rowsPerResultset;
             resourceInputs["s3StageVpceDnsName"] = state?.s3StageVpceDnsName;
-            resourceInputs["samlIdentityProvider"] = state?.samlIdentityProvider;
             resourceInputs["searchPath"] = state?.searchPath;
             resourceInputs["serverlessTaskMaxStatementSize"] = state?.serverlessTaskMaxStatementSize;
             resourceInputs["serverlessTaskMinStatementSize"] = state?.serverlessTaskMinStatementSize;
@@ -758,7 +753,6 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["resourceMonitor"] = args?.resourceMonitor;
             resourceInputs["rowsPerResultset"] = args?.rowsPerResultset;
             resourceInputs["s3StageVpceDnsName"] = args?.s3StageVpceDnsName;
-            resourceInputs["samlIdentityProvider"] = args?.samlIdentityProvider;
             resourceInputs["searchPath"] = args?.searchPath;
             resourceInputs["serverlessTaskMaxStatementSize"] = args?.serverlessTaskMaxStatementSize;
             resourceInputs["serverlessTaskMinStatementSize"] = args?.serverlessTaskMinStatementSize;
@@ -1155,10 +1149,6 @@ export interface CurrentAccountState {
      * Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
      */
     s3StageVpceDnsName?: pulumi.Input<string>;
-    /**
-     * Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-     */
-    samlIdentityProvider?: pulumi.Input<string>;
     /**
      * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      */
@@ -1650,10 +1640,6 @@ export interface CurrentAccountArgs {
      * Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
      */
     s3StageVpceDnsName?: pulumi.Input<string>;
-    /**
-     * Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-     */
-    samlIdentityProvider?: pulumi.Input<string>;
     /**
      * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      */

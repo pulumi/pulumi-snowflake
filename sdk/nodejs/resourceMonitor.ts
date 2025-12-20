@@ -73,9 +73,6 @@ export class ResourceMonitor extends pulumi.CustomResource {
      * Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ResourceMonitorShowOutput[]>;
-    /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
-     */
     declare public readonly startTimestamp: pulumi.Output<string | undefined>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
@@ -165,9 +162,6 @@ export interface ResourceMonitorState {
      * Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.ResourceMonitorShowOutput>[]>;
-    /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
-     */
     startTimestamp?: pulumi.Input<string>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
@@ -207,9 +201,6 @@ export interface ResourceMonitorArgs {
      * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      */
     notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
-     */
     startTimestamp?: pulumi.Input<string>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.

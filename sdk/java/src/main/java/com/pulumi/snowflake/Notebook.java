@@ -142,14 +142,14 @@ public class Notebook extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the warehouse where SQL queries in the notebook are run.
+     * Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      * 
      */
     @Export(name="queryWarehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryWarehouse;
 
     /**
-     * @return Specifies the warehouse where SQL queries in the notebook are run.
+     * @return Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      * 
      */
     public Output<Optional<String>> queryWarehouse() {
@@ -184,14 +184,14 @@ public class Notebook extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Specifies the warehouse that runs the notebook kernel and python code.
+     * Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      * 
      */
     @Export(name="warehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> warehouse;
 
     /**
-     * @return Specifies the warehouse that runs the notebook kernel and python code.
+     * @return Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      * 
      */
     public Output<Optional<String>> warehouse() {

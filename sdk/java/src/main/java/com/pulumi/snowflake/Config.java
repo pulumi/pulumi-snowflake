@@ -31,6 +31,13 @@ public final class Config {
         return Codegen.stringProp("authenticator").config(config).get();
     }
 /**
+ * Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+ * 
+ */
+    public Optional<String> certRevocationCheckMode() {
+        return Codegen.stringProp("certRevocationCheckMode").config(config).get();
+    }
+/**
  * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
  * 
  */
@@ -59,6 +66,34 @@ public final class Config {
         return Codegen.integerProp("clientTimeout").config(config).get();
     }
 /**
+ * Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+ * 
+ */
+    public Optional<String> crlAllowCertificatesWithoutCrlUrl() {
+        return Codegen.stringProp("crlAllowCertificatesWithoutCrlUrl").config(config).get();
+    }
+/**
+ * Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+ * 
+ */
+    public Optional<Integer> crlHttpClientTimeout() {
+        return Codegen.integerProp("crlHttpClientTimeout").config(config).get();
+    }
+/**
+ * False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+ * 
+ */
+    public Optional<Boolean> crlInMemoryCacheDisabled() {
+        return Codegen.booleanProp("crlInMemoryCacheDisabled").config(config).get();
+    }
+/**
+ * False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+ * 
+ */
+    public Optional<Boolean> crlOnDiskCacheDisabled() {
+        return Codegen.booleanProp("crlOnDiskCacheDisabled").config(config).get();
+    }
+/**
  * Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
  * 
  */
@@ -66,11 +101,25 @@ public final class Config {
         return Codegen.stringProp("disableConsoleLogin").config(config).get();
     }
 /**
+ * False by default. When set to true, the driver doesn&#39;t check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+ * 
+ */
+    public Optional<Boolean> disableOcspChecks() {
+        return Codegen.booleanProp("disableOcspChecks").config(config).get();
+    }
+/**
  * Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
  * 
  */
     public Optional<Boolean> disableQueryContextCache() {
         return Codegen.booleanProp("disableQueryContextCache").config(config).get();
+    }
+/**
+ * Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+ * 
+ */
+    public Optional<String> disableSamlUrlCheck() {
+        return Codegen.stringProp("disableSamlUrlCheck").config(config).get();
     }
 /**
  * Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
@@ -122,7 +171,7 @@ public final class Config {
         return Codegen.stringProp("includeRetryReason").config(config).get();
     }
 /**
- * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+ * This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
  * 
  */
     public Optional<Boolean> insecureMode() {
@@ -176,6 +225,13 @@ public final class Config {
  */
     public Optional<Integer> maxRetryCount() {
         return Codegen.integerProp("maxRetryCount").config(config).get();
+    }
+/**
+ * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+ * 
+ */
+    public Optional<String> noProxy() {
+        return Codegen.stringProp("noProxy").config(config).get();
     }
 /**
  * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
@@ -305,6 +361,41 @@ public final class Config {
  */
     public Optional<String> protocol() {
         return Codegen.stringProp("protocol").config(config).env("SNOWFLAKE_PROTOCOL").get();
+    }
+/**
+ * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+ * 
+ */
+    public Optional<String> proxyHost() {
+        return Codegen.stringProp("proxyHost").config(config).get();
+    }
+/**
+ * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+ * 
+ */
+    public Optional<String> proxyPassword() {
+        return Codegen.stringProp("proxyPassword").config(config).get();
+    }
+/**
+ * The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+ * 
+ */
+    public Optional<Integer> proxyPort() {
+        return Codegen.integerProp("proxyPort").config(config).get();
+    }
+/**
+ * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+ * 
+ */
+    public Optional<String> proxyProtocol() {
+        return Codegen.stringProp("proxyProtocol").config(config).get();
+    }
+/**
+ * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+ * 
+ */
+    public Optional<String> proxyUser() {
+        return Codegen.stringProp("proxyUser").config(config).get();
     }
 /**
  * request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.

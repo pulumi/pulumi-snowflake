@@ -138,17 +138,9 @@ public final class ResourceMonitorState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.showOutputs);
     }
 
-    /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
-     * 
-     */
     @Import(name="startTimestamp")
     private @Nullable Output<String> startTimestamp;
 
-    /**
-     * @return The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
-     * 
-     */
     public Optional<Output<String>> startTimestamp() {
         return Optional.ofNullable(this.startTimestamp);
     }
@@ -415,23 +407,11 @@ public final class ResourceMonitorState extends com.pulumi.resources.ResourceArg
             return showOutputs(List.of(showOutputs));
         }
 
-        /**
-         * @param startTimestamp The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTimestamp(@Nullable Output<String> startTimestamp) {
             $.startTimestamp = startTimestamp;
             return this;
         }
 
-        /**
-         * @param startTimestamp The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startTimestamp(String startTimestamp) {
             return startTimestamp(Output.of(startTimestamp));
         }

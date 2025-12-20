@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the warehouse where SQL queries in the notebook are run.
+        /// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         /// </summary>
         [Output("queryWarehouse")]
         public Output<string?> QueryWarehouse { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.NotebookShowOutput>> ShowOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the warehouse that runs the notebook kernel and python code.
+        /// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         /// </summary>
         [Output("warehouse")]
         public Output<string?> Warehouse { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the warehouse where SQL queries in the notebook are run.
+        /// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         /// </summary>
         [Input("queryWarehouse")]
         public Input<string>? QueryWarehouse { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Snowflake
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the warehouse that runs the notebook kernel and python code.
+        /// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the warehouse where SQL queries in the notebook are run.
+        /// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         /// </summary>
         [Input("queryWarehouse")]
         public Input<string>? QueryWarehouse { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the warehouse that runs the notebook kernel and python code.
+        /// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }

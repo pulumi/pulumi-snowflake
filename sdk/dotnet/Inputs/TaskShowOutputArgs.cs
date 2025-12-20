@@ -77,6 +77,14 @@ namespace Pulumi.Snowflake.Inputs
         [Input("state")]
         public Input<string>? State { get; set; }
 
+        [Input("targetCompletionIntervals")]
+        private InputList<Inputs.TaskShowOutputTargetCompletionIntervalArgs>? _targetCompletionIntervals;
+        public InputList<Inputs.TaskShowOutputTargetCompletionIntervalArgs> TargetCompletionIntervals
+        {
+            get => _targetCompletionIntervals ?? (_targetCompletionIntervals = new InputList<Inputs.TaskShowOutputTargetCompletionIntervalArgs>());
+            set => _targetCompletionIntervals = value;
+        }
+
         [Input("taskRelations")]
         private InputList<Inputs.TaskShowOutputTaskRelationArgs>? _taskRelations;
         public InputList<Inputs.TaskShowOutputTaskRelationArgs> TaskRelations

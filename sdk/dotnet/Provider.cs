@@ -31,6 +31,12 @@ namespace Pulumi.Snowflake
         public Output<string?> Authenticator { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+        /// </summary>
+        [Output("certRevocationCheckMode")]
+        public Output<string?> CertRevocationCheckMode { get; private set; } = null!;
+
+        /// <summary>
         /// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         /// </summary>
         [Output("clientIp")]
@@ -49,10 +55,22 @@ namespace Pulumi.Snowflake
         public Output<string?> ClientStoreTemporaryCredential { get; private set; } = null!;
 
         /// <summary>
+        /// Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+        /// </summary>
+        [Output("crlAllowCertificatesWithoutCrlUrl")]
+        public Output<string?> CrlAllowCertificatesWithoutCrlUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
         /// </summary>
         [Output("disableConsoleLogin")]
         public Output<string?> DisableConsoleLogin { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+        /// </summary>
+        [Output("disableSamlUrlCheck")]
+        public Output<string?> DisableSamlUrlCheck { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the logging level to be used by the driver. Valid options are: `Trace` | `Debug` | `Info` | `Print` | `Warning` | `Error` | `Fatal` | `Panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
@@ -71,6 +89,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("includeRetryReason")]
         public Output<string?> IncludeRetryReason { get; private set; } = null!;
+
+        /// <summary>
+        /// A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+        /// </summary>
+        [Output("noProxy")]
+        public Output<string?> NoProxy { get; private set; } = null!;
 
         /// <summary>
         /// Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
@@ -163,6 +187,30 @@ namespace Pulumi.Snowflake
         public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+        /// </summary>
+        [Output("proxyHost")]
+        public Output<string?> ProxyHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+        /// </summary>
+        [Output("proxyPassword")]
+        public Output<string?> ProxyPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// The protocol of the proxy to use for the connection. Valid options are: `Http` | `Https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+        /// </summary>
+        [Output("proxyProtocol")]
+        public Output<string?> ProxyProtocol { get; private set; } = null!;
+
+        /// <summary>
+        /// The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+        /// </summary>
+        [Output("proxyUser")]
+        public Output<string?> ProxyUser { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
         /// </summary>
         [Output("role")]
@@ -239,6 +287,7 @@ namespace Pulumi.Snowflake
                     "password",
                     "privateKey",
                     "privateKeyPassphrase",
+                    "proxyPassword",
                     "token",
                 },
             };
@@ -270,6 +319,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Authenticator { get; set; }
 
         /// <summary>
+        /// Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+        /// </summary>
+        [Input("certRevocationCheckMode")]
+        public Input<string>? CertRevocationCheckMode { get; set; }
+
+        /// <summary>
         /// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         /// </summary>
         [Input("clientIp")]
@@ -294,16 +349,52 @@ namespace Pulumi.Snowflake
         public Input<int>? ClientTimeout { get; set; }
 
         /// <summary>
+        /// Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+        /// </summary>
+        [Input("crlAllowCertificatesWithoutCrlUrl")]
+        public Input<string>? CrlAllowCertificatesWithoutCrlUrl { get; set; }
+
+        /// <summary>
+        /// Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+        /// </summary>
+        [Input("crlHttpClientTimeout", json: true)]
+        public Input<int>? CrlHttpClientTimeout { get; set; }
+
+        /// <summary>
+        /// False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+        /// </summary>
+        [Input("crlInMemoryCacheDisabled", json: true)]
+        public Input<bool>? CrlInMemoryCacheDisabled { get; set; }
+
+        /// <summary>
+        /// False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+        /// </summary>
+        [Input("crlOnDiskCacheDisabled", json: true)]
+        public Input<bool>? CrlOnDiskCacheDisabled { get; set; }
+
+        /// <summary>
         /// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
         /// </summary>
         [Input("disableConsoleLogin")]
         public Input<string>? DisableConsoleLogin { get; set; }
 
         /// <summary>
+        /// False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+        /// </summary>
+        [Input("disableOcspChecks", json: true)]
+        public Input<bool>? DisableOcspChecks { get; set; }
+
+        /// <summary>
         /// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
         /// </summary>
         [Input("disableQueryContextCache", json: true)]
         public Input<bool>? DisableQueryContextCache { get; set; }
+
+        /// <summary>
+        /// Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+        /// </summary>
+        [Input("disableSamlUrlCheck")]
+        public Input<string>? DisableSamlUrlCheck { get; set; }
 
         /// <summary>
         /// Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
@@ -354,7 +445,7 @@ namespace Pulumi.Snowflake
         public Input<string>? IncludeRetryReason { get; set; }
 
         /// <summary>
-        /// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+        /// This field is deprecated. Use `DisableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
         /// </summary>
         [Input("insecureMode", json: true)]
         public Input<bool>? InsecureMode { get; set; }
@@ -400,6 +491,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("maxRetryCount", json: true)]
         public Input<int>? MaxRetryCount { get; set; }
+
+        /// <summary>
+        /// A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+        /// </summary>
+        [Input("noProxy")]
+        public Input<string>? NoProxy { get; set; }
 
         [Input("oauthAuthorizationUrl")]
         private Input<string>? _oauthAuthorizationUrl;
@@ -612,6 +709,46 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+        /// </summary>
+        [Input("proxyHost")]
+        public Input<string>? ProxyHost { get; set; }
+
+        [Input("proxyPassword")]
+        private Input<string>? _proxyPassword;
+
+        /// <summary>
+        /// The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+        /// </summary>
+        public Input<string>? ProxyPassword
+        {
+            get => _proxyPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _proxyPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+        /// </summary>
+        [Input("proxyPort", json: true)]
+        public Input<int>? ProxyPort { get; set; }
+
+        /// <summary>
+        /// The protocol of the proxy to use for the connection. Valid options are: `Http` | `Https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+        /// </summary>
+        [Input("proxyProtocol")]
+        public Input<string>? ProxyProtocol { get; set; }
+
+        /// <summary>
+        /// The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+        /// </summary>
+        [Input("proxyUser")]
+        public Input<string>? ProxyUser { get; set; }
 
         /// <summary>
         /// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.

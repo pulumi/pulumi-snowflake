@@ -22,12 +22,19 @@ class ProviderArgs:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  authenticator: Optional[pulumi.Input[_builtins.str]] = None,
+                 cert_revocation_check_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  client_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  client_request_mfa_token: Optional[pulumi.Input[_builtins.str]] = None,
                  client_store_temporary_credential: Optional[pulumi.Input[_builtins.str]] = None,
                  client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 crl_allow_certificates_without_crl_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 crl_http_client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 crl_in_memory_cache_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 crl_on_disk_cache_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_console_login: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_ocsp_checks: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_query_context_cache: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disable_saml_url_check: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -43,6 +50,7 @@ class ProviderArgs:
                  log_query_text: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
@@ -62,6 +70,11 @@ class ProviderArgs:
                  private_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_host: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 proxy_protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_user: Optional[pulumi.Input[_builtins.str]] = None,
                  request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  role: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_toml_file_permission_verification: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -78,12 +91,19 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
         :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        :param pulumi.Input[_builtins.str] cert_revocation_check_mode: Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
         :param pulumi.Input[_builtins.str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         :param pulumi.Input[_builtins.str] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] client_store_temporary_credential: When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
         :param pulumi.Input[_builtins.int] client_timeout: The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+        :param pulumi.Input[_builtins.str] crl_allow_certificates_without_crl_url: Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+        :param pulumi.Input[_builtins.int] crl_http_client_timeout: Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+        :param pulumi.Input[_builtins.bool] crl_in_memory_cache_disabled: False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+        :param pulumi.Input[_builtins.bool] crl_on_disk_cache_disabled: False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
         :param pulumi.Input[_builtins.str] disable_console_login: Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+        :param pulumi.Input[_builtins.bool] disable_ocsp_checks: False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
         :param pulumi.Input[_builtins.bool] disable_query_context_cache: Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
+        :param pulumi.Input[_builtins.str] disable_saml_url_check: Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
         :param pulumi.Input[_builtins.bool] disable_telemetry: Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
         :param pulumi.Input[_builtins.str] driver_tracing: Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
         :param pulumi.Input[_builtins.bool] enable_single_use_refresh_tokens: Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
@@ -91,7 +111,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.int] external_browser_timeout: The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.str] host: Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
         :param pulumi.Input[_builtins.str] include_retry_reason: Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
-        :param pulumi.Input[_builtins.bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+        :param pulumi.Input[_builtins.bool] insecure_mode: This field is deprecated. Use `disable_ocsp_checks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
         :param pulumi.Input[_builtins.int] jwt_client_timeout: The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] jwt_expire_timeout: JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.bool] keep_session_alive: Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
@@ -99,6 +119,7 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.bool] log_query_text: When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
         :param pulumi.Input[_builtins.int] login_timeout: Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] max_retry_count: Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+        :param pulumi.Input[_builtins.str] no_proxy: A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
         :param pulumi.Input[_builtins.str] oauth_authorization_url: Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
         :param pulumi.Input[_builtins.str] oauth_client_id: Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
         :param pulumi.Input[_builtins.str] oauth_client_secret: Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
@@ -117,6 +138,11 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
         :param pulumi.Input[_builtins.str] profile: Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
         :param pulumi.Input[_builtins.str] protocol: A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        :param pulumi.Input[_builtins.str] proxy_host: The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+        :param pulumi.Input[_builtins.str] proxy_password: The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+        :param pulumi.Input[_builtins.int] proxy_port: The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+        :param pulumi.Input[_builtins.str] proxy_protocol: The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+        :param pulumi.Input[_builtins.str] proxy_user: The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
         :param pulumi.Input[_builtins.int] request_timeout: request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.str] role: Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
         :param pulumi.Input[_builtins.bool] skip_toml_file_permission_verification: False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
@@ -134,6 +160,8 @@ class ProviderArgs:
             pulumi.set(__self__, "account_name", account_name)
         if authenticator is not None:
             pulumi.set(__self__, "authenticator", authenticator)
+        if cert_revocation_check_mode is not None:
+            pulumi.set(__self__, "cert_revocation_check_mode", cert_revocation_check_mode)
         if client_ip is not None:
             pulumi.set(__self__, "client_ip", client_ip)
         if client_request_mfa_token is not None:
@@ -142,10 +170,22 @@ class ProviderArgs:
             pulumi.set(__self__, "client_store_temporary_credential", client_store_temporary_credential)
         if client_timeout is not None:
             pulumi.set(__self__, "client_timeout", client_timeout)
+        if crl_allow_certificates_without_crl_url is not None:
+            pulumi.set(__self__, "crl_allow_certificates_without_crl_url", crl_allow_certificates_without_crl_url)
+        if crl_http_client_timeout is not None:
+            pulumi.set(__self__, "crl_http_client_timeout", crl_http_client_timeout)
+        if crl_in_memory_cache_disabled is not None:
+            pulumi.set(__self__, "crl_in_memory_cache_disabled", crl_in_memory_cache_disabled)
+        if crl_on_disk_cache_disabled is not None:
+            pulumi.set(__self__, "crl_on_disk_cache_disabled", crl_on_disk_cache_disabled)
         if disable_console_login is not None:
             pulumi.set(__self__, "disable_console_login", disable_console_login)
+        if disable_ocsp_checks is not None:
+            pulumi.set(__self__, "disable_ocsp_checks", disable_ocsp_checks)
         if disable_query_context_cache is not None:
             pulumi.set(__self__, "disable_query_context_cache", disable_query_context_cache)
+        if disable_saml_url_check is not None:
+            pulumi.set(__self__, "disable_saml_url_check", disable_saml_url_check)
         if disable_telemetry is not None:
             pulumi.set(__self__, "disable_telemetry", disable_telemetry)
         if driver_tracing is not None:
@@ -163,6 +203,9 @@ class ProviderArgs:
         if include_retry_reason is not None:
             pulumi.set(__self__, "include_retry_reason", include_retry_reason)
         if insecure_mode is not None:
+            warnings.warn("""This field is deprecated. Use `disable_ocsp_checks` instead.""", DeprecationWarning)
+            pulumi.log.warn("""insecure_mode is deprecated: This field is deprecated. Use `disable_ocsp_checks` instead.""")
+        if insecure_mode is not None:
             pulumi.set(__self__, "insecure_mode", insecure_mode)
         if jwt_client_timeout is not None:
             pulumi.set(__self__, "jwt_client_timeout", jwt_client_timeout)
@@ -178,6 +221,8 @@ class ProviderArgs:
             pulumi.set(__self__, "login_timeout", login_timeout)
         if max_retry_count is not None:
             pulumi.set(__self__, "max_retry_count", max_retry_count)
+        if no_proxy is not None:
+            pulumi.set(__self__, "no_proxy", no_proxy)
         if oauth_authorization_url is not None:
             pulumi.set(__self__, "oauth_authorization_url", oauth_authorization_url)
         if oauth_client_id is not None:
@@ -224,6 +269,16 @@ class ProviderArgs:
             protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if proxy_host is not None:
+            pulumi.set(__self__, "proxy_host", proxy_host)
+        if proxy_password is not None:
+            pulumi.set(__self__, "proxy_password", proxy_password)
+        if proxy_port is not None:
+            pulumi.set(__self__, "proxy_port", proxy_port)
+        if proxy_protocol is not None:
+            pulumi.set(__self__, "proxy_protocol", proxy_protocol)
+        if proxy_user is not None:
+            pulumi.set(__self__, "proxy_user", proxy_user)
         if request_timeout is not None:
             pulumi.set(__self__, "request_timeout", request_timeout)
         if role is None:
@@ -278,6 +333,18 @@ class ProviderArgs:
         pulumi.set(self, "authenticator", value)
 
     @_builtins.property
+    @pulumi.getter(name="certRevocationCheckMode")
+    def cert_revocation_check_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+        """
+        return pulumi.get(self, "cert_revocation_check_mode")
+
+    @cert_revocation_check_mode.setter
+    def cert_revocation_check_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cert_revocation_check_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="clientIp")
     def client_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -326,6 +393,54 @@ class ProviderArgs:
         pulumi.set(self, "client_timeout", value)
 
     @_builtins.property
+    @pulumi.getter(name="crlAllowCertificatesWithoutCrlUrl")
+    def crl_allow_certificates_without_crl_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+        """
+        return pulumi.get(self, "crl_allow_certificates_without_crl_url")
+
+    @crl_allow_certificates_without_crl_url.setter
+    def crl_allow_certificates_without_crl_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "crl_allow_certificates_without_crl_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crlHttpClientTimeout")
+    def crl_http_client_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+        """
+        return pulumi.get(self, "crl_http_client_timeout")
+
+    @crl_http_client_timeout.setter
+    def crl_http_client_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "crl_http_client_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crlInMemoryCacheDisabled")
+    def crl_in_memory_cache_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+        """
+        return pulumi.get(self, "crl_in_memory_cache_disabled")
+
+    @crl_in_memory_cache_disabled.setter
+    def crl_in_memory_cache_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "crl_in_memory_cache_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crlOnDiskCacheDisabled")
+    def crl_on_disk_cache_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+        """
+        return pulumi.get(self, "crl_on_disk_cache_disabled")
+
+    @crl_on_disk_cache_disabled.setter
+    def crl_on_disk_cache_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "crl_on_disk_cache_disabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="disableConsoleLogin")
     def disable_console_login(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -338,6 +453,18 @@ class ProviderArgs:
         pulumi.set(self, "disable_console_login", value)
 
     @_builtins.property
+    @pulumi.getter(name="disableOcspChecks")
+    def disable_ocsp_checks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+        """
+        return pulumi.get(self, "disable_ocsp_checks")
+
+    @disable_ocsp_checks.setter
+    def disable_ocsp_checks(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disable_ocsp_checks", value)
+
+    @_builtins.property
     @pulumi.getter(name="disableQueryContextCache")
     def disable_query_context_cache(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -348,6 +475,18 @@ class ProviderArgs:
     @disable_query_context_cache.setter
     def disable_query_context_cache(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "disable_query_context_cache", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableSamlUrlCheck")
+    def disable_saml_url_check(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+        """
+        return pulumi.get(self, "disable_saml_url_check")
+
+    @disable_saml_url_check.setter
+    def disable_saml_url_check(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "disable_saml_url_check", value)
 
     @_builtins.property
     @pulumi.getter(name="disableTelemetry")
@@ -435,9 +574,10 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="insecureMode")
+    @_utilities.deprecated("""This field is deprecated. Use `disable_ocsp_checks` instead.""")
     def insecure_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+        This field is deprecated. Use `disable_ocsp_checks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
         """
         return pulumi.get(self, "insecure_mode")
 
@@ -528,6 +668,18 @@ class ProviderArgs:
     @max_retry_count.setter
     def max_retry_count(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "max_retry_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="noProxy")
+    def no_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+        """
+        return pulumi.get(self, "no_proxy")
+
+    @no_proxy.setter
+    def no_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "no_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAuthorizationUrl")
@@ -755,6 +907,66 @@ class ProviderArgs:
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
+    @pulumi.getter(name="proxyHost")
+    def proxy_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+        """
+        return pulumi.get(self, "proxy_host")
+
+    @proxy_host.setter
+    def proxy_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "proxy_host", value)
+
+    @_builtins.property
+    @pulumi.getter(name="proxyPassword")
+    def proxy_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+        """
+        return pulumi.get(self, "proxy_password")
+
+    @proxy_password.setter
+    def proxy_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "proxy_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="proxyPort")
+    def proxy_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+        """
+        return pulumi.get(self, "proxy_port")
+
+    @proxy_port.setter
+    def proxy_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "proxy_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="proxyProtocol")
+    def proxy_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+        """
+        return pulumi.get(self, "proxy_protocol")
+
+    @proxy_protocol.setter
+    def proxy_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "proxy_protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="proxyUser")
+    def proxy_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+        """
+        return pulumi.get(self, "proxy_user")
+
+    @proxy_user.setter
+    def proxy_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "proxy_user", value)
+
+    @_builtins.property
     @pulumi.getter(name="requestTimeout")
     def request_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -907,12 +1119,19 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  authenticator: Optional[pulumi.Input[_builtins.str]] = None,
+                 cert_revocation_check_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  client_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  client_request_mfa_token: Optional[pulumi.Input[_builtins.str]] = None,
                  client_store_temporary_credential: Optional[pulumi.Input[_builtins.str]] = None,
                  client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 crl_allow_certificates_without_crl_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 crl_http_client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 crl_in_memory_cache_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 crl_on_disk_cache_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_console_login: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_ocsp_checks: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_query_context_cache: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disable_saml_url_check: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -928,6 +1147,7 @@ class Provider(pulumi.ProviderResource):
                  log_query_text: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
@@ -947,6 +1167,11 @@ class Provider(pulumi.ProviderResource):
                  private_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_host: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 proxy_protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_user: Optional[pulumi.Input[_builtins.str]] = None,
                  request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  role: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_toml_file_permission_verification: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -970,12 +1195,19 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
         :param pulumi.Input[_builtins.str] authenticator: Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        :param pulumi.Input[_builtins.str] cert_revocation_check_mode: Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
         :param pulumi.Input[_builtins.str] client_ip: IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
         :param pulumi.Input[_builtins.str] client_request_mfa_token: When true the MFA token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_REQUEST_MFA_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] client_store_temporary_credential: When true the ID token is cached in the credential manager. True by default in Windows/OSX. False for Linux. Can also be sourced from the `SNOWFLAKE_CLIENT_STORE_TEMPORARY_CREDENTIAL` environment variable.
         :param pulumi.Input[_builtins.int] client_timeout: The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
+        :param pulumi.Input[_builtins.str] crl_allow_certificates_without_crl_url: Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+        :param pulumi.Input[_builtins.int] crl_http_client_timeout: Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+        :param pulumi.Input[_builtins.bool] crl_in_memory_cache_disabled: False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+        :param pulumi.Input[_builtins.bool] crl_on_disk_cache_disabled: False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
         :param pulumi.Input[_builtins.str] disable_console_login: Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
+        :param pulumi.Input[_builtins.bool] disable_ocsp_checks: False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
         :param pulumi.Input[_builtins.bool] disable_query_context_cache: Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
+        :param pulumi.Input[_builtins.str] disable_saml_url_check: Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
         :param pulumi.Input[_builtins.bool] disable_telemetry: Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
         :param pulumi.Input[_builtins.str] driver_tracing: Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
         :param pulumi.Input[_builtins.bool] enable_single_use_refresh_tokens: Enables single use refresh tokens for Snowflake IdP. Can also be sourced from the `SNOWFLAKE_ENABLE_SINGLE_USE_REFRESH_TOKENS` environment variable.
@@ -983,7 +1215,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.int] external_browser_timeout: The timeout in seconds for the external browser to complete the authentication. Can also be sourced from the `SNOWFLAKE_EXTERNAL_BROWSER_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.str] host: Specifies a custom host value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_HOST` environment variable.
         :param pulumi.Input[_builtins.str] include_retry_reason: Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
-        :param pulumi.Input[_builtins.bool] insecure_mode: If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+        :param pulumi.Input[_builtins.bool] insecure_mode: This field is deprecated. Use `disable_ocsp_checks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
         :param pulumi.Input[_builtins.int] jwt_client_timeout: The timeout in seconds for the JWT client to complete the authentication. Can also be sourced from the `SNOWFLAKE_JWT_CLIENT_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] jwt_expire_timeout: JWT expire after timeout in seconds. Can also be sourced from the `SNOWFLAKE_JWT_EXPIRE_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.bool] keep_session_alive: Enables the session to persist even after the connection is closed. Can also be sourced from the `SNOWFLAKE_KEEP_SESSION_ALIVE` environment variable.
@@ -991,6 +1223,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.bool] log_query_text: When set to true, the full query text will be logged. Be aware that it may include sensitive information. Default value is false. Can also be sourced from the `SNOWFLAKE_LOG_QUERY_TEXT` environment variable.
         :param pulumi.Input[_builtins.int] login_timeout: Login retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_LOGIN_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.int] max_retry_count: Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+        :param pulumi.Input[_builtins.str] no_proxy: A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
         :param pulumi.Input[_builtins.str] oauth_authorization_url: Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
         :param pulumi.Input[_builtins.str] oauth_client_id: Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
         :param pulumi.Input[_builtins.str] oauth_client_secret: Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
@@ -1009,6 +1242,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] private_key_passphrase: Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
         :param pulumi.Input[_builtins.str] profile: Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
         :param pulumi.Input[_builtins.str] protocol: A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+        :param pulumi.Input[_builtins.str] proxy_host: The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+        :param pulumi.Input[_builtins.str] proxy_password: The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+        :param pulumi.Input[_builtins.int] proxy_port: The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+        :param pulumi.Input[_builtins.str] proxy_protocol: The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+        :param pulumi.Input[_builtins.str] proxy_user: The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
         :param pulumi.Input[_builtins.int] request_timeout: request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         :param pulumi.Input[_builtins.str] role: Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
         :param pulumi.Input[_builtins.bool] skip_toml_file_permission_verification: False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
@@ -1051,12 +1289,19 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  authenticator: Optional[pulumi.Input[_builtins.str]] = None,
+                 cert_revocation_check_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  client_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  client_request_mfa_token: Optional[pulumi.Input[_builtins.str]] = None,
                  client_store_temporary_credential: Optional[pulumi.Input[_builtins.str]] = None,
                  client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 crl_allow_certificates_without_crl_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 crl_http_client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 crl_in_memory_cache_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 crl_on_disk_cache_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_console_login: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_ocsp_checks: Optional[pulumi.Input[_builtins.bool]] = None,
                  disable_query_context_cache: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disable_saml_url_check: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_telemetry: Optional[pulumi.Input[_builtins.bool]] = None,
                  driver_tracing: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_single_use_refresh_tokens: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1072,6 +1317,7 @@ class Provider(pulumi.ProviderResource):
                  log_query_text: Optional[pulumi.Input[_builtins.bool]] = None,
                  login_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  max_retry_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 no_proxy: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1091,6 +1337,11 @@ class Provider(pulumi.ProviderResource):
                  private_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_host: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 proxy_protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 proxy_user: Optional[pulumi.Input[_builtins.str]] = None,
                  request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  role: Optional[pulumi.Input[_builtins.str]] = None,
                  skip_toml_file_permission_verification: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1114,12 +1365,19 @@ class Provider(pulumi.ProviderResource):
 
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["authenticator"] = authenticator
+            __props__.__dict__["cert_revocation_check_mode"] = cert_revocation_check_mode
             __props__.__dict__["client_ip"] = client_ip
             __props__.__dict__["client_request_mfa_token"] = client_request_mfa_token
             __props__.__dict__["client_store_temporary_credential"] = client_store_temporary_credential
             __props__.__dict__["client_timeout"] = pulumi.Output.from_input(client_timeout).apply(pulumi.runtime.to_json) if client_timeout is not None else None
+            __props__.__dict__["crl_allow_certificates_without_crl_url"] = crl_allow_certificates_without_crl_url
+            __props__.__dict__["crl_http_client_timeout"] = pulumi.Output.from_input(crl_http_client_timeout).apply(pulumi.runtime.to_json) if crl_http_client_timeout is not None else None
+            __props__.__dict__["crl_in_memory_cache_disabled"] = pulumi.Output.from_input(crl_in_memory_cache_disabled).apply(pulumi.runtime.to_json) if crl_in_memory_cache_disabled is not None else None
+            __props__.__dict__["crl_on_disk_cache_disabled"] = pulumi.Output.from_input(crl_on_disk_cache_disabled).apply(pulumi.runtime.to_json) if crl_on_disk_cache_disabled is not None else None
             __props__.__dict__["disable_console_login"] = disable_console_login
+            __props__.__dict__["disable_ocsp_checks"] = pulumi.Output.from_input(disable_ocsp_checks).apply(pulumi.runtime.to_json) if disable_ocsp_checks is not None else None
             __props__.__dict__["disable_query_context_cache"] = pulumi.Output.from_input(disable_query_context_cache).apply(pulumi.runtime.to_json) if disable_query_context_cache is not None else None
+            __props__.__dict__["disable_saml_url_check"] = disable_saml_url_check
             __props__.__dict__["disable_telemetry"] = pulumi.Output.from_input(disable_telemetry).apply(pulumi.runtime.to_json) if disable_telemetry is not None else None
             __props__.__dict__["driver_tracing"] = driver_tracing
             __props__.__dict__["enable_single_use_refresh_tokens"] = pulumi.Output.from_input(enable_single_use_refresh_tokens).apply(pulumi.runtime.to_json) if enable_single_use_refresh_tokens is not None else None
@@ -1137,6 +1395,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["log_query_text"] = pulumi.Output.from_input(log_query_text).apply(pulumi.runtime.to_json) if log_query_text is not None else None
             __props__.__dict__["login_timeout"] = pulumi.Output.from_input(login_timeout).apply(pulumi.runtime.to_json) if login_timeout is not None else None
             __props__.__dict__["max_retry_count"] = pulumi.Output.from_input(max_retry_count).apply(pulumi.runtime.to_json) if max_retry_count is not None else None
+            __props__.__dict__["no_proxy"] = no_proxy
             __props__.__dict__["oauth_authorization_url"] = None if oauth_authorization_url is None else pulumi.Output.secret(oauth_authorization_url)
             __props__.__dict__["oauth_client_id"] = None if oauth_client_id is None else pulumi.Output.secret(oauth_client_id)
             __props__.__dict__["oauth_client_secret"] = None if oauth_client_secret is None else pulumi.Output.secret(oauth_client_secret)
@@ -1164,6 +1423,11 @@ class Provider(pulumi.ProviderResource):
             if protocol is None:
                 protocol = _utilities.get_env('SNOWFLAKE_PROTOCOL')
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["proxy_host"] = proxy_host
+            __props__.__dict__["proxy_password"] = None if proxy_password is None else pulumi.Output.secret(proxy_password)
+            __props__.__dict__["proxy_port"] = pulumi.Output.from_input(proxy_port).apply(pulumi.runtime.to_json) if proxy_port is not None else None
+            __props__.__dict__["proxy_protocol"] = proxy_protocol
+            __props__.__dict__["proxy_user"] = proxy_user
             __props__.__dict__["request_timeout"] = pulumi.Output.from_input(request_timeout).apply(pulumi.runtime.to_json) if request_timeout is not None else None
             if role is None:
                 role = _utilities.get_env('SNOWFLAKE_ROLE')
@@ -1180,7 +1444,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["warehouse"] = warehouse
             __props__.__dict__["workload_identity_entra_resource"] = workload_identity_entra_resource
             __props__.__dict__["workload_identity_provider"] = workload_identity_provider
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthAuthorizationUrl", "oauthClientId", "oauthClientSecret", "oauthRedirectUri", "oauthTokenRequestUrl", "passcode", "password", "privateKey", "privateKeyPassphrase", "token"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthAuthorizationUrl", "oauthClientId", "oauthClientSecret", "oauthRedirectUri", "oauthTokenRequestUrl", "passcode", "password", "privateKey", "privateKeyPassphrase", "proxyPassword", "token"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'snowflake',
@@ -1203,6 +1467,14 @@ class Provider(pulumi.ProviderResource):
         Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         """
         return pulumi.get(self, "authenticator")
+
+    @_builtins.property
+    @pulumi.getter(name="certRevocationCheckMode")
+    def cert_revocation_check_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+        """
+        return pulumi.get(self, "cert_revocation_check_mode")
 
     @_builtins.property
     @pulumi.getter(name="clientIp")
@@ -1229,12 +1501,28 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "client_store_temporary_credential")
 
     @_builtins.property
+    @pulumi.getter(name="crlAllowCertificatesWithoutCrlUrl")
+    def crl_allow_certificates_without_crl_url(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+        """
+        return pulumi.get(self, "crl_allow_certificates_without_crl_url")
+
+    @_builtins.property
     @pulumi.getter(name="disableConsoleLogin")
     def disable_console_login(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
         """
         return pulumi.get(self, "disable_console_login")
+
+    @_builtins.property
+    @pulumi.getter(name="disableSamlUrlCheck")
+    def disable_saml_url_check(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+        """
+        return pulumi.get(self, "disable_saml_url_check")
 
     @_builtins.property
     @pulumi.getter(name="driverTracing")
@@ -1259,6 +1547,14 @@ class Provider(pulumi.ProviderResource):
         Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
         """
         return pulumi.get(self, "include_retry_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="noProxy")
+    def no_proxy(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+        """
+        return pulumi.get(self, "no_proxy")
 
     @_builtins.property
     @pulumi.getter(name="oauthAuthorizationUrl")
@@ -1379,6 +1675,38 @@ class Provider(pulumi.ProviderResource):
         A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
         """
         return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="proxyHost")
+    def proxy_host(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+        """
+        return pulumi.get(self, "proxy_host")
+
+    @_builtins.property
+    @pulumi.getter(name="proxyPassword")
+    def proxy_password(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+        """
+        return pulumi.get(self, "proxy_password")
+
+    @_builtins.property
+    @pulumi.getter(name="proxyProtocol")
+    def proxy_protocol(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+        """
+        return pulumi.get(self, "proxy_protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="proxyUser")
+    def proxy_user(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+        """
+        return pulumi.get(self, "proxy_user")
 
     @_builtins.property
     @pulumi.getter

@@ -36,13 +36,13 @@ type Notebook struct {
 	MainFile pulumi.StringPtrOutput `pulumi:"mainFile"`
 	// Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the warehouse where SQL queries in the notebook are run.
+	// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
 	QueryWarehouse pulumi.StringPtrOutput `pulumi:"queryWarehouse"`
 	// The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW NOTEBOOKS` for the given notebook
 	ShowOutputs NotebookShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Specifies the warehouse that runs the notebook kernel and python code.
+	// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
 	Warehouse pulumi.StringPtrOutput `pulumi:"warehouse"`
 }
 
@@ -98,13 +98,13 @@ type notebookState struct {
 	MainFile *string `pulumi:"mainFile"`
 	// Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the warehouse where SQL queries in the notebook are run.
+	// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
 	QueryWarehouse *string `pulumi:"queryWarehouse"`
 	// The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW NOTEBOOKS` for the given notebook
 	ShowOutputs []NotebookShowOutput `pulumi:"showOutputs"`
-	// Specifies the warehouse that runs the notebook kernel and python code.
+	// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
 	Warehouse *string `pulumi:"warehouse"`
 }
 
@@ -125,13 +125,13 @@ type NotebookState struct {
 	MainFile pulumi.StringPtrInput
 	// Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the warehouse where SQL queries in the notebook are run.
+	// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
 	QueryWarehouse pulumi.StringPtrInput
 	// The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW NOTEBOOKS` for the given notebook
 	ShowOutputs NotebookShowOutputArrayInput
-	// Specifies the warehouse that runs the notebook kernel and python code.
+	// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
 	Warehouse pulumi.StringPtrInput
 }
 
@@ -152,11 +152,11 @@ type notebookArgs struct {
 	MainFile *string `pulumi:"mainFile"`
 	// Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the warehouse where SQL queries in the notebook are run.
+	// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
 	QueryWarehouse *string `pulumi:"queryWarehouse"`
 	// The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// Specifies the warehouse that runs the notebook kernel and python code.
+	// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
 	Warehouse *string `pulumi:"warehouse"`
 }
 
@@ -174,11 +174,11 @@ type NotebookArgs struct {
 	MainFile pulumi.StringPtrInput
 	// Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the warehouse where SQL queries in the notebook are run.
+	// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
 	QueryWarehouse pulumi.StringPtrInput
 	// The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// Specifies the warehouse that runs the notebook kernel and python code.
+	// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
 	Warehouse pulumi.StringPtrInput
 }
 
@@ -309,7 +309,7 @@ func (o NotebookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Notebook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the warehouse where SQL queries in the notebook are run.
+// Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
 func (o NotebookOutput) QueryWarehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Notebook) pulumi.StringPtrOutput { return v.QueryWarehouse }).(pulumi.StringPtrOutput)
 }
@@ -324,7 +324,7 @@ func (o NotebookOutput) ShowOutputs() NotebookShowOutputArrayOutput {
 	return o.ApplyT(func(v *Notebook) NotebookShowOutputArrayOutput { return v.ShowOutputs }).(NotebookShowOutputArrayOutput)
 }
 
-// Specifies the warehouse that runs the notebook kernel and python code.
+// Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
 func (o NotebookOutput) Warehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Notebook) pulumi.StringPtrOutput { return v.Warehouse }).(pulumi.StringPtrOutput)
 }

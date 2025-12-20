@@ -25,6 +25,11 @@ authenticator: Optional[str]
 Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 """
 
+certRevocationCheckMode: Optional[str]
+"""
+Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+"""
+
 clientIp: Optional[str]
 """
 IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
@@ -45,14 +50,44 @@ clientTimeout: Optional[int]
 The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable.
 """
 
+crlAllowCertificatesWithoutCrlUrl: Optional[str]
+"""
+Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+"""
+
+crlHttpClientTimeout: Optional[int]
+"""
+Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+"""
+
+crlInMemoryCacheDisabled: Optional[bool]
+"""
+False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+"""
+
+crlOnDiskCacheDisabled: Optional[bool]
+"""
+False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+"""
+
 disableConsoleLogin: Optional[str]
 """
 Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 """
 
+disableOcspChecks: Optional[bool]
+"""
+False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+"""
+
 disableQueryContextCache: Optional[bool]
 """
 Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
+"""
+
+disableSamlUrlCheck: Optional[str]
+"""
+Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
 """
 
 disableTelemetry: Optional[bool]
@@ -92,7 +127,7 @@ Should retried request contain retry reason. Can also be sourced from the `SNOWF
 
 insecureMode: Optional[bool]
 """
-If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+This field is deprecated. Use `disable_ocsp_checks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
 """
 
 jwtClientTimeout: Optional[int]
@@ -128,6 +163,11 @@ Login retry timeout in seconds EXCLUDING network roundtrip and read out http res
 maxRetryCount: Optional[int]
 """
 Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
+"""
+
+noProxy: Optional[str]
+"""
+A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
 """
 
 oauthAuthorizationUrl: Optional[str]
@@ -220,6 +260,31 @@ Sets the profile to read from ~/.snowflake/config file. Can also be sourced from
 protocol: Optional[str]
 """
 A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
+"""
+
+proxyHost: Optional[str]
+"""
+The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+"""
+
+proxyPassword: Optional[str]
+"""
+The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+"""
+
+proxyPort: Optional[int]
+"""
+The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+"""
+
+proxyProtocol: Optional[str]
+"""
+The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+"""
+
+proxyUser: Optional[str]
+"""
+The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
 """
 
 requestTimeout: Optional[int]

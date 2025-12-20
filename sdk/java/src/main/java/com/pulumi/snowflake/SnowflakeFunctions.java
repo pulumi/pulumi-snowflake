@@ -50,6 +50,8 @@ import com.pulumi.snowflake.inputs.GetGrantsArgs;
 import com.pulumi.snowflake.inputs.GetGrantsPlainArgs;
 import com.pulumi.snowflake.inputs.GetImageRepositoriesArgs;
 import com.pulumi.snowflake.inputs.GetImageRepositoriesPlainArgs;
+import com.pulumi.snowflake.inputs.GetListingsArgs;
+import com.pulumi.snowflake.inputs.GetListingsPlainArgs;
 import com.pulumi.snowflake.inputs.GetMaskingPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetMaskingPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
@@ -128,6 +130,7 @@ import com.pulumi.snowflake.outputs.GetFunctionsResult;
 import com.pulumi.snowflake.outputs.GetGitRepositoriesResult;
 import com.pulumi.snowflake.outputs.GetGrantsResult;
 import com.pulumi.snowflake.outputs.GetImageRepositoriesResult;
+import com.pulumi.snowflake.outputs.GetListingsResult;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesResult;
 import com.pulumi.snowflake.outputs.GetMaterializedViewsResult;
 import com.pulumi.snowflake.outputs.GetNetworkPoliciesResult;
@@ -4479,6 +4482,83 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetImageRepositoriesResult> getImageRepositoriesPlain(GetImageRepositoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getImageRepositories:getImageRepositories", TypeShape.of(GetImageRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * 
+     * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
+     * 
+     * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+     * 
+     */
+    public static Output<GetListingsResult> getListings() {
+        return getListings(GetListingsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * 
+     * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
+     * 
+     * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+     * 
+     */
+    public static CompletableFuture<GetListingsResult> getListingsPlain() {
+        return getListingsPlain(GetListingsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * 
+     * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
+     * 
+     * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+     * 
+     */
+    public static Output<GetListingsResult> getListings(GetListingsArgs args) {
+        return getListings(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * 
+     * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
+     * 
+     * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+     * 
+     */
+    public static CompletableFuture<GetListingsResult> getListingsPlain(GetListingsPlainArgs args) {
+        return getListingsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * 
+     * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
+     * 
+     * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+     * 
+     */
+    public static Output<GetListingsResult> getListings(GetListingsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getListings:getListings", TypeShape.of(GetListingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * 
+     * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
+     * 
+     * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+     * 
+     */
+    public static Output<GetListingsResult> getListings(GetListingsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getListings:getListings", TypeShape.of(GetListingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * 
+     * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
+     * 
+     * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+     * 
+     */
+    public static CompletableFuture<GetListingsResult> getListingsPlain(GetListingsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getListings:getListings", TypeShape.of(GetListingsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).

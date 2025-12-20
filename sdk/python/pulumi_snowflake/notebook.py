@@ -39,8 +39,8 @@ class NotebookArgs:
         :param pulumi.Input[_builtins.int] idle_auto_shutdown_time_seconds: Specifies the number of seconds of idle time before the notebook is shut down automatically.
         :param pulumi.Input[_builtins.str] main_file: Specifies a user-specified identifier for the notebook file name.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run.
-        :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code.
+        :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
+        :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -147,7 +147,7 @@ class NotebookArgs:
     @pulumi.getter(name="queryWarehouse")
     def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the warehouse where SQL queries in the notebook are run.
+        Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "query_warehouse")
 
@@ -159,7 +159,7 @@ class NotebookArgs:
     @pulumi.getter
     def warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the warehouse that runs the notebook kernel and python code.
+        Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "warehouse")
 
@@ -193,10 +193,10 @@ class _NotebookState:
         :param pulumi.Input[_builtins.int] idle_auto_shutdown_time_seconds: Specifies the number of seconds of idle time before the notebook is shut down automatically.
         :param pulumi.Input[_builtins.str] main_file: Specifies a user-specified identifier for the notebook file name.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run.
+        :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['NotebookShowOutputArgs']]] show_outputs: Outputs the result of `SHOW NOTEBOOKS` for the given notebook
-        :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code.
+        :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -323,7 +323,7 @@ class _NotebookState:
     @pulumi.getter(name="queryWarehouse")
     def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the warehouse where SQL queries in the notebook are run.
+        Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "query_warehouse")
 
@@ -359,7 +359,7 @@ class _NotebookState:
     @pulumi.getter
     def warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the warehouse that runs the notebook kernel and python code.
+        Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "warehouse")
 
@@ -399,9 +399,9 @@ class Notebook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] idle_auto_shutdown_time_seconds: Specifies the number of seconds of idle time before the notebook is shut down automatically.
         :param pulumi.Input[_builtins.str] main_file: Specifies a user-specified identifier for the notebook file name.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run.
+        :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code.
+        :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         ...
     @overload
@@ -502,10 +502,10 @@ class Notebook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] idle_auto_shutdown_time_seconds: Specifies the number of seconds of idle time before the notebook is shut down automatically.
         :param pulumi.Input[_builtins.str] main_file: Specifies a user-specified identifier for the notebook file name.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run.
+        :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookShowOutputArgs', 'NotebookShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW NOTEBOOKS` for the given notebook
-        :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code.
+        :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -593,7 +593,7 @@ class Notebook(pulumi.CustomResource):
     @pulumi.getter(name="queryWarehouse")
     def query_warehouse(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the warehouse where SQL queries in the notebook are run.
+        Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "query_warehouse")
 
@@ -617,7 +617,7 @@ class Notebook(pulumi.CustomResource):
     @pulumi.getter
     def warehouse(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the warehouse that runs the notebook kernel and python code.
+        Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "warehouse")
 

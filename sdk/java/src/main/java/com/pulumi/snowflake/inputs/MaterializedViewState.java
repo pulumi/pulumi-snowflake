@@ -94,14 +94,14 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      * 
      */
     @Import(name="orReplace")
     private @Nullable Output<Boolean> orReplace;
 
     /**
-     * @return (Default: `false`) Overwrites the View if it exists.
+     * @return (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      * 
      */
     public Optional<Output<Boolean>> orReplace() {
@@ -124,14 +124,14 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the query used to create the view.
+     * Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
      * 
      */
     @Import(name="statement")
     private @Nullable Output<String> statement;
 
     /**
-     * @return Specifies the query used to create the view.
+     * @return Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
      * 
      */
     public Optional<Output<String>> statement() {
@@ -315,7 +315,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param orReplace (Default: `false`) Overwrites the View if it exists.
+         * @param orReplace (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param orReplace (Default: `false`) Overwrites the View if it exists.
+         * @param orReplace (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param statement Specifies the query used to create the view.
+         * @param statement Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param statement Specifies the query used to create the view.
+         * @param statement Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
          * 
          * @return builder
          * 

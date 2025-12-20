@@ -67,9 +67,6 @@ namespace Pulumi.Snowflake
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.ResourceMonitorShowOutput>> ShowOutputs { get; private set; } = null!;
 
-        /// <summary>
-        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `StartTimestamp` for a resource monitor, you must also set `Frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
-        /// </summary>
         [Output("startTimestamp")]
         public Output<string?> StartTimestamp { get; private set; } = null!;
 
@@ -179,9 +176,6 @@ namespace Pulumi.Snowflake
             set => _notifyUsers = value;
         }
 
-        /// <summary>
-        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `StartTimestamp` for a resource monitor, you must also set `Frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
-        /// </summary>
         [Input("startTimestamp")]
         public Input<string>? StartTimestamp { get; set; }
 
@@ -271,9 +265,6 @@ namespace Pulumi.Snowflake
             set => _showOutputs = value;
         }
 
-        /// <summary>
-        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `StartTimestamp` for a resource monitor, you must also set `Frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
-        /// </summary>
         [Input("startTimestamp")]
         public Input<string>? StartTimestamp { get; set; }
 

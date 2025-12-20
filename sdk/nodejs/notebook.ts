@@ -74,7 +74,7 @@ export class Notebook extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the warehouse where SQL queries in the notebook are run.
+     * Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      */
     declare public readonly queryWarehouse: pulumi.Output<string | undefined>;
     /**
@@ -86,7 +86,7 @@ export class Notebook extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.NotebookShowOutput[]>;
     /**
-     * Specifies the warehouse that runs the notebook kernel and python code.
+     * Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      */
     declare public readonly warehouse: pulumi.Output<string | undefined>;
 
@@ -178,7 +178,7 @@ export interface NotebookState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the warehouse where SQL queries in the notebook are run.
+     * Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      */
     queryWarehouse?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface NotebookState {
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.NotebookShowOutput>[]>;
     /**
-     * Specifies the warehouse that runs the notebook kernel and python code.
+     * Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      */
     warehouse?: pulumi.Input<string>;
 }
@@ -224,7 +224,7 @@ export interface NotebookArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the warehouse where SQL queries in the notebook are run.
+     * Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      */
     queryWarehouse?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface NotebookArgs {
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies the warehouse that runs the notebook kernel and python code.
+     * Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      */
     warehouse?: pulumi.Input<string>;
 }

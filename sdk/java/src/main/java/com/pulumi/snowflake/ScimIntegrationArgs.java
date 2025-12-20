@@ -78,14 +78,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
      * 
      */
     @Import(name="runAsRole", required=true)
     private Output<String> runAsRole;
 
     /**
-     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
      * 
      */
     public Output<String> runAsRole() {
@@ -237,7 +237,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
          * 
          * @return builder
          * 

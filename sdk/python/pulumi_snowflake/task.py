@@ -65,10 +65,13 @@ class TaskArgs:
                  s3_stage_vpce_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
                  search_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  strict_json_output: Optional[pulumi.Input[_builtins.bool]] = None,
                  suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
+                 target_completion_interval: Optional[pulumi.Input['TaskTargetCompletionIntervalArgs']] = None,
                  task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
                  time_input_format: Optional[pulumi.Input[_builtins.str]] = None,
                  time_output_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -139,10 +142,13 @@ class TaskArgs:
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         :param pulumi.Input['TaskScheduleArgs'] schedule: The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `seconds`, `minutes`, `hours`, or `using_cron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         :param pulumi.Input[_builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         :param pulumi.Input[_builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         :param pulumi.Input[_builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input['TaskTargetCompletionIntervalArgs'] target_completion_interval: Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
         :param pulumi.Input[_builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         :param pulumi.Input[_builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         :param pulumi.Input[_builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
@@ -252,6 +258,10 @@ class TaskArgs:
             pulumi.set(__self__, "schedule", schedule)
         if search_path is not None:
             pulumi.set(__self__, "search_path", search_path)
+        if serverless_task_max_statement_size is not None:
+            pulumi.set(__self__, "serverless_task_max_statement_size", serverless_task_max_statement_size)
+        if serverless_task_min_statement_size is not None:
+            pulumi.set(__self__, "serverless_task_min_statement_size", serverless_task_min_statement_size)
         if statement_queued_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
@@ -260,6 +270,8 @@ class TaskArgs:
             pulumi.set(__self__, "strict_json_output", strict_json_output)
         if suspend_task_after_num_failures is not None:
             pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        if target_completion_interval is not None:
+            pulumi.set(__self__, "target_completion_interval", target_completion_interval)
         if task_auto_retry_attempts is not None:
             pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
         if time_input_format is not None:
@@ -838,6 +850,30 @@ class TaskArgs:
         pulumi.set(self, "search_path", value)
 
     @_builtins.property
+    @pulumi.getter(name="serverlessTaskMaxStatementSize")
+    def serverless_task_max_statement_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        """
+        return pulumi.get(self, "serverless_task_max_statement_size")
+
+    @serverless_task_max_statement_size.setter
+    def serverless_task_max_statement_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "serverless_task_max_statement_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMinStatementSize")
+    def serverless_task_min_statement_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        """
+        return pulumi.get(self, "serverless_task_min_statement_size")
+
+    @serverless_task_min_statement_size.setter
+    def serverless_task_min_statement_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "serverless_task_min_statement_size", value)
+
+    @_builtins.property
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
     def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -884,6 +920,18 @@ class TaskArgs:
     @suspend_task_after_num_failures.setter
     def suspend_task_after_num_failures(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "suspend_task_after_num_failures", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetCompletionInterval")
+    def target_completion_interval(self) -> Optional[pulumi.Input['TaskTargetCompletionIntervalArgs']]:
+        """
+        Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+        """
+        return pulumi.get(self, "target_completion_interval")
+
+    @target_completion_interval.setter
+    def target_completion_interval(self, value: Optional[pulumi.Input['TaskTargetCompletionIntervalArgs']]):
+        pulumi.set(self, "target_completion_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="taskAutoRetryAttempts")
@@ -1221,6 +1269,8 @@ class _TaskState:
                  schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  search_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputArgs']]]] = None,
                  sql_statement: Optional[pulumi.Input[_builtins.str]] = None,
                  started: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1228,6 +1278,7 @@ class _TaskState:
                  statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  strict_json_output: Optional[pulumi.Input[_builtins.bool]] = None,
                  suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
+                 target_completion_interval: Optional[pulumi.Input['TaskTargetCompletionIntervalArgs']] = None,
                  task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
                  time_input_format: Optional[pulumi.Input[_builtins.str]] = None,
                  time_output_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1298,6 +1349,8 @@ class _TaskState:
         :param pulumi.Input['TaskScheduleArgs'] schedule: The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `seconds`, `minutes`, `hours`, or `using_cron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         :param pulumi.Input[Sequence[pulumi.Input['TaskShowOutputArgs']]] show_outputs: Outputs the result of `SHOW TASKS` for the given task.
         :param pulumi.Input[_builtins.str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
         :param pulumi.Input[_builtins.bool] started: Specifies if the task should be started or suspended.
@@ -1305,6 +1358,7 @@ class _TaskState:
         :param pulumi.Input[_builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         :param pulumi.Input[_builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         :param pulumi.Input[_builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input['TaskTargetCompletionIntervalArgs'] target_completion_interval: Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
         :param pulumi.Input[_builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         :param pulumi.Input[_builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         :param pulumi.Input[_builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
@@ -1418,6 +1472,10 @@ class _TaskState:
             pulumi.set(__self__, "schema", schema)
         if search_path is not None:
             pulumi.set(__self__, "search_path", search_path)
+        if serverless_task_max_statement_size is not None:
+            pulumi.set(__self__, "serverless_task_max_statement_size", serverless_task_max_statement_size)
+        if serverless_task_min_statement_size is not None:
+            pulumi.set(__self__, "serverless_task_min_statement_size", serverless_task_min_statement_size)
         if show_outputs is not None:
             pulumi.set(__self__, "show_outputs", show_outputs)
         if sql_statement is not None:
@@ -1432,6 +1490,8 @@ class _TaskState:
             pulumi.set(__self__, "strict_json_output", strict_json_output)
         if suspend_task_after_num_failures is not None:
             pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        if target_completion_interval is not None:
+            pulumi.set(__self__, "target_completion_interval", target_completion_interval)
         if task_auto_retry_attempts is not None:
             pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
         if time_input_format is not None:
@@ -2010,6 +2070,30 @@ class _TaskState:
         pulumi.set(self, "search_path", value)
 
     @_builtins.property
+    @pulumi.getter(name="serverlessTaskMaxStatementSize")
+    def serverless_task_max_statement_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        """
+        return pulumi.get(self, "serverless_task_max_statement_size")
+
+    @serverless_task_max_statement_size.setter
+    def serverless_task_max_statement_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "serverless_task_max_statement_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMinStatementSize")
+    def serverless_task_min_statement_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        """
+        return pulumi.get(self, "serverless_task_min_statement_size")
+
+    @serverless_task_min_statement_size.setter
+    def serverless_task_min_statement_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "serverless_task_min_statement_size", value)
+
+    @_builtins.property
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskShowOutputArgs']]]]:
         """
@@ -2092,6 +2176,18 @@ class _TaskState:
     @suspend_task_after_num_failures.setter
     def suspend_task_after_num_failures(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "suspend_task_after_num_failures", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetCompletionInterval")
+    def target_completion_interval(self) -> Optional[pulumi.Input['TaskTargetCompletionIntervalArgs']]:
+        """
+        Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+        """
+        return pulumi.get(self, "target_completion_interval")
+
+    @target_completion_interval.setter
+    def target_completion_interval(self, value: Optional[pulumi.Input['TaskTargetCompletionIntervalArgs']]):
+        pulumi.set(self, "target_completion_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="taskAutoRetryAttempts")
@@ -2430,12 +2526,15 @@ class Task(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  search_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  sql_statement: Optional[pulumi.Input[_builtins.str]] = None,
                  started: Optional[pulumi.Input[_builtins.bool]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  strict_json_output: Optional[pulumi.Input[_builtins.bool]] = None,
                  suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
+                 target_completion_interval: Optional[pulumi.Input[Union['TaskTargetCompletionIntervalArgs', 'TaskTargetCompletionIntervalArgsDict']]] = None,
                  task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
                  time_input_format: Optional[pulumi.Input[_builtins.str]] = None,
                  time_output_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2512,12 +2611,15 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `seconds`, `minutes`, `hours`, or `using_cron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         :param pulumi.Input[_builtins.str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
         :param pulumi.Input[_builtins.bool] started: Specifies if the task should be started or suspended.
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         :param pulumi.Input[_builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         :param pulumi.Input[_builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         :param pulumi.Input[_builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[Union['TaskTargetCompletionIntervalArgs', 'TaskTargetCompletionIntervalArgsDict']] target_completion_interval: Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
         :param pulumi.Input[_builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         :param pulumi.Input[_builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         :param pulumi.Input[_builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
@@ -2613,12 +2715,15 @@ class Task(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  search_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
+                 serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
                  sql_statement: Optional[pulumi.Input[_builtins.str]] = None,
                  started: Optional[pulumi.Input[_builtins.bool]] = None,
                  statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  strict_json_output: Optional[pulumi.Input[_builtins.bool]] = None,
                  suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
+                 target_completion_interval: Optional[pulumi.Input[Union['TaskTargetCompletionIntervalArgs', 'TaskTargetCompletionIntervalArgsDict']]] = None,
                  task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
                  time_input_format: Optional[pulumi.Input[_builtins.str]] = None,
                  time_output_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2698,6 +2803,8 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
             __props__.__dict__["search_path"] = search_path
+            __props__.__dict__["serverless_task_max_statement_size"] = serverless_task_max_statement_size
+            __props__.__dict__["serverless_task_min_statement_size"] = serverless_task_min_statement_size
             if sql_statement is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_statement'")
             __props__.__dict__["sql_statement"] = sql_statement
@@ -2708,6 +2815,7 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["statement_timeout_in_seconds"] = statement_timeout_in_seconds
             __props__.__dict__["strict_json_output"] = strict_json_output
             __props__.__dict__["suspend_task_after_num_failures"] = suspend_task_after_num_failures
+            __props__.__dict__["target_completion_interval"] = target_completion_interval
             __props__.__dict__["task_auto_retry_attempts"] = task_auto_retry_attempts
             __props__.__dict__["time_input_format"] = time_input_format
             __props__.__dict__["time_output_format"] = time_output_format
@@ -2789,6 +2897,8 @@ class Task(pulumi.CustomResource):
             schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
             schema: Optional[pulumi.Input[_builtins.str]] = None,
             search_path: Optional[pulumi.Input[_builtins.str]] = None,
+            serverless_task_max_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
+            serverless_task_min_statement_size: Optional[pulumi.Input[_builtins.str]] = None,
             show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskShowOutputArgs', 'TaskShowOutputArgsDict']]]]] = None,
             sql_statement: Optional[pulumi.Input[_builtins.str]] = None,
             started: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2796,6 +2906,7 @@ class Task(pulumi.CustomResource):
             statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
             strict_json_output: Optional[pulumi.Input[_builtins.bool]] = None,
             suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
+            target_completion_interval: Optional[pulumi.Input[Union['TaskTargetCompletionIntervalArgs', 'TaskTargetCompletionIntervalArgsDict']]] = None,
             task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
             time_input_format: Optional[pulumi.Input[_builtins.str]] = None,
             time_output_format: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2871,6 +2982,8 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: The schedule for periodically running the task. This can be a cron or interval in seconds, minutes, or hours. (Conflicts with finalize and after; when set, one of the sub-fields `seconds`, `minutes`, `hours`, or `using_cron` should be set) For [Triggered tasks](https://docs.snowflake.com/en/user-guide/tasks-triggered), a schedule is not required. For other tasks, a schedule must be defined for a standalone task or the root task in a [task graph](https://docs.snowflake.com/en/user-guide/tasks-graphs#label-task-dag); otherwise, the task only runs if manually executed using [EXECUTE TASK](https://docs.snowflake.com/en/sql-reference/sql/execute-task) in, for example, the Execute resource. A schedule cannot be specified for child tasks in a task graph. For more information on schedule restrictions, consult the [official documentation for Task object](https://docs.snowflake.com/en/user-guide/tasks-intro).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        :param pulumi.Input[_builtins.str] serverless_task_max_statement_size: Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        :param pulumi.Input[_builtins.str] serverless_task_min_statement_size: Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskShowOutputArgs', 'TaskShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW TASKS` for the given task.
         :param pulumi.Input[_builtins.str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
         :param pulumi.Input[_builtins.bool] started: Specifies if the task should be started or suspended.
@@ -2878,6 +2991,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         :param pulumi.Input[_builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         :param pulumi.Input[_builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[Union['TaskTargetCompletionIntervalArgs', 'TaskTargetCompletionIntervalArgsDict']] target_completion_interval: Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
         :param pulumi.Input[_builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         :param pulumi.Input[_builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         :param pulumi.Input[_builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
@@ -2951,6 +3065,8 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["schema"] = schema
         __props__.__dict__["search_path"] = search_path
+        __props__.__dict__["serverless_task_max_statement_size"] = serverless_task_max_statement_size
+        __props__.__dict__["serverless_task_min_statement_size"] = serverless_task_min_statement_size
         __props__.__dict__["show_outputs"] = show_outputs
         __props__.__dict__["sql_statement"] = sql_statement
         __props__.__dict__["started"] = started
@@ -2958,6 +3074,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["statement_timeout_in_seconds"] = statement_timeout_in_seconds
         __props__.__dict__["strict_json_output"] = strict_json_output
         __props__.__dict__["suspend_task_after_num_failures"] = suspend_task_after_num_failures
+        __props__.__dict__["target_completion_interval"] = target_completion_interval
         __props__.__dict__["task_auto_retry_attempts"] = task_auto_retry_attempts
         __props__.__dict__["time_input_format"] = time_input_format
         __props__.__dict__["time_output_format"] = time_output_format
@@ -3337,6 +3454,22 @@ class Task(pulumi.CustomResource):
         return pulumi.get(self, "search_path")
 
     @_builtins.property
+    @pulumi.getter(name="serverlessTaskMaxStatementSize")
+    def serverless_task_max_statement_size(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        """
+        return pulumi.get(self, "serverless_task_max_statement_size")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMinStatementSize")
+    def serverless_task_min_statement_size(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        """
+        return pulumi.get(self, "serverless_task_min_statement_size")
+
+    @_builtins.property
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Output[Sequence['outputs.TaskShowOutput']]:
         """
@@ -3391,6 +3524,14 @@ class Task(pulumi.CustomResource):
         Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @_builtins.property
+    @pulumi.getter(name="targetCompletionInterval")
+    def target_completion_interval(self) -> pulumi.Output[Optional['outputs.TaskTargetCompletionInterval']]:
+        """
+        Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields `hours`, `minutes`, or `seconds` should be set)
+        """
+        return pulumi.get(self, "target_completion_interval")
 
     @_builtins.property
     @pulumi.getter(name="taskAutoRetryAttempts")

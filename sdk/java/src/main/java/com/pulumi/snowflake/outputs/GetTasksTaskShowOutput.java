@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetTasksTaskShowOutputTargetCompletionInterval;
 import com.pulumi.snowflake.outputs.GetTasksTaskShowOutputTaskRelation;
 import java.lang.Boolean;
 import java.lang.String;
@@ -33,6 +34,7 @@ public final class GetTasksTaskShowOutput {
     private String schedule;
     private String schemaName;
     private String state;
+    private List<GetTasksTaskShowOutputTargetCompletionInterval> targetCompletionIntervals;
     private List<GetTasksTaskShowOutputTaskRelation> taskRelations;
     private String warehouse;
 
@@ -97,6 +99,9 @@ public final class GetTasksTaskShowOutput {
     public String state() {
         return this.state;
     }
+    public List<GetTasksTaskShowOutputTargetCompletionInterval> targetCompletionIntervals() {
+        return this.targetCompletionIntervals;
+    }
     public List<GetTasksTaskShowOutputTaskRelation> taskRelations() {
         return this.taskRelations;
     }
@@ -133,6 +138,7 @@ public final class GetTasksTaskShowOutput {
         private String schedule;
         private String schemaName;
         private String state;
+        private List<GetTasksTaskShowOutputTargetCompletionInterval> targetCompletionIntervals;
         private List<GetTasksTaskShowOutputTaskRelation> taskRelations;
         private String warehouse;
         public Builder() {}
@@ -158,6 +164,7 @@ public final class GetTasksTaskShowOutput {
     	      this.schedule = defaults.schedule;
     	      this.schemaName = defaults.schemaName;
     	      this.state = defaults.state;
+    	      this.targetCompletionIntervals = defaults.targetCompletionIntervals;
     	      this.taskRelations = defaults.taskRelations;
     	      this.warehouse = defaults.warehouse;
         }
@@ -326,6 +333,17 @@ public final class GetTasksTaskShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder targetCompletionIntervals(List<GetTasksTaskShowOutputTargetCompletionInterval> targetCompletionIntervals) {
+            if (targetCompletionIntervals == null) {
+              throw new MissingRequiredPropertyException("GetTasksTaskShowOutput", "targetCompletionIntervals");
+            }
+            this.targetCompletionIntervals = targetCompletionIntervals;
+            return this;
+        }
+        public Builder targetCompletionIntervals(GetTasksTaskShowOutputTargetCompletionInterval... targetCompletionIntervals) {
+            return targetCompletionIntervals(List.of(targetCompletionIntervals));
+        }
+        @CustomType.Setter
         public Builder taskRelations(List<GetTasksTaskShowOutputTaskRelation> taskRelations) {
             if (taskRelations == null) {
               throw new MissingRequiredPropertyException("GetTasksTaskShowOutput", "taskRelations");
@@ -366,6 +384,7 @@ public final class GetTasksTaskShowOutput {
             _resultValue.schedule = schedule;
             _resultValue.schemaName = schemaName;
             _resultValue.state = state;
+            _resultValue.targetCompletionIntervals = targetCompletionIntervals;
             _resultValue.taskRelations = taskRelations;
             _resultValue.warehouse = warehouse;
             return _resultValue;

@@ -36,6 +36,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly authenticator: pulumi.Output<string | undefined>;
     /**
+     * Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+     */
+    declare public readonly certRevocationCheckMode: pulumi.Output<string | undefined>;
+    /**
      * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
      */
     declare public readonly clientIp: pulumi.Output<string | undefined>;
@@ -48,9 +52,17 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly clientStoreTemporaryCredential: pulumi.Output<string | undefined>;
     /**
+     * Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+     */
+    declare public readonly crlAllowCertificatesWithoutCrlUrl: pulumi.Output<string | undefined>;
+    /**
      * Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
      */
     declare public readonly disableConsoleLogin: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+     */
+    declare public readonly disableSamlUrlCheck: pulumi.Output<string | undefined>;
     /**
      * Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
      */
@@ -63,6 +75,10 @@ export class Provider extends pulumi.ProviderResource {
      * Should retried request contain retry reason. Can also be sourced from the `SNOWFLAKE_INCLUDE_RETRY_REASON` environment variable.
      */
     declare public readonly includeRetryReason: pulumi.Output<string | undefined>;
+    /**
+     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     */
+    declare public readonly noProxy: pulumi.Output<string | undefined>;
     /**
      * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
      */
@@ -124,6 +140,22 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
+     * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     */
+    declare public readonly proxyHost: pulumi.Output<string | undefined>;
+    /**
+     * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     */
+    declare public readonly proxyPassword: pulumi.Output<string | undefined>;
+    /**
+     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     */
+    declare public readonly proxyProtocol: pulumi.Output<string | undefined>;
+    /**
+     * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     */
+    declare public readonly proxyUser: pulumi.Output<string | undefined>;
+    /**
      * Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
      */
     declare public readonly role: pulumi.Output<string | undefined>;
@@ -169,12 +201,19 @@ export class Provider extends pulumi.ProviderResource {
         {
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["authenticator"] = args?.authenticator;
+            resourceInputs["certRevocationCheckMode"] = args?.certRevocationCheckMode;
             resourceInputs["clientIp"] = args?.clientIp;
             resourceInputs["clientRequestMfaToken"] = args?.clientRequestMfaToken;
             resourceInputs["clientStoreTemporaryCredential"] = args?.clientStoreTemporaryCredential;
             resourceInputs["clientTimeout"] = pulumi.output(args?.clientTimeout).apply(JSON.stringify);
+            resourceInputs["crlAllowCertificatesWithoutCrlUrl"] = args?.crlAllowCertificatesWithoutCrlUrl;
+            resourceInputs["crlHttpClientTimeout"] = pulumi.output(args?.crlHttpClientTimeout).apply(JSON.stringify);
+            resourceInputs["crlInMemoryCacheDisabled"] = pulumi.output(args?.crlInMemoryCacheDisabled).apply(JSON.stringify);
+            resourceInputs["crlOnDiskCacheDisabled"] = pulumi.output(args?.crlOnDiskCacheDisabled).apply(JSON.stringify);
             resourceInputs["disableConsoleLogin"] = args?.disableConsoleLogin;
+            resourceInputs["disableOcspChecks"] = pulumi.output(args?.disableOcspChecks).apply(JSON.stringify);
             resourceInputs["disableQueryContextCache"] = pulumi.output(args?.disableQueryContextCache).apply(JSON.stringify);
+            resourceInputs["disableSamlUrlCheck"] = args?.disableSamlUrlCheck;
             resourceInputs["disableTelemetry"] = pulumi.output(args?.disableTelemetry).apply(JSON.stringify);
             resourceInputs["driverTracing"] = args?.driverTracing;
             resourceInputs["enableSingleUseRefreshTokens"] = pulumi.output(args?.enableSingleUseRefreshTokens).apply(JSON.stringify);
@@ -190,6 +229,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["logQueryText"] = pulumi.output(args?.logQueryText).apply(JSON.stringify);
             resourceInputs["loginTimeout"] = pulumi.output(args?.loginTimeout).apply(JSON.stringify);
             resourceInputs["maxRetryCount"] = pulumi.output(args?.maxRetryCount).apply(JSON.stringify);
+            resourceInputs["noProxy"] = args?.noProxy;
             resourceInputs["oauthAuthorizationUrl"] = args?.oauthAuthorizationUrl ? pulumi.secret(args.oauthAuthorizationUrl) : undefined;
             resourceInputs["oauthClientId"] = args?.oauthClientId ? pulumi.secret(args.oauthClientId) : undefined;
             resourceInputs["oauthClientSecret"] = args?.oauthClientSecret ? pulumi.secret(args.oauthClientSecret) : undefined;
@@ -209,6 +249,11 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["privateKeyPassphrase"] = (args?.privateKeyPassphrase ? pulumi.secret(args.privateKeyPassphrase) : undefined) ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE");
             resourceInputs["profile"] = args?.profile;
             resourceInputs["protocol"] = (args?.protocol) ?? utilities.getEnv("SNOWFLAKE_PROTOCOL");
+            resourceInputs["proxyHost"] = args?.proxyHost;
+            resourceInputs["proxyPassword"] = args?.proxyPassword ? pulumi.secret(args.proxyPassword) : undefined;
+            resourceInputs["proxyPort"] = pulumi.output(args?.proxyPort).apply(JSON.stringify);
+            resourceInputs["proxyProtocol"] = args?.proxyProtocol;
+            resourceInputs["proxyUser"] = args?.proxyUser;
             resourceInputs["requestTimeout"] = pulumi.output(args?.requestTimeout).apply(JSON.stringify);
             resourceInputs["role"] = (args?.role) ?? utilities.getEnv("SNOWFLAKE_ROLE");
             resourceInputs["skipTomlFilePermissionVerification"] = pulumi.output(args?.skipTomlFilePermissionVerification).apply(JSON.stringify);
@@ -223,7 +268,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["workloadIdentityProvider"] = args?.workloadIdentityProvider;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["oauthAuthorizationUrl", "oauthClientId", "oauthClientSecret", "oauthRedirectUri", "oauthTokenRequestUrl", "passcode", "password", "privateKey", "privateKeyPassphrase", "token"] };
+        const secretOpts = { additionalSecretOutputs: ["oauthAuthorizationUrl", "oauthClientId", "oauthClientSecret", "oauthRedirectUri", "oauthTokenRequestUrl", "passcode", "password", "privateKey", "privateKeyPassphrase", "proxyPassword", "token"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -251,6 +296,10 @@ export interface ProviderArgs {
      */
     authenticator?: pulumi.Input<string>;
     /**
+     * Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+     */
+    certRevocationCheckMode?: pulumi.Input<string>;
+    /**
      * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
      */
     clientIp?: pulumi.Input<string>;
@@ -267,13 +316,37 @@ export interface ProviderArgs {
      */
     clientTimeout?: pulumi.Input<number>;
     /**
+     * Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+     */
+    crlAllowCertificatesWithoutCrlUrl?: pulumi.Input<string>;
+    /**
+     * Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+     */
+    crlHttpClientTimeout?: pulumi.Input<number>;
+    /**
+     * False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+     */
+    crlInMemoryCacheDisabled?: pulumi.Input<boolean>;
+    /**
+     * False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+     */
+    crlOnDiskCacheDisabled?: pulumi.Input<boolean>;
+    /**
      * Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
      */
     disableConsoleLogin?: pulumi.Input<string>;
     /**
+     * False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+     */
+    disableOcspChecks?: pulumi.Input<boolean>;
+    /**
      * Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
      */
     disableQueryContextCache?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+     */
+    disableSamlUrlCheck?: pulumi.Input<string>;
     /**
      * Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
      */
@@ -303,7 +376,9 @@ export interface ProviderArgs {
      */
     includeRetryReason?: pulumi.Input<string>;
     /**
-     * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+     * This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+     *
+     * @deprecated This field is deprecated. Use `disableOcspChecks` instead.
      */
     insecureMode?: pulumi.Input<boolean>;
     /**
@@ -334,6 +409,10 @@ export interface ProviderArgs {
      * Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
      */
     maxRetryCount?: pulumi.Input<number>;
+    /**
+     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     */
+    noProxy?: pulumi.Input<string>;
     /**
      * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
      */
@@ -407,6 +486,26 @@ export interface ProviderArgs {
      * A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
      */
     protocol?: pulumi.Input<string>;
+    /**
+     * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     */
+    proxyHost?: pulumi.Input<string>;
+    /**
+     * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     */
+    proxyPassword?: pulumi.Input<string>;
+    /**
+     * The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+     */
+    proxyPort?: pulumi.Input<number>;
+    /**
+     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     */
+    proxyProtocol?: pulumi.Input<string>;
+    /**
+     * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     */
+    proxyUser?: pulumi.Input<string>;
     /**
      * request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
      */

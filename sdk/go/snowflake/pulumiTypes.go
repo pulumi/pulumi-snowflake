@@ -27565,6 +27565,7 @@ type LegacyServiceUserShowOutput struct {
 	HasMfa                *bool   `pulumi:"hasMfa"`
 	HasPassword           *bool   `pulumi:"hasPassword"`
 	HasRsaPublicKey       *bool   `pulumi:"hasRsaPublicKey"`
+	HasWorkloadIdentity   *bool   `pulumi:"hasWorkloadIdentity"`
 	LastName              *string `pulumi:"lastName"`
 	LastSuccessLogin      *string `pulumi:"lastSuccessLogin"`
 	LockedUntilTime       *string `pulumi:"lockedUntilTime"`
@@ -27607,6 +27608,7 @@ type LegacyServiceUserShowOutputArgs struct {
 	HasMfa                pulumi.BoolPtrInput   `pulumi:"hasMfa"`
 	HasPassword           pulumi.BoolPtrInput   `pulumi:"hasPassword"`
 	HasRsaPublicKey       pulumi.BoolPtrInput   `pulumi:"hasRsaPublicKey"`
+	HasWorkloadIdentity   pulumi.BoolPtrInput   `pulumi:"hasWorkloadIdentity"`
 	LastName              pulumi.StringPtrInput `pulumi:"lastName"`
 	LastSuccessLogin      pulumi.StringPtrInput `pulumi:"lastSuccessLogin"`
 	LockedUntilTime       pulumi.StringPtrInput `pulumi:"lockedUntilTime"`
@@ -27737,6 +27739,10 @@ func (o LegacyServiceUserShowOutputOutput) HasPassword() pulumi.BoolPtrOutput {
 
 func (o LegacyServiceUserShowOutputOutput) HasRsaPublicKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LegacyServiceUserShowOutput) *bool { return v.HasRsaPublicKey }).(pulumi.BoolPtrOutput)
+}
+
+func (o LegacyServiceUserShowOutputOutput) HasWorkloadIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LegacyServiceUserShowOutput) *bool { return v.HasWorkloadIdentity }).(pulumi.BoolPtrOutput)
 }
 
 func (o LegacyServiceUserShowOutputOutput) LastName() pulumi.StringPtrOutput {
@@ -58093,6 +58099,7 @@ type ServiceUserShowOutput struct {
 	HasMfa                *bool   `pulumi:"hasMfa"`
 	HasPassword           *bool   `pulumi:"hasPassword"`
 	HasRsaPublicKey       *bool   `pulumi:"hasRsaPublicKey"`
+	HasWorkloadIdentity   *bool   `pulumi:"hasWorkloadIdentity"`
 	LastName              *string `pulumi:"lastName"`
 	LastSuccessLogin      *string `pulumi:"lastSuccessLogin"`
 	LockedUntilTime       *string `pulumi:"lockedUntilTime"`
@@ -58135,6 +58142,7 @@ type ServiceUserShowOutputArgs struct {
 	HasMfa                pulumi.BoolPtrInput   `pulumi:"hasMfa"`
 	HasPassword           pulumi.BoolPtrInput   `pulumi:"hasPassword"`
 	HasRsaPublicKey       pulumi.BoolPtrInput   `pulumi:"hasRsaPublicKey"`
+	HasWorkloadIdentity   pulumi.BoolPtrInput   `pulumi:"hasWorkloadIdentity"`
 	LastName              pulumi.StringPtrInput `pulumi:"lastName"`
 	LastSuccessLogin      pulumi.StringPtrInput `pulumi:"lastSuccessLogin"`
 	LockedUntilTime       pulumi.StringPtrInput `pulumi:"lockedUntilTime"`
@@ -58265,6 +58273,10 @@ func (o ServiceUserShowOutputOutput) HasPassword() pulumi.BoolPtrOutput {
 
 func (o ServiceUserShowOutputOutput) HasRsaPublicKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceUserShowOutput) *bool { return v.HasRsaPublicKey }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceUserShowOutputOutput) HasWorkloadIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceUserShowOutput) *bool { return v.HasWorkloadIdentity }).(pulumi.BoolPtrOutput)
 }
 
 func (o ServiceUserShowOutputOutput) LastName() pulumi.StringPtrOutput {
@@ -64290,6 +64302,8 @@ type TaskParameter struct {
 	RowsPerResultsets                          []TaskParameterRowsPerResultset                         `pulumi:"rowsPerResultsets"`
 	S3StageVpceDnsNames                        []TaskParameterS3StageVpceDnsName                       `pulumi:"s3StageVpceDnsNames"`
 	SearchPaths                                []TaskParameterSearchPath                               `pulumi:"searchPaths"`
+	ServerlessTaskMaxStatementSizes            []TaskParameterServerlessTaskMaxStatementSize           `pulumi:"serverlessTaskMaxStatementSizes"`
+	ServerlessTaskMinStatementSizes            []TaskParameterServerlessTaskMinStatementSize           `pulumi:"serverlessTaskMinStatementSizes"`
 	StatementQueuedTimeoutInSeconds            []TaskParameterStatementQueuedTimeoutInSecond           `pulumi:"statementQueuedTimeoutInSeconds"`
 	StatementTimeoutInSeconds                  []TaskParameterStatementTimeoutInSecond                 `pulumi:"statementTimeoutInSeconds"`
 	StrictJsonOutputs                          []TaskParameterStrictJsonOutput                         `pulumi:"strictJsonOutputs"`
@@ -64362,6 +64376,8 @@ type TaskParameterArgs struct {
 	RowsPerResultsets                          TaskParameterRowsPerResultsetArrayInput                         `pulumi:"rowsPerResultsets"`
 	S3StageVpceDnsNames                        TaskParameterS3StageVpceDnsNameArrayInput                       `pulumi:"s3StageVpceDnsNames"`
 	SearchPaths                                TaskParameterSearchPathArrayInput                               `pulumi:"searchPaths"`
+	ServerlessTaskMaxStatementSizes            TaskParameterServerlessTaskMaxStatementSizeArrayInput           `pulumi:"serverlessTaskMaxStatementSizes"`
+	ServerlessTaskMinStatementSizes            TaskParameterServerlessTaskMinStatementSizeArrayInput           `pulumi:"serverlessTaskMinStatementSizes"`
 	StatementQueuedTimeoutInSeconds            TaskParameterStatementQueuedTimeoutInSecondArrayInput           `pulumi:"statementQueuedTimeoutInSeconds"`
 	StatementTimeoutInSeconds                  TaskParameterStatementTimeoutInSecondArrayInput                 `pulumi:"statementTimeoutInSeconds"`
 	StrictJsonOutputs                          TaskParameterStrictJsonOutputArrayInput                         `pulumi:"strictJsonOutputs"`
@@ -64581,6 +64597,18 @@ func (o TaskParameterOutput) S3StageVpceDnsNames() TaskParameterS3StageVpceDnsNa
 
 func (o TaskParameterOutput) SearchPaths() TaskParameterSearchPathArrayOutput {
 	return o.ApplyT(func(v TaskParameter) []TaskParameterSearchPath { return v.SearchPaths }).(TaskParameterSearchPathArrayOutput)
+}
+
+func (o TaskParameterOutput) ServerlessTaskMaxStatementSizes() TaskParameterServerlessTaskMaxStatementSizeArrayOutput {
+	return o.ApplyT(func(v TaskParameter) []TaskParameterServerlessTaskMaxStatementSize {
+		return v.ServerlessTaskMaxStatementSizes
+	}).(TaskParameterServerlessTaskMaxStatementSizeArrayOutput)
+}
+
+func (o TaskParameterOutput) ServerlessTaskMinStatementSizes() TaskParameterServerlessTaskMinStatementSizeArrayOutput {
+	return o.ApplyT(func(v TaskParameter) []TaskParameterServerlessTaskMinStatementSize {
+		return v.ServerlessTaskMinStatementSizes
+	}).(TaskParameterServerlessTaskMinStatementSizeArrayOutput)
 }
 
 func (o TaskParameterOutput) StatementQueuedTimeoutInSeconds() TaskParameterStatementQueuedTimeoutInSecondArrayOutput {

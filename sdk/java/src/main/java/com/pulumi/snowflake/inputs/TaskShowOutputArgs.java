@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.TaskShowOutputTargetCompletionIntervalArgs;
 import com.pulumi.snowflake.inputs.TaskShowOutputTaskRelationArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -158,6 +159,13 @@ public final class TaskShowOutputArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.state);
     }
 
+    @Import(name="targetCompletionIntervals")
+    private @Nullable Output<List<TaskShowOutputTargetCompletionIntervalArgs>> targetCompletionIntervals;
+
+    public Optional<Output<List<TaskShowOutputTargetCompletionIntervalArgs>>> targetCompletionIntervals() {
+        return Optional.ofNullable(this.targetCompletionIntervals);
+    }
+
     @Import(name="taskRelations")
     private @Nullable Output<List<TaskShowOutputTaskRelationArgs>> taskRelations;
 
@@ -195,6 +203,7 @@ public final class TaskShowOutputArgs extends com.pulumi.resources.ResourceArgs 
         this.schedule = $.schedule;
         this.schemaName = $.schemaName;
         this.state = $.state;
+        this.targetCompletionIntervals = $.targetCompletionIntervals;
         this.taskRelations = $.taskRelations;
         this.warehouse = $.warehouse;
     }
@@ -399,6 +408,19 @@ public final class TaskShowOutputArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder state(String state) {
             return state(Output.of(state));
+        }
+
+        public Builder targetCompletionIntervals(@Nullable Output<List<TaskShowOutputTargetCompletionIntervalArgs>> targetCompletionIntervals) {
+            $.targetCompletionIntervals = targetCompletionIntervals;
+            return this;
+        }
+
+        public Builder targetCompletionIntervals(List<TaskShowOutputTargetCompletionIntervalArgs> targetCompletionIntervals) {
+            return targetCompletionIntervals(Output.of(targetCompletionIntervals));
+        }
+
+        public Builder targetCompletionIntervals(TaskShowOutputTargetCompletionIntervalArgs... targetCompletionIntervals) {
+            return targetCompletionIntervals(List.of(targetCompletionIntervals));
         }
 
         public Builder taskRelations(@Nullable Output<List<TaskShowOutputTaskRelationArgs>> taskRelations) {

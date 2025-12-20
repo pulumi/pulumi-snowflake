@@ -52,6 +52,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+     * 
+     */
+    @Import(name="certRevocationCheckMode")
+    private @Nullable Output<String> certRevocationCheckMode;
+
+    /**
+     * @return Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+     * 
+     */
+    public Optional<Output<String>> certRevocationCheckMode() {
+        return Optional.ofNullable(this.certRevocationCheckMode);
+    }
+
+    /**
      * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
      * 
      */
@@ -112,6 +127,66 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+     * 
+     */
+    @Import(name="crlAllowCertificatesWithoutCrlUrl")
+    private @Nullable Output<String> crlAllowCertificatesWithoutCrlUrl;
+
+    /**
+     * @return Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+     * 
+     */
+    public Optional<Output<String>> crlAllowCertificatesWithoutCrlUrl() {
+        return Optional.ofNullable(this.crlAllowCertificatesWithoutCrlUrl);
+    }
+
+    /**
+     * Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+     * 
+     */
+    @Import(name="crlHttpClientTimeout", json=true)
+    private @Nullable Output<Integer> crlHttpClientTimeout;
+
+    /**
+     * @return Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+     * 
+     */
+    public Optional<Output<Integer>> crlHttpClientTimeout() {
+        return Optional.ofNullable(this.crlHttpClientTimeout);
+    }
+
+    /**
+     * False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+     * 
+     */
+    @Import(name="crlInMemoryCacheDisabled", json=true)
+    private @Nullable Output<Boolean> crlInMemoryCacheDisabled;
+
+    /**
+     * @return False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> crlInMemoryCacheDisabled() {
+        return Optional.ofNullable(this.crlInMemoryCacheDisabled);
+    }
+
+    /**
+     * False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+     * 
+     */
+    @Import(name="crlOnDiskCacheDisabled", json=true)
+    private @Nullable Output<Boolean> crlOnDiskCacheDisabled;
+
+    /**
+     * @return False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> crlOnDiskCacheDisabled() {
+        return Optional.ofNullable(this.crlOnDiskCacheDisabled);
+    }
+
+    /**
      * Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
      * 
      */
@@ -127,6 +202,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * False by default. When set to true, the driver doesn&#39;t check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+     * 
+     */
+    @Import(name="disableOcspChecks", json=true)
+    private @Nullable Output<Boolean> disableOcspChecks;
+
+    /**
+     * @return False by default. When set to true, the driver doesn&#39;t check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> disableOcspChecks() {
+        return Optional.ofNullable(this.disableOcspChecks);
+    }
+
+    /**
      * Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
      * 
      */
@@ -139,6 +229,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> disableQueryContextCache() {
         return Optional.ofNullable(this.disableQueryContextCache);
+    }
+
+    /**
+     * Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+     * 
+     */
+    @Import(name="disableSamlUrlCheck")
+    private @Nullable Output<String> disableSamlUrlCheck;
+
+    /**
+     * @return Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+     * 
+     */
+    public Optional<Output<String>> disableSamlUrlCheck() {
+        return Optional.ofNullable(this.disableSamlUrlCheck);
     }
 
     /**
@@ -247,16 +352,24 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+     * This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+     * 
+     * @deprecated
+     * This field is deprecated. Use `disableOcspChecks` instead.
      * 
      */
+    @Deprecated /* This field is deprecated. Use `disableOcspChecks` instead. */
     @Import(name="insecureMode", json=true)
     private @Nullable Output<Boolean> insecureMode;
 
     /**
-     * @return If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+     * @return This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+     * 
+     * @deprecated
+     * This field is deprecated. Use `disableOcspChecks` instead.
      * 
      */
+    @Deprecated /* This field is deprecated. Use `disableOcspChecks` instead. */
     public Optional<Output<Boolean>> insecureMode() {
         return Optional.ofNullable(this.insecureMode);
     }
@@ -364,6 +477,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> maxRetryCount() {
         return Optional.ofNullable(this.maxRetryCount);
+    }
+
+    /**
+     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     * 
+     */
+    @Import(name="noProxy")
+    private @Nullable Output<String> noProxy;
+
+    /**
+     * @return A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     * 
+     */
+    public Optional<Output<String>> noProxy() {
+        return Optional.ofNullable(this.noProxy);
     }
 
     /**
@@ -644,6 +772,81 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     * 
+     */
+    @Import(name="proxyHost")
+    private @Nullable Output<String> proxyHost;
+
+    /**
+     * @return The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     * 
+     */
+    public Optional<Output<String>> proxyHost() {
+        return Optional.ofNullable(this.proxyHost);
+    }
+
+    /**
+     * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     * 
+     */
+    @Import(name="proxyPassword")
+    private @Nullable Output<String> proxyPassword;
+
+    /**
+     * @return The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     * 
+     */
+    public Optional<Output<String>> proxyPassword() {
+        return Optional.ofNullable(this.proxyPassword);
+    }
+
+    /**
+     * The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+     * 
+     */
+    @Import(name="proxyPort", json=true)
+    private @Nullable Output<Integer> proxyPort;
+
+    /**
+     * @return The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+     * 
+     */
+    public Optional<Output<Integer>> proxyPort() {
+        return Optional.ofNullable(this.proxyPort);
+    }
+
+    /**
+     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     * 
+     */
+    @Import(name="proxyProtocol")
+    private @Nullable Output<String> proxyProtocol;
+
+    /**
+     * @return The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     * 
+     */
+    public Optional<Output<String>> proxyProtocol() {
+        return Optional.ofNullable(this.proxyProtocol);
+    }
+
+    /**
+     * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     * 
+     */
+    @Import(name="proxyUser")
+    private @Nullable Output<String> proxyUser;
+
+    /**
+     * @return The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     * 
+     */
+    public Optional<Output<String>> proxyUser() {
+        return Optional.ofNullable(this.proxyUser);
+    }
+
+    /**
      * request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
      * 
      */
@@ -828,12 +1031,19 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private ProviderArgs(ProviderArgs $) {
         this.accountName = $.accountName;
         this.authenticator = $.authenticator;
+        this.certRevocationCheckMode = $.certRevocationCheckMode;
         this.clientIp = $.clientIp;
         this.clientRequestMfaToken = $.clientRequestMfaToken;
         this.clientStoreTemporaryCredential = $.clientStoreTemporaryCredential;
         this.clientTimeout = $.clientTimeout;
+        this.crlAllowCertificatesWithoutCrlUrl = $.crlAllowCertificatesWithoutCrlUrl;
+        this.crlHttpClientTimeout = $.crlHttpClientTimeout;
+        this.crlInMemoryCacheDisabled = $.crlInMemoryCacheDisabled;
+        this.crlOnDiskCacheDisabled = $.crlOnDiskCacheDisabled;
         this.disableConsoleLogin = $.disableConsoleLogin;
+        this.disableOcspChecks = $.disableOcspChecks;
         this.disableQueryContextCache = $.disableQueryContextCache;
+        this.disableSamlUrlCheck = $.disableSamlUrlCheck;
         this.disableTelemetry = $.disableTelemetry;
         this.driverTracing = $.driverTracing;
         this.enableSingleUseRefreshTokens = $.enableSingleUseRefreshTokens;
@@ -849,6 +1059,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.logQueryText = $.logQueryText;
         this.loginTimeout = $.loginTimeout;
         this.maxRetryCount = $.maxRetryCount;
+        this.noProxy = $.noProxy;
         this.oauthAuthorizationUrl = $.oauthAuthorizationUrl;
         this.oauthClientId = $.oauthClientId;
         this.oauthClientSecret = $.oauthClientSecret;
@@ -868,6 +1079,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.privateKeyPassphrase = $.privateKeyPassphrase;
         this.profile = $.profile;
         this.protocol = $.protocol;
+        this.proxyHost = $.proxyHost;
+        this.proxyPassword = $.proxyPassword;
+        this.proxyPort = $.proxyPort;
+        this.proxyProtocol = $.proxyProtocol;
+        this.proxyUser = $.proxyUser;
         this.requestTimeout = $.requestTimeout;
         this.role = $.role;
         this.skipTomlFilePermissionVerification = $.skipTomlFilePermissionVerification;
@@ -940,6 +1156,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder authenticator(String authenticator) {
             return authenticator(Output.of(authenticator));
+        }
+
+        /**
+         * @param certRevocationCheckMode Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certRevocationCheckMode(@Nullable Output<String> certRevocationCheckMode) {
+            $.certRevocationCheckMode = certRevocationCheckMode;
+            return this;
+        }
+
+        /**
+         * @param certRevocationCheckMode Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certRevocationCheckMode(String certRevocationCheckMode) {
+            return certRevocationCheckMode(Output.of(certRevocationCheckMode));
         }
 
         /**
@@ -1027,6 +1264,90 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param crlAllowCertificatesWithoutCrlUrl Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crlAllowCertificatesWithoutCrlUrl(@Nullable Output<String> crlAllowCertificatesWithoutCrlUrl) {
+            $.crlAllowCertificatesWithoutCrlUrl = crlAllowCertificatesWithoutCrlUrl;
+            return this;
+        }
+
+        /**
+         * @param crlAllowCertificatesWithoutCrlUrl Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crlAllowCertificatesWithoutCrlUrl(String crlAllowCertificatesWithoutCrlUrl) {
+            return crlAllowCertificatesWithoutCrlUrl(Output.of(crlAllowCertificatesWithoutCrlUrl));
+        }
+
+        /**
+         * @param crlHttpClientTimeout Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crlHttpClientTimeout(@Nullable Output<Integer> crlHttpClientTimeout) {
+            $.crlHttpClientTimeout = crlHttpClientTimeout;
+            return this;
+        }
+
+        /**
+         * @param crlHttpClientTimeout Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crlHttpClientTimeout(Integer crlHttpClientTimeout) {
+            return crlHttpClientTimeout(Output.of(crlHttpClientTimeout));
+        }
+
+        /**
+         * @param crlInMemoryCacheDisabled False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crlInMemoryCacheDisabled(@Nullable Output<Boolean> crlInMemoryCacheDisabled) {
+            $.crlInMemoryCacheDisabled = crlInMemoryCacheDisabled;
+            return this;
+        }
+
+        /**
+         * @param crlInMemoryCacheDisabled False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crlInMemoryCacheDisabled(Boolean crlInMemoryCacheDisabled) {
+            return crlInMemoryCacheDisabled(Output.of(crlInMemoryCacheDisabled));
+        }
+
+        /**
+         * @param crlOnDiskCacheDisabled False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crlOnDiskCacheDisabled(@Nullable Output<Boolean> crlOnDiskCacheDisabled) {
+            $.crlOnDiskCacheDisabled = crlOnDiskCacheDisabled;
+            return this;
+        }
+
+        /**
+         * @param crlOnDiskCacheDisabled False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crlOnDiskCacheDisabled(Boolean crlOnDiskCacheDisabled) {
+            return crlOnDiskCacheDisabled(Output.of(crlOnDiskCacheDisabled));
+        }
+
+        /**
          * @param disableConsoleLogin Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
          * 
          * @return builder
@@ -1048,6 +1369,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param disableOcspChecks False by default. When set to true, the driver doesn&#39;t check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableOcspChecks(@Nullable Output<Boolean> disableOcspChecks) {
+            $.disableOcspChecks = disableOcspChecks;
+            return this;
+        }
+
+        /**
+         * @param disableOcspChecks False by default. When set to true, the driver doesn&#39;t check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableOcspChecks(Boolean disableOcspChecks) {
+            return disableOcspChecks(Output.of(disableOcspChecks));
+        }
+
+        /**
          * @param disableQueryContextCache Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
          * 
          * @return builder
@@ -1066,6 +1408,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder disableQueryContextCache(Boolean disableQueryContextCache) {
             return disableQueryContextCache(Output.of(disableQueryContextCache));
+        }
+
+        /**
+         * @param disableSamlUrlCheck Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSamlUrlCheck(@Nullable Output<String> disableSamlUrlCheck) {
+            $.disableSamlUrlCheck = disableSamlUrlCheck;
+            return this;
+        }
+
+        /**
+         * @param disableSamlUrlCheck Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSamlUrlCheck(String disableSamlUrlCheck) {
+            return disableSamlUrlCheck(Output.of(disableSamlUrlCheck));
         }
 
         /**
@@ -1226,22 +1589,30 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insecureMode If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+         * @param insecureMode This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated. Use `disableOcspChecks` instead.
+         * 
          */
+        @Deprecated /* This field is deprecated. Use `disableOcspChecks` instead. */
         public Builder insecureMode(@Nullable Output<Boolean> insecureMode) {
             $.insecureMode = insecureMode;
             return this;
         }
 
         /**
-         * @param insecureMode If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+         * @param insecureMode This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated. Use `disableOcspChecks` instead.
+         * 
          */
+        @Deprecated /* This field is deprecated. Use `disableOcspChecks` instead. */
         public Builder insecureMode(Boolean insecureMode) {
             return insecureMode(Output.of(insecureMode));
         }
@@ -1391,6 +1762,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maxRetryCount(Integer maxRetryCount) {
             return maxRetryCount(Output.of(maxRetryCount));
+        }
+
+        /**
+         * @param noProxy A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noProxy(@Nullable Output<String> noProxy) {
+            $.noProxy = noProxy;
+            return this;
+        }
+
+        /**
+         * @param noProxy A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noProxy(String noProxy) {
+            return noProxy(Output.of(noProxy));
         }
 
         /**
@@ -1782,6 +2174,111 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param proxyHost The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyHost(@Nullable Output<String> proxyHost) {
+            $.proxyHost = proxyHost;
+            return this;
+        }
+
+        /**
+         * @param proxyHost The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyHost(String proxyHost) {
+            return proxyHost(Output.of(proxyHost));
+        }
+
+        /**
+         * @param proxyPassword The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyPassword(@Nullable Output<String> proxyPassword) {
+            $.proxyPassword = proxyPassword;
+            return this;
+        }
+
+        /**
+         * @param proxyPassword The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyPassword(String proxyPassword) {
+            return proxyPassword(Output.of(proxyPassword));
+        }
+
+        /**
+         * @param proxyPort The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyPort(@Nullable Output<Integer> proxyPort) {
+            $.proxyPort = proxyPort;
+            return this;
+        }
+
+        /**
+         * @param proxyPort The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyPort(Integer proxyPort) {
+            return proxyPort(Output.of(proxyPort));
+        }
+
+        /**
+         * @param proxyProtocol The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyProtocol(@Nullable Output<String> proxyProtocol) {
+            $.proxyProtocol = proxyProtocol;
+            return this;
+        }
+
+        /**
+         * @param proxyProtocol The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyProtocol(String proxyProtocol) {
+            return proxyProtocol(Output.of(proxyProtocol));
+        }
+
+        /**
+         * @param proxyUser The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyUser(@Nullable Output<String> proxyUser) {
+            $.proxyUser = proxyUser;
+            return this;
+        }
+
+        /**
+         * @param proxyUser The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxyUser(String proxyUser) {
+            return proxyUser(Output.of(proxyUser));
         }
 
         /**

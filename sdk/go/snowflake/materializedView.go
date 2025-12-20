@@ -32,11 +32,11 @@ type MaterializedView struct {
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Default: `false`) Overwrites the View if it exists.
+	// (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
 	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
 	Statement pulumi.StringOutput `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -98,11 +98,11 @@ type materializedViewState struct {
 	IsSecure *bool `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name *string `pulumi:"name"`
-	// (Default: `false`) Overwrites the View if it exists.
+	// (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
 	OrReplace *bool `pulumi:"orReplace"`
 	// The schema in which to create the view. Don't use the | character.
 	Schema *string `pulumi:"schema"`
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
 	Statement *string `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -123,11 +123,11 @@ type MaterializedViewState struct {
 	IsSecure pulumi.BoolPtrInput
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name pulumi.StringPtrInput
-	// (Default: `false`) Overwrites the View if it exists.
+	// (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
 	OrReplace pulumi.BoolPtrInput
 	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringPtrInput
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
 	Statement pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -150,11 +150,11 @@ type materializedViewArgs struct {
 	IsSecure *bool `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name *string `pulumi:"name"`
-	// (Default: `false`) Overwrites the View if it exists.
+	// (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
 	OrReplace *bool `pulumi:"orReplace"`
 	// The schema in which to create the view. Don't use the | character.
 	Schema string `pulumi:"schema"`
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
 	Statement string `pulumi:"statement"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -174,11 +174,11 @@ type MaterializedViewArgs struct {
 	IsSecure pulumi.BoolPtrInput
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name pulumi.StringPtrInput
-	// (Default: `false`) Overwrites the View if it exists.
+	// (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
 	OrReplace pulumi.BoolPtrInput
 	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringInput
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
 	Statement pulumi.StringInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -300,7 +300,7 @@ func (o MaterializedViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Default: `false`) Overwrites the View if it exists.
+// (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
 func (o MaterializedViewOutput) OrReplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
 }
@@ -310,7 +310,7 @@ func (o MaterializedViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Specifies the query used to create the view.
+// Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
 func (o MaterializedViewOutput) Statement() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
 }

@@ -28,6 +28,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string ExtAuthnUid;
         public readonly string FirstName;
         public readonly bool HasMfa;
+        public readonly bool HasWorkloadIdentity;
         public readonly string LastName;
         public readonly string LoginName;
         public readonly string MiddleName;
@@ -77,6 +78,8 @@ namespace Pulumi.Snowflake.Outputs
 
             bool hasMfa,
 
+            bool hasWorkloadIdentity,
+
             string lastName,
 
             string loginName,
@@ -124,6 +127,7 @@ namespace Pulumi.Snowflake.Outputs
             ExtAuthnUid = extAuthnUid;
             FirstName = firstName;
             HasMfa = hasMfa;
+            HasWorkloadIdentity = hasWorkloadIdentity;
             LastName = lastName;
             LoginName = loginName;
             MiddleName = middleName;
