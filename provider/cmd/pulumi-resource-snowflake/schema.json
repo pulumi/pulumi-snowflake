@@ -56,6 +56,10 @@
                 "type": "string",
                 "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
+            "certRevocationCheckMode": {
+                "type": "string",
+                "description": "Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable."
+            },
             "clientIp": {
                 "type": "string",
                 "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable."
@@ -72,13 +76,37 @@
                 "type": "integer",
                 "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable."
             },
+            "crlAllowCertificatesWithoutCrlUrl": {
+                "type": "string",
+                "description": "Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable."
+            },
+            "crlHttpClientTimeout": {
+                "type": "integer",
+                "description": "Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable."
+            },
+            "crlInMemoryCacheDisabled": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable."
+            },
+            "crlOnDiskCacheDisabled": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable."
+            },
             "disableConsoleLogin": {
                 "type": "string",
                 "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable."
             },
+            "disableOcspChecks": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable."
+            },
             "disableQueryContextCache": {
                 "type": "boolean",
                 "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable."
+            },
+            "disableSamlUrlCheck": {
+                "type": "string",
+                "description": "Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable."
             },
             "disableTelemetry": {
                 "type": "boolean",
@@ -118,7 +146,8 @@
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable."
+                "description": "This field is deprecated. Use \u003cspan pulumi-lang-nodejs=\"`disableOcspChecks`\" pulumi-lang-dotnet=\"`DisableOcspChecks`\" pulumi-lang-go=\"`disableOcspChecks`\" pulumi-lang-python=\"`disable_ocsp_checks`\" pulumi-lang-yaml=\"`disableOcspChecks`\" pulumi-lang-java=\"`disableOcspChecks`\"\u003e`disable_ocsp_checks`\u003c/span\u003e instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.",
+                "deprecationMessage": "This field is deprecated. Use \u003cspan pulumi-lang-nodejs=\"`disableOcspChecks`\" pulumi-lang-dotnet=\"`DisableOcspChecks`\" pulumi-lang-go=\"`disableOcspChecks`\" pulumi-lang-python=\"`disable_ocsp_checks`\" pulumi-lang-yaml=\"`disableOcspChecks`\" pulumi-lang-java=\"`disableOcspChecks`\"\u003e`disable_ocsp_checks`\u003c/span\u003e instead."
             },
             "jwtClientTimeout": {
                 "type": "integer",
@@ -147,6 +176,10 @@
             "maxRetryCount": {
                 "type": "integer",
                 "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
+            },
+            "noProxy": {
+                "type": "string",
+                "description": "A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable."
             },
             "oauthAuthorizationUrl": {
                 "type": "string",
@@ -257,6 +290,27 @@
                         "SNOWFLAKE_PROTOCOL"
                     ]
                 }
+            },
+            "proxyHost": {
+                "type": "string",
+                "description": "The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable."
+            },
+            "proxyPassword": {
+                "type": "string",
+                "description": "The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.",
+                "secret": true
+            },
+            "proxyPort": {
+                "type": "integer",
+                "description": "The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable."
+            },
+            "proxyProtocol": {
+                "type": "string",
+                "description": "The protocol of the proxy to use for the connection. Valid options are: \u003cspan pulumi-lang-nodejs=\"`http`\" pulumi-lang-dotnet=\"`Http`\" pulumi-lang-go=\"`http`\" pulumi-lang-python=\"`http`\" pulumi-lang-yaml=\"`http`\" pulumi-lang-java=\"`http`\"\u003e`http`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`https`\" pulumi-lang-dotnet=\"`Https`\" pulumi-lang-go=\"`https`\" pulumi-lang-python=\"`https`\" pulumi-lang-yaml=\"`https`\" pulumi-lang-java=\"`https`\"\u003e`https`\u003c/span\u003e. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable."
+            },
+            "proxyUser": {
+                "type": "string",
+                "description": "The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable."
             },
             "requestTimeout": {
                 "type": "integer",
@@ -7776,6 +7830,9 @@
                 "hasRsaPublicKey": {
                     "type": "boolean"
                 },
+                "hasWorkloadIdentity": {
+                    "type": "boolean"
+                },
                 "lastName": {
                     "type": "string"
                 },
@@ -7831,6 +7888,7 @@
                         "hasMfa",
                         "hasPassword",
                         "hasRsaPublicKey",
+                        "hasWorkloadIdentity",
                         "lastName",
                         "lastSuccessLogin",
                         "lockedUntilTime",
@@ -16454,6 +16512,9 @@
                 "hasRsaPublicKey": {
                     "type": "boolean"
                 },
+                "hasWorkloadIdentity": {
+                    "type": "boolean"
+                },
                 "lastName": {
                     "type": "string"
                 },
@@ -16509,6 +16570,7 @@
                         "hasMfa",
                         "hasPassword",
                         "hasRsaPublicKey",
+                        "hasWorkloadIdentity",
                         "lastName",
                         "lastSuccessLogin",
                         "lockedUntilTime",
@@ -18251,6 +18313,18 @@
                         "$ref": "#/types/snowflake:index/TaskParameterSearchPath:TaskParameterSearchPath"
                     }
                 },
+                "serverlessTaskMaxStatementSizes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/TaskParameterServerlessTaskMaxStatementSize:TaskParameterServerlessTaskMaxStatementSize"
+                    }
+                },
+                "serverlessTaskMinStatementSizes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/TaskParameterServerlessTaskMinStatementSize:TaskParameterServerlessTaskMinStatementSize"
+                    }
+                },
                 "statementQueuedTimeoutInSeconds": {
                     "type": "array",
                     "items": {
@@ -18444,6 +18518,8 @@
                         "rowsPerResultsets",
                         "s3StageVpceDnsNames",
                         "searchPaths",
+                        "serverlessTaskMaxStatementSizes",
+                        "serverlessTaskMinStatementSizes",
                         "statementQueuedTimeoutInSeconds",
                         "statementTimeoutInSeconds",
                         "strictJsonOutputs",
@@ -19466,6 +19542,68 @@
                 }
             }
         },
+        "snowflake:index/TaskParameterServerlessTaskMaxStatementSize:TaskParameterServerlessTaskMaxStatementSize": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "description",
+                        "key",
+                        "level",
+                        "value"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/TaskParameterServerlessTaskMinStatementSize:TaskParameterServerlessTaskMinStatementSize": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "default",
+                        "description",
+                        "key",
+                        "level",
+                        "value"
+                    ]
+                }
+            }
+        },
         "snowflake:index/TaskParameterStatementQueuedTimeoutInSecond:TaskParameterStatementQueuedTimeoutInSecond": {
             "properties": {
                 "default": {
@@ -20358,6 +20496,12 @@
                 "state": {
                     "type": "string"
                 },
+                "targetCompletionIntervals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/TaskShowOutputTargetCompletionInterval:TaskShowOutputTargetCompletionInterval"
+                    }
+                },
                 "taskRelations": {
                     "type": "array",
                     "items": {
@@ -20392,8 +20536,32 @@
                         "schedule",
                         "schemaName",
                         "state",
+                        "targetCompletionIntervals",
                         "taskRelations",
                         "warehouse"
+                    ]
+                }
+            }
+        },
+        "snowflake:index/TaskShowOutputTargetCompletionInterval:TaskShowOutputTargetCompletionInterval": {
+            "properties": {
+                "hours": {
+                    "type": "integer"
+                },
+                "minutes": {
+                    "type": "integer"
+                },
+                "seconds": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "hours",
+                        "minutes",
+                        "seconds"
                     ]
                 }
             }
@@ -20423,6 +20591,23 @@
                     ]
                 }
             }
+        },
+        "snowflake:index/TaskTargetCompletionInterval:TaskTargetCompletionInterval": {
+            "properties": {
+                "hours": {
+                    "type": "integer",
+                    "description": "Specifies the target completion interval in hours. (conflicts with \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e)\n"
+                },
+                "minutes": {
+                    "type": "integer",
+                    "description": "Specifies the target completion interval in minutes. (conflicts with \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e)\n"
+                },
+                "seconds": {
+                    "type": "integer",
+                    "description": "Specifies the target completion interval in seconds. (conflicts with \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e)\n"
+                }
+            },
+            "type": "object"
         },
         "snowflake:index/UserParameter:UserParameter": {
             "properties": {
@@ -22743,6 +22928,9 @@
                 "hasRsaPublicKey": {
                     "type": "boolean"
                 },
+                "hasWorkloadIdentity": {
+                    "type": "boolean"
+                },
                 "lastName": {
                     "type": "string"
                 },
@@ -22798,6 +22986,7 @@
                         "hasMfa",
                         "hasPassword",
                         "hasRsaPublicKey",
+                        "hasWorkloadIdentity",
                         "lastName",
                         "lastSuccessLogin",
                         "lockedUntilTime",
@@ -25832,6 +26021,414 @@
                 }
             },
             "type": "object"
+        },
+        "snowflake:index/getListingsLimit:getListingsLimit": {
+            "properties": {
+                "from": {
+                    "type": "string",
+                    "description": "Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.\n"
+                },
+                "rows": {
+                    "type": "integer",
+                    "description": "The maximum number of rows to return.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "rows"
+            ]
+        },
+        "snowflake:index/getListingsListing:getListingsListing": {
+            "properties": {
+                "describeOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getListingsListingDescribeOutput:getListingsListingDescribeOutput"
+                    },
+                    "description": "Holds the output of DESCRIBE LISTING.\n"
+                },
+                "showOutputs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getListingsListingShowOutput:getListingsListingShowOutput"
+                    },
+                    "description": "Holds the output of SHOW LISTINGS.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "describeOutputs",
+                "showOutputs"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getListingsListingDescribeOutput:getListingsListingDescribeOutput": {
+            "properties": {
+                "applicationPackage": {
+                    "type": "string"
+                },
+                "approverContact": {
+                    "type": "string"
+                },
+                "businessNeeds": {
+                    "type": "string"
+                },
+                "categories": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "customizedContactInfo": {
+                    "type": "string"
+                },
+                "dataAttributes": {
+                    "type": "string"
+                },
+                "dataDictionary": {
+                    "type": "string"
+                },
+                "dataPreview": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "distribution": {
+                    "type": "string"
+                },
+                "globalName": {
+                    "type": "string"
+                },
+                "isApplication": {
+                    "type": "boolean"
+                },
+                "isByRequest": {
+                    "type": "boolean"
+                },
+                "isLimitedTrial": {
+                    "type": "boolean"
+                },
+                "isMonetized": {
+                    "type": "boolean"
+                },
+                "isMountlessQueryable": {
+                    "type": "boolean"
+                },
+                "isShare": {
+                    "type": "boolean"
+                },
+                "isTargeted": {
+                    "type": "boolean"
+                },
+                "lastCommittedVersionAlias": {
+                    "type": "string"
+                },
+                "lastCommittedVersionName": {
+                    "type": "string"
+                },
+                "lastCommittedVersionUri": {
+                    "type": "string"
+                },
+                "legacyUniformListingLocators": {
+                    "type": "string"
+                },
+                "limitedTrialPlan": {
+                    "type": "string"
+                },
+                "listingTerms": {
+                    "type": "string"
+                },
+                "liveVersionUri": {
+                    "type": "string"
+                },
+                "manifestYaml": {
+                    "type": "string"
+                },
+                "monetizationDisplayOrder": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "organizationProfileName": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "profile": {
+                    "type": "string"
+                },
+                "publishedOn": {
+                    "type": "string"
+                },
+                "publishedVersionAlias": {
+                    "type": "string"
+                },
+                "publishedVersionName": {
+                    "type": "string"
+                },
+                "publishedVersionUri": {
+                    "type": "string"
+                },
+                "refreshSchedule": {
+                    "type": "string"
+                },
+                "refreshType": {
+                    "type": "string"
+                },
+                "regions": {
+                    "type": "string"
+                },
+                "rejectionReason": {
+                    "type": "string"
+                },
+                "requestApprovalType": {
+                    "type": "string"
+                },
+                "resources": {
+                    "type": "string"
+                },
+                "retriedOn": {
+                    "type": "string"
+                },
+                "reviewState": {
+                    "type": "string"
+                },
+                "revisions": {
+                    "type": "string"
+                },
+                "scheduledDropTime": {
+                    "type": "string"
+                },
+                "share": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "subtitle": {
+                    "type": "string"
+                },
+                "supportContact": {
+                    "type": "string"
+                },
+                "targetAccounts": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "trialDetails": {
+                    "type": "string"
+                },
+                "uniformListingLocator": {
+                    "type": "string"
+                },
+                "unpublishedByAdminReasons": {
+                    "type": "string"
+                },
+                "updatedOn": {
+                    "type": "string"
+                },
+                "usageExamples": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "applicationPackage",
+                "approverContact",
+                "businessNeeds",
+                "categories",
+                "comment",
+                "createdOn",
+                "customizedContactInfo",
+                "dataAttributes",
+                "dataDictionary",
+                "dataPreview",
+                "description",
+                "distribution",
+                "globalName",
+                "isApplication",
+                "isByRequest",
+                "isLimitedTrial",
+                "isMonetized",
+                "isMountlessQueryable",
+                "isShare",
+                "isTargeted",
+                "lastCommittedVersionAlias",
+                "lastCommittedVersionName",
+                "lastCommittedVersionUri",
+                "legacyUniformListingLocators",
+                "limitedTrialPlan",
+                "listingTerms",
+                "liveVersionUri",
+                "manifestYaml",
+                "monetizationDisplayOrder",
+                "name",
+                "organizationProfileName",
+                "owner",
+                "ownerRoleType",
+                "profile",
+                "publishedOn",
+                "publishedVersionAlias",
+                "publishedVersionName",
+                "publishedVersionUri",
+                "refreshSchedule",
+                "refreshType",
+                "regions",
+                "rejectionReason",
+                "requestApprovalType",
+                "resources",
+                "retriedOn",
+                "reviewState",
+                "revisions",
+                "scheduledDropTime",
+                "share",
+                "state",
+                "subtitle",
+                "supportContact",
+                "targetAccounts",
+                "title",
+                "trialDetails",
+                "uniformListingLocator",
+                "unpublishedByAdminReasons",
+                "updatedOn",
+                "usageExamples"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getListingsListingShowOutput:getListingsListingShowOutput": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "createdOn": {
+                    "type": "string"
+                },
+                "detailedTargetAccounts": {
+                    "type": "string"
+                },
+                "distribution": {
+                    "type": "string"
+                },
+                "globalName": {
+                    "type": "string"
+                },
+                "isApplication": {
+                    "type": "boolean"
+                },
+                "isByRequest": {
+                    "type": "boolean"
+                },
+                "isLimitedTrial": {
+                    "type": "boolean"
+                },
+                "isMonetized": {
+                    "type": "boolean"
+                },
+                "isMountlessQueryable": {
+                    "type": "boolean"
+                },
+                "isTargeted": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "organizationProfileName": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "ownerRoleType": {
+                    "type": "string"
+                },
+                "profile": {
+                    "type": "string"
+                },
+                "publishedOn": {
+                    "type": "string"
+                },
+                "regions": {
+                    "type": "string"
+                },
+                "rejectedOn": {
+                    "type": "string"
+                },
+                "reviewState": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "subtitle": {
+                    "type": "string"
+                },
+                "targetAccounts": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "uniformListingLocator": {
+                    "type": "string"
+                },
+                "updatedOn": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "createdOn",
+                "detailedTargetAccounts",
+                "distribution",
+                "globalName",
+                "isApplication",
+                "isByRequest",
+                "isLimitedTrial",
+                "isMonetized",
+                "isMountlessQueryable",
+                "isTargeted",
+                "name",
+                "organizationProfileName",
+                "owner",
+                "ownerRoleType",
+                "profile",
+                "publishedOn",
+                "regions",
+                "rejectedOn",
+                "reviewState",
+                "state",
+                "subtitle",
+                "targetAccounts",
+                "title",
+                "uniformListingLocator",
+                "updatedOn"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "snowflake:index/getMaskingPoliciesIn:getMaskingPoliciesIn": {
             "properties": {
@@ -31133,6 +31730,18 @@
                         "$ref": "#/types/snowflake:index/getTasksTaskParameterSearchPath:getTasksTaskParameterSearchPath"
                     }
                 },
+                "serverlessTaskMaxStatementSizes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getTasksTaskParameterServerlessTaskMaxStatementSize:getTasksTaskParameterServerlessTaskMaxStatementSize"
+                    }
+                },
+                "serverlessTaskMinStatementSizes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getTasksTaskParameterServerlessTaskMinStatementSize:getTasksTaskParameterServerlessTaskMinStatementSize"
+                    }
+                },
                 "statementQueuedTimeoutInSeconds": {
                     "type": "array",
                     "items": {
@@ -31324,6 +31933,8 @@
                 "rowsPerResultsets",
                 "s3StageVpceDnsNames",
                 "searchPaths",
+                "serverlessTaskMaxStatementSizes",
+                "serverlessTaskMinStatementSizes",
                 "statementQueuedTimeoutInSeconds",
                 "statementTimeoutInSeconds",
                 "strictJsonOutputs",
@@ -32381,6 +32992,70 @@
                 }
             }
         },
+        "snowflake:index/getTasksTaskParameterServerlessTaskMaxStatementSize:getTasksTaskParameterServerlessTaskMaxStatementSize": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "default",
+                "description",
+                "key",
+                "level",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getTasksTaskParameterServerlessTaskMinStatementSize:getTasksTaskParameterServerlessTaskMinStatementSize": {
+            "properties": {
+                "default": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "level": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "default",
+                "description",
+                "key",
+                "level",
+                "value"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "snowflake:index/getTasksTaskParameterStatementQueuedTimeoutInSecond:getTasksTaskParameterStatementQueuedTimeoutInSecond": {
             "properties": {
                 "default": {
@@ -33278,6 +33953,12 @@
                 "state": {
                     "type": "string"
                 },
+                "targetCompletionIntervals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/snowflake:index/getTasksTaskShowOutputTargetCompletionInterval:getTasksTaskShowOutputTargetCompletionInterval"
+                    }
+                },
                 "taskRelations": {
                     "type": "array",
                     "items": {
@@ -33310,8 +33991,33 @@
                 "schedule",
                 "schemaName",
                 "state",
+                "targetCompletionIntervals",
                 "taskRelations",
                 "warehouse"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "snowflake:index/getTasksTaskShowOutputTargetCompletionInterval:getTasksTaskShowOutputTargetCompletionInterval": {
+            "properties": {
+                "hours": {
+                    "type": "integer"
+                },
+                "minutes": {
+                    "type": "integer"
+                },
+                "seconds": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "hours",
+                "minutes",
+                "seconds"
             ],
             "language": {
                 "nodejs": {
@@ -33517,6 +34223,9 @@
                 "hasMfa": {
                     "type": "boolean"
                 },
+                "hasWorkloadIdentity": {
+                    "type": "boolean"
+                },
                 "lastName": {
                     "type": "string"
                 },
@@ -33583,6 +34292,7 @@
                 "extAuthnUid",
                 "firstName",
                 "hasMfa",
+                "hasWorkloadIdentity",
                 "lastName",
                 "loginName",
                 "middleName",
@@ -35933,6 +36643,9 @@
                 "hasRsaPublicKey": {
                     "type": "boolean"
                 },
+                "hasWorkloadIdentity": {
+                    "type": "boolean"
+                },
                 "lastName": {
                     "type": "string"
                 },
@@ -35986,6 +36699,7 @@
                 "hasMfa",
                 "hasPassword",
                 "hasRsaPublicKey",
+                "hasWorkloadIdentity",
                 "lastName",
                 "lastSuccessLogin",
                 "lockedUntilTime",
@@ -36518,6 +37232,10 @@
                 "type": "string",
                 "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
+            "certRevocationCheckMode": {
+                "type": "string",
+                "description": "Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable."
+            },
             "clientIp": {
                 "type": "string",
                 "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable."
@@ -36534,13 +37252,37 @@
                 "type": "integer",
                 "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable."
             },
+            "crlAllowCertificatesWithoutCrlUrl": {
+                "type": "string",
+                "description": "Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable."
+            },
+            "crlHttpClientTimeout": {
+                "type": "integer",
+                "description": "Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable."
+            },
+            "crlInMemoryCacheDisabled": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable."
+            },
+            "crlOnDiskCacheDisabled": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable."
+            },
             "disableConsoleLogin": {
                 "type": "string",
                 "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable."
             },
+            "disableOcspChecks": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable."
+            },
             "disableQueryContextCache": {
                 "type": "boolean",
                 "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable."
+            },
+            "disableSamlUrlCheck": {
+                "type": "string",
+                "description": "Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable."
             },
             "disableTelemetry": {
                 "type": "boolean",
@@ -36575,7 +37317,8 @@
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable."
+                "description": "This field is deprecated. Use \u003cspan pulumi-lang-nodejs=\"`disableOcspChecks`\" pulumi-lang-dotnet=\"`DisableOcspChecks`\" pulumi-lang-go=\"`disableOcspChecks`\" pulumi-lang-python=\"`disable_ocsp_checks`\" pulumi-lang-yaml=\"`disableOcspChecks`\" pulumi-lang-java=\"`disableOcspChecks`\"\u003e`disable_ocsp_checks`\u003c/span\u003e instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.",
+                "deprecationMessage": "This field is deprecated. Use \u003cspan pulumi-lang-nodejs=\"`disableOcspChecks`\" pulumi-lang-dotnet=\"`DisableOcspChecks`\" pulumi-lang-go=\"`disableOcspChecks`\" pulumi-lang-python=\"`disable_ocsp_checks`\" pulumi-lang-yaml=\"`disableOcspChecks`\" pulumi-lang-java=\"`disableOcspChecks`\"\u003e`disable_ocsp_checks`\u003c/span\u003e instead."
             },
             "jwtClientTimeout": {
                 "type": "integer",
@@ -36604,6 +37347,10 @@
             "maxRetryCount": {
                 "type": "integer",
                 "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
+            },
+            "noProxy": {
+                "type": "string",
+                "description": "A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable."
             },
             "oauthAuthorizationUrl": {
                 "type": "string",
@@ -36695,6 +37442,27 @@
                 "type": "string",
                 "description": "A protocol used in the connection. Valid options are: \u003cspan pulumi-lang-nodejs=\"`http`\" pulumi-lang-dotnet=\"`Http`\" pulumi-lang-go=\"`http`\" pulumi-lang-python=\"`http`\" pulumi-lang-yaml=\"`http`\" pulumi-lang-java=\"`http`\"\u003e`http`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`https`\" pulumi-lang-dotnet=\"`Https`\" pulumi-lang-go=\"`https`\" pulumi-lang-python=\"`https`\" pulumi-lang-yaml=\"`https`\" pulumi-lang-java=\"`https`\"\u003e`https`\u003c/span\u003e. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable."
             },
+            "proxyHost": {
+                "type": "string",
+                "description": "The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable."
+            },
+            "proxyPassword": {
+                "type": "string",
+                "description": "The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.",
+                "secret": true
+            },
+            "proxyPort": {
+                "type": "integer",
+                "description": "The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable."
+            },
+            "proxyProtocol": {
+                "type": "string",
+                "description": "The protocol of the proxy to use for the connection. Valid options are: \u003cspan pulumi-lang-nodejs=\"`http`\" pulumi-lang-dotnet=\"`Http`\" pulumi-lang-go=\"`http`\" pulumi-lang-python=\"`http`\" pulumi-lang-yaml=\"`http`\" pulumi-lang-java=\"`http`\"\u003e`http`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`https`\" pulumi-lang-dotnet=\"`Https`\" pulumi-lang-go=\"`https`\" pulumi-lang-python=\"`https`\" pulumi-lang-yaml=\"`https`\" pulumi-lang-java=\"`https`\"\u003e`https`\u003c/span\u003e. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable."
+            },
+            "proxyUser": {
+                "type": "string",
+                "description": "The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable."
+            },
             "requestTimeout": {
                 "type": "integer",
                 "description": "request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable."
@@ -36754,6 +37522,10 @@
                 "type": "string",
                 "description": "Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable."
             },
+            "certRevocationCheckMode": {
+                "type": "string",
+                "description": "Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable."
+            },
             "clientIp": {
                 "type": "string",
                 "description": "IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable."
@@ -36770,13 +37542,37 @@
                 "type": "integer",
                 "description": "The timeout in seconds for the client to complete the authentication. Can also be sourced from the `SNOWFLAKE_CLIENT_TIMEOUT` environment variable."
             },
+            "crlAllowCertificatesWithoutCrlUrl": {
+                "type": "string",
+                "description": "Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable."
+            },
+            "crlHttpClientTimeout": {
+                "type": "integer",
+                "description": "Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable."
+            },
+            "crlInMemoryCacheDisabled": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable."
+            },
+            "crlOnDiskCacheDisabled": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable."
+            },
             "disableConsoleLogin": {
                 "type": "string",
                 "description": "Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable."
             },
+            "disableOcspChecks": {
+                "type": "boolean",
+                "description": "False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable."
+            },
             "disableQueryContextCache": {
                 "type": "boolean",
                 "description": "Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable."
+            },
+            "disableSamlUrlCheck": {
+                "type": "string",
+                "description": "Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable."
             },
             "disableTelemetry": {
                 "type": "boolean",
@@ -36816,7 +37612,8 @@
             },
             "insecureMode": {
                 "type": "boolean",
-                "description": "If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable."
+                "description": "This field is deprecated. Use \u003cspan pulumi-lang-nodejs=\"`disableOcspChecks`\" pulumi-lang-dotnet=\"`DisableOcspChecks`\" pulumi-lang-go=\"`disableOcspChecks`\" pulumi-lang-python=\"`disable_ocsp_checks`\" pulumi-lang-yaml=\"`disableOcspChecks`\" pulumi-lang-java=\"`disableOcspChecks`\"\u003e`disable_ocsp_checks`\u003c/span\u003e instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.",
+                "deprecationMessage": "This field is deprecated. Use \u003cspan pulumi-lang-nodejs=\"`disableOcspChecks`\" pulumi-lang-dotnet=\"`DisableOcspChecks`\" pulumi-lang-go=\"`disableOcspChecks`\" pulumi-lang-python=\"`disable_ocsp_checks`\" pulumi-lang-yaml=\"`disableOcspChecks`\" pulumi-lang-java=\"`disableOcspChecks`\"\u003e`disable_ocsp_checks`\u003c/span\u003e instead."
             },
             "jwtClientTimeout": {
                 "type": "integer",
@@ -36845,6 +37642,10 @@
             "maxRetryCount": {
                 "type": "integer",
                 "description": "Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable."
+            },
+            "noProxy": {
+                "type": "string",
+                "description": "A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable."
             },
             "oauthAuthorizationUrl": {
                 "type": "string",
@@ -36955,6 +37756,27 @@
                         "SNOWFLAKE_PROTOCOL"
                     ]
                 }
+            },
+            "proxyHost": {
+                "type": "string",
+                "description": "The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable."
+            },
+            "proxyPassword": {
+                "type": "string",
+                "description": "The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.",
+                "secret": true
+            },
+            "proxyPort": {
+                "type": "integer",
+                "description": "The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable."
+            },
+            "proxyProtocol": {
+                "type": "string",
+                "description": "The protocol of the proxy to use for the connection. Valid options are: \u003cspan pulumi-lang-nodejs=\"`http`\" pulumi-lang-dotnet=\"`Http`\" pulumi-lang-go=\"`http`\" pulumi-lang-python=\"`http`\" pulumi-lang-yaml=\"`http`\" pulumi-lang-java=\"`http`\"\u003e`http`\u003c/span\u003e | \u003cspan pulumi-lang-nodejs=\"`https`\" pulumi-lang-dotnet=\"`Https`\" pulumi-lang-go=\"`https`\" pulumi-lang-python=\"`https`\" pulumi-lang-yaml=\"`https`\" pulumi-lang-java=\"`https`\"\u003e`https`\u003c/span\u003e. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable."
+            },
+            "proxyUser": {
+                "type": "string",
+                "description": "The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable."
             },
             "requestTimeout": {
                 "type": "integer",
@@ -38432,7 +39254,7 @@
             }
         },
         "snowflake:index/authenticationPolicy:AuthenticationPolicy": {
-            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/authenticationPolicy:AuthenticationPolicy example '\"\u003cdatabase_name\u003e\".\"\u003cschema_name\u003e\".\"\u003cauthentication_policy_name\u003e\"'\n```\n\n",
+            "description": "\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import snowflake:index/authenticationPolicy:AuthenticationPolicy example '\"\u003cdatabase_name\u003e\".\"\u003cschema_name\u003e\".\"\u003cauthentication_policy_name\u003e\"'\n```\n\n",
             "properties": {
                 "authenticationMethods": {
                     "type": "array",
@@ -39420,10 +40242,6 @@
                     "type": "string",
                     "description": "Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).\n"
                 },
-                "samlIdentityProvider": {
-                    "type": "string",
-                    "description": "Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).\n"
-                },
                 "searchPath": {
                     "type": "string",
                     "description": "Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).\n"
@@ -39642,7 +40460,6 @@
                 "requireStorageIntegrationForStageOperation",
                 "rowsPerResultset",
                 "s3StageVpceDnsName",
-                "samlIdentityProvider",
                 "searchPath",
                 "serverlessTaskMaxStatementSize",
                 "serverlessTaskMinStatementSize",
@@ -40031,10 +40848,6 @@
                 "s3StageVpceDnsName": {
                     "type": "string",
                     "description": "Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).\n"
-                },
-                "samlIdentityProvider": {
-                    "type": "string",
-                    "description": "Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).\n"
                 },
                 "searchPath": {
                     "type": "string",
@@ -40527,10 +41340,6 @@
                         "type": "string",
                         "description": "Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).\n"
                     },
-                    "samlIdentityProvider": {
-                        "type": "string",
-                        "description": "Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).\n"
-                    },
                     "searchPath": {
                         "type": "string",
                         "description": "Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).\n"
@@ -41021,10 +41830,6 @@
                     "type": "string",
                     "description": "Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).\n"
                 },
-                "samlIdentityProvider": {
-                    "type": "string",
-                    "description": "Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).\n"
-                },
                 "searchPath": {
                     "type": "string",
                     "description": "Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).\n"
@@ -41251,7 +42056,6 @@
                 "requireStorageIntegrationForStageOperation",
                 "rowsPerResultset",
                 "s3StageVpceDnsName",
-                "samlIdentityProvider",
                 "searchPath",
                 "serverlessTaskMaxStatementSize",
                 "serverlessTaskMinStatementSize",
@@ -41637,10 +42441,6 @@
                 "s3StageVpceDnsName": {
                     "type": "string",
                     "description": "Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).\n"
-                },
-                "samlIdentityProvider": {
-                    "type": "string",
-                    "description": "Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).\n"
                 },
                 "searchPath": {
                     "type": "string",
@@ -42128,10 +42928,6 @@
                     "s3StageVpceDnsName": {
                         "type": "string",
                         "description": "Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).\n"
-                    },
-                    "samlIdentityProvider": {
-                        "type": "string",
-                        "description": "Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).\n"
                     },
                     "searchPath": {
                         "type": "string",
@@ -49190,7 +49986,7 @@
                 },
                 "orReplace": {
                     "type": "boolean",
-                    "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e) Overwrites the View if it exists.\n"
+                    "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -49198,7 +49994,7 @@
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the query used to create the view.\n"
+                    "description": "Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -49241,7 +50037,7 @@
                 },
                 "orReplace": {
                     "type": "boolean",
-                    "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e) Overwrites the View if it exists.\n"
+                    "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -49250,7 +50046,7 @@
                 },
                 "statement": {
                     "type": "string",
-                    "description": "Specifies the query used to create the view.\n",
+                    "description": "Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.\n",
                     "willReplaceOnChanges": true
                 },
                 "tags": {
@@ -49299,7 +50095,7 @@
                     },
                     "orReplace": {
                         "type": "boolean",
-                        "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e) Overwrites the View if it exists.\n"
+                        "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.\n"
                     },
                     "schema": {
                         "type": "string",
@@ -49308,7 +50104,7 @@
                     },
                     "statement": {
                         "type": "string",
-                        "description": "Specifies the query used to create the view.\n",
+                        "description": "Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.\n",
                         "willReplaceOnChanges": true
                     },
                     "tags": {
@@ -49740,7 +50536,7 @@
                 },
                 "queryWarehouse": {
                     "type": "string",
-                    "description": "Specifies the warehouse where SQL queries in the notebook are run.\n"
+                    "description": "Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -49755,7 +50551,7 @@
                 },
                 "warehouse": {
                     "type": "string",
-                    "description": "Specifies the warehouse that runs the notebook kernel and python code.\n"
+                    "description": "Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.\n"
                 }
             },
             "required": [
@@ -49799,7 +50595,7 @@
                 },
                 "queryWarehouse": {
                     "type": "string",
-                    "description": "Specifies the warehouse where SQL queries in the notebook are run.\n"
+                    "description": "Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.\n"
                 },
                 "schema": {
                     "type": "string",
@@ -49808,7 +50604,7 @@
                 },
                 "warehouse": {
                     "type": "string",
-                    "description": "Specifies the warehouse that runs the notebook kernel and python code.\n"
+                    "description": "Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.\n"
                 }
             },
             "requiredInputs": [
@@ -49861,7 +50657,7 @@
                     },
                     "queryWarehouse": {
                         "type": "string",
-                        "description": "Specifies the warehouse where SQL queries in the notebook are run.\n"
+                        "description": "Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.\n"
                     },
                     "schema": {
                         "type": "string",
@@ -49877,7 +50673,7 @@
                     },
                     "warehouse": {
                         "type": "string",
-                        "description": "Specifies the warehouse that runs the notebook kernel and python code.\n"
+                        "description": "Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.\n"
                     }
                 },
                 "type": "object"
@@ -53040,8 +53836,7 @@
                     "description": "Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.\n"
                 },
                 "startTimestamp": {
-                    "type": "string",
-                    "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a \u003cspan pulumi-lang-nodejs=\"`startTimestamp`\" pulumi-lang-dotnet=\"`StartTimestamp`\" pulumi-lang-go=\"`startTimestamp`\" pulumi-lang-python=\"`start_timestamp`\" pulumi-lang-yaml=\"`startTimestamp`\" pulumi-lang-java=\"`startTimestamp`\"\u003e`start_timestamp`\u003c/span\u003e for a resource monitor, you must also set \u003cspan pulumi-lang-nodejs=\"`frequency`\" pulumi-lang-dotnet=\"`Frequency`\" pulumi-lang-go=\"`frequency`\" pulumi-lang-python=\"`frequency`\" pulumi-lang-yaml=\"`frequency`\" pulumi-lang-java=\"`frequency`\"\u003e`frequency`\u003c/span\u003e.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
+                    "type": "string"
                 },
                 "suspendImmediateTrigger": {
                     "type": "integer",
@@ -53090,8 +53885,7 @@
                     "description": "Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.\n"
                 },
                 "startTimestamp": {
-                    "type": "string",
-                    "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a \u003cspan pulumi-lang-nodejs=\"`startTimestamp`\" pulumi-lang-dotnet=\"`StartTimestamp`\" pulumi-lang-go=\"`startTimestamp`\" pulumi-lang-python=\"`start_timestamp`\" pulumi-lang-yaml=\"`startTimestamp`\" pulumi-lang-java=\"`startTimestamp`\"\u003e`start_timestamp`\u003c/span\u003e for a resource monitor, you must also set \u003cspan pulumi-lang-nodejs=\"`frequency`\" pulumi-lang-dotnet=\"`Frequency`\" pulumi-lang-go=\"`frequency`\" pulumi-lang-python=\"`frequency`\" pulumi-lang-yaml=\"`frequency`\" pulumi-lang-java=\"`frequency`\"\u003e`frequency`\u003c/span\u003e.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
+                    "type": "string"
                 },
                 "suspendImmediateTrigger": {
                     "type": "integer",
@@ -53148,8 +53942,7 @@
                         "description": "Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.\n"
                     },
                     "startTimestamp": {
-                        "type": "string",
-                        "description": "The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a \u003cspan pulumi-lang-nodejs=\"`startTimestamp`\" pulumi-lang-dotnet=\"`StartTimestamp`\" pulumi-lang-go=\"`startTimestamp`\" pulumi-lang-python=\"`start_timestamp`\" pulumi-lang-yaml=\"`startTimestamp`\" pulumi-lang-java=\"`startTimestamp`\"\u003e`start_timestamp`\u003c/span\u003e for a resource monitor, you must also set \u003cspan pulumi-lang-nodejs=\"`frequency`\" pulumi-lang-dotnet=\"`Frequency`\" pulumi-lang-go=\"`frequency`\" pulumi-lang-python=\"`frequency`\" pulumi-lang-yaml=\"`frequency`\" pulumi-lang-java=\"`frequency`\"\u003e`frequency`\u003c/span\u003e.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.\n"
+                        "type": "string"
                     },
                     "suspendImmediateTrigger": {
                         "type": "integer",
@@ -53998,7 +54791,7 @@
                 },
                 "runAsRole": {
                     "type": "string",
-                    "description": "Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.\n"
+                    "description": "Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using \u003cspan pulumi-lang-nodejs=\"`genericScimProvisioner`\" pulumi-lang-dotnet=\"`GenericScimProvisioner`\" pulumi-lang-go=\"`genericScimProvisioner`\" pulumi-lang-python=\"`generic_scim_provisioner`\" pulumi-lang-yaml=\"`genericScimProvisioner`\" pulumi-lang-java=\"`genericScimProvisioner`\"\u003e`generic_scim_provisioner`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaProvisioner`\" pulumi-lang-dotnet=\"`OktaProvisioner`\" pulumi-lang-go=\"`oktaProvisioner`\" pulumi-lang-python=\"`okta_provisioner`\" pulumi-lang-yaml=\"`oktaProvisioner`\" pulumi-lang-java=\"`oktaProvisioner`\"\u003e`okta_provisioner`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`aadProvisioner`\" pulumi-lang-dotnet=\"`AadProvisioner`\" pulumi-lang-go=\"`aadProvisioner`\" pulumi-lang-python=\"`aad_provisioner`\" pulumi-lang-yaml=\"`aadProvisioner`\" pulumi-lang-java=\"`aadProvisioner`\"\u003e`aad_provisioner`\u003c/span\u003e, which are automatically converted to uppercase for backwards compatibility.\n"
                 },
                 "scimClient": {
                     "type": "string",
@@ -54045,7 +54838,7 @@
                 },
                 "runAsRole": {
                     "type": "string",
-                    "description": "Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.\n",
+                    "description": "Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using \u003cspan pulumi-lang-nodejs=\"`genericScimProvisioner`\" pulumi-lang-dotnet=\"`GenericScimProvisioner`\" pulumi-lang-go=\"`genericScimProvisioner`\" pulumi-lang-python=\"`generic_scim_provisioner`\" pulumi-lang-yaml=\"`genericScimProvisioner`\" pulumi-lang-java=\"`genericScimProvisioner`\"\u003e`generic_scim_provisioner`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaProvisioner`\" pulumi-lang-dotnet=\"`OktaProvisioner`\" pulumi-lang-go=\"`oktaProvisioner`\" pulumi-lang-python=\"`okta_provisioner`\" pulumi-lang-yaml=\"`oktaProvisioner`\" pulumi-lang-java=\"`oktaProvisioner`\"\u003e`okta_provisioner`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`aadProvisioner`\" pulumi-lang-dotnet=\"`AadProvisioner`\" pulumi-lang-go=\"`aadProvisioner`\" pulumi-lang-python=\"`aad_provisioner`\" pulumi-lang-yaml=\"`aadProvisioner`\" pulumi-lang-java=\"`aadProvisioner`\"\u003e`aad_provisioner`\u003c/span\u003e, which are automatically converted to uppercase for backwards compatibility.\n",
                     "willReplaceOnChanges": true
                 },
                 "scimClient": {
@@ -54096,7 +54889,7 @@
                     },
                     "runAsRole": {
                         "type": "string",
-                        "description": "Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.\n",
+                        "description": "Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using \u003cspan pulumi-lang-nodejs=\"`genericScimProvisioner`\" pulumi-lang-dotnet=\"`GenericScimProvisioner`\" pulumi-lang-go=\"`genericScimProvisioner`\" pulumi-lang-python=\"`generic_scim_provisioner`\" pulumi-lang-yaml=\"`genericScimProvisioner`\" pulumi-lang-java=\"`genericScimProvisioner`\"\u003e`generic_scim_provisioner`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaProvisioner`\" pulumi-lang-dotnet=\"`OktaProvisioner`\" pulumi-lang-go=\"`oktaProvisioner`\" pulumi-lang-python=\"`okta_provisioner`\" pulumi-lang-yaml=\"`oktaProvisioner`\" pulumi-lang-java=\"`oktaProvisioner`\"\u003e`okta_provisioner`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`aadProvisioner`\" pulumi-lang-dotnet=\"`AadProvisioner`\" pulumi-lang-go=\"`aadProvisioner`\" pulumi-lang-python=\"`aad_provisioner`\" pulumi-lang-yaml=\"`aadProvisioner`\" pulumi-lang-java=\"`aadProvisioner`\"\u003e`aad_provisioner`\u003c/span\u003e, which are automatically converted to uppercase for backwards compatibility.\n",
                         "willReplaceOnChanges": true
                     },
                     "scimClient": {
@@ -59321,6 +60114,14 @@
                     "type": "string",
                     "description": "Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).\n"
                 },
+                "serverlessTaskMaxStatementSize": {
+                    "type": "string",
+                    "description": "Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).\n"
+                },
+                "serverlessTaskMinStatementSize": {
+                    "type": "string",
+                    "description": "Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).\n"
+                },
                 "showOutputs": {
                     "type": "array",
                     "items": {
@@ -59351,6 +60152,10 @@
                 "suspendTaskAfterNumFailures": {
                     "type": "integer",
                     "description": "Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).\n"
+                },
+                "targetCompletionInterval": {
+                    "$ref": "#/types/snowflake:index/TaskTargetCompletionInterval:TaskTargetCompletionInterval",
+                    "description": "Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e should be set)\n"
                 },
                 "taskAutoRetryAttempts": {
                     "type": "integer",
@@ -59487,6 +60292,8 @@
                 "s3StageVpceDnsName",
                 "schema",
                 "searchPath",
+                "serverlessTaskMaxStatementSize",
+                "serverlessTaskMinStatementSize",
                 "showOutputs",
                 "sqlStatement",
                 "started",
@@ -59692,6 +60499,14 @@
                     "type": "string",
                     "description": "Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).\n"
                 },
+                "serverlessTaskMaxStatementSize": {
+                    "type": "string",
+                    "description": "Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).\n"
+                },
+                "serverlessTaskMinStatementSize": {
+                    "type": "string",
+                    "description": "Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).\n"
+                },
                 "sqlStatement": {
                     "type": "string",
                     "description": "Any single SQL statement, or a call to a stored procedure, executed when the task runs.\n"
@@ -59715,6 +60530,10 @@
                 "suspendTaskAfterNumFailures": {
                     "type": "integer",
                     "description": "Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).\n"
+                },
+                "targetCompletionInterval": {
+                    "$ref": "#/types/snowflake:index/TaskTargetCompletionInterval:TaskTargetCompletionInterval",
+                    "description": "Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e should be set)\n"
                 },
                 "taskAutoRetryAttempts": {
                     "type": "integer",
@@ -60007,6 +60826,14 @@
                         "type": "string",
                         "description": "Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).\n"
                     },
+                    "serverlessTaskMaxStatementSize": {
+                        "type": "string",
+                        "description": "Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).\n"
+                    },
+                    "serverlessTaskMinStatementSize": {
+                        "type": "string",
+                        "description": "Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).\n"
+                    },
                     "showOutputs": {
                         "type": "array",
                         "items": {
@@ -60037,6 +60864,10 @@
                     "suspendTaskAfterNumFailures": {
                         "type": "integer",
                         "description": "Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).\n"
+                    },
+                    "targetCompletionInterval": {
+                        "$ref": "#/types/snowflake:index/TaskTargetCompletionInterval:TaskTargetCompletionInterval",
+                        "description": "Specifies the target completion interval for tasks. This can be specified in hours, minutes, or seconds. (when set, one of the sub-fields \u003cspan pulumi-lang-nodejs=\"`hours`\" pulumi-lang-dotnet=\"`Hours`\" pulumi-lang-go=\"`hours`\" pulumi-lang-python=\"`hours`\" pulumi-lang-yaml=\"`hours`\" pulumi-lang-java=\"`hours`\"\u003e`hours`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`minutes`\" pulumi-lang-dotnet=\"`Minutes`\" pulumi-lang-go=\"`minutes`\" pulumi-lang-python=\"`minutes`\" pulumi-lang-yaml=\"`minutes`\" pulumi-lang-java=\"`minutes`\"\u003e`minutes`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`seconds`\" pulumi-lang-dotnet=\"`Seconds`\" pulumi-lang-go=\"`seconds`\" pulumi-lang-python=\"`seconds`\" pulumi-lang-yaml=\"`seconds`\" pulumi-lang-java=\"`seconds`\"\u003e`seconds`\u003c/span\u003e should be set)\n"
                     },
                     "taskAutoRetryAttempts": {
                         "type": "integer",
@@ -63246,6 +64077,68 @@
                 },
                 "required": [
                     "imageRepositories",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "snowflake:index/getListings:getListings": {
+            "description": "!\u003e **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add \u003cspan pulumi-lang-nodejs=\"`snowflakeListingsDatasource`\" pulumi-lang-dotnet=\"`SnowflakeListingsDatasource`\" pulumi-lang-go=\"`snowflakeListingsDatasource`\" pulumi-lang-python=\"`snowflake_listings_datasource`\" pulumi-lang-yaml=\"`snowflakeListingsDatasource`\" pulumi-lang-java=\"`snowflakeListingsDatasource`\"\u003e`snowflake_listings_datasource`\u003c/span\u003e to \u003cspan pulumi-lang-nodejs=\"`previewFeaturesEnabled`\" pulumi-lang-dotnet=\"`PreviewFeaturesEnabled`\" pulumi-lang-go=\"`previewFeaturesEnabled`\" pulumi-lang-python=\"`preview_features_enabled`\" pulumi-lang-yaml=\"`previewFeaturesEnabled`\" pulumi-lang-java=\"`previewFeaturesEnabled`\"\u003e`preview_features_enabled`\u003c/span\u003e field in the provider configuration. Read more about preview features in our documentation.\n\n\u003e **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.\n\nData source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (\u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`limit`\" pulumi-lang-dotnet=\"`Limit`\" pulumi-lang-go=\"`limit`\" pulumi-lang-python=\"`limit`\" pulumi-lang-yaml=\"`limit`\" pulumi-lang-java=\"`limit`\"\u003e`limit`\u003c/span\u003e are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.\n\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getListings.\n",
+                "properties": {
+                    "like": {
+                        "type": "string",
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getListingsLimit:getListingsLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e.\n"
+                    },
+                    "startsWith": {
+                        "type": "string",
+                        "description": "Filters the output with **case-sensitive** characters indicating the beginning of the object name.\n"
+                    },
+                    "withDescribe": {
+                        "type": "boolean",
+                        "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e) Runs DESC LISTING for each listing returned by SHOW LISTINGS. The output of describe is saved to the description field. By default this value is set to true.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getListings.\n",
+                "properties": {
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.",
+                        "type": "string"
+                    },
+                    "like": {
+                        "description": "Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).\n",
+                        "type": "string"
+                    },
+                    "limit": {
+                        "$ref": "#/types/snowflake:index/getListingsLimit:getListingsLimit",
+                        "description": "Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\"\u003e`starts_with`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`like`\" pulumi-lang-dotnet=\"`Like`\" pulumi-lang-go=\"`like`\" pulumi-lang-python=\"`like`\" pulumi-lang-yaml=\"`like`\" pulumi-lang-java=\"`like`\"\u003e`like`\u003c/span\u003e.\n"
+                    },
+                    "listings": {
+                        "description": "Holds the aggregated output of all listings details queries.\n",
+                        "items": {
+                            "$ref": "#/types/snowflake:index/getListingsListing:getListingsListing"
+                        },
+                        "type": "array"
+                    },
+                    "startsWith": {
+                        "description": "Filters the output with **case-sensitive** characters indicating the beginning of the object name.\n",
+                        "type": "string"
+                    },
+                    "withDescribe": {
+                        "description": "(Default: \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e) Runs DESC LISTING for each listing returned by SHOW LISTINGS. The output of describe is saved to the description field. By default this value is set to true.\n",
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "listings",
                     "id"
                 ],
                 "type": "object"
