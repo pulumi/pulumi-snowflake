@@ -36,6 +36,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('authenticator')
 
     @_builtins.property
+    def cert_revocation_check_mode(self) -> Optional[str]:
+        """
+        Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+        """
+        return __config__.get('certRevocationCheckMode')
+
+    @_builtins.property
     def client_ip(self) -> Optional[str]:
         """
         IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
@@ -64,6 +71,34 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_int('clientTimeout')
 
     @_builtins.property
+    def crl_allow_certificates_without_crl_url(self) -> Optional[str]:
+        """
+        Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+        """
+        return __config__.get('crlAllowCertificatesWithoutCrlUrl')
+
+    @_builtins.property
+    def crl_http_client_timeout(self) -> Optional[int]:
+        """
+        Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+        """
+        return __config__.get_int('crlHttpClientTimeout')
+
+    @_builtins.property
+    def crl_in_memory_cache_disabled(self) -> Optional[bool]:
+        """
+        False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+        """
+        return __config__.get_bool('crlInMemoryCacheDisabled')
+
+    @_builtins.property
+    def crl_on_disk_cache_disabled(self) -> Optional[bool]:
+        """
+        False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+        """
+        return __config__.get_bool('crlOnDiskCacheDisabled')
+
+    @_builtins.property
     def disable_console_login(self) -> Optional[str]:
         """
         Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
@@ -71,11 +106,25 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('disableConsoleLogin')
 
     @_builtins.property
+    def disable_ocsp_checks(self) -> Optional[bool]:
+        """
+        False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+        """
+        return __config__.get_bool('disableOcspChecks')
+
+    @_builtins.property
     def disable_query_context_cache(self) -> Optional[bool]:
         """
         Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
         """
         return __config__.get_bool('disableQueryContextCache')
+
+    @_builtins.property
+    def disable_saml_url_check(self) -> Optional[str]:
+        """
+        Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+        """
+        return __config__.get('disableSamlUrlCheck')
 
     @_builtins.property
     def disable_telemetry(self) -> Optional[bool]:
@@ -129,7 +178,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def insecure_mode(self) -> Optional[bool]:
         """
-        If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+        This field is deprecated. Use `disable_ocsp_checks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
         """
         return __config__.get_bool('insecureMode')
 
@@ -181,6 +230,13 @@ class _ExportableConfig(types.ModuleType):
         Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
         """
         return __config__.get_int('maxRetryCount')
+
+    @_builtins.property
+    def no_proxy(self) -> Optional[str]:
+        """
+        A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+        """
+        return __config__.get('noProxy')
 
     @_builtins.property
     def oauth_authorization_url(self) -> Optional[str]:
@@ -311,6 +367,41 @@ class _ExportableConfig(types.ModuleType):
         A protocol used in the connection. Valid options are: `http` | `https`. Can also be sourced from the `SNOWFLAKE_PROTOCOL` environment variable.
         """
         return __config__.get('protocol') or _utilities.get_env('SNOWFLAKE_PROTOCOL')
+
+    @_builtins.property
+    def proxy_host(self) -> Optional[str]:
+        """
+        The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+        """
+        return __config__.get('proxyHost')
+
+    @_builtins.property
+    def proxy_password(self) -> Optional[str]:
+        """
+        The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+        """
+        return __config__.get('proxyPassword')
+
+    @_builtins.property
+    def proxy_port(self) -> Optional[int]:
+        """
+        The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+        """
+        return __config__.get_int('proxyPort')
+
+    @_builtins.property
+    def proxy_protocol(self) -> Optional[str]:
+        """
+        The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+        """
+        return __config__.get('proxyProtocol')
+
+    @_builtins.property
+    def proxy_user(self) -> Optional[str]:
+        """
+        The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+        """
+        return __config__.get('proxyUser')
 
     @_builtins.property
     def request_timeout(self) -> Optional[int]:

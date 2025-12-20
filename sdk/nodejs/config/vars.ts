@@ -32,6 +32,17 @@ Object.defineProperty(exports, "authenticator", {
 });
 
 /**
+ * Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+ */
+export declare const certRevocationCheckMode: string | undefined;
+Object.defineProperty(exports, "certRevocationCheckMode", {
+    get() {
+        return __config.get("certRevocationCheckMode");
+    },
+    enumerable: true,
+});
+
+/**
  * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
  */
 export declare const clientIp: string | undefined;
@@ -76,6 +87,50 @@ Object.defineProperty(exports, "clientTimeout", {
 });
 
 /**
+ * Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+ */
+export declare const crlAllowCertificatesWithoutCrlUrl: string | undefined;
+Object.defineProperty(exports, "crlAllowCertificatesWithoutCrlUrl", {
+    get() {
+        return __config.get("crlAllowCertificatesWithoutCrlUrl");
+    },
+    enumerable: true,
+});
+
+/**
+ * Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+ */
+export declare const crlHttpClientTimeout: number | undefined;
+Object.defineProperty(exports, "crlHttpClientTimeout", {
+    get() {
+        return __config.getObject<number>("crlHttpClientTimeout");
+    },
+    enumerable: true,
+});
+
+/**
+ * False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+ */
+export declare const crlInMemoryCacheDisabled: boolean | undefined;
+Object.defineProperty(exports, "crlInMemoryCacheDisabled", {
+    get() {
+        return __config.getObject<boolean>("crlInMemoryCacheDisabled");
+    },
+    enumerable: true,
+});
+
+/**
+ * False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+ */
+export declare const crlOnDiskCacheDisabled: boolean | undefined;
+Object.defineProperty(exports, "crlOnDiskCacheDisabled", {
+    get() {
+        return __config.getObject<boolean>("crlOnDiskCacheDisabled");
+    },
+    enumerable: true,
+});
+
+/**
  * Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
  */
 export declare const disableConsoleLogin: string | undefined;
@@ -87,12 +142,34 @@ Object.defineProperty(exports, "disableConsoleLogin", {
 });
 
 /**
+ * False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+ */
+export declare const disableOcspChecks: boolean | undefined;
+Object.defineProperty(exports, "disableOcspChecks", {
+    get() {
+        return __config.getObject<boolean>("disableOcspChecks");
+    },
+    enumerable: true,
+});
+
+/**
  * Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
  */
 export declare const disableQueryContextCache: boolean | undefined;
 Object.defineProperty(exports, "disableQueryContextCache", {
     get() {
         return __config.getObject<boolean>("disableQueryContextCache");
+    },
+    enumerable: true,
+});
+
+/**
+ * Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+ */
+export declare const disableSamlUrlCheck: string | undefined;
+Object.defineProperty(exports, "disableSamlUrlCheck", {
+    get() {
+        return __config.get("disableSamlUrlCheck");
     },
     enumerable: true,
 });
@@ -175,7 +252,7 @@ Object.defineProperty(exports, "includeRetryReason", {
 });
 
 /**
- * If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+ * This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
  */
 export declare const insecureMode: boolean | undefined;
 Object.defineProperty(exports, "insecureMode", {
@@ -258,6 +335,17 @@ export declare const maxRetryCount: number | undefined;
 Object.defineProperty(exports, "maxRetryCount", {
     get() {
         return __config.getObject<number>("maxRetryCount");
+    },
+    enumerable: true,
+});
+
+/**
+ * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+ */
+export declare const noProxy: string | undefined;
+Object.defineProperty(exports, "noProxy", {
+    get() {
+        return __config.get("noProxy");
     },
     enumerable: true,
 });
@@ -464,6 +552,61 @@ export declare const protocol: string | undefined;
 Object.defineProperty(exports, "protocol", {
     get() {
         return __config.get("protocol") ?? utilities.getEnv("SNOWFLAKE_PROTOCOL");
+    },
+    enumerable: true,
+});
+
+/**
+ * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+ */
+export declare const proxyHost: string | undefined;
+Object.defineProperty(exports, "proxyHost", {
+    get() {
+        return __config.get("proxyHost");
+    },
+    enumerable: true,
+});
+
+/**
+ * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+ */
+export declare const proxyPassword: string | undefined;
+Object.defineProperty(exports, "proxyPassword", {
+    get() {
+        return __config.get("proxyPassword");
+    },
+    enumerable: true,
+});
+
+/**
+ * The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+ */
+export declare const proxyPort: number | undefined;
+Object.defineProperty(exports, "proxyPort", {
+    get() {
+        return __config.getObject<number>("proxyPort");
+    },
+    enumerable: true,
+});
+
+/**
+ * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+ */
+export declare const proxyProtocol: string | undefined;
+Object.defineProperty(exports, "proxyProtocol", {
+    get() {
+        return __config.get("proxyProtocol");
+    },
+    enumerable: true,
+});
+
+/**
+ * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+ */
+export declare const proxyUser: string | undefined;
+Object.defineProperty(exports, "proxyUser", {
+    get() {
+        return __config.get("proxyUser");
     },
     enumerable: true,
 });

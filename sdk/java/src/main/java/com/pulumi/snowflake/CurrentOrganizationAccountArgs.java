@@ -1330,21 +1330,6 @@ public final class CurrentOrganizationAccountArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-     * 
-     */
-    @Import(name="samlIdentityProvider")
-    private @Nullable Output<String> samlIdentityProvider;
-
-    /**
-     * @return Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-     * 
-     */
-    public Optional<Output<String>> samlIdentityProvider() {
-        return Optional.ofNullable(this.samlIdentityProvider);
-    }
-
-    /**
      * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      * 
      */
@@ -1930,7 +1915,6 @@ public final class CurrentOrganizationAccountArgs extends com.pulumi.resources.R
         this.resourceMonitor = $.resourceMonitor;
         this.rowsPerResultset = $.rowsPerResultset;
         this.s3StageVpceDnsName = $.s3StageVpceDnsName;
-        this.samlIdentityProvider = $.samlIdentityProvider;
         this.searchPath = $.searchPath;
         this.serverlessTaskMaxStatementSize = $.serverlessTaskMaxStatementSize;
         this.serverlessTaskMinStatementSize = $.serverlessTaskMinStatementSize;
@@ -3818,27 +3802,6 @@ public final class CurrentOrganizationAccountArgs extends com.pulumi.resources.R
          */
         public Builder s3StageVpceDnsName(String s3StageVpceDnsName) {
             return s3StageVpceDnsName(Output.of(s3StageVpceDnsName));
-        }
-
-        /**
-         * @param samlIdentityProvider Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder samlIdentityProvider(@Nullable Output<String> samlIdentityProvider) {
-            $.samlIdentityProvider = samlIdentityProvider;
-            return this;
-        }
-
-        /**
-         * @param samlIdentityProvider Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder samlIdentityProvider(String samlIdentityProvider) {
-            return samlIdentityProvider(Output.of(samlIdentityProvider));
         }
 
         /**

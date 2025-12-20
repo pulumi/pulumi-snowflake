@@ -113,14 +113,14 @@ public class ScimIntegration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkPolicy);
     }
     /**
-     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
      * 
      */
     @Export(name="runAsRole", refs={String.class}, tree="[0]")
     private Output<String> runAsRole;
 
     /**
-     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
      * 
      */
     public Output<String> runAsRole() {

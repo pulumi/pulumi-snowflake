@@ -37,6 +37,8 @@ import com.pulumi.snowflake.outputs.GetTasksTaskParameterQuotedIdentifiersIgnore
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterRowsPerResultset;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterS3StageVpceDnsName;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterSearchPath;
+import com.pulumi.snowflake.outputs.GetTasksTaskParameterServerlessTaskMaxStatementSize;
+import com.pulumi.snowflake.outputs.GetTasksTaskParameterServerlessTaskMinStatementSize;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterStatementQueuedTimeoutInSecond;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterStatementTimeoutInSecond;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterStrictJsonOutput;
@@ -100,6 +102,8 @@ public final class GetTasksTaskParameter {
     private List<GetTasksTaskParameterRowsPerResultset> rowsPerResultsets;
     private List<GetTasksTaskParameterS3StageVpceDnsName> s3StageVpceDnsNames;
     private List<GetTasksTaskParameterSearchPath> searchPaths;
+    private List<GetTasksTaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes;
+    private List<GetTasksTaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes;
     private List<GetTasksTaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds;
     private List<GetTasksTaskParameterStatementTimeoutInSecond> statementTimeoutInSeconds;
     private List<GetTasksTaskParameterStrictJsonOutput> strictJsonOutputs;
@@ -224,6 +228,12 @@ public final class GetTasksTaskParameter {
     public List<GetTasksTaskParameterSearchPath> searchPaths() {
         return this.searchPaths;
     }
+    public List<GetTasksTaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes() {
+        return this.serverlessTaskMaxStatementSizes;
+    }
+    public List<GetTasksTaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes() {
+        return this.serverlessTaskMinStatementSizes;
+    }
     public List<GetTasksTaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds() {
         return this.statementQueuedTimeoutInSeconds;
     }
@@ -344,6 +354,8 @@ public final class GetTasksTaskParameter {
         private List<GetTasksTaskParameterRowsPerResultset> rowsPerResultsets;
         private List<GetTasksTaskParameterS3StageVpceDnsName> s3StageVpceDnsNames;
         private List<GetTasksTaskParameterSearchPath> searchPaths;
+        private List<GetTasksTaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes;
+        private List<GetTasksTaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes;
         private List<GetTasksTaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds;
         private List<GetTasksTaskParameterStatementTimeoutInSecond> statementTimeoutInSeconds;
         private List<GetTasksTaskParameterStrictJsonOutput> strictJsonOutputs;
@@ -405,6 +417,8 @@ public final class GetTasksTaskParameter {
     	      this.rowsPerResultsets = defaults.rowsPerResultsets;
     	      this.s3StageVpceDnsNames = defaults.s3StageVpceDnsNames;
     	      this.searchPaths = defaults.searchPaths;
+    	      this.serverlessTaskMaxStatementSizes = defaults.serverlessTaskMaxStatementSizes;
+    	      this.serverlessTaskMinStatementSizes = defaults.serverlessTaskMinStatementSizes;
     	      this.statementQueuedTimeoutInSeconds = defaults.statementQueuedTimeoutInSeconds;
     	      this.statementTimeoutInSeconds = defaults.statementTimeoutInSeconds;
     	      this.strictJsonOutputs = defaults.strictJsonOutputs;
@@ -786,6 +800,28 @@ public final class GetTasksTaskParameter {
             return searchPaths(List.of(searchPaths));
         }
         @CustomType.Setter
+        public Builder serverlessTaskMaxStatementSizes(List<GetTasksTaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes) {
+            if (serverlessTaskMaxStatementSizes == null) {
+              throw new MissingRequiredPropertyException("GetTasksTaskParameter", "serverlessTaskMaxStatementSizes");
+            }
+            this.serverlessTaskMaxStatementSizes = serverlessTaskMaxStatementSizes;
+            return this;
+        }
+        public Builder serverlessTaskMaxStatementSizes(GetTasksTaskParameterServerlessTaskMaxStatementSize... serverlessTaskMaxStatementSizes) {
+            return serverlessTaskMaxStatementSizes(List.of(serverlessTaskMaxStatementSizes));
+        }
+        @CustomType.Setter
+        public Builder serverlessTaskMinStatementSizes(List<GetTasksTaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes) {
+            if (serverlessTaskMinStatementSizes == null) {
+              throw new MissingRequiredPropertyException("GetTasksTaskParameter", "serverlessTaskMinStatementSizes");
+            }
+            this.serverlessTaskMinStatementSizes = serverlessTaskMinStatementSizes;
+            return this;
+        }
+        public Builder serverlessTaskMinStatementSizes(GetTasksTaskParameterServerlessTaskMinStatementSize... serverlessTaskMinStatementSizes) {
+            return serverlessTaskMinStatementSizes(List.of(serverlessTaskMinStatementSizes));
+        }
+        @CustomType.Setter
         public Builder statementQueuedTimeoutInSeconds(List<GetTasksTaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds) {
             if (statementQueuedTimeoutInSeconds == null) {
               throw new MissingRequiredPropertyException("GetTasksTaskParameter", "statementQueuedTimeoutInSeconds");
@@ -1105,6 +1141,8 @@ public final class GetTasksTaskParameter {
             _resultValue.rowsPerResultsets = rowsPerResultsets;
             _resultValue.s3StageVpceDnsNames = s3StageVpceDnsNames;
             _resultValue.searchPaths = searchPaths;
+            _resultValue.serverlessTaskMaxStatementSizes = serverlessTaskMaxStatementSizes;
+            _resultValue.serverlessTaskMinStatementSizes = serverlessTaskMinStatementSizes;
             _resultValue.statementQueuedTimeoutInSeconds = statementQueuedTimeoutInSeconds;
             _resultValue.statementTimeoutInSeconds = statementTimeoutInSeconds;
             _resultValue.strictJsonOutputs = strictJsonOutputs;

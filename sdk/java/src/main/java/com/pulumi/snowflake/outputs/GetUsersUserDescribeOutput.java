@@ -28,6 +28,7 @@ public final class GetUsersUserDescribeOutput {
     private String extAuthnUid;
     private String firstName;
     private Boolean hasMfa;
+    private Boolean hasWorkloadIdentity;
     private String lastName;
     private String loginName;
     private String middleName;
@@ -90,6 +91,9 @@ public final class GetUsersUserDescribeOutput {
     }
     public Boolean hasMfa() {
         return this.hasMfa;
+    }
+    public Boolean hasWorkloadIdentity() {
+        return this.hasWorkloadIdentity;
     }
     public String lastName() {
         return this.lastName;
@@ -164,6 +168,7 @@ public final class GetUsersUserDescribeOutput {
         private String extAuthnUid;
         private String firstName;
         private Boolean hasMfa;
+        private Boolean hasWorkloadIdentity;
         private String lastName;
         private String loginName;
         private String middleName;
@@ -198,6 +203,7 @@ public final class GetUsersUserDescribeOutput {
     	      this.extAuthnUid = defaults.extAuthnUid;
     	      this.firstName = defaults.firstName;
     	      this.hasMfa = defaults.hasMfa;
+    	      this.hasWorkloadIdentity = defaults.hasWorkloadIdentity;
     	      this.lastName = defaults.lastName;
     	      this.loginName = defaults.loginName;
     	      this.middleName = defaults.middleName;
@@ -334,6 +340,14 @@ public final class GetUsersUserDescribeOutput {
               throw new MissingRequiredPropertyException("GetUsersUserDescribeOutput", "hasMfa");
             }
             this.hasMfa = hasMfa;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hasWorkloadIdentity(Boolean hasWorkloadIdentity) {
+            if (hasWorkloadIdentity == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserDescribeOutput", "hasWorkloadIdentity");
+            }
+            this.hasWorkloadIdentity = hasWorkloadIdentity;
             return this;
         }
         @CustomType.Setter
@@ -481,6 +495,7 @@ public final class GetUsersUserDescribeOutput {
             _resultValue.extAuthnUid = extAuthnUid;
             _resultValue.firstName = firstName;
             _resultValue.hasMfa = hasMfa;
+            _resultValue.hasWorkloadIdentity = hasWorkloadIdentity;
             _resultValue.lastName = lastName;
             _resultValue.loginName = loginName;
             _resultValue.middleName = middleName;

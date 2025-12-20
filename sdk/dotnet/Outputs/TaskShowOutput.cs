@@ -33,6 +33,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? Schedule;
         public readonly string? SchemaName;
         public readonly string? State;
+        public readonly ImmutableArray<Outputs.TaskShowOutputTargetCompletionInterval> TargetCompletionIntervals;
         public readonly ImmutableArray<Outputs.TaskShowOutputTaskRelation> TaskRelations;
         public readonly string? Warehouse;
 
@@ -78,6 +79,8 @@ namespace Pulumi.Snowflake.Outputs
 
             string? state,
 
+            ImmutableArray<Outputs.TaskShowOutputTargetCompletionInterval> targetCompletionIntervals,
+
             ImmutableArray<Outputs.TaskShowOutputTaskRelation> taskRelations,
 
             string? warehouse)
@@ -102,6 +105,7 @@ namespace Pulumi.Snowflake.Outputs
             Schedule = schedule;
             SchemaName = schemaName;
             State = state;
+            TargetCompletionIntervals = targetCompletionIntervals;
             TaskRelations = taskRelations;
             Warehouse = warehouse;
         }

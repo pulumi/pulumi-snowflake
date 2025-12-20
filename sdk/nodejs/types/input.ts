@@ -1822,6 +1822,28 @@ export interface GetImageRepositoriesInArgs {
     schema?: pulumi.Input<string>;
 }
 
+export interface GetListingsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetListingsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetMaskingPoliciesIn {
     /**
      * Returns records for the entire account.
@@ -3449,6 +3471,7 @@ export interface LegacyServiceUserShowOutput {
     hasMfa?: pulumi.Input<boolean>;
     hasPassword?: pulumi.Input<boolean>;
     hasRsaPublicKey?: pulumi.Input<boolean>;
+    hasWorkloadIdentity?: pulumi.Input<boolean>;
     lastName?: pulumi.Input<string>;
     lastSuccessLogin?: pulumi.Input<string>;
     lockedUntilTime?: pulumi.Input<string>;
@@ -5841,6 +5864,7 @@ export interface ServiceUserShowOutput {
     hasMfa?: pulumi.Input<boolean>;
     hasPassword?: pulumi.Input<boolean>;
     hasRsaPublicKey?: pulumi.Input<boolean>;
+    hasWorkloadIdentity?: pulumi.Input<boolean>;
     lastName?: pulumi.Input<string>;
     lastSuccessLogin?: pulumi.Input<string>;
     lockedUntilTime?: pulumi.Input<string>;
@@ -6434,6 +6458,8 @@ export interface TaskParameter {
     rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.TaskParameterRowsPerResultset>[]>;
     s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.TaskParameterS3StageVpceDnsName>[]>;
     searchPaths?: pulumi.Input<pulumi.Input<inputs.TaskParameterSearchPath>[]>;
+    serverlessTaskMaxStatementSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterServerlessTaskMaxStatementSize>[]>;
+    serverlessTaskMinStatementSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterServerlessTaskMinStatementSize>[]>;
     statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterStatementQueuedTimeoutInSecond>[]>;
     statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterStatementTimeoutInSecond>[]>;
     strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.TaskParameterStrictJsonOutput>[]>;
@@ -6718,6 +6744,22 @@ export interface TaskParameterSearchPath {
     value?: pulumi.Input<string>;
 }
 
+export interface TaskParameterServerlessTaskMaxStatementSize {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface TaskParameterServerlessTaskMinStatementSize {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
 export interface TaskParameterStatementQueuedTimeoutInSecond {
     default?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
@@ -6966,14 +7008,36 @@ export interface TaskShowOutput {
     schedule?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
+    targetCompletionIntervals?: pulumi.Input<pulumi.Input<inputs.TaskShowOutputTargetCompletionInterval>[]>;
     taskRelations?: pulumi.Input<pulumi.Input<inputs.TaskShowOutputTaskRelation>[]>;
     warehouse?: pulumi.Input<string>;
+}
+
+export interface TaskShowOutputTargetCompletionInterval {
+    hours?: pulumi.Input<number>;
+    minutes?: pulumi.Input<number>;
+    seconds?: pulumi.Input<number>;
 }
 
 export interface TaskShowOutputTaskRelation {
     finalizedRootTask?: pulumi.Input<string>;
     finalizer?: pulumi.Input<string>;
     predecessors?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface TaskTargetCompletionInterval {
+    /**
+     * Specifies the target completion interval in hours. (conflicts with `minutes` and `seconds`)
+     */
+    hours?: pulumi.Input<number>;
+    /**
+     * Specifies the target completion interval in minutes. (conflicts with `hours` and `seconds`)
+     */
+    minutes?: pulumi.Input<number>;
+    /**
+     * Specifies the target completion interval in seconds. (conflicts with `hours` and `minutes`)
+     */
+    seconds?: pulumi.Input<number>;
 }
 
 export interface UserParameter {
@@ -7532,6 +7596,7 @@ export interface UserShowOutput {
     hasMfa?: pulumi.Input<boolean>;
     hasPassword?: pulumi.Input<boolean>;
     hasRsaPublicKey?: pulumi.Input<boolean>;
+    hasWorkloadIdentity?: pulumi.Input<boolean>;
     lastName?: pulumi.Input<string>;
     lastSuccessLogin?: pulumi.Input<string>;
     lockedUntilTime?: pulumi.Input<string>;

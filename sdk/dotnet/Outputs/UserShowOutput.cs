@@ -30,6 +30,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly bool? HasMfa;
         public readonly bool? HasPassword;
         public readonly bool? HasRsaPublicKey;
+        public readonly bool? HasWorkloadIdentity;
         public readonly string? LastName;
         public readonly string? LastSuccessLogin;
         public readonly string? LockedUntilTime;
@@ -78,6 +79,8 @@ namespace Pulumi.Snowflake.Outputs
 
             bool? hasRsaPublicKey,
 
+            bool? hasWorkloadIdentity,
+
             string? lastName,
 
             string? lastSuccessLogin,
@@ -117,6 +120,7 @@ namespace Pulumi.Snowflake.Outputs
             HasMfa = hasMfa;
             HasPassword = hasPassword;
             HasRsaPublicKey = hasRsaPublicKey;
+            HasWorkloadIdentity = hasWorkloadIdentity;
             LastName = lastName;
             LastSuccessLogin = lastSuccessLogin;
             LockedUntilTime = lockedUntilTime;

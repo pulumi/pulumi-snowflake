@@ -12,6 +12,8 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
+    /// The `pulumi import` command can be used, for example:
+    /// 
     /// ```sh
     /// $ pulumi import snowflake:index/authenticationPolicy:AuthenticationPolicy example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;authentication_policy_name&gt;"'
     /// ```

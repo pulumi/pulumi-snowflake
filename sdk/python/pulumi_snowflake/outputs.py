@@ -531,6 +531,8 @@ __all__ = [
     'TaskParameterRowsPerResultset',
     'TaskParameterS3StageVpceDnsName',
     'TaskParameterSearchPath',
+    'TaskParameterServerlessTaskMaxStatementSize',
+    'TaskParameterServerlessTaskMinStatementSize',
     'TaskParameterStatementQueuedTimeoutInSecond',
     'TaskParameterStatementTimeoutInSecond',
     'TaskParameterStrictJsonOutput',
@@ -559,7 +561,9 @@ __all__ = [
     'TaskParameterWeekStart',
     'TaskSchedule',
     'TaskShowOutput',
+    'TaskShowOutputTargetCompletionInterval',
     'TaskShowOutputTaskRelation',
+    'TaskTargetCompletionInterval',
     'UserParameter',
     'UserParameterAbortDetachedQuery',
     'UserParameterAutocommit',
@@ -703,6 +707,10 @@ __all__ = [
     'GetImageRepositoriesImageRepositoryResult',
     'GetImageRepositoriesImageRepositoryShowOutputResult',
     'GetImageRepositoriesInResult',
+    'GetListingsLimitResult',
+    'GetListingsListingResult',
+    'GetListingsListingDescribeOutputResult',
+    'GetListingsListingShowOutputResult',
     'GetMaskingPoliciesInResult',
     'GetMaskingPoliciesLimitResult',
     'GetMaskingPoliciesMaskingPolicyResult',
@@ -877,6 +885,8 @@ __all__ = [
     'GetTasksTaskParameterRowsPerResultsetResult',
     'GetTasksTaskParameterS3StageVpceDnsNameResult',
     'GetTasksTaskParameterSearchPathResult',
+    'GetTasksTaskParameterServerlessTaskMaxStatementSizeResult',
+    'GetTasksTaskParameterServerlessTaskMinStatementSizeResult',
     'GetTasksTaskParameterStatementQueuedTimeoutInSecondResult',
     'GetTasksTaskParameterStatementTimeoutInSecondResult',
     'GetTasksTaskParameterStrictJsonOutputResult',
@@ -904,6 +914,7 @@ __all__ = [
     'GetTasksTaskParameterWeekOfYearPolicyResult',
     'GetTasksTaskParameterWeekStartResult',
     'GetTasksTaskShowOutputResult',
+    'GetTasksTaskShowOutputTargetCompletionIntervalResult',
     'GetTasksTaskShowOutputTaskRelationResult',
     'GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenResult',
     'GetUserProgrammaticAccessTokensUserProgrammaticAccessTokenShowOutputResult',
@@ -14119,6 +14130,8 @@ class LegacyServiceUserShowOutput(dict):
             suggest = "has_password"
         elif key == "hasRsaPublicKey":
             suggest = "has_rsa_public_key"
+        elif key == "hasWorkloadIdentity":
+            suggest = "has_workload_identity"
         elif key == "lastName":
             suggest = "last_name"
         elif key == "lastSuccessLogin":
@@ -14165,6 +14178,7 @@ class LegacyServiceUserShowOutput(dict):
                  has_mfa: Optional[_builtins.bool] = None,
                  has_password: Optional[_builtins.bool] = None,
                  has_rsa_public_key: Optional[_builtins.bool] = None,
+                 has_workload_identity: Optional[_builtins.bool] = None,
                  last_name: Optional[_builtins.str] = None,
                  last_success_login: Optional[_builtins.str] = None,
                  locked_until_time: Optional[_builtins.str] = None,
@@ -14210,6 +14224,8 @@ class LegacyServiceUserShowOutput(dict):
             pulumi.set(__self__, "has_password", has_password)
         if has_rsa_public_key is not None:
             pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+        if has_workload_identity is not None:
+            pulumi.set(__self__, "has_workload_identity", has_workload_identity)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if last_success_login is not None:
@@ -14317,6 +14333,11 @@ class LegacyServiceUserShowOutput(dict):
     @pulumi.getter(name="hasRsaPublicKey")
     def has_rsa_public_key(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "has_rsa_public_key")
+
+    @_builtins.property
+    @pulumi.getter(name="hasWorkloadIdentity")
+    def has_workload_identity(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_workload_identity")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
@@ -28958,6 +28979,8 @@ class ServiceUserShowOutput(dict):
             suggest = "has_password"
         elif key == "hasRsaPublicKey":
             suggest = "has_rsa_public_key"
+        elif key == "hasWorkloadIdentity":
+            suggest = "has_workload_identity"
         elif key == "lastName":
             suggest = "last_name"
         elif key == "lastSuccessLogin":
@@ -29004,6 +29027,7 @@ class ServiceUserShowOutput(dict):
                  has_mfa: Optional[_builtins.bool] = None,
                  has_password: Optional[_builtins.bool] = None,
                  has_rsa_public_key: Optional[_builtins.bool] = None,
+                 has_workload_identity: Optional[_builtins.bool] = None,
                  last_name: Optional[_builtins.str] = None,
                  last_success_login: Optional[_builtins.str] = None,
                  locked_until_time: Optional[_builtins.str] = None,
@@ -29049,6 +29073,8 @@ class ServiceUserShowOutput(dict):
             pulumi.set(__self__, "has_password", has_password)
         if has_rsa_public_key is not None:
             pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+        if has_workload_identity is not None:
+            pulumi.set(__self__, "has_workload_identity", has_workload_identity)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if last_success_login is not None:
@@ -29156,6 +29182,11 @@ class ServiceUserShowOutput(dict):
     @pulumi.getter(name="hasRsaPublicKey")
     def has_rsa_public_key(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "has_rsa_public_key")
+
+    @_builtins.property
+    @pulumi.getter(name="hasWorkloadIdentity")
+    def has_workload_identity(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_workload_identity")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
@@ -32313,6 +32344,10 @@ class TaskParameter(dict):
             suggest = "s3_stage_vpce_dns_names"
         elif key == "searchPaths":
             suggest = "search_paths"
+        elif key == "serverlessTaskMaxStatementSizes":
+            suggest = "serverless_task_max_statement_sizes"
+        elif key == "serverlessTaskMinStatementSizes":
+            suggest = "serverless_task_min_statement_sizes"
         elif key == "statementQueuedTimeoutInSeconds":
             suggest = "statement_queued_timeout_in_seconds"
         elif key == "statementTimeoutInSeconds":
@@ -32408,6 +32443,8 @@ class TaskParameter(dict):
                  rows_per_resultsets: Optional[Sequence['outputs.TaskParameterRowsPerResultset']] = None,
                  s3_stage_vpce_dns_names: Optional[Sequence['outputs.TaskParameterS3StageVpceDnsName']] = None,
                  search_paths: Optional[Sequence['outputs.TaskParameterSearchPath']] = None,
+                 serverless_task_max_statement_sizes: Optional[Sequence['outputs.TaskParameterServerlessTaskMaxStatementSize']] = None,
+                 serverless_task_min_statement_sizes: Optional[Sequence['outputs.TaskParameterServerlessTaskMinStatementSize']] = None,
                  statement_queued_timeout_in_seconds: Optional[Sequence['outputs.TaskParameterStatementQueuedTimeoutInSecond']] = None,
                  statement_timeout_in_seconds: Optional[Sequence['outputs.TaskParameterStatementTimeoutInSecond']] = None,
                  strict_json_outputs: Optional[Sequence['outputs.TaskParameterStrictJsonOutput']] = None,
@@ -32498,6 +32535,10 @@ class TaskParameter(dict):
             pulumi.set(__self__, "s3_stage_vpce_dns_names", s3_stage_vpce_dns_names)
         if search_paths is not None:
             pulumi.set(__self__, "search_paths", search_paths)
+        if serverless_task_max_statement_sizes is not None:
+            pulumi.set(__self__, "serverless_task_max_statement_sizes", serverless_task_max_statement_sizes)
+        if serverless_task_min_statement_sizes is not None:
+            pulumi.set(__self__, "serverless_task_min_statement_sizes", serverless_task_min_statement_sizes)
         if statement_queued_timeout_in_seconds is not None:
             pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         if statement_timeout_in_seconds is not None:
@@ -32710,6 +32751,16 @@ class TaskParameter(dict):
     @pulumi.getter(name="searchPaths")
     def search_paths(self) -> Optional[Sequence['outputs.TaskParameterSearchPath']]:
         return pulumi.get(self, "search_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMaxStatementSizes")
+    def serverless_task_max_statement_sizes(self) -> Optional[Sequence['outputs.TaskParameterServerlessTaskMaxStatementSize']]:
+        return pulumi.get(self, "serverless_task_max_statement_sizes")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMinStatementSizes")
+    def serverless_task_min_statement_sizes(self) -> Optional[Sequence['outputs.TaskParameterServerlessTaskMinStatementSize']]:
+        return pulumi.get(self, "serverless_task_min_statement_sizes")
 
     @_builtins.property
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
@@ -34283,6 +34334,96 @@ class TaskParameterSearchPath(dict):
 
 
 @pulumi.output_type
+class TaskParameterServerlessTaskMaxStatementSize(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterServerlessTaskMinStatementSize(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TaskParameterStatementQueuedTimeoutInSecond(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
@@ -35547,6 +35688,8 @@ class TaskShowOutput(dict):
             suggest = "owner_role_type"
         elif key == "schemaName":
             suggest = "schema_name"
+        elif key == "targetCompletionIntervals":
+            suggest = "target_completion_intervals"
         elif key == "taskRelations":
             suggest = "task_relations"
 
@@ -35582,6 +35725,7 @@ class TaskShowOutput(dict):
                  schedule: Optional[_builtins.str] = None,
                  schema_name: Optional[_builtins.str] = None,
                  state: Optional[_builtins.str] = None,
+                 target_completion_intervals: Optional[Sequence['outputs.TaskShowOutputTargetCompletionInterval']] = None,
                  task_relations: Optional[Sequence['outputs.TaskShowOutputTaskRelation']] = None,
                  warehouse: Optional[_builtins.str] = None):
         if allow_overlapping_execution is not None:
@@ -35624,6 +35768,8 @@ class TaskShowOutput(dict):
             pulumi.set(__self__, "schema_name", schema_name)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if target_completion_intervals is not None:
+            pulumi.set(__self__, "target_completion_intervals", target_completion_intervals)
         if task_relations is not None:
             pulumi.set(__self__, "task_relations", task_relations)
         if warehouse is not None:
@@ -35730,6 +35876,11 @@ class TaskShowOutput(dict):
         return pulumi.get(self, "state")
 
     @_builtins.property
+    @pulumi.getter(name="targetCompletionIntervals")
+    def target_completion_intervals(self) -> Optional[Sequence['outputs.TaskShowOutputTargetCompletionInterval']]:
+        return pulumi.get(self, "target_completion_intervals")
+
+    @_builtins.property
     @pulumi.getter(name="taskRelations")
     def task_relations(self) -> Optional[Sequence['outputs.TaskShowOutputTaskRelation']]:
         return pulumi.get(self, "task_relations")
@@ -35738,6 +35889,35 @@ class TaskShowOutput(dict):
     @pulumi.getter
     def warehouse(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "warehouse")
+
+
+@pulumi.output_type
+class TaskShowOutputTargetCompletionInterval(dict):
+    def __init__(__self__, *,
+                 hours: Optional[_builtins.int] = None,
+                 minutes: Optional[_builtins.int] = None,
+                 seconds: Optional[_builtins.int] = None):
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if seconds is not None:
+            pulumi.set(__self__, "seconds", seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def hours(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "hours")
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "seconds")
 
 
 @pulumi.output_type
@@ -35784,6 +35964,49 @@ class TaskShowOutputTaskRelation(dict):
     @pulumi.getter
     def predecessors(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "predecessors")
+
+
+@pulumi.output_type
+class TaskTargetCompletionInterval(dict):
+    def __init__(__self__, *,
+                 hours: Optional[_builtins.int] = None,
+                 minutes: Optional[_builtins.int] = None,
+                 seconds: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int hours: Specifies the target completion interval in hours. (conflicts with `minutes` and `seconds`)
+        :param _builtins.int minutes: Specifies the target completion interval in minutes. (conflicts with `hours` and `seconds`)
+        :param _builtins.int seconds: Specifies the target completion interval in seconds. (conflicts with `hours` and `minutes`)
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if seconds is not None:
+            pulumi.set(__self__, "seconds", seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def hours(self) -> Optional[_builtins.int]:
+        """
+        Specifies the target completion interval in hours. (conflicts with `minutes` and `seconds`)
+        """
+        return pulumi.get(self, "hours")
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> Optional[_builtins.int]:
+        """
+        Specifies the target completion interval in minutes. (conflicts with `hours` and `seconds`)
+        """
+        return pulumi.get(self, "minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def seconds(self) -> Optional[_builtins.int]:
+        """
+        Specifies the target completion interval in seconds. (conflicts with `hours` and `minutes`)
+        """
+        return pulumi.get(self, "seconds")
 
 
 @pulumi.output_type
@@ -39139,6 +39362,8 @@ class UserShowOutput(dict):
             suggest = "has_password"
         elif key == "hasRsaPublicKey":
             suggest = "has_rsa_public_key"
+        elif key == "hasWorkloadIdentity":
+            suggest = "has_workload_identity"
         elif key == "lastName":
             suggest = "last_name"
         elif key == "lastSuccessLogin":
@@ -39185,6 +39410,7 @@ class UserShowOutput(dict):
                  has_mfa: Optional[_builtins.bool] = None,
                  has_password: Optional[_builtins.bool] = None,
                  has_rsa_public_key: Optional[_builtins.bool] = None,
+                 has_workload_identity: Optional[_builtins.bool] = None,
                  last_name: Optional[_builtins.str] = None,
                  last_success_login: Optional[_builtins.str] = None,
                  locked_until_time: Optional[_builtins.str] = None,
@@ -39230,6 +39456,8 @@ class UserShowOutput(dict):
             pulumi.set(__self__, "has_password", has_password)
         if has_rsa_public_key is not None:
             pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+        if has_workload_identity is not None:
+            pulumi.set(__self__, "has_workload_identity", has_workload_identity)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if last_success_login is not None:
@@ -39337,6 +39565,11 @@ class UserShowOutput(dict):
     @pulumi.getter(name="hasRsaPublicKey")
     def has_rsa_public_key(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "has_rsa_public_key")
+
+    @_builtins.property
+    @pulumi.getter(name="hasWorkloadIdentity")
+    def has_workload_identity(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_workload_identity")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
@@ -44290,6 +44523,670 @@ class GetImageRepositoriesInResult(dict):
         Returns records for the current schema in use or a specified schema. Use fully qualified name.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetListingsLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetListingsListingResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetListingsListingDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetListingsListingShowOutputResult']):
+        """
+        :param Sequence['GetListingsListingDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE LISTING.
+        :param Sequence['GetListingsListingShowOutputArgs'] show_outputs: Holds the output of SHOW LISTINGS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetListingsListingDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE LISTING.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetListingsListingShowOutputResult']:
+        """
+        Holds the output of SHOW LISTINGS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetListingsListingDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 application_package: _builtins.str,
+                 approver_contact: _builtins.str,
+                 business_needs: _builtins.str,
+                 categories: _builtins.str,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 customized_contact_info: _builtins.str,
+                 data_attributes: _builtins.str,
+                 data_dictionary: _builtins.str,
+                 data_preview: _builtins.str,
+                 description: _builtins.str,
+                 distribution: _builtins.str,
+                 global_name: _builtins.str,
+                 is_application: _builtins.bool,
+                 is_by_request: _builtins.bool,
+                 is_limited_trial: _builtins.bool,
+                 is_monetized: _builtins.bool,
+                 is_mountless_queryable: _builtins.bool,
+                 is_share: _builtins.bool,
+                 is_targeted: _builtins.bool,
+                 last_committed_version_alias: _builtins.str,
+                 last_committed_version_name: _builtins.str,
+                 last_committed_version_uri: _builtins.str,
+                 legacy_uniform_listing_locators: _builtins.str,
+                 limited_trial_plan: _builtins.str,
+                 listing_terms: _builtins.str,
+                 live_version_uri: _builtins.str,
+                 manifest_yaml: _builtins.str,
+                 monetization_display_order: _builtins.str,
+                 name: _builtins.str,
+                 organization_profile_name: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 profile: _builtins.str,
+                 published_on: _builtins.str,
+                 published_version_alias: _builtins.str,
+                 published_version_name: _builtins.str,
+                 published_version_uri: _builtins.str,
+                 refresh_schedule: _builtins.str,
+                 refresh_type: _builtins.str,
+                 regions: _builtins.str,
+                 rejection_reason: _builtins.str,
+                 request_approval_type: _builtins.str,
+                 resources: _builtins.str,
+                 retried_on: _builtins.str,
+                 review_state: _builtins.str,
+                 revisions: _builtins.str,
+                 scheduled_drop_time: _builtins.str,
+                 share: _builtins.str,
+                 state: _builtins.str,
+                 subtitle: _builtins.str,
+                 support_contact: _builtins.str,
+                 target_accounts: _builtins.str,
+                 title: _builtins.str,
+                 trial_details: _builtins.str,
+                 uniform_listing_locator: _builtins.str,
+                 unpublished_by_admin_reasons: _builtins.str,
+                 updated_on: _builtins.str,
+                 usage_examples: _builtins.str):
+        pulumi.set(__self__, "application_package", application_package)
+        pulumi.set(__self__, "approver_contact", approver_contact)
+        pulumi.set(__self__, "business_needs", business_needs)
+        pulumi.set(__self__, "categories", categories)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "customized_contact_info", customized_contact_info)
+        pulumi.set(__self__, "data_attributes", data_attributes)
+        pulumi.set(__self__, "data_dictionary", data_dictionary)
+        pulumi.set(__self__, "data_preview", data_preview)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "distribution", distribution)
+        pulumi.set(__self__, "global_name", global_name)
+        pulumi.set(__self__, "is_application", is_application)
+        pulumi.set(__self__, "is_by_request", is_by_request)
+        pulumi.set(__self__, "is_limited_trial", is_limited_trial)
+        pulumi.set(__self__, "is_monetized", is_monetized)
+        pulumi.set(__self__, "is_mountless_queryable", is_mountless_queryable)
+        pulumi.set(__self__, "is_share", is_share)
+        pulumi.set(__self__, "is_targeted", is_targeted)
+        pulumi.set(__self__, "last_committed_version_alias", last_committed_version_alias)
+        pulumi.set(__self__, "last_committed_version_name", last_committed_version_name)
+        pulumi.set(__self__, "last_committed_version_uri", last_committed_version_uri)
+        pulumi.set(__self__, "legacy_uniform_listing_locators", legacy_uniform_listing_locators)
+        pulumi.set(__self__, "limited_trial_plan", limited_trial_plan)
+        pulumi.set(__self__, "listing_terms", listing_terms)
+        pulumi.set(__self__, "live_version_uri", live_version_uri)
+        pulumi.set(__self__, "manifest_yaml", manifest_yaml)
+        pulumi.set(__self__, "monetization_display_order", monetization_display_order)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "organization_profile_name", organization_profile_name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "profile", profile)
+        pulumi.set(__self__, "published_on", published_on)
+        pulumi.set(__self__, "published_version_alias", published_version_alias)
+        pulumi.set(__self__, "published_version_name", published_version_name)
+        pulumi.set(__self__, "published_version_uri", published_version_uri)
+        pulumi.set(__self__, "refresh_schedule", refresh_schedule)
+        pulumi.set(__self__, "refresh_type", refresh_type)
+        pulumi.set(__self__, "regions", regions)
+        pulumi.set(__self__, "rejection_reason", rejection_reason)
+        pulumi.set(__self__, "request_approval_type", request_approval_type)
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "retried_on", retried_on)
+        pulumi.set(__self__, "review_state", review_state)
+        pulumi.set(__self__, "revisions", revisions)
+        pulumi.set(__self__, "scheduled_drop_time", scheduled_drop_time)
+        pulumi.set(__self__, "share", share)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "subtitle", subtitle)
+        pulumi.set(__self__, "support_contact", support_contact)
+        pulumi.set(__self__, "target_accounts", target_accounts)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "trial_details", trial_details)
+        pulumi.set(__self__, "uniform_listing_locator", uniform_listing_locator)
+        pulumi.set(__self__, "unpublished_by_admin_reasons", unpublished_by_admin_reasons)
+        pulumi.set(__self__, "updated_on", updated_on)
+        pulumi.set(__self__, "usage_examples", usage_examples)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> _builtins.str:
+        return pulumi.get(self, "application_package")
+
+    @_builtins.property
+    @pulumi.getter(name="approverContact")
+    def approver_contact(self) -> _builtins.str:
+        return pulumi.get(self, "approver_contact")
+
+    @_builtins.property
+    @pulumi.getter(name="businessNeeds")
+    def business_needs(self) -> _builtins.str:
+        return pulumi.get(self, "business_needs")
+
+    @_builtins.property
+    @pulumi.getter
+    def categories(self) -> _builtins.str:
+        return pulumi.get(self, "categories")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="customizedContactInfo")
+    def customized_contact_info(self) -> _builtins.str:
+        return pulumi.get(self, "customized_contact_info")
+
+    @_builtins.property
+    @pulumi.getter(name="dataAttributes")
+    def data_attributes(self) -> _builtins.str:
+        return pulumi.get(self, "data_attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="dataDictionary")
+    def data_dictionary(self) -> _builtins.str:
+        return pulumi.get(self, "data_dictionary")
+
+    @_builtins.property
+    @pulumi.getter(name="dataPreview")
+    def data_preview(self) -> _builtins.str:
+        return pulumi.get(self, "data_preview")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def distribution(self) -> _builtins.str:
+        return pulumi.get(self, "distribution")
+
+    @_builtins.property
+    @pulumi.getter(name="globalName")
+    def global_name(self) -> _builtins.str:
+        return pulumi.get(self, "global_name")
+
+    @_builtins.property
+    @pulumi.getter(name="isApplication")
+    def is_application(self) -> _builtins.bool:
+        return pulumi.get(self, "is_application")
+
+    @_builtins.property
+    @pulumi.getter(name="isByRequest")
+    def is_by_request(self) -> _builtins.bool:
+        return pulumi.get(self, "is_by_request")
+
+    @_builtins.property
+    @pulumi.getter(name="isLimitedTrial")
+    def is_limited_trial(self) -> _builtins.bool:
+        return pulumi.get(self, "is_limited_trial")
+
+    @_builtins.property
+    @pulumi.getter(name="isMonetized")
+    def is_monetized(self) -> _builtins.bool:
+        return pulumi.get(self, "is_monetized")
+
+    @_builtins.property
+    @pulumi.getter(name="isMountlessQueryable")
+    def is_mountless_queryable(self) -> _builtins.bool:
+        return pulumi.get(self, "is_mountless_queryable")
+
+    @_builtins.property
+    @pulumi.getter(name="isShare")
+    def is_share(self) -> _builtins.bool:
+        return pulumi.get(self, "is_share")
+
+    @_builtins.property
+    @pulumi.getter(name="isTargeted")
+    def is_targeted(self) -> _builtins.bool:
+        return pulumi.get(self, "is_targeted")
+
+    @_builtins.property
+    @pulumi.getter(name="lastCommittedVersionAlias")
+    def last_committed_version_alias(self) -> _builtins.str:
+        return pulumi.get(self, "last_committed_version_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="lastCommittedVersionName")
+    def last_committed_version_name(self) -> _builtins.str:
+        return pulumi.get(self, "last_committed_version_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lastCommittedVersionUri")
+    def last_committed_version_uri(self) -> _builtins.str:
+        return pulumi.get(self, "last_committed_version_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="legacyUniformListingLocators")
+    def legacy_uniform_listing_locators(self) -> _builtins.str:
+        return pulumi.get(self, "legacy_uniform_listing_locators")
+
+    @_builtins.property
+    @pulumi.getter(name="limitedTrialPlan")
+    def limited_trial_plan(self) -> _builtins.str:
+        return pulumi.get(self, "limited_trial_plan")
+
+    @_builtins.property
+    @pulumi.getter(name="listingTerms")
+    def listing_terms(self) -> _builtins.str:
+        return pulumi.get(self, "listing_terms")
+
+    @_builtins.property
+    @pulumi.getter(name="liveVersionUri")
+    def live_version_uri(self) -> _builtins.str:
+        return pulumi.get(self, "live_version_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="manifestYaml")
+    def manifest_yaml(self) -> _builtins.str:
+        return pulumi.get(self, "manifest_yaml")
+
+    @_builtins.property
+    @pulumi.getter(name="monetizationDisplayOrder")
+    def monetization_display_order(self) -> _builtins.str:
+        return pulumi.get(self, "monetization_display_order")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationProfileName")
+    def organization_profile_name(self) -> _builtins.str:
+        return pulumi.get(self, "organization_profile_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def profile(self) -> _builtins.str:
+        return pulumi.get(self, "profile")
+
+    @_builtins.property
+    @pulumi.getter(name="publishedOn")
+    def published_on(self) -> _builtins.str:
+        return pulumi.get(self, "published_on")
+
+    @_builtins.property
+    @pulumi.getter(name="publishedVersionAlias")
+    def published_version_alias(self) -> _builtins.str:
+        return pulumi.get(self, "published_version_alias")
+
+    @_builtins.property
+    @pulumi.getter(name="publishedVersionName")
+    def published_version_name(self) -> _builtins.str:
+        return pulumi.get(self, "published_version_name")
+
+    @_builtins.property
+    @pulumi.getter(name="publishedVersionUri")
+    def published_version_uri(self) -> _builtins.str:
+        return pulumi.get(self, "published_version_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshSchedule")
+    def refresh_schedule(self) -> _builtins.str:
+        return pulumi.get(self, "refresh_schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshType")
+    def refresh_type(self) -> _builtins.str:
+        return pulumi.get(self, "refresh_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> _builtins.str:
+        return pulumi.get(self, "regions")
+
+    @_builtins.property
+    @pulumi.getter(name="rejectionReason")
+    def rejection_reason(self) -> _builtins.str:
+        return pulumi.get(self, "rejection_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="requestApprovalType")
+    def request_approval_type(self) -> _builtins.str:
+        return pulumi.get(self, "request_approval_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def resources(self) -> _builtins.str:
+        return pulumi.get(self, "resources")
+
+    @_builtins.property
+    @pulumi.getter(name="retriedOn")
+    def retried_on(self) -> _builtins.str:
+        return pulumi.get(self, "retried_on")
+
+    @_builtins.property
+    @pulumi.getter(name="reviewState")
+    def review_state(self) -> _builtins.str:
+        return pulumi.get(self, "review_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def revisions(self) -> _builtins.str:
+        return pulumi.get(self, "revisions")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledDropTime")
+    def scheduled_drop_time(self) -> _builtins.str:
+        return pulumi.get(self, "scheduled_drop_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def share(self) -> _builtins.str:
+        return pulumi.get(self, "share")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def subtitle(self) -> _builtins.str:
+        return pulumi.get(self, "subtitle")
+
+    @_builtins.property
+    @pulumi.getter(name="supportContact")
+    def support_contact(self) -> _builtins.str:
+        return pulumi.get(self, "support_contact")
+
+    @_builtins.property
+    @pulumi.getter(name="targetAccounts")
+    def target_accounts(self) -> _builtins.str:
+        return pulumi.get(self, "target_accounts")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> _builtins.str:
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="trialDetails")
+    def trial_details(self) -> _builtins.str:
+        return pulumi.get(self, "trial_details")
+
+    @_builtins.property
+    @pulumi.getter(name="uniformListingLocator")
+    def uniform_listing_locator(self) -> _builtins.str:
+        return pulumi.get(self, "uniform_listing_locator")
+
+    @_builtins.property
+    @pulumi.getter(name="unpublishedByAdminReasons")
+    def unpublished_by_admin_reasons(self) -> _builtins.str:
+        return pulumi.get(self, "unpublished_by_admin_reasons")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> _builtins.str:
+        return pulumi.get(self, "updated_on")
+
+    @_builtins.property
+    @pulumi.getter(name="usageExamples")
+    def usage_examples(self) -> _builtins.str:
+        return pulumi.get(self, "usage_examples")
+
+
+@pulumi.output_type
+class GetListingsListingShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 detailed_target_accounts: _builtins.str,
+                 distribution: _builtins.str,
+                 global_name: _builtins.str,
+                 is_application: _builtins.bool,
+                 is_by_request: _builtins.bool,
+                 is_limited_trial: _builtins.bool,
+                 is_monetized: _builtins.bool,
+                 is_mountless_queryable: _builtins.bool,
+                 is_targeted: _builtins.bool,
+                 name: _builtins.str,
+                 organization_profile_name: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 profile: _builtins.str,
+                 published_on: _builtins.str,
+                 regions: _builtins.str,
+                 rejected_on: _builtins.str,
+                 review_state: _builtins.str,
+                 state: _builtins.str,
+                 subtitle: _builtins.str,
+                 target_accounts: _builtins.str,
+                 title: _builtins.str,
+                 uniform_listing_locator: _builtins.str,
+                 updated_on: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "detailed_target_accounts", detailed_target_accounts)
+        pulumi.set(__self__, "distribution", distribution)
+        pulumi.set(__self__, "global_name", global_name)
+        pulumi.set(__self__, "is_application", is_application)
+        pulumi.set(__self__, "is_by_request", is_by_request)
+        pulumi.set(__self__, "is_limited_trial", is_limited_trial)
+        pulumi.set(__self__, "is_monetized", is_monetized)
+        pulumi.set(__self__, "is_mountless_queryable", is_mountless_queryable)
+        pulumi.set(__self__, "is_targeted", is_targeted)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "organization_profile_name", organization_profile_name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "profile", profile)
+        pulumi.set(__self__, "published_on", published_on)
+        pulumi.set(__self__, "regions", regions)
+        pulumi.set(__self__, "rejected_on", rejected_on)
+        pulumi.set(__self__, "review_state", review_state)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "subtitle", subtitle)
+        pulumi.set(__self__, "target_accounts", target_accounts)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "uniform_listing_locator", uniform_listing_locator)
+        pulumi.set(__self__, "updated_on", updated_on)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="detailedTargetAccounts")
+    def detailed_target_accounts(self) -> _builtins.str:
+        return pulumi.get(self, "detailed_target_accounts")
+
+    @_builtins.property
+    @pulumi.getter
+    def distribution(self) -> _builtins.str:
+        return pulumi.get(self, "distribution")
+
+    @_builtins.property
+    @pulumi.getter(name="globalName")
+    def global_name(self) -> _builtins.str:
+        return pulumi.get(self, "global_name")
+
+    @_builtins.property
+    @pulumi.getter(name="isApplication")
+    def is_application(self) -> _builtins.bool:
+        return pulumi.get(self, "is_application")
+
+    @_builtins.property
+    @pulumi.getter(name="isByRequest")
+    def is_by_request(self) -> _builtins.bool:
+        return pulumi.get(self, "is_by_request")
+
+    @_builtins.property
+    @pulumi.getter(name="isLimitedTrial")
+    def is_limited_trial(self) -> _builtins.bool:
+        return pulumi.get(self, "is_limited_trial")
+
+    @_builtins.property
+    @pulumi.getter(name="isMonetized")
+    def is_monetized(self) -> _builtins.bool:
+        return pulumi.get(self, "is_monetized")
+
+    @_builtins.property
+    @pulumi.getter(name="isMountlessQueryable")
+    def is_mountless_queryable(self) -> _builtins.bool:
+        return pulumi.get(self, "is_mountless_queryable")
+
+    @_builtins.property
+    @pulumi.getter(name="isTargeted")
+    def is_targeted(self) -> _builtins.bool:
+        return pulumi.get(self, "is_targeted")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationProfileName")
+    def organization_profile_name(self) -> _builtins.str:
+        return pulumi.get(self, "organization_profile_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def profile(self) -> _builtins.str:
+        return pulumi.get(self, "profile")
+
+    @_builtins.property
+    @pulumi.getter(name="publishedOn")
+    def published_on(self) -> _builtins.str:
+        return pulumi.get(self, "published_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> _builtins.str:
+        return pulumi.get(self, "regions")
+
+    @_builtins.property
+    @pulumi.getter(name="rejectedOn")
+    def rejected_on(self) -> _builtins.str:
+        return pulumi.get(self, "rejected_on")
+
+    @_builtins.property
+    @pulumi.getter(name="reviewState")
+    def review_state(self) -> _builtins.str:
+        return pulumi.get(self, "review_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def subtitle(self) -> _builtins.str:
+        return pulumi.get(self, "subtitle")
+
+    @_builtins.property
+    @pulumi.getter(name="targetAccounts")
+    def target_accounts(self) -> _builtins.str:
+        return pulumi.get(self, "target_accounts")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> _builtins.str:
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="uniformListingLocator")
+    def uniform_listing_locator(self) -> _builtins.str:
+        return pulumi.get(self, "uniform_listing_locator")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> _builtins.str:
+        return pulumi.get(self, "updated_on")
 
 
 @pulumi.output_type
@@ -51125,6 +52022,8 @@ class GetTasksTaskParameterResult(dict):
                  rows_per_resultsets: Sequence['outputs.GetTasksTaskParameterRowsPerResultsetResult'],
                  s3_stage_vpce_dns_names: Sequence['outputs.GetTasksTaskParameterS3StageVpceDnsNameResult'],
                  search_paths: Sequence['outputs.GetTasksTaskParameterSearchPathResult'],
+                 serverless_task_max_statement_sizes: Sequence['outputs.GetTasksTaskParameterServerlessTaskMaxStatementSizeResult'],
+                 serverless_task_min_statement_sizes: Sequence['outputs.GetTasksTaskParameterServerlessTaskMinStatementSizeResult'],
                  statement_queued_timeout_in_seconds: Sequence['outputs.GetTasksTaskParameterStatementQueuedTimeoutInSecondResult'],
                  statement_timeout_in_seconds: Sequence['outputs.GetTasksTaskParameterStatementTimeoutInSecondResult'],
                  strict_json_outputs: Sequence['outputs.GetTasksTaskParameterStrictJsonOutputResult'],
@@ -51183,6 +52082,8 @@ class GetTasksTaskParameterResult(dict):
         pulumi.set(__self__, "rows_per_resultsets", rows_per_resultsets)
         pulumi.set(__self__, "s3_stage_vpce_dns_names", s3_stage_vpce_dns_names)
         pulumi.set(__self__, "search_paths", search_paths)
+        pulumi.set(__self__, "serverless_task_max_statement_sizes", serverless_task_max_statement_sizes)
+        pulumi.set(__self__, "serverless_task_min_statement_sizes", serverless_task_min_statement_sizes)
         pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
         pulumi.set(__self__, "strict_json_outputs", strict_json_outputs)
@@ -51369,6 +52270,16 @@ class GetTasksTaskParameterResult(dict):
     @pulumi.getter(name="searchPaths")
     def search_paths(self) -> Sequence['outputs.GetTasksTaskParameterSearchPathResult']:
         return pulumi.get(self, "search_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMaxStatementSizes")
+    def serverless_task_max_statement_sizes(self) -> Sequence['outputs.GetTasksTaskParameterServerlessTaskMaxStatementSizeResult']:
+        return pulumi.get(self, "serverless_task_max_statement_sizes")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMinStatementSizes")
+    def serverless_task_min_statement_sizes(self) -> Sequence['outputs.GetTasksTaskParameterServerlessTaskMinStatementSizeResult']:
+        return pulumi.get(self, "serverless_task_min_statement_sizes")
 
     @_builtins.property
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
@@ -52782,6 +53693,86 @@ class GetTasksTaskParameterSearchPathResult(dict):
 
 
 @pulumi.output_type
+class GetTasksTaskParameterServerlessTaskMaxStatementSizeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterServerlessTaskMinStatementSizeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class GetTasksTaskParameterStatementQueuedTimeoutInSecondResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
@@ -53844,6 +54835,7 @@ class GetTasksTaskShowOutputResult(dict):
                  schedule: _builtins.str,
                  schema_name: _builtins.str,
                  state: _builtins.str,
+                 target_completion_intervals: Sequence['outputs.GetTasksTaskShowOutputTargetCompletionIntervalResult'],
                  task_relations: Sequence['outputs.GetTasksTaskShowOutputTaskRelationResult'],
                  warehouse: _builtins.str):
         pulumi.set(__self__, "allow_overlapping_execution", allow_overlapping_execution)
@@ -53866,6 +54858,7 @@ class GetTasksTaskShowOutputResult(dict):
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "schema_name", schema_name)
         pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "target_completion_intervals", target_completion_intervals)
         pulumi.set(__self__, "task_relations", task_relations)
         pulumi.set(__self__, "warehouse", warehouse)
 
@@ -53970,6 +54963,11 @@ class GetTasksTaskShowOutputResult(dict):
         return pulumi.get(self, "state")
 
     @_builtins.property
+    @pulumi.getter(name="targetCompletionIntervals")
+    def target_completion_intervals(self) -> Sequence['outputs.GetTasksTaskShowOutputTargetCompletionIntervalResult']:
+        return pulumi.get(self, "target_completion_intervals")
+
+    @_builtins.property
     @pulumi.getter(name="taskRelations")
     def task_relations(self) -> Sequence['outputs.GetTasksTaskShowOutputTaskRelationResult']:
         return pulumi.get(self, "task_relations")
@@ -53978,6 +54976,32 @@ class GetTasksTaskShowOutputResult(dict):
     @pulumi.getter
     def warehouse(self) -> _builtins.str:
         return pulumi.get(self, "warehouse")
+
+
+@pulumi.output_type
+class GetTasksTaskShowOutputTargetCompletionIntervalResult(dict):
+    def __init__(__self__, *,
+                 hours: _builtins.int,
+                 minutes: _builtins.int,
+                 seconds: _builtins.int):
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+        pulumi.set(__self__, "seconds", seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def hours(self) -> _builtins.int:
+        return pulumi.get(self, "hours")
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> _builtins.int:
+        return pulumi.get(self, "minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def seconds(self) -> _builtins.int:
+        return pulumi.get(self, "seconds")
 
 
 @pulumi.output_type
@@ -54187,6 +55211,7 @@ class GetUsersUserDescribeOutputResult(dict):
                  ext_authn_uid: _builtins.str,
                  first_name: _builtins.str,
                  has_mfa: _builtins.bool,
+                 has_workload_identity: _builtins.bool,
                  last_name: _builtins.str,
                  login_name: _builtins.str,
                  middle_name: _builtins.str,
@@ -54218,6 +55243,7 @@ class GetUsersUserDescribeOutputResult(dict):
         pulumi.set(__self__, "ext_authn_uid", ext_authn_uid)
         pulumi.set(__self__, "first_name", first_name)
         pulumi.set(__self__, "has_mfa", has_mfa)
+        pulumi.set(__self__, "has_workload_identity", has_workload_identity)
         pulumi.set(__self__, "last_name", last_name)
         pulumi.set(__self__, "login_name", login_name)
         pulumi.set(__self__, "middle_name", middle_name)
@@ -54309,6 +55335,11 @@ class GetUsersUserDescribeOutputResult(dict):
     @pulumi.getter(name="hasMfa")
     def has_mfa(self) -> _builtins.bool:
         return pulumi.get(self, "has_mfa")
+
+    @_builtins.property
+    @pulumi.getter(name="hasWorkloadIdentity")
+    def has_workload_identity(self) -> _builtins.bool:
+        return pulumi.get(self, "has_workload_identity")
 
     @_builtins.property
     @pulumi.getter(name="lastName")
@@ -57142,6 +58173,7 @@ class GetUsersUserShowOutputResult(dict):
                  has_mfa: _builtins.bool,
                  has_password: _builtins.bool,
                  has_rsa_public_key: _builtins.bool,
+                 has_workload_identity: _builtins.bool,
                  last_name: _builtins.str,
                  last_success_login: _builtins.str,
                  locked_until_time: _builtins.str,
@@ -57170,6 +58202,7 @@ class GetUsersUserShowOutputResult(dict):
         pulumi.set(__self__, "has_mfa", has_mfa)
         pulumi.set(__self__, "has_password", has_password)
         pulumi.set(__self__, "has_rsa_public_key", has_rsa_public_key)
+        pulumi.set(__self__, "has_workload_identity", has_workload_identity)
         pulumi.set(__self__, "last_name", last_name)
         pulumi.set(__self__, "last_success_login", last_success_login)
         pulumi.set(__self__, "locked_until_time", locked_until_time)
@@ -57266,6 +58299,11 @@ class GetUsersUserShowOutputResult(dict):
     @pulumi.getter(name="hasRsaPublicKey")
     def has_rsa_public_key(self) -> _builtins.bool:
         return pulumi.get(self, "has_rsa_public_key")
+
+    @_builtins.property
+    @pulumi.getter(name="hasWorkloadIdentity")
+    def has_workload_identity(self) -> _builtins.bool:
+        return pulumi.get(self, "has_workload_identity")
 
     @_builtins.property
     @pulumi.getter(name="lastName")

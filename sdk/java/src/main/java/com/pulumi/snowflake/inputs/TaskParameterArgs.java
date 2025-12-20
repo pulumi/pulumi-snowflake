@@ -37,6 +37,8 @@ import com.pulumi.snowflake.inputs.TaskParameterQuotedIdentifiersIgnoreCaseArgs;
 import com.pulumi.snowflake.inputs.TaskParameterRowsPerResultsetArgs;
 import com.pulumi.snowflake.inputs.TaskParameterS3StageVpceDnsNameArgs;
 import com.pulumi.snowflake.inputs.TaskParameterSearchPathArgs;
+import com.pulumi.snowflake.inputs.TaskParameterServerlessTaskMaxStatementSizeArgs;
+import com.pulumi.snowflake.inputs.TaskParameterServerlessTaskMinStatementSizeArgs;
 import com.pulumi.snowflake.inputs.TaskParameterStatementQueuedTimeoutInSecondArgs;
 import com.pulumi.snowflake.inputs.TaskParameterStatementTimeoutInSecondArgs;
 import com.pulumi.snowflake.inputs.TaskParameterStrictJsonOutputArgs;
@@ -297,6 +299,20 @@ public final class TaskParameterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.searchPaths);
     }
 
+    @Import(name="serverlessTaskMaxStatementSizes")
+    private @Nullable Output<List<TaskParameterServerlessTaskMaxStatementSizeArgs>> serverlessTaskMaxStatementSizes;
+
+    public Optional<Output<List<TaskParameterServerlessTaskMaxStatementSizeArgs>>> serverlessTaskMaxStatementSizes() {
+        return Optional.ofNullable(this.serverlessTaskMaxStatementSizes);
+    }
+
+    @Import(name="serverlessTaskMinStatementSizes")
+    private @Nullable Output<List<TaskParameterServerlessTaskMinStatementSizeArgs>> serverlessTaskMinStatementSizes;
+
+    public Optional<Output<List<TaskParameterServerlessTaskMinStatementSizeArgs>>> serverlessTaskMinStatementSizes() {
+        return Optional.ofNullable(this.serverlessTaskMinStatementSizes);
+    }
+
     @Import(name="statementQueuedTimeoutInSeconds")
     private @Nullable Output<List<TaskParameterStatementQueuedTimeoutInSecondArgs>> statementQueuedTimeoutInSeconds;
 
@@ -514,6 +530,8 @@ public final class TaskParameterArgs extends com.pulumi.resources.ResourceArgs {
         this.rowsPerResultsets = $.rowsPerResultsets;
         this.s3StageVpceDnsNames = $.s3StageVpceDnsNames;
         this.searchPaths = $.searchPaths;
+        this.serverlessTaskMaxStatementSizes = $.serverlessTaskMaxStatementSizes;
+        this.serverlessTaskMinStatementSizes = $.serverlessTaskMinStatementSizes;
         this.statementQueuedTimeoutInSeconds = $.statementQueuedTimeoutInSeconds;
         this.statementTimeoutInSeconds = $.statementTimeoutInSeconds;
         this.strictJsonOutputs = $.strictJsonOutputs;
@@ -974,6 +992,32 @@ public final class TaskParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder searchPaths(TaskParameterSearchPathArgs... searchPaths) {
             return searchPaths(List.of(searchPaths));
+        }
+
+        public Builder serverlessTaskMaxStatementSizes(@Nullable Output<List<TaskParameterServerlessTaskMaxStatementSizeArgs>> serverlessTaskMaxStatementSizes) {
+            $.serverlessTaskMaxStatementSizes = serverlessTaskMaxStatementSizes;
+            return this;
+        }
+
+        public Builder serverlessTaskMaxStatementSizes(List<TaskParameterServerlessTaskMaxStatementSizeArgs> serverlessTaskMaxStatementSizes) {
+            return serverlessTaskMaxStatementSizes(Output.of(serverlessTaskMaxStatementSizes));
+        }
+
+        public Builder serverlessTaskMaxStatementSizes(TaskParameterServerlessTaskMaxStatementSizeArgs... serverlessTaskMaxStatementSizes) {
+            return serverlessTaskMaxStatementSizes(List.of(serverlessTaskMaxStatementSizes));
+        }
+
+        public Builder serverlessTaskMinStatementSizes(@Nullable Output<List<TaskParameterServerlessTaskMinStatementSizeArgs>> serverlessTaskMinStatementSizes) {
+            $.serverlessTaskMinStatementSizes = serverlessTaskMinStatementSizes;
+            return this;
+        }
+
+        public Builder serverlessTaskMinStatementSizes(List<TaskParameterServerlessTaskMinStatementSizeArgs> serverlessTaskMinStatementSizes) {
+            return serverlessTaskMinStatementSizes(Output.of(serverlessTaskMinStatementSizes));
+        }
+
+        public Builder serverlessTaskMinStatementSizes(TaskParameterServerlessTaskMinStatementSizeArgs... serverlessTaskMinStatementSizes) {
+            return serverlessTaskMinStatementSizes(List.of(serverlessTaskMinStatementSizes));
         }
 
         public Builder statementQueuedTimeoutInSeconds(@Nullable Output<List<TaskParameterStatementQueuedTimeoutInSecondArgs>> statementQueuedTimeoutInSeconds) {

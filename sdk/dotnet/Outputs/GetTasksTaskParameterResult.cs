@@ -45,6 +45,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.GetTasksTaskParameterRowsPerResultsetResult> RowsPerResultsets;
         public readonly ImmutableArray<Outputs.GetTasksTaskParameterS3StageVpceDnsNameResult> S3StageVpceDnsNames;
         public readonly ImmutableArray<Outputs.GetTasksTaskParameterSearchPathResult> SearchPaths;
+        public readonly ImmutableArray<Outputs.GetTasksTaskParameterServerlessTaskMaxStatementSizeResult> ServerlessTaskMaxStatementSizes;
+        public readonly ImmutableArray<Outputs.GetTasksTaskParameterServerlessTaskMinStatementSizeResult> ServerlessTaskMinStatementSizes;
         public readonly ImmutableArray<Outputs.GetTasksTaskParameterStatementQueuedTimeoutInSecondResult> StatementQueuedTimeoutInSeconds;
         public readonly ImmutableArray<Outputs.GetTasksTaskParameterStatementTimeoutInSecondResult> StatementTimeoutInSeconds;
         public readonly ImmutableArray<Outputs.GetTasksTaskParameterStrictJsonOutputResult> StrictJsonOutputs;
@@ -138,6 +140,10 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.GetTasksTaskParameterSearchPathResult> searchPaths,
 
+            ImmutableArray<Outputs.GetTasksTaskParameterServerlessTaskMaxStatementSizeResult> serverlessTaskMaxStatementSizes,
+
+            ImmutableArray<Outputs.GetTasksTaskParameterServerlessTaskMinStatementSizeResult> serverlessTaskMinStatementSizes,
+
             ImmutableArray<Outputs.GetTasksTaskParameterStatementQueuedTimeoutInSecondResult> statementQueuedTimeoutInSeconds,
 
             ImmutableArray<Outputs.GetTasksTaskParameterStatementTimeoutInSecondResult> statementTimeoutInSeconds,
@@ -222,6 +228,8 @@ namespace Pulumi.Snowflake.Outputs
             RowsPerResultsets = rowsPerResultsets;
             S3StageVpceDnsNames = s3StageVpceDnsNames;
             SearchPaths = searchPaths;
+            ServerlessTaskMaxStatementSizes = serverlessTaskMaxStatementSizes;
+            ServerlessTaskMinStatementSizes = serverlessTaskMinStatementSizes;
             StatementQueuedTimeoutInSeconds = statementQueuedTimeoutInSeconds;
             StatementTimeoutInSeconds = statementTimeoutInSeconds;
             StrictJsonOutputs = strictJsonOutputs;

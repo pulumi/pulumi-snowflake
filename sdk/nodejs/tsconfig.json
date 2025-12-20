@@ -68,6 +68,7 @@
         "getGitRepositories.ts",
         "getGrants.ts",
         "getImageRepositories.ts",
+        "getListings.ts",
         "getMaskingPolicies.ts",
         "getMaterializedViews.ts",
         "getNetworkPolicies.ts",

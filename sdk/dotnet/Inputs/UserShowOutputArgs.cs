@@ -63,6 +63,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("hasRsaPublicKey")]
         public Input<bool>? HasRsaPublicKey { get; set; }
 
+        [Input("hasWorkloadIdentity")]
+        public Input<bool>? HasWorkloadIdentity { get; set; }
+
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 

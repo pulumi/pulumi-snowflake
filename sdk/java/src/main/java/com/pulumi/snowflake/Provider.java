@@ -52,6 +52,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.authenticator);
     }
     /**
+     * Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+     * 
+     */
+    @Export(name="certRevocationCheckMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> certRevocationCheckMode;
+
+    /**
+     * @return Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+     * 
+     */
+    public Output<Optional<String>> certRevocationCheckMode() {
+        return Codegen.optional(this.certRevocationCheckMode);
+    }
+    /**
      * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
      * 
      */
@@ -94,6 +108,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.clientStoreTemporaryCredential);
     }
     /**
+     * Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+     * 
+     */
+    @Export(name="crlAllowCertificatesWithoutCrlUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> crlAllowCertificatesWithoutCrlUrl;
+
+    /**
+     * @return Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+     * 
+     */
+    public Output<Optional<String>> crlAllowCertificatesWithoutCrlUrl() {
+        return Codegen.optional(this.crlAllowCertificatesWithoutCrlUrl);
+    }
+    /**
      * Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
      * 
      */
@@ -106,6 +134,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> disableConsoleLogin() {
         return Codegen.optional(this.disableConsoleLogin);
+    }
+    /**
+     * Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+     * 
+     */
+    @Export(name="disableSamlUrlCheck", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> disableSamlUrlCheck;
+
+    /**
+     * @return Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+     * 
+     */
+    public Output<Optional<String>> disableSamlUrlCheck() {
+        return Codegen.optional(this.disableSamlUrlCheck);
     }
     /**
      * Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
@@ -148,6 +190,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> includeRetryReason() {
         return Codegen.optional(this.includeRetryReason);
+    }
+    /**
+     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     * 
+     */
+    @Export(name="noProxy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> noProxy;
+
+    /**
+     * @return A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     * 
+     */
+    public Output<Optional<String>> noProxy() {
+        return Codegen.optional(this.noProxy);
     }
     /**
      * Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
@@ -360,6 +416,62 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.protocol);
     }
     /**
+     * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     * 
+     */
+    @Export(name="proxyHost", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> proxyHost;
+
+    /**
+     * @return The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     * 
+     */
+    public Output<Optional<String>> proxyHost() {
+        return Codegen.optional(this.proxyHost);
+    }
+    /**
+     * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     * 
+     */
+    @Export(name="proxyPassword", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> proxyPassword;
+
+    /**
+     * @return The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     * 
+     */
+    public Output<Optional<String>> proxyPassword() {
+        return Codegen.optional(this.proxyPassword);
+    }
+    /**
+     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     * 
+     */
+    @Export(name="proxyProtocol", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> proxyProtocol;
+
+    /**
+     * @return The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     * 
+     */
+    public Output<Optional<String>> proxyProtocol() {
+        return Codegen.optional(this.proxyProtocol);
+    }
+    /**
+     * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     * 
+     */
+    @Export(name="proxyUser", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> proxyUser;
+
+    /**
+     * @return The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     * 
+     */
+    public Output<Optional<String>> proxyUser() {
+        return Codegen.optional(this.proxyUser);
+    }
+    /**
      * Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
      * 
      */
@@ -517,6 +629,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
                 "password",
                 "privateKey",
                 "privateKeyPassphrase",
+                "proxyPassword",
                 "token"
             ))
             .build();

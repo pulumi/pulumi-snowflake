@@ -21,6 +21,11 @@ func GetAuthenticator(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:authenticator")
 }
 
+// Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+func GetCertRevocationCheckMode(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:certRevocationCheckMode")
+}
+
 // IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
 func GetClientIp(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:clientIp")
@@ -41,14 +46,44 @@ func GetClientTimeout(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:clientTimeout")
 }
 
+// Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+func GetCrlAllowCertificatesWithoutCrlUrl(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:crlAllowCertificatesWithoutCrlUrl")
+}
+
+// Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+func GetCrlHttpClientTimeout(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "snowflake:crlHttpClientTimeout")
+}
+
+// False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+func GetCrlInMemoryCacheDisabled(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:crlInMemoryCacheDisabled")
+}
+
+// False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+func GetCrlOnDiskCacheDisabled(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:crlOnDiskCacheDisabled")
+}
+
 // Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
 func GetDisableConsoleLogin(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:disableConsoleLogin")
 }
 
+// False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+func GetDisableOcspChecks(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:disableOcspChecks")
+}
+
 // Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
 func GetDisableQueryContextCache(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:disableQueryContextCache")
+}
+
+// Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+func GetDisableSamlUrlCheck(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:disableSamlUrlCheck")
 }
 
 // Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
@@ -94,7 +129,9 @@ func GetIncludeRetryReason(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:includeRetryReason")
 }
 
-// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+// This field is deprecated. Use `disableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+//
+// Deprecated: This field is deprecated. Use `disableOcspChecks` instead.
 func GetInsecureMode(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "snowflake:insecureMode")
 }
@@ -132,6 +169,11 @@ func GetLoginTimeout(ctx *pulumi.Context) int {
 // Specifies how many times non-periodic HTTP request can be retried by the driver. Can also be sourced from the `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
 func GetMaxRetryCount(ctx *pulumi.Context) int {
 	return config.GetInt(ctx, "snowflake:maxRetryCount")
+}
+
+// A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+func GetNoProxy(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:noProxy")
 }
 
 // Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
@@ -257,6 +299,31 @@ func GetProtocol(ctx *pulumi.Context) string {
 		value = d.(string)
 	}
 	return value
+}
+
+// The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+func GetProxyHost(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:proxyHost")
+}
+
+// The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+func GetProxyPassword(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:proxyPassword")
+}
+
+// The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+func GetProxyPort(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "snowflake:proxyPort")
+}
+
+// The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+func GetProxyProtocol(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:proxyProtocol")
+}
+
+// The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+func GetProxyUser(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:proxyUser")
 }
 
 // request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.

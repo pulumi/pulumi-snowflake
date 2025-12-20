@@ -29,6 +29,7 @@ public final class UserShowOutput {
     private @Nullable Boolean hasMfa;
     private @Nullable Boolean hasPassword;
     private @Nullable Boolean hasRsaPublicKey;
+    private @Nullable Boolean hasWorkloadIdentity;
     private @Nullable String lastName;
     private @Nullable String lastSuccessLogin;
     private @Nullable String lockedUntilTime;
@@ -93,6 +94,9 @@ public final class UserShowOutput {
     public Optional<Boolean> hasRsaPublicKey() {
         return Optional.ofNullable(this.hasRsaPublicKey);
     }
+    public Optional<Boolean> hasWorkloadIdentity() {
+        return Optional.ofNullable(this.hasWorkloadIdentity);
+    }
     public Optional<String> lastName() {
         return Optional.ofNullable(this.lastName);
     }
@@ -153,6 +157,7 @@ public final class UserShowOutput {
         private @Nullable Boolean hasMfa;
         private @Nullable Boolean hasPassword;
         private @Nullable Boolean hasRsaPublicKey;
+        private @Nullable Boolean hasWorkloadIdentity;
         private @Nullable String lastName;
         private @Nullable String lastSuccessLogin;
         private @Nullable String lockedUntilTime;
@@ -184,6 +189,7 @@ public final class UserShowOutput {
     	      this.hasMfa = defaults.hasMfa;
     	      this.hasPassword = defaults.hasPassword;
     	      this.hasRsaPublicKey = defaults.hasRsaPublicKey;
+    	      this.hasWorkloadIdentity = defaults.hasWorkloadIdentity;
     	      this.lastName = defaults.lastName;
     	      this.lastSuccessLogin = defaults.lastSuccessLogin;
     	      this.lockedUntilTime = defaults.lockedUntilTime;
@@ -300,6 +306,12 @@ public final class UserShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder hasWorkloadIdentity(@Nullable Boolean hasWorkloadIdentity) {
+
+            this.hasWorkloadIdentity = hasWorkloadIdentity;
+            return this;
+        }
+        @CustomType.Setter
         public Builder lastName(@Nullable String lastName) {
 
             this.lastName = lastName;
@@ -384,6 +396,7 @@ public final class UserShowOutput {
             _resultValue.hasMfa = hasMfa;
             _resultValue.hasPassword = hasPassword;
             _resultValue.hasRsaPublicKey = hasRsaPublicKey;
+            _resultValue.hasWorkloadIdentity = hasWorkloadIdentity;
             _resultValue.lastName = lastName;
             _resultValue.lastSuccessLogin = lastSuccessLogin;
             _resultValue.lockedUntilTime = lockedUntilTime;

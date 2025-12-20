@@ -141,14 +141,14 @@ public final class NotebookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the warehouse where SQL queries in the notebook are run.
+     * Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      * 
      */
     @Import(name="queryWarehouse")
     private @Nullable Output<String> queryWarehouse;
 
     /**
-     * @return Specifies the warehouse where SQL queries in the notebook are run.
+     * @return Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      * 
      */
     public Optional<Output<String>> queryWarehouse() {
@@ -186,14 +186,14 @@ public final class NotebookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the warehouse that runs the notebook kernel and python code.
+     * Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      * 
      */
     @Import(name="warehouse")
     private @Nullable Output<String> warehouse;
 
     /**
-     * @return Specifies the warehouse that runs the notebook kernel and python code.
+     * @return Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      * 
      */
     public Optional<Output<String>> warehouse() {
@@ -424,7 +424,7 @@ public final class NotebookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryWarehouse Specifies the warehouse where SQL queries in the notebook are run.
+         * @param queryWarehouse Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class NotebookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryWarehouse Specifies the warehouse where SQL queries in the notebook are run.
+         * @param queryWarehouse Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class NotebookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse Specifies the warehouse that runs the notebook kernel and python code.
+         * @param warehouse Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class NotebookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse Specifies the warehouse that runs the notebook kernel and python code.
+         * @param warehouse Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
          * 
          * @return builder
          * 

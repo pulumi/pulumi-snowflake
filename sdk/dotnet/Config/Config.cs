@@ -52,6 +52,16 @@ namespace Pulumi.Snowflake
             set => _authenticator.Set(value);
         }
 
+        private static readonly __Value<string?> _certRevocationCheckMode = new __Value<string?>(() => __config.Get("certRevocationCheckMode"));
+        /// <summary>
+        /// Specifies the certificate revocation check mode. Valid options are: `DISABLED` | `ADVISORY` | `ENABLED`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_CERT_REVOCATION_CHECK_MODE` environment variable.
+        /// </summary>
+        public static string? CertRevocationCheckMode
+        {
+            get => _certRevocationCheckMode.Get();
+            set => _certRevocationCheckMode.Set(value);
+        }
+
         private static readonly __Value<string?> _clientIp = new __Value<string?>(() => __config.Get("clientIp"));
         /// <summary>
         /// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
@@ -92,6 +102,46 @@ namespace Pulumi.Snowflake
             set => _clientTimeout.Set(value);
         }
 
+        private static readonly __Value<string?> _crlAllowCertificatesWithoutCrlUrl = new __Value<string?>(() => __config.Get("crlAllowCertificatesWithoutCrlUrl"));
+        /// <summary>
+        /// Allow certificates (not short-lived) without CRL DP included to be treated as correct ones. Can also be sourced from the `SNOWFLAKE_CRL_ALLOW_CERTIFICATES_WITHOUT_CRL_URL` environment variable.
+        /// </summary>
+        public static string? CrlAllowCertificatesWithoutCrlUrl
+        {
+            get => _crlAllowCertificatesWithoutCrlUrl.Get();
+            set => _crlAllowCertificatesWithoutCrlUrl.Set(value);
+        }
+
+        private static readonly __Value<int?> _crlHttpClientTimeout = new __Value<int?>(() => __config.GetInt32("crlHttpClientTimeout"));
+        /// <summary>
+        /// Timeout in seconds for HTTP client used to download CRL. Can also be sourced from the `SNOWFLAKE_CRL_HTTP_CLIENT_TIMEOUT` environment variable.
+        /// </summary>
+        public static int? CrlHttpClientTimeout
+        {
+            get => _crlHttpClientTimeout.Get();
+            set => _crlHttpClientTimeout.Set(value);
+        }
+
+        private static readonly __Value<bool?> _crlInMemoryCacheDisabled = new __Value<bool?>(() => __config.GetBoolean("crlInMemoryCacheDisabled"));
+        /// <summary>
+        /// False by default. When set to true, the CRL in-memory cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_IN_MEMORY_CACHE_DISABLED` environment variable.
+        /// </summary>
+        public static bool? CrlInMemoryCacheDisabled
+        {
+            get => _crlInMemoryCacheDisabled.Get();
+            set => _crlInMemoryCacheDisabled.Set(value);
+        }
+
+        private static readonly __Value<bool?> _crlOnDiskCacheDisabled = new __Value<bool?>(() => __config.GetBoolean("crlOnDiskCacheDisabled"));
+        /// <summary>
+        /// False by default. When set to true, the CRL on-disk cache is disabled. Can also be sourced from the `SNOWFLAKE_CRL_ON_DISK_CACHE_DISABLED` environment variable.
+        /// </summary>
+        public static bool? CrlOnDiskCacheDisabled
+        {
+            get => _crlOnDiskCacheDisabled.Get();
+            set => _crlOnDiskCacheDisabled.Set(value);
+        }
+
         private static readonly __Value<string?> _disableConsoleLogin = new __Value<string?>(() => __config.Get("disableConsoleLogin"));
         /// <summary>
         /// Indicates whether console login should be disabled in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_CONSOLE_LOGIN` environment variable.
@@ -102,6 +152,16 @@ namespace Pulumi.Snowflake
             set => _disableConsoleLogin.Set(value);
         }
 
+        private static readonly __Value<bool?> _disableOcspChecks = new __Value<bool?>(() => __config.GetBoolean("disableOcspChecks"));
+        /// <summary>
+        /// False by default. When set to true, the driver doesn't check certificate revocation status. Can also be sourced from the `SNOWFLAKE_DISABLE_OCSP_CHECKS` environment variable.
+        /// </summary>
+        public static bool? DisableOcspChecks
+        {
+            get => _disableOcspChecks.Get();
+            set => _disableOcspChecks.Set(value);
+        }
+
         private static readonly __Value<bool?> _disableQueryContextCache = new __Value<bool?>(() => __config.GetBoolean("disableQueryContextCache"));
         /// <summary>
         /// Disables HTAP query context cache in the driver. Can also be sourced from the `SNOWFLAKE_DISABLE_QUERY_CONTEXT_CACHE` environment variable.
@@ -110,6 +170,16 @@ namespace Pulumi.Snowflake
         {
             get => _disableQueryContextCache.Get();
             set => _disableQueryContextCache.Set(value);
+        }
+
+        private static readonly __Value<string?> _disableSamlUrlCheck = new __Value<string?>(() => __config.Get("disableSamlUrlCheck"));
+        /// <summary>
+        /// Indicates whether the SAML URL check should be disabled. Can also be sourced from the `SNOWFLAKE_DISABLE_SAML_URL_CHECK` environment variable.
+        /// </summary>
+        public static string? DisableSamlUrlCheck
+        {
+            get => _disableSamlUrlCheck.Get();
+            set => _disableSamlUrlCheck.Set(value);
         }
 
         private static readonly __Value<bool?> _disableTelemetry = new __Value<bool?>(() => __config.GetBoolean("disableTelemetry"));
@@ -184,7 +254,7 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<bool?> _insecureMode = new __Value<bool?>(() => __config.GetBoolean("insecureMode"));
         /// <summary>
-        /// If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
+        /// This field is deprecated. Use `DisableOcspChecks` instead. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
         /// </summary>
         public static bool? InsecureMode
         {
@@ -260,6 +330,16 @@ namespace Pulumi.Snowflake
         {
             get => _maxRetryCount.Get();
             set => _maxRetryCount.Set(value);
+        }
+
+        private static readonly __Value<string?> _noProxy = new __Value<string?>(() => __config.Get("noProxy"));
+        /// <summary>
+        /// A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+        /// </summary>
+        public static string? NoProxy
+        {
+            get => _noProxy.Get();
+            set => _noProxy.Set(value);
         }
 
         private static readonly __Value<string?> _oauthAuthorizationUrl = new __Value<string?>(() => __config.Get("oauthAuthorizationUrl"));
@@ -447,6 +527,56 @@ namespace Pulumi.Snowflake
         {
             get => _protocol.Get();
             set => _protocol.Set(value);
+        }
+
+        private static readonly __Value<string?> _proxyHost = new __Value<string?>(() => __config.Get("proxyHost"));
+        /// <summary>
+        /// The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+        /// </summary>
+        public static string? ProxyHost
+        {
+            get => _proxyHost.Get();
+            set => _proxyHost.Set(value);
+        }
+
+        private static readonly __Value<string?> _proxyPassword = new __Value<string?>(() => __config.Get("proxyPassword"));
+        /// <summary>
+        /// The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+        /// </summary>
+        public static string? ProxyPassword
+        {
+            get => _proxyPassword.Get();
+            set => _proxyPassword.Set(value);
+        }
+
+        private static readonly __Value<int?> _proxyPort = new __Value<int?>(() => __config.GetInt32("proxyPort"));
+        /// <summary>
+        /// The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+        /// </summary>
+        public static int? ProxyPort
+        {
+            get => _proxyPort.Get();
+            set => _proxyPort.Set(value);
+        }
+
+        private static readonly __Value<string?> _proxyProtocol = new __Value<string?>(() => __config.Get("proxyProtocol"));
+        /// <summary>
+        /// The protocol of the proxy to use for the connection. Valid options are: `Http` | `Https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+        /// </summary>
+        public static string? ProxyProtocol
+        {
+            get => _proxyProtocol.Get();
+            set => _proxyProtocol.Set(value);
+        }
+
+        private static readonly __Value<string?> _proxyUser = new __Value<string?>(() => __config.Get("proxyUser"));
+        /// <summary>
+        /// The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+        /// </summary>
+        public static string? ProxyUser
+        {
+            get => _proxyUser.Get();
+            set => _proxyUser.Set(value);
         }
 
         private static readonly __Value<int?> _requestTimeout = new __Value<int?>(() => __config.GetInt32("requestTimeout"));

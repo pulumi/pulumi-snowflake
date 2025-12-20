@@ -34,12 +34,12 @@ class MaterializedViewArgs:
         The set of arguments for constructing a MaterializedView resource.
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Don't use the | character.
-        :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse name.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[_builtins.bool] is_secure: (Default: `false`) Specifies that the view is secure.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
-        :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Overwrites the View if it exists.
+        :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         :param pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "database", database)
@@ -88,7 +88,7 @@ class MaterializedViewArgs:
     @pulumi.getter
     def statement(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the query used to create the view.
+        Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         """
         return pulumi.get(self, "statement")
 
@@ -148,7 +148,7 @@ class MaterializedViewArgs:
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        (Default: `false`) Overwrites the View if it exists.
+        (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         """
         return pulumi.get(self, "or_replace")
 
@@ -190,9 +190,9 @@ class _MaterializedViewState:
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.bool] is_secure: (Default: `false`) Specifies that the view is secure.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
-        :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Overwrites the View if it exists.
+        :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Don't use the | character.
-        :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         :param pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse name.
         """
@@ -284,7 +284,7 @@ class _MaterializedViewState:
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        (Default: `false`) Overwrites the View if it exists.
+        (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         """
         return pulumi.get(self, "or_replace")
 
@@ -308,7 +308,7 @@ class _MaterializedViewState:
     @pulumi.getter
     def statement(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the query used to create the view.
+        Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         """
         return pulumi.get(self, "statement")
 
@@ -373,9 +373,9 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[_builtins.bool] is_secure: (Default: `false`) Specifies that the view is secure.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
-        :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Overwrites the View if it exists.
+        :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Don't use the | character.
-        :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse name.
         """
@@ -477,9 +477,9 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.bool] is_secure: (Default: `false`) Specifies that the view is secure.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
-        :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Overwrites the View if it exists.
+        :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Don't use the | character.
-        :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view.
+        :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse name.
         """
@@ -543,7 +543,7 @@ class MaterializedView(pulumi.CustomResource):
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        (Default: `false`) Overwrites the View if it exists.
+        (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         """
         return pulumi.get(self, "or_replace")
 
@@ -559,7 +559,7 @@ class MaterializedView(pulumi.CustomResource):
     @pulumi.getter
     def statement(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the query used to create the view.
+        Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         """
         return pulumi.get(self, "statement")
 

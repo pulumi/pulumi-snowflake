@@ -139,17 +139,9 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
     public Output<List<ResourceMonitorShowOutput>> showOutputs() {
         return this.showOutputs;
     }
-    /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
-     * 
-     */
     @Export(name="startTimestamp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startTimestamp;
 
-    /**
-     * @return The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
-     * 
-     */
     public Output<Optional<String>> startTimestamp() {
         return Codegen.optional(this.startTimestamp);
     }

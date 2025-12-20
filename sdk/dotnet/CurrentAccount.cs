@@ -553,12 +553,6 @@ namespace Pulumi.Snowflake
         public Output<string> S3StageVpceDnsName { get; private set; } = null!;
 
         /// <summary>
-        /// Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-        /// </summary>
-        [Output("samlIdentityProvider")]
-        public Output<string> SamlIdentityProvider { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         /// </summary>
         [Output("searchPath")]
@@ -1334,12 +1328,6 @@ namespace Pulumi.Snowflake
         public Input<string>? S3StageVpceDnsName { get; set; }
 
         /// <summary>
-        /// Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-        /// </summary>
-        [Input("samlIdentityProvider")]
-        public Input<string>? SamlIdentityProvider { get; set; }
-
-        /// <summary>
         /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         /// </summary>
         [Input("searchPath")]
@@ -2075,12 +2063,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("s3StageVpceDnsName")]
         public Input<string>? S3StageVpceDnsName { get; set; }
-
-        /// <summary>
-        /// Enables federated authentication. This deprecated parameter enables federated authentication ([more details](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider)). For more information, check [SAML*IDENTITY*PROVIDER docs](https://docs.snowflake.com/en/sql-reference/parameters#saml-identity-provider).
-        /// </summary>
-        [Input("samlIdentityProvider")]
-        public Input<string>? SamlIdentityProvider { get; set; }
 
         /// <summary>
         /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).

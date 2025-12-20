@@ -268,6 +268,22 @@ namespace Pulumi.Snowflake.Inputs
             set => _searchPaths = value;
         }
 
+        [Input("serverlessTaskMaxStatementSizes")]
+        private InputList<Inputs.TaskParameterServerlessTaskMaxStatementSizeArgs>? _serverlessTaskMaxStatementSizes;
+        public InputList<Inputs.TaskParameterServerlessTaskMaxStatementSizeArgs> ServerlessTaskMaxStatementSizes
+        {
+            get => _serverlessTaskMaxStatementSizes ?? (_serverlessTaskMaxStatementSizes = new InputList<Inputs.TaskParameterServerlessTaskMaxStatementSizeArgs>());
+            set => _serverlessTaskMaxStatementSizes = value;
+        }
+
+        [Input("serverlessTaskMinStatementSizes")]
+        private InputList<Inputs.TaskParameterServerlessTaskMinStatementSizeArgs>? _serverlessTaskMinStatementSizes;
+        public InputList<Inputs.TaskParameterServerlessTaskMinStatementSizeArgs> ServerlessTaskMinStatementSizes
+        {
+            get => _serverlessTaskMinStatementSizes ?? (_serverlessTaskMinStatementSizes = new InputList<Inputs.TaskParameterServerlessTaskMinStatementSizeArgs>());
+            set => _serverlessTaskMinStatementSizes = value;
+        }
+
         [Input("statementQueuedTimeoutInSeconds")]
         private InputList<Inputs.TaskParameterStatementQueuedTimeoutInSecondArgs>? _statementQueuedTimeoutInSeconds;
         public InputList<Inputs.TaskParameterStatementQueuedTimeoutInSecondArgs> StatementQueuedTimeoutInSeconds

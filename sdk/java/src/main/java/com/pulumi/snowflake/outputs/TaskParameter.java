@@ -36,6 +36,8 @@ import com.pulumi.snowflake.outputs.TaskParameterQuotedIdentifiersIgnoreCase;
 import com.pulumi.snowflake.outputs.TaskParameterRowsPerResultset;
 import com.pulumi.snowflake.outputs.TaskParameterS3StageVpceDnsName;
 import com.pulumi.snowflake.outputs.TaskParameterSearchPath;
+import com.pulumi.snowflake.outputs.TaskParameterServerlessTaskMaxStatementSize;
+import com.pulumi.snowflake.outputs.TaskParameterServerlessTaskMinStatementSize;
 import com.pulumi.snowflake.outputs.TaskParameterStatementQueuedTimeoutInSecond;
 import com.pulumi.snowflake.outputs.TaskParameterStatementTimeoutInSecond;
 import com.pulumi.snowflake.outputs.TaskParameterStrictJsonOutput;
@@ -100,6 +102,8 @@ public final class TaskParameter {
     private @Nullable List<TaskParameterRowsPerResultset> rowsPerResultsets;
     private @Nullable List<TaskParameterS3StageVpceDnsName> s3StageVpceDnsNames;
     private @Nullable List<TaskParameterSearchPath> searchPaths;
+    private @Nullable List<TaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes;
+    private @Nullable List<TaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes;
     private @Nullable List<TaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds;
     private @Nullable List<TaskParameterStatementTimeoutInSecond> statementTimeoutInSeconds;
     private @Nullable List<TaskParameterStrictJsonOutput> strictJsonOutputs;
@@ -224,6 +228,12 @@ public final class TaskParameter {
     public List<TaskParameterSearchPath> searchPaths() {
         return this.searchPaths == null ? List.of() : this.searchPaths;
     }
+    public List<TaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes() {
+        return this.serverlessTaskMaxStatementSizes == null ? List.of() : this.serverlessTaskMaxStatementSizes;
+    }
+    public List<TaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes() {
+        return this.serverlessTaskMinStatementSizes == null ? List.of() : this.serverlessTaskMinStatementSizes;
+    }
     public List<TaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds() {
         return this.statementQueuedTimeoutInSeconds == null ? List.of() : this.statementQueuedTimeoutInSeconds;
     }
@@ -344,6 +354,8 @@ public final class TaskParameter {
         private @Nullable List<TaskParameterRowsPerResultset> rowsPerResultsets;
         private @Nullable List<TaskParameterS3StageVpceDnsName> s3StageVpceDnsNames;
         private @Nullable List<TaskParameterSearchPath> searchPaths;
+        private @Nullable List<TaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes;
+        private @Nullable List<TaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes;
         private @Nullable List<TaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds;
         private @Nullable List<TaskParameterStatementTimeoutInSecond> statementTimeoutInSeconds;
         private @Nullable List<TaskParameterStrictJsonOutput> strictJsonOutputs;
@@ -405,6 +417,8 @@ public final class TaskParameter {
     	      this.rowsPerResultsets = defaults.rowsPerResultsets;
     	      this.s3StageVpceDnsNames = defaults.s3StageVpceDnsNames;
     	      this.searchPaths = defaults.searchPaths;
+    	      this.serverlessTaskMaxStatementSizes = defaults.serverlessTaskMaxStatementSizes;
+    	      this.serverlessTaskMinStatementSizes = defaults.serverlessTaskMinStatementSizes;
     	      this.statementQueuedTimeoutInSeconds = defaults.statementQueuedTimeoutInSeconds;
     	      this.statementTimeoutInSeconds = defaults.statementTimeoutInSeconds;
     	      this.strictJsonOutputs = defaults.strictJsonOutputs;
@@ -722,6 +736,24 @@ public final class TaskParameter {
             return searchPaths(List.of(searchPaths));
         }
         @CustomType.Setter
+        public Builder serverlessTaskMaxStatementSizes(@Nullable List<TaskParameterServerlessTaskMaxStatementSize> serverlessTaskMaxStatementSizes) {
+
+            this.serverlessTaskMaxStatementSizes = serverlessTaskMaxStatementSizes;
+            return this;
+        }
+        public Builder serverlessTaskMaxStatementSizes(TaskParameterServerlessTaskMaxStatementSize... serverlessTaskMaxStatementSizes) {
+            return serverlessTaskMaxStatementSizes(List.of(serverlessTaskMaxStatementSizes));
+        }
+        @CustomType.Setter
+        public Builder serverlessTaskMinStatementSizes(@Nullable List<TaskParameterServerlessTaskMinStatementSize> serverlessTaskMinStatementSizes) {
+
+            this.serverlessTaskMinStatementSizes = serverlessTaskMinStatementSizes;
+            return this;
+        }
+        public Builder serverlessTaskMinStatementSizes(TaskParameterServerlessTaskMinStatementSize... serverlessTaskMinStatementSizes) {
+            return serverlessTaskMinStatementSizes(List.of(serverlessTaskMinStatementSizes));
+        }
+        @CustomType.Setter
         public Builder statementQueuedTimeoutInSeconds(@Nullable List<TaskParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds) {
 
             this.statementQueuedTimeoutInSeconds = statementQueuedTimeoutInSeconds;
@@ -989,6 +1021,8 @@ public final class TaskParameter {
             _resultValue.rowsPerResultsets = rowsPerResultsets;
             _resultValue.s3StageVpceDnsNames = s3StageVpceDnsNames;
             _resultValue.searchPaths = searchPaths;
+            _resultValue.serverlessTaskMaxStatementSizes = serverlessTaskMaxStatementSizes;
+            _resultValue.serverlessTaskMinStatementSizes = serverlessTaskMinStatementSizes;
             _resultValue.statementQueuedTimeoutInSeconds = statementQueuedTimeoutInSeconds;
             _resultValue.statementTimeoutInSeconds = statementTimeoutInSeconds;
             _resultValue.strictJsonOutputs = strictJsonOutputs;

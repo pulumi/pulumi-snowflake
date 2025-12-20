@@ -100,14 +100,14 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      * 
      */
     @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
-     * @return (Default: `false`) Overwrites the View if it exists.
+     * @return (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      * 
      */
     public Output<Optional<Boolean>> orReplace() {
@@ -128,14 +128,14 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Specifies the query used to create the view.
+     * Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
      * 
      */
     @Export(name="statement", refs={String.class}, tree="[0]")
     private Output<String> statement;
 
     /**
-     * @return Specifies the query used to create the view.
+     * @return Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
      * 
      */
     public Output<String> statement() {

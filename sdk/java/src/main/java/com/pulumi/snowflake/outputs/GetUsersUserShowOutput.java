@@ -28,6 +28,7 @@ public final class GetUsersUserShowOutput {
     private Boolean hasMfa;
     private Boolean hasPassword;
     private Boolean hasRsaPublicKey;
+    private Boolean hasWorkloadIdentity;
     private String lastName;
     private String lastSuccessLogin;
     private String lockedUntilTime;
@@ -92,6 +93,9 @@ public final class GetUsersUserShowOutput {
     public Boolean hasRsaPublicKey() {
         return this.hasRsaPublicKey;
     }
+    public Boolean hasWorkloadIdentity() {
+        return this.hasWorkloadIdentity;
+    }
     public String lastName() {
         return this.lastName;
     }
@@ -152,6 +156,7 @@ public final class GetUsersUserShowOutput {
         private Boolean hasMfa;
         private Boolean hasPassword;
         private Boolean hasRsaPublicKey;
+        private Boolean hasWorkloadIdentity;
         private String lastName;
         private String lastSuccessLogin;
         private String lockedUntilTime;
@@ -183,6 +188,7 @@ public final class GetUsersUserShowOutput {
     	      this.hasMfa = defaults.hasMfa;
     	      this.hasPassword = defaults.hasPassword;
     	      this.hasRsaPublicKey = defaults.hasRsaPublicKey;
+    	      this.hasWorkloadIdentity = defaults.hasWorkloadIdentity;
     	      this.lastName = defaults.lastName;
     	      this.lastSuccessLogin = defaults.lastSuccessLogin;
     	      this.lockedUntilTime = defaults.lockedUntilTime;
@@ -333,6 +339,14 @@ public final class GetUsersUserShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder hasWorkloadIdentity(Boolean hasWorkloadIdentity) {
+            if (hasWorkloadIdentity == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserShowOutput", "hasWorkloadIdentity");
+            }
+            this.hasWorkloadIdentity = hasWorkloadIdentity;
+            return this;
+        }
+        @CustomType.Setter
         public Builder lastName(String lastName) {
             if (lastName == null) {
               throw new MissingRequiredPropertyException("GetUsersUserShowOutput", "lastName");
@@ -439,6 +453,7 @@ public final class GetUsersUserShowOutput {
             _resultValue.hasMfa = hasMfa;
             _resultValue.hasPassword = hasPassword;
             _resultValue.hasRsaPublicKey = hasRsaPublicKey;
+            _resultValue.hasWorkloadIdentity = hasWorkloadIdentity;
             _resultValue.lastName = lastName;
             _resultValue.lastSuccessLogin = lastSuccessLogin;
             _resultValue.lockedUntilTime = lockedUntilTime;

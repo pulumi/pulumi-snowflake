@@ -32,7 +32,7 @@ type ScimIntegration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrOutput `pulumi:"networkPolicy"`
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
 	RunAsRole pulumi.StringOutput `pulumi:"runAsRole"`
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient pulumi.StringOutput `pulumi:"scimClient"`
@@ -93,7 +93,7 @@ type scimIntegrationState struct {
 	Name *string `pulumi:"name"`
 	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
 	RunAsRole *string `pulumi:"runAsRole"`
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient *string `pulumi:"scimClient"`
@@ -116,7 +116,7 @@ type ScimIntegrationState struct {
 	Name pulumi.StringPtrInput
 	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrInput
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
 	RunAsRole pulumi.StringPtrInput
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient pulumi.StringPtrInput
@@ -139,7 +139,7 @@ type scimIntegrationArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
 	RunAsRole string `pulumi:"runAsRole"`
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient string `pulumi:"scimClient"`
@@ -157,7 +157,7 @@ type ScimIntegrationArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrInput
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
 	RunAsRole pulumi.StringInput
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient pulumi.StringInput
@@ -282,7 +282,7 @@ func (o ScimIntegrationOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringPtrOutput { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `genericScimProvisioner`, `oktaProvisioner`, or `aadProvisioner`, which are automatically converted to uppercase for backwards compatibility.
 func (o ScimIntegrationOutput) RunAsRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringOutput { return v.RunAsRole }).(pulumi.StringOutput)
 }
