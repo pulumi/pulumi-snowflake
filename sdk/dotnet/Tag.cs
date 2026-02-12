@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Required warehouse** For this resource, the provider now uses [tag references](https://docs.snowflake.com/en/sql-reference/functions/tag_references) to get information about masking policies attached to tags. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+    /// 
+    /// &gt; **Current limitations** Recently, the tags propagation was introduced (check [2025-05-14-tag-propagation](https://docs.snowflake.com/en/release-notes/2025/other/2025-05-14-tag-propagation)). This resource is not currently supporting the `ON_CONFLICT` attribute and the tag allowed values ordering. If needed, use the `snowflake.Execute` for the time-being. This limitation will be addressed in the next versions of the provider.
+    /// 
+    /// Resource used to manage tags. For more information, check [tag documentation](https://docs.snowflake.com/en/sql-reference/sql/create-tag). For assigning tags to Snowflake objects, see TagAssociation resource.
+    /// 
     /// ## Import
     /// 
     /// ```sh

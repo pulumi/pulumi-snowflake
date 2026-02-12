@@ -12,13 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ### OnView
-//
-// ```sh
-// $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example '<share_name>|<privileges>|OnView|<database_name>.<schema_name>.<view_name>'`
-// ```
+// > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
 type GrantPrivilegesToShare struct {
 	pulumi.CustomResourceState
 

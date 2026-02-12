@@ -21,6 +21,109 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
+ * import com.pulumi.snowflake.Sequence;
+ * import com.pulumi.snowflake.SequenceArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnDefaultArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnIdentityArgs;
+ * import com.pulumi.snowflake.inputs.TablePrimaryKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var schema = new Schema("schema", SchemaArgs.builder()
+ *             .database("database")
+ *             .name("schema")
+ *             .dataRetentionDays(1)
+ *             .build());
+ * 
+ *         var sequence = new Sequence("sequence", SequenceArgs.builder()
+ *             .database(schema.database())
+ *             .schema(schema.name())
+ *             .name("sequence")
+ *             .build());
+ * 
+ *         var table = new Table("table", TableArgs.builder()
+ *             .database(schema.database())
+ *             .schema(schema.name())
+ *             .name("table")
+ *             .comment("A table.")
+ *             .clusterBies("to_date(DATE)")
+ *             .dataRetentionTimeInDays(schema.dataRetentionTimeInDays())
+ *             .changeTracking(false)
+ *             .columns(            
+ *                 TableColumnArgs.builder()
+ *                     .name("id")
+ *                     .type("int")
+ *                     .nullable(true)
+ *                     .default_(TableColumnDefaultArgs.builder()
+ *                         .sequence(sequence.fullyQualifiedName())
+ *                         .build())
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("identity")
+ *                     .type("NUMBER(38,0)")
+ *                     .nullable(true)
+ *                     .identity(TableColumnIdentityArgs.builder()
+ *                         .startNum(1)
+ *                         .stepNum(3)
+ *                         .build())
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("data")
+ *                     .type("text")
+ *                     .nullable(false)
+ *                     .collate("en-ci")
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("DATE")
+ *                     .type("TIMESTAMP_NTZ(9)")
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("extra")
+ *                     .type("VARIANT")
+ *                     .comment("extra data")
+ *                     .build())
+ *             .primaryKey(TablePrimaryKeyArgs.builder()
+ *                 .name("my_key")
+ *                 .keys("data")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * format is database name | schema name | table name

@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// > **Note** This resource manages storage integrations for AWS, Azure, and GCS storage providers. Make sure you use only fields that are supported for the storage provider you are using, as they are not validated by the provider. In the future, we are planning to implement separate resources for each storage provider.
+//
+// > **Note** Currently, `describeOutput` field is not used in all the relevant fields (only `storageAwsExternalId` is supported). This will be addressed during the resource rework.
+//
 // ## Import
 //
 // ```sh

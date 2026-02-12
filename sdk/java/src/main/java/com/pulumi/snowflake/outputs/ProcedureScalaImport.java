@@ -15,6 +15,10 @@ public final class ProcedureScalaImport {
      * 
      */
     private String pathOnStage;
+    /**
+     * @return Stage location without leading `{@literal @}`. To use your user&#39;s stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.&lt;your stage&#39;s resource name&gt;.fully_qualified_name` if you manage this stage through terraform).
+     * 
+     */
     private String stageLocation;
 
     private ProcedureScalaImport() {}
@@ -25,6 +29,10 @@ public final class ProcedureScalaImport {
     public String pathOnStage() {
         return this.pathOnStage;
     }
+    /**
+     * @return Stage location without leading `{@literal @}`. To use your user&#39;s stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.&lt;your stage&#39;s resource name&gt;.fully_qualified_name` if you manage this stage through terraform).
+     * 
+     */
     public String stageLocation() {
         return this.stageLocation;
     }

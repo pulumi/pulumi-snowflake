@@ -10,13 +10,212 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// !&gt; **Case-sensitive names** Object names, column names, and aliases are case-sensitive. The provider would wrap them in double quotes when running SQL on Snowflake. Keep it in mind when defining the semantic view (check the example usage).
+    /// 
+    /// &gt; **Note** The [`ALTER SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/alter-semantic-view) does not currently handle changes to `Dimensions`, `Facts`, `Metrics`, `Relationships`, and `Tables`. It means that all changes to these attributes will be handled as destroy and recreate.
+    /// 
+    /// &gt; **Note** External changes for `Dimensions`, `Facts`, `Metrics`, `Relationships`, and `Tables` are not currently handled. Support for this functionality will be added in the next versions of the provider before moving this resource out of preview.
+    /// 
+    /// &gt; **Note** `PRIVATE`/`PUBLIC` qualifiers for semantic expressions are not currently supported. They are treated as `PUBLIC` by default. Support for this functionality will be added in the next versions of the provider before moving this resource out of preview.
+    /// 
+    /// &gt; **Note** Excluding dimensions in `window_function:over_clause:partition_by` clause is not currently supported. Support for this functionality will be added in the next versions of the provider before moving this resource out of preview.
+    /// 
+    /// &gt; **Note** The `window_function:over_clause:order_by` clause must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers. It will be broken down in the next versions of the provider before moving this resource out of preview.
+    /// 
+    /// &gt; **Note** `COPY GRANTS` and `OR REPLACE` are not currently supported.
+    /// 
+    /// &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+    /// 
+    /// Resource used to manage semantic views. For more information, check [semantic views documentation](https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // basic resource
+    ///     var basic = new Snowflake.SemanticView("basic", new()
+    ///     {
+    ///         Database = "DATABASE",
+    ///         Schema = "SCHEMA",
+    ///         Name = "SEMANTIC_VIEW",
+    ///         Metrics = new[]
+    ///         {
+    ///             new Snowflake.Inputs.SemanticViewMetricArgs
+    ///             {
+    ///                 SemanticExpression = new Snowflake.Inputs.SemanticViewMetricSemanticExpressionArgs
+    ///                 {
+    ///                     QualifiedExpressionName = "\"lt1\".\"m1\"",
+    ///                     SqlExpression = "SUM(\"lt1\".\"a1\")",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tables = new[]
+    ///         {
+    ///             new Snowflake.Inputs.SemanticViewTableArgs
+    ///             {
+    ///                 TableAlias = "lt1",
+    ///                 TableName = test.FullyQualifiedName,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // complete resource
+    ///     var complete = new Snowflake.SemanticView("complete", new()
+    ///     {
+    ///         Database = "DATABASE",
+    ///         Schema = "SCHEMA",
+    ///         Name = "SEMANTIC_VIEW",
+    ///         Comment = "comment",
+    ///         Dimensions = new[]
+    ///         {
+    ///             new Snowflake.Inputs.SemanticViewDimensionArgs
+    ///             {
+    ///                 Comment = "dimension comment",
+    ///                 QualifiedExpressionName = "\"lt1\".\"d2\"",
+    ///                 SqlExpression = "\"lt1\".\"a2\"",
+    ///                 Synonyms = new[]
+    ///                 {
+    ///                     "dim2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Facts = new[]
+    ///         {
+    ///             new Snowflake.Inputs.SemanticViewFactArgs
+    ///             {
+    ///                 Comment = "fact comment",
+    ///                 QualifiedExpressionName = "\"lt1\".\"f2\"",
+    ///                 SqlExpression = "\"lt1\".\"a1\"",
+    ///                 Synonyms = new[]
+    ///                 {
+    ///                     "fact2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Metrics = new[]
+    ///         {
+    ///             new Snowflake.Inputs.SemanticViewMetricArgs
+    ///             {
+    ///                 SemanticExpression = new Snowflake.Inputs.SemanticViewMetricSemanticExpressionArgs
+    ///                 {
+    ///                     Comment = "semantic expression comment",
+    ///                     QualifiedExpressionName = "\"lt1\".\"m1\"",
+    ///                     SqlExpression = "SUM(\"lt1\".\"a1\")",
+    ///                     Synonyms = new[]
+    ///                     {
+    ///                         "sem1",
+    ///                         "baseSem",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.SemanticViewMetricArgs
+    ///             {
+    ///                 WindowFunction = new Snowflake.Inputs.SemanticViewMetricWindowFunctionArgs
+    ///                 {
+    ///                     OverClause = new Snowflake.Inputs.SemanticViewMetricWindowFunctionOverClauseArgs
+    ///                     {
+    ///                         PartitionBy = "\"lt1\".\"d2\"",
+    ///                     },
+    ///                     QualifiedExpressionName = "\"lt1\".\"wf1\"",
+    ///                     SqlExpression = "SUM(\"lt1\".\"m1\")",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Relationships = new[]
+    ///         {
+    ///             new Snowflake.Inputs.SemanticViewRelationshipArgs
+    ///             {
+    ///                 ReferencedRelationshipColumns = new[]
+    ///                 {
+    ///                     "a1",
+    ///                     "a2",
+    ///                 },
+    ///                 ReferencedTableNameOrAlias = new Snowflake.Inputs.SemanticViewRelationshipReferencedTableNameOrAliasArgs
+    ///                 {
+    ///                     TableAlias = "lt1",
+    ///                 },
+    ///                 RelationshipColumns = new[]
+    ///                 {
+    ///                     "a1",
+    ///                     "a2",
+    ///                 },
+    ///                 RelationshipIdentifier = "r2",
+    ///                 TableNameOrAlias = new Snowflake.Inputs.SemanticViewRelationshipTableNameOrAliasArgs
+    ///                 {
+    ///                     TableAlias = "lt2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tables = new[]
+    ///         {
+    ///             new Snowflake.Inputs.SemanticViewTableArgs
+    ///             {
+    ///                 Comment = "logical table 1 comment",
+    ///                 PrimaryKeys = new[]
+    ///                 {
+    ///                     "a1",
+    ///                 },
+    ///                 Synonyms = new[]
+    ///                 {
+    ///                     "orders",
+    ///                     "sales",
+    ///                 },
+    ///                 TableAlias = "lt1",
+    ///                 TableName = test.FullyQualifiedName,
+    ///                 Uniques = new[]
+    ///                 {
+    ///                     new Snowflake.Inputs.SemanticViewTableUniqueArgs
+    ///                     {
+    ///                         Values = new[]
+    ///                         {
+    ///                             "a2",
+    ///                         },
+    ///                     },
+    ///                     new Snowflake.Inputs.SemanticViewTableUniqueArgs
+    ///                     {
+    ///                         Values = new[]
+    ///                         {
+    ///                             "a3",
+    ///                             "a4",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.SemanticViewTableArgs
+    ///             {
+    ///                 Comment = "logical table 2 comment",
+    ///                 PrimaryKeys = new[]
+    ///                 {
+    ///                     "a1",
+    ///                 },
+    ///                 TableAlias = "lt2",
+    ///                 TableName = test2.FullyQualifiedName,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh
     /// $ pulumi import snowflake:index/semanticView:SemanticView example '"&lt;db_name&gt;"."&lt;schema_name&gt;"."&lt;semantic_view_name&gt;"'
     /// ```
     /// 
-    /// Note: Because the external changes for `dimensions`, `facts`, `metrics`, `relationships`, and `tables` are not currently handled, then import won't populate these fields too.
+    /// Note: Because the external changes for `Dimensions`, `Facts`, `Metrics`, `Relationships`, and `Tables` are not currently handled, then import won't populate these fields too.
     /// </summary>
     [SnowflakeResourceType("snowflake:index/semanticView:SemanticView")]
     public partial class SemanticView : global::Pulumi.CustomResource
@@ -33,9 +232,15 @@ namespace Pulumi.Snowflake
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("dimensions")]
         public Output<ImmutableArray<Outputs.SemanticViewDimension>> Dimensions { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("facts")]
         public Output<ImmutableArray<Outputs.SemanticViewFact>> Facts { get; private set; } = null!;
 
@@ -45,6 +250,9 @@ namespace Pulumi.Snowflake
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("metrics")]
         public Output<ImmutableArray<Outputs.SemanticViewMetric>> Metrics { get; private set; } = null!;
 
@@ -54,6 +262,9 @@ namespace Pulumi.Snowflake
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("relationships")]
         public Output<ImmutableArray<Outputs.SemanticViewRelationship>> Relationships { get; private set; } = null!;
 
@@ -69,6 +280,9 @@ namespace Pulumi.Snowflake
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.SemanticViewShowOutput>> ShowOutputs { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("tables")]
         public Output<ImmutableArray<Outputs.SemanticViewTable>> Tables { get; private set; } = null!;
 
@@ -132,6 +346,10 @@ namespace Pulumi.Snowflake
 
         [Input("dimensions")]
         private InputList<Inputs.SemanticViewDimensionArgs>? _dimensions;
+
+        /// <summary>
+        /// The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewDimensionArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.SemanticViewDimensionArgs>());
@@ -140,6 +358,10 @@ namespace Pulumi.Snowflake
 
         [Input("facts")]
         private InputList<Inputs.SemanticViewFactArgs>? _facts;
+
+        /// <summary>
+        /// The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewFactArgs> Facts
         {
             get => _facts ?? (_facts = new InputList<Inputs.SemanticViewFactArgs>());
@@ -148,6 +370,10 @@ namespace Pulumi.Snowflake
 
         [Input("metrics")]
         private InputList<Inputs.SemanticViewMetricArgs>? _metrics;
+
+        /// <summary>
+        /// Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewMetricArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.SemanticViewMetricArgs>());
@@ -162,6 +388,10 @@ namespace Pulumi.Snowflake
 
         [Input("relationships")]
         private InputList<Inputs.SemanticViewRelationshipArgs>? _relationships;
+
+        /// <summary>
+        /// The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewRelationshipArgs> Relationships
         {
             get => _relationships ?? (_relationships = new InputList<Inputs.SemanticViewRelationshipArgs>());
@@ -176,6 +406,10 @@ namespace Pulumi.Snowflake
 
         [Input("tables", required: true)]
         private InputList<Inputs.SemanticViewTableArgs>? _tables;
+
+        /// <summary>
+        /// The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewTableArgs> Tables
         {
             get => _tables ?? (_tables = new InputList<Inputs.SemanticViewTableArgs>());
@@ -204,6 +438,10 @@ namespace Pulumi.Snowflake
 
         [Input("dimensions")]
         private InputList<Inputs.SemanticViewDimensionGetArgs>? _dimensions;
+
+        /// <summary>
+        /// The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewDimensionGetArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.SemanticViewDimensionGetArgs>());
@@ -212,6 +450,10 @@ namespace Pulumi.Snowflake
 
         [Input("facts")]
         private InputList<Inputs.SemanticViewFactGetArgs>? _facts;
+
+        /// <summary>
+        /// The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewFactGetArgs> Facts
         {
             get => _facts ?? (_facts = new InputList<Inputs.SemanticViewFactGetArgs>());
@@ -226,6 +468,10 @@ namespace Pulumi.Snowflake
 
         [Input("metrics")]
         private InputList<Inputs.SemanticViewMetricGetArgs>? _metrics;
+
+        /// <summary>
+        /// Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewMetricGetArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.SemanticViewMetricGetArgs>());
@@ -240,6 +486,10 @@ namespace Pulumi.Snowflake
 
         [Input("relationships")]
         private InputList<Inputs.SemanticViewRelationshipGetArgs>? _relationships;
+
+        /// <summary>
+        /// The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewRelationshipGetArgs> Relationships
         {
             get => _relationships ?? (_relationships = new InputList<Inputs.SemanticViewRelationshipGetArgs>());
@@ -266,6 +516,10 @@ namespace Pulumi.Snowflake
 
         [Input("tables")]
         private InputList<Inputs.SemanticViewTableGetArgs>? _tables;
+
+        /// <summary>
+        /// The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public InputList<Inputs.SemanticViewTableGetArgs> Tables
         {
             get => _tables ?? (_tables = new InputList<Inputs.SemanticViewTableGetArgs>());

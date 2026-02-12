@@ -7,6 +7,42 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * <!-- TODO(SNOW-1348334): support gitHttpsApi type in snowflakeApiIntegrationResource -->
+ * > **Note** Note that `snowflakeApiIntegrationResource` currently does not support `gitHttpsApi` type. It will be added during the resource rework. Instead, you can use execute resource.
+ *
+ * Resource used to manage git repositories. For more information, check [git repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-git-repository).
+ *
+ * ## Example Usage
+ *
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * // basic resource
+ * const basic = new snowflake.GitRepository("basic", {
+ *     database: "DATABASE",
+ *     schema: "SCHEMA",
+ *     name: "GIT_REPOSITORY",
+ *     origin: "https://github.com/user/repo",
+ *     apiIntegration: "API_INTEGRATION",
+ * });
+ * // complete resource
+ * const complete = new snowflake.GitRepository("complete", {
+ *     name: "GIT_REPOSITORY",
+ *     database: "DATABASE",
+ *     schema: "SCHEMA",
+ *     origin: "https://github.com/user/repo",
+ *     apiIntegration: "API_INTEGRATION",
+ *     gitCredentials: secretName.fullyQualifiedName,
+ *     comment: "comment",
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh

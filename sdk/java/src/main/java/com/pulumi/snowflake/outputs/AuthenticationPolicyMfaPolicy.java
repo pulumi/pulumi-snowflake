@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AuthenticationPolicyMfaPolicy {
+    /**
+     * @return Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * 
+     */
     private @Nullable List<String> allowedMethods;
     /**
      * @return Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
@@ -20,6 +24,10 @@ public final class AuthenticationPolicyMfaPolicy {
     private @Nullable String enforceMfaOnExternalAuthentication;
 
     private AuthenticationPolicyMfaPolicy() {}
+    /**
+     * @return Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * 
+     */
     public List<String> allowedMethods() {
         return this.allowedMethods == null ? List.of() : this.allowedMethods;
     }

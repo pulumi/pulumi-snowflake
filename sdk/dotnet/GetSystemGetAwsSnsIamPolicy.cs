@@ -12,6 +12,12 @@ namespace Pulumi.Snowflake
     public static class GetSystemGetAwsSnsIamPolicy
     {
         /// <summary>
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// 
+        /// For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
+        /// Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
+        /// It's SQL-based, but after knowing what has to be done use corresponding resources and data-sources from the Snowflake and AWS Terraform provider.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -36,6 +42,12 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyArgs(), options.WithDefaults());
 
         /// <summary>
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// 
+        /// For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
+        /// Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
+        /// It's SQL-based, but after knowing what has to be done use corresponding resources and data-sources from the Snowflake and AWS Terraform provider.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -60,6 +72,12 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// 
+        /// For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
+        /// Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
+        /// It's SQL-based, but after knowing what has to be done use corresponding resources and data-sources from the Snowflake and AWS Terraform provider.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

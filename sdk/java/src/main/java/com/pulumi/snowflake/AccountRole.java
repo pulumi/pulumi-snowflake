@@ -17,6 +17,54 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note** Users cannot execute a `DROP ROLE` command that drops the current primary role. An attempt to drop this role returns the following error: `Cannot drop role &#39;&lt;role_name&gt;&#39; because it is the current role for user &#39;&lt;username&gt;&#39;`. This means that before deleting the resource, make sure that you do not attempt to drop the current primary role. See [Usage notes](https://docs.snowflake.com/en/sql-reference/sql/drop-role#usage-notes) for more details.
+ * 
+ * The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.AccountRole;
+ * import com.pulumi.snowflake.AccountRoleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         //# Minimal
+ *         var minimal = new AccountRole("minimal", AccountRoleArgs.builder()
+ *             .name("role_name")
+ *             .build());
+ * 
+ *         //# Complete (with every optional set)
+ *         var complete = new AccountRole("complete", AccountRoleArgs.builder()
+ *             .name("role_name")
+ *             .comment("my account role")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

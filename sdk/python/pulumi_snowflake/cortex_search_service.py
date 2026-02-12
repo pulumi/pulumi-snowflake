@@ -414,6 +414,53 @@ class CortexSearchService(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        > **Note**: Default timeout is set to 60 minutes for Terraform Create and Update operations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Basic
+        test = snowflake.Database("test", name="some_database")
+        test_schema = snowflake.Schema("test",
+            database=test.name,
+            name="some_schema")
+        test_table = snowflake.Table("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="some_table",
+            change_tracking=True,
+            columns=[
+                {
+                    "name": "ID",
+                    "type": "NUMBER(38,0)",
+                },
+                {
+                    "name": "SOME_TEXT",
+                    "type": "VARCHAR",
+                },
+            ])
+        test_cortex_search_service = snowflake.CortexSearchService("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="some_name",
+            on="SOME_TEXT",
+            target_lag="2 minutes",
+            warehouse="some_warehouse",
+            query="SELECT SOME_TEXT FROM \\"some_database\\".\\"some_schema\\".\\"some_table\\"",
+            comment="some comment",
+            embedding_model="snowflake-arctic-embed-m-v1.5",
+            opts = pulumi.ResourceOptions(depends_on=[test_table]))
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -440,6 +487,53 @@ class CortexSearchService(pulumi.CustomResource):
                  args: CortexSearchServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        > **Note**: Default timeout is set to 60 minutes for Terraform Create and Update operations.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Basic
+        test = snowflake.Database("test", name="some_database")
+        test_schema = snowflake.Schema("test",
+            database=test.name,
+            name="some_schema")
+        test_table = snowflake.Table("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="some_table",
+            change_tracking=True,
+            columns=[
+                {
+                    "name": "ID",
+                    "type": "NUMBER(38,0)",
+                },
+                {
+                    "name": "SOME_TEXT",
+                    "type": "VARCHAR",
+                },
+            ])
+        test_cortex_search_service = snowflake.CortexSearchService("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="some_name",
+            on="SOME_TEXT",
+            target_lag="2 minutes",
+            warehouse="some_warehouse",
+            query="SELECT SOME_TEXT FROM \\"some_database\\".\\"some_schema\\".\\"some_table\\"",
+            comment="some comment",
+            embedding_model="snowflake-arctic-embed-m-v1.5",
+            opts = pulumi.ResourceOptions(depends_on=[test_table]))
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

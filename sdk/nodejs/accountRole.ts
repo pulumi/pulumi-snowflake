@@ -7,6 +7,29 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note** Users cannot execute a `DROP ROLE` command that drops the current primary role. An attempt to drop this role returns the following error: `Cannot drop role '<role_name>' because it is the current role for user '<username>'`. This means that before deleting the resource, make sure that you do not attempt to drop the current primary role. See [Usage notes](https://docs.snowflake.com/en/sql-reference/sql/drop-role#usage-notes) for more details.
+ *
+ * The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * //# Minimal
+ * const minimal = new snowflake.AccountRole("minimal", {name: "role_name"});
+ * //# Complete (with every optional set)
+ * const complete = new snowflake.AccountRole("complete", {
+ *     name: "role_name",
+ *     comment: "my account role",
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh

@@ -10,33 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Import
+    /// !&gt; **Warning** Be careful when using `AlwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
     /// 
-    /// ### Import examples
+    /// &gt; **Note** Manage grants on `HYBRID TABLE` by specifying `TABLE` or `TABLES` in `ObjectType` field. This applies to a single object, all objects, or future objects. This reflects the current behavior in Snowflake.
     /// 
-    /// #### Grant all privileges OnDatabase
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|ALL|OnDatabase|"test_db"'`
-    /// ```
-    /// 
-    /// #### Grant list of privileges OnAllSchemasInDatabase
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
-    /// ```
-    /// 
-    /// #### Grant list of privileges on table
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
-    /// ```
-    /// 
-    /// #### Grant list of privileges OnAll tables in schema
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
-    /// ```
+    /// &gt; **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
     /// </summary>
     [SnowflakeResourceType("snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole")]
     public partial class GrantPrivilegesToDatabaseRole : global::Pulumi.CustomResource
@@ -47,6 +25,9 @@ namespace Pulumi.Snowflake
         [Output("allPrivileges")]
         public Output<bool?> AllPrivileges { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: `False`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+        /// </summary>
         [Output("alwaysApply")]
         public Output<bool?> AlwaysApply { get; private set; } = null!;
 
@@ -144,6 +125,9 @@ namespace Pulumi.Snowflake
         [Input("allPrivileges")]
         public Input<bool>? AllPrivileges { get; set; }
 
+        /// <summary>
+        /// (Default: `False`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+        /// </summary>
         [Input("alwaysApply")]
         public Input<bool>? AlwaysApply { get; set; }
 
@@ -209,6 +193,9 @@ namespace Pulumi.Snowflake
         [Input("allPrivileges")]
         public Input<bool>? AllPrivileges { get; set; }
 
+        /// <summary>
+        /// (Default: `False`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+        /// </summary>
         [Input("alwaysApply")]
         public Input<bool>? AlwaysApply { get; set; }
 

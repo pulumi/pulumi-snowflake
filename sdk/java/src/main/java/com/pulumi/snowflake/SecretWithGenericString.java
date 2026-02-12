@@ -18,6 +18,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource used to manage secret objects with Generic String. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+ * 
  * ## Import
  * 
  * ```sh
@@ -111,9 +113,17 @@ public class SecretWithGenericString extends com.pulumi.resources.CustomResource
     public Output<String> schema() {
         return this.schema;
     }
+    /**
+     * Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="secretString", refs={String.class}, tree="[0]")
     private Output<String> secretString;
 
+    /**
+     * @return Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<String> secretString() {
         return this.secretString;
     }

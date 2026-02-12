@@ -5704,6 +5704,7 @@ func (o AuthenticationPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type AuthenticationPolicyMfaPolicy struct {
+	// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
 	EnforceMfaOnExternalAuthentication *string `pulumi:"enforceMfaOnExternalAuthentication"`
@@ -5721,6 +5722,7 @@ type AuthenticationPolicyMfaPolicyInput interface {
 }
 
 type AuthenticationPolicyMfaPolicyArgs struct {
+	// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
 	EnforceMfaOnExternalAuthentication pulumi.StringPtrInput `pulumi:"enforceMfaOnExternalAuthentication"`
@@ -5803,6 +5805,7 @@ func (o AuthenticationPolicyMfaPolicyOutput) ToAuthenticationPolicyMfaPolicyPtrO
 	}).(AuthenticationPolicyMfaPolicyPtrOutput)
 }
 
+// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 func (o AuthenticationPolicyMfaPolicyOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthenticationPolicyMfaPolicy) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -5836,6 +5839,7 @@ func (o AuthenticationPolicyMfaPolicyPtrOutput) Elem() AuthenticationPolicyMfaPo
 	}).(AuthenticationPolicyMfaPolicyOutput)
 }
 
+// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 func (o AuthenticationPolicyMfaPolicyPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicyMfaPolicy) []string {
 		if v == nil {
@@ -6179,7 +6183,8 @@ type AuthenticationPolicyWorkloadIdentityPolicy struct {
 	AllowedAzureIssuers []string `pulumi:"allowedAzureIssuers"`
 	// Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
 	AllowedOidcIssuers []string `pulumi:"allowedOidcIssuers"`
-	AllowedProviders   []string `pulumi:"allowedProviders"`
+	// Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+	AllowedProviders []string `pulumi:"allowedProviders"`
 }
 
 // AuthenticationPolicyWorkloadIdentityPolicyInput is an input type that accepts AuthenticationPolicyWorkloadIdentityPolicyArgs and AuthenticationPolicyWorkloadIdentityPolicyOutput values.
@@ -6200,7 +6205,8 @@ type AuthenticationPolicyWorkloadIdentityPolicyArgs struct {
 	AllowedAzureIssuers pulumi.StringArrayInput `pulumi:"allowedAzureIssuers"`
 	// Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
 	AllowedOidcIssuers pulumi.StringArrayInput `pulumi:"allowedOidcIssuers"`
-	AllowedProviders   pulumi.StringArrayInput `pulumi:"allowedProviders"`
+	// Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+	AllowedProviders pulumi.StringArrayInput `pulumi:"allowedProviders"`
 }
 
 func (AuthenticationPolicyWorkloadIdentityPolicyArgs) ElementType() reflect.Type {
@@ -6295,6 +6301,7 @@ func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) AllowedOidcIssuers() p
 	return o.ApplyT(func(v AuthenticationPolicyWorkloadIdentityPolicy) []string { return v.AllowedOidcIssuers }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 func (o AuthenticationPolicyWorkloadIdentityPolicyOutput) AllowedProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthenticationPolicyWorkloadIdentityPolicy) []string { return v.AllowedProviders }).(pulumi.StringArrayOutput)
 }
@@ -6353,6 +6360,7 @@ func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) AllowedOidcIssuers(
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) AllowedProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicyWorkloadIdentityPolicy) []string {
 		if v == nil {
@@ -10465,7 +10473,8 @@ type ExternalVolumeStorageLocation struct {
 	// Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
 	StorageAwsRoleArn *string `pulumi:"storageAwsRoleArn"`
 	// Specifies the base URL for your cloud storage location.
-	StorageBaseUrl      string `pulumi:"storageBaseUrl"`
+	StorageBaseUrl string `pulumi:"storageBaseUrl"`
+	// Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	StorageLocationName string `pulumi:"storageLocationName"`
 	// Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
 	StorageProvider string `pulumi:"storageProvider"`
@@ -10494,7 +10503,8 @@ type ExternalVolumeStorageLocationArgs struct {
 	// Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
 	StorageAwsRoleArn pulumi.StringPtrInput `pulumi:"storageAwsRoleArn"`
 	// Specifies the base URL for your cloud storage location.
-	StorageBaseUrl      pulumi.StringInput `pulumi:"storageBaseUrl"`
+	StorageBaseUrl pulumi.StringInput `pulumi:"storageBaseUrl"`
+	// Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	StorageLocationName pulumi.StringInput `pulumi:"storageLocationName"`
 	// Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
 	StorageProvider pulumi.StringInput `pulumi:"storageProvider"`
@@ -10581,6 +10591,7 @@ func (o ExternalVolumeStorageLocationOutput) StorageBaseUrl() pulumi.StringOutpu
 	return o.ApplyT(func(v ExternalVolumeStorageLocation) string { return v.StorageBaseUrl }).(pulumi.StringOutput)
 }
 
+// Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ExternalVolumeStorageLocationOutput) StorageLocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalVolumeStorageLocation) string { return v.StorageLocationName }).(pulumi.StringOutput)
 }
@@ -11099,7 +11110,8 @@ func (o FailoverGroupReplicationScheduleCronPtrOutput) TimeZone() pulumi.StringP
 
 type FunctionJavaArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
@@ -11118,7 +11130,8 @@ type FunctionJavaArgumentInput interface {
 
 type FunctionJavaArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -11180,6 +11193,7 @@ func (o FunctionJavaArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o FunctionJavaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionJavaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -11211,7 +11225,8 @@ func (o FunctionJavaArgumentArrayOutput) Index(i pulumi.IntInput) FunctionJavaAr
 
 type FunctionJavaImport struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -11228,7 +11243,8 @@ type FunctionJavaImportInput interface {
 
 type FunctionJavaImportArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -11288,6 +11304,7 @@ func (o FunctionJavaImportOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaImport) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o FunctionJavaImportOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaImport) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -12214,7 +12231,8 @@ func (o FunctionJavaShowOutputArrayOutput) Index(i pulumi.IntInput) FunctionJava
 
 type FunctionJavaTargetPath struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -12231,7 +12249,8 @@ type FunctionJavaTargetPathInput interface {
 
 type FunctionJavaTargetPathArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -12317,6 +12336,7 @@ func (o FunctionJavaTargetPathOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaTargetPath) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o FunctionJavaTargetPathOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaTargetPath) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -12355,6 +12375,7 @@ func (o FunctionJavaTargetPathPtrOutput) PathOnStage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o FunctionJavaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionJavaTargetPath) *string {
 		if v == nil {
@@ -12366,7 +12387,8 @@ func (o FunctionJavaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutput 
 
 type FunctionJavascriptArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
@@ -12385,7 +12407,8 @@ type FunctionJavascriptArgumentInput interface {
 
 type FunctionJavascriptArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -12447,6 +12470,7 @@ func (o FunctionJavascriptArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavascriptArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o FunctionJavascriptArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionJavascriptArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -13272,7 +13296,8 @@ func (o FunctionJavascriptShowOutputArrayOutput) Index(i pulumi.IntInput) Functi
 
 type FunctionPythonArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
@@ -13291,7 +13316,8 @@ type FunctionPythonArgumentInput interface {
 
 type FunctionPythonArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -13353,6 +13379,7 @@ func (o FunctionPythonArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionPythonArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o FunctionPythonArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionPythonArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -13384,7 +13411,8 @@ func (o FunctionPythonArgumentArrayOutput) Index(i pulumi.IntInput) FunctionPyth
 
 type FunctionPythonImport struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -13401,7 +13429,8 @@ type FunctionPythonImportInput interface {
 
 type FunctionPythonImportArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -13461,6 +13490,7 @@ func (o FunctionPythonImportOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionPythonImport) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o FunctionPythonImportOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionPythonImport) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -14387,7 +14417,8 @@ func (o FunctionPythonShowOutputArrayOutput) Index(i pulumi.IntInput) FunctionPy
 
 type FunctionScalaArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
@@ -14406,7 +14437,8 @@ type FunctionScalaArgumentInput interface {
 
 type FunctionScalaArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -14468,6 +14500,7 @@ func (o FunctionScalaArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionScalaArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o FunctionScalaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionScalaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -14499,7 +14532,8 @@ func (o FunctionScalaArgumentArrayOutput) Index(i pulumi.IntInput) FunctionScala
 
 type FunctionScalaImport struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -14516,7 +14550,8 @@ type FunctionScalaImportInput interface {
 
 type FunctionScalaImportArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -14576,6 +14611,7 @@ func (o FunctionScalaImportOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionScalaImport) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o FunctionScalaImportOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionScalaImport) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -15502,7 +15538,8 @@ func (o FunctionScalaShowOutputArrayOutput) Index(i pulumi.IntInput) FunctionSca
 
 type FunctionScalaTargetPath struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -15519,7 +15556,8 @@ type FunctionScalaTargetPathInput interface {
 
 type FunctionScalaTargetPathArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -15605,6 +15643,7 @@ func (o FunctionScalaTargetPathOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionScalaTargetPath) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o FunctionScalaTargetPathOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionScalaTargetPath) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -15643,6 +15682,7 @@ func (o FunctionScalaTargetPathPtrOutput) PathOnStage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o FunctionScalaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionScalaTargetPath) *string {
 		if v == nil {
@@ -15654,7 +15694,8 @@ func (o FunctionScalaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutput
 
 type FunctionSqlArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
@@ -15673,7 +15714,8 @@ type FunctionSqlArgumentInput interface {
 
 type FunctionSqlArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -15735,6 +15777,7 @@ func (o FunctionSqlArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionSqlArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o FunctionSqlArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSqlArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -35100,7 +35143,8 @@ func (o PrimaryConnectionShowOutputArrayOutput) Index(i pulumi.IntInput) Primary
 
 type ProcedureJavaArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
@@ -35119,7 +35163,8 @@ type ProcedureJavaArgumentInput interface {
 
 type ProcedureJavaArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -35181,6 +35226,7 @@ func (o ProcedureJavaArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavaArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o ProcedureJavaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcedureJavaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -35212,7 +35258,8 @@ func (o ProcedureJavaArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureJava
 
 type ProcedureJavaImport struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -35229,7 +35276,8 @@ type ProcedureJavaImportInput interface {
 
 type ProcedureJavaImportArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -35289,6 +35337,7 @@ func (o ProcedureJavaImportOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavaImport) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o ProcedureJavaImportOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavaImport) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -36191,7 +36240,8 @@ func (o ProcedureJavaShowOutputArrayOutput) Index(i pulumi.IntInput) ProcedureJa
 
 type ProcedureJavaTargetPath struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -36208,7 +36258,8 @@ type ProcedureJavaTargetPathInput interface {
 
 type ProcedureJavaTargetPathArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -36294,6 +36345,7 @@ func (o ProcedureJavaTargetPathOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavaTargetPath) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o ProcedureJavaTargetPathOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavaTargetPath) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -36332,6 +36384,7 @@ func (o ProcedureJavaTargetPathPtrOutput) PathOnStage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o ProcedureJavaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureJavaTargetPath) *string {
 		if v == nil {
@@ -36343,7 +36396,8 @@ func (o ProcedureJavaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutput
 
 type ProcedureJavascriptArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
@@ -36362,7 +36416,8 @@ type ProcedureJavascriptArgumentInput interface {
 
 type ProcedureJavascriptArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -36424,6 +36479,7 @@ func (o ProcedureJavascriptArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavascriptArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o ProcedureJavascriptArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcedureJavascriptArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -37225,7 +37281,8 @@ func (o ProcedureJavascriptShowOutputArrayOutput) Index(i pulumi.IntInput) Proce
 
 type ProcedurePythonArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
@@ -37244,7 +37301,8 @@ type ProcedurePythonArgumentInput interface {
 
 type ProcedurePythonArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -37306,6 +37364,7 @@ func (o ProcedurePythonArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedurePythonArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o ProcedurePythonArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcedurePythonArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -37337,7 +37396,8 @@ func (o ProcedurePythonArgumentArrayOutput) Index(i pulumi.IntInput) ProcedurePy
 
 type ProcedurePythonImport struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -37354,7 +37414,8 @@ type ProcedurePythonImportInput interface {
 
 type ProcedurePythonImportArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -37414,6 +37475,7 @@ func (o ProcedurePythonImportOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedurePythonImport) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o ProcedurePythonImportOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedurePythonImport) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -38316,7 +38378,8 @@ func (o ProcedurePythonShowOutputArrayOutput) Index(i pulumi.IntInput) Procedure
 
 type ProcedureScalaArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
@@ -38335,7 +38398,8 @@ type ProcedureScalaArgumentInput interface {
 
 type ProcedureScalaArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -38397,6 +38461,7 @@ func (o ProcedureScalaArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureScalaArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o ProcedureScalaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcedureScalaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -38428,7 +38493,8 @@ func (o ProcedureScalaArgumentArrayOutput) Index(i pulumi.IntInput) ProcedureSca
 
 type ProcedureScalaImport struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -38445,7 +38511,8 @@ type ProcedureScalaImportInput interface {
 
 type ProcedureScalaImportArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -38505,6 +38572,7 @@ func (o ProcedureScalaImportOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureScalaImport) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o ProcedureScalaImportOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureScalaImport) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -39407,7 +39475,8 @@ func (o ProcedureScalaShowOutputArrayOutput) Index(i pulumi.IntInput) ProcedureS
 
 type ProcedureScalaTargetPath struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   string `pulumi:"pathOnStage"`
+	PathOnStage string `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation string `pulumi:"stageLocation"`
 }
 
@@ -39424,7 +39493,8 @@ type ProcedureScalaTargetPathInput interface {
 
 type ProcedureScalaTargetPathArgs struct {
 	// Path for import on stage, without the leading `/`.
-	PathOnStage   pulumi.StringInput `pulumi:"pathOnStage"`
+	PathOnStage pulumi.StringInput `pulumi:"pathOnStage"`
+	// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 	StageLocation pulumi.StringInput `pulumi:"stageLocation"`
 }
 
@@ -39510,6 +39580,7 @@ func (o ProcedureScalaTargetPathOutput) PathOnStage() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureScalaTargetPath) string { return v.PathOnStage }).(pulumi.StringOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o ProcedureScalaTargetPathOutput) StageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureScalaTargetPath) string { return v.StageLocation }).(pulumi.StringOutput)
 }
@@ -39548,6 +39619,7 @@ func (o ProcedureScalaTargetPathPtrOutput) PathOnStage() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
 func (o ProcedureScalaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureScalaTargetPath) *string {
 		if v == nil {
@@ -39559,7 +39631,8 @@ func (o ProcedureScalaTargetPathPtrOutput) StageLocation() pulumi.StringPtrOutpu
 
 type ProcedureSqlArgument struct {
 	// The argument type.
-	ArgDataType     string  `pulumi:"argDataType"`
+	ArgDataType string `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
@@ -39578,7 +39651,8 @@ type ProcedureSqlArgumentInput interface {
 
 type ProcedureSqlArgumentArgs struct {
 	// The argument type.
-	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
+	ArgDataType pulumi.StringInput `pulumi:"argDataType"`
+	// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
 	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
@@ -39640,6 +39714,7 @@ func (o ProcedureSqlArgumentOutput) ArgDataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureSqlArgument) string { return v.ArgDataType }).(pulumi.StringOutput)
 }
 
+// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o ProcedureSqlArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcedureSqlArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }

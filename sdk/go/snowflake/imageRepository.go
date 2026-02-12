@@ -12,6 +12,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note** Quoted names for special characters or case-sensitive names are not supported. The same constraint also applies to database and schema names where you create an image repository. That is, database and schema names without quotes are valid when creating an image repository. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository)). Please use only characters compatible with [unquoted identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax#label-unquoted-identifier).
+//
+// Resource used to manage image repositories. For more information, check [image repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository). Snowpark Container Services provides an OCIv2-compliant image registry service and a storage unit call repository to store images. See [Working with an image registry and repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository) developer guide for more details.
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// basic resource
+//			_, err := snowflake.NewImageRepository(ctx, "basic", &snowflake.ImageRepositoryArgs{
+//				Database: pulumi.String("DATABASE"),
+//				Schema:   pulumi.String("SCHEMA"),
+//				Name:     pulumi.String("BASIC"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// complete resource
+//			_, err = snowflake.NewImageRepository(ctx, "complete", &snowflake.ImageRepositoryArgs{
+//				Database: pulumi.String("DATABASE"),
+//				Schema:   pulumi.String("SCHEMA"),
+//				Name:     pulumi.String("BASIC"),
+//				Comment:  pulumi.String("An example image repository"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

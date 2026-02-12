@@ -107,9 +107,17 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.notifyUsers);
     }
 
+    /**
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+     * 
+     */
     @Import(name="startTimestamp")
     private @Nullable Output<String> startTimestamp;
 
+    /**
+     * @return The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+     * 
+     */
     public Optional<Output<String>> startTimestamp() {
         return Optional.ofNullable(this.startTimestamp);
     }
@@ -322,11 +330,23 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
             return notifyUsers(List.of(notifyUsers));
         }
 
+        /**
+         * @param startTimestamp The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startTimestamp(@Nullable Output<String> startTimestamp) {
             $.startTimestamp = startTimestamp;
             return this;
         }
 
+        /**
+         * @param startTimestamp The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder startTimestamp(String startTimestamp) {
             return startTimestamp(Output.of(startTimestamp));
         }

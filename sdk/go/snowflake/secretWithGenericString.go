@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource used to manage secret objects with Generic String. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+//
 // ## Import
 //
 // ```sh
@@ -31,7 +33,8 @@ type SecretWithGenericString struct {
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Schema       pulumi.StringOutput `pulumi:"schema"`
+	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	SecretString pulumi.StringOutput `pulumi:"secretString"`
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType pulumi.StringOutput `pulumi:"secretType"`
@@ -96,7 +99,8 @@ type secretWithGenericStringState struct {
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Schema       *string `pulumi:"schema"`
+	Schema *string `pulumi:"schema"`
+	// Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	SecretString *string `pulumi:"secretString"`
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType *string `pulumi:"secretType"`
@@ -116,7 +120,8 @@ type SecretWithGenericStringState struct {
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Schema       pulumi.StringPtrInput
+	Schema pulumi.StringPtrInput
+	// Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	SecretString pulumi.StringPtrInput
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType pulumi.StringPtrInput
@@ -136,7 +141,8 @@ type secretWithGenericStringArgs struct {
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Schema       string `pulumi:"schema"`
+	Schema string `pulumi:"schema"`
+	// Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	SecretString string `pulumi:"secretString"`
 }
 
@@ -149,7 +155,8 @@ type SecretWithGenericStringArgs struct {
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Schema       pulumi.StringInput
+	Schema pulumi.StringInput
+	// Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	SecretString pulumi.StringInput
 }
 
@@ -272,6 +279,7 @@ func (o SecretWithGenericStringOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithGenericString) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
+// Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o SecretWithGenericStringOutput) SecretString() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithGenericString) pulumi.StringOutput { return v.SecretString }).(pulumi.StringOutput)
 }

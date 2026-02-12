@@ -83,9 +83,17 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
+    /**
+     * @return (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     public Optional<Output<Boolean>> copyGrants() {
         return Optional.ofNullable(this.copyGrants);
     }
@@ -150,16 +158,32 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.isRecursive);
     }
 
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     @Import(name="isSecure")
     private @Nullable Output<String> isSecure;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     public Optional<Output<String>> isSecure() {
         return Optional.ofNullable(this.isSecure);
     }
 
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it&#39;s dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     @Import(name="isTemporary")
     private @Nullable Output<String> isTemporary;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it&#39;s dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     public Optional<Output<String>> isTemporary() {
         return Optional.ofNullable(this.isTemporary);
     }
@@ -356,11 +380,23 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param copyGrants (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyGrants(@Nullable Output<Boolean> copyGrants) {
             $.copyGrants = copyGrants;
             return this;
         }
 
+        /**
+         * @param copyGrants (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyGrants(Boolean copyGrants) {
             return copyGrants(Output.of(copyGrants));
         }
@@ -459,20 +495,44 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
             return isRecursive(Output.of(isRecursive));
         }
 
+        /**
+         * @param isSecure (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isSecure(@Nullable Output<String> isSecure) {
             $.isSecure = isSecure;
             return this;
         }
 
+        /**
+         * @param isSecure (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isSecure(String isSecure) {
             return isSecure(Output.of(isSecure));
         }
 
+        /**
+         * @param isTemporary (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it&#39;s dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isTemporary(@Nullable Output<String> isTemporary) {
             $.isTemporary = isTemporary;
             return this;
         }
 
+        /**
+         * @param isTemporary (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it&#39;s dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isTemporary(String isTemporary) {
             return isTemporary(Output.of(isTemporary));
         }

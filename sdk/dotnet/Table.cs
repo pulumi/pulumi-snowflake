@@ -10,6 +10,104 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schema = new Snowflake.Schema("schema", new()
+    ///     {
+    ///         Database = "database",
+    ///         Name = "schema",
+    ///         DataRetentionDays = 1,
+    ///     });
+    /// 
+    ///     var sequence = new Snowflake.Sequence("sequence", new()
+    ///     {
+    ///         Database = schema.Database,
+    ///         Schema = schema.Name,
+    ///         Name = "sequence",
+    ///     });
+    /// 
+    ///     var table = new Snowflake.Table("table", new()
+    ///     {
+    ///         Database = schema.Database,
+    ///         Schema = schema.Name,
+    ///         Name = "table",
+    ///         Comment = "A table.",
+    ///         ClusterBies = new[]
+    ///         {
+    ///             "to_date(DATE)",
+    ///         },
+    ///         DataRetentionTimeInDays = schema.DataRetentionTimeInDays,
+    ///         ChangeTracking = false,
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "id",
+    ///                 Type = "int",
+    ///                 Nullable = true,
+    ///                 Default = new Snowflake.Inputs.TableColumnDefaultArgs
+    ///                 {
+    ///                     Sequence = sequence.FullyQualifiedName,
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "identity",
+    ///                 Type = "NUMBER(38,0)",
+    ///                 Nullable = true,
+    ///                 Identity = new Snowflake.Inputs.TableColumnIdentityArgs
+    ///                 {
+    ///                     StartNum = 1,
+    ///                     StepNum = 3,
+    ///                 },
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "data",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///                 Collate = "en-ci",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "DATE",
+    ///                 Type = "TIMESTAMP_NTZ(9)",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "extra",
+    ///                 Type = "VARIANT",
+    ///                 Comment = "extra data",
+    ///             },
+    ///         },
+    ///         PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
+    ///         {
+    ///             Name = "my_key",
+    ///             Keys = new[]
+    ///             {
+    ///                 "data",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | table name

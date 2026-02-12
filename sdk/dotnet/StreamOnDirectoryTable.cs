@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Note about copy_grants** Fields like `Stage`, and `Stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `CopyGrants`. Beware that even though a change is marked as update, the resource is recreated.
+    /// 
+    /// Resource used to manage streams on directory tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -25,6 +29,9 @@ namespace Pulumi.Snowflake
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: `False`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        /// </summary>
         [Output("copyGrants")]
         public Output<bool?> CopyGrants { get; private set; } = null!;
 
@@ -70,6 +77,9 @@ namespace Pulumi.Snowflake
         [Output("stage")]
         public Output<string> Stage { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+        /// </summary>
         [Output("stale")]
         public Output<bool> Stale { get; private set; } = null!;
 
@@ -131,6 +141,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// (Default: `False`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
 
@@ -172,6 +185,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// (Default: `False`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
 
@@ -229,6 +245,9 @@ namespace Pulumi.Snowflake
         [Input("stage")]
         public Input<string>? Stage { get; set; }
 
+        /// <summary>
+        /// Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+        /// </summary>
         [Input("stale")]
         public Input<bool>? Stale { get; set; }
 

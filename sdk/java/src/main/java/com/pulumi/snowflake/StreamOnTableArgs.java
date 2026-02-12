@@ -34,16 +34,32 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.appendOnly);
     }
 
+    /**
+     * This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="at")
     private @Nullable Output<StreamOnTableAtArgs> at;
 
+    /**
+     * @return This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<StreamOnTableAtArgs>> at() {
         return Optional.ofNullable(this.at);
     }
 
+    /**
+     * This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="before")
     private @Nullable Output<StreamOnTableBeforeArgs> before;
 
+    /**
+     * @return This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<StreamOnTableBeforeArgs>> before() {
         return Optional.ofNullable(this.before);
     }
@@ -63,9 +79,17 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
+    /**
+     * @return (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     public Optional<Output<Boolean>> copyGrants() {
         return Optional.ofNullable(this.copyGrants);
     }
@@ -115,9 +139,17 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         return this.schema;
     }
 
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="showInitialRows")
     private @Nullable Output<String> showInitialRows;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<String>> showInitialRows() {
         return Optional.ofNullable(this.showInitialRows);
     }
@@ -191,20 +223,44 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
             return appendOnly(Output.of(appendOnly));
         }
 
+        /**
+         * @param at This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder at(@Nullable Output<StreamOnTableAtArgs> at) {
             $.at = at;
             return this;
         }
 
+        /**
+         * @param at This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder at(StreamOnTableAtArgs at) {
             return at(Output.of(at));
         }
 
+        /**
+         * @param before This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder before(@Nullable Output<StreamOnTableBeforeArgs> before) {
             $.before = before;
             return this;
         }
 
+        /**
+         * @param before This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder before(StreamOnTableBeforeArgs before) {
             return before(Output.of(before));
         }
@@ -230,11 +286,23 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param copyGrants (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyGrants(@Nullable Output<Boolean> copyGrants) {
             $.copyGrants = copyGrants;
             return this;
         }
 
+        /**
+         * @param copyGrants (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyGrants(Boolean copyGrants) {
             return copyGrants(Output.of(copyGrants));
         }
@@ -302,11 +370,23 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
             return schema(Output.of(schema));
         }
 
+        /**
+         * @param showInitialRows (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showInitialRows(@Nullable Output<String> showInitialRows) {
             $.showInitialRows = showInitialRows;
             return this;
         }
 
+        /**
+         * @param showInitialRows (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder showInitialRows(String showInitialRows) {
             return showInitialRows(Output.of(showInitialRows));
         }

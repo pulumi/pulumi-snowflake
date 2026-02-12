@@ -12,6 +12,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the CurrentAccount resource documentation.
+//
+// > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+//
+// Resource used to manage current account parameters. For more information, check [parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewAccountParameter(ctx, "p", &snowflake.AccountParameterArgs{
+//				Key:   pulumi.String("ALLOW_ID_TOKEN"),
+//				Value: pulumi.String("true"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewAccountParameter(ctx, "p2", &snowflake.AccountParameterArgs{
+//				Key:   pulumi.String("CLIENT_ENCRYPTION_KEY_SIZE"),
+//				Value: pulumi.String("256"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

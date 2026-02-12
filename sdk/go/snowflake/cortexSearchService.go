@@ -12,6 +12,83 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// > **Note**: Default timeout is set to 60 minutes for Terraform Create and Update operations.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// # Basic
+//			test, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("some_database"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testSchema, err := snowflake.NewSchema(ctx, "test", &snowflake.SchemaArgs{
+//				Database: test.Name,
+//				Name:     pulumi.String("some_schema"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testTable, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
+//				Database:       test.Name,
+//				Schema:         testSchema.Name,
+//				Name:           pulumi.String("some_table"),
+//				ChangeTracking: pulumi.Bool(true),
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("ID"),
+//						Type: pulumi.String("NUMBER(38,0)"),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("SOME_TEXT"),
+//						Type: pulumi.String("VARCHAR"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewCortexSearchService(ctx, "test", &snowflake.CortexSearchServiceArgs{
+//				Database:       test.Name,
+//				Schema:         testSchema.Name,
+//				Name:           pulumi.String("some_name"),
+//				On:             pulumi.String("SOME_TEXT"),
+//				TargetLag:      pulumi.String("2 minutes"),
+//				Warehouse:      pulumi.String("some_warehouse"),
+//				Query:          pulumi.String("SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\""),
+//				Comment:        pulumi.String("some comment"),
+//				EmbeddingModel: pulumi.String("snowflake-arctic-embed-m-v1.5"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testTable,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

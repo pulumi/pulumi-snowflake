@@ -7,7 +7,11 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
+ * !> **Sensitive values** This data source's `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ *
+ * > **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+ *
+ * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -81,7 +85,11 @@ export interface GetUsersResult {
     readonly withParameters?: boolean;
 }
 /**
- * ## Example Usage
+ * !> **Sensitive values** This data source's `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ *
+ * > **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+ *
+ * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     args = args || {};

@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+    /// 
+    /// &gt; **Missing fields** The `OauthClientId` field is not present in the `DescribeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+    /// This may have impact on detecting external changes for the `OauthClientId` field.
+    /// 
+    /// Resource used to manage api authentication security integration objects with authorization code grant. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-api-auth).
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -79,6 +86,9 @@ namespace Pulumi.Snowflake
         [Output("oauthClientId")]
         public Output<string> OauthClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("oauthClientSecret")]
         public Output<string> OauthClientSecret { get; private set; } = null!;
 
@@ -217,6 +227,10 @@ namespace Pulumi.Snowflake
 
         [Input("oauthClientSecret", required: true)]
         private Input<string>? _oauthClientSecret;
+
+        /// <summary>
+        /// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public Input<string>? OauthClientSecret
         {
             get => _oauthClientSecret;
@@ -331,6 +345,10 @@ namespace Pulumi.Snowflake
 
         [Input("oauthClientSecret")]
         private Input<string>? _oauthClientSecret;
+
+        /// <summary>
+        /// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public Input<string>? OauthClientSecret
         {
             get => _oauthClientSecret;

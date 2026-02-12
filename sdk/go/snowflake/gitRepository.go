@@ -12,6 +12,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// <!-- TODO(SNOW-1348334): support gitHttpsApi type in snowflakeApiIntegrationResource -->
+// > **Note** Note that `snowflakeApiIntegrationResource` currently does not support `gitHttpsApi` type. It will be added during the resource rework. Instead, you can use execute resource.
+//
+// Resource used to manage git repositories. For more information, check [git repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-git-repository).
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// basic resource
+//			_, err := snowflake.NewGitRepository(ctx, "basic", &snowflake.GitRepositoryArgs{
+//				Database:       pulumi.String("DATABASE"),
+//				Schema:         pulumi.String("SCHEMA"),
+//				Name:           pulumi.String("GIT_REPOSITORY"),
+//				Origin:         pulumi.String("https://github.com/user/repo"),
+//				ApiIntegration: pulumi.String("API_INTEGRATION"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// complete resource
+//			_, err = snowflake.NewGitRepository(ctx, "complete", &snowflake.GitRepositoryArgs{
+//				Name:           pulumi.String("GIT_REPOSITORY"),
+//				Database:       pulumi.String("DATABASE"),
+//				Schema:         pulumi.String("SCHEMA"),
+//				Origin:         pulumi.String("https://github.com/user/repo"),
+//				ApiIntegration: pulumi.String("API_INTEGRATION"),
+//				GitCredentials: pulumi.Any(secretName.FullyQualifiedName),
+//				Comment:        pulumi.String("comment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

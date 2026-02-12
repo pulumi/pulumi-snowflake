@@ -5,9 +5,89 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note** For `ACCOUNT` object type, only identifiers with organization name are supported. See [account identifier docs](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-1-preferred-account-name-in-your-organization) for more details.
+ *
+ * > **Note** Tag association resource ID has the following format: `"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE`. This means that a tuple of tag ID, tag value and object type should be unique across the resources. If you want to specify this combination for more than one object, you should use only one `tagAssociation` resource with specified `objectIdentifiers` set.
+ *
+ * > **Note** If you want to change tag value to a value that is already present in another `tagAssociation` resource, first remove the relevant `objectIdentifiers` from the resource with the old value, run `pulumi up`, then add the relevant `objectIdentifiers` in the resource with new value, and run `pulumi up` once again. Removing and adding object identifier from one `snowflake.TagAssociation` resource to another may not work due to Terraform executing changes for non-dependent resources simultaneously. The same applies to an object being specified in multiple `snowflake.TagAssociation` resources for the same `tagId`, but different `tagValue`s.
+ *
+ * > **Note** Default timeout is set to 70 minutes for Terraform Create operation.
+ *
+ * Resource used to manage tag associations. For more information, check [object tagging documentation](https://docs.snowflake.com/en/user-guide/object-tagging).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ * import * as std from "@pulumi/std";
+ *
+ * const test = new snowflake.Database("test", {name: "database"});
+ * const testSchema = new snowflake.Schema("test", {
+ *     name: "schema",
+ *     database: test.name,
+ * });
+ * const testTag = new snowflake.Tag("test", {
+ *     name: "cost_center",
+ *     database: test.name,
+ *     schema: testSchema.name,
+ *     allowedValues: [
+ *         "finance",
+ *         "engineering",
+ *     ],
+ * });
+ * const dbAssociation = new snowflake.TagAssociation("db_association", {
+ *     objectIdentifiers: [test.fullyQualifiedName],
+ *     objectType: "DATABASE",
+ *     tagId: testTag.fullyQualifiedName,
+ *     tagValue: "finance",
+ * });
+ * const testTable = new snowflake.Table("test", {
+ *     database: test.name,
+ *     schema: testSchema.name,
+ *     name: "TABLE_NAME",
+ *     comment: "Terraform example table",
+ *     columns: [
+ *         {
+ *             name: "column1",
+ *             type: "VARIANT",
+ *         },
+ *         {
+ *             name: "column2",
+ *             type: "VARCHAR(16)",
+ *         },
+ *     ],
+ * });
+ * const tableAssociation = new snowflake.TagAssociation("table_association", {
+ *     objectIdentifiers: [testTable.fullyQualifiedName],
+ *     objectType: "TABLE",
+ *     tagId: testTag.fullyQualifiedName,
+ *     tagValue: "engineering",
+ * });
+ * const columnAssociation = new snowflake.TagAssociation("column_association", {
+ *     objectIdentifiers: [std.format({
+ *         input: "%s.\"column1\"",
+ *         args: [testTable.fullyQualifiedName],
+ *     }).then(invoke => invoke.result)],
+ *     objectType: "COLUMN",
+ *     tagId: testTag.fullyQualifiedName,
+ *     tagValue: "engineering",
+ * });
+ * const accountAssociation = new snowflake.TagAssociation("account_association", {
+ *     objectIdentifiers: ["\"ORGANIZATION_NAME\".\"ACCOUNT_NAME\""],
+ *     objectType: "ACCOUNT",
+ *     tagId: testTag.fullyQualifiedName,
+ *     tagValue: "engineering",
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
- * ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
+ * > **Note** Due to technical limitations of Terraform SDK, `objectIdentifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
  *
  * ```sh
  * $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'

@@ -13,6 +13,9 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class AuthenticationPolicyMfaPolicy
     {
+        /// <summary>
+        /// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>
         /// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.

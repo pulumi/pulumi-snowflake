@@ -6501,49 +6501,77 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations() {
         return getSecurityIntegrations(GetSecurityIntegrationsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
      * 
      */
     public static CompletableFuture<GetSecurityIntegrationsResult> getSecurityIntegrationsPlain() {
         return getSecurityIntegrationsPlain(GetSecurityIntegrationsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations(GetSecurityIntegrationsArgs args) {
         return getSecurityIntegrations(args, InvokeOptions.Empty);
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
      * 
      */
     public static CompletableFuture<GetSecurityIntegrationsResult> getSecurityIntegrationsPlain(GetSecurityIntegrationsPlainArgs args) {
         return getSecurityIntegrationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations(GetSecurityIntegrationsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations(GetSecurityIntegrationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
      * 
      */
     public static CompletableFuture<GetSecurityIntegrationsResult> getSecurityIntegrationsPlain(GetSecurityIntegrationsPlainArgs args, InvokeOptions options) {
@@ -8002,6 +8030,12 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
+     * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
+     * It&#39;s SQL-based, but after knowing what has to be done use corresponding resources and data-sources from the Snowflake and AWS Terraform provider.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8042,6 +8076,12 @@ public final class SnowflakeFunctions {
         return getSystemGetAwsSnsIamPolicy(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
+     * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
+     * It&#39;s SQL-based, but after knowing what has to be done use corresponding resources and data-sources from the Snowflake and AWS Terraform provider.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8082,6 +8122,12 @@ public final class SnowflakeFunctions {
         return getSystemGetAwsSnsIamPolicyPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
+     * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
+     * It&#39;s SQL-based, but after knowing what has to be done use corresponding resources and data-sources from the Snowflake and AWS Terraform provider.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8122,6 +8168,12 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
+     * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
+     * It&#39;s SQL-based, but after knowing what has to be done use corresponding resources and data-sources from the Snowflake and AWS Terraform provider.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -8162,6 +8214,12 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
+     * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
+     * It&#39;s SQL-based, but after knowing what has to be done use corresponding resources and data-sources from the Snowflake and AWS Terraform provider.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -9133,49 +9191,77 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens", TypeShape.of(GetUserProgrammaticAccessTokensResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
      * 
      */
     public static Output<GetUsersResult> getUsers() {
         return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
         return getUsersPlain(GetUsersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
         return getUsers(args, InvokeOptions.Empty);
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
         return getUsersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * ## Example Usage
+     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
+     * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+     * 
+     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `showOutput` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `withDescribe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `withParameters = false`.
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {

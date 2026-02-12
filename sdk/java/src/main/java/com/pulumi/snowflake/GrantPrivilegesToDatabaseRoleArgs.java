@@ -35,9 +35,17 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         return Optional.ofNullable(this.allPrivileges);
     }
 
+    /**
+     * (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+     * 
+     */
     @Import(name="alwaysApply")
     private @Nullable Output<Boolean> alwaysApply;
 
+    /**
+     * @return (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+     * 
+     */
     public Optional<Output<Boolean>> alwaysApply() {
         return Optional.ofNullable(this.alwaysApply);
     }
@@ -200,11 +208,23 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
             return allPrivileges(Output.of(allPrivileges));
         }
 
+        /**
+         * @param alwaysApply (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+         * 
+         * @return builder
+         * 
+         */
         public Builder alwaysApply(@Nullable Output<Boolean> alwaysApply) {
             $.alwaysApply = alwaysApply;
             return this;
         }
 
+        /**
+         * @param alwaysApply (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+         * 
+         * @return builder
+         * 
+         */
         public Builder alwaysApply(Boolean alwaysApply) {
             return alwaysApply(Output.of(alwaysApply));
         }

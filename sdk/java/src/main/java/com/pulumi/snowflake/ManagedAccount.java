@@ -16,6 +16,55 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.ManagedAccount;
+ * import com.pulumi.snowflake.ManagedAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var adminPassword = config.get("adminPassword");
+ *         var account = new ManagedAccount("account", ManagedAccountArgs.builder()
+ *             .name("managed account")
+ *             .adminName("admin")
+ *             .adminPassword(adminPassword)
+ *             .type("READER")
+ *             .comment("A managed account.")
+ *             .cloud("aws")
+ *             .region("us-west-2")
+ *             .locator("managed-account")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

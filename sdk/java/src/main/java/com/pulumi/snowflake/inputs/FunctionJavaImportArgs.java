@@ -29,9 +29,17 @@ public final class FunctionJavaImportArgs extends com.pulumi.resources.ResourceA
         return this.pathOnStage;
     }
 
+    /**
+     * Stage location without leading `{@literal @}`. To use your user&#39;s stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.&lt;your stage&#39;s resource name&gt;.fully_qualified_name` if you manage this stage through terraform).
+     * 
+     */
     @Import(name="stageLocation", required=true)
     private Output<String> stageLocation;
 
+    /**
+     * @return Stage location without leading `{@literal @}`. To use your user&#39;s stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.&lt;your stage&#39;s resource name&gt;.fully_qualified_name` if you manage this stage through terraform).
+     * 
+     */
     public Output<String> stageLocation() {
         return this.stageLocation;
     }
@@ -82,11 +90,23 @@ public final class FunctionJavaImportArgs extends com.pulumi.resources.ResourceA
             return pathOnStage(Output.of(pathOnStage));
         }
 
+        /**
+         * @param stageLocation Stage location without leading `{@literal @}`. To use your user&#39;s stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.&lt;your stage&#39;s resource name&gt;.fully_qualified_name` if you manage this stage through terraform).
+         * 
+         * @return builder
+         * 
+         */
         public Builder stageLocation(Output<String> stageLocation) {
             $.stageLocation = stageLocation;
             return this;
         }
 
+        /**
+         * @param stageLocation Stage location without leading `{@literal @}`. To use your user&#39;s stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.&lt;your stage&#39;s resource name&gt;.fully_qualified_name` if you manage this stage through terraform).
+         * 
+         * @return builder
+         * 
+         */
         public Builder stageLocation(String stageLocation) {
             return stageLocation(Output.of(stageLocation));
         }

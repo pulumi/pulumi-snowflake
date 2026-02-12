@@ -10,6 +10,45 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Note** Quoted names for special characters or case-sensitive names are not supported. The same constraint also applies to database and schema names where you create an image repository. That is, database and schema names without quotes are valid when creating an image repository. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository)). Please use only characters compatible with [unquoted identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax#label-unquoted-identifier).
+    /// 
+    /// Resource used to manage image repositories. For more information, check [image repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository). Snowpark Container Services provides an OCIv2-compliant image registry service and a storage unit call repository to store images. See [Working with an image registry and repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository) developer guide for more details.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // basic resource
+    ///     var basic = new Snowflake.ImageRepository("basic", new()
+    ///     {
+    ///         Database = "DATABASE",
+    ///         Schema = "SCHEMA",
+    ///         Name = "BASIC",
+    ///     });
+    /// 
+    ///     // complete resource
+    ///     var complete = new Snowflake.ImageRepository("complete", new()
+    ///     {
+    ///         Database = "DATABASE",
+    ///         Schema = "SCHEMA",
+    ///         Name = "BASIC",
+    ///         Comment = "An example image repository",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

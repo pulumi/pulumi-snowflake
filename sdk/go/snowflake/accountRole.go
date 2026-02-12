@@ -11,6 +11,49 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note** Users cannot execute a `DROP ROLE` command that drops the current primary role. An attempt to drop this role returns the following error: `Cannot drop role '<role_name>' because it is the current role for user '<username>'`. This means that before deleting the resource, make sure that you do not attempt to drop the current primary role. See [Usage notes](https://docs.snowflake.com/en/sql-reference/sql/drop-role#usage-notes) for more details.
+//
+// The resource is used for role management, where roles can be assigned privileges and, in turn, granted to users and other roles. When granted to roles they can create hierarchies of privilege structures. For more details, refer to the [official documentation](https://docs.snowflake.com/en/user-guide/security-access-control-overview).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// # Minimal
+//			_, err := snowflake.NewAccountRole(ctx, "minimal", &snowflake.AccountRoleArgs{
+//				Name: pulumi.String("role_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// # Complete (with every optional set)
+//			_, err = snowflake.NewAccountRole(ctx, "complete", &snowflake.AccountRoleArgs{
+//				Name:    pulumi.String("role_name"),
+//				Comment: pulumi.String("my account role"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

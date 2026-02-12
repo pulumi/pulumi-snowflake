@@ -201,9 +201,80 @@ class TagAssociation(pulumi.CustomResource):
                  tag_value: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        > **Note** For `ACCOUNT` object type, only identifiers with organization name are supported. See [account identifier docs](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-1-preferred-account-name-in-your-organization) for more details.
+
+        > **Note** Tag association resource ID has the following format: `"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE`. This means that a tuple of tag ID, tag value and object type should be unique across the resources. If you want to specify this combination for more than one object, you should use only one `tag_association` resource with specified `object_identifiers` set.
+
+        > **Note** If you want to change tag value to a value that is already present in another `tag_association` resource, first remove the relevant `object_identifiers` from the resource with the old value, run `pulumi up`, then add the relevant `object_identifiers` in the resource with new value, and run `pulumi up` once again. Removing and adding object identifier from one `TagAssociation` resource to another may not work due to Terraform executing changes for non-dependent resources simultaneously. The same applies to an object being specified in multiple `TagAssociation` resources for the same `tag_id`, but different `tag_value`s.
+
+        > **Note** Default timeout is set to 70 minutes for Terraform Create operation.
+
+        Resource used to manage tag associations. For more information, check [object tagging documentation](https://docs.snowflake.com/en/user-guide/object-tagging).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+        import pulumi_std as std
+
+        test = snowflake.Database("test", name="database")
+        test_schema = snowflake.Schema("test",
+            name="schema",
+            database=test.name)
+        test_tag = snowflake.Tag("test",
+            name="cost_center",
+            database=test.name,
+            schema=test_schema.name,
+            allowed_values=[
+                "finance",
+                "engineering",
+            ])
+        db_association = snowflake.TagAssociation("db_association",
+            object_identifiers=[test.fully_qualified_name],
+            object_type="DATABASE",
+            tag_id=test_tag.fully_qualified_name,
+            tag_value="finance")
+        test_table = snowflake.Table("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="TABLE_NAME",
+            comment="Terraform example table",
+            columns=[
+                {
+                    "name": "column1",
+                    "type": "VARIANT",
+                },
+                {
+                    "name": "column2",
+                    "type": "VARCHAR(16)",
+                },
+            ])
+        table_association = snowflake.TagAssociation("table_association",
+            object_identifiers=[test_table.fully_qualified_name],
+            object_type="TABLE",
+            tag_id=test_tag.fully_qualified_name,
+            tag_value="engineering")
+        column_association = snowflake.TagAssociation("column_association",
+            object_identifiers=[std.format(input="%s.\\"column1\\"",
+                args=[test_table.fully_qualified_name]).result],
+            object_type="COLUMN",
+            tag_id=test_tag.fully_qualified_name,
+            tag_value="engineering")
+        account_association = snowflake.TagAssociation("account_association",
+            object_identifiers=["\\"ORGANIZATION_NAME\\".\\"ACCOUNT_NAME\\""],
+            object_type="ACCOUNT",
+            tag_id=test_tag.fully_qualified_name,
+            tag_value="engineering")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
-        ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
+        > **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
 
         ```sh
         $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
@@ -224,9 +295,80 @@ class TagAssociation(pulumi.CustomResource):
                  args: TagAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note** For `ACCOUNT` object type, only identifiers with organization name are supported. See [account identifier docs](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-1-preferred-account-name-in-your-organization) for more details.
+
+        > **Note** Tag association resource ID has the following format: `"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE`. This means that a tuple of tag ID, tag value and object type should be unique across the resources. If you want to specify this combination for more than one object, you should use only one `tag_association` resource with specified `object_identifiers` set.
+
+        > **Note** If you want to change tag value to a value that is already present in another `tag_association` resource, first remove the relevant `object_identifiers` from the resource with the old value, run `pulumi up`, then add the relevant `object_identifiers` in the resource with new value, and run `pulumi up` once again. Removing and adding object identifier from one `TagAssociation` resource to another may not work due to Terraform executing changes for non-dependent resources simultaneously. The same applies to an object being specified in multiple `TagAssociation` resources for the same `tag_id`, but different `tag_value`s.
+
+        > **Note** Default timeout is set to 70 minutes for Terraform Create operation.
+
+        Resource used to manage tag associations. For more information, check [object tagging documentation](https://docs.snowflake.com/en/user-guide/object-tagging).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+        import pulumi_std as std
+
+        test = snowflake.Database("test", name="database")
+        test_schema = snowflake.Schema("test",
+            name="schema",
+            database=test.name)
+        test_tag = snowflake.Tag("test",
+            name="cost_center",
+            database=test.name,
+            schema=test_schema.name,
+            allowed_values=[
+                "finance",
+                "engineering",
+            ])
+        db_association = snowflake.TagAssociation("db_association",
+            object_identifiers=[test.fully_qualified_name],
+            object_type="DATABASE",
+            tag_id=test_tag.fully_qualified_name,
+            tag_value="finance")
+        test_table = snowflake.Table("test",
+            database=test.name,
+            schema=test_schema.name,
+            name="TABLE_NAME",
+            comment="Terraform example table",
+            columns=[
+                {
+                    "name": "column1",
+                    "type": "VARIANT",
+                },
+                {
+                    "name": "column2",
+                    "type": "VARCHAR(16)",
+                },
+            ])
+        table_association = snowflake.TagAssociation("table_association",
+            object_identifiers=[test_table.fully_qualified_name],
+            object_type="TABLE",
+            tag_id=test_tag.fully_qualified_name,
+            tag_value="engineering")
+        column_association = snowflake.TagAssociation("column_association",
+            object_identifiers=[std.format(input="%s.\\"column1\\"",
+                args=[test_table.fully_qualified_name]).result],
+            object_type="COLUMN",
+            tag_id=test_tag.fully_qualified_name,
+            tag_value="engineering")
+        account_association = snowflake.TagAssociation("account_association",
+            object_identifiers=["\\"ORGANIZATION_NAME\\".\\"ACCOUNT_NAME\\""],
+            object_type="ACCOUNT",
+            tag_id=test_tag.fully_qualified_name,
+            tag_value="engineering")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
-        ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
+        > **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
 
         ```sh
         $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'

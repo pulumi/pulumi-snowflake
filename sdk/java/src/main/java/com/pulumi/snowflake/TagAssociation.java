@@ -17,9 +17,128 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note** For `ACCOUNT` object type, only identifiers with organization name are supported. See [account identifier docs](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-1-preferred-account-name-in-your-organization) for more details.
+ * 
+ * &gt; **Note** Tag association resource ID has the following format: `&#34;TAG_DATABASE&#34;.&#34;TAG_SCHEMA&#34;.&#34;TAG_NAME&#34;|TAG_VALUE|OBJECT_TYPE`. This means that a tuple of tag ID, tag value and object type should be unique across the resources. If you want to specify this combination for more than one object, you should use only one `tagAssociation` resource with specified `objectIdentifiers` set.
+ * 
+ * &gt; **Note** If you want to change tag value to a value that is already present in another `tagAssociation` resource, first remove the relevant `objectIdentifiers` from the resource with the old value, run `pulumi up`, then add the relevant `objectIdentifiers` in the resource with new value, and run `pulumi up` once again. Removing and adding object identifier from one `snowflake.TagAssociation` resource to another may not work due to Terraform executing changes for non-dependent resources simultaneously. The same applies to an object being specified in multiple `snowflake.TagAssociation` resources for the same `tagId`, but different `tagValue`s.
+ * 
+ * &gt; **Note** Default timeout is set to 70 minutes for Terraform Create operation.
+ * 
+ * Resource used to manage tag associations. For more information, check [object tagging documentation](https://docs.snowflake.com/en/user-guide/object-tagging).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
+ * import com.pulumi.snowflake.Tag;
+ * import com.pulumi.snowflake.TagArgs;
+ * import com.pulumi.snowflake.TagAssociation;
+ * import com.pulumi.snowflake.TagAssociationArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FormatArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Database("test", DatabaseArgs.builder()
+ *             .name("database")
+ *             .build());
+ * 
+ *         var testSchema = new Schema("testSchema", SchemaArgs.builder()
+ *             .name("schema")
+ *             .database(test.name())
+ *             .build());
+ * 
+ *         var testTag = new Tag("testTag", TagArgs.builder()
+ *             .name("cost_center")
+ *             .database(test.name())
+ *             .schema(testSchema.name())
+ *             .allowedValues(            
+ *                 "finance",
+ *                 "engineering")
+ *             .build());
+ * 
+ *         var dbAssociation = new TagAssociation("dbAssociation", TagAssociationArgs.builder()
+ *             .objectIdentifiers(test.fullyQualifiedName())
+ *             .objectType("DATABASE")
+ *             .tagId(testTag.fullyQualifiedName())
+ *             .tagValue("finance")
+ *             .build());
+ * 
+ *         var testTable = new Table("testTable", TableArgs.builder()
+ *             .database(test.name())
+ *             .schema(testSchema.name())
+ *             .name("TABLE_NAME")
+ *             .comment("Terraform example table")
+ *             .columns(            
+ *                 TableColumnArgs.builder()
+ *                     .name("column1")
+ *                     .type("VARIANT")
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("column2")
+ *                     .type("VARCHAR(16)")
+ *                     .build())
+ *             .build());
+ * 
+ *         var tableAssociation = new TagAssociation("tableAssociation", TagAssociationArgs.builder()
+ *             .objectIdentifiers(testTable.fullyQualifiedName())
+ *             .objectType("TABLE")
+ *             .tagId(testTag.fullyQualifiedName())
+ *             .tagValue("engineering")
+ *             .build());
+ * 
+ *         var columnAssociation = new TagAssociation("columnAssociation", TagAssociationArgs.builder()
+ *             .objectIdentifiers(StdFunctions.format(FormatArgs.builder()
+ *                 .input("%s.\"column1\"")
+ *                 .args(testTable.fullyQualifiedName())
+ *                 .build()).result())
+ *             .objectType("COLUMN")
+ *             .tagId(testTag.fullyQualifiedName())
+ *             .tagValue("engineering")
+ *             .build());
+ * 
+ *         var accountAssociation = new TagAssociation("accountAssociation", TagAssociationArgs.builder()
+ *             .objectIdentifiers("\"ORGANIZATION_NAME\".\"ACCOUNT_NAME\"")
+ *             .objectType("ACCOUNT")
+ *             .tagId(testTag.fullyQualifiedName())
+ *             .tagValue("engineering")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
- * ~&gt; **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
+ * &gt; **Note** Due to technical limitations of Terraform SDK, `objectIdentifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
  * 
  * ```sh
  * $ pulumi import snowflake:index/tagAssociation:TagAssociation example &#39;&#34;TAG_DATABASE&#34;.&#34;TAG_SCHEMA&#34;.&#34;TAG_NAME&#34;|TAG_VALUE|OBJECT_TYPE&#39;

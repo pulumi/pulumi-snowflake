@@ -12,9 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
 // ## Import
 //
-// format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
+// format is roleName (string) | granteeObjectType (ROLE|USER) | granteeName (string)
 //
 // ```sh
 // $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'

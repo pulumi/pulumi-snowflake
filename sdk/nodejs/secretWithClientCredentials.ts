@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+ *
  * ## Import
  *
  * ```sh

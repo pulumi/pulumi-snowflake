@@ -25,6 +25,9 @@ namespace Pulumi.Snowflake.Outputs
         /// Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOidcIssuers;
+        /// <summary>
+        /// Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedProviders;
 
         [OutputConstructor]

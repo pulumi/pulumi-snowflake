@@ -19,6 +19,179 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * !&gt; **Warning** Create in this resource works differently from other resources as it doesn&#39;t create anything on the Snowflake side. It works mostly as import, nothing will be created or altered during it, only the `name` field will be validated to ensure it matches the current organization account name. It&#39;s done this way, because of the Terraform limitation which prevents us from presenting planned modifications on the Snowflake side during resource creation.
+ * 
+ * !&gt; **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
+ * 
+ * !&gt; **Warning** This resource shouldn&#39;t be used with `snowflake.CurrentAccount`, `snowflake.ObjectParameter` (with `onAccount` field set), and `snowflake.AccountParameter` resources in the same configuration pointing to the same account, as it may lead to unexpected behavior. Unless they&#39;re used to manage the following parameters that are not supported by `snowflake.CurrentOrganizationAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `snowflake.CurrentOrganizationAccount` resource.
+ * 
+ * !&gt; **Warning** This resource shouldn&#39;t be also used with `snowflake.AccountPasswordPolicyAttachment`, `snowflake.NetworkPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
+ * 
+ * &gt; **Note** On removal, the resource will unset all account properties. To remove the resource without unsetting properties, use terraform state rm command.
+ * 
+ * &gt; **Note** You can manage only one such resource **per organization**. More instances in one organization could cause unexpected behavior.
+ * 
+ * &gt; **Note** Moving organization accounts to different regions is not supported by the provider due to Snowflake and Terraform limitations.
+ * 
+ * Resource used to manage an organization account within the organization you are connected to. See [ALTER ORGANIZATION ACCOUNT](https://docs.snowflake.com/en/sql-reference/sql/alter-organization-account) documentation for more information on resource capabilities.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.CurrentOrganizationAccount;
+ * import com.pulumi.snowflake.CurrentOrganizationAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         //# Minimal
+ *         var minimal = new CurrentOrganizationAccount("minimal");
+ * 
+ *         //# Complete (with every optional set)
+ *         var complete = new CurrentOrganizationAccount("complete", CurrentOrganizationAccountArgs.builder()
+ *             .comment("This is a comment for the current organization account resource")
+ *             .resourceMonitor(exampleSnowflakeResourceMonitor.fullyQualifiedName())
+ *             .sessionPolicy("\"<database_name>\".\"<schema_name>\".\"<session_policy_name>\"")
+ *             .passwordPolicy(exampleSnowflakePasswordPolicy.fullyQualifiedName())
+ *             .abortDetachedQuery(true)
+ *             .allowClientMfaCaching(true)
+ *             .allowIdToken(true)
+ *             .autocommit(false)
+ *             .baseLocationPrefix("STORAGE_BASE_URL/")
+ *             .binaryInputFormat("BASE64")
+ *             .binaryOutputFormat("BASE64")
+ *             .catalog("SNOWFLAKE")
+ *             .clientEnableLogInfoStatementParameters(true)
+ *             .clientEncryptionKeySize(256)
+ *             .clientMemoryLimit(1540)
+ *             .clientMetadataRequestUseConnectionCtx(true)
+ *             .clientMetadataUseSessionDatabase(true)
+ *             .clientPrefetchThreads(5)
+ *             .clientResultChunkSize(159)
+ *             .clientResultColumnCaseInsensitive(true)
+ *             .clientSessionKeepAlive(true)
+ *             .clientSessionKeepAliveHeartbeatFrequency(3599)
+ *             .clientTimestampTypeMapping("TIMESTAMP_NTZ")
+ *             .cortexEnabledCrossRegion("ANY_REGION")
+ *             .cortexModelsAllowlist("All")
+ *             .csvTimestampFormat("YYYY-MM-DD")
+ *             .dataRetentionTimeInDays(2)
+ *             .dateInputFormat("YYYY-MM-DD")
+ *             .dateOutputFormat("YYYY-MM-DD")
+ *             .defaultDdlCollation("en-cs")
+ *             .defaultNotebookComputePoolCpu("CPU_X64_S")
+ *             .defaultNotebookComputePoolGpu("GPU_NV_S")
+ *             .defaultNullOrdering("FIRST")
+ *             .defaultStreamlitNotebookWarehouse(example.fullyQualifiedName())
+ *             .disableUiDownloadButton(true)
+ *             .disableUserPrivilegeGrants(true)
+ *             .enableAutomaticSensitiveDataClassificationLog(false)
+ *             .enableEgressCostOptimizer(false)
+ *             .enableIdentifierFirstLogin(false)
+ *             .enableTriSecretAndRekeyOptOutForImageRepository(true)
+ *             .enableTriSecretAndRekeyOptOutForSpcsBlockStorage(true)
+ *             .enableUnhandledExceptionsReporting(false)
+ *             .enableUnloadPhysicalTypeOptimization(false)
+ *             .enableUnredactedQuerySyntaxError(true)
+ *             .enableUnredactedSecureObjectError(true)
+ *             .enforceNetworkRulesForInternalStages(true)
+ *             .errorOnNondeterministicMerge(false)
+ *             .errorOnNondeterministicUpdate(true)
+ *             .eventTable("\"<database_name>\".\"<schema_name>\".\"<event_table_name>\"")
+ *             .externalOauthAddPrivilegedRolesToBlockedList(false)
+ *             .externalVolume("XWDVEAAT_A6FEE9D6_5D41_AB3D_EB0C_51DA5E5F0BE2")
+ *             .geographyOutputFormat("WKT")
+ *             .geometryOutputFormat("WKT")
+ *             .hybridTableLockTimeout(3599)
+ *             .initialReplicationSizeLimitInTb("9.9")
+ *             .jdbcTreatDecimalAsInt(false)
+ *             .jdbcTreatTimestampNtzAsUtc(true)
+ *             .jdbcUseSessionTimezone(false)
+ *             .jsTreatIntegerAsBigint(true)
+ *             .jsonIndent(4)
+ *             .listingAutoFulfillmentReplicationRefreshSchedule("2 minutes")
+ *             .lockTimeout(43201)
+ *             .logLevel("INFO")
+ *             .maxConcurrencyLevel(7)
+ *             .maxDataExtensionTimeInDays(13)
+ *             .metricLevel("ALL")
+ *             .minDataRetentionTimeInDays(1)
+ *             .multiStatementCount(0)
+ *             .networkPolicy(exampleSnowflakeNetworkPolicy.fullyQualifiedName())
+ *             .noorderSequenceAsDefault(false)
+ *             .oauthAddPrivilegedRolesToBlockedList(false)
+ *             .odbcTreatDecimalAsInt(true)
+ *             .periodicDataRekeying(false)
+ *             .pipeExecutionPaused(true)
+ *             .preventUnloadToInlineUrl(true)
+ *             .preventUnloadToInternalStages(true)
+ *             .pythonProfilerTargetStage(exampleSnowflakeStage.fullyQualifiedName())
+ *             .queryTag("test-query-tag")
+ *             .quotedIdentifiersIgnoreCase(true)
+ *             .replaceInvalidCharacters(true)
+ *             .requireStorageIntegrationForStageCreation(true)
+ *             .requireStorageIntegrationForStageOperation(true)
+ *             .rowsPerResultset(1000)
+ *             .searchPath("$current, $public")
+ *             .serverlessTaskMaxStatementSize("XLARGE")
+ *             .serverlessTaskMinStatementSize("SMALL")
+ *             .ssoLoginPage(true)
+ *             .statementQueuedTimeoutInSeconds(1)
+ *             .statementTimeoutInSeconds(1)
+ *             .storageSerializationPolicy("OPTIMIZED")
+ *             .strictJsonOutput(true)
+ *             .suspendTaskAfterNumFailures(3)
+ *             .taskAutoRetryAttempts(3)
+ *             .timeInputFormat("YYYY-MM-DD")
+ *             .timeOutputFormat("YYYY-MM-DD")
+ *             .timestampDayIsAlways24h(true)
+ *             .timestampInputFormat("YYYY-MM-DD")
+ *             .timestampLtzOutputFormat("YYYY-MM-DD")
+ *             .timestampNtzOutputFormat("YYYY-MM-DD")
+ *             .timestampOutputFormat("YYYY-MM-DD")
+ *             .timestampTypeMapping("TIMESTAMP_LTZ")
+ *             .timestampTzOutputFormat("YYYY-MM-DD")
+ *             .timezone("Europe/London")
+ *             .traceLevel("PROPAGATE")
+ *             .transactionAbortOnError(true)
+ *             .transactionDefaultIsolationLevel("READ COMMITTED")
+ *             .twoDigitCenturyStart(1971)
+ *             .unsupportedDdlAction("FAIL")
+ *             .useCachedResult(false)
+ *             .userTaskManagedInitialWarehouseSize("SMALL")
+ *             .userTaskMinimumTriggerIntervalInSeconds(10)
+ *             .userTaskTimeoutMs(10)
+ *             .weekOfYearPolicy(1)
+ *             .weekStart(1)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
@@ -1218,9 +1391,17 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
     public Output<Boolean> requireStorageIntegrationForStageOperation() {
         return this.requireStorageIntegrationForStageOperation;
     }
+    /**
+     * Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="resourceMonitor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceMonitor;
 
+    /**
+     * @return Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> resourceMonitor() {
         return Codegen.optional(this.resourceMonitor);
     }

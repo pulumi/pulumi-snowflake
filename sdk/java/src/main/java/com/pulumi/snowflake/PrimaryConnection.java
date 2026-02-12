@@ -18,6 +18,61 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource used to manage primary connections. For managing replicated connection check resource snowflake_secondary_connection. For more information, check [connection documentation](https://docs.snowflake.com/en/sql-reference/sql/create-connection.html).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.PrimaryConnection;
+ * import com.pulumi.snowflake.PrimaryConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         //# Minimal
+ *         var basic = new PrimaryConnection("basic", PrimaryConnectionArgs.builder()
+ *             .name("connection_name")
+ *             .build());
+ * 
+ *         //# Complete (with every optional set)
+ *         var complete = new PrimaryConnection("complete", PrimaryConnectionArgs.builder()
+ *             .name("connection_name")
+ *             .comment("my complete connection")
+ *             .enableFailoverToAccounts("\"<secondary_account_organization_name>\".\"<secondary_account_name>\"")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * 
+ * &gt; **Note** This resource cannot be dropped when it has any dependent secondary connections. If you want to drop the primary connection, you must first drop all secondary connections that depend on it or promote other connection to be primary. The first option may need to be done in two steps (terraform applies): first remove all secondary connections, then primary ones. Snowflake needs some time to register the primary connection doesn&#39;t have any dependent connections and is safe for removal. The second option may require removing the resource from the state and removing it manually from Snowflake.
+ * 
+ * &gt; **Note** To demote `snowflake.PrimaryConnection` to `snowflake.SecondaryConnection`, resources need to be migrated manually. For guidance on removing and importing resources into the state check resource migration. Remove the resource from the state with terraform state rm, then recreate it in manually using:
+ *     ```    CREATE CONNECTION &lt;name&gt; AS REPLICA OF &lt;organization_name&gt;.&lt;account_name&gt;.&lt;connection_name&gt;;
+ *     ```
+ * and then import it as the `snowflake.SecondaryConnection`.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
@@ -69,9 +124,17 @@ public class PrimaryConnection extends com.pulumi.resources.CustomResource {
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
+    /**
+     * Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+     * 
+     */
     @Export(name="isPrimary", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isPrimary;
 
+    /**
+     * @return Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+     * 
+     */
     public Output<Boolean> isPrimary() {
         return this.isPrimary;
     }

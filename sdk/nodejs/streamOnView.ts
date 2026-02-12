@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note about copy_grants** Fields like `view`, `appendOnly`, `at`, `before`, `showInitialRows` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copyGrants`. Beware that even though a change is marked as update, the resource is recreated.
+ *
+ * Resource used to manage streams on views. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
+ *
  * ## Import
  *
  * ```sh
@@ -45,12 +49,21 @@ export class StreamOnView extends pulumi.CustomResource {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     declare public readonly appendOnly: pulumi.Output<string | undefined>;
+    /**
+     * This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly at: pulumi.Output<outputs.StreamOnViewAt | undefined>;
+    /**
+     * This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly before: pulumi.Output<outputs.StreamOnViewBefore | undefined>;
     /**
      * Specifies a comment for the stream.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     */
     declare public readonly copyGrants: pulumi.Output<boolean | undefined>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -72,11 +85,17 @@ export class StreamOnView extends pulumi.CustomResource {
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly schema: pulumi.Output<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly showInitialRows: pulumi.Output<string | undefined>;
     /**
      * Outputs the result of `SHOW STREAMS` for the given stream.
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.StreamOnViewShowOutput[]>;
+    /**
+     * Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+     */
     declare public /*out*/ readonly stale: pulumi.Output<boolean>;
     /**
      * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
@@ -155,12 +174,21 @@ export interface StreamOnViewState {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     appendOnly?: pulumi.Input<string>;
+    /**
+     * This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     at?: pulumi.Input<inputs.StreamOnViewAt>;
+    /**
+     * This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     before?: pulumi.Input<inputs.StreamOnViewBefore>;
     /**
      * Specifies a comment for the stream.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     */
     copyGrants?: pulumi.Input<boolean>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -182,11 +210,17 @@ export interface StreamOnViewState {
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     showInitialRows?: pulumi.Input<string>;
     /**
      * Outputs the result of `SHOW STREAMS` for the given stream.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnViewShowOutput>[]>;
+    /**
+     * Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+     */
     stale?: pulumi.Input<boolean>;
     /**
      * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
@@ -206,12 +240,21 @@ export interface StreamOnViewArgs {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     appendOnly?: pulumi.Input<string>;
+    /**
+     * This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     at?: pulumi.Input<inputs.StreamOnViewAt>;
+    /**
+     * This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     before?: pulumi.Input<inputs.StreamOnViewBefore>;
     /**
      * Specifies a comment for the stream.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     */
     copyGrants?: pulumi.Input<boolean>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -225,6 +268,9 @@ export interface StreamOnViewArgs {
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     showInitialRows?: pulumi.Input<string>;
     /**
      * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.

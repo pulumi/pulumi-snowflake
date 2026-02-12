@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// Resource used to manage secret objects with Basic Authentication. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -49,6 +51,9 @@ namespace Pulumi.Snowflake
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
@@ -147,6 +152,10 @@ namespace Pulumi.Snowflake
 
         [Input("password", required: true)]
         private Input<string>? _password;
+
+        /// <summary>
+        /// Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -225,6 +234,10 @@ namespace Pulumi.Snowflake
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;

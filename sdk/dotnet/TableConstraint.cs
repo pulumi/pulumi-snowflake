@@ -10,10 +10,141 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var d = new Snowflake.Database("d", new()
+    ///     {
+    ///         Name = "some_db",
+    ///     });
+    /// 
+    ///     var s = new Snowflake.Schema("s", new()
+    ///     {
+    ///         Name = "some_schema",
+    ///         Database = d.Name,
+    ///     });
+    /// 
+    ///     var t = new Snowflake.Table("t", new()
+    ///     {
+    ///         Database = d.Name,
+    ///         Schema = s.Name,
+    ///         Name = "some_table",
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "col1",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "col2",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "col3",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var fkT = new Snowflake.Table("fk_t", new()
+    ///     {
+    ///         Database = d.Name,
+    ///         Schema = s.Name,
+    ///         Name = "fk_table",
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "fk_col1",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "fk_col2",
+    ///                 Type = "text",
+    ///                 Nullable = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var primaryKey = new Snowflake.TableConstraint("primary_key", new()
+    ///     {
+    ///         Name = "myconstraint",
+    ///         Type = "PRIMARY KEY",
+    ///         TableId = t.FullyQualifiedName,
+    ///         Columns = new[]
+    ///         {
+    ///             "col1",
+    ///         },
+    ///         Comment = "hello world",
+    ///     });
+    /// 
+    ///     var foreignKey = new Snowflake.TableConstraint("foreign_key", new()
+    ///     {
+    ///         Name = "myconstraintfk",
+    ///         Type = "FOREIGN KEY",
+    ///         TableId = t.FullyQualifiedName,
+    ///         Columns = new[]
+    ///         {
+    ///             "col2",
+    ///         },
+    ///         ForeignKeyProperties = new Snowflake.Inputs.TableConstraintForeignKeyPropertiesArgs
+    ///         {
+    ///             References = new Snowflake.Inputs.TableConstraintForeignKeyPropertiesReferencesArgs
+    ///             {
+    ///                 TableId = fkT.FullyQualifiedName,
+    ///                 Columns = new[]
+    ///                 {
+    ///                     "fk_col1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Enforced = false,
+    ///         Deferrable = false,
+    ///         Initially = "IMMEDIATE",
+    ///         Comment = "hello fk",
+    ///     });
+    /// 
+    ///     var unique = new Snowflake.TableConstraint("unique", new()
+    ///     {
+    ///         Name = "unique",
+    ///         Type = "UNIQUE",
+    ///         TableId = t.FullyQualifiedName,
+    ///         Columns = new[]
+    ///         {
+    ///             "col3",
+    ///         },
+    ///         Comment = "hello unique",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
+    /// terraform import snowflake_table_constraint.example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/tableConstraint:TableConstraint")]

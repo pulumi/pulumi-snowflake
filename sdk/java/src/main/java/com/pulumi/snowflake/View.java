@@ -24,6 +24,16 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; Due to Snowflake limitations, to properly compute diff on `statement` field, the provider parses a `text` field which contains the whole CREATE query used to create the resource. We recommend not using special characters, especially `(`, `,`, `)` in any of the fields, if possible.
+ * 
+ * !&gt; **Sensitive values** This resource&#39;s `statement` and `show_output.text` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * 
+ * &gt; **Note about copy_grants** Fields like `isRecursive`, `isTemporary`, `copyGrants` and `statement` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-view)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copyGrants`. Beware that even though a change is marked as update, the resource is recreated.
+ * 
+ * &gt; **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) and [data metric function references](https://docs.snowflake.com/en/sql-reference/functions/data_metric_function_references) which requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+ * 
+ * Resource used to manage view objects. For more information, check [view documentation](https://docs.snowflake.com/en/sql-reference/sql/create-view).
+ * 
  * ## Import
  * 
  * ```sh
@@ -89,9 +99,17 @@ public class View extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
+    /**
+     * (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
+    /**
+     * @return (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     public Output<Optional<Boolean>> copyGrants() {
         return Codegen.optional(this.copyGrants);
     }
@@ -179,15 +197,31 @@ public class View extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> isRecursive() {
         return Codegen.optional(this.isRecursive);
     }
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     @Export(name="isSecure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> isSecure;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake&#39;s `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     public Output<Optional<String>> isSecure() {
         return Codegen.optional(this.isSecure);
     }
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it&#39;s dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     @Export(name="isTemporary", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> isTemporary;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it&#39;s dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     public Output<Optional<String>> isTemporary() {
         return Codegen.optional(this.isTemporary);
     }

@@ -12,14 +12,91 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// !> **Caution: Import limitation** To import the python procedure, snowflake-snowpark-python version must be explicitly set in Snowflake (i.e. `snowflake-snowpark-python==1.14.0`). You can verify it by running `DESCRIBE PROCEDURE <your_procedure>` and checking the `packages`. Check #3303 for reference.
+//
+// !> **Sensitive values** This resource's `procedureDefinition` and `show_output.arguments_raw` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+//
+// > **Note** External changes to `isSecure` and `nullInputBehavior` are not currently supported. They will be handled in the following versions of the provider which may still affect this resource.
+//
+// > **Note** `COPY GRANTS` and `OR REPLACE` are not currently supported.
+//
+// > **Note** `RETURN... [[ NOT ] NULL]` is not currently supported. It will be improved in the following versions of the provider which may still affect this resource.
+//
+// > **Note** `isAggregate` is not currently supported. It will be improved in the following versions of the provider which may still affect this resource.
+//
+// > **Note** Use of return type `TABLE` is currently limited. It will be improved in the following versions of the provider which may still affect this resource.
+//
+// > **Note** Snowflake is not returning full data type information for arguments which may lead to unexpected plan outputs. Diff suppression for such cases will be improved.
+//
+// > **Note** Snowflake is not returning the default values for arguments so argument's `argDefaultValue` external changes cannot be tracked.
+//
+// > **Note** Limit the use of special characters (`.`, `'`, `/`, `"`, `(`, `)`, `[`, `]`, `{`, `}`, ` `) in argument names, stage ids, and secret ids. It's best to limit to only alphanumeric and underscores. There is a lot of parsing of SHOW/DESCRIBE outputs involved and using special characters may limit the possibility to achieve the correct results.
+//
+// > **Note** Diff suppression for `import.stage_location` is currently not implemented. Make sure you are using the fully qualified stage name (with all the double quotes), e.g. `"\"database_name\".\"schema_name\".\"stage_name\""`.
+//
+// > **Required warehouse** This resource may require active warehouse. Please, make sure you have either set a DEFAULT_WAREHOUSE for the user, or specified a warehouse in the provider configuration.
+//
+// Resource used to manage python procedure objects. For more information, check [procedure documentation](https://docs.snowflake.com/en/sql-reference/sql/create-procedure).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewProcedurePython(ctx, "w", &snowflake.ProcedurePythonArgs{
+//				Database: pulumi.String("Database"),
+//				Schema:   pulumi.String("Schema"),
+//				Name:     pulumi.String("Name"),
+//				Arguments: snowflake.ProcedurePythonArgumentArray{
+//					&snowflake.ProcedurePythonArgumentArgs{
+//						ArgDataType: pulumi.String("VARCHAR(100)"),
+//						ArgName:     pulumi.String("x"),
+//					},
+//				},
+//				ReturnType: pulumi.String("VARCHAR(100)"),
+//				Handler:    pulumi.String("echoVarchar"),
+//				ProcedureDefinition: pulumi.String(`  def echoVarchar(x):
+//	  result = ''
+//	  for a in range(5):
+//	    result += x
+//	  return result
+//
+// `),
+//
+//				RuntimeVersion:  pulumi.String("3.9"),
+//				SnowparkPackage: pulumi.String("1.14.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/procedurePython:ProcedurePython example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+// terraform import snowflake_procedure_python.example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
 // ```
 //
 // Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
-//
 // Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
 type ProcedurePython struct {
 	pulumi.CustomResourceState

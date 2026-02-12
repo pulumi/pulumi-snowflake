@@ -7,6 +7,44 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note** Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)).
+ *
+ * > **Note** Managing compute pool state is limited. It is handled by `initiallySuspended`, `autoSuspendSecs`, and `autoResume` fields. The provider does not support managing the state of compute pools in Snowflake with `ALTER ... SUSPEND` and `ALTER ... RESUME`. See [Compute pool lifecycle documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool#compute-pool-lifecycle) for more details.
+ *
+ * Resource used to manage compute pools. For more information, check [compute pools documentation](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool). A compute pool is a collection of one or more virtual machine (VM) nodes on which Snowflake runs your Snowpark Container Services services (including job services). See [Working with compute pools](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool) developer guide for more details.
+ *
+ * ## Example Usage
+ *
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * // basic resource
+ * const basic = new snowflake.ComputePool("basic", {
+ *     name: "COMPUTE_POOL",
+ *     minNodes: 1,
+ *     maxNodes: 2,
+ *     instanceFamily: "CPU_X64_S",
+ * });
+ * // complete resource
+ * const complete = new snowflake.ComputePool("complete", {
+ *     name: "COMPUTE_POOL",
+ *     forApplication: "APPLICATION_NAME",
+ *     minNodes: 1,
+ *     maxNodes: 2,
+ *     instanceFamily: "CPU_X64_S",
+ *     autoResume: "true",
+ *     initiallySuspended: "true",
+ *     autoSuspendSecs: 1200,
+ *     comment: "A compute pool.",
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh

@@ -12,6 +12,94 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-authentication-policy#usage-notes), an authentication policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+//
+// > **Note** External changes are not detected for the following fields: `mfaPolicy`, `patPolicy`, `workloadIdentityPolicy`. Also, they cannot be imported and should be manually set to the correct values during the import operation.
+//
+// Resource used to manage authentication policy objects. For more information, check [authentication policy documentation](https://docs.snowflake.com/en/sql-reference/sql/create-authentication-policy).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// # Minimal
+//			_, err := snowflake.NewAuthenticationPolicy(ctx, "basic", &snowflake.AuthenticationPolicyArgs{
+//				Database: pulumi.String("database_name"),
+//				Schema:   pulumi.String("schema_name"),
+//				Name:     pulumi.String("network_policy_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// # Complete (with every optional set)
+//			_, err = snowflake.NewAuthenticationPolicy(ctx, "complete", &snowflake.AuthenticationPolicyArgs{
+//				Database: pulumi.String("database_name"),
+//				Schema:   pulumi.String("schema_name"),
+//				Name:     pulumi.String("network_policy_name"),
+//				AuthenticationMethods: pulumi.StringArray{
+//					pulumi.String("ALL"),
+//				},
+//				MfaEnrollment: pulumi.String("OPTIONAL"),
+//				ClientTypes: pulumi.StringArray{
+//					pulumi.String("ALL"),
+//				},
+//				SecurityIntegrations: pulumi.StringArray{
+//					pulumi.String("ALL"),
+//				},
+//				MfaPolicy: &snowflake.AuthenticationPolicyMfaPolicyArgs{
+//					AllowedMethods: pulumi.StringArray{
+//						pulumi.String("PASSKEY"),
+//						pulumi.String("DUO"),
+//					},
+//					EnforceMfaOnExternalAuthentication: pulumi.String("ALL"),
+//				},
+//				PatPolicy: &snowflake.AuthenticationPolicyPatPolicyArgs{
+//					DefaultExpiryInDays:     pulumi.Int(1),
+//					MaxExpiryInDays:         pulumi.Int(30),
+//					NetworkPolicyEvaluation: pulumi.String("NOT_ENFORCED"),
+//				},
+//				WorkloadIdentityPolicy: &snowflake.AuthenticationPolicyWorkloadIdentityPolicyArgs{
+//					AllowedProviders: pulumi.StringArray{
+//						pulumi.String("ALL"),
+//					},
+//					AllowedAwsAccounts: pulumi.StringArray{
+//						pulumi.String("111122223333"),
+//					},
+//					AllowedAzureIssuers: pulumi.StringArray{
+//						pulumi.String("https://login.microsoftonline.com/tenantid/v2.0"),
+//					},
+//					AllowedOidcIssuers: pulumi.StringArray{
+//						pulumi.String("https://example.com"),
+//					},
+//				},
+//				Comment: pulumi.String("My authentication policy."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:

@@ -12,6 +12,103 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			schema, err := snowflake.NewSchema(ctx, "schema", &snowflake.SchemaArgs{
+//				Database:          pulumi.String("database"),
+//				Name:              pulumi.String("schema"),
+//				DataRetentionDays: 1,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sequence, err := snowflake.NewSequence(ctx, "sequence", &snowflake.SequenceArgs{
+//				Database: schema.Database,
+//				Schema:   schema.Name,
+//				Name:     pulumi.String("sequence"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTable(ctx, "table", &snowflake.TableArgs{
+//				Database: schema.Database,
+//				Schema:   schema.Name,
+//				Name:     pulumi.String("table"),
+//				Comment:  pulumi.String("A table."),
+//				ClusterBies: pulumi.StringArray{
+//					pulumi.String("to_date(DATE)"),
+//				},
+//				DataRetentionTimeInDays: schema.DataRetentionTimeInDays,
+//				ChangeTracking:          pulumi.Bool(false),
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("id"),
+//						Type:     pulumi.String("int"),
+//						Nullable: pulumi.Bool(true),
+//						Default: &snowflake.TableColumnDefaultArgs{
+//							Sequence: sequence.FullyQualifiedName,
+//						},
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("identity"),
+//						Type:     pulumi.String("NUMBER(38,0)"),
+//						Nullable: pulumi.Bool(true),
+//						Identity: &snowflake.TableColumnIdentityArgs{
+//							StartNum: pulumi.Int(1),
+//							StepNum:  pulumi.Int(3),
+//						},
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("data"),
+//						Type:     pulumi.String("text"),
+//						Nullable: pulumi.Bool(false),
+//						Collate:  pulumi.String("en-ci"),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("DATE"),
+//						Type: pulumi.String("TIMESTAMP_NTZ(9)"),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:    pulumi.String("extra"),
+//						Type:    pulumi.String("VARIANT"),
+//						Comment: pulumi.String("extra data"),
+//					},
+//				},
+//				PrimaryKey: &snowflake.TablePrimaryKeyArgs{
+//					Name: pulumi.String("my_key"),
+//					Keys: pulumi.StringArray{
+//						pulumi.String("data"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // format is database name | schema name | table name

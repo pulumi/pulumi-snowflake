@@ -18,6 +18,117 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note** Read more about PAT support in the provider in our Authentication Methods guide.
+ * 
+ * &gt; **Note** External changes to `minsToBypassNetworkPolicyRequirement` are not handled by the provider because the value changes continuously on Snowflake side after setting it.
+ * 
+ * &gt; **Note** External changes to `daysToExpiry` are not handled by the provider because Snowflake returns `expiresAt` which is the token expiration date. Also, the provider does not handle expired tokens automatically. Please change the value of `daysToExpiry` to force a new expiration date.
+ * 
+ * &gt; **Note** External changes to `token` are not handled by the provider because the data in this field can be updated only when the token is created or rotated.
+ * 
+ * &gt; **Note** Rotating a token can be done by changing the value of `keeper` field. See an example below.
+ * 
+ * &gt; **Note** In order to authenticate with PAT with role restriction, you need to grant the role to the user. You can use the snowflake.GrantAccountRole resource to do this.
+ * 
+ * Resource used to manage user programmatic access tokens. For more information, check [user programmatic access tokens documentation](https://docs.snowflake.com/en/sql-reference/sql/alter-user-add-programmatic-access-token). A programmatic access token is a token that can be used to authenticate to an endpoint. See [Using programmatic access tokens for authentication](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) user guide for more details.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.UserProgrammaticAccessToken;
+ * import com.pulumi.snowflake.UserProgrammaticAccessTokenArgs;
+ * import com.pulumi.snowflake.AccountRole;
+ * import com.pulumi.snowflake.AccountRoleArgs;
+ * import com.pulumi.snowflake.User;
+ * import com.pulumi.snowflake.UserArgs;
+ * import com.pulumi.snowflake.GrantAccountRole;
+ * import com.pulumi.snowflake.GrantAccountRoleArgs;
+ * import com.pulumi.time.Rotating;
+ * import com.pulumi.time.RotatingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // basic resource
+ *         var basic = new UserProgrammaticAccessToken("basic", UserProgrammaticAccessTokenArgs.builder()
+ *             .user("USER")
+ *             .name("TOKEN")
+ *             .build());
+ * 
+ *         // complete resource
+ *         var complete = new UserProgrammaticAccessToken("complete", UserProgrammaticAccessTokenArgs.builder()
+ *             .user("USER")
+ *             .name("TOKEN")
+ *             .roleRestriction("ROLE")
+ *             .daysToExpiry(30)
+ *             .minsToBypassNetworkPolicyRequirement(10)
+ *             .disabled("false")
+ *             .comment("COMMENT")
+ *             .build());
+ * 
+ *         // Set up dependencies and reference them from the token resource.
+ *         var role = new AccountRole("role", AccountRoleArgs.builder()
+ *             .name("ROLE")
+ *             .build());
+ * 
+ *         var user = new User("user", UserArgs.builder()
+ *             .name("USER")
+ *             .build());
+ * 
+ *         // Grant the role to the user. This is required to authenticate with PAT with role restriction.
+ *         var grantRoleToUser = new GrantAccountRole("grantRoleToUser", GrantAccountRoleArgs.builder()
+ *             .roleName(role.name())
+ *             .userName(user.name())
+ *             .build());
+ * 
+ *         // complete resource with external references
+ *         var completeWithExternalReferences = new UserProgrammaticAccessToken("completeWithExternalReferences", UserProgrammaticAccessTokenArgs.builder()
+ *             .user(user.name())
+ *             .name("TOKEN")
+ *             .roleRestriction(role.name())
+ *             .daysToExpiry(30)
+ *             .minsToBypassNetworkPolicyRequirement(10)
+ *             .disabled("false")
+ *             .comment("COMMENT")
+ *             .build());
+ * 
+ *         ctx.export("token", complete.token());
+ *         // Note that the fields of this resource are updated only when Terraform is run.
+ *         // This means that the schedule may not be respected if Terraform is not run regularly.
+ *         var rotationSchedule = new Rotating("rotationSchedule", RotatingArgs.builder()
+ *             .rotationDays(30)
+ *             .build());
+ * 
+ *         // Rotate the token regularly using the keeper field and time_rotating resource.
+ *         var rotating = new UserProgrammaticAccessToken("rotating", UserProgrammaticAccessTokenArgs.builder()
+ *             .user("USER")
+ *             .name("TOKEN")
+ *             .keeper(rotationSchedule.rotationRfc3339())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh
@@ -41,9 +152,17 @@ public class UserProgrammaticAccessToken extends com.pulumi.resources.CustomReso
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
+    /**
+     * The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="daysToExpiry", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> daysToExpiry;
 
+    /**
+     * @return The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<Integer>> daysToExpiry() {
         return Codegen.optional(this.daysToExpiry);
     }
@@ -89,9 +208,17 @@ public class UserProgrammaticAccessToken extends com.pulumi.resources.CustomReso
     public Output<Optional<String>> keeper() {
         return Codegen.optional(this.keeper);
     }
+    /**
+     * The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="minsToBypassNetworkPolicyRequirement", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minsToBypassNetworkPolicyRequirement;
 
+    /**
+     * @return The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<Integer>> minsToBypassNetworkPolicyRequirement() {
         return Codegen.optional(this.minsToBypassNetworkPolicyRequirement);
     }

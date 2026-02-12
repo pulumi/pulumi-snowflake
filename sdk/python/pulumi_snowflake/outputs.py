@@ -3456,6 +3456,7 @@ class AuthenticationPolicyMfaPolicy(dict):
                  allowed_methods: Optional[Sequence[_builtins.str]] = None,
                  enforce_mfa_on_external_authentication: Optional[_builtins.str] = None):
         """
+        :param Sequence[_builtins.str] allowed_methods: Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
         :param _builtins.str enforce_mfa_on_external_authentication: Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
         """
         if allowed_methods is not None:
@@ -3466,6 +3467,9 @@ class AuthenticationPolicyMfaPolicy(dict):
     @_builtins.property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+        """
         return pulumi.get(self, "allowed_methods")
 
     @_builtins.property
@@ -3675,6 +3679,7 @@ class AuthenticationPolicyWorkloadIdentityPolicy(dict):
         :param Sequence[_builtins.str] allowed_aws_accounts: Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
         :param Sequence[_builtins.str] allowed_azure_issuers: Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
         :param Sequence[_builtins.str] allowed_oidc_issuers: Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
+        :param Sequence[_builtins.str] allowed_providers: Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
         """
         if allowed_aws_accounts is not None:
             pulumi.set(__self__, "allowed_aws_accounts", allowed_aws_accounts)
@@ -3712,6 +3717,9 @@ class AuthenticationPolicyWorkloadIdentityPolicy(dict):
     @_builtins.property
     @pulumi.getter(name="allowedProviders")
     def allowed_providers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+        """
         return pulumi.get(self, "allowed_providers")
 
 
@@ -5908,6 +5916,7 @@ class ExternalVolumeStorageLocation(dict):
                  storage_aws_role_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str storage_base_url: Specifies the base URL for your cloud storage location.
+        :param _builtins.str storage_location_name: Name of the storage location. Must be unique for the external volume. Do not use the name `terraform_provider_sentinel_storage_location` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param _builtins.str storage_provider: Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
         :param _builtins.str azure_tenant_id: Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         :param _builtins.str encryption_kms_key_id: Specifies the ID for the KMS-managed key used to encrypt files.
@@ -5940,6 +5949,9 @@ class ExternalVolumeStorageLocation(dict):
     @_builtins.property
     @pulumi.getter(name="storageLocationName")
     def storage_location_name(self) -> _builtins.str:
+        """
+        Name of the storage location. Must be unique for the external volume. Do not use the name `terraform_provider_sentinel_storage_location` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        """
         return pulumi.get(self, "storage_location_name")
 
     @_builtins.property
@@ -6157,6 +6169,7 @@ class FunctionJavaArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -6182,6 +6195,9 @@ class FunctionJavaArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -6211,6 +6227,7 @@ class FunctionJavaImport(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -6226,6 +6243,9 @@ class FunctionJavaImport(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -6755,6 +6775,7 @@ class FunctionJavaTargetPath(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -6770,6 +6791,9 @@ class FunctionJavaTargetPath(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -6803,6 +6827,7 @@ class FunctionJavascriptArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -6828,6 +6853,9 @@ class FunctionJavascriptArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -7313,6 +7341,7 @@ class FunctionPythonArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -7338,6 +7367,9 @@ class FunctionPythonArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -7367,6 +7399,7 @@ class FunctionPythonImport(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -7382,6 +7415,9 @@ class FunctionPythonImport(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -7915,6 +7951,7 @@ class FunctionScalaArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -7940,6 +7977,9 @@ class FunctionScalaArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -7969,6 +8009,7 @@ class FunctionScalaImport(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -7984,6 +8025,9 @@ class FunctionScalaImport(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -8513,6 +8557,7 @@ class FunctionScalaTargetPath(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -8528,6 +8573,9 @@ class FunctionScalaTargetPath(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -8561,6 +8609,7 @@ class FunctionSqlArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -8586,6 +8635,9 @@ class FunctionSqlArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -17761,6 +17813,7 @@ class ProcedureJavaArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -17786,6 +17839,9 @@ class ProcedureJavaArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -17815,6 +17871,7 @@ class ProcedureJavaImport(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -17830,6 +17887,9 @@ class ProcedureJavaImport(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -18321,6 +18381,7 @@ class ProcedureJavaTargetPath(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -18336,6 +18397,9 @@ class ProcedureJavaTargetPath(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -18369,6 +18433,7 @@ class ProcedureJavascriptArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -18394,6 +18459,9 @@ class ProcedureJavascriptArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -18841,6 +18909,7 @@ class ProcedurePythonArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -18866,6 +18935,9 @@ class ProcedurePythonArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -18895,6 +18967,7 @@ class ProcedurePythonImport(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -18910,6 +18983,9 @@ class ProcedurePythonImport(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -19405,6 +19481,7 @@ class ProcedureScalaArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -19430,6 +19507,9 @@ class ProcedureScalaArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 
@@ -19459,6 +19539,7 @@ class ProcedureScalaImport(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -19474,6 +19555,9 @@ class ProcedureScalaImport(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -19965,6 +20049,7 @@ class ProcedureScalaTargetPath(dict):
                  stage_location: _builtins.str):
         """
         :param _builtins.str path_on_stage: Path for import on stage, without the leading `/`.
+        :param _builtins.str stage_location: Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
         """
         pulumi.set(__self__, "path_on_stage", path_on_stage)
         pulumi.set(__self__, "stage_location", stage_location)
@@ -19980,6 +20065,9 @@ class ProcedureScalaTargetPath(dict):
     @_builtins.property
     @pulumi.getter(name="stageLocation")
     def stage_location(self) -> _builtins.str:
+        """
+        Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+        """
         return pulumi.get(self, "stage_location")
 
 
@@ -20013,6 +20101,7 @@ class ProcedureSqlArgument(dict):
         """
         :param _builtins.str arg_data_type: The argument type.
         :param _builtins.str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
+        :param _builtins.str arg_default_value: Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -20038,6 +20127,9 @@ class ProcedureSqlArgument(dict):
     @_builtins.property
     @pulumi.getter(name="argDefaultValue")
     def arg_default_value(self) -> Optional[_builtins.str]:
+        """
+        Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "arg_default_value")
 
 

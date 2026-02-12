@@ -22,6 +22,166 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * !&gt; **Case-sensitive names** Object names, column names, and aliases are case-sensitive. The provider would wrap them in double quotes when running SQL on Snowflake. Keep it in mind when defining the semantic view (check the example usage).
+ * 
+ * &gt; **Note** The [`ALTER SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/alter-semantic-view) does not currently handle changes to `dimensions`, `facts`, `metrics`, `relationships`, and `tables`. It means that all changes to these attributes will be handled as destroy and recreate.
+ * 
+ * &gt; **Note** External changes for `dimensions`, `facts`, `metrics`, `relationships`, and `tables` are not currently handled. Support for this functionality will be added in the next versions of the provider before moving this resource out of preview.
+ * 
+ * &gt; **Note** `PRIVATE`/`PUBLIC` qualifiers for semantic expressions are not currently supported. They are treated as `PUBLIC` by default. Support for this functionality will be added in the next versions of the provider before moving this resource out of preview.
+ * 
+ * &gt; **Note** Excluding dimensions in `window_function:over_clause:partition_by` clause is not currently supported. Support for this functionality will be added in the next versions of the provider before moving this resource out of preview.
+ * 
+ * &gt; **Note** The `window_function:over_clause:order_by` clause must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers. It will be broken down in the next versions of the provider before moving this resource out of preview.
+ * 
+ * &gt; **Note** `COPY GRANTS` and `OR REPLACE` are not currently supported.
+ * 
+ * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
+ * 
+ * Resource used to manage semantic views. For more information, check [semantic views documentation](https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.SemanticView;
+ * import com.pulumi.snowflake.SemanticViewArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewMetricArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewMetricSemanticExpressionArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewTableArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewDimensionArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewFactArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewMetricWindowFunctionArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewMetricWindowFunctionOverClauseArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewRelationshipArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewRelationshipReferencedTableNameOrAliasArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewRelationshipTableNameOrAliasArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // basic resource
+ *         var basic = new SemanticView("basic", SemanticViewArgs.builder()
+ *             .database("DATABASE")
+ *             .schema("SCHEMA")
+ *             .name("SEMANTIC_VIEW")
+ *             .metrics(SemanticViewMetricArgs.builder()
+ *                 .semanticExpression(SemanticViewMetricSemanticExpressionArgs.builder()
+ *                     .qualifiedExpressionName("\"lt1\".\"m1\"")
+ *                     .sqlExpression("SUM(\"lt1\".\"a1\")")
+ *                     .build())
+ *                 .build())
+ *             .tables(SemanticViewTableArgs.builder()
+ *                 .tableAlias("lt1")
+ *                 .tableName(test.fullyQualifiedName())
+ *                 .build())
+ *             .build());
+ * 
+ *         // complete resource
+ *         var complete = new SemanticView("complete", SemanticViewArgs.builder()
+ *             .database("DATABASE")
+ *             .schema("SCHEMA")
+ *             .name("SEMANTIC_VIEW")
+ *             .comment("comment")
+ *             .dimensions(SemanticViewDimensionArgs.builder()
+ *                 .comment("dimension comment")
+ *                 .qualifiedExpressionName("\"lt1\".\"d2\"")
+ *                 .sqlExpression("\"lt1\".\"a2\"")
+ *                 .synonyms("dim2")
+ *                 .build())
+ *             .facts(SemanticViewFactArgs.builder()
+ *                 .comment("fact comment")
+ *                 .qualifiedExpressionName("\"lt1\".\"f2\"")
+ *                 .sqlExpression("\"lt1\".\"a1\"")
+ *                 .synonyms("fact2")
+ *                 .build())
+ *             .metrics(            
+ *                 SemanticViewMetricArgs.builder()
+ *                     .semanticExpression(SemanticViewMetricSemanticExpressionArgs.builder()
+ *                         .comment("semantic expression comment")
+ *                         .qualifiedExpressionName("\"lt1\".\"m1\"")
+ *                         .sqlExpression("SUM(\"lt1\".\"a1\")")
+ *                         .synonyms(                        
+ *                             "sem1",
+ *                             "baseSem")
+ *                         .build())
+ *                     .build(),
+ *                 SemanticViewMetricArgs.builder()
+ *                     .windowFunction(SemanticViewMetricWindowFunctionArgs.builder()
+ *                         .overClause(SemanticViewMetricWindowFunctionOverClauseArgs.builder()
+ *                             .partitionBy("\"lt1\".\"d2\"")
+ *                             .build())
+ *                         .qualifiedExpressionName("\"lt1\".\"wf1\"")
+ *                         .sqlExpression("SUM(\"lt1\".\"m1\")")
+ *                         .build())
+ *                     .build())
+ *             .relationships(SemanticViewRelationshipArgs.builder()
+ *                 .referencedRelationshipColumns(                
+ *                     "a1",
+ *                     "a2")
+ *                 .referencedTableNameOrAlias(SemanticViewRelationshipReferencedTableNameOrAliasArgs.builder()
+ *                     .tableAlias("lt1")
+ *                     .build())
+ *                 .relationshipColumns(                
+ *                     "a1",
+ *                     "a2")
+ *                 .relationshipIdentifier("r2")
+ *                 .tableNameOrAlias(SemanticViewRelationshipTableNameOrAliasArgs.builder()
+ *                     .tableAlias("lt2")
+ *                     .build())
+ *                 .build())
+ *             .tables(            
+ *                 SemanticViewTableArgs.builder()
+ *                     .comment("logical table 1 comment")
+ *                     .primaryKeys("a1")
+ *                     .synonyms(                    
+ *                         "orders",
+ *                         "sales")
+ *                     .tableAlias("lt1")
+ *                     .tableName(test.fullyQualifiedName())
+ *                     .uniques(                    
+ *                         SemanticViewTableUniqueArgs.builder()
+ *                             .values("a2")
+ *                             .build(),
+ *                         SemanticViewTableUniqueArgs.builder()
+ *                             .values(                            
+ *                                 "a3",
+ *                                 "a4")
+ *                             .build())
+ *                     .build(),
+ *                 SemanticViewTableArgs.builder()
+ *                     .comment("logical table 2 comment")
+ *                     .primaryKeys("a1")
+ *                     .tableAlias("lt2")
+ *                     .tableName(test2.fullyQualifiedName())
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
@@ -61,15 +221,31 @@ public class SemanticView extends com.pulumi.resources.CustomResource {
     public Output<String> database() {
         return this.database;
     }
+    /**
+     * The list of dimensions in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="dimensions", refs={List.class,SemanticViewDimension.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SemanticViewDimension>> dimensions;
 
+    /**
+     * @return The list of dimensions in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<List<SemanticViewDimension>>> dimensions() {
         return Codegen.optional(this.dimensions);
     }
+    /**
+     * The list of facts in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="facts", refs={List.class,SemanticViewFact.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SemanticViewFact>> facts;
 
+    /**
+     * @return The list of facts in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<List<SemanticViewFact>>> facts() {
         return Codegen.optional(this.facts);
     }
@@ -87,9 +263,17 @@ public class SemanticView extends com.pulumi.resources.CustomResource {
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
+    /**
+     * Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="metrics", refs={List.class,SemanticViewMetric.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SemanticViewMetric>> metrics;
 
+    /**
+     * @return Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<List<SemanticViewMetric>>> metrics() {
         return Codegen.optional(this.metrics);
     }
@@ -107,9 +291,17 @@ public class SemanticView extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * The list of relationships between the logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="relationships", refs={List.class,SemanticViewRelationship.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SemanticViewRelationship>> relationships;
 
+    /**
+     * @return The list of relationships between the logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<List<SemanticViewRelationship>>> relationships() {
         return Codegen.optional(this.relationships);
     }
@@ -141,9 +333,17 @@ public class SemanticView extends com.pulumi.resources.CustomResource {
     public Output<List<SemanticViewShowOutput>> showOutputs() {
         return this.showOutputs;
     }
+    /**
+     * The list of logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="tables", refs={List.class,SemanticViewTable.class}, tree="[0,1]")
     private Output<List<SemanticViewTable>> tables;
 
+    /**
+     * @return The list of logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<List<SemanticViewTable>> tables() {
         return this.tables;
     }

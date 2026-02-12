@@ -10,6 +10,74 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Note** For more details about resource monitor usage, please visit [this guide on Snowflake documentation page](https://docs.snowflake.com/en/user-guide/resource-monitors).
+    /// 
+    /// &gt; **Note** Currently assigning a resource monitor to account is not supported. This will be available in a new resource for managing account dependencies. For now, please use execute instead.
+    /// 
+    /// **! Warning !** Due to Snowflake limitations, the following actions are not supported:
+    /// - Cannot create resource monitors with only triggers set, any other attribute has to be set.
+    /// - Once a resource monitor has at least one trigger assigned, it cannot fully unset them (has to have at least one trigger, doesn't matter of which type). That's why when you unset all the triggers on a resource monitor, it will be automatically recreated.
+    /// 
+    /// Resource used to manage resource monitor objects. For more information, check [resource monitor documentation](https://docs.snowflake.com/en/user-guide/resource-monitors).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Note: Without credit quota and triggers specified in the configuration, the resource monitor is not performing any work.
+    ///     // More on resource monitor usage: https://docs.snowflake.com/en/user-guide/resource-monitors.
+    ///     var minimal = new Snowflake.ResourceMonitor("minimal", new()
+    ///     {
+    ///         Name = "resource-monitor-name",
+    ///     });
+    /// 
+    ///     // Note: Resource monitors have to be attached to account or warehouse to be able to track credit usage.
+    ///     var minimalWorking = new Snowflake.ResourceMonitor("minimal_working", new()
+    ///     {
+    ///         Name = "resource-monitor-name",
+    ///         CreditQuota = 100,
+    ///         SuspendTrigger = 100,
+    ///         NotifyUsers = new[]
+    ///         {
+    ///             one.FullyQualifiedName,
+    ///             two.FullyQualifiedName,
+    ///         },
+    ///     });
+    /// 
+    ///     var complete = new Snowflake.ResourceMonitor("complete", new()
+    ///     {
+    ///         Name = "resource-monitor-name",
+    ///         CreditQuota = 100,
+    ///         Frequency = "DAILY",
+    ///         StartTimestamp = "2030-12-07 00:00",
+    ///         EndTimestamp = "2035-12-07 00:00",
+    ///         NotifyTriggers = new[]
+    ///         {
+    ///             40,
+    ///             50,
+    ///         },
+    ///         SuspendTrigger = 50,
+    ///         SuspendImmediateTrigger = 90,
+    ///         NotifyUsers = new[]
+    ///         {
+    ///             one.FullyQualifiedName,
+    ///             two.FullyQualifiedName,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -67,6 +135,9 @@ namespace Pulumi.Snowflake
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.ResourceMonitorShowOutput>> ShowOutputs { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `StartTimestamp` for a resource monitor, you must also set `Frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `ShowOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// </summary>
         [Output("startTimestamp")]
         public Output<string?> StartTimestamp { get; private set; } = null!;
 
@@ -176,6 +247,9 @@ namespace Pulumi.Snowflake
             set => _notifyUsers = value;
         }
 
+        /// <summary>
+        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `StartTimestamp` for a resource monitor, you must also set `Frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `ShowOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// </summary>
         [Input("startTimestamp")]
         public Input<string>? StartTimestamp { get; set; }
 
@@ -265,6 +339,9 @@ namespace Pulumi.Snowflake
             set => _showOutputs = value;
         }
 
+        /// <summary>
+        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `StartTimestamp` for a resource monitor, you must also set `Frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `ShowOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// </summary>
         [Input("startTimestamp")]
         public Input<string>? StartTimestamp { get; set; }
 

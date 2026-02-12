@@ -443,10 +443,93 @@ class TableConstraint(pulumi.CustomResource):
                  validate: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        d = snowflake.Database("d", name="some_db")
+        s = snowflake.Schema("s",
+            name="some_schema",
+            database=d.name)
+        t = snowflake.Table("t",
+            database=d.name,
+            schema=s.name,
+            name="some_table",
+            columns=[
+                {
+                    "name": "col1",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "col2",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "col3",
+                    "type": "text",
+                    "nullable": False,
+                },
+            ])
+        fk_t = snowflake.Table("fk_t",
+            database=d.name,
+            schema=s.name,
+            name="fk_table",
+            columns=[
+                {
+                    "name": "fk_col1",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "fk_col2",
+                    "type": "text",
+                    "nullable": False,
+                },
+            ])
+        primary_key = snowflake.TableConstraint("primary_key",
+            name="myconstraint",
+            type="PRIMARY KEY",
+            table_id=t.fully_qualified_name,
+            columns=["col1"],
+            comment="hello world")
+        foreign_key = snowflake.TableConstraint("foreign_key",
+            name="myconstraintfk",
+            type="FOREIGN KEY",
+            table_id=t.fully_qualified_name,
+            columns=["col2"],
+            foreign_key_properties={
+                "references": {
+                    "table_id": fk_t.fully_qualified_name,
+                    "columns": ["fk_col1"],
+                },
+            },
+            enforced=False,
+            deferrable=False,
+            initially="IMMEDIATE",
+            comment="hello fk")
+        unique = snowflake.TableConstraint("unique",
+            name="unique",
+            type="UNIQUE",
+            table_id=t.fully_qualified_name,
+            columns=["col3"],
+            comment="hello unique")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
+        terraform import snowflake_table_constraint.example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
         ```
 
         :param str resource_name: The name of the resource.
@@ -471,10 +554,93 @@ class TableConstraint(pulumi.CustomResource):
                  args: TableConstraintArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        d = snowflake.Database("d", name="some_db")
+        s = snowflake.Schema("s",
+            name="some_schema",
+            database=d.name)
+        t = snowflake.Table("t",
+            database=d.name,
+            schema=s.name,
+            name="some_table",
+            columns=[
+                {
+                    "name": "col1",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "col2",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "col3",
+                    "type": "text",
+                    "nullable": False,
+                },
+            ])
+        fk_t = snowflake.Table("fk_t",
+            database=d.name,
+            schema=s.name,
+            name="fk_table",
+            columns=[
+                {
+                    "name": "fk_col1",
+                    "type": "text",
+                    "nullable": False,
+                },
+                {
+                    "name": "fk_col2",
+                    "type": "text",
+                    "nullable": False,
+                },
+            ])
+        primary_key = snowflake.TableConstraint("primary_key",
+            name="myconstraint",
+            type="PRIMARY KEY",
+            table_id=t.fully_qualified_name,
+            columns=["col1"],
+            comment="hello world")
+        foreign_key = snowflake.TableConstraint("foreign_key",
+            name="myconstraintfk",
+            type="FOREIGN KEY",
+            table_id=t.fully_qualified_name,
+            columns=["col2"],
+            foreign_key_properties={
+                "references": {
+                    "table_id": fk_t.fully_qualified_name,
+                    "columns": ["fk_col1"],
+                },
+            },
+            enforced=False,
+            deferrable=False,
+            initially="IMMEDIATE",
+            comment="hello fk")
+        unique = snowflake.TableConstraint("unique",
+            name="unique",
+            type="UNIQUE",
+            table_id=t.fully_qualified_name,
+            columns=["col3"],
+            comment="hello unique")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
+        terraform import snowflake_table_constraint.example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
         ```
 
         :param str resource_name: The name of the resource.

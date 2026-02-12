@@ -12,33 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
+// !> **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 //
-// ### Import examples
+// > **Note** Manage grants on `HYBRID TABLE` by specifying `TABLE` or `TABLES` in `objectType` field. This applies to a single object, all objects, or future objects. This reflects the current behavior in Snowflake.
 //
-// #### Grant all privileges OnAccountObject (Database)
+// > **Note** When granting privileges on applications (for example, the default "SNOWFLAKE" application) use `on_account_object.object_type = "DATABASE"` instead.
 //
-// ```sh
-// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
-// ```
+// > **Note** When using `IMPORTED PRIVILEGES` privilege, the `withGrantOption` field is not supported. Additionally, when the `IMPORTED PRIVILEGES` privilege is not set in the config, and it is granted externally, this change is not detected because of Snowflake limitations. Also, granting individual privileges on imported database is not allowed, this is a Snowflake limitation. Use `IMPORTED PRIVILEGES` instead.
 //
-// #### Grant list of privileges OnAllSchemasInDatabase
-//
-// ```sh
-// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
-// ```
-//
-// #### Grant list of privileges on table
-//
-// ```sh
-// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
-// ```
-//
-// #### Grant list of privileges OnAll tables in schema
-//
-// ```sh
-// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
-// ```
+// > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
 type GrantPrivilegesToAccountRole struct {
 	pulumi.CustomResourceState
 
@@ -46,7 +28,8 @@ type GrantPrivilegesToAccountRole struct {
 	AccountRoleName pulumi.StringOutput `pulumi:"accountRoleName"`
 	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges pulumi.BoolPtrOutput `pulumi:"allPrivileges"`
-	AlwaysApply   pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
+	// (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+	AlwaysApply pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
 	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrOutput `pulumi:"alwaysApplyTrigger"`
 	// (Default: `false`) If true, the privileges will be granted on the account.
@@ -100,7 +83,8 @@ type grantPrivilegesToAccountRoleState struct {
 	AccountRoleName *string `pulumi:"accountRoleName"`
 	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
-	AlwaysApply   *bool `pulumi:"alwaysApply"`
+	// (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+	AlwaysApply *bool `pulumi:"alwaysApply"`
 	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
 	// (Default: `false`) If true, the privileges will be granted on the account.
@@ -122,7 +106,8 @@ type GrantPrivilegesToAccountRoleState struct {
 	AccountRoleName pulumi.StringPtrInput
 	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges pulumi.BoolPtrInput
-	AlwaysApply   pulumi.BoolPtrInput
+	// (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+	AlwaysApply pulumi.BoolPtrInput
 	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
 	// (Default: `false`) If true, the privileges will be granted on the account.
@@ -148,7 +133,8 @@ type grantPrivilegesToAccountRoleArgs struct {
 	AccountRoleName string `pulumi:"accountRoleName"`
 	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
-	AlwaysApply   *bool `pulumi:"alwaysApply"`
+	// (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+	AlwaysApply *bool `pulumi:"alwaysApply"`
 	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
 	// (Default: `false`) If true, the privileges will be granted on the account.
@@ -171,7 +157,8 @@ type GrantPrivilegesToAccountRoleArgs struct {
 	AccountRoleName pulumi.StringInput
 	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges pulumi.BoolPtrInput
-	AlwaysApply   pulumi.BoolPtrInput
+	// (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+	AlwaysApply pulumi.BoolPtrInput
 	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
 	// (Default: `false`) If true, the privileges will be granted on the account.
@@ -285,6 +272,7 @@ func (o GrantPrivilegesToAccountRoleOutput) AllPrivileges() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.BoolPtrOutput { return v.AllPrivileges }).(pulumi.BoolPtrOutput)
 }
 
+// (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
 func (o GrantPrivilegesToAccountRoleOutput) AlwaysApply() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }

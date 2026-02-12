@@ -90,7 +90,11 @@ def get_security_integrations(like: Optional[_builtins.str] = None,
                               with_describe: Optional[_builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityIntegrationsResult:
     """
-    ## Example Usage
+    !> **Sensitive values** This datasource's `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+    > **Missing fields** The `saml2_snowflake_x509_cert` and `saml2_x509_cert` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+
+    Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
@@ -111,7 +115,11 @@ def get_security_integrations_output(like: Optional[pulumi.Input[Optional[_built
                                      with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityIntegrationsResult]:
     """
-    ## Example Usage
+    !> **Sensitive values** This datasource's `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+    > **Missing fields** The `saml2_snowflake_x509_cert` and `saml2_x509_cert` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+
+    Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).

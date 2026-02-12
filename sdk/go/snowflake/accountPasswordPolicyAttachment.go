@@ -12,6 +12,49 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
+//
+// Specifies the password policy to use for the current account. To set the password policy of a different account, use a provider alias.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := snowflake.NewPasswordPolicy(ctx, "default", &snowflake.PasswordPolicyArgs{
+//				Database: pulumi.String("prod"),
+//				Schema:   pulumi.String("security"),
+//				Name:     pulumi.String("default_policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewAccountPasswordPolicyAttachment(ctx, "attachment", &snowflake.AccountPasswordPolicyAttachmentArgs{
+//				PasswordPolicy: _default.FullyQualifiedName,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 type AccountPasswordPolicyAttachment struct {
 	pulumi.CustomResourceState
 

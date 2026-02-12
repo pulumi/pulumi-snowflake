@@ -18,6 +18,24 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Warning** Versioning only works if your listing ever sourced the manifest from stage. This is a Snowflake limitation.
+ * 
+ * !&gt; **Warning** External changes to the manifest (inlined and staged) won&#39;t be detected by the provider automatically. You need to manually trigger updates when manifest content changes.
+ * 
+ * !&gt; **Warning** This resource isn&#39;t suitable for public listings because its review process doesn&#39;t align with Terraform&#39;s standard method for managing infrastructure resources. The challenge is that the review process often takes time and might need several manual revisions. We need to reconsider how to integrate this process into a resource. Although we plan to support this in the future, it might be added later. Currently, the resource may not function well with public listings because review requests are closely connected to the publish field.
+ * 
+ * !&gt; **Warning** To use external resources in your manifest (e.g., company logo) you must be sourcing your manifest from a stage. Any references to external resources are relative to the manifest location in the stage.
+ * 
+ * !&gt; **Warning** Currently, this resource doesn&#39;t support [organization listings](https://docs.snowflake.com/en/user-guide/collaboration/listings/organizational/org-listing-about). We plan to add support for this in the future (through separate parameter or entirely new resource). There is a workaround for this provided in this issue: #3982, but beware that in the next major version of the provider such workarounds may not be allowed.
+ * 
+ * &gt; **Note** When using manifest from stage, the change in either stage id, location, or version will create a new listing version that can be seen by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command.
+ * 
+ * &gt; **Note** For inlined manifest version, only string is accepted. The manifest structure is not mapped to the resource schema to keep it simple and aligned with other resources that accept similar metadata (e.g., service templates). While it&#39;s more recommended to keep your manifest in a stage, the inlined version may be useful for initial setup and testing.
+ * 
+ * &gt; **Note** For manifest reference visit [Snowflake&#39;s listing manifest reference documentation](https://docs.snowflake.com/en/progaccess/listing-manifest-reference).
+ * 
+ * Resource used to manage listing objects. For more information, check [listing documentation](https://other-docs.snowflake.com/en/collaboration/collaboration-listings-about).
+ * 
  * ## Import
  * 
  * ```sh
@@ -69,9 +87,17 @@ public class Listing extends com.pulumi.resources.CustomResource {
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
+    /**
+     * Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="manifest", refs={ListingManifest.class}, tree="[0]")
     private Output<ListingManifest> manifest;
 
+    /**
+     * @return Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<ListingManifest> manifest() {
         return this.manifest;
     }

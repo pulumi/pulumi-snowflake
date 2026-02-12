@@ -15,9 +15,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
  * ## Import
  * 
- * format is application_role_name (string) | object_type (ACCOUNT_ROLE|APPLICATION) | grantee_name (string)
+ * format is applicationRoleName (string) | objectType (ACCOUNT_ROLE|APPLICATION) | granteeName (string)
  * 
  * ```sh
  * $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole example &#39;&#34;my_application&#34;.&#34;app_role_1&#34;|ACCOUNT_ROLE|&#34;my_role&#34;&#39;

@@ -10,6 +10,79 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// &gt; **Note**: Default timeout is set to 60 minutes for Terraform Create and Update operations.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //# Basic
+    ///     var test = new Snowflake.Database("test", new()
+    ///     {
+    ///         Name = "some_database",
+    ///     });
+    /// 
+    ///     var testSchema = new Snowflake.Schema("test", new()
+    ///     {
+    ///         Database = test.Name,
+    ///         Name = "some_schema",
+    ///     });
+    /// 
+    ///     var testTable = new Snowflake.Table("test", new()
+    ///     {
+    ///         Database = test.Name,
+    ///         Schema = testSchema.Name,
+    ///         Name = "some_table",
+    ///         ChangeTracking = true,
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "ID",
+    ///                 Type = "NUMBER(38,0)",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "SOME_TEXT",
+    ///                 Type = "VARCHAR",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testCortexSearchService = new Snowflake.CortexSearchService("test", new()
+    ///     {
+    ///         Database = test.Name,
+    ///         Schema = testSchema.Name,
+    ///         Name = "some_name",
+    ///         On = "SOME_TEXT",
+    ///         TargetLag = "2 minutes",
+    ///         Warehouse = "some_warehouse",
+    ///         Query = "SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\"",
+    ///         Comment = "some comment",
+    ///         EmbeddingModel = "snowflake-arctic-embed-m-v1.5",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testTable,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

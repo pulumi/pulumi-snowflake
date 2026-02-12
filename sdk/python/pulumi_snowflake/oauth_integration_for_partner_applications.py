@@ -402,6 +402,15 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
                  oauth_use_secondary_roles: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Sensitive values** This resource's `oauth_redirect_uri` and `describe_output.oauth_redirect_uri` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+
+        > **Missing fields** The `oauth_client_id` and `oauth_redirect_uri` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+        This may have impact on detecting external changes for the `oauth_redirect_uri` field.
+
+        Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+
         ## Import
 
         ```sh
@@ -427,6 +436,15 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
                  args: OauthIntegrationForPartnerApplicationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Sensitive values** This resource's `oauth_redirect_uri` and `describe_output.oauth_redirect_uri` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+
+        > **Missing fields** The `oauth_client_id` and `oauth_redirect_uri` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+        This may have impact on detecting external changes for the `oauth_redirect_uri` field.
+
+        Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+
         ## Import
 
         ```sh

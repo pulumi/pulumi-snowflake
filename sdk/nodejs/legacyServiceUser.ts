@@ -7,6 +7,119 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Caution** Use `networkPolicy` attribute instead of the `snowflake.NetworkPolicyAttachment` resource. `snowflake.NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+ *
+ * !> **Sensitive values** This resource's `displayName`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ *
+ * > **Note** `snowflake.UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+ *
+ * > **Note** Attaching user policies will be handled in the following versions of the provider which may still affect this resource.
+ *
+ * > **Note** Other two user types are handled in separate resources: `snowflake.ServiceUser` for user type `service` and `snowflake.User` for user type `person`.
+ *
+ * > **Note** External changes to `daysToExpiry` and `minsToUnlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
+ *
+ * Resource used to manage legacy service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * // minimal
+ * const minimal = new snowflake.LegacyServiceUser("minimal", {name: "Snowflake Legacy Service User - minimal"});
+ * const config = new pulumi.Config();
+ * const email = config.require("email");
+ * const loginName = config.require("loginName");
+ * const password = config.require("password");
+ * // with all attributes set
+ * const user = new snowflake.LegacyServiceUser("user", {
+ *     name: "Snowflake Legacy Service User",
+ *     loginName: loginName,
+ *     comment: "A legacy service user of snowflake.",
+ *     password: password,
+ *     disabled: "false",
+ *     displayName: "Snowflake Legacy Service User display name",
+ *     email: email,
+ *     defaultWarehouse: "warehouse",
+ *     defaultSecondaryRolesOption: "ALL",
+ *     defaultRole: "role1",
+ *     defaultNamespace: "some.namespace",
+ *     minsToUnlock: 9,
+ *     daysToExpiry: 8,
+ *     rsaPublicKey: "...",
+ *     rsaPublicKey2: "...",
+ *     mustChangePassword: "true",
+ * });
+ * // all parameters set on the resource level
+ * const u = new snowflake.LegacyServiceUser("u", {
+ *     name: "Snowflake Legacy Service User with all parameters",
+ *     abortDetachedQuery: true,
+ *     autocommit: false,
+ *     binaryInputFormat: "UTF8",
+ *     binaryOutputFormat: "BASE64",
+ *     clientMemoryLimit: 1024,
+ *     clientMetadataRequestUseConnectionCtx: true,
+ *     clientPrefetchThreads: 2,
+ *     clientResultChunkSize: 48,
+ *     clientResultColumnCaseInsensitive: true,
+ *     clientSessionKeepAlive: true,
+ *     clientSessionKeepAliveHeartbeatFrequency: 2400,
+ *     clientTimestampTypeMapping: "TIMESTAMP_NTZ",
+ *     dateInputFormat: "YYYY-MM-DD",
+ *     dateOutputFormat: "YY-MM-DD",
+ *     enableUnloadPhysicalTypeOptimization: false,
+ *     enableUnredactedQuerySyntaxError: true,
+ *     errorOnNondeterministicMerge: false,
+ *     errorOnNondeterministicUpdate: true,
+ *     geographyOutputFormat: "WKB",
+ *     geometryOutputFormat: "WKB",
+ *     jdbcTreatDecimalAsInt: false,
+ *     jdbcTreatTimestampNtzAsUtc: true,
+ *     jdbcUseSessionTimezone: false,
+ *     jsonIndent: 4,
+ *     lockTimeout: 21222,
+ *     logLevel: "ERROR",
+ *     multiStatementCount: 0,
+ *     networkPolicy: "BVYDGRAT_0D5E3DD1_F644_03DE_318A_1179886518A7",
+ *     noorderSequenceAsDefault: false,
+ *     odbcTreatDecimalAsInt: true,
+ *     preventUnloadToInternalStages: true,
+ *     queryTag: "some_tag",
+ *     quotedIdentifiersIgnoreCase: true,
+ *     rowsPerResultset: 2,
+ *     searchPath: "$public, $current",
+ *     simulatedDataSharingConsumer: "some_consumer",
+ *     statementQueuedTimeoutInSeconds: 10,
+ *     statementTimeoutInSeconds: 10,
+ *     strictJsonOutput: true,
+ *     s3StageVpceDnsName: "vpce-id.s3.region.vpce.amazonaws.com",
+ *     timeInputFormat: "HH24:MI",
+ *     timeOutputFormat: "HH24:MI",
+ *     timestampDayIsAlways24h: true,
+ *     timestampInputFormat: "YYYY-MM-DD",
+ *     timestampLtzOutputFormat: "YYYY-MM-DD HH24:MI:SS",
+ *     timestampNtzOutputFormat: "YYYY-MM-DD HH24:MI:SS",
+ *     timestampOutputFormat: "YYYY-MM-DD HH24:MI:SS",
+ *     timestampTypeMapping: "TIMESTAMP_LTZ",
+ *     timestampTzOutputFormat: "YYYY-MM-DD HH24:MI:SS",
+ *     timezone: "Europe/Warsaw",
+ *     traceLevel: "PROPAGATE",
+ *     transactionAbortOnError: true,
+ *     transactionDefaultIsolationLevel: "READ COMMITTED",
+ *     twoDigitCenturyStart: 1980,
+ *     unsupportedDdlAction: "FAIL",
+ *     useCachedResult: false,
+ *     weekOfYearPolicy: 1,
+ *     weekStart: 1,
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh
@@ -103,6 +216,9 @@ export class LegacyServiceUser extends pulumi.CustomResource {
      * Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
      */
     declare public readonly dateOutputFormat: pulumi.Output<string>;
+    /**
+     * Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly daysToExpiry: pulumi.Output<number | undefined>;
     /**
      * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
@@ -188,6 +304,9 @@ export class LegacyServiceUser extends pulumi.CustomResource {
      * The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
      */
     declare public readonly loginName: pulumi.Output<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly minsToUnlock: pulumi.Output<number | undefined>;
     /**
      * Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
@@ -217,6 +336,9 @@ export class LegacyServiceUser extends pulumi.CustomResource {
      * Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
      */
     declare public /*out*/ readonly parameters: pulumi.Output<outputs.LegacyServiceUserParameter[]>;
+    /**
+     * Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
@@ -590,6 +712,9 @@ export interface LegacyServiceUserState {
      * Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
      */
     dateOutputFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     daysToExpiry?: pulumi.Input<number>;
     /**
      * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
@@ -675,6 +800,9 @@ export interface LegacyServiceUserState {
      * The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
      */
     loginName?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     minsToUnlock?: pulumi.Input<number>;
     /**
      * Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
@@ -704,6 +832,9 @@ export interface LegacyServiceUserState {
      * Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameter>[]>;
+    /**
+     * Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     password?: pulumi.Input<string>;
     /**
      * Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
@@ -899,6 +1030,9 @@ export interface LegacyServiceUserArgs {
      * Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
      */
     dateOutputFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     daysToExpiry?: pulumi.Input<number>;
     /**
      * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
@@ -980,6 +1114,9 @@ export interface LegacyServiceUserArgs {
      * The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
      */
     loginName?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     minsToUnlock?: pulumi.Input<number>;
     /**
      * Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
@@ -1005,6 +1142,9 @@ export interface LegacyServiceUserArgs {
      * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      */
     odbcTreatDecimalAsInt?: pulumi.Input<boolean>;
+    /**
+     * Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     password?: pulumi.Input<string>;
     /**
      * Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).

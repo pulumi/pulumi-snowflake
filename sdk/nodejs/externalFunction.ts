@@ -7,12 +7,47 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * !> **Sensitive values** This resource's `contextHeaders` and `header` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ *
+ * ## Example Usage
+ *
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const testExtFunc = new snowflake.ExternalFunction("test_ext_func", {
+ *     name: "my_function",
+ *     database: "my_test_db",
+ *     schema: "my_test_schema",
+ *     args: [
+ *         {
+ *             name: "arg1",
+ *             type: "varchar",
+ *         },
+ *         {
+ *             name: "arg2",
+ *             type: "varchar",
+ *         },
+ *     ],
+ *     returnType: "variant",
+ *     returnBehavior: "IMMUTABLE",
+ *     apiIntegration: "api_integration_name",
+ *     urlOfProxyAndResource: "https://123456.execute-api.us-west-2.amazonaws.com/prod/test_func",
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
- * format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
- *
  * ```sh
- * $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
+ * # format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
+ * terraform import snowflake_external_function.example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
  * ```
  */
 export class ExternalFunction extends pulumi.CustomResource {

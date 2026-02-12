@@ -7,6 +7,10 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note about copy_grants** Fields like `stage`, and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copyGrants`. Beware that even though a change is marked as update, the resource is recreated.
+ *
+ * Resource used to manage streams on directory tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
+ *
  * ## Import
  *
  * ```sh
@@ -45,6 +49,9 @@ export class StreamOnDirectoryTable extends pulumi.CustomResource {
      * Specifies a comment for the stream.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     */
     declare public readonly copyGrants: pulumi.Output<boolean | undefined>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -74,6 +81,9 @@ export class StreamOnDirectoryTable extends pulumi.CustomResource {
      * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     declare public readonly stage: pulumi.Output<string>;
+    /**
+     * Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+     */
     declare public /*out*/ readonly stale: pulumi.Output<boolean>;
     /**
      * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
@@ -140,6 +150,9 @@ export interface StreamOnDirectoryTableState {
      * Specifies a comment for the stream.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     */
     copyGrants?: pulumi.Input<boolean>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -169,6 +182,9 @@ export interface StreamOnDirectoryTableState {
      * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     stage?: pulumi.Input<string>;
+    /**
+     * Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+     */
     stale?: pulumi.Input<boolean>;
     /**
      * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
@@ -184,6 +200,9 @@ export interface StreamOnDirectoryTableArgs {
      * Specifies a comment for the stream.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     */
     copyGrants?: pulumi.Input<boolean>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.

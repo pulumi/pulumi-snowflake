@@ -355,6 +355,51 @@ class FailoverGroup(pulumi.CustomResource):
                  replication_schedule: Optional[pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict']]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Updating `allowed_accounts`** Currently, updating the `allowed_accounts` field may fail due to an incorrect query being sent (see #3946). This will be fixed during the resource rework. As a workaround, use the `execute` resource to update the allowed accounts manually. After that, refresh the state with the updated `allowed_accounts` field in the resource configuration.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        db = snowflake.Database("db", name="db1")
+        source_failover_group = snowflake.FailoverGroup("source_failover_group",
+            name="FG1",
+            object_types=[
+                "WAREHOUSES",
+                "DATABASES",
+                "INTEGRATIONS",
+                "ROLES",
+            ],
+            allowed_accounts=[
+                "<org_name>.<target_account_name1>",
+                "<org_name>.<target_account_name2>",
+            ],
+            allowed_databases=[db.name],
+            allowed_integration_types=["SECURITY INTEGRATIONS"],
+            replication_schedule={
+                "cron": {
+                    "expression": "0 0 10-20 * TUE,THU",
+                    "time_zone": "UTC",
+                },
+            })
+        target_failover_group = snowflake.FailoverGroup("target_failover_group",
+            name="FG1",
+            from_replica={
+                "organization_name": "...",
+                "source_account_name": "...",
+                "name": source_failover_group.name,
+            })
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -380,6 +425,51 @@ class FailoverGroup(pulumi.CustomResource):
                  args: Optional[FailoverGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Updating `allowed_accounts`** Currently, updating the `allowed_accounts` field may fail due to an incorrect query being sent (see #3946). This will be fixed during the resource rework. As a workaround, use the `execute` resource to update the allowed accounts manually. After that, refresh the state with the updated `allowed_accounts` field in the resource configuration.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        db = snowflake.Database("db", name="db1")
+        source_failover_group = snowflake.FailoverGroup("source_failover_group",
+            name="FG1",
+            object_types=[
+                "WAREHOUSES",
+                "DATABASES",
+                "INTEGRATIONS",
+                "ROLES",
+            ],
+            allowed_accounts=[
+                "<org_name>.<target_account_name1>",
+                "<org_name>.<target_account_name2>",
+            ],
+            allowed_databases=[db.name],
+            allowed_integration_types=["SECURITY INTEGRATIONS"],
+            replication_schedule={
+                "cron": {
+                    "expression": "0 0 10-20 * TUE,THU",
+                    "time_zone": "UTC",
+                },
+            })
+        target_failover_group = snowflake.FailoverGroup("target_failover_group",
+            name="FG1",
+            from_replica={
+                "organization_name": "...",
+                "source_account_name": "...",
+                "name": source_failover_group.name,
+            })
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

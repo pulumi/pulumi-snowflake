@@ -23,14 +23,144 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * !&gt; **Sensitive values** This resource&#39;s `functionDefinition` and `show_output.arguments_raw` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * 
+ * &gt; **Note** External changes to `isSecure`, `returnResultsBehavior`, and `nullInputBehavior` are not currently supported. They will be handled in the following versions of the provider which may still affect this resource.
+ * 
+ * &gt; **Note** `COPY GRANTS` and `OR REPLACE` are not currently supported.
+ * 
+ * &gt; **Note** `RETURN... [[ NOT ] NULL]` is not currently supported. It will be improved in the following versions of the provider which may still affect this resource.
+ * 
+ * &gt; **Note** Snowflake is not returning full data type information for arguments which may lead to unexpected plan outputs. Diff suppression for such cases will be improved.
+ * 
+ * &gt; **Note** Snowflake is not returning the default values for arguments so argument&#39;s `argDefaultValue` external changes cannot be tracked.
+ * 
+ * &gt; **Note** Limit the use of special characters (`.`, `&#39;`, `/`, `&#34;`, `(`, `)`, `[`, `]`, `{`, `}`, ` `) in argument names, stage ids, and secret ids. It&#39;s best to limit to only alphanumeric and underscores. There is a lot of parsing of SHOW/DESCRIBE outputs involved and using special characters may limit the possibility to achieve the correct results.
+ * 
+ * &gt; **Required warehouse** This resource may require active warehouse. Please, make sure you have either set a DEFAULT_WAREHOUSE for the user, or specified a warehouse in the provider configuration.
+ * 
+ * Resource used to manage scala function objects. For more information, check [function documentation](https://docs.snowflake.com/en/sql-reference/sql/create-function).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.FunctionScala;
+ * import com.pulumi.snowflake.FunctionScalaArgs;
+ * import com.pulumi.snowflake.inputs.FunctionScalaArgumentArgs;
+ * import com.pulumi.snowflake.inputs.FunctionScalaImportArgs;
+ * import com.pulumi.snowflake.inputs.FunctionScalaSecretArgs;
+ * import com.pulumi.snowflake.inputs.FunctionScalaTargetPathArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Minimal
+ *         var minimal = new FunctionScala("minimal", FunctionScalaArgs.builder()
+ *             .database(test.name())
+ *             .schema(testSnowflakeSchema.name())
+ *             .name("my_scala_function")
+ *             .arguments(FunctionScalaArgumentArgs.builder()
+ *                 .argDataType("VARCHAR(100)")
+ *                 .argName("x")
+ *                 .build())
+ *             .returnType("VARCHAR(100)")
+ *             .runtimeVersion("2.12")
+ *             .handler("TestFunc.echoVarchar")
+ *             .functionDefinition("""
+ *   class TestFunc {
+ *     def echoVarchar(x : String): String = {
+ *       return x
+ *     }
+ *   }
+ *             """)
+ *             .build());
+ * 
+ *         // Complete
+ *         var complete = new FunctionScala("complete", FunctionScalaArgs.builder()
+ *             .database(test.name())
+ *             .schema(testSnowflakeSchema.name())
+ *             .name("my_scala_function")
+ *             .isSecure("false")
+ *             .arguments(FunctionScalaArgumentArgs.builder()
+ *                 .argDataType("VARCHAR(100)")
+ *                 .argName("x")
+ *                 .build())
+ *             .comment("some comment")
+ *             .externalAccessIntegrations(            
+ *                 "external_access_integration_name",
+ *                 "external_access_integration_name_2")
+ *             .functionDefinition("""
+ *   class TestFunc {
+ *     def echoVarchar(x : String): String = {
+ *       return x
+ *     }
+ *   }
+ *             """)
+ *             .handler("TestFunc.echoVarchar")
+ *             .nullInputBehavior("CALLED ON NULL INPUT")
+ *             .returnResultsBehavior("VOLATILE")
+ *             .returnType("VARCHAR(100)")
+ *             .imports(            
+ *                 FunctionScalaImportArgs.builder()
+ *                     .pathOnStage("jar_name.jar")
+ *                     .stageLocation("~")
+ *                     .build(),
+ *                 FunctionScalaImportArgs.builder()
+ *                     .pathOnStage("second_jar_name.jar")
+ *                     .stageLocation("~")
+ *                     .build())
+ *             .packages(            
+ *                 "com.snowflake:snowpark:1.14.0",
+ *                 "com.snowflake:telemetry:0.1.0")
+ *             .runtimeVersion("2.12")
+ *             .secrets(            
+ *                 FunctionScalaSecretArgs.builder()
+ *                     .secretId(one.fullyQualifiedName())
+ *                     .secretVariableName("abc")
+ *                     .build(),
+ *                 FunctionScalaSecretArgs.builder()
+ *                     .secretId(two.fullyQualifiedName())
+ *                     .secretVariableName("def")
+ *                     .build())
+ *             .targetPath(FunctionScalaTargetPathArgs.builder()
+ *                 .pathOnStage("target_jar_name.jar")
+ *                 .stageLocation(testSnowflakeStage.fullyQualifiedName())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/functionScala:FunctionScala example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;function_name&gt;&#34;(varchar, varchar, varchar)&#39;
+ * terraform import snowflake_function_scala.example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;function_name&gt;&#34;(varchar, varchar, varchar)&#39;
  * ```
  * 
  * Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
- * 
  * Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won&#39;t be empty after importing and manual state operations may be required.
  * 
  */
@@ -176,9 +306,17 @@ public class FunctionScala extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<FunctionScalaImport>>> imports() {
         return Codegen.optional(this.imports);
     }
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake&#39;s `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     @Export(name="isSecure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> isSecure;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake&#39;s `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
     public Output<Optional<String>> isSecure() {
         return Codegen.optional(this.isSecure);
     }

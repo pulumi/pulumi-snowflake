@@ -162,9 +162,17 @@ public final class ApiAuthenticationIntegrationWithJwtBearerState extends com.pu
         return Optional.ofNullable(this.oauthClientId);
     }
 
+    /**
+     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="oauthClientSecret")
     private @Nullable Output<String> oauthClientSecret;
 
+    /**
+     * @return Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<String>> oauthClientSecret() {
         return Optional.ofNullable(this.oauthClientSecret);
     }
@@ -459,11 +467,23 @@ public final class ApiAuthenticationIntegrationWithJwtBearerState extends com.pu
             return oauthClientId(Output.of(oauthClientId));
         }
 
+        /**
+         * @param oauthClientSecret Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthClientSecret(@Nullable Output<String> oauthClientSecret) {
             $.oauthClientSecret = oauthClientSecret;
             return this;
         }
 
+        /**
+         * @param oauthClientSecret Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthClientSecret(String oauthClientSecret) {
             return oauthClientSecret(Output.of(oauthClientSecret));
         }

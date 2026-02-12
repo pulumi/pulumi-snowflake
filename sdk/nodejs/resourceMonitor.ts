@@ -7,6 +7,58 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note** For more details about resource monitor usage, please visit [this guide on Snowflake documentation page](https://docs.snowflake.com/en/user-guide/resource-monitors).
+ *
+ * > **Note** Currently assigning a resource monitor to account is not supported. This will be available in a new resource for managing account dependencies. For now, please use execute instead.
+ *
+ * **! Warning !** Due to Snowflake limitations, the following actions are not supported:
+ * - Cannot create resource monitors with only triggers set, any other attribute has to be set.
+ * - Once a resource monitor has at least one trigger assigned, it cannot fully unset them (has to have at least one trigger, doesn't matter of which type). That's why when you unset all the triggers on a resource monitor, it will be automatically recreated.
+ *
+ * Resource used to manage resource monitor objects. For more information, check [resource monitor documentation](https://docs.snowflake.com/en/user-guide/resource-monitors).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * // Note: Without credit quota and triggers specified in the configuration, the resource monitor is not performing any work.
+ * // More on resource monitor usage: https://docs.snowflake.com/en/user-guide/resource-monitors.
+ * const minimal = new snowflake.ResourceMonitor("minimal", {name: "resource-monitor-name"});
+ * // Note: Resource monitors have to be attached to account or warehouse to be able to track credit usage.
+ * const minimalWorking = new snowflake.ResourceMonitor("minimal_working", {
+ *     name: "resource-monitor-name",
+ *     creditQuota: 100,
+ *     suspendTrigger: 100,
+ *     notifyUsers: [
+ *         one.fullyQualifiedName,
+ *         two.fullyQualifiedName,
+ *     ],
+ * });
+ * const complete = new snowflake.ResourceMonitor("complete", {
+ *     name: "resource-monitor-name",
+ *     creditQuota: 100,
+ *     frequency: "DAILY",
+ *     startTimestamp: "2030-12-07 00:00",
+ *     endTimestamp: "2035-12-07 00:00",
+ *     notifyTriggers: [
+ *         40,
+ *         50,
+ *     ],
+ *     suspendTrigger: 50,
+ *     suspendImmediateTrigger: 90,
+ *     notifyUsers: [
+ *         one.fullyQualifiedName,
+ *         two.fullyQualifiedName,
+ *     ],
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh
@@ -73,6 +125,9 @@ export class ResourceMonitor extends pulumi.CustomResource {
      * Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.ResourceMonitorShowOutput[]>;
+    /**
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+     */
     declare public readonly startTimestamp: pulumi.Output<string | undefined>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
@@ -162,6 +217,9 @@ export interface ResourceMonitorState {
      * Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.ResourceMonitorShowOutput>[]>;
+    /**
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+     */
     startTimestamp?: pulumi.Input<string>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
@@ -201,6 +259,9 @@ export interface ResourceMonitorArgs {
      * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      */
     notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+     */
     startTimestamp?: pulumi.Input<string>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.

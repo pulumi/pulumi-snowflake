@@ -32,9 +32,17 @@ public final class UserProgrammaticAccessTokenArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="daysToExpiry")
     private @Nullable Output<Integer> daysToExpiry;
 
+    /**
+     * @return The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<Integer>> daysToExpiry() {
         return Optional.ofNullable(this.daysToExpiry);
     }
@@ -84,9 +92,17 @@ public final class UserProgrammaticAccessTokenArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.keeper);
     }
 
+    /**
+     * The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="minsToBypassNetworkPolicyRequirement")
     private @Nullable Output<Integer> minsToBypassNetworkPolicyRequirement;
 
+    /**
+     * @return The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<Integer>> minsToBypassNetworkPolicyRequirement() {
         return Optional.ofNullable(this.minsToBypassNetworkPolicyRequirement);
     }
@@ -189,11 +205,23 @@ public final class UserProgrammaticAccessTokenArgs extends com.pulumi.resources.
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param daysToExpiry The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder daysToExpiry(@Nullable Output<Integer> daysToExpiry) {
             $.daysToExpiry = daysToExpiry;
             return this;
         }
 
+        /**
+         * @param daysToExpiry The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder daysToExpiry(Integer daysToExpiry) {
             return daysToExpiry(Output.of(daysToExpiry));
         }
@@ -261,11 +289,23 @@ public final class UserProgrammaticAccessTokenArgs extends com.pulumi.resources.
             return keeper(Output.of(keeper));
         }
 
+        /**
+         * @param minsToBypassNetworkPolicyRequirement The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minsToBypassNetworkPolicyRequirement(@Nullable Output<Integer> minsToBypassNetworkPolicyRequirement) {
             $.minsToBypassNetworkPolicyRequirement = minsToBypassNetworkPolicyRequirement;
             return this;
         }
 
+        /**
+         * @param minsToBypassNetworkPolicyRequirement The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minsToBypassNetworkPolicyRequirement(Integer minsToBypassNetworkPolicyRequirement) {
             return minsToBypassNetworkPolicyRequirement(Output.of(minsToBypassNetworkPolicyRequirement));
         }

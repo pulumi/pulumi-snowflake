@@ -19,33 +19,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Import
+ * !&gt; **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
  * 
- * ### Import examples
+ * &gt; **Note** Manage grants on `HYBRID TABLE` by specifying `TABLE` or `TABLES` in `objectType` field. This applies to a single object, all objects, or future objects. This reflects the current behavior in Snowflake.
  * 
- * #### Grant all privileges OnDatabase
- * 
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|ALL|OnDatabase|&#34;test_db&#34;&#39;`
- * ```
- * 
- * #### Grant list of privileges OnAllSchemasInDatabase
- * 
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|&#34;test_db&#34;&#39;`
- * ```
- * 
- * #### Grant list of privileges on table
- * 
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|&#34;test_db&#34;.&#34;test_schema&#34;.&#34;test_table&#34;&#39;`
- * ```
- * 
- * #### Grant list of privileges OnAll tables in schema
- * 
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|&#34;test_db&#34;.&#34;test_schema&#34;&#39;`
- * ```
+ * &gt; **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
  * 
  */
 @ResourceType(type="snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole")
@@ -64,9 +42,17 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
     public Output<Optional<Boolean>> allPrivileges() {
         return Codegen.optional(this.allPrivileges);
     }
+    /**
+     * (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+     * 
+     */
     @Export(name="alwaysApply", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> alwaysApply;
 
+    /**
+     * @return (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+     * 
+     */
     public Output<Optional<Boolean>> alwaysApply() {
         return Codegen.optional(this.alwaysApply);
     }

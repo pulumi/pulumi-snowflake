@@ -492,6 +492,60 @@ class AuthenticationPolicy(pulumi.CustomResource):
                  workload_identity_policy: Optional[pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-authentication-policy#usage-notes), an authentication policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+
+        > **Note** External changes are not detected for the following fields: `mfa_policy`, `pat_policy`, `workload_identity_policy`. Also, they cannot be imported and should be manually set to the correct values during the import operation.
+
+        Resource used to manage authentication policy objects. For more information, check [authentication policy documentation](https://docs.snowflake.com/en/sql-reference/sql/create-authentication-policy).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Minimal
+        basic = snowflake.AuthenticationPolicy("basic",
+            database="database_name",
+            schema="schema_name",
+            name="network_policy_name")
+        ## Complete (with every optional set)
+        complete = snowflake.AuthenticationPolicy("complete",
+            database="database_name",
+            schema="schema_name",
+            name="network_policy_name",
+            authentication_methods=["ALL"],
+            mfa_enrollment="OPTIONAL",
+            client_types=["ALL"],
+            security_integrations=["ALL"],
+            mfa_policy={
+                "allowed_methods": [
+                    "PASSKEY",
+                    "DUO",
+                ],
+                "enforce_mfa_on_external_authentication": "ALL",
+            },
+            pat_policy={
+                "default_expiry_in_days": 1,
+                "max_expiry_in_days": 30,
+                "network_policy_evaluation": "NOT_ENFORCED",
+            },
+            workload_identity_policy={
+                "allowed_providers": ["ALL"],
+                "allowed_aws_accounts": ["111122223333"],
+                "allowed_azure_issuers": ["https://login.microsoftonline.com/tenantid/v2.0"],
+                "allowed_oidc_issuers": ["https://example.com"],
+            },
+            comment="My authentication policy.")
+        ```
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -522,6 +576,60 @@ class AuthenticationPolicy(pulumi.CustomResource):
                  args: AuthenticationPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-authentication-policy#usage-notes), an authentication policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+
+        > **Note** External changes are not detected for the following fields: `mfa_policy`, `pat_policy`, `workload_identity_policy`. Also, they cannot be imported and should be manually set to the correct values during the import operation.
+
+        Resource used to manage authentication policy objects. For more information, check [authentication policy documentation](https://docs.snowflake.com/en/sql-reference/sql/create-authentication-policy).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Minimal
+        basic = snowflake.AuthenticationPolicy("basic",
+            database="database_name",
+            schema="schema_name",
+            name="network_policy_name")
+        ## Complete (with every optional set)
+        complete = snowflake.AuthenticationPolicy("complete",
+            database="database_name",
+            schema="schema_name",
+            name="network_policy_name",
+            authentication_methods=["ALL"],
+            mfa_enrollment="OPTIONAL",
+            client_types=["ALL"],
+            security_integrations=["ALL"],
+            mfa_policy={
+                "allowed_methods": [
+                    "PASSKEY",
+                    "DUO",
+                ],
+                "enforce_mfa_on_external_authentication": "ALL",
+            },
+            pat_policy={
+                "default_expiry_in_days": 1,
+                "max_expiry_in_days": 30,
+                "network_policy_evaluation": "NOT_ENFORCED",
+            },
+            workload_identity_policy={
+                "allowed_providers": ["ALL"],
+                "allowed_aws_accounts": ["111122223333"],
+                "allowed_azure_issuers": ["https://login.microsoftonline.com/tenantid/v2.0"],
+                "allowed_oidc_issuers": ["https://example.com"],
+            },
+            comment="My authentication policy.")
+        ```
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         The `pulumi import` command can be used, for example:

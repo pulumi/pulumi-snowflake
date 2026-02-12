@@ -13,6 +13,81 @@ import com.pulumi.snowflake.inputs.TableColumnMaskingPolicyApplicationState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * Applies a masking policy to a table column.
+ * 
+ * Only one masking policy may be applied per table column, hence only one `snowflake.TableColumnMaskingPolicyApplication` resources may be present per table column.
+ * Using two or more `snowflake.TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
+ * 
+ * When using this resource to manage a table column&#39;s masking policy make sure to ignore changes to the column&#39;s masking policy in the table definition, otherwise the two resources would conflict. See example below.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.MaskingPolicy;
+ * import com.pulumi.snowflake.MaskingPolicyArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import com.pulumi.snowflake.TableColumnMaskingPolicyApplication;
+ * import com.pulumi.snowflake.TableColumnMaskingPolicyApplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var policy = new MaskingPolicy("policy", MaskingPolicyArgs.builder()
+ *             .name("EXAMPLE_MASKING_POLICY")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .valueDataType("VARCHAR")
+ *             .maskingExpression("case when current_role() in ('ANALYST') then val else sha2(val, 512) end")
+ *             .returnDataType("VARCHAR")
+ *             .build());
+ * 
+ *         // Table is created by the default provider
+ *         var table = new Table("table", TableArgs.builder()
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .name("table")
+ *             .columns(TableColumnArgs.builder()
+ *                 .name("secret")
+ *                 .type("VARCHAR(16777216)")
+ *                 .build())
+ *             .build());
+ * 
+ *         var application = new TableColumnMaskingPolicyApplication("application", TableColumnMaskingPolicyApplicationArgs.builder()
+ *             .table(table.fullyQualifiedName())
+ *             .column("secret")
+ *             .maskingPolicy(policy.fullyQualifiedName())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
+ */
 @ResourceType(type="snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication")
 public class TableColumnMaskingPolicyApplication extends com.pulumi.resources.CustomResource {
     /**

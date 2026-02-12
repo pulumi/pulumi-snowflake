@@ -18,6 +18,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource used to manage secret objects with OAuth Authorization Code Grant. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+ * 
  * ## Import
  * 
  * ```sh
@@ -111,9 +113,17 @@ public class SecretWithAuthorizationCodeGrant extends com.pulumi.resources.Custo
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="oauthRefreshToken", refs={String.class}, tree="[0]")
     private Output<String> oauthRefreshToken;
 
+    /**
+     * @return Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<String> oauthRefreshToken() {
         return this.oauthRefreshToken;
     }

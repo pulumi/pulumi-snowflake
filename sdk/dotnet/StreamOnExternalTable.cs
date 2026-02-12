@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Note about copy_grants** Fields like `ExternalTable`, `InsertOnly`, `At`, `Before` and `Stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `CopyGrants`. Beware that even though a change is marked as update, the resource is recreated.
+    /// 
+    /// Resource used to manage streams on external tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -19,9 +23,15 @@ namespace Pulumi.Snowflake
     [SnowflakeResourceType("snowflake:index/streamOnExternalTable:StreamOnExternalTable")]
     public partial class StreamOnExternalTable : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("at")]
         public Output<Outputs.StreamOnExternalTableAt?> At { get; private set; } = null!;
 
+        /// <summary>
+        /// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("before")]
         public Output<Outputs.StreamOnExternalTableBefore?> Before { get; private set; } = null!;
 
@@ -31,6 +41,9 @@ namespace Pulumi.Snowflake
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: `False`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        /// </summary>
         [Output("copyGrants")]
         public Output<bool?> CopyGrants { get; private set; } = null!;
 
@@ -82,6 +95,9 @@ namespace Pulumi.Snowflake
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.StreamOnExternalTableShowOutput>> ShowOutputs { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+        /// </summary>
         [Output("stale")]
         public Output<bool> Stale { get; private set; } = null!;
 
@@ -137,9 +153,15 @@ namespace Pulumi.Snowflake
 
     public sealed class StreamOnExternalTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("at")]
         public Input<Inputs.StreamOnExternalTableAtArgs>? At { get; set; }
 
+        /// <summary>
+        /// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("before")]
         public Input<Inputs.StreamOnExternalTableBeforeArgs>? Before { get; set; }
 
@@ -149,6 +171,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// (Default: `False`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
 
@@ -190,9 +215,15 @@ namespace Pulumi.Snowflake
 
     public sealed class StreamOnExternalTableState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("at")]
         public Input<Inputs.StreamOnExternalTableAtGetArgs>? At { get; set; }
 
+        /// <summary>
+        /// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("before")]
         public Input<Inputs.StreamOnExternalTableBeforeGetArgs>? Before { get; set; }
 
@@ -202,6 +233,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// (Default: `False`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
 
@@ -265,6 +299,9 @@ namespace Pulumi.Snowflake
             set => _showOutputs = value;
         }
 
+        /// <summary>
+        /// Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+        /// </summary>
         [Input("stale")]
         public Input<bool>? Stale { get; set; }
 

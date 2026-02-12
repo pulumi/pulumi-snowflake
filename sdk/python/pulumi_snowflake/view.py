@@ -45,9 +45,12 @@ class ViewArgs:
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
+        :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         :param pulumi.Input[Sequence[pulumi.Input['ViewDataMetricFunctionArgs']]] data_metric_functions: Data metric functions used for the view.
         :param pulumi.Input['ViewDataMetricScheduleArgs'] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
         :param pulumi.Input[_builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] is_temporary: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input['ViewRowAccessPolicyArgs'] row_access_policy: Specifies the row access policy to set on a view.
         """
@@ -166,6 +169,9 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        """
         return pulumi.get(self, "copy_grants")
 
     @copy_grants.setter
@@ -211,6 +217,9 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
         return pulumi.get(self, "is_secure")
 
     @is_secure.setter
@@ -220,6 +229,9 @@ class ViewArgs:
     @_builtins.property
     @pulumi.getter(name="isTemporary")
     def is_temporary(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
         return pulumi.get(self, "is_temporary")
 
     @is_temporary.setter
@@ -278,12 +290,15 @@ class _ViewState:
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
+        :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         :param pulumi.Input[Sequence[pulumi.Input['ViewDataMetricFunctionArgs']]] data_metric_functions: Data metric functions used for the view.
         :param pulumi.Input['ViewDataMetricScheduleArgs'] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['ViewDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE VIEW` for the given view.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] is_temporary: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input['ViewRowAccessPolicyArgs'] row_access_policy: Specifies the row access policy to set on a view.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -378,6 +393,9 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        """
         return pulumi.get(self, "copy_grants")
 
     @copy_grants.setter
@@ -459,6 +477,9 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
         return pulumi.get(self, "is_secure")
 
     @is_secure.setter
@@ -468,6 +489,9 @@ class _ViewState:
     @_builtins.property
     @pulumi.getter(name="isTemporary")
     def is_temporary(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
         return pulumi.get(self, "is_temporary")
 
     @is_temporary.setter
@@ -558,6 +582,16 @@ class View(pulumi.CustomResource):
                  statement: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> Due to Snowflake limitations, to properly compute diff on `statement` field, the provider parses a `text` field which contains the whole CREATE query used to create the resource. We recommend not using special characters, especially `(`, `,`, `)` in any of the fields, if possible.
+
+        !> **Sensitive values** This resource's `statement` and `show_output.text` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        > **Note about copy_grants** Fields like `is_recursive`, `is_temporary`, `copy_grants` and `statement` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-view)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copy_grants`. Beware that even though a change is marked as update, the resource is recreated.
+
+        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) and [data metric function references](https://docs.snowflake.com/en/sql-reference/functions/data_metric_function_references) which requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+
+        Resource used to manage view objects. For more information, check [view documentation](https://docs.snowflake.com/en/sql-reference/sql/create-view).
+
         ## Import
 
         ```sh
@@ -570,10 +604,13 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
+        :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]] data_metric_functions: Data metric functions used for the view.
         :param pulumi.Input[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict']] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] is_temporary: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']] row_access_policy: Specifies the row access policy to set on a view.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -586,6 +623,16 @@ class View(pulumi.CustomResource):
                  args: ViewArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> Due to Snowflake limitations, to properly compute diff on `statement` field, the provider parses a `text` field which contains the whole CREATE query used to create the resource. We recommend not using special characters, especially `(`, `,`, `)` in any of the fields, if possible.
+
+        !> **Sensitive values** This resource's `statement` and `show_output.text` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        > **Note about copy_grants** Fields like `is_recursive`, `is_temporary`, `copy_grants` and `statement` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-view)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copy_grants`. Beware that even though a change is marked as update, the resource is recreated.
+
+        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) and [data metric function references](https://docs.snowflake.com/en/sql-reference/functions/data_metric_function_references) which requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+
+        Resource used to manage view objects. For more information, check [view documentation](https://docs.snowflake.com/en/sql-reference/sql/create-view).
+
         ## Import
 
         ```sh
@@ -694,12 +741,15 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
+        :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]] data_metric_functions: Data metric functions used for the view.
         :param pulumi.Input[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict']] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDescribeOutputArgs', 'ViewDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE VIEW` for the given view.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] is_temporary: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']] row_access_policy: Specifies the row access policy to set on a view.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -765,6 +815,9 @@ class View(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+        """
         return pulumi.get(self, "copy_grants")
 
     @_builtins.property
@@ -818,11 +871,17 @@ class View(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
         return pulumi.get(self, "is_secure")
 
     @_builtins.property
     @pulumi.getter(name="isTemporary")
     def is_temporary(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
         return pulumi.get(self, "is_temporary")
 
     @_builtins.property

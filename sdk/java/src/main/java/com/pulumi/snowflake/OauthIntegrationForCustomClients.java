@@ -20,6 +20,86 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Sensitive values** This resource&#39;s `oauthRedirectUri` and `describe_output.oauth_redirect_uri` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * 
+ * !&gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+ * 
+ * &gt; **Missing fields** The `oauthClientId` and `oauthRedirectUri` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+ * This may have impact on detecting external changes for the `oauthRedirectUri` field.
+ * 
+ * Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.OauthIntegrationForCustomClients;
+ * import com.pulumi.snowflake.OauthIntegrationForCustomClientsArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // basic resource
+ *         var basic = new OauthIntegrationForCustomClients("basic", OauthIntegrationForCustomClientsArgs.builder()
+ *             .name("integration")
+ *             .oauthClientType("CONFIDENTIAL")
+ *             .oauthRedirectUri("https://example.com")
+ *             .build());
+ * 
+ *         // resource with all fields set
+ *         var complete = new OauthIntegrationForCustomClients("complete", OauthIntegrationForCustomClientsArgs.builder()
+ *             .name("integration")
+ *             .oauthClientType("CONFIDENTIAL")
+ *             .oauthRedirectUri("https://example.com")
+ *             .enabled("true")
+ *             .oauthAllowNonTlsRedirectUri("true")
+ *             .oauthEnforcePkce("true")
+ *             .oauthUseSecondaryRoles("NONE")
+ *             .preAuthorizedRolesLists(            
+ *                 one.fullyQualifiedName(),
+ *                 two.fullyQualifiedName())
+ *             .blockedRolesLists(            
+ *                 "ACCOUNTADMIN",
+ *                 "SECURITYADMIN",
+ *                 three.fullyQualifiedName(),
+ *                 four.fullyQualifiedName())
+ *             .oauthIssueRefreshTokens("true")
+ *             .oauthRefreshTokenValidity(87600)
+ *             .networkPolicy(example.fullyQualifiedName())
+ *             .oauthClientRsaPublicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input("rsa.pub")
+ *                 .build()).result())
+ *             .oauthClientRsaPublicKey2(StdFunctions.file(FileArgs.builder()
+ *                 .input("rsa2.pub")
+ *                 .build()).result())
+ *             .comment("my oauth integration")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
@@ -141,15 +221,31 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
     public Output<Optional<String>> oauthAllowNonTlsRedirectUri() {
         return Codegen.optional(this.oauthAllowNonTlsRedirectUri);
     }
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="oauthClientRsaPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthClientRsaPublicKey;
 
+    /**
+     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> oauthClientRsaPublicKey() {
         return Codegen.optional(this.oauthClientRsaPublicKey);
     }
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="oauthClientRsaPublicKey2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthClientRsaPublicKey2;
 
+    /**
+     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> oauthClientRsaPublicKey2() {
         return Codegen.optional(this.oauthClientRsaPublicKey2);
     }

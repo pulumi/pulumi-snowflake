@@ -10,9 +10,132 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Note** For `ACCOUNT` object type, only identifiers with organization name are supported. See [account identifier docs](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-1-preferred-account-name-in-your-organization) for more details.
+    /// 
+    /// &gt; **Note** Tag association resource ID has the following format: `"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE`. This means that a tuple of tag ID, tag value and object type should be unique across the resources. If you want to specify this combination for more than one object, you should use only one `TagAssociation` resource with specified `ObjectIdentifiers` set.
+    /// 
+    /// &gt; **Note** If you want to change tag value to a value that is already present in another `TagAssociation` resource, first remove the relevant `ObjectIdentifiers` from the resource with the old value, run `pulumi up`, then add the relevant `ObjectIdentifiers` in the resource with new value, and run `pulumi up` once again. Removing and adding object identifier from one `snowflake.TagAssociation` resource to another may not work due to Terraform executing changes for non-dependent resources simultaneously. The same applies to an object being specified in multiple `snowflake.TagAssociation` resources for the same `TagId`, but different `TagValue`s.
+    /// 
+    /// &gt; **Note** Default timeout is set to 70 minutes for Terraform Create operation.
+    /// 
+    /// Resource used to manage tag associations. For more information, check [object tagging documentation](https://docs.snowflake.com/en/user-guide/object-tagging).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Snowflake.Database("test", new()
+    ///     {
+    ///         Name = "database",
+    ///     });
+    /// 
+    ///     var testSchema = new Snowflake.Schema("test", new()
+    ///     {
+    ///         Name = "schema",
+    ///         Database = test.Name,
+    ///     });
+    /// 
+    ///     var testTag = new Snowflake.Tag("test", new()
+    ///     {
+    ///         Name = "cost_center",
+    ///         Database = test.Name,
+    ///         Schema = testSchema.Name,
+    ///         AllowedValues = new[]
+    ///         {
+    ///             "finance",
+    ///             "engineering",
+    ///         },
+    ///     });
+    /// 
+    ///     var dbAssociation = new Snowflake.TagAssociation("db_association", new()
+    ///     {
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             test.FullyQualifiedName,
+    ///         },
+    ///         ObjectType = "DATABASE",
+    ///         TagId = testTag.FullyQualifiedName,
+    ///         TagValue = "finance",
+    ///     });
+    /// 
+    ///     var testTable = new Snowflake.Table("test", new()
+    ///     {
+    ///         Database = test.Name,
+    ///         Schema = testSchema.Name,
+    ///         Name = "TABLE_NAME",
+    ///         Comment = "Terraform example table",
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "column1",
+    ///                 Type = "VARIANT",
+    ///             },
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "column2",
+    ///                 Type = "VARCHAR(16)",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var tableAssociation = new Snowflake.TagAssociation("table_association", new()
+    ///     {
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             testTable.FullyQualifiedName,
+    ///         },
+    ///         ObjectType = "TABLE",
+    ///         TagId = testTag.FullyQualifiedName,
+    ///         TagValue = "engineering",
+    ///     });
+    /// 
+    ///     var columnAssociation = new Snowflake.TagAssociation("column_association", new()
+    ///     {
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             Std.Format.Invoke(new()
+    ///             {
+    ///                 Input = "%s.\"column1\"",
+    ///                 Args = new[]
+    ///                 {
+    ///                     testTable.FullyQualifiedName,
+    ///                 },
+    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///         },
+    ///         ObjectType = "COLUMN",
+    ///         TagId = testTag.FullyQualifiedName,
+    ///         TagValue = "engineering",
+    ///     });
+    /// 
+    ///     var accountAssociation = new Snowflake.TagAssociation("account_association", new()
+    ///     {
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             "\"ORGANIZATION_NAME\".\"ACCOUNT_NAME\"",
+    ///         },
+    ///         ObjectType = "ACCOUNT",
+    ///         TagId = testTag.FullyQualifiedName,
+    ///         TagValue = "engineering",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
-    /// ~&gt; **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
+    /// &gt; **Note** Due to technical limitations of Terraform SDK, `ObjectIdentifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
     /// 
     /// ```sh
     /// $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'

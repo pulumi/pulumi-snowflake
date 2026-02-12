@@ -9,6 +9,66 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// Applies a masking policy to a table column.
+    /// 
+    /// Only one masking policy may be applied per table column, hence only one `snowflake.TableColumnMaskingPolicyApplication` resources may be present per table column.
+    /// Using two or more `snowflake.TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
+    /// 
+    /// When using this resource to manage a table column's masking policy make sure to ignore changes to the column's masking policy in the table definition, otherwise the two resources would conflict. See example below.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new Snowflake.MaskingPolicy("policy", new()
+    ///     {
+    ///         Name = "EXAMPLE_MASKING_POLICY",
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         ValueDataType = "VARCHAR",
+    ///         MaskingExpression = "case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
+    ///         ReturnDataType = "VARCHAR",
+    ///     });
+    /// 
+    ///     // Table is created by the default provider
+    ///     var table = new Snowflake.Table("table", new()
+    ///     {
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         Name = "table",
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "secret",
+    ///                 Type = "VARCHAR(16777216)",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var application = new Snowflake.TableColumnMaskingPolicyApplication("application", new()
+    ///     {
+    ///         Table = table.FullyQualifiedName,
+    ///         Column = "secret",
+    ///         MaskingPolicy = policy.FullyQualifiedName,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication")]
     public partial class TableColumnMaskingPolicyApplication : global::Pulumi.CustomResource
     {

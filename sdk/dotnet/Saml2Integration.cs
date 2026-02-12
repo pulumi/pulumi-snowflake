@@ -10,6 +10,82 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+    /// 
+    /// !&gt; **Note** To use `AllowedUserDomains` and `AllowedEmailPatterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
+    /// 
+    /// &gt; **Missing fields** The `Saml2SnowflakeX509Cert` and `Saml2X509Cert` fields are not present in the `DescribeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+    /// This may have impact on detecting external changes for the `Saml2X509Cert` field.
+    /// 
+    /// Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // basic resource
+    ///     // each pem file contains a base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+    ///     var samlIntegration = new Snowflake.Saml2Integration("saml_integration", new()
+    ///     {
+    ///         Name = "saml_integration",
+    ///         Saml2Provider = "CUSTOM",
+    ///         Saml2Issuer = "test_issuer",
+    ///         Saml2SsoUrl = "https://example.com",
+    ///         Saml2X509Cert = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     // resource with all fields set
+    ///     var test = new Snowflake.Saml2Integration("test", new()
+    ///     {
+    ///         AllowedEmailPatterns = new[]
+    ///         {
+    ///             "^(.+dev)@example.com$",
+    ///         },
+    ///         AllowedUserDomains = new[]
+    ///         {
+    ///             "example.com",
+    ///         },
+    ///         Comment = "foo",
+    ///         Enabled = "true",
+    ///         Name = "saml_integration",
+    ///         Saml2EnableSpInitiated = "true",
+    ///         Saml2ForceAuthn = "true",
+    ///         Saml2Issuer = "foo",
+    ///         Saml2PostLogoutRedirectUrl = "https://example.com",
+    ///         Saml2Provider = "CUSTOM",
+    ///         Saml2RequestedNameidFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    ///         Saml2SignRequest = "true",
+    ///         Saml2SnowflakeAcsUrl = "example.snowflakecomputing.com/fed/login",
+    ///         Saml2SnowflakeIssuerUrl = "example.snowflakecomputing.com/fed/login",
+    ///         Saml2SnowflakeX509Cert = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "snowflake_cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Saml2SpInitiatedLoginPageLabel = "foo",
+    ///         Saml2SsoUrl = "https://example.com",
+    ///         Saml2X509Cert = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

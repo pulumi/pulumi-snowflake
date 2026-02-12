@@ -575,6 +575,32 @@ class DynamicTable(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
+        dt = snowflake.DynamicTable("dt",
+            name="product",
+            database="mydb",
+            schema="myschema",
+            target_lag={
+                "maximum_duration": "20 minutes",
+            },
+            warehouse="mywh",
+            query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
+            comment="example comment")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -601,6 +627,32 @@ class DynamicTable(pulumi.CustomResource):
                  args: DynamicTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
+        dt = snowflake.DynamicTable("dt",
+            name="product",
+            database="mydb",
+            schema="myschema",
+            target_lag={
+                "maximum_duration": "20 minutes",
+            },
+            warehouse="mywh",
+            query="SELECT product_id, product_name FROM \\"mydb\\".\\"myschema\\".\\"staging_table\\"",
+            comment="example comment")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

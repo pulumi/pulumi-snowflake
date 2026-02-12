@@ -140,16 +140,32 @@ public final class OauthIntegrationForCustomClientsState extends com.pulumi.reso
         return Optional.ofNullable(this.oauthAllowNonTlsRedirectUri);
     }
 
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="oauthClientRsaPublicKey")
     private @Nullable Output<String> oauthClientRsaPublicKey;
 
+    /**
+     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<String>> oauthClientRsaPublicKey() {
         return Optional.ofNullable(this.oauthClientRsaPublicKey);
     }
 
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="oauthClientRsaPublicKey2")
     private @Nullable Output<String> oauthClientRsaPublicKey2;
 
+    /**
+     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<String>> oauthClientRsaPublicKey2() {
         return Optional.ofNullable(this.oauthClientRsaPublicKey2);
     }
@@ -519,20 +535,44 @@ public final class OauthIntegrationForCustomClientsState extends com.pulumi.reso
             return oauthAllowNonTlsRedirectUri(Output.of(oauthAllowNonTlsRedirectUri));
         }
 
+        /**
+         * @param oauthClientRsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthClientRsaPublicKey(@Nullable Output<String> oauthClientRsaPublicKey) {
             $.oauthClientRsaPublicKey = oauthClientRsaPublicKey;
             return this;
         }
 
+        /**
+         * @param oauthClientRsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthClientRsaPublicKey(String oauthClientRsaPublicKey) {
             return oauthClientRsaPublicKey(Output.of(oauthClientRsaPublicKey));
         }
 
+        /**
+         * @param oauthClientRsaPublicKey2 Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthClientRsaPublicKey2(@Nullable Output<String> oauthClientRsaPublicKey2) {
             $.oauthClientRsaPublicKey2 = oauthClientRsaPublicKey2;
             return this;
         }
 
+        /**
+         * @param oauthClientRsaPublicKey2 Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthClientRsaPublicKey2(String oauthClientRsaPublicKey2) {
             return oauthClientRsaPublicKey2(Output.of(oauthClientRsaPublicKey2));
         }

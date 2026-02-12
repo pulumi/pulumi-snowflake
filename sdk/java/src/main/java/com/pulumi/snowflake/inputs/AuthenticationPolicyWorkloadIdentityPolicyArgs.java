@@ -61,9 +61,17 @@ public final class AuthenticationPolicyWorkloadIdentityPolicyArgs extends com.pu
         return Optional.ofNullable(this.allowedOidcIssuers);
     }
 
+    /**
+     * Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * 
+     */
     @Import(name="allowedProviders")
     private @Nullable Output<List<String>> allowedProviders;
 
+    /**
+     * @return Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * 
+     */
     public Optional<Output<List<String>>> allowedProviders() {
         return Optional.ofNullable(this.allowedProviders);
     }
@@ -188,15 +196,33 @@ public final class AuthenticationPolicyWorkloadIdentityPolicyArgs extends com.pu
             return allowedOidcIssuers(List.of(allowedOidcIssuers));
         }
 
+        /**
+         * @param allowedProviders Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedProviders(@Nullable Output<List<String>> allowedProviders) {
             $.allowedProviders = allowedProviders;
             return this;
         }
 
+        /**
+         * @param allowedProviders Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedProviders(List<String> allowedProviders) {
             return allowedProviders(Output.of(allowedProviders));
         }
 
+        /**
+         * @param allowedProviders Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedProviders(String... allowedProviders) {
             return allowedProviders(List.of(allowedProviders));
         }

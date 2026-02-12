@@ -16,9 +16,17 @@ public final class AuthenticationPolicyMfaPolicyArgs extends com.pulumi.resource
 
     public static final AuthenticationPolicyMfaPolicyArgs Empty = new AuthenticationPolicyMfaPolicyArgs();
 
+    /**
+     * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * 
+     */
     @Import(name="allowedMethods")
     private @Nullable Output<List<String>> allowedMethods;
 
+    /**
+     * @return Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * 
+     */
     public Optional<Output<List<String>>> allowedMethods() {
         return Optional.ofNullable(this.allowedMethods);
     }
@@ -63,15 +71,33 @@ public final class AuthenticationPolicyMfaPolicyArgs extends com.pulumi.resource
             $ = new AuthenticationPolicyMfaPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedMethods(@Nullable Output<List<String>> allowedMethods) {
             $.allowedMethods = allowedMethods;
             return this;
         }
 
+        /**
+         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedMethods(List<String> allowedMethods) {
             return allowedMethods(Output.of(allowedMethods));
         }
 
+        /**
+         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
         }

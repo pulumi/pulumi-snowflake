@@ -31,9 +31,17 @@ public final class FunctionSqlArgumentArgs extends com.pulumi.resources.Resource
         return this.argDataType;
     }
 
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="argDefaultValue")
     private @Nullable Output<String> argDefaultValue;
 
+    /**
+     * @return Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<String>> argDefaultValue() {
         return Optional.ofNullable(this.argDefaultValue);
     }
@@ -100,11 +108,23 @@ public final class FunctionSqlArgumentArgs extends com.pulumi.resources.Resource
             return argDataType(Output.of(argDataType));
         }
 
+        /**
+         * @param argDefaultValue Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder argDefaultValue(@Nullable Output<String> argDefaultValue) {
             $.argDefaultValue = argDefaultValue;
             return this;
         }
 
+        /**
+         * @param argDefaultValue Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder argDefaultValue(String argDefaultValue) {
             return argDefaultValue(Output.of(argDefaultValue));
         }

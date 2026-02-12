@@ -19,6 +19,68 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-row-access-policy#usage-notes), a row access policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+ * 
+ * !&gt; **Sensitive values** This resource&#39;s `body` and `describe_output.body` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * 
+ * Resource used to manage row access policy objects. For more information, check [row access policy documentation](https://docs.snowflake.com/en/sql-reference/sql/create-row-access-policy).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.RowAccessPolicy;
+ * import com.pulumi.snowflake.RowAccessPolicyArgs;
+ * import com.pulumi.snowflake.inputs.RowAccessPolicyArgumentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // resource with all fields set
+ *         var exampleRowAccessPolicy = new RowAccessPolicy("exampleRowAccessPolicy", RowAccessPolicyArgs.builder()
+ *             .name("EXAMPLE_ROW_ACCESS_POLICY")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .arguments(            
+ *                 RowAccessPolicyArgumentArgs.builder()
+ *                     .name("ARG1")
+ *                     .type("VARCHAR")
+ *                     .build(),
+ *                 RowAccessPolicyArgumentArgs.builder()
+ *                     .name("ARG2")
+ *                     .type("NUMBER")
+ *                     .build(),
+ *                 RowAccessPolicyArgumentArgs.builder()
+ *                     .name("ARG3")
+ *                     .type("TIMESTAMP_NTZ")
+ *                     .build())
+ *             .body("case when current_role() in ('ANALYST') then true else false end")
+ *             .comment("comment")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

@@ -11,6 +11,63 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+//
+// !> **Note** Due to technical limitations in Terraform SDK, changes in `allowedNetworkRuleList` and `blockedNetworkRuleList` do not cause diff for `showOutput` and `describeOutput`.
+//
+// Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// # Minimal
+//			_, err := snowflake.NewNetworkPolicy(ctx, "basic", &snowflake.NetworkPolicyArgs{
+//				Name: pulumi.String("network_policy_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// # Complete (with every optional set)
+//			_, err = snowflake.NewNetworkPolicy(ctx, "complete", &snowflake.NetworkPolicyArgs{
+//				Name: pulumi.String("network_policy_name"),
+//				AllowedNetworkRuleLists: pulumi.StringArray{
+//					one.FullyQualifiedName,
+//				},
+//				BlockedNetworkRuleLists: pulumi.StringArray{
+//					two.FullyQualifiedName,
+//				},
+//				AllowedIpLists: pulumi.StringArray{
+//					pulumi.String("192.168.1.0/24"),
+//				},
+//				BlockedIpLists: pulumi.StringArray{
+//					pulumi.String("192.168.1.99"),
+//				},
+//				Comment: pulumi.String("my network policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

@@ -12,9 +12,141 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note** For `ACCOUNT` object type, only identifiers with organization name are supported. See [account identifier docs](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-1-preferred-account-name-in-your-organization) for more details.
+//
+// > **Note** Tag association resource ID has the following format: `"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE`. This means that a tuple of tag ID, tag value and object type should be unique across the resources. If you want to specify this combination for more than one object, you should use only one `tagAssociation` resource with specified `objectIdentifiers` set.
+//
+// > **Note** If you want to change tag value to a value that is already present in another `tagAssociation` resource, first remove the relevant `objectIdentifiers` from the resource with the old value, run `pulumi up`, then add the relevant `objectIdentifiers` in the resource with new value, and run `pulumi up` once again. Removing and adding object identifier from one `TagAssociation` resource to another may not work due to Terraform executing changes for non-dependent resources simultaneously. The same applies to an object being specified in multiple `TagAssociation` resources for the same `tagId`, but different `tagValue`s.
+//
+// > **Note** Default timeout is set to 70 minutes for Terraform Create operation.
+//
+// Resource used to manage tag associations. For more information, check [object tagging documentation](https://docs.snowflake.com/en/user-guide/object-tagging).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := snowflake.NewDatabase(ctx, "test", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("database"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testSchema, err := snowflake.NewSchema(ctx, "test", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("schema"),
+//				Database: test.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testTag, err := snowflake.NewTag(ctx, "test", &snowflake.TagArgs{
+//				Name:     pulumi.String("cost_center"),
+//				Database: test.Name,
+//				Schema:   testSchema.Name,
+//				AllowedValues: pulumi.StringArray{
+//					pulumi.String("finance"),
+//					pulumi.String("engineering"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTagAssociation(ctx, "db_association", &snowflake.TagAssociationArgs{
+//				ObjectIdentifiers: pulumi.StringArray{
+//					test.FullyQualifiedName,
+//				},
+//				ObjectType: pulumi.String("DATABASE"),
+//				TagId:      testTag.FullyQualifiedName,
+//				TagValue:   pulumi.String("finance"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testTable, err := snowflake.NewTable(ctx, "test", &snowflake.TableArgs{
+//				Database: test.Name,
+//				Schema:   testSchema.Name,
+//				Name:     pulumi.String("TABLE_NAME"),
+//				Comment:  pulumi.String("Terraform example table"),
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("column1"),
+//						Type: pulumi.String("VARIANT"),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("column2"),
+//						Type: pulumi.String("VARCHAR(16)"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTagAssociation(ctx, "table_association", &snowflake.TagAssociationArgs{
+//				ObjectIdentifiers: pulumi.StringArray{
+//					testTable.FullyQualifiedName,
+//				},
+//				ObjectType: pulumi.String("TABLE"),
+//				TagId:      testTag.FullyQualifiedName,
+//				TagValue:   pulumi.String("engineering"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFormat, err := std.Format(ctx, &std.FormatArgs{
+//				Input: "%s.\"column1\"",
+//				Args: pulumi.StringArray{
+//					testTable.FullyQualifiedName,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTagAssociation(ctx, "column_association", &snowflake.TagAssociationArgs{
+//				ObjectIdentifiers: pulumi.StringArray{
+//					pulumi.String(invokeFormat.Result),
+//				},
+//				ObjectType: pulumi.String("COLUMN"),
+//				TagId:      testTag.FullyQualifiedName,
+//				TagValue:   pulumi.String("engineering"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTagAssociation(ctx, "account_association", &snowflake.TagAssociationArgs{
+//				ObjectIdentifiers: pulumi.StringArray{
+//					pulumi.String("\"ORGANIZATION_NAME\".\"ACCOUNT_NAME\""),
+//				},
+//				ObjectType: pulumi.String("ACCOUNT"),
+//				TagId:      testTag.FullyQualifiedName,
+//				TagValue:   pulumi.String("engineering"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
-// ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
+// > **Note** Due to technical limitations of Terraform SDK, `objectIdentifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
 //
 // ```sh
 // $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'

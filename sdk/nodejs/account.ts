@@ -7,6 +7,16 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * The account resource allows you to create and manage Snowflake accounts. For more information, check [account documentation](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts).
+ *
+ * > **Note** To use this resource you have to use an account with a privilege to use the ORGADMIN role.
+ *
+ * > **Note** Changes for the following fields won't be detected: `adminName`, `adminPassword`, `adminRsaPublicKey`, `adminUserType`, `firstName`, `lastName`, `email`, `mustChangePassword`. This is because these fields only supply initial values for creating the admin user. Once the account is created, the admin user becomes an independent entity. Modifying users from the account resource is challenging since it requires logging into that account. This would require the account resource logging into the account it created to read or alter admin user properties, which is impractical, because any external change to the admin user would disrupt the change detection anyway.
+ *
+ * > **Note** During the import, when Terraform detects changes on a field with `ForceNew`, it will try to recreate the resource. Due to Terraform limitations, `gracePeriodInDays` is not set at that moment. This means that Terraform will try to drop the account with the empty grace period which is required, and fail.
+ * Before importing, ensure if the resource configuration matches the actual state.
+ * See more in our Resource Migration guide and issue #3390.
+ *
  * ## Import
  *
  * ```sh
@@ -41,9 +51,21 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
+    /**
+     * Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly adminName: pulumi.Output<string>;
+    /**
+     * Password for the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly adminPassword: pulumi.Output<string | undefined>;
+    /**
+     * Assigns a public key to the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly adminRsaPublicKey: pulumi.Output<string | undefined>;
+    /**
+     * Used for setting the type of the first user that is assigned the ACCOUNTADMIN role during account creation. Valid options are: `PERSON` | `SERVICE` | `LEGACY_SERVICE` External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly adminUserType: pulumi.Output<string | undefined>;
     /**
      * Specifies a comment for the account.
@@ -57,7 +79,13 @@ export class Account extends pulumi.CustomResource {
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
     declare public readonly edition: pulumi.Output<string>;
+    /**
+     * Email address of the initial administrative user of the account. This email address is used to send any notifications about the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly email: pulumi.Output<string>;
+    /**
+     * First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly firstName: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -71,7 +99,13 @@ export class Account extends pulumi.CustomResource {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
     declare public readonly isOrgAdmin: pulumi.Output<string | undefined>;
+    /**
+     * Last name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly lastName: pulumi.Output<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly mustChangePassword: pulumi.Output<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
@@ -165,9 +199,21 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
+    /**
+     * Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     adminName?: pulumi.Input<string>;
+    /**
+     * Password for the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     adminPassword?: pulumi.Input<string>;
+    /**
+     * Assigns a public key to the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     adminRsaPublicKey?: pulumi.Input<string>;
+    /**
+     * Used for setting the type of the first user that is assigned the ACCOUNTADMIN role during account creation. Valid options are: `PERSON` | `SERVICE` | `LEGACY_SERVICE` External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     adminUserType?: pulumi.Input<string>;
     /**
      * Specifies a comment for the account.
@@ -181,7 +227,13 @@ export interface AccountState {
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
     edition?: pulumi.Input<string>;
+    /**
+     * Email address of the initial administrative user of the account. This email address is used to send any notifications about the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     email?: pulumi.Input<string>;
+    /**
+     * First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     firstName?: pulumi.Input<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -195,7 +247,13 @@ export interface AccountState {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
     isOrgAdmin?: pulumi.Input<string>;
+    /**
+     * Last name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     lastName?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     mustChangePassword?: pulumi.Input<string>;
     /**
      * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
@@ -219,9 +277,21 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     adminName: pulumi.Input<string>;
+    /**
+     * Password for the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     adminPassword?: pulumi.Input<string>;
+    /**
+     * Assigns a public key to the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     adminRsaPublicKey?: pulumi.Input<string>;
+    /**
+     * Used for setting the type of the first user that is assigned the ACCOUNTADMIN role during account creation. Valid options are: `PERSON` | `SERVICE` | `LEGACY_SERVICE` External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     adminUserType?: pulumi.Input<string>;
     /**
      * Specifies a comment for the account.
@@ -235,7 +305,13 @@ export interface AccountArgs {
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
     edition: pulumi.Input<string>;
+    /**
+     * Email address of the initial administrative user of the account. This email address is used to send any notifications about the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     email: pulumi.Input<string>;
+    /**
+     * First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     firstName?: pulumi.Input<string>;
     /**
      * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
@@ -245,7 +321,13 @@ export interface AccountArgs {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
     isOrgAdmin?: pulumi.Input<string>;
+    /**
+     * Last name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     lastName?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     mustChangePassword?: pulumi.Input<string>;
     /**
      * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.

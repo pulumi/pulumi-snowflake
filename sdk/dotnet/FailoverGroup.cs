@@ -10,6 +10,77 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// !&gt; **Updating `AllowedAccounts`** Currently, updating the `AllowedAccounts` field may fail due to an incorrect query being sent (see #3946). This will be fixed during the resource rework. As a workaround, use the `Execute` resource to update the allowed accounts manually. After that, refresh the state with the updated `AllowedAccounts` field in the resource configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var db = new Snowflake.Database("db", new()
+    ///     {
+    ///         Name = "db1",
+    ///     });
+    /// 
+    ///     var sourceFailoverGroup = new Snowflake.FailoverGroup("source_failover_group", new()
+    ///     {
+    ///         Name = "FG1",
+    ///         ObjectTypes = new[]
+    ///         {
+    ///             "WAREHOUSES",
+    ///             "DATABASES",
+    ///             "INTEGRATIONS",
+    ///             "ROLES",
+    ///         },
+    ///         AllowedAccounts = new[]
+    ///         {
+    ///             "&lt;org_name&gt;.&lt;target_account_name1&gt;",
+    ///             "&lt;org_name&gt;.&lt;target_account_name2&gt;",
+    ///         },
+    ///         AllowedDatabases = new[]
+    ///         {
+    ///             db.Name,
+    ///         },
+    ///         AllowedIntegrationTypes = new[]
+    ///         {
+    ///             "SECURITY INTEGRATIONS",
+    ///         },
+    ///         ReplicationSchedule = new Snowflake.Inputs.FailoverGroupReplicationScheduleArgs
+    ///         {
+    ///             Cron = new Snowflake.Inputs.FailoverGroupReplicationScheduleCronArgs
+    ///             {
+    ///                 Expression = "0 0 10-20 * TUE,THU",
+    ///                 TimeZone = "UTC",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var targetFailoverGroup = new Snowflake.FailoverGroup("target_failover_group", new()
+    ///     {
+    ///         Name = "FG1",
+    ///         FromReplica = new Snowflake.Inputs.FailoverGroupFromReplicaArgs
+    ///         {
+    ///             OrganizationName = "...",
+    ///             SourceAccountName = "...",
+    ///             Name = sourceFailoverGroup.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

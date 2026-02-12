@@ -10,6 +10,41 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the snowflake.CurrentAccount resource documentation.
+    /// 
+    /// &gt; **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+    /// 
+    /// Resource used to manage current account parameters. For more information, check [parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var p = new Snowflake.AccountParameter("p", new()
+    ///     {
+    ///         Key = "ALLOW_ID_TOKEN",
+    ///         Value = "true",
+    ///     });
+    /// 
+    ///     var p2 = new Snowflake.AccountParameter("p2", new()
+    ///     {
+    ///         Key = "CLIENT_ENCRYPTION_KEY_SIZE",
+    ///         Value = "256",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

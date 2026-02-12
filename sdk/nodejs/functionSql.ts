@@ -7,14 +7,74 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * !> **Sensitive values** This resource's `functionDefinition` and `show_output.arguments_raw` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ *
+ * > **Note** External changes to `isSecure` and `returnResultsBehavior` are not currently supported. They will be handled in the following versions of the provider which may still affect this resource.
+ *
+ * > **Note** `COPY GRANTS` and `OR REPLACE` are not currently supported.
+ *
+ * > **Note** `MEMOIZABLE` is not currently supported. It will be improved in the following versions of the provider which may still affect this resource.
+ *
+ * > **Note** Use of return type `TABLE` is currently limited. It will be improved in the following versions of the provider which may still affect this resource.
+ *
+ * > **Note** Snowflake is not returning full data type information for arguments which may lead to unexpected plan outputs. Diff suppression for such cases will be improved.
+ *
+ * > **Note** Snowflake is not returning the default values for arguments so argument's `argDefaultValue` external changes cannot be tracked.
+ *
+ * > **Note** Limit the use of special characters (`.`, `'`, `/`, `"`, `(`, `)`, `[`, `]`, `{`, `}`, ` `) in argument names, stage ids, and secret ids. It's best to limit to only alphanumeric and underscores. There is a lot of parsing of SHOW/DESCRIBE outputs involved and using special characters may limit the possibility to achieve the correct results.
+ *
+ * > **Required warehouse** This resource may require active warehouse. Please, make sure you have either set a DEFAULT_WAREHOUSE for the user, or specified a warehouse in the provider configuration.
+ *
+ * Resource used to manage sql function objects. For more information, check [function documentation](https://docs.snowflake.com/en/sql-reference/sql/create-function).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * // Minimal
+ * const minimal = new snowflake.FunctionSql("minimal", {
+ *     database: test.name,
+ *     schema: testSnowflakeSchema.name,
+ *     name: "my_sql_function",
+ *     arguments: [{
+ *         argDataType: "FLOAT",
+ *         argName: "arg_name",
+ *     }],
+ *     returnType: "FLOAT",
+ *     functionDefinition: "arg_name\n",
+ * });
+ * // Complete
+ * const complete = new snowflake.FunctionSql("complete", {
+ *     database: test.name,
+ *     schema: testSnowflakeSchema.name,
+ *     name: "my_sql_function",
+ *     isSecure: "false",
+ *     arguments: [{
+ *         argDataType: "FLOAT",
+ *         argName: "arg_name",
+ *     }],
+ *     returnType: "FLOAT",
+ *     functionDefinition: "arg_name\n",
+ *     returnResultsBehavior: "VOLATILE",
+ *     comment: "some comment",
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/functionSql:FunctionSql example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+ * terraform import snowflake_function_sql.example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
  * ```
  *
  * Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
- *
  * Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
  */
 export class FunctionSql extends pulumi.CustomResource {
@@ -73,6 +133,9 @@ export class FunctionSql extends pulumi.CustomResource {
      * Specifies language for the user. Used to detect external changes.
      */
     declare public /*out*/ readonly functionLanguage: pulumi.Output<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
     declare public readonly isSecure: pulumi.Output<string | undefined>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
@@ -210,6 +273,9 @@ export interface FunctionSqlState {
      * Specifies language for the user. Used to detect external changes.
      */
     functionLanguage?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
     isSecure?: pulumi.Input<string>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
@@ -273,6 +339,9 @@ export interface FunctionSqlArgs {
      * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
     functionDefinition: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
     isSecure?: pulumi.Input<string>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).

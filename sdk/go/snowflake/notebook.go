@@ -12,6 +12,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note** Due to Snowflake limitations, external changes to `from` are not currently detected.
+//
+// > **Note** `secrets` is currently not supported. It will be supported in the following versions of the provider which may still affect this resource.
+//
+// > **Note** `warehouse` and `queryWarehouse` parameters can only be set to upper-case identifiers.
+//
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// Resource used to manage notebooks. For more information, check [notebooks documentation](https://docs.snowflake.com/en/sql-reference/sql/create-notebook).
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// basic resource
+//			_, err := snowflake.NewNotebook(ctx, "basic", &snowflake.NotebookArgs{
+//				Database: pulumi.String("DATABASE"),
+//				Schema:   pulumi.String("SCHEMA"),
+//				Name:     pulumi.String("NOTEBOOK"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// complete resource
+//			_, err = snowflake.NewNotebook(ctx, "complete", &snowflake.NotebookArgs{
+//				Name:     pulumi.String("NOTEBOOK"),
+//				Database: pulumi.String("DATABASE"),
+//				Schema:   pulumi.String("SCHEMA"),
+//				Froms: snowflake.NotebookFromArray{
+//					&snowflake.NotebookFromArgs{
+//						Stage: pulumi.Any(test.FullyQualifiedName),
+//						Path:  pulumi.String("some/path"),
+//					},
+//				},
+//				MainFile:                    pulumi.String("my_notebook.ipynb"),
+//				QueryWarehouse:              pulumi.Any(testSnowflakeWarehouse.Name),
+//				IdleAutoShutdownTimeSeconds: pulumi.Int(2400),
+//				Warehouse:                   pulumi.Any(testSnowflakeWarehouse.Name),
+//				Comment:                     pulumi.String("Lorem ipsum"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

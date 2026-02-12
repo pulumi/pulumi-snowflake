@@ -21,6 +21,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note about copy_grants** Fields like `table`, `appendOnly`, `at`, `before`, `showInitialRows` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copyGrants`. Beware that even though a change is marked as update, the resource is recreated.
+ * 
+ * Resource used to manage streams on tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
+ * 
  * ## Import
  * 
  * ```sh
@@ -44,15 +48,31 @@ public class StreamOnTable extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> appendOnly() {
         return Codegen.optional(this.appendOnly);
     }
+    /**
+     * This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="at", refs={StreamOnTableAt.class}, tree="[0]")
     private Output</* @Nullable */ StreamOnTableAt> at;
 
+    /**
+     * @return This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<StreamOnTableAt>> at() {
         return Codegen.optional(this.at);
     }
+    /**
+     * This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="before", refs={StreamOnTableBefore.class}, tree="[0]")
     private Output</* @Nullable */ StreamOnTableBefore> before;
 
+    /**
+     * @return This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<StreamOnTableBefore>> before() {
         return Codegen.optional(this.before);
     }
@@ -70,9 +90,17 @@ public class StreamOnTable extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
+    /**
+     * @return (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     public Output<Optional<Boolean>> copyGrants() {
         return Codegen.optional(this.copyGrants);
     }
@@ -146,9 +174,17 @@ public class StreamOnTable extends com.pulumi.resources.CustomResource {
     public Output<String> schema() {
         return this.schema;
     }
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="showInitialRows", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> showInitialRows;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> showInitialRows() {
         return Codegen.optional(this.showInitialRows);
     }
@@ -166,9 +202,17 @@ public class StreamOnTable extends com.pulumi.resources.CustomResource {
     public Output<List<StreamOnTableShowOutput>> showOutputs() {
         return this.showOutputs;
     }
+    /**
+     * Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+     * 
+     */
     @Export(name="stale", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> stale;
 
+    /**
+     * @return Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+     * 
+     */
     public Output<Boolean> stale() {
         return this.stale;
     }

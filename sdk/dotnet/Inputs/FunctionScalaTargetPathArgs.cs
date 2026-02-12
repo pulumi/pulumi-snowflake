@@ -18,6 +18,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("pathOnStage", required: true)]
         public Input<string> PathOnStage { get; set; } = null!;
 
+        /// <summary>
+        /// Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.&lt;your stage's resource name&gt;.fully_qualified_name` if you manage this stage through terraform).
+        /// </summary>
         [Input("stageLocation", required: true)]
         public Input<string> StageLocation { get; set; } = null!;
 

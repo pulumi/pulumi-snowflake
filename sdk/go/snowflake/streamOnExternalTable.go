@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note about copy_grants** Fields like `externalTable`, `insertOnly`, `at`, `before` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copyGrants`. Beware that even though a change is marked as update, the resource is recreated.
+//
+// Resource used to manage streams on external tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
+//
 // ## Import
 //
 // ```sh
@@ -20,11 +24,14 @@ import (
 type StreamOnExternalTable struct {
 	pulumi.CustomResourceState
 
-	At     StreamOnExternalTableAtPtrOutput     `pulumi:"at"`
+	// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	At StreamOnExternalTableAtPtrOutput `pulumi:"at"`
+	// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	Before StreamOnExternalTableBeforePtrOutput `pulumi:"before"`
 	// Specifies a comment for the stream.
-	Comment    pulumi.StringPtrOutput `pulumi:"comment"`
-	CopyGrants pulumi.BoolPtrOutput   `pulumi:"copyGrants"`
+	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
 	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
@@ -41,7 +48,8 @@ type StreamOnExternalTable struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnExternalTableShowOutputArrayOutput `pulumi:"showOutputs"`
-	Stale       pulumi.BoolOutput                          `pulumi:"stale"`
+	// Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+	Stale pulumi.BoolOutput `pulumi:"stale"`
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType pulumi.StringOutput `pulumi:"streamType"`
 }
@@ -85,11 +93,14 @@ func GetStreamOnExternalTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamOnExternalTable resources.
 type streamOnExternalTableState struct {
-	At     *StreamOnExternalTableAt     `pulumi:"at"`
+	// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	At *StreamOnExternalTableAt `pulumi:"at"`
+	// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	Before *StreamOnExternalTableBefore `pulumi:"before"`
 	// Specifies a comment for the stream.
-	Comment    *string `pulumi:"comment"`
-	CopyGrants *bool   `pulumi:"copyGrants"`
+	Comment *string `pulumi:"comment"`
+	// (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
@@ -106,16 +117,20 @@ type streamOnExternalTableState struct {
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs []StreamOnExternalTableShowOutput `pulumi:"showOutputs"`
-	Stale       *bool                             `pulumi:"stale"`
+	// Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+	Stale *bool `pulumi:"stale"`
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType *string `pulumi:"streamType"`
 }
 
 type StreamOnExternalTableState struct {
-	At     StreamOnExternalTableAtPtrInput
+	// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	At StreamOnExternalTableAtPtrInput
+	// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	Before StreamOnExternalTableBeforePtrInput
 	// Specifies a comment for the stream.
-	Comment    pulumi.StringPtrInput
+	Comment pulumi.StringPtrInput
+	// (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
@@ -133,7 +148,8 @@ type StreamOnExternalTableState struct {
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnExternalTableShowOutputArrayInput
-	Stale       pulumi.BoolPtrInput
+	// Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+	Stale pulumi.BoolPtrInput
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType pulumi.StringPtrInput
 }
@@ -143,11 +159,14 @@ func (StreamOnExternalTableState) ElementType() reflect.Type {
 }
 
 type streamOnExternalTableArgs struct {
-	At     *StreamOnExternalTableAt     `pulumi:"at"`
+	// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	At *StreamOnExternalTableAt `pulumi:"at"`
+	// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	Before *StreamOnExternalTableBefore `pulumi:"before"`
 	// Specifies a comment for the stream.
-	Comment    *string `pulumi:"comment"`
-	CopyGrants *bool   `pulumi:"copyGrants"`
+	Comment *string `pulumi:"comment"`
+	// (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
 	// Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
@@ -162,10 +181,13 @@ type streamOnExternalTableArgs struct {
 
 // The set of arguments for constructing a StreamOnExternalTable resource.
 type StreamOnExternalTableArgs struct {
-	At     StreamOnExternalTableAtPtrInput
+	// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	At StreamOnExternalTableAtPtrInput
+	// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	Before StreamOnExternalTableBeforePtrInput
 	// Specifies a comment for the stream.
-	Comment    pulumi.StringPtrInput
+	Comment pulumi.StringPtrInput
+	// (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
@@ -266,10 +288,12 @@ func (o StreamOnExternalTableOutput) ToStreamOnExternalTableOutputWithContext(ct
 	return o
 }
 
+// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o StreamOnExternalTableOutput) At() StreamOnExternalTableAtPtrOutput {
 	return o.ApplyT(func(v *StreamOnExternalTable) StreamOnExternalTableAtPtrOutput { return v.At }).(StreamOnExternalTableAtPtrOutput)
 }
 
+// This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o StreamOnExternalTableOutput) Before() StreamOnExternalTableBeforePtrOutput {
 	return o.ApplyT(func(v *StreamOnExternalTable) StreamOnExternalTableBeforePtrOutput { return v.Before }).(StreamOnExternalTableBeforePtrOutput)
 }
@@ -279,6 +303,7 @@ func (o StreamOnExternalTableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnExternalTable) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
 func (o StreamOnExternalTableOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamOnExternalTable) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
@@ -325,6 +350,7 @@ func (o StreamOnExternalTableOutput) ShowOutputs() StreamOnExternalTableShowOutp
 	return o.ApplyT(func(v *StreamOnExternalTable) StreamOnExternalTableShowOutputArrayOutput { return v.ShowOutputs }).(StreamOnExternalTableShowOutputArrayOutput)
 }
 
+// Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
 func (o StreamOnExternalTableOutput) Stale() pulumi.BoolOutput {
 	return o.ApplyT(func(v *StreamOnExternalTable) pulumi.BoolOutput { return v.Stale }).(pulumi.BoolOutput)
 }

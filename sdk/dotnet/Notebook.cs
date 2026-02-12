@@ -10,6 +10,63 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Note** Due to Snowflake limitations, external changes to `From` are not currently detected.
+    /// 
+    /// &gt; **Note** `Secrets` is currently not supported. It will be supported in the following versions of the provider which may still affect this resource.
+    /// 
+    /// &gt; **Note** `Warehouse` and `QueryWarehouse` parameters can only be set to upper-case identifiers.
+    /// 
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// Resource used to manage notebooks. For more information, check [notebooks documentation](https://docs.snowflake.com/en/sql-reference/sql/create-notebook).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // basic resource
+    ///     var basic = new Snowflake.Notebook("basic", new()
+    ///     {
+    ///         Database = "DATABASE",
+    ///         Schema = "SCHEMA",
+    ///         Name = "NOTEBOOK",
+    ///     });
+    /// 
+    ///     // complete resource
+    ///     var complete = new Snowflake.Notebook("complete", new()
+    ///     {
+    ///         Name = "NOTEBOOK",
+    ///         Database = "DATABASE",
+    ///         Schema = "SCHEMA",
+    ///         Froms = new[]
+    ///         {
+    ///             new Snowflake.Inputs.NotebookFromArgs
+    ///             {
+    ///                 Stage = test.FullyQualifiedName,
+    ///                 Path = "some/path",
+    ///             },
+    ///         },
+    ///         MainFile = "my_notebook.ipynb",
+    ///         QueryWarehouse = testSnowflakeWarehouse.Name,
+    ///         IdleAutoShutdownTimeSeconds = 2400,
+    ///         Warehouse = testSnowflakeWarehouse.Name,
+    ///         Comment = "Lorem ipsum",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

@@ -18,6 +18,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource used to manage secret objects with Basic Authentication. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+ * 
  * ## Import
  * 
  * ```sh
@@ -97,9 +99,17 @@ public class SecretWithBasicAuthentication extends com.pulumi.resources.CustomRe
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies the password value to store in the secret. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
+    /**
+     * @return Specifies the password value to store in the secret. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<String> password() {
         return this.password;
     }

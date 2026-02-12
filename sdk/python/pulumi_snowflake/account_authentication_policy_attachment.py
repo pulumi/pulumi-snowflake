@@ -72,7 +72,29 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
                  authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a AccountAuthenticationPolicyAttachment resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
+
+        Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        default = snowflake.AuthenticationPolicy("default",
+            database="prod",
+            schema="security",
+            name="default_policy")
+        attachment = snowflake.AccountAuthenticationPolicyAttachment("attachment", authentication_policy=default.fully_qualified_name)
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_policy: Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
@@ -84,7 +106,29 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
                  args: AccountAuthenticationPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AccountAuthenticationPolicyAttachment resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
+
+        Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        default = snowflake.AuthenticationPolicy("default",
+            database="prod",
+            schema="security",
+            name="default_policy")
+        attachment = snowflake.AccountAuthenticationPolicyAttachment("attachment", authentication_policy=default.fully_qualified_name)
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         :param str resource_name: The name of the resource.
         :param AccountAuthenticationPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

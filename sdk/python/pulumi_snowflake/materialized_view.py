@@ -359,6 +359,36 @@ class MaterializedView(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        > **Important** The `or_replace` parameter controls whether the provider uses `CREATE OR REPLACE MATERIALIZED VIEW` during create and recreate operations. However, any change to the fields causing recreation will **always trigger delete and create operations** of the materialized view, regardless of the `or_replace` setting.
+        This means setting `or_replace = true` does **not** enable in-place updates when you modify the `statement` field specifically. Changes to `statement` will cause downtime as the view is dropped and recreated. The `or_replace` parameter is primarily useful to overwrite an existing view during initial resource creation.
+        This behavior is a known limitation and may be improved in future versions of the provider.
+
+        !> **Sensitive values** This resource's `statement` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        view = snowflake.MaterializedView("view",
+            database="db",
+            schema="schema",
+            name="view",
+            warehouse="warehouse",
+            comment="comment",
+            statement="select * from foo;\\n",
+            or_replace=False,
+            is_secure=False)
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         format is database name | schema name | view name
@@ -386,6 +416,36 @@ class MaterializedView(pulumi.CustomResource):
                  args: MaterializedViewArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        > **Important** The `or_replace` parameter controls whether the provider uses `CREATE OR REPLACE MATERIALIZED VIEW` during create and recreate operations. However, any change to the fields causing recreation will **always trigger delete and create operations** of the materialized view, regardless of the `or_replace` setting.
+        This means setting `or_replace = true` does **not** enable in-place updates when you modify the `statement` field specifically. Changes to `statement` will cause downtime as the view is dropped and recreated. The `or_replace` parameter is primarily useful to overwrite an existing view during initial resource creation.
+        This behavior is a known limitation and may be improved in future versions of the provider.
+
+        !> **Sensitive values** This resource's `statement` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        view = snowflake.MaterializedView("view",
+            database="db",
+            schema="schema",
+            name="view",
+            warehouse="warehouse",
+            comment="comment",
+            statement="select * from foo;\\n",
+            or_replace=False,
+            is_secure=False)
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         format is database name | schema name | view name

@@ -18,6 +18,60 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+ * 
+ * !&gt; **Note** Due to technical limitations in Terraform SDK, changes in `allowedNetworkRuleList` and `blockedNetworkRuleList` do not cause diff for `showOutput` and `describeOutput`.
+ * 
+ * Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.NetworkPolicy;
+ * import com.pulumi.snowflake.NetworkPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         //# Minimal
+ *         var basic = new NetworkPolicy("basic", NetworkPolicyArgs.builder()
+ *             .name("network_policy_name")
+ *             .build());
+ * 
+ *         //# Complete (with every optional set)
+ *         var complete = new NetworkPolicy("complete", NetworkPolicyArgs.builder()
+ *             .name("network_policy_name")
+ *             .allowedNetworkRuleLists(one.fullyQualifiedName())
+ *             .blockedNetworkRuleLists(two.fullyQualifiedName())
+ *             .allowedIpLists("192.168.1.0/24")
+ *             .blockedIpLists("192.168.1.99")
+ *             .comment("my network policy")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

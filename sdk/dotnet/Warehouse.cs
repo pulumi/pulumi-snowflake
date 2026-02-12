@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &lt;!-- TODO(SNOW-1642723): Remove or adjust this note.--&gt;
+    /// &gt; **Note** Assigning resource monitors to warehouses requires ACCOUNTADMIN role. To do this, either manage the warehouse resource with ACCOUNTADMIN role, or use execute instead. See this issue for more details.
+    /// 
+    /// &gt; **Note** Since [202507 BCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), `DescribeOutput` field is different from Snowflake. Now, in Snowflake always `ResourceConstraint` and `Generation` are present. The provider, always takes the value from `ResourceConstraint` and dispatches it based on the warehouse type: for Standard warehouses, it sets `Generation`, for Snowpark-optimized warehouses, it sets `ResourceConstraint`. This will be adjusted later.
+    /// 
+    /// Resource used to manage warehouse objects. For more information, check [warehouse documentation](https://docs.snowflake.com/en/sql-reference/commands-warehouse).
+    /// 
     /// ## Import
     /// 
     /// ```sh

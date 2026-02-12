@@ -52,23 +52,47 @@ public final class SemanticViewArgs extends com.pulumi.resources.ResourceArgs {
         return this.database;
     }
 
+    /**
+     * The list of dimensions in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="dimensions")
     private @Nullable Output<List<SemanticViewDimensionArgs>> dimensions;
 
+    /**
+     * @return The list of dimensions in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<List<SemanticViewDimensionArgs>>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
+    /**
+     * The list of facts in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="facts")
     private @Nullable Output<List<SemanticViewFactArgs>> facts;
 
+    /**
+     * @return The list of facts in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<List<SemanticViewFactArgs>>> facts() {
         return Optional.ofNullable(this.facts);
     }
 
+    /**
+     * Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="metrics")
     private @Nullable Output<List<SemanticViewMetricArgs>> metrics;
 
+    /**
+     * @return Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<List<SemanticViewMetricArgs>>> metrics() {
         return Optional.ofNullable(this.metrics);
     }
@@ -88,9 +112,17 @@ public final class SemanticViewArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The list of relationships between the logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="relationships")
     private @Nullable Output<List<SemanticViewRelationshipArgs>> relationships;
 
+    /**
+     * @return The list of relationships between the logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<List<SemanticViewRelationshipArgs>>> relationships() {
         return Optional.ofNullable(this.relationships);
     }
@@ -110,9 +142,17 @@ public final class SemanticViewArgs extends com.pulumi.resources.ResourceArgs {
         return this.schema;
     }
 
+    /**
+     * The list of logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="tables", required=true)
     private Output<List<SemanticViewTableArgs>> tables;
 
+    /**
+     * @return The list of logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<List<SemanticViewTableArgs>> tables() {
         return this.tables;
     }
@@ -191,41 +231,95 @@ public final class SemanticViewArgs extends com.pulumi.resources.ResourceArgs {
             return database(Output.of(database));
         }
 
+        /**
+         * @param dimensions The list of dimensions in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimensions(@Nullable Output<List<SemanticViewDimensionArgs>> dimensions) {
             $.dimensions = dimensions;
             return this;
         }
 
+        /**
+         * @param dimensions The list of dimensions in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimensions(List<SemanticViewDimensionArgs> dimensions) {
             return dimensions(Output.of(dimensions));
         }
 
+        /**
+         * @param dimensions The list of dimensions in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimensions(SemanticViewDimensionArgs... dimensions) {
             return dimensions(List.of(dimensions));
         }
 
+        /**
+         * @param facts The list of facts in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facts(@Nullable Output<List<SemanticViewFactArgs>> facts) {
             $.facts = facts;
             return this;
         }
 
+        /**
+         * @param facts The list of facts in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facts(List<SemanticViewFactArgs> facts) {
             return facts(Output.of(facts));
         }
 
+        /**
+         * @param facts The list of facts in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder facts(SemanticViewFactArgs... facts) {
             return facts(List.of(facts));
         }
 
+        /**
+         * @param metrics Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metrics(@Nullable Output<List<SemanticViewMetricArgs>> metrics) {
             $.metrics = metrics;
             return this;
         }
 
+        /**
+         * @param metrics Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metrics(List<SemanticViewMetricArgs> metrics) {
             return metrics(Output.of(metrics));
         }
 
+        /**
+         * @param metrics Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metrics(SemanticViewMetricArgs... metrics) {
             return metrics(List.of(metrics));
         }
@@ -251,15 +345,33 @@ public final class SemanticViewArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param relationships The list of relationships between the logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder relationships(@Nullable Output<List<SemanticViewRelationshipArgs>> relationships) {
             $.relationships = relationships;
             return this;
         }
 
+        /**
+         * @param relationships The list of relationships between the logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder relationships(List<SemanticViewRelationshipArgs> relationships) {
             return relationships(Output.of(relationships));
         }
 
+        /**
+         * @param relationships The list of relationships between the logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder relationships(SemanticViewRelationshipArgs... relationships) {
             return relationships(List.of(relationships));
         }
@@ -285,15 +397,33 @@ public final class SemanticViewArgs extends com.pulumi.resources.ResourceArgs {
             return schema(Output.of(schema));
         }
 
+        /**
+         * @param tables The list of logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tables(Output<List<SemanticViewTableArgs>> tables) {
             $.tables = tables;
             return this;
         }
 
+        /**
+         * @param tables The list of logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tables(List<SemanticViewTableArgs> tables) {
             return tables(Output.of(tables));
         }
 
+        /**
+         * @param tables The list of logical tables in the semantic view. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tables(SemanticViewTableArgs... tables) {
             return tables(List.of(tables));
         }

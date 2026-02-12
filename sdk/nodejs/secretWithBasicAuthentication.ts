@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Resource used to manage secret objects with Basic Authentication. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+ *
  * ## Import
  *
  * ```sh
@@ -61,6 +63,9 @@ export class SecretWithBasicAuthentication extends pulumi.CustomResource {
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly password: pulumi.Output<string>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -158,6 +163,9 @@ export interface SecretWithBasicAuthenticationState {
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     password?: pulumi.Input<string>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -193,6 +201,9 @@ export interface SecretWithBasicAuthenticationArgs {
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     password: pulumi.Input<string>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.

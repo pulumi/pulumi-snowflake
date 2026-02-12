@@ -288,6 +288,34 @@ class NetworkPolicy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+
+        !> **Note** Due to technical limitations in Terraform SDK, changes in `allowed_network_rule_list` and `blocked_network_rule_list` do not cause diff for `show_output` and `describe_output`.
+
+        Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Minimal
+        basic = snowflake.NetworkPolicy("basic", name="network_policy_name")
+        ## Complete (with every optional set)
+        complete = snowflake.NetworkPolicy("complete",
+            name="network_policy_name",
+            allowed_network_rule_lists=[one["fullyQualifiedName"]],
+            blocked_network_rule_lists=[two["fullyQualifiedName"]],
+            allowed_ip_lists=["192.168.1.0/24"],
+            blocked_ip_lists=["192.168.1.99"],
+            comment="my network policy")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -310,6 +338,34 @@ class NetworkPolicy(pulumi.CustomResource):
                  args: Optional[NetworkPolicyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+
+        !> **Note** Due to technical limitations in Terraform SDK, changes in `allowed_network_rule_list` and `blocked_network_rule_list` do not cause diff for `show_output` and `describe_output`.
+
+        Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Minimal
+        basic = snowflake.NetworkPolicy("basic", name="network_policy_name")
+        ## Complete (with every optional set)
+        complete = snowflake.NetworkPolicy("complete",
+            name="network_policy_name",
+            allowed_network_rule_lists=[one["fullyQualifiedName"]],
+            blocked_network_rule_lists=[two["fullyQualifiedName"]],
+            allowed_ip_lists=["192.168.1.0/24"],
+            blocked_ip_lists=["192.168.1.99"],
+            comment="my network policy")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

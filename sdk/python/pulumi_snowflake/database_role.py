@@ -172,6 +172,25 @@ class DatabaseRole(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Resource used to manage database roles. For more information, check [database roles documentation](https://docs.snowflake.com/en/sql-reference/sql/create-database-role).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        test_database = snowflake.Database("test_database", name="database_name")
+        test_database_role = snowflake.DatabaseRole("test_database_role",
+            database=test_database.fully_qualified_name,
+            name="database_role_name",
+            comment="my database role")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -191,6 +210,25 @@ class DatabaseRole(pulumi.CustomResource):
                  args: DatabaseRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource used to manage database roles. For more information, check [database roles documentation](https://docs.snowflake.com/en/sql-reference/sql/create-database-role).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        test_database = snowflake.Database("test_database", name="database_name")
+        test_database_role = snowflake.DatabaseRole("test_database_role",
+            database=test_database.fully_qualified_name,
+            name="database_role_name",
+            comment="my database role")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

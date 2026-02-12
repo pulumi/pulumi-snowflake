@@ -34,9 +34,11 @@ class UserProgrammaticAccessTokenArgs:
         The set of arguments for constructing a UserProgrammaticAccessToken resource.
         :param pulumi.Input[_builtins.str] user: The name of the user that the token is associated with. A user cannot use another user's programmatic access token to authenticate. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] comment: Descriptive comment about the programmatic access token.
+        :param pulumi.Input[_builtins.int] days_to_expiry: The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] expire_rotated_token_after_hours: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
         :param pulumi.Input[_builtins.str] keeper: Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotated_token_name` fields are marked as computed.
+        :param pulumi.Input[_builtins.int] mins_to_bypass_network_policy_requirement: The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] name: Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] role_restriction: The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
@@ -85,6 +87,9 @@ class UserProgrammaticAccessTokenArgs:
     @_builtins.property
     @pulumi.getter(name="daysToExpiry")
     def days_to_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "days_to_expiry")
 
     @days_to_expiry.setter
@@ -130,6 +135,9 @@ class UserProgrammaticAccessTokenArgs:
     @_builtins.property
     @pulumi.getter(name="minsToBypassNetworkPolicyRequirement")
     def mins_to_bypass_network_policy_requirement(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_bypass_network_policy_requirement")
 
     @mins_to_bypass_network_policy_requirement.setter
@@ -179,9 +187,11 @@ class _UserProgrammaticAccessTokenState:
         """
         Input properties used for looking up and filtering UserProgrammaticAccessToken resources.
         :param pulumi.Input[_builtins.str] comment: Descriptive comment about the programmatic access token.
+        :param pulumi.Input[_builtins.int] days_to_expiry: The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] expire_rotated_token_after_hours: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
         :param pulumi.Input[_builtins.str] keeper: Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotated_token_name` fields are marked as computed.
+        :param pulumi.Input[_builtins.int] mins_to_bypass_network_policy_requirement: The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] name: Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] role_restriction: The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] rotated_token_name: Name of the token that represents the prior secret. This field is updated only when the token is rotated. In this case, the field is marked as computed.
@@ -229,6 +239,9 @@ class _UserProgrammaticAccessTokenState:
     @_builtins.property
     @pulumi.getter(name="daysToExpiry")
     def days_to_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "days_to_expiry")
 
     @days_to_expiry.setter
@@ -274,6 +287,9 @@ class _UserProgrammaticAccessTokenState:
     @_builtins.property
     @pulumi.getter(name="minsToBypassNetworkPolicyRequirement")
     def mins_to_bypass_network_policy_requirement(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_bypass_network_policy_requirement")
 
     @mins_to_bypass_network_policy_requirement.setter
@@ -370,6 +386,70 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
                  user: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        > **Note** Read more about PAT support in the provider in our Authentication Methods guide.
+
+        > **Note** External changes to `mins_to_bypass_network_policy_requirement` are not handled by the provider because the value changes continuously on Snowflake side after setting it.
+
+        > **Note** External changes to `days_to_expiry` are not handled by the provider because Snowflake returns `expires_at` which is the token expiration date. Also, the provider does not handle expired tokens automatically. Please change the value of `days_to_expiry` to force a new expiration date.
+
+        > **Note** External changes to `token` are not handled by the provider because the data in this field can be updated only when the token is created or rotated.
+
+        > **Note** Rotating a token can be done by changing the value of `keeper` field. See an example below.
+
+        > **Note** In order to authenticate with PAT with role restriction, you need to grant the role to the user. You can use the GrantAccountRole resource to do this.
+
+        Resource used to manage user programmatic access tokens. For more information, check [user programmatic access tokens documentation](https://docs.snowflake.com/en/sql-reference/sql/alter-user-add-programmatic-access-token). A programmatic access token is a token that can be used to authenticate to an endpoint. See [Using programmatic access tokens for authentication](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) user guide for more details.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+        import pulumi_time as time
+
+        # basic resource
+        basic = snowflake.UserProgrammaticAccessToken("basic",
+            user="USER",
+            name="TOKEN")
+        # complete resource
+        complete = snowflake.UserProgrammaticAccessToken("complete",
+            user="USER",
+            name="TOKEN",
+            role_restriction="ROLE",
+            days_to_expiry=30,
+            mins_to_bypass_network_policy_requirement=10,
+            disabled="false",
+            comment="COMMENT")
+        # Set up dependencies and reference them from the token resource.
+        role = snowflake.AccountRole("role", name="ROLE")
+        user = snowflake.User("user", name="USER")
+        # Grant the role to the user. This is required to authenticate with PAT with role restriction.
+        grant_role_to_user = snowflake.GrantAccountRole("grant_role_to_user",
+            role_name=role.name,
+            user_name=user.name)
+        # complete resource with external references
+        complete_with_external_references = snowflake.UserProgrammaticAccessToken("complete_with_external_references",
+            user=user.name,
+            name="TOKEN",
+            role_restriction=role.name,
+            days_to_expiry=30,
+            mins_to_bypass_network_policy_requirement=10,
+            disabled="false",
+            comment="COMMENT")
+        pulumi.export("token", complete.token)
+        # Note that the fields of this resource are updated only when Terraform is run.
+        # This means that the schedule may not be respected if Terraform is not run regularly.
+        rotation_schedule = time.index.Rotating("rotation_schedule", rotation_days=30)
+        # Rotate the token regularly using the keeper field and time_rotating resource.
+        rotating = snowflake.UserProgrammaticAccessToken("rotating",
+            user="USER",
+            name="TOKEN",
+            keeper=rotation_schedule["rotationRfc3339"])
+        ```
+
         ## Import
 
         ```sh
@@ -379,9 +459,11 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Descriptive comment about the programmatic access token.
+        :param pulumi.Input[_builtins.int] days_to_expiry: The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] expire_rotated_token_after_hours: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
         :param pulumi.Input[_builtins.str] keeper: Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotated_token_name` fields are marked as computed.
+        :param pulumi.Input[_builtins.int] mins_to_bypass_network_policy_requirement: The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] name: Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] role_restriction: The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] user: The name of the user that the token is associated with. A user cannot use another user's programmatic access token to authenticate. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -393,6 +475,70 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
                  args: UserProgrammaticAccessTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note** Read more about PAT support in the provider in our Authentication Methods guide.
+
+        > **Note** External changes to `mins_to_bypass_network_policy_requirement` are not handled by the provider because the value changes continuously on Snowflake side after setting it.
+
+        > **Note** External changes to `days_to_expiry` are not handled by the provider because Snowflake returns `expires_at` which is the token expiration date. Also, the provider does not handle expired tokens automatically. Please change the value of `days_to_expiry` to force a new expiration date.
+
+        > **Note** External changes to `token` are not handled by the provider because the data in this field can be updated only when the token is created or rotated.
+
+        > **Note** Rotating a token can be done by changing the value of `keeper` field. See an example below.
+
+        > **Note** In order to authenticate with PAT with role restriction, you need to grant the role to the user. You can use the GrantAccountRole resource to do this.
+
+        Resource used to manage user programmatic access tokens. For more information, check [user programmatic access tokens documentation](https://docs.snowflake.com/en/sql-reference/sql/alter-user-add-programmatic-access-token). A programmatic access token is a token that can be used to authenticate to an endpoint. See [Using programmatic access tokens for authentication](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) user guide for more details.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+        import pulumi_time as time
+
+        # basic resource
+        basic = snowflake.UserProgrammaticAccessToken("basic",
+            user="USER",
+            name="TOKEN")
+        # complete resource
+        complete = snowflake.UserProgrammaticAccessToken("complete",
+            user="USER",
+            name="TOKEN",
+            role_restriction="ROLE",
+            days_to_expiry=30,
+            mins_to_bypass_network_policy_requirement=10,
+            disabled="false",
+            comment="COMMENT")
+        # Set up dependencies and reference them from the token resource.
+        role = snowflake.AccountRole("role", name="ROLE")
+        user = snowflake.User("user", name="USER")
+        # Grant the role to the user. This is required to authenticate with PAT with role restriction.
+        grant_role_to_user = snowflake.GrantAccountRole("grant_role_to_user",
+            role_name=role.name,
+            user_name=user.name)
+        # complete resource with external references
+        complete_with_external_references = snowflake.UserProgrammaticAccessToken("complete_with_external_references",
+            user=user.name,
+            name="TOKEN",
+            role_restriction=role.name,
+            days_to_expiry=30,
+            mins_to_bypass_network_policy_requirement=10,
+            disabled="false",
+            comment="COMMENT")
+        pulumi.export("token", complete.token)
+        # Note that the fields of this resource are updated only when Terraform is run.
+        # This means that the schedule may not be respected if Terraform is not run regularly.
+        rotation_schedule = time.index.Rotating("rotation_schedule", rotation_days=30)
+        # Rotate the token regularly using the keeper field and time_rotating resource.
+        rotating = snowflake.UserProgrammaticAccessToken("rotating",
+            user="USER",
+            name="TOKEN",
+            keeper=rotation_schedule["rotationRfc3339"])
+        ```
+
         ## Import
 
         ```sh
@@ -478,9 +624,11 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Descriptive comment about the programmatic access token.
+        :param pulumi.Input[_builtins.int] days_to_expiry: The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] expire_rotated_token_after_hours: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
         :param pulumi.Input[_builtins.str] keeper: Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotated_token_name` fields are marked as computed.
+        :param pulumi.Input[_builtins.int] mins_to_bypass_network_policy_requirement: The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] name: Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] role_restriction: The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] rotated_token_name: Name of the token that represents the prior secret. This field is updated only when the token is rotated. In this case, the field is marked as computed.
@@ -517,6 +665,9 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="daysToExpiry")
     def days_to_expiry(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "days_to_expiry")
 
     @_builtins.property
@@ -546,6 +697,9 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="minsToBypassNetworkPolicyRequirement")
     def mins_to_bypass_network_policy_requirement(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_bypass_network_policy_requirement")
 
     @_builtins.property
