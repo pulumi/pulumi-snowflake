@@ -18,6 +18,65 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &lt;!-- TODO(SNOW-1348334): support gitHttpsApi type in snowflakeApiIntegrationResource --&gt;
+ * &gt; **Note** Note that `snowflakeApiIntegrationResource` currently does not support `gitHttpsApi` type. It will be added during the resource rework. Instead, you can use execute resource.
+ * 
+ * Resource used to manage git repositories. For more information, check [git repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-git-repository).
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.GitRepository;
+ * import com.pulumi.snowflake.GitRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // basic resource
+ *         var basic = new GitRepository("basic", GitRepositoryArgs.builder()
+ *             .database("DATABASE")
+ *             .schema("SCHEMA")
+ *             .name("GIT_REPOSITORY")
+ *             .origin("https://github.com/user/repo")
+ *             .apiIntegration("API_INTEGRATION")
+ *             .build());
+ * 
+ *         // complete resource
+ *         var complete = new GitRepository("complete", GitRepositoryArgs.builder()
+ *             .name("GIT_REPOSITORY")
+ *             .database("DATABASE")
+ *             .schema("SCHEMA")
+ *             .origin("https://github.com/user/repo")
+ *             .apiIntegration("API_INTEGRATION")
+ *             .gitCredentials(secretName.fullyQualifiedName())
+ *             .comment("comment")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

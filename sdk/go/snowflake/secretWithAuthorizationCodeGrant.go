@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource used to manage secret objects with OAuth Authorization Code Grant. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+//
 // ## Import
 //
 // ```sh
@@ -31,7 +33,8 @@ type SecretWithAuthorizationCodeGrant struct {
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Name              pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthRefreshToken pulumi.StringOutput `pulumi:"oauthRefreshToken"`
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime pulumi.StringOutput `pulumi:"oauthRefreshTokenExpiryTime"`
@@ -106,7 +109,8 @@ type secretWithAuthorizationCodeGrantState struct {
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Name              *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthRefreshToken *string `pulumi:"oauthRefreshToken"`
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime *string `pulumi:"oauthRefreshTokenExpiryTime"`
@@ -130,7 +134,8 @@ type SecretWithAuthorizationCodeGrantState struct {
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthRefreshToken pulumi.StringPtrInput
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime pulumi.StringPtrInput
@@ -154,8 +159,9 @@ type secretWithAuthorizationCodeGrantArgs struct {
 	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Name              *string `pulumi:"name"`
-	OauthRefreshToken string  `pulumi:"oauthRefreshToken"`
+	Name *string `pulumi:"name"`
+	// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	OauthRefreshToken string `pulumi:"oauthRefreshToken"`
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime string `pulumi:"oauthRefreshTokenExpiryTime"`
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -171,7 +177,8 @@ type SecretWithAuthorizationCodeGrantArgs struct {
 	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthRefreshToken pulumi.StringInput
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime pulumi.StringInput
@@ -298,6 +305,7 @@ func (o SecretWithAuthorizationCodeGrantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o SecretWithAuthorizationCodeGrantOutput) OauthRefreshToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringOutput { return v.OauthRefreshToken }).(pulumi.StringOutput)
 }

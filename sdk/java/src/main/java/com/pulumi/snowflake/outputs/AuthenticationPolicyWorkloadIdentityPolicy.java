@@ -26,6 +26,10 @@ public final class AuthenticationPolicyWorkloadIdentityPolicy {
      * 
      */
     private @Nullable List<String> allowedOidcIssuers;
+    /**
+     * @return Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * 
+     */
     private @Nullable List<String> allowedProviders;
 
     private AuthenticationPolicyWorkloadIdentityPolicy() {}
@@ -50,6 +54,10 @@ public final class AuthenticationPolicyWorkloadIdentityPolicy {
     public List<String> allowedOidcIssuers() {
         return this.allowedOidcIssuers == null ? List.of() : this.allowedOidcIssuers;
     }
+    /**
+     * @return Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * 
+     */
     public List<String> allowedProviders() {
         return this.allowedProviders == null ? List.of() : this.allowedProviders;
     }

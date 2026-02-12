@@ -12,6 +12,57 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// > **Required warehouse** For this resource, the provider now uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+//
+// Specifies the authentication policy to use for a certain user.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			user, err := snowflake.NewUser(ctx, "user", &snowflake.UserArgs{
+//				Name: pulumi.String("USER_NAME"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ap, err := snowflake.NewAuthenticationPolicy(ctx, "ap", &snowflake.AuthenticationPolicyArgs{
+//				Database: pulumi.String("prod"),
+//				Schema:   pulumi.String("security"),
+//				Name:     pulumi.String("default_policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewUserAuthenticationPolicyAttachment(ctx, "apa", &snowflake.UserAuthenticationPolicyAttachmentArgs{
+//				AuthenticationPolicyName: ap.FullyQualifiedName,
+//				UserName:                 user.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 type UserAuthenticationPolicyAttachment struct {
 	pulumi.CustomResourceState
 

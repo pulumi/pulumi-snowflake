@@ -38,6 +38,7 @@ class ResourceMonitorArgs:
         :param pulumi.Input[_builtins.str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
+        :param pulumi.Input[_builtins.str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         :param pulumi.Input[_builtins.int] suspend_immediate_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         :param pulumi.Input[_builtins.int] suspend_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
@@ -135,6 +136,9 @@ class ResourceMonitorArgs:
     @_builtins.property
     @pulumi.getter(name="startTimestamp")
     def start_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        """
         return pulumi.get(self, "start_timestamp")
 
     @start_timestamp.setter
@@ -190,6 +194,7 @@ class _ResourceMonitorState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]] show_outputs: Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
+        :param pulumi.Input[_builtins.str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         :param pulumi.Input[_builtins.int] suspend_immediate_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         :param pulumi.Input[_builtins.int] suspend_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
@@ -315,6 +320,9 @@ class _ResourceMonitorState:
     @_builtins.property
     @pulumi.getter(name="startTimestamp")
     def start_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        """
         return pulumi.get(self, "start_timestamp")
 
     @start_timestamp.setter
@@ -363,6 +371,56 @@ class ResourceMonitor(pulumi.CustomResource):
                  suspend_trigger: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
+        > **Note** For more details about resource monitor usage, please visit [this guide on Snowflake documentation page](https://docs.snowflake.com/en/user-guide/resource-monitors).
+
+        > **Note** Currently assigning a resource monitor to account is not supported. This will be available in a new resource for managing account dependencies. For now, please use execute instead.
+
+        **! Warning !** Due to Snowflake limitations, the following actions are not supported:
+        - Cannot create resource monitors with only triggers set, any other attribute has to be set.
+        - Once a resource monitor has at least one trigger assigned, it cannot fully unset them (has to have at least one trigger, doesn't matter of which type). That's why when you unset all the triggers on a resource monitor, it will be automatically recreated.
+
+        Resource used to manage resource monitor objects. For more information, check [resource monitor documentation](https://docs.snowflake.com/en/user-guide/resource-monitors).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # Note: Without credit quota and triggers specified in the configuration, the resource monitor is not performing any work.
+        # More on resource monitor usage: https://docs.snowflake.com/en/user-guide/resource-monitors.
+        minimal = snowflake.ResourceMonitor("minimal", name="resource-monitor-name")
+        # Note: Resource monitors have to be attached to account or warehouse to be able to track credit usage.
+        minimal_working = snowflake.ResourceMonitor("minimal_working",
+            name="resource-monitor-name",
+            credit_quota=100,
+            suspend_trigger=100,
+            notify_users=[
+                one["fullyQualifiedName"],
+                two["fullyQualifiedName"],
+            ])
+        complete = snowflake.ResourceMonitor("complete",
+            name="resource-monitor-name",
+            credit_quota=100,
+            frequency="DAILY",
+            start_timestamp="2030-12-07 00:00",
+            end_timestamp="2035-12-07 00:00",
+            notify_triggers=[
+                40,
+                50,
+            ],
+            suspend_trigger=50,
+            suspend_immediate_trigger=90,
+            notify_users=[
+                one["fullyQualifiedName"],
+                two["fullyQualifiedName"],
+            ])
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -377,6 +435,7 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
+        :param pulumi.Input[_builtins.str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         :param pulumi.Input[_builtins.int] suspend_immediate_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         :param pulumi.Input[_builtins.int] suspend_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
@@ -387,6 +446,56 @@ class ResourceMonitor(pulumi.CustomResource):
                  args: Optional[ResourceMonitorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note** For more details about resource monitor usage, please visit [this guide on Snowflake documentation page](https://docs.snowflake.com/en/user-guide/resource-monitors).
+
+        > **Note** Currently assigning a resource monitor to account is not supported. This will be available in a new resource for managing account dependencies. For now, please use execute instead.
+
+        **! Warning !** Due to Snowflake limitations, the following actions are not supported:
+        - Cannot create resource monitors with only triggers set, any other attribute has to be set.
+        - Once a resource monitor has at least one trigger assigned, it cannot fully unset them (has to have at least one trigger, doesn't matter of which type). That's why when you unset all the triggers on a resource monitor, it will be automatically recreated.
+
+        Resource used to manage resource monitor objects. For more information, check [resource monitor documentation](https://docs.snowflake.com/en/user-guide/resource-monitors).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # Note: Without credit quota and triggers specified in the configuration, the resource monitor is not performing any work.
+        # More on resource monitor usage: https://docs.snowflake.com/en/user-guide/resource-monitors.
+        minimal = snowflake.ResourceMonitor("minimal", name="resource-monitor-name")
+        # Note: Resource monitors have to be attached to account or warehouse to be able to track credit usage.
+        minimal_working = snowflake.ResourceMonitor("minimal_working",
+            name="resource-monitor-name",
+            credit_quota=100,
+            suspend_trigger=100,
+            notify_users=[
+                one["fullyQualifiedName"],
+                two["fullyQualifiedName"],
+            ])
+        complete = snowflake.ResourceMonitor("complete",
+            name="resource-monitor-name",
+            credit_quota=100,
+            frequency="DAILY",
+            start_timestamp="2030-12-07 00:00",
+            end_timestamp="2035-12-07 00:00",
+            notify_triggers=[
+                40,
+                50,
+            ],
+            suspend_trigger=50,
+            suspend_immediate_trigger=90,
+            notify_users=[
+                one["fullyQualifiedName"],
+                two["fullyQualifiedName"],
+            ])
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -473,6 +582,7 @@ class ResourceMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] notify_triggers: Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_users: Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceMonitorShowOutputArgs', 'ResourceMonitorShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
+        :param pulumi.Input[_builtins.str] start_timestamp: The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         :param pulumi.Input[_builtins.int] suspend_immediate_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         :param pulumi.Input[_builtins.int] suspend_trigger: Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
@@ -560,6 +670,9 @@ class ResourceMonitor(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="startTimestamp")
     def start_timestamp(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        """
         return pulumi.get(self, "start_timestamp")
 
     @_builtins.property

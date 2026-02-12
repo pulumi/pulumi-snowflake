@@ -7,6 +7,71 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * !> **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration to set parameters on the current account, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`. More details in the snowflake.CurrentAccount resource documentation.
+ *
+ * > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const d = new snowflake.Database("d", {name: "TEST_DB"});
+ * const o = new snowflake.ObjectParameter("o", {
+ *     key: "SUSPEND_TASK_AFTER_NUM_FAILURES",
+ *     value: "33",
+ *     objectType: "DATABASE",
+ *     objectIdentifiers: [{
+ *         name: d.name,
+ *     }],
+ * });
+ * const s = new snowflake.Schema("s", {
+ *     name: "TEST_SCHEMA",
+ *     database: d.name,
+ * });
+ * const o2 = new snowflake.ObjectParameter("o2", {
+ *     key: "USER_TASK_TIMEOUT_MS",
+ *     value: "500",
+ *     objectType: "SCHEMA",
+ *     objectIdentifiers: [{
+ *         database: d.name,
+ *         name: s.name,
+ *     }],
+ * });
+ * const t = new snowflake.Table("t", {
+ *     name: "TEST_TABLE",
+ *     database: d.name,
+ *     schema: s.name,
+ *     columns: [{
+ *         name: "id",
+ *         type: "NUMBER",
+ *     }],
+ * });
+ * const o3 = new snowflake.ObjectParameter("o3", {
+ *     key: "DATA_RETENTION_TIME_IN_DAYS",
+ *     value: "89",
+ *     objectType: "TABLE",
+ *     objectIdentifiers: [{
+ *         database: d.name,
+ *         schema: s.name,
+ *         name: t.name,
+ *     }],
+ * });
+ * // Setting object parameter at account level
+ * const o4 = new snowflake.ObjectParameter("o4", {
+ *     key: "DATA_RETENTION_TIME_IN_DAYS",
+ *     value: "89",
+ *     onAccount: true,
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh

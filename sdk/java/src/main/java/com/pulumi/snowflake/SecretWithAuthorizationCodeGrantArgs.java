@@ -76,9 +76,17 @@ public final class SecretWithAuthorizationCodeGrantArgs extends com.pulumi.resou
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="oauthRefreshToken", required=true)
     private Output<String> oauthRefreshToken;
 
+    /**
+     * @return Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<String> oauthRefreshToken() {
         return this.oauthRefreshToken;
     }
@@ -227,11 +235,23 @@ public final class SecretWithAuthorizationCodeGrantArgs extends com.pulumi.resou
             return name(Output.of(name));
         }
 
+        /**
+         * @param oauthRefreshToken Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRefreshToken(Output<String> oauthRefreshToken) {
             $.oauthRefreshToken = oauthRefreshToken;
             return this;
         }
 
+        /**
+         * @param oauthRefreshToken Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRefreshToken(String oauthRefreshToken) {
             return oauthRefreshToken(Output.of(oauthRefreshToken));
         }

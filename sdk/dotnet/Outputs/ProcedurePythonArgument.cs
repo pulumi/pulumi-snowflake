@@ -17,6 +17,9 @@ namespace Pulumi.Snowflake.Outputs
         /// The argument type.
         /// </summary>
         public readonly string ArgDataType;
+        /// <summary>
+        /// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public readonly string? ArgDefaultValue;
         /// <summary>
         /// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.

@@ -7,6 +7,26 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Resource used to manage database roles. For more information, check [database roles documentation](https://docs.snowflake.com/en/sql-reference/sql/create-database-role).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const testDatabase = new snowflake.Database("test_database", {name: "database_name"});
+ * const testDatabaseRole = new snowflake.DatabaseRole("test_database_role", {
+ *     database: testDatabase.fullyQualifiedName,
+ *     name: "database_role_name",
+ *     comment: "my database role",
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh

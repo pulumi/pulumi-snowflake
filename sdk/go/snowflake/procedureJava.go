@@ -12,14 +12,152 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// !> **Sensitive values** This resource's `procedureDefinition` and `show_output.arguments_raw` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+//
+// > **Note** External changes to `isSecure` and `nullInputBehavior` are not currently supported. They will be handled in the following versions of the provider which may still affect this resource.
+//
+// > **Note** `COPY GRANTS` and `OR REPLACE` are not currently supported.
+//
+// > **Note** `RETURN... [[ NOT ] NULL]` is not currently supported. It will be improved in the following versions of the provider which may still affect this resource.
+//
+// > **Note** Use of return type `TABLE` is currently limited. It will be improved in the following versions of the provider which may still affect this resource.
+//
+// > **Note** Snowflake is not returning full data type information for arguments which may lead to unexpected plan outputs. Diff suppression for such cases will be improved.
+//
+// > **Note** Snowflake is not returning the default values for arguments so argument's `argDefaultValue` external changes cannot be tracked.
+//
+// > **Note** Limit the use of special characters (`.`, `'`, `/`, `"`, `(`, `)`, `[`, `]`, `{`, `}`, ` `) in argument names, stage ids, and secret ids. It's best to limit to only alphanumeric and underscores. There is a lot of parsing of SHOW/DESCRIBE outputs involved and using special characters may limit the possibility to achieve the correct results.
+//
+// > **Note** Diff suppression for `import.stage_location` is currently not implemented. Make sure you are using the fully qualified stage name (with all the double quotes), e.g. `"\"database_name\".\"schema_name\".\"stage_name\""`.
+//
+// > **Required warehouse** This resource may require active warehouse. Please, make sure you have either set a DEFAULT_WAREHOUSE for the user, or specified a warehouse in the provider configuration.
+//
+// Resource used to manage java procedure objects. For more information, check [procedure documentation](https://docs.snowflake.com/en/sql-reference/sql/create-procedure).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// basic example
+//			_, err := snowflake.NewProcedureJava(ctx, "basic", &snowflake.ProcedureJavaArgs{
+//				Database: pulumi.String("Database"),
+//				Schema:   pulumi.String("Schema"),
+//				Name:     pulumi.String("ProcedureName"),
+//				Arguments: snowflake.ProcedureJavaArgumentArray{
+//					&snowflake.ProcedureJavaArgumentArgs{
+//						ArgDataType: pulumi.String("VARCHAR(100)"),
+//						ArgName:     pulumi.String("x"),
+//					},
+//				},
+//				ReturnType: pulumi.String("VARCHAR(100)"),
+//				Handler:    pulumi.String("TestFunc.echoVarchar"),
+//				ProcedureDefinition: pulumi.String(`  import com.snowflake.snowpark_java.*;
+//	  class TestFunc {
+//	    public static String echoVarchar(Session session, String x) {
+//	      return x;
+//	    }
+//	  }
+//
+// `),
+//
+//				RuntimeVersion:  pulumi.String("11"),
+//				SnowparkPackage: pulumi.String("1.14.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// full example
+//			_, err = snowflake.NewProcedureJava(ctx, "full", &snowflake.ProcedureJavaArgs{
+//				Database: pulumi.String("Database"),
+//				Schema:   pulumi.String("Schema"),
+//				Name:     pulumi.String("ProcedureName"),
+//				Arguments: snowflake.ProcedureJavaArgumentArray{
+//					&snowflake.ProcedureJavaArgumentArgs{
+//						ArgDataType: pulumi.String("VARCHAR(100)"),
+//						ArgName:     pulumi.String("x"),
+//					},
+//				},
+//				ReturnType: pulumi.String("VARCHAR(100)"),
+//				Handler:    pulumi.String("TestFunc.echoVarchar"),
+//				ProcedureDefinition: pulumi.String(`    import com.snowflake.snowpark_java.*;
+//	  class TestFunc {
+//	    public static String echoVarchar(Session session, String x) {
+//	      return x;
+//	    }
+//	  }
+//
+// `),
+//
+//				RuntimeVersion:  pulumi.String("11"),
+//				SnowparkPackage: pulumi.String("1.14.0"),
+//				Comment:         pulumi.String("some comment"),
+//				ExecuteAs:       pulumi.String("CALLER"),
+//				TargetPath: &snowflake.ProcedureJavaTargetPathArgs{
+//					PathOnStage:   pulumi.String("tf-1734028493-OkoTf.jar"),
+//					StageLocation: pulumi.Any(example.FullyQualifiedName),
+//				},
+//				Packages: pulumi.StringArray{
+//					pulumi.String("com.snowflake:telemetry:0.1.0"),
+//				},
+//				Imports: snowflake.ProcedureJavaImportArray{
+//					&snowflake.ProcedureJavaImportArgs{
+//						PathOnStage:   pulumi.String("tf-1734028486-OLJpF.jar"),
+//						StageLocation: pulumi.String("~"),
+//					},
+//					&snowflake.ProcedureJavaImportArgs{
+//						PathOnStage:   pulumi.String("tf-1734028491-EMoDC.jar"),
+//						StageLocation: pulumi.String("~"),
+//					},
+//				},
+//				IsSecure:          pulumi.String("false"),
+//				NullInputBehavior: pulumi.String("CALLED ON NULL INPUT"),
+//				ExternalAccessIntegrations: pulumi.StringArray{
+//					pulumi.String("INTEGRATION_1"),
+//					pulumi.String("INTEGRATION_2"),
+//				},
+//				Secrets: snowflake.ProcedureJavaSecretArray{
+//					&snowflake.ProcedureJavaSecretArgs{
+//						SecretId:           pulumi.Any(example1.FullyQualifiedName),
+//						SecretVariableName: pulumi.String("abc"),
+//					},
+//					&snowflake.ProcedureJavaSecretArgs{
+//						SecretId:           pulumi.Any(example2.FullyQualifiedName),
+//						SecretVariableName: pulumi.String("def"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/procedureJava:ProcedureJava example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+// terraform import snowflake_procedure_java.example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
 // ```
 //
 // Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
-//
 // Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
 type ProcedureJava struct {
 	pulumi.CustomResourceState

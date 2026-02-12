@@ -10,6 +10,66 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var externalTable = new Snowflake.ExternalTable("external_table", new()
+    ///     {
+    ///         Database = "db",
+    ///         Schema = "schema",
+    ///         Name = "external_table",
+    ///         Comment = "External table",
+    ///         FileFormat = "TYPE = CSV FIELD_DELIMITER = '|'",
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalTableColumnArgs
+    ///             {
+    ///                 Name = "id",
+    ///                 Type = "int",
+    ///             },
+    ///             new Snowflake.Inputs.ExternalTableColumnArgs
+    ///             {
+    ///                 Name = "data",
+    ///                 Type = "text",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // with a location pointing to an existing stage
+    ///     // name is hardcoded, please see resource documentation for other options
+    ///     var externalTableWithLocation = new Snowflake.ExternalTable("external_table_with_location", new()
+    ///     {
+    ///         Database = "db",
+    ///         Schema = "schema",
+    ///         Name = "external_table_with_location",
+    ///         Location = "@MYDB.MYSCHEMA.MYSTAGE",
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalTableColumnArgs
+    ///             {
+    ///                 Name = "id",
+    ///                 Type = "int",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | external table name

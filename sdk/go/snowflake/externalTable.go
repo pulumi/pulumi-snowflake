@@ -12,6 +12,70 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.NewExternalTable(ctx, "external_table", &snowflake.ExternalTableArgs{
+//				Database:   pulumi.String("db"),
+//				Schema:     pulumi.String("schema"),
+//				Name:       pulumi.String("external_table"),
+//				Comment:    pulumi.String("External table"),
+//				FileFormat: pulumi.String("TYPE = CSV FIELD_DELIMITER = '|'"),
+//				Columns: snowflake.ExternalTableColumnArray{
+//					&snowflake.ExternalTableColumnArgs{
+//						Name: pulumi.String("id"),
+//						Type: pulumi.String("int"),
+//					},
+//					&snowflake.ExternalTableColumnArgs{
+//						Name: pulumi.String("data"),
+//						Type: pulumi.String("text"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// with a location pointing to an existing stage
+//			// name is hardcoded, please see resource documentation for other options
+//			_, err = snowflake.NewExternalTable(ctx, "external_table_with_location", &snowflake.ExternalTableArgs{
+//				Database: pulumi.String("db"),
+//				Schema:   pulumi.String("schema"),
+//				Name:     pulumi.String("external_table_with_location"),
+//				Location: pulumi.String("@MYDB.MYSCHEMA.MYSTAGE"),
+//				Columns: snowflake.ExternalTableColumnArray{
+//					&snowflake.ExternalTableColumnArgs{
+//						Name: pulumi.String("id"),
+//						Type: pulumi.String("int"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // format is database name | schema name | external table name

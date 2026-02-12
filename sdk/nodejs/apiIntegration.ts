@@ -5,6 +5,45 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * > **Note** Currently, API integrations for `gitHttpsApi` API provider are not supported. It will be added in the future.
+ *
+ * ## Example Usage
+ *
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const aws = new snowflake.ApiIntegration("aws", {
+ *     name: "aws_integration",
+ *     apiProvider: "aws_api_gateway",
+ *     apiAwsRoleArn: "arn:aws:iam::000000000001:/role/test",
+ *     apiAllowedPrefixes: ["https://123456.execute-api.us-west-2.amazonaws.com/prod/"],
+ *     enabled: true,
+ * });
+ * const azure = new snowflake.ApiIntegration("azure", {
+ *     name: "azure_integration",
+ *     apiProvider: "azure_api_management",
+ *     azureTenantId: "00000000-0000-0000-0000-000000000000",
+ *     azureAdApplicationId: "11111111-1111-1111-1111-111111111111",
+ *     apiAllowedPrefixes: ["https://apim-hello-world.azure-api.net/"],
+ *     enabled: true,
+ * });
+ * const gcp = new snowflake.ApiIntegration("gcp", {
+ *     name: "gcp_integration",
+ *     apiProvider: "google_api_gateway",
+ *     googleAudience: "api-gateway-id-123456.apigateway.gcp-project.cloud.goog",
+ *     apiAllowedPrefixes: ["https://gateway-id-123456.uc.gateway.dev/"],
+ *     enabled: true,
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh

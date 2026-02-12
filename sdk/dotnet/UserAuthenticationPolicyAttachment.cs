@@ -9,6 +9,49 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// &gt; **Required warehouse** For this resource, the provider now uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+    /// 
+    /// Specifies the authentication policy to use for a certain user.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var user = new Snowflake.User("user", new()
+    ///     {
+    ///         Name = "USER_NAME",
+    ///     });
+    /// 
+    ///     var ap = new Snowflake.AuthenticationPolicy("ap", new()
+    ///     {
+    ///         Database = "prod",
+    ///         Schema = "security",
+    ///         Name = "default_policy",
+    ///     });
+    /// 
+    ///     var apa = new Snowflake.UserAuthenticationPolicyAttachment("apa", new()
+    ///     {
+    ///         AuthenticationPolicyName = ap.FullyQualifiedName,
+    ///         UserName = user.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment")]
     public partial class UserAuthenticationPolicyAttachment : global::Pulumi.CustomResource
     {

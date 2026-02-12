@@ -647,6 +647,56 @@ class Saml2Integration(pulumi.CustomResource):
                  saml2_x509_cert: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+
+        !> **Note** To use `allowed_user_domains` and `allowed_email_patterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
+
+        > **Missing fields** The `saml2_snowflake_x509_cert` and `saml2_x509_cert` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+        This may have impact on detecting external changes for the `saml2_x509_cert` field.
+
+        Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+        import pulumi_std as std
+
+        # basic resource
+        # each pem file contains a base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+        saml_integration = snowflake.Saml2Integration("saml_integration",
+            name="saml_integration",
+            saml2_provider="CUSTOM",
+            saml2_issuer="test_issuer",
+            saml2_sso_url="https://example.com",
+            saml2_x509_cert=std.file(input="cert.pem").result)
+        # resource with all fields set
+        test = snowflake.Saml2Integration("test",
+            allowed_email_patterns=["^(.+dev)@example.com$"],
+            allowed_user_domains=["example.com"],
+            comment="foo",
+            enabled="true",
+            name="saml_integration",
+            saml2_enable_sp_initiated="true",
+            saml2_force_authn="true",
+            saml2_issuer="foo",
+            saml2_post_logout_redirect_url="https://example.com",
+            saml2_provider="CUSTOM",
+            saml2_requested_nameid_format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            saml2_sign_request="true",
+            saml2_snowflake_acs_url="example.snowflakecomputing.com/fed/login",
+            saml2_snowflake_issuer_url="example.snowflakecomputing.com/fed/login",
+            saml2_snowflake_x509_cert=std.file(input="snowflake_cert.pem").result,
+            saml2_sp_initiated_login_page_label="foo",
+            saml2_sso_url="https://example.com",
+            saml2_x509_cert=std.file(input="cert.pem").result)
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -680,6 +730,56 @@ class Saml2Integration(pulumi.CustomResource):
                  args: Saml2IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+
+        !> **Note** To use `allowed_user_domains` and `allowed_email_patterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
+
+        > **Missing fields** The `saml2_snowflake_x509_cert` and `saml2_x509_cert` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+        This may have impact on detecting external changes for the `saml2_x509_cert` field.
+
+        Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+        import pulumi_std as std
+
+        # basic resource
+        # each pem file contains a base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+        saml_integration = snowflake.Saml2Integration("saml_integration",
+            name="saml_integration",
+            saml2_provider="CUSTOM",
+            saml2_issuer="test_issuer",
+            saml2_sso_url="https://example.com",
+            saml2_x509_cert=std.file(input="cert.pem").result)
+        # resource with all fields set
+        test = snowflake.Saml2Integration("test",
+            allowed_email_patterns=["^(.+dev)@example.com$"],
+            allowed_user_domains=["example.com"],
+            comment="foo",
+            enabled="true",
+            name="saml_integration",
+            saml2_enable_sp_initiated="true",
+            saml2_force_authn="true",
+            saml2_issuer="foo",
+            saml2_post_logout_redirect_url="https://example.com",
+            saml2_provider="CUSTOM",
+            saml2_requested_nameid_format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            saml2_sign_request="true",
+            saml2_snowflake_acs_url="example.snowflakecomputing.com/fed/login",
+            saml2_snowflake_issuer_url="example.snowflakecomputing.com/fed/login",
+            saml2_snowflake_x509_cert=std.file(input="snowflake_cert.pem").result,
+            saml2_sp_initiated_login_page_label="foo",
+            saml2_sso_url="https://example.com",
+            saml2_x509_cert=std.file(input="cert.pem").result)
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

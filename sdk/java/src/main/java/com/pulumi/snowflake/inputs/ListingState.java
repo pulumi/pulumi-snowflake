@@ -63,9 +63,17 @@ public final class ListingState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.fullyQualifiedName);
     }
 
+    /**
+     * Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="manifest")
     private @Nullable Output<ListingManifestArgs> manifest;
 
+    /**
+     * @return Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<ListingManifestArgs>> manifest() {
         return Optional.ofNullable(this.manifest);
     }
@@ -224,11 +232,23 @@ public final class ListingState extends com.pulumi.resources.ResourceArgs {
             return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
+        /**
+         * @param manifest Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder manifest(@Nullable Output<ListingManifestArgs> manifest) {
             $.manifest = manifest;
             return this;
         }
 
+        /**
+         * @param manifest Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder manifest(ListingManifestArgs manifest) {
             return manifest(Output.of(manifest));
         }

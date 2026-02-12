@@ -7,6 +7,75 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * > **Note** Read more about PAT support in the provider in our Authentication Methods guide.
+ *
+ * > **Note** External changes to `minsToBypassNetworkPolicyRequirement` are not handled by the provider because the value changes continuously on Snowflake side after setting it.
+ *
+ * > **Note** External changes to `daysToExpiry` are not handled by the provider because Snowflake returns `expiresAt` which is the token expiration date. Also, the provider does not handle expired tokens automatically. Please change the value of `daysToExpiry` to force a new expiration date.
+ *
+ * > **Note** External changes to `token` are not handled by the provider because the data in this field can be updated only when the token is created or rotated.
+ *
+ * > **Note** Rotating a token can be done by changing the value of `keeper` field. See an example below.
+ *
+ * > **Note** In order to authenticate with PAT with role restriction, you need to grant the role to the user. You can use the snowflake.GrantAccountRole resource to do this.
+ *
+ * Resource used to manage user programmatic access tokens. For more information, check [user programmatic access tokens documentation](https://docs.snowflake.com/en/sql-reference/sql/alter-user-add-programmatic-access-token). A programmatic access token is a token that can be used to authenticate to an endpoint. See [Using programmatic access tokens for authentication](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) user guide for more details.
+ *
+ * ## Example Usage
+ *
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ * import * as time from "@pulumi/time";
+ *
+ * // basic resource
+ * const basic = new snowflake.UserProgrammaticAccessToken("basic", {
+ *     user: "USER",
+ *     name: "TOKEN",
+ * });
+ * // complete resource
+ * const complete = new snowflake.UserProgrammaticAccessToken("complete", {
+ *     user: "USER",
+ *     name: "TOKEN",
+ *     roleRestriction: "ROLE",
+ *     daysToExpiry: 30,
+ *     minsToBypassNetworkPolicyRequirement: 10,
+ *     disabled: "false",
+ *     comment: "COMMENT",
+ * });
+ * // Set up dependencies and reference them from the token resource.
+ * const role = new snowflake.AccountRole("role", {name: "ROLE"});
+ * const user = new snowflake.User("user", {name: "USER"});
+ * // Grant the role to the user. This is required to authenticate with PAT with role restriction.
+ * const grantRoleToUser = new snowflake.GrantAccountRole("grant_role_to_user", {
+ *     roleName: role.name,
+ *     userName: user.name,
+ * });
+ * // complete resource with external references
+ * const completeWithExternalReferences = new snowflake.UserProgrammaticAccessToken("complete_with_external_references", {
+ *     user: user.name,
+ *     name: "TOKEN",
+ *     roleRestriction: role.name,
+ *     daysToExpiry: 30,
+ *     minsToBypassNetworkPolicyRequirement: 10,
+ *     disabled: "false",
+ *     comment: "COMMENT",
+ * });
+ * export const token = complete.token;
+ * // Note that the fields of this resource are updated only when Terraform is run.
+ * // This means that the schedule may not be respected if Terraform is not run regularly.
+ * const rotationSchedule = new time.index.Rotating("rotation_schedule", {rotationDays: 30});
+ * // Rotate the token regularly using the keeper field and time_rotating resource.
+ * const rotating = new snowflake.UserProgrammaticAccessToken("rotating", {
+ *     user: "USER",
+ *     name: "TOKEN",
+ *     keeper: rotationSchedule.rotationRfc3339,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh
@@ -45,6 +114,9 @@ export class UserProgrammaticAccessToken extends pulumi.CustomResource {
      * Descriptive comment about the programmatic access token.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
+    /**
+     * The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly daysToExpiry: pulumi.Output<number | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -58,6 +130,9 @@ export class UserProgrammaticAccessToken extends pulumi.CustomResource {
      * Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotatedTokenName` fields are marked as computed.
      */
     declare public readonly keeper: pulumi.Output<string | undefined>;
+    /**
+     * The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly minsToBypassNetworkPolicyRequirement: pulumi.Output<number | undefined>;
     /**
      * Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -142,6 +217,9 @@ export interface UserProgrammaticAccessTokenState {
      * Descriptive comment about the programmatic access token.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     daysToExpiry?: pulumi.Input<number>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -155,6 +233,9 @@ export interface UserProgrammaticAccessTokenState {
      * Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotatedTokenName` fields are marked as computed.
      */
     keeper?: pulumi.Input<string>;
+    /**
+     * The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     minsToBypassNetworkPolicyRequirement?: pulumi.Input<number>;
     /**
      * Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -190,6 +271,9 @@ export interface UserProgrammaticAccessTokenArgs {
      * Descriptive comment about the programmatic access token.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     daysToExpiry?: pulumi.Input<number>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -203,6 +287,9 @@ export interface UserProgrammaticAccessTokenArgs {
      * Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotatedTokenName` fields are marked as computed.
      */
     keeper?: pulumi.Input<string>;
+    /**
+     * The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     minsToBypassNetworkPolicyRequirement?: pulumi.Input<number>;
     /**
      * Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.

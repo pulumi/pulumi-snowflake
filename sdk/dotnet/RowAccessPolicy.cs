@@ -10,6 +10,57 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-row-access-policy#usage-notes), a row access policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+    /// 
+    /// !&gt; **Sensitive values** This resource's `Body` and `describe_output.body` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+    /// 
+    /// Resource used to manage row access policy objects. For more information, check [row access policy documentation](https://docs.snowflake.com/en/sql-reference/sql/create-row-access-policy).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // resource with all fields set
+    ///     var exampleRowAccessPolicy = new Snowflake.RowAccessPolicy("example_row_access_policy", new()
+    ///     {
+    ///         Name = "EXAMPLE_ROW_ACCESS_POLICY",
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         Arguments = new[]
+    ///         {
+    ///             new Snowflake.Inputs.RowAccessPolicyArgumentArgs
+    ///             {
+    ///                 Name = "ARG1",
+    ///                 Type = "VARCHAR",
+    ///             },
+    ///             new Snowflake.Inputs.RowAccessPolicyArgumentArgs
+    ///             {
+    ///                 Name = "ARG2",
+    ///                 Type = "NUMBER",
+    ///             },
+    ///             new Snowflake.Inputs.RowAccessPolicyArgumentArgs
+    ///             {
+    ///                 Name = "ARG3",
+    ///                 Type = "TIMESTAMP_NTZ",
+    ///             },
+    ///         },
+    ///         Body = "case when current_role() in ('ANALYST') then true else false end",
+    ///         Comment = "comment",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

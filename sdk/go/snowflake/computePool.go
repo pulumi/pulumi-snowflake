@@ -12,6 +12,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Note** Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)).
+//
+// > **Note** Managing compute pool state is limited. It is handled by `initiallySuspended`, `autoSuspendSecs`, and `autoResume` fields. The provider does not support managing the state of compute pools in Snowflake with `ALTER ... SUSPEND` and `ALTER ... RESUME`. See [Compute pool lifecycle documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool#compute-pool-lifecycle) for more details.
+//
+// Resource used to manage compute pools. For more information, check [compute pools documentation](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool). A compute pool is a collection of one or more virtual machine (VM) nodes on which Snowflake runs your Snowpark Container Services services (including job services). See [Working with compute pools](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool) developer guide for more details.
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// basic resource
+//			_, err := snowflake.NewComputePool(ctx, "basic", &snowflake.ComputePoolArgs{
+//				Name:           pulumi.String("COMPUTE_POOL"),
+//				MinNodes:       pulumi.Int(1),
+//				MaxNodes:       pulumi.Int(2),
+//				InstanceFamily: pulumi.String("CPU_X64_S"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// complete resource
+//			_, err = snowflake.NewComputePool(ctx, "complete", &snowflake.ComputePoolArgs{
+//				Name:               pulumi.String("COMPUTE_POOL"),
+//				ForApplication:     pulumi.String("APPLICATION_NAME"),
+//				MinNodes:           pulumi.Int(1),
+//				MaxNodes:           pulumi.Int(2),
+//				InstanceFamily:     pulumi.String("CPU_X64_S"),
+//				AutoResume:         pulumi.String("true"),
+//				InitiallySuspended: pulumi.String("true"),
+//				AutoSuspendSecs:    pulumi.Int(1200),
+//				Comment:            pulumi.String("A compute pool."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

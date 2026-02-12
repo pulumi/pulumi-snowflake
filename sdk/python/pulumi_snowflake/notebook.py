@@ -385,6 +385,48 @@ class Notebook(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        > **Note** Due to Snowflake limitations, external changes to `from` are not currently detected.
+
+        > **Note** `secrets` is currently not supported. It will be supported in the following versions of the provider which may still affect this resource.
+
+        > **Note** `warehouse` and `query_warehouse` parameters can only be set to upper-case identifiers.
+
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        Resource used to manage notebooks. For more information, check [notebooks documentation](https://docs.snowflake.com/en/sql-reference/sql/create-notebook).
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # basic resource
+        basic = snowflake.Notebook("basic",
+            database="DATABASE",
+            schema="SCHEMA",
+            name="NOTEBOOK")
+        # complete resource
+        complete = snowflake.Notebook("complete",
+            name="NOTEBOOK",
+            database="DATABASE",
+            schema="SCHEMA",
+            froms=[{
+                "stage": test["fullyQualifiedName"],
+                "path": "some/path",
+            }],
+            main_file="my_notebook.ipynb",
+            query_warehouse=test_snowflake_warehouse["name"],
+            idle_auto_shutdown_time_seconds=2400,
+            warehouse=test_snowflake_warehouse["name"],
+            comment="Lorem ipsum")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -410,6 +452,48 @@ class Notebook(pulumi.CustomResource):
                  args: NotebookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note** Due to Snowflake limitations, external changes to `from` are not currently detected.
+
+        > **Note** `secrets` is currently not supported. It will be supported in the following versions of the provider which may still affect this resource.
+
+        > **Note** `warehouse` and `query_warehouse` parameters can only be set to upper-case identifiers.
+
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        Resource used to manage notebooks. For more information, check [notebooks documentation](https://docs.snowflake.com/en/sql-reference/sql/create-notebook).
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # basic resource
+        basic = snowflake.Notebook("basic",
+            database="DATABASE",
+            schema="SCHEMA",
+            name="NOTEBOOK")
+        # complete resource
+        complete = snowflake.Notebook("complete",
+            name="NOTEBOOK",
+            database="DATABASE",
+            schema="SCHEMA",
+            froms=[{
+                "stage": test["fullyQualifiedName"],
+                "path": "some/path",
+            }],
+            main_file="my_notebook.ipynb",
+            query_warehouse=test_snowflake_warehouse["name"],
+            idle_auto_shutdown_time_seconds=2400,
+            warehouse=test_snowflake_warehouse["name"],
+            comment="Lorem ipsum")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

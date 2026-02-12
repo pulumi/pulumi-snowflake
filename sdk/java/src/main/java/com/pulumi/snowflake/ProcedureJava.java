@@ -23,14 +23,150 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * !&gt; **Sensitive values** This resource&#39;s `procedureDefinition` and `show_output.arguments_raw` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * 
+ * &gt; **Note** External changes to `isSecure` and `nullInputBehavior` are not currently supported. They will be handled in the following versions of the provider which may still affect this resource.
+ * 
+ * &gt; **Note** `COPY GRANTS` and `OR REPLACE` are not currently supported.
+ * 
+ * &gt; **Note** `RETURN... [[ NOT ] NULL]` is not currently supported. It will be improved in the following versions of the provider which may still affect this resource.
+ * 
+ * &gt; **Note** Use of return type `TABLE` is currently limited. It will be improved in the following versions of the provider which may still affect this resource.
+ * 
+ * &gt; **Note** Snowflake is not returning full data type information for arguments which may lead to unexpected plan outputs. Diff suppression for such cases will be improved.
+ * 
+ * &gt; **Note** Snowflake is not returning the default values for arguments so argument&#39;s `argDefaultValue` external changes cannot be tracked.
+ * 
+ * &gt; **Note** Limit the use of special characters (`.`, `&#39;`, `/`, `&#34;`, `(`, `)`, `[`, `]`, `{`, `}`, ` `) in argument names, stage ids, and secret ids. It&#39;s best to limit to only alphanumeric and underscores. There is a lot of parsing of SHOW/DESCRIBE outputs involved and using special characters may limit the possibility to achieve the correct results.
+ * 
+ * &gt; **Note** Diff suppression for `import.stage_location` is currently not implemented. Make sure you are using the fully qualified stage name (with all the double quotes), e.g. `&#34;\&#34;database_name\&#34;.\&#34;schema_name\&#34;.\&#34;stage_name\&#34;&#34;`.
+ * 
+ * &gt; **Required warehouse** This resource may require active warehouse. Please, make sure you have either set a DEFAULT_WAREHOUSE for the user, or specified a warehouse in the provider configuration.
+ * 
+ * Resource used to manage java procedure objects. For more information, check [procedure documentation](https://docs.snowflake.com/en/sql-reference/sql/create-procedure).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.ProcedureJava;
+ * import com.pulumi.snowflake.ProcedureJavaArgs;
+ * import com.pulumi.snowflake.inputs.ProcedureJavaArgumentArgs;
+ * import com.pulumi.snowflake.inputs.ProcedureJavaTargetPathArgs;
+ * import com.pulumi.snowflake.inputs.ProcedureJavaImportArgs;
+ * import com.pulumi.snowflake.inputs.ProcedureJavaSecretArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // basic example
+ *         var basic = new ProcedureJava("basic", ProcedureJavaArgs.builder()
+ *             .database("Database")
+ *             .schema("Schema")
+ *             .name("ProcedureName")
+ *             .arguments(ProcedureJavaArgumentArgs.builder()
+ *                 .argDataType("VARCHAR(100)")
+ *                 .argName("x")
+ *                 .build())
+ *             .returnType("VARCHAR(100)")
+ *             .handler("TestFunc.echoVarchar")
+ *             .procedureDefinition("""
+ *   import com.snowflake.snowpark_java.*;
+ *   class TestFunc {
+ *     public static String echoVarchar(Session session, String x) {
+ *       return x;
+ *     }
+ *   }
+ *             """)
+ *             .runtimeVersion("11")
+ *             .snowparkPackage("1.14.0")
+ *             .build());
+ * 
+ *         // full example
+ *         var full = new ProcedureJava("full", ProcedureJavaArgs.builder()
+ *             .database("Database")
+ *             .schema("Schema")
+ *             .name("ProcedureName")
+ *             .arguments(ProcedureJavaArgumentArgs.builder()
+ *                 .argDataType("VARCHAR(100)")
+ *                 .argName("x")
+ *                 .build())
+ *             .returnType("VARCHAR(100)")
+ *             .handler("TestFunc.echoVarchar")
+ *             .procedureDefinition("""
+ *     import com.snowflake.snowpark_java.*;
+ *   class TestFunc {
+ *     public static String echoVarchar(Session session, String x) {
+ *       return x;
+ *     }
+ *   }
+ *             """)
+ *             .runtimeVersion("11")
+ *             .snowparkPackage("1.14.0")
+ *             .comment("some comment")
+ *             .executeAs("CALLER")
+ *             .targetPath(ProcedureJavaTargetPathArgs.builder()
+ *                 .pathOnStage("tf-1734028493-OkoTf.jar")
+ *                 .stageLocation(example.fullyQualifiedName())
+ *                 .build())
+ *             .packages("com.snowflake:telemetry:0.1.0")
+ *             .imports(            
+ *                 ProcedureJavaImportArgs.builder()
+ *                     .pathOnStage("tf-1734028486-OLJpF.jar")
+ *                     .stageLocation("~")
+ *                     .build(),
+ *                 ProcedureJavaImportArgs.builder()
+ *                     .pathOnStage("tf-1734028491-EMoDC.jar")
+ *                     .stageLocation("~")
+ *                     .build())
+ *             .isSecure("false")
+ *             .nullInputBehavior("CALLED ON NULL INPUT")
+ *             .externalAccessIntegrations(            
+ *                 "INTEGRATION_1",
+ *                 "INTEGRATION_2")
+ *             .secrets(            
+ *                 ProcedureJavaSecretArgs.builder()
+ *                     .secretId(example1.fullyQualifiedName())
+ *                     .secretVariableName("abc")
+ *                     .build(),
+ *                 ProcedureJavaSecretArgs.builder()
+ *                     .secretId(example2.fullyQualifiedName())
+ *                     .secretVariableName("def")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/procedureJava:ProcedureJava example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;function_name&gt;&#34;(varchar, varchar, varchar)&#39;
+ * terraform import snowflake_procedure_java.example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;function_name&gt;&#34;(varchar, varchar, varchar)&#39;
  * ```
  * 
  * Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
- * 
  * Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won&#39;t be empty after importing and manual state operations may be required.
  * 
  */

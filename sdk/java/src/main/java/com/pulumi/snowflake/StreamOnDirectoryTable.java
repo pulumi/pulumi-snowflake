@@ -19,6 +19,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note about copy_grants** Fields like `stage`, and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copyGrants`. Beware that even though a change is marked as update, the resource is recreated.
+ * 
+ * Resource used to manage streams on directory tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
+ * 
  * ## Import
  * 
  * ```sh
@@ -42,9 +46,17 @@ public class StreamOnDirectoryTable extends com.pulumi.resources.CustomResource 
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
+    /**
+     * @return (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     public Output<Optional<Boolean>> copyGrants() {
         return Codegen.optional(this.copyGrants);
     }
@@ -146,9 +158,17 @@ public class StreamOnDirectoryTable extends com.pulumi.resources.CustomResource 
     public Output<String> stage() {
         return this.stage;
     }
+    /**
+     * Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+     * 
+     */
     @Export(name="stale", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> stale;
 
+    /**
+     * @return Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
+     * 
+     */
     public Output<Boolean> stale() {
         return this.stale;
     }

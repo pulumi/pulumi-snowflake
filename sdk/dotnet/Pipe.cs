@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// &gt; **Note** Right now, changes for the `Integration` field are not detected. This will be resolved in the upcoming refactoring. For now, please try to use the ReplaceTriggeredBy HCL meta-argument.
+    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | pipe name

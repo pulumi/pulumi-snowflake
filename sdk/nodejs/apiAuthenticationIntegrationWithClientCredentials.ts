@@ -7,6 +7,13 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+ *
+ * > **Missing fields** The `oauthClientId` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+ * This may have impact on detecting external changes for the `oauthClientId` field.
+ *
+ * Resource used to manage api authentication security integration objects with client credentials. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-api-auth).
+ *
  * ## Import
  *
  * ```sh
@@ -77,6 +84,9 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
      * Specifies the client ID for the OAuth application in the external service.
      */
     declare public readonly oauthClientId: pulumi.Output<string>;
+    /**
+     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly oauthClientSecret: pulumi.Output<string>;
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
@@ -189,6 +199,9 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsState {
      * Specifies the client ID for the OAuth application in the external service.
      */
     oauthClientId?: pulumi.Input<string>;
+    /**
+     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     oauthClientSecret?: pulumi.Input<string>;
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
@@ -236,6 +249,9 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsArgs {
      * Specifies the client ID for the OAuth application in the external service.
      */
     oauthClientId: pulumi.Input<string>;
+    /**
+     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     oauthClientSecret: pulumi.Input<string>;
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.

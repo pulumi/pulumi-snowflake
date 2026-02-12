@@ -10,6 +10,105 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &gt; **Note** Read more about PAT support in the provider in our Authentication Methods guide.
+    /// 
+    /// &gt; **Note** External changes to `MinsToBypassNetworkPolicyRequirement` are not handled by the provider because the value changes continuously on Snowflake side after setting it.
+    /// 
+    /// &gt; **Note** External changes to `DaysToExpiry` are not handled by the provider because Snowflake returns `ExpiresAt` which is the token expiration date. Also, the provider does not handle expired tokens automatically. Please change the value of `DaysToExpiry` to force a new expiration date.
+    /// 
+    /// &gt; **Note** External changes to `Token` are not handled by the provider because the data in this field can be updated only when the token is created or rotated.
+    /// 
+    /// &gt; **Note** Rotating a token can be done by changing the value of `Keeper` field. See an example below.
+    /// 
+    /// &gt; **Note** In order to authenticate with PAT with role restriction, you need to grant the role to the user. You can use the snowflake.GrantAccountRole resource to do this.
+    /// 
+    /// Resource used to manage user programmatic access tokens. For more information, check [user programmatic access tokens documentation](https://docs.snowflake.com/en/sql-reference/sql/alter-user-add-programmatic-access-token). A programmatic access token is a token that can be used to authenticate to an endpoint. See [Using programmatic access tokens for authentication](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) user guide for more details.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// using Time = Pulumi.Time;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // basic resource
+    ///     var basic = new Snowflake.UserProgrammaticAccessToken("basic", new()
+    ///     {
+    ///         User = "USER",
+    ///         Name = "TOKEN",
+    ///     });
+    /// 
+    ///     // complete resource
+    ///     var complete = new Snowflake.UserProgrammaticAccessToken("complete", new()
+    ///     {
+    ///         User = "USER",
+    ///         Name = "TOKEN",
+    ///         RoleRestriction = "ROLE",
+    ///         DaysToExpiry = 30,
+    ///         MinsToBypassNetworkPolicyRequirement = 10,
+    ///         Disabled = "false",
+    ///         Comment = "COMMENT",
+    ///     });
+    /// 
+    ///     // Set up dependencies and reference them from the token resource.
+    ///     var role = new Snowflake.AccountRole("role", new()
+    ///     {
+    ///         Name = "ROLE",
+    ///     });
+    /// 
+    ///     var user = new Snowflake.User("user", new()
+    ///     {
+    ///         Name = "USER",
+    ///     });
+    /// 
+    ///     // Grant the role to the user. This is required to authenticate with PAT with role restriction.
+    ///     var grantRoleToUser = new Snowflake.GrantAccountRole("grant_role_to_user", new()
+    ///     {
+    ///         RoleName = role.Name,
+    ///         UserName = user.Name,
+    ///     });
+    /// 
+    ///     // complete resource with external references
+    ///     var completeWithExternalReferences = new Snowflake.UserProgrammaticAccessToken("complete_with_external_references", new()
+    ///     {
+    ///         User = user.Name,
+    ///         Name = "TOKEN",
+    ///         RoleRestriction = role.Name,
+    ///         DaysToExpiry = 30,
+    ///         MinsToBypassNetworkPolicyRequirement = 10,
+    ///         Disabled = "false",
+    ///         Comment = "COMMENT",
+    ///     });
+    /// 
+    ///     // Note that the fields of this resource are updated only when Terraform is run.
+    ///     // This means that the schedule may not be respected if Terraform is not run regularly.
+    ///     var rotationSchedule = new Time.Index.Rotating("rotation_schedule", new()
+    ///     {
+    ///         RotationDays = 30,
+    ///     });
+    /// 
+    ///     // Rotate the token regularly using the keeper field and time_rotating resource.
+    ///     var rotating = new Snowflake.UserProgrammaticAccessToken("rotating", new()
+    ///     {
+    ///         User = "USER",
+    ///         Name = "TOKEN",
+    ///         Keeper = rotationSchedule.RotationRfc3339,
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["token"] = complete.Token,
+    ///     };
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -25,6 +124,9 @@ namespace Pulumi.Snowflake
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `Keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("daysToExpiry")]
         public Output<int?> DaysToExpiry { get; private set; } = null!;
 
@@ -46,6 +148,9 @@ namespace Pulumi.Snowflake
         [Output("keeper")]
         public Output<string?> Keeper { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("minsToBypassNetworkPolicyRequirement")]
         public Output<int?> MinsToBypassNetworkPolicyRequirement { get; private set; } = null!;
 
@@ -141,6 +246,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `Keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("daysToExpiry")]
         public Input<int>? DaysToExpiry { get; set; }
 
@@ -162,6 +270,9 @@ namespace Pulumi.Snowflake
         [Input("keeper")]
         public Input<string>? Keeper { get; set; }
 
+        /// <summary>
+        /// The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("minsToBypassNetworkPolicyRequirement")]
         public Input<int>? MinsToBypassNetworkPolicyRequirement { get; set; }
 
@@ -197,6 +308,9 @@ namespace Pulumi.Snowflake
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `Keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("daysToExpiry")]
         public Input<int>? DaysToExpiry { get; set; }
 
@@ -218,6 +332,9 @@ namespace Pulumi.Snowflake
         [Input("keeper")]
         public Input<string>? Keeper { get; set; }
 
+        /// <summary>
+        /// The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("minsToBypassNetworkPolicyRequirement")]
         public Input<int>? MinsToBypassNetworkPolicyRequirement { get; set; }
 

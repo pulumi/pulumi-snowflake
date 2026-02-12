@@ -317,6 +317,40 @@ class GitRepository(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        <!-- TODO(SNOW-1348334): support git_https_api type in snowflake_api_integration_resource -->
+        > **Note** Note that `snowflake_api_integration_resource` currently does not support `git_https_api` type. It will be added during the resource rework. Instead, you can use execute resource.
+
+        Resource used to manage git repositories. For more information, check [git repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-git-repository).
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # basic resource
+        basic = snowflake.GitRepository("basic",
+            database="DATABASE",
+            schema="SCHEMA",
+            name="GIT_REPOSITORY",
+            origin="https://github.com/user/repo",
+            api_integration="API_INTEGRATION")
+        # complete resource
+        complete = snowflake.GitRepository("complete",
+            name="GIT_REPOSITORY",
+            database="DATABASE",
+            schema="SCHEMA",
+            origin="https://github.com/user/repo",
+            api_integration="API_INTEGRATION",
+            git_credentials=secret_name["fullyQualifiedName"],
+            comment="comment")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -340,6 +374,40 @@ class GitRepository(pulumi.CustomResource):
                  args: GitRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        <!-- TODO(SNOW-1348334): support git_https_api type in snowflake_api_integration_resource -->
+        > **Note** Note that `snowflake_api_integration_resource` currently does not support `git_https_api` type. It will be added during the resource rework. Instead, you can use execute resource.
+
+        Resource used to manage git repositories. For more information, check [git repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-git-repository).
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # basic resource
+        basic = snowflake.GitRepository("basic",
+            database="DATABASE",
+            schema="SCHEMA",
+            name="GIT_REPOSITORY",
+            origin="https://github.com/user/repo",
+            api_integration="API_INTEGRATION")
+        # complete resource
+        complete = snowflake.GitRepository("complete",
+            name="GIT_REPOSITORY",
+            database="DATABASE",
+            schema="SCHEMA",
+            origin="https://github.com/user/repo",
+            api_integration="API_INTEGRATION",
+            git_credentials=secret_name["fullyQualifiedName"],
+            comment="comment")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

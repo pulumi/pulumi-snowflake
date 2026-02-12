@@ -229,6 +229,7 @@ class CurrentOrganizationAccountArgs:
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for [Apache Iceberg™ tables](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table) that use an external catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_creation: Specifies whether to require a storage integration object as cloud credentials when creating a named external stage (using [CREATE STAGE](https://docs.snowflake.com/en/sql-reference/sql/create-stage)) to access a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_CREATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-creation).
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_operation: Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
+        :param pulumi.Input[_builtins.str] resource_monitor: Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
@@ -1531,6 +1532,9 @@ class CurrentOrganizationAccountArgs:
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")
     def resource_monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "resource_monitor")
 
     @resource_monitor.setter
@@ -2170,6 +2174,7 @@ class _CurrentOrganizationAccountState:
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for [Apache Iceberg™ tables](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table) that use an external catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_creation: Specifies whether to require a storage integration object as cloud credentials when creating a named external stage (using [CREATE STAGE](https://docs.snowflake.com/en/sql-reference/sql/create-stage)) to access a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_CREATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-creation).
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_operation: Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
+        :param pulumi.Input[_builtins.str] resource_monitor: Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
@@ -3475,6 +3480,9 @@ class _CurrentOrganizationAccountState:
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")
     def resource_monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "resource_monitor")
 
     @resource_monitor.setter
@@ -4043,6 +4051,155 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  week_start: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Warning** Create in this resource works differently from other resources as it doesn't create anything on the Snowflake side. It works mostly as import, nothing will be created or altered during it, only the `name` field will be validated to ensure it matches the current organization account name. It's done this way, because of the Terraform limitation which prevents us from presenting planned modifications on the Snowflake side during resource creation.
+
+        !> **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
+
+        !> **Warning** This resource shouldn't be used with `CurrentAccount`, `ObjectParameter` (with `on_account` field set), and `AccountParameter` resources in the same configuration pointing to the same account, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `CurrentOrganizationAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `CurrentOrganizationAccount` resource.
+
+        !> **Warning** This resource shouldn't be also used with `AccountPasswordPolicyAttachment`, `NetworkPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
+
+        > **Note** On removal, the resource will unset all account properties. To remove the resource without unsetting properties, use terraform state rm command.
+
+        > **Note** You can manage only one such resource **per organization**. More instances in one organization could cause unexpected behavior.
+
+        > **Note** Moving organization accounts to different regions is not supported by the provider due to Snowflake and Terraform limitations.
+
+        Resource used to manage an organization account within the organization you are connected to. See [ALTER ORGANIZATION ACCOUNT](https://docs.snowflake.com/en/sql-reference/sql/alter-organization-account) documentation for more information on resource capabilities.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Minimal
+        minimal = snowflake.CurrentOrganizationAccount("minimal")
+        ## Complete (with every optional set)
+        complete = snowflake.CurrentOrganizationAccount("complete",
+            comment="This is a comment for the current organization account resource",
+            resource_monitor=example_snowflake_resource_monitor["fullyQualifiedName"],
+            session_policy="\\"<database_name>\\".\\"<schema_name>\\".\\"<session_policy_name>\\"",
+            password_policy=example_snowflake_password_policy["fullyQualifiedName"],
+            abort_detached_query=True,
+            allow_client_mfa_caching=True,
+            allow_id_token=True,
+            autocommit=False,
+            base_location_prefix="STORAGE_BASE_URL/",
+            binary_input_format="BASE64",
+            binary_output_format="BASE64",
+            catalog="SNOWFLAKE",
+            client_enable_log_info_statement_parameters=True,
+            client_encryption_key_size=256,
+            client_memory_limit=1540,
+            client_metadata_request_use_connection_ctx=True,
+            client_metadata_use_session_database=True,
+            client_prefetch_threads=5,
+            client_result_chunk_size=159,
+            client_result_column_case_insensitive=True,
+            client_session_keep_alive=True,
+            client_session_keep_alive_heartbeat_frequency=3599,
+            client_timestamp_type_mapping="TIMESTAMP_NTZ",
+            cortex_enabled_cross_region="ANY_REGION",
+            cortex_models_allowlist="All",
+            csv_timestamp_format="YYYY-MM-DD",
+            data_retention_time_in_days=2,
+            date_input_format="YYYY-MM-DD",
+            date_output_format="YYYY-MM-DD",
+            default_ddl_collation="en-cs",
+            default_notebook_compute_pool_cpu="CPU_X64_S",
+            default_notebook_compute_pool_gpu="GPU_NV_S",
+            default_null_ordering="FIRST",
+            default_streamlit_notebook_warehouse=example["fullyQualifiedName"],
+            disable_ui_download_button=True,
+            disable_user_privilege_grants=True,
+            enable_automatic_sensitive_data_classification_log=False,
+            enable_egress_cost_optimizer=False,
+            enable_identifier_first_login=False,
+            enable_tri_secret_and_rekey_opt_out_for_image_repository=True,
+            enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage=True,
+            enable_unhandled_exceptions_reporting=False,
+            enable_unload_physical_type_optimization=False,
+            enable_unredacted_query_syntax_error=True,
+            enable_unredacted_secure_object_error=True,
+            enforce_network_rules_for_internal_stages=True,
+            error_on_nondeterministic_merge=False,
+            error_on_nondeterministic_update=True,
+            event_table="\\"<database_name>\\".\\"<schema_name>\\".\\"<event_table_name>\\"",
+            external_oauth_add_privileged_roles_to_blocked_list=False,
+            external_volume="XWDVEAAT_A6FEE9D6_5D41_AB3D_EB0C_51DA5E5F0BE2",
+            geography_output_format="WKT",
+            geometry_output_format="WKT",
+            hybrid_table_lock_timeout=3599,
+            initial_replication_size_limit_in_tb="9.9",
+            jdbc_treat_decimal_as_int=False,
+            jdbc_treat_timestamp_ntz_as_utc=True,
+            jdbc_use_session_timezone=False,
+            js_treat_integer_as_bigint=True,
+            json_indent=4,
+            listing_auto_fulfillment_replication_refresh_schedule="2 minutes",
+            lock_timeout=43201,
+            log_level="INFO",
+            max_concurrency_level=7,
+            max_data_extension_time_in_days=13,
+            metric_level="ALL",
+            min_data_retention_time_in_days=1,
+            multi_statement_count=0,
+            network_policy=example_snowflake_network_policy["fullyQualifiedName"],
+            noorder_sequence_as_default=False,
+            oauth_add_privileged_roles_to_blocked_list=False,
+            odbc_treat_decimal_as_int=True,
+            periodic_data_rekeying=False,
+            pipe_execution_paused=True,
+            prevent_unload_to_inline_url=True,
+            prevent_unload_to_internal_stages=True,
+            python_profiler_target_stage=example_snowflake_stage["fullyQualifiedName"],
+            query_tag="test-query-tag",
+            quoted_identifiers_ignore_case=True,
+            replace_invalid_characters=True,
+            require_storage_integration_for_stage_creation=True,
+            require_storage_integration_for_stage_operation=True,
+            rows_per_resultset=1000,
+            search_path="$current, $public",
+            serverless_task_max_statement_size="XLARGE",
+            serverless_task_min_statement_size="SMALL",
+            sso_login_page=True,
+            statement_queued_timeout_in_seconds=1,
+            statement_timeout_in_seconds=1,
+            storage_serialization_policy="OPTIMIZED",
+            strict_json_output=True,
+            suspend_task_after_num_failures=3,
+            task_auto_retry_attempts=3,
+            time_input_format="YYYY-MM-DD",
+            time_output_format="YYYY-MM-DD",
+            timestamp_day_is_always24h=True,
+            timestamp_input_format="YYYY-MM-DD",
+            timestamp_ltz_output_format="YYYY-MM-DD",
+            timestamp_ntz_output_format="YYYY-MM-DD",
+            timestamp_output_format="YYYY-MM-DD",
+            timestamp_type_mapping="TIMESTAMP_LTZ",
+            timestamp_tz_output_format="YYYY-MM-DD",
+            timezone="Europe/London",
+            trace_level="PROPAGATE",
+            transaction_abort_on_error=True,
+            transaction_default_isolation_level="READ COMMITTED",
+            two_digit_century_start=1971,
+            unsupported_ddl_action="FAIL",
+            use_cached_result=False,
+            user_task_managed_initial_warehouse_size="SMALL",
+            user_task_minimum_trigger_interval_in_seconds=10,
+            user_task_timeout_ms=10,
+            week_of_year_policy=1,
+            week_start=1)
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -4136,6 +4293,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for [Apache Iceberg™ tables](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table) that use an external catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_creation: Specifies whether to require a storage integration object as cloud credentials when creating a named external stage (using [CREATE STAGE](https://docs.snowflake.com/en/sql-reference/sql/create-stage)) to access a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_CREATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-creation).
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_operation: Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
+        :param pulumi.Input[_builtins.str] resource_monitor: Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
@@ -4179,6 +4337,155 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  args: Optional[CurrentOrganizationAccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Warning** Create in this resource works differently from other resources as it doesn't create anything on the Snowflake side. It works mostly as import, nothing will be created or altered during it, only the `name` field will be validated to ensure it matches the current organization account name. It's done this way, because of the Terraform limitation which prevents us from presenting planned modifications on the Snowflake side during resource creation.
+
+        !> **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
+
+        !> **Warning** This resource shouldn't be used with `CurrentAccount`, `ObjectParameter` (with `on_account` field set), and `AccountParameter` resources in the same configuration pointing to the same account, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `CurrentOrganizationAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `CurrentOrganizationAccount` resource.
+
+        !> **Warning** This resource shouldn't be also used with `AccountPasswordPolicyAttachment`, `NetworkPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
+
+        > **Note** On removal, the resource will unset all account properties. To remove the resource without unsetting properties, use terraform state rm command.
+
+        > **Note** You can manage only one such resource **per organization**. More instances in one organization could cause unexpected behavior.
+
+        > **Note** Moving organization accounts to different regions is not supported by the provider due to Snowflake and Terraform limitations.
+
+        Resource used to manage an organization account within the organization you are connected to. See [ALTER ORGANIZATION ACCOUNT](https://docs.snowflake.com/en/sql-reference/sql/alter-organization-account) documentation for more information on resource capabilities.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        ## Minimal
+        minimal = snowflake.CurrentOrganizationAccount("minimal")
+        ## Complete (with every optional set)
+        complete = snowflake.CurrentOrganizationAccount("complete",
+            comment="This is a comment for the current organization account resource",
+            resource_monitor=example_snowflake_resource_monitor["fullyQualifiedName"],
+            session_policy="\\"<database_name>\\".\\"<schema_name>\\".\\"<session_policy_name>\\"",
+            password_policy=example_snowflake_password_policy["fullyQualifiedName"],
+            abort_detached_query=True,
+            allow_client_mfa_caching=True,
+            allow_id_token=True,
+            autocommit=False,
+            base_location_prefix="STORAGE_BASE_URL/",
+            binary_input_format="BASE64",
+            binary_output_format="BASE64",
+            catalog="SNOWFLAKE",
+            client_enable_log_info_statement_parameters=True,
+            client_encryption_key_size=256,
+            client_memory_limit=1540,
+            client_metadata_request_use_connection_ctx=True,
+            client_metadata_use_session_database=True,
+            client_prefetch_threads=5,
+            client_result_chunk_size=159,
+            client_result_column_case_insensitive=True,
+            client_session_keep_alive=True,
+            client_session_keep_alive_heartbeat_frequency=3599,
+            client_timestamp_type_mapping="TIMESTAMP_NTZ",
+            cortex_enabled_cross_region="ANY_REGION",
+            cortex_models_allowlist="All",
+            csv_timestamp_format="YYYY-MM-DD",
+            data_retention_time_in_days=2,
+            date_input_format="YYYY-MM-DD",
+            date_output_format="YYYY-MM-DD",
+            default_ddl_collation="en-cs",
+            default_notebook_compute_pool_cpu="CPU_X64_S",
+            default_notebook_compute_pool_gpu="GPU_NV_S",
+            default_null_ordering="FIRST",
+            default_streamlit_notebook_warehouse=example["fullyQualifiedName"],
+            disable_ui_download_button=True,
+            disable_user_privilege_grants=True,
+            enable_automatic_sensitive_data_classification_log=False,
+            enable_egress_cost_optimizer=False,
+            enable_identifier_first_login=False,
+            enable_tri_secret_and_rekey_opt_out_for_image_repository=True,
+            enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage=True,
+            enable_unhandled_exceptions_reporting=False,
+            enable_unload_physical_type_optimization=False,
+            enable_unredacted_query_syntax_error=True,
+            enable_unredacted_secure_object_error=True,
+            enforce_network_rules_for_internal_stages=True,
+            error_on_nondeterministic_merge=False,
+            error_on_nondeterministic_update=True,
+            event_table="\\"<database_name>\\".\\"<schema_name>\\".\\"<event_table_name>\\"",
+            external_oauth_add_privileged_roles_to_blocked_list=False,
+            external_volume="XWDVEAAT_A6FEE9D6_5D41_AB3D_EB0C_51DA5E5F0BE2",
+            geography_output_format="WKT",
+            geometry_output_format="WKT",
+            hybrid_table_lock_timeout=3599,
+            initial_replication_size_limit_in_tb="9.9",
+            jdbc_treat_decimal_as_int=False,
+            jdbc_treat_timestamp_ntz_as_utc=True,
+            jdbc_use_session_timezone=False,
+            js_treat_integer_as_bigint=True,
+            json_indent=4,
+            listing_auto_fulfillment_replication_refresh_schedule="2 minutes",
+            lock_timeout=43201,
+            log_level="INFO",
+            max_concurrency_level=7,
+            max_data_extension_time_in_days=13,
+            metric_level="ALL",
+            min_data_retention_time_in_days=1,
+            multi_statement_count=0,
+            network_policy=example_snowflake_network_policy["fullyQualifiedName"],
+            noorder_sequence_as_default=False,
+            oauth_add_privileged_roles_to_blocked_list=False,
+            odbc_treat_decimal_as_int=True,
+            periodic_data_rekeying=False,
+            pipe_execution_paused=True,
+            prevent_unload_to_inline_url=True,
+            prevent_unload_to_internal_stages=True,
+            python_profiler_target_stage=example_snowflake_stage["fullyQualifiedName"],
+            query_tag="test-query-tag",
+            quoted_identifiers_ignore_case=True,
+            replace_invalid_characters=True,
+            require_storage_integration_for_stage_creation=True,
+            require_storage_integration_for_stage_operation=True,
+            rows_per_resultset=1000,
+            search_path="$current, $public",
+            serverless_task_max_statement_size="XLARGE",
+            serverless_task_min_statement_size="SMALL",
+            sso_login_page=True,
+            statement_queued_timeout_in_seconds=1,
+            statement_timeout_in_seconds=1,
+            storage_serialization_policy="OPTIMIZED",
+            strict_json_output=True,
+            suspend_task_after_num_failures=3,
+            task_auto_retry_attempts=3,
+            time_input_format="YYYY-MM-DD",
+            time_output_format="YYYY-MM-DD",
+            timestamp_day_is_always24h=True,
+            timestamp_input_format="YYYY-MM-DD",
+            timestamp_ltz_output_format="YYYY-MM-DD",
+            timestamp_ntz_output_format="YYYY-MM-DD",
+            timestamp_output_format="YYYY-MM-DD",
+            timestamp_type_mapping="TIMESTAMP_LTZ",
+            timestamp_tz_output_format="YYYY-MM-DD",
+            timezone="Europe/London",
+            trace_level="PROPAGATE",
+            transaction_abort_on_error=True,
+            transaction_default_isolation_level="READ COMMITTED",
+            two_digit_century_start=1971,
+            unsupported_ddl_action="FAIL",
+            use_cached_result=False,
+            user_task_managed_initial_warehouse_size="SMALL",
+            user_task_minimum_trigger_interval_in_seconds=10,
+            user_task_timeout_ms=10,
+            week_of_year_policy=1,
+            week_start=1)
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -4676,6 +4983,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for [Apache Iceberg™ tables](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table) that use an external catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_creation: Specifies whether to require a storage integration object as cloud credentials when creating a named external stage (using [CREATE STAGE](https://docs.snowflake.com/en/sql-reference/sql/create-stage)) to access a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_CREATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-creation).
         :param pulumi.Input[_builtins.bool] require_storage_integration_for_stage_operation: Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
+        :param pulumi.Input[_builtins.str] resource_monitor: Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         :param pulumi.Input[_builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         :param pulumi.Input[_builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
@@ -5524,6 +5832,9 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceMonitor")
     def resource_monitor(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "resource_monitor")
 
     @_builtins.property

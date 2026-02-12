@@ -11,6 +11,59 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// > **Note** When adding or updating accounts in the `accounts` field, the provider creates a temporary database as a workaround for a Snowflake race condition. This is because accounts cannot be added to a share until after a database has been granted to the share, but database grants depend on the share existing first.
+// The provider automatically:
+//  1. Creates a temporary database (named `TEMP_<share_name>_<timestamp>`)
+//  2. Grants `USAGE` and `REFERENCE_USAGE` privileges on the temporary database to the share
+//  3. Adds the specified accounts to the share
+//  4. Revokes the privileges and drops the temporary database
+//     This process is fully automated during the creation.
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := snowflake.NewShare(ctx, "test", &snowflake.ShareArgs{
+//				Name:    pulumi.String("share_name"),
+//				Comment: pulumi.String("cool comment"),
+//				Accounts: pulumi.StringArray{
+//					pulumi.String("organizationName.accountName"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewDatabase(ctx, "example", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("test"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				test,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

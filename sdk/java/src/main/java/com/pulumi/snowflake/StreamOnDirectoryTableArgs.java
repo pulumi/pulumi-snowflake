@@ -32,9 +32,17 @@ public final class StreamOnDirectoryTableArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
+    /**
+     * @return (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     public Optional<Output<Boolean>> copyGrants() {
         return Optional.ofNullable(this.copyGrants);
     }
@@ -149,11 +157,23 @@ public final class StreamOnDirectoryTableArgs extends com.pulumi.resources.Resou
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param copyGrants (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyGrants(@Nullable Output<Boolean> copyGrants) {
             $.copyGrants = copyGrants;
             return this;
         }
 
+        /**
+         * @param copyGrants (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyGrants(Boolean copyGrants) {
             return copyGrants(Output.of(copyGrants));
         }

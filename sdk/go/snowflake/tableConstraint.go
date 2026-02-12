@@ -12,10 +12,142 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			d, err := snowflake.NewDatabase(ctx, "d", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("some_db"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			s, err := snowflake.NewSchema(ctx, "s", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("some_schema"),
+//				Database: d.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			t, err := snowflake.NewTable(ctx, "t", &snowflake.TableArgs{
+//				Database: d.Name,
+//				Schema:   s.Name,
+//				Name:     pulumi.String("some_table"),
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("col1"),
+//						Type:     pulumi.String("text"),
+//						Nullable: pulumi.Bool(false),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("col2"),
+//						Type:     pulumi.String("text"),
+//						Nullable: pulumi.Bool(false),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("col3"),
+//						Type:     pulumi.String("text"),
+//						Nullable: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fkT, err := snowflake.NewTable(ctx, "fk_t", &snowflake.TableArgs{
+//				Database: d.Name,
+//				Schema:   s.Name,
+//				Name:     pulumi.String("fk_table"),
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("fk_col1"),
+//						Type:     pulumi.String("text"),
+//						Nullable: pulumi.Bool(false),
+//					},
+//					&snowflake.TableColumnArgs{
+//						Name:     pulumi.String("fk_col2"),
+//						Type:     pulumi.String("text"),
+//						Nullable: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTableConstraint(ctx, "primary_key", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("myconstraint"),
+//				Type:    pulumi.String("PRIMARY KEY"),
+//				TableId: t.FullyQualifiedName,
+//				Columns: pulumi.StringArray{
+//					pulumi.String("col1"),
+//				},
+//				Comment: pulumi.String("hello world"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTableConstraint(ctx, "foreign_key", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("myconstraintfk"),
+//				Type:    pulumi.String("FOREIGN KEY"),
+//				TableId: t.FullyQualifiedName,
+//				Columns: pulumi.StringArray{
+//					pulumi.String("col2"),
+//				},
+//				ForeignKeyProperties: &snowflake.TableConstraintForeignKeyPropertiesArgs{
+//					References: &snowflake.TableConstraintForeignKeyPropertiesReferencesArgs{
+//						TableId: fkT.FullyQualifiedName,
+//						Columns: pulumi.StringArray{
+//							pulumi.String("fk_col1"),
+//						},
+//					},
+//				},
+//				Enforced:   pulumi.Bool(false),
+//				Deferrable: pulumi.Bool(false),
+//				Initially:  pulumi.String("IMMEDIATE"),
+//				Comment:    pulumi.String("hello fk"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewTableConstraint(ctx, "unique", &snowflake.TableConstraintArgs{
+//				Name:    pulumi.String("unique"),
+//				Type:    pulumi.String("UNIQUE"),
+//				TableId: t.FullyQualifiedName,
+//				Columns: pulumi.StringArray{
+//					pulumi.String("col3"),
+//				},
+//				Comment: pulumi.String("hello unique"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
+// terraform import snowflake_table_constraint.example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
 // ```
 type TableConstraint struct {
 	pulumi.CustomResourceState

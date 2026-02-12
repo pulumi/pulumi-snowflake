@@ -12,6 +12,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource used to manage database roles. For more information, check [database roles documentation](https://docs.snowflake.com/en/sql-reference/sql/create-database-role).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testDatabase, err := snowflake.NewDatabase(ctx, "test_database", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("database_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewDatabaseRole(ctx, "test_database_role", &snowflake.DatabaseRoleArgs{
+//				Database: testDatabase.FullyQualifiedName,
+//				Name:     pulumi.String("database_role_name"),
+//				Comment:  pulumi.String("my database role"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

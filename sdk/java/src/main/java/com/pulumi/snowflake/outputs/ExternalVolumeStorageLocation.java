@@ -42,6 +42,10 @@ public final class ExternalVolumeStorageLocation {
      * 
      */
     private String storageBaseUrl;
+    /**
+     * @return Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * 
+     */
     private String storageLocationName;
     /**
      * @return Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
@@ -92,6 +96,10 @@ public final class ExternalVolumeStorageLocation {
     public String storageBaseUrl() {
         return this.storageBaseUrl;
     }
+    /**
+     * @return Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * 
+     */
     public String storageLocationName() {
         return this.storageLocationName;
     }

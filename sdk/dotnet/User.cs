@@ -10,13 +10,147 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution** Use `NetworkPolicy` attribute instead of the `snowflake.NetworkPolicyAttachment` resource. `snowflake.NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+    /// 
+    /// !&gt; **Sensitive values** This resource's `DisplayName`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name`, `show_output.middle_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+    /// 
+    /// &gt; **Note** `snowflake.UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+    /// 
+    /// &gt; **Note** Attaching user policies will be handled in the following versions of the provider which may still affect this resource.
+    /// 
+    /// &gt; **Note** Other two user types are handled in separate resources: `snowflake.ServiceUser` for user type `Service` and `snowflake.LegacyServiceUser` for user type `LegacyService`.
+    /// 
+    /// &gt; **Note** External changes to `DaysToExpiry`, `MinsToUnlock`, and `MinsToBypassMfa` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
+    /// 
+    /// Resource used to manage user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // minimal
+    ///     var minimal = new Snowflake.User("minimal", new()
+    ///     {
+    ///         Name = "Snowflake User - minimal",
+    ///     });
+    /// 
+    ///     var config = new Config();
+    ///     var email = config.Require("email");
+    ///     var loginName = config.Require("loginName");
+    ///     var password = config.Require("password");
+    ///     var firstName = config.Require("firstName");
+    ///     var middleName = config.Require("middleName");
+    ///     var lastName = config.Require("lastName");
+    ///     // with all attributes set
+    ///     var user = new Snowflake.User("user", new()
+    ///     {
+    ///         Name = "Snowflake User",
+    ///         LoginName = loginName,
+    ///         FirstName = firstName,
+    ///         MiddleName = middleName,
+    ///         LastName = lastName,
+    ///         Comment = "User of snowflake.",
+    ///         Password = password,
+    ///         Disabled = "false",
+    ///         DisplayName = "Snowflake User display name",
+    ///         Email = email,
+    ///         DefaultWarehouse = exampleSnowflakeWarehouse.FullyQualifiedName,
+    ///         DefaultSecondaryRolesOption = "ALL",
+    ///         DefaultRole = example.FullyQualifiedName,
+    ///         DefaultNamespace = "some.namespace",
+    ///         MinsToUnlock = 9,
+    ///         DaysToExpiry = 8,
+    ///         MinsToBypassMfa = 10,
+    ///         RsaPublicKey = "...",
+    ///         RsaPublicKey2 = "...",
+    ///         MustChangePassword = "true",
+    ///         DisableMfa = "false",
+    ///     });
+    /// 
+    ///     // all parameters set on the resource level
+    ///     var u = new Snowflake.User("u", new()
+    ///     {
+    ///         Name = "Snowflake User with all parameters",
+    ///         AbortDetachedQuery = true,
+    ///         Autocommit = false,
+    ///         BinaryInputFormat = "UTF8",
+    ///         BinaryOutputFormat = "BASE64",
+    ///         ClientMemoryLimit = 1024,
+    ///         ClientMetadataRequestUseConnectionCtx = true,
+    ///         ClientPrefetchThreads = 2,
+    ///         ClientResultChunkSize = 48,
+    ///         ClientResultColumnCaseInsensitive = true,
+    ///         ClientSessionKeepAlive = true,
+    ///         ClientSessionKeepAliveHeartbeatFrequency = 2400,
+    ///         ClientTimestampTypeMapping = "TIMESTAMP_NTZ",
+    ///         DateInputFormat = "YYYY-MM-DD",
+    ///         DateOutputFormat = "YY-MM-DD",
+    ///         EnableUnloadPhysicalTypeOptimization = false,
+    ///         EnableUnredactedQuerySyntaxError = true,
+    ///         ErrorOnNondeterministicMerge = false,
+    ///         ErrorOnNondeterministicUpdate = true,
+    ///         GeographyOutputFormat = "WKB",
+    ///         GeometryOutputFormat = "WKB",
+    ///         JdbcTreatDecimalAsInt = false,
+    ///         JdbcTreatTimestampNtzAsUtc = true,
+    ///         JdbcUseSessionTimezone = false,
+    ///         JsonIndent = 4,
+    ///         LockTimeout = 21222,
+    ///         LogLevel = "ERROR",
+    ///         MultiStatementCount = 0,
+    ///         NetworkPolicy = "BVYDGRAT_0D5E3DD1_F644_03DE_318A_1179886518A7",
+    ///         NoorderSequenceAsDefault = false,
+    ///         OdbcTreatDecimalAsInt = true,
+    ///         PreventUnloadToInternalStages = true,
+    ///         QueryTag = "some_tag",
+    ///         QuotedIdentifiersIgnoreCase = true,
+    ///         RowsPerResultset = 2,
+    ///         SearchPath = "$public, $current",
+    ///         SimulatedDataSharingConsumer = "some_consumer",
+    ///         StatementQueuedTimeoutInSeconds = 10,
+    ///         StatementTimeoutInSeconds = 10,
+    ///         StrictJsonOutput = true,
+    ///         S3StageVpceDnsName = "vpce-id.s3.region.vpce.amazonaws.com",
+    ///         TimeInputFormat = "HH24:MI",
+    ///         TimeOutputFormat = "HH24:MI",
+    ///         TimestampDayIsAlways24h = true,
+    ///         TimestampInputFormat = "YYYY-MM-DD",
+    ///         TimestampLtzOutputFormat = "YYYY-MM-DD HH24:MI:SS",
+    ///         TimestampNtzOutputFormat = "YYYY-MM-DD HH24:MI:SS",
+    ///         TimestampOutputFormat = "YYYY-MM-DD HH24:MI:SS",
+    ///         TimestampTypeMapping = "TIMESTAMP_LTZ",
+    ///         TimestampTzOutputFormat = "YYYY-MM-DD HH24:MI:SS",
+    ///         Timezone = "Europe/Warsaw",
+    ///         TraceLevel = "PROPAGATE",
+    ///         TransactionAbortOnError = true,
+    ///         TransactionDefaultIsolationLevel = "READ COMMITTED",
+    ///         TwoDigitCenturyStart = 1980,
+    ///         UnsupportedDdlAction = "FAIL",
+    ///         UseCachedResult = false,
+    ///         WeekOfYearPolicy = 1,
+    ///         WeekStart = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh
     /// $ pulumi import snowflake:index/user:User example '"&lt;user_name&gt;"'
     /// ```
     /// 
-    /// Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
+    /// Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `Password`) in state.
     /// </summary>
     [SnowflakeResourceType("snowflake:index/user:User")]
     public partial class User : global::Pulumi.CustomResource
@@ -111,6 +245,9 @@ namespace Pulumi.Snowflake
         [Output("dateOutputFormat")]
         public Output<string> DateOutputFormat { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("daysToExpiry")]
         public Output<int?> DaysToExpiry { get; private set; } = null!;
 
@@ -138,6 +275,9 @@ namespace Pulumi.Snowflake
         [Output("defaultWarehouse")]
         public Output<string?> DefaultWarehouse { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("disableMfa")]
         public Output<string?> DisableMfa { get; private set; } = null!;
 
@@ -261,9 +401,15 @@ namespace Pulumi.Snowflake
         [Output("middleName")]
         public Output<string?> MiddleName { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("minsToBypassMfa")]
         public Output<int?> MinsToBypassMfa { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("minsToUnlock")]
         public Output<int?> MinsToUnlock { get; private set; } = null!;
 
@@ -309,6 +455,9 @@ namespace Pulumi.Snowflake
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.UserParameter>> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
@@ -649,6 +798,9 @@ namespace Pulumi.Snowflake
         [Input("dateOutputFormat")]
         public Input<string>? DateOutputFormat { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("daysToExpiry")]
         public Input<int>? DaysToExpiry { get; set; }
 
@@ -676,6 +828,9 @@ namespace Pulumi.Snowflake
         [Input("defaultWarehouse")]
         public Input<string>? DefaultWarehouse { get; set; }
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("disableMfa")]
         public Input<string>? DisableMfa { get; set; }
 
@@ -843,9 +998,15 @@ namespace Pulumi.Snowflake
             }
         }
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("minsToBypassMfa")]
         public Input<int>? MinsToBypassMfa { get; set; }
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("minsToUnlock")]
         public Input<int>? MinsToUnlock { get; set; }
 
@@ -887,6 +1048,10 @@ namespace Pulumi.Snowflake
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -1175,6 +1340,9 @@ namespace Pulumi.Snowflake
         [Input("dateOutputFormat")]
         public Input<string>? DateOutputFormat { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("daysToExpiry")]
         public Input<int>? DaysToExpiry { get; set; }
 
@@ -1202,6 +1370,9 @@ namespace Pulumi.Snowflake
         [Input("defaultWarehouse")]
         public Input<string>? DefaultWarehouse { get; set; }
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("disableMfa")]
         public Input<string>? DisableMfa { get; set; }
 
@@ -1375,9 +1546,15 @@ namespace Pulumi.Snowflake
             }
         }
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("minsToBypassMfa")]
         public Input<int>? MinsToBypassMfa { get; set; }
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("minsToUnlock")]
         public Input<int>? MinsToUnlock { get; set; }
 
@@ -1431,6 +1608,10 @@ namespace Pulumi.Snowflake
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;

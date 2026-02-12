@@ -5,6 +5,32 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the snowflake.CurrentAccount resource documentation.
+ *
+ * > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+ *
+ * Resource used to manage current account parameters. For more information, check [parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const p = new snowflake.AccountParameter("p", {
+ *     key: "ALLOW_ID_TOKEN",
+ *     value: "true",
+ * });
+ * const p2 = new snowflake.AccountParameter("p2", {
+ *     key: "CLIENT_ENCRYPTION_KEY_SIZE",
+ *     value: "256",
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh

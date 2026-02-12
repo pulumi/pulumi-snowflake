@@ -7,10 +7,99 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * ## Example Usage
+ *
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const d = new snowflake.Database("d", {name: "some_db"});
+ * const s = new snowflake.Schema("s", {
+ *     name: "some_schema",
+ *     database: d.name,
+ * });
+ * const t = new snowflake.Table("t", {
+ *     database: d.name,
+ *     schema: s.name,
+ *     name: "some_table",
+ *     columns: [
+ *         {
+ *             name: "col1",
+ *             type: "text",
+ *             nullable: false,
+ *         },
+ *         {
+ *             name: "col2",
+ *             type: "text",
+ *             nullable: false,
+ *         },
+ *         {
+ *             name: "col3",
+ *             type: "text",
+ *             nullable: false,
+ *         },
+ *     ],
+ * });
+ * const fkT = new snowflake.Table("fk_t", {
+ *     database: d.name,
+ *     schema: s.name,
+ *     name: "fk_table",
+ *     columns: [
+ *         {
+ *             name: "fk_col1",
+ *             type: "text",
+ *             nullable: false,
+ *         },
+ *         {
+ *             name: "fk_col2",
+ *             type: "text",
+ *             nullable: false,
+ *         },
+ *     ],
+ * });
+ * const primaryKey = new snowflake.TableConstraint("primary_key", {
+ *     name: "myconstraint",
+ *     type: "PRIMARY KEY",
+ *     tableId: t.fullyQualifiedName,
+ *     columns: ["col1"],
+ *     comment: "hello world",
+ * });
+ * const foreignKey = new snowflake.TableConstraint("foreign_key", {
+ *     name: "myconstraintfk",
+ *     type: "FOREIGN KEY",
+ *     tableId: t.fullyQualifiedName,
+ *     columns: ["col2"],
+ *     foreignKeyProperties: {
+ *         references: {
+ *             tableId: fkT.fullyQualifiedName,
+ *             columns: ["fk_col1"],
+ *         },
+ *     },
+ *     enforced: false,
+ *     deferrable: false,
+ *     initially: "IMMEDIATE",
+ *     comment: "hello fk",
+ * });
+ * const unique = new snowflake.TableConstraint("unique", {
+ *     name: "unique",
+ *     type: "UNIQUE",
+ *     tableId: t.fullyQualifiedName,
+ *     columns: ["col3"],
+ *     comment: "hello unique",
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
+ * terraform import snowflake_table_constraint.example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
  * ```
  */
 export class TableConstraint extends pulumi.CustomResource {

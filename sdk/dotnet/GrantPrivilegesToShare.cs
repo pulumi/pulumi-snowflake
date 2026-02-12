@@ -10,13 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Import
-    /// 
-    /// ### OnView
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example '&lt;share_name&gt;|&lt;privileges&gt;|OnView|&lt;database_name&gt;.&lt;schema_name&gt;.&lt;view_name&gt;'`
-    /// ```
+    /// &gt; **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
     /// </summary>
     [SnowflakeResourceType("snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare")]
     public partial class GrantPrivilegesToShare : global::Pulumi.CustomResource

@@ -10,51 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// ## Import
+    /// &gt; **Note** For more details about granting ownership, please visit [`GRANT OWNERSHIP` Snowflake documentation page](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership), and our grant ownership resource overview.
     /// 
-    /// ### Import examples
+    /// &gt; **Note** Manage grants on `HYBRID TABLE` by specifying `TABLE` or `TABLES` in `ObjectType` field. This applies to a single object, all objects, or future objects. This reflects the current behavior in Snowflake.
     /// 
-    /// #### OnObject on Schema ToAccountRole
+    /// &gt; **Note** Changes introduced in [202501 Snowflake BCR Bundle](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_01/bcr-1870) alter how future ownership grant hierarchy works. After the change schema-level future ownership grant(s) will override those defined on the database-level. Previously, the database-level ones took the precedence.
     /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-    /// ```
+    /// &gt; **Warning** Be careful when using this resource on managed schema or any object within it, as in Snowflake managed schemas follow different ownership and privilege model. For more details, please visit [Schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema#optional-parameters) (scroll to `WITH MANAGED ACCESS` option).
     /// 
-    /// #### OnObject on Schema ToDatabaseRole
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToDatabaseRole|"database_name"."database_role_name"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-    /// ```
-    /// 
-    /// #### OnObject on Table
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|TABLE|"database_name"."schema_name"."table_name"'`
-    /// ```
-    /// 
-    /// #### OnAll InDatabase
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|REVOKE|OnAll|TABLES|InDatabase|"database_name"'`
-    /// ```
-    /// 
-    /// #### OnAll InSchema
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnAll|TABLES|InSchema|"database_name"."schema_name"'`
-    /// ```
-    /// 
-    /// #### OnFuture InDatabase
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnFuture|TABLES|InDatabase|"database_name"'`
-    /// ```
-    /// 
-    /// #### OnFuture InSchema
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnFuture|TABLES|InSchema|"database_name"."schema_name"'`
-    /// ```
+    /// !&gt; **Warning** Grant ownership resource still has some limitations. Delete operation is not implemented for OnFuture grants (you have to remove the config and then revoke ownership grant on future X manually).
     /// </summary>
     [SnowflakeResourceType("snowflake:index/grantOwnership:GrantOwnership")]
     public partial class GrantOwnership : global::Pulumi.CustomResource

@@ -12,6 +12,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// > **Note** Starting from the [Bundle 202505](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_05/bcr-1989), a stage cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			exampleAwsKeyId := cfg.Require("exampleAwsKeyId")
+//			exampleAwsSecretKey := cfg.Require("exampleAwsSecretKey")
+//			_, err := snowflake.NewStage(ctx, "example_stage", &snowflake.StageArgs{
+//				Name:        pulumi.String("EXAMPLE_STAGE"),
+//				Url:         pulumi.String("s3://com.example.bucket/prefix"),
+//				Database:    pulumi.String("EXAMPLE_DB"),
+//				Schema:      pulumi.String("EXAMPLE_SCHEMA"),
+//				Credentials: pulumi.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", exampleAwsKeyId, exampleAwsSecretKey),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// with an existing hardcoded file format
+//			// please see other examples in the snowflake_file_format resource documentation
+//			_, err = snowflake.NewStage(ctx, "example_stage_with_file_format", &snowflake.StageArgs{
+//				Name:        pulumi.String("EXAMPLE_STAGE"),
+//				Url:         pulumi.String("s3://com.example.bucket/prefix"),
+//				Database:    pulumi.String("EXAMPLE_DB"),
+//				Schema:      pulumi.String("EXAMPLE_SCHEMA"),
+//				Credentials: pulumi.Sprintf("AWS_KEY_ID='%v' AWS_SECRET_KEY='%v'", exampleAwsKeyId, exampleAwsSecretKey),
+//				FileFormat:  pulumi.String("FORMAT_NAME = DB.SCHEMA.FORMATNAME"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // format is database name | schema name | stage name

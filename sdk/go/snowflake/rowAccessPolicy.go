@@ -12,6 +12,61 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-row-access-policy#usage-notes), a row access policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+//
+// !> **Sensitive values** This resource's `body` and `describe_output.body` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+//
+// Resource used to manage row access policy objects. For more information, check [row access policy documentation](https://docs.snowflake.com/en/sql-reference/sql/create-row-access-policy).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// resource with all fields set
+//			_, err := snowflake.NewRowAccessPolicy(ctx, "example_row_access_policy", &snowflake.RowAccessPolicyArgs{
+//				Name:     pulumi.String("EXAMPLE_ROW_ACCESS_POLICY"),
+//				Database: pulumi.String("EXAMPLE_DB"),
+//				Schema:   pulumi.String("EXAMPLE_SCHEMA"),
+//				Arguments: snowflake.RowAccessPolicyArgumentArray{
+//					&snowflake.RowAccessPolicyArgumentArgs{
+//						Name: pulumi.String("ARG1"),
+//						Type: pulumi.String("VARCHAR"),
+//					},
+//					&snowflake.RowAccessPolicyArgumentArgs{
+//						Name: pulumi.String("ARG2"),
+//						Type: pulumi.String("NUMBER"),
+//					},
+//					&snowflake.RowAccessPolicyArgumentArgs{
+//						Name: pulumi.String("ARG3"),
+//						Type: pulumi.String("TIMESTAMP_NTZ"),
+//					},
+//				},
+//				Body:    pulumi.String("case when current_role() in ('ANALYST') then true else false end"),
+//				Comment: pulumi.String("comment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

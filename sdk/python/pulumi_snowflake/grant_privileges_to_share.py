@@ -335,13 +335,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  to_share: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ### OnView
-
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example '<share_name>|<privileges>|OnView|<database_name>.<schema_name>.<view_name>'`
-        ```
+        > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -362,13 +356,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  args: GrantPrivilegesToShareArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ### OnView
-
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example '<share_name>|<privileges>|OnView|<database_name>.<schema_name>.<view_name>'`
-        ```
+        > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
 
         :param str resource_name: The name of the resource.
         :param GrantPrivilegesToShareArgs args: The arguments to use to populate this resource's properties.

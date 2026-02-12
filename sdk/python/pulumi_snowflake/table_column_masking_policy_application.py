@@ -136,7 +136,47 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
                  table: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a TableColumnMaskingPolicyApplication resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        Applies a masking policy to a table column.
+
+        Only one masking policy may be applied per table column, hence only one `TableColumnMaskingPolicyApplication` resources may be present per table column.
+        Using two or more `TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
+
+        When using this resource to manage a table column's masking policy make sure to ignore changes to the column's masking policy in the table definition, otherwise the two resources would conflict. See example below.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        policy = snowflake.MaskingPolicy("policy",
+            name="EXAMPLE_MASKING_POLICY",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            value_data_type="VARCHAR",
+            masking_expression="case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
+            return_data_type="VARCHAR")
+        # Table is created by the default provider
+        table = snowflake.Table("table",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            name="table",
+            columns=[{
+                "name": "secret",
+                "type": "VARCHAR(16777216)",
+            }])
+        application = snowflake.TableColumnMaskingPolicyApplication("application",
+            table=table.fully_qualified_name,
+            column="secret",
+            masking_policy=policy.fully_qualified_name)
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] column: The column to apply the masking policy to.
@@ -150,7 +190,47 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
                  args: TableColumnMaskingPolicyApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TableColumnMaskingPolicyApplication resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        Applies a masking policy to a table column.
+
+        Only one masking policy may be applied per table column, hence only one `TableColumnMaskingPolicyApplication` resources may be present per table column.
+        Using two or more `TableColumnMaskingPolicyApplication` resources for the same table column will result in the last one overriding any previously applied masking policies and unresolvable diffs in pulumi preview.
+
+        When using this resource to manage a table column's masking policy make sure to ignore changes to the column's masking policy in the table definition, otherwise the two resources would conflict. See example below.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        policy = snowflake.MaskingPolicy("policy",
+            name="EXAMPLE_MASKING_POLICY",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            value_data_type="VARCHAR",
+            masking_expression="case when current_role() in ('ANALYST') then val else sha2(val, 512) end",
+            return_data_type="VARCHAR")
+        # Table is created by the default provider
+        table = snowflake.Table("table",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            name="table",
+            columns=[{
+                "name": "secret",
+                "type": "VARCHAR(16777216)",
+            }])
+        application = snowflake.TableColumnMaskingPolicyApplication("application",
+            table=table.fully_qualified_name,
+            column="secret",
+            masking_policy=policy.fully_qualified_name)
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         :param str resource_name: The name of the resource.
         :param TableColumnMaskingPolicyApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

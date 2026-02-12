@@ -10,6 +10,129 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution** Use `NetworkPolicy` attribute instead of the `snowflake.NetworkPolicyAttachment` resource. `snowflake.NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+    /// 
+    /// !&gt; **Sensitive values** This resource's `DisplayName`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+    /// 
+    /// &gt; **Note** `snowflake.UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+    /// 
+    /// &gt; **Note** Attaching user policies will be handled in the following versions of the provider which may still affect this resource.
+    /// 
+    /// &gt; **Note** Other two user types are handled in separate resources: `snowflake.LegacyServiceUser` for user type `LegacyService` and `snowflake.User` for user type `Person`.
+    /// 
+    /// &gt; **Note** External changes to `DaysToExpiry` and `MinsToUnlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
+    /// 
+    /// Resource used to manage service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // minimal
+    ///     var minimal = new Snowflake.ServiceUser("minimal", new()
+    ///     {
+    ///         Name = "Snowflake Service User - minimal",
+    ///     });
+    /// 
+    ///     var config = new Config();
+    ///     var email = config.Require("email");
+    ///     var loginName = config.Require("loginName");
+    ///     // with all attributes set
+    ///     var serviceUser = new Snowflake.ServiceUser("service_user", new()
+    ///     {
+    ///         Name = "Snowflake Service User",
+    ///         LoginName = loginName,
+    ///         Comment = "A service user of snowflake.",
+    ///         Disabled = "false",
+    ///         DisplayName = "Snowflake Service User",
+    ///         Email = email,
+    ///         DefaultWarehouse = "warehouse",
+    ///         DefaultSecondaryRolesOption = "ALL",
+    ///         DefaultRole = "role1",
+    ///         DefaultNamespace = "some.namespace",
+    ///         MinsToUnlock = 9,
+    ///         DaysToExpiry = 8,
+    ///         RsaPublicKey = "...",
+    ///         RsaPublicKey2 = "...",
+    ///     });
+    /// 
+    ///     // all parameters set on the resource level
+    ///     var u = new Snowflake.ServiceUser("u", new()
+    ///     {
+    ///         Name = "Snowflake Service User with all parameters",
+    ///         AbortDetachedQuery = true,
+    ///         Autocommit = false,
+    ///         BinaryInputFormat = "UTF8",
+    ///         BinaryOutputFormat = "BASE64",
+    ///         ClientMemoryLimit = 1024,
+    ///         ClientMetadataRequestUseConnectionCtx = true,
+    ///         ClientPrefetchThreads = 2,
+    ///         ClientResultChunkSize = 48,
+    ///         ClientResultColumnCaseInsensitive = true,
+    ///         ClientSessionKeepAlive = true,
+    ///         ClientSessionKeepAliveHeartbeatFrequency = 2400,
+    ///         ClientTimestampTypeMapping = "TIMESTAMP_NTZ",
+    ///         DateInputFormat = "YYYY-MM-DD",
+    ///         DateOutputFormat = "YY-MM-DD",
+    ///         EnableUnloadPhysicalTypeOptimization = false,
+    ///         EnableUnredactedQuerySyntaxError = true,
+    ///         ErrorOnNondeterministicMerge = false,
+    ///         ErrorOnNondeterministicUpdate = true,
+    ///         GeographyOutputFormat = "WKB",
+    ///         GeometryOutputFormat = "WKB",
+    ///         JdbcTreatDecimalAsInt = false,
+    ///         JdbcTreatTimestampNtzAsUtc = true,
+    ///         JdbcUseSessionTimezone = false,
+    ///         JsonIndent = 4,
+    ///         LockTimeout = 21222,
+    ///         LogLevel = "ERROR",
+    ///         MultiStatementCount = 0,
+    ///         NetworkPolicy = "BVYDGRAT_0D5E3DD1_F644_03DE_318A_1179886518A7",
+    ///         NoorderSequenceAsDefault = false,
+    ///         OdbcTreatDecimalAsInt = true,
+    ///         PreventUnloadToInternalStages = true,
+    ///         QueryTag = "some_tag",
+    ///         QuotedIdentifiersIgnoreCase = true,
+    ///         RowsPerResultset = 2,
+    ///         SearchPath = "$public, $current",
+    ///         SimulatedDataSharingConsumer = "some_consumer",
+    ///         StatementQueuedTimeoutInSeconds = 10,
+    ///         StatementTimeoutInSeconds = 10,
+    ///         StrictJsonOutput = true,
+    ///         S3StageVpceDnsName = "vpce-id.s3.region.vpce.amazonaws.com",
+    ///         TimeInputFormat = "HH24:MI",
+    ///         TimeOutputFormat = "HH24:MI",
+    ///         TimestampDayIsAlways24h = true,
+    ///         TimestampInputFormat = "YYYY-MM-DD",
+    ///         TimestampLtzOutputFormat = "YYYY-MM-DD HH24:MI:SS",
+    ///         TimestampNtzOutputFormat = "YYYY-MM-DD HH24:MI:SS",
+    ///         TimestampOutputFormat = "YYYY-MM-DD HH24:MI:SS",
+    ///         TimestampTypeMapping = "TIMESTAMP_LTZ",
+    ///         TimestampTzOutputFormat = "YYYY-MM-DD HH24:MI:SS",
+    ///         Timezone = "Europe/Warsaw",
+    ///         TraceLevel = "PROPAGATE",
+    ///         TransactionAbortOnError = true,
+    ///         TransactionDefaultIsolationLevel = "READ COMMITTED",
+    ///         TwoDigitCenturyStart = 1980,
+    ///         UnsupportedDdlAction = "FAIL",
+    ///         UseCachedResult = false,
+    ///         WeekOfYearPolicy = 1,
+    ///         WeekStart = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -109,6 +232,9 @@ namespace Pulumi.Snowflake
         [Output("dateOutputFormat")]
         public Output<string> DateOutputFormat { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("daysToExpiry")]
         public Output<int?> DaysToExpiry { get; private set; } = null!;
 
@@ -238,6 +364,9 @@ namespace Pulumi.Snowflake
         [Output("loginName")]
         public Output<string?> LoginName { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("minsToUnlock")]
         public Output<int?> MinsToUnlock { get; private set; } = null!;
 
@@ -610,6 +739,9 @@ namespace Pulumi.Snowflake
         [Input("dateOutputFormat")]
         public Input<string>? DateOutputFormat { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("daysToExpiry")]
         public Input<int>? DaysToExpiry { get; set; }
 
@@ -753,6 +885,9 @@ namespace Pulumi.Snowflake
             }
         }
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("minsToUnlock")]
         public Input<int>? MinsToUnlock { get; set; }
 
@@ -1064,6 +1199,9 @@ namespace Pulumi.Snowflake
         [Input("dateOutputFormat")]
         public Input<string>? DateOutputFormat { get; set; }
 
+        /// <summary>
+        /// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("daysToExpiry")]
         public Input<int>? DaysToExpiry { get; set; }
 
@@ -1213,6 +1351,9 @@ namespace Pulumi.Snowflake
             }
         }
 
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("minsToUnlock")]
         public Input<int>? MinsToUnlock { get; set; }
 

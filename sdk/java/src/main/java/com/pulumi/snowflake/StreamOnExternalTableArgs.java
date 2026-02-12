@@ -19,16 +19,32 @@ public final class StreamOnExternalTableArgs extends com.pulumi.resources.Resour
 
     public static final StreamOnExternalTableArgs Empty = new StreamOnExternalTableArgs();
 
+    /**
+     * This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="at")
     private @Nullable Output<StreamOnExternalTableAtArgs> at;
 
+    /**
+     * @return This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<StreamOnExternalTableAtArgs>> at() {
         return Optional.ofNullable(this.at);
     }
 
+    /**
+     * This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="before")
     private @Nullable Output<StreamOnExternalTableBeforeArgs> before;
 
+    /**
+     * @return This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<StreamOnExternalTableBeforeArgs>> before() {
         return Optional.ofNullable(this.before);
     }
@@ -48,9 +64,17 @@ public final class StreamOnExternalTableArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.comment);
     }
 
+    /**
+     * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
+    /**
+     * @return (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+     * 
+     */
     public Optional<Output<Boolean>> copyGrants() {
         return Optional.ofNullable(this.copyGrants);
     }
@@ -162,20 +186,44 @@ public final class StreamOnExternalTableArgs extends com.pulumi.resources.Resour
             $ = new StreamOnExternalTableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param at This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder at(@Nullable Output<StreamOnExternalTableAtArgs> at) {
             $.at = at;
             return this;
         }
 
+        /**
+         * @param at This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder at(StreamOnExternalTableAtArgs at) {
             return at(Output.of(at));
         }
 
+        /**
+         * @param before This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder before(@Nullable Output<StreamOnExternalTableBeforeArgs> before) {
             $.before = before;
             return this;
         }
 
+        /**
+         * @param before This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder before(StreamOnExternalTableBeforeArgs before) {
             return before(Output.of(before));
         }
@@ -201,11 +249,23 @@ public final class StreamOnExternalTableArgs extends com.pulumi.resources.Resour
             return comment(Output.of(comment));
         }
 
+        /**
+         * @param copyGrants (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyGrants(@Nullable Output<Boolean> copyGrants) {
             $.copyGrants = copyGrants;
             return this;
         }
 
+        /**
+         * @param copyGrants (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
+         * 
+         * @return builder
+         * 
+         */
         public Builder copyGrants(Boolean copyGrants) {
             return copyGrants(Output.of(copyGrants));
         }

@@ -12,14 +12,145 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// !> **Sensitive values** This resource's `functionDefinition` and `show_output.arguments_raw` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+//
+// > **Note** External changes to `isSecure`, `returnResultsBehavior`, and `nullInputBehavior` are not currently supported. They will be handled in the following versions of the provider which may still affect this resource.
+//
+// > **Note** `COPY GRANTS` and `OR REPLACE` are not currently supported.
+//
+// > **Note** `RETURN... [[ NOT ] NULL]` is not currently supported. It will be improved in the following versions of the provider which may still affect this resource.
+//
+// > **Note** Snowflake is not returning full data type information for arguments which may lead to unexpected plan outputs. Diff suppression for such cases will be improved.
+//
+// > **Note** Snowflake is not returning the default values for arguments so argument's `argDefaultValue` external changes cannot be tracked.
+//
+// > **Note** Limit the use of special characters (`.`, `'`, `/`, `"`, `(`, `)`, `[`, `]`, `{`, `}`, ` `) in argument names, stage ids, and secret ids. It's best to limit to only alphanumeric and underscores. There is a lot of parsing of SHOW/DESCRIBE outputs involved and using special characters may limit the possibility to achieve the correct results.
+//
+// > **Required warehouse** This resource may require active warehouse. Please, make sure you have either set a DEFAULT_WAREHOUSE for the user, or specified a warehouse in the provider configuration.
+//
+// Resource used to manage scala function objects. For more information, check [function documentation](https://docs.snowflake.com/en/sql-reference/sql/create-function).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Minimal
+//			_, err := snowflake.NewFunctionScala(ctx, "minimal", &snowflake.FunctionScalaArgs{
+//				Database: pulumi.Any(test.Name),
+//				Schema:   pulumi.Any(testSnowflakeSchema.Name),
+//				Name:     pulumi.String("my_scala_function"),
+//				Arguments: snowflake.FunctionScalaArgumentArray{
+//					&snowflake.FunctionScalaArgumentArgs{
+//						ArgDataType: pulumi.String("VARCHAR(100)"),
+//						ArgName:     pulumi.String("x"),
+//					},
+//				},
+//				ReturnType:     pulumi.String("VARCHAR(100)"),
+//				RuntimeVersion: pulumi.String("2.12"),
+//				Handler:        pulumi.String("TestFunc.echoVarchar"),
+//				FunctionDefinition: pulumi.String(`  class TestFunc {
+//	    def echoVarchar(x : String): String = {
+//	      return x
+//	    }
+//	  }
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Complete
+//			_, err = snowflake.NewFunctionScala(ctx, "complete", &snowflake.FunctionScalaArgs{
+//				Database: pulumi.Any(test.Name),
+//				Schema:   pulumi.Any(testSnowflakeSchema.Name),
+//				Name:     pulumi.String("my_scala_function"),
+//				IsSecure: pulumi.String("false"),
+//				Arguments: snowflake.FunctionScalaArgumentArray{
+//					&snowflake.FunctionScalaArgumentArgs{
+//						ArgDataType: pulumi.String("VARCHAR(100)"),
+//						ArgName:     pulumi.String("x"),
+//					},
+//				},
+//				Comment: pulumi.String("some comment"),
+//				ExternalAccessIntegrations: pulumi.StringArray{
+//					pulumi.String("external_access_integration_name"),
+//					pulumi.String("external_access_integration_name_2"),
+//				},
+//				FunctionDefinition: pulumi.String(`  class TestFunc {
+//	    def echoVarchar(x : String): String = {
+//	      return x
+//	    }
+//	  }
+//
+// `),
+//
+//				Handler:               pulumi.String("TestFunc.echoVarchar"),
+//				NullInputBehavior:     pulumi.String("CALLED ON NULL INPUT"),
+//				ReturnResultsBehavior: pulumi.String("VOLATILE"),
+//				ReturnType:            pulumi.String("VARCHAR(100)"),
+//				Imports: snowflake.FunctionScalaImportArray{
+//					&snowflake.FunctionScalaImportArgs{
+//						PathOnStage:   pulumi.String("jar_name.jar"),
+//						StageLocation: pulumi.String("~"),
+//					},
+//					&snowflake.FunctionScalaImportArgs{
+//						PathOnStage:   pulumi.String("second_jar_name.jar"),
+//						StageLocation: pulumi.String("~"),
+//					},
+//				},
+//				Packages: pulumi.StringArray{
+//					pulumi.String("com.snowflake:snowpark:1.14.0"),
+//					pulumi.String("com.snowflake:telemetry:0.1.0"),
+//				},
+//				RuntimeVersion: pulumi.String("2.12"),
+//				Secrets: snowflake.FunctionScalaSecretArray{
+//					&snowflake.FunctionScalaSecretArgs{
+//						SecretId:           pulumi.Any(one.FullyQualifiedName),
+//						SecretVariableName: pulumi.String("abc"),
+//					},
+//					&snowflake.FunctionScalaSecretArgs{
+//						SecretId:           pulumi.Any(two.FullyQualifiedName),
+//						SecretVariableName: pulumi.String("def"),
+//					},
+//				},
+//				TargetPath: &snowflake.FunctionScalaTargetPathArgs{
+//					PathOnStage:   pulumi.String("target_jar_name.jar"),
+//					StageLocation: pulumi.Any(testSnowflakeStage.FullyQualifiedName),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/functionScala:FunctionScala example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+// terraform import snowflake_function_scala.example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
 // ```
 //
 // Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
-//
 // Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
 type FunctionScala struct {
 	pulumi.CustomResourceState
@@ -43,8 +174,9 @@ type FunctionScala struct {
 	// The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
 	Handler pulumi.StringOutput `pulumi:"handler"`
 	// The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-	Imports  FunctionScalaImportArrayOutput `pulumi:"imports"`
-	IsSecure pulumi.StringPtrOutput         `pulumi:"isSecure"`
+	Imports FunctionScalaImportArrayOutput `pulumi:"imports"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	IsSecure pulumi.StringPtrOutput `pulumi:"isSecure"`
 	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
 	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
@@ -139,8 +271,9 @@ type functionScalaState struct {
 	// The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
 	Handler *string `pulumi:"handler"`
 	// The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-	Imports  []FunctionScalaImport `pulumi:"imports"`
-	IsSecure *string               `pulumi:"isSecure"`
+	Imports []FunctionScalaImport `pulumi:"imports"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	IsSecure *string `pulumi:"isSecure"`
 	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
 	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
@@ -191,7 +324,8 @@ type FunctionScalaState struct {
 	// The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
 	Handler pulumi.StringPtrInput
 	// The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-	Imports  FunctionScalaImportArrayInput
+	Imports FunctionScalaImportArrayInput
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsSecure pulumi.StringPtrInput
 	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
@@ -243,8 +377,9 @@ type functionScalaArgs struct {
 	// The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
 	Handler string `pulumi:"handler"`
 	// The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-	Imports  []FunctionScalaImport `pulumi:"imports"`
-	IsSecure *string               `pulumi:"isSecure"`
+	Imports []FunctionScalaImport `pulumi:"imports"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	IsSecure *string `pulumi:"isSecure"`
 	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
 	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
@@ -288,7 +423,8 @@ type FunctionScalaArgs struct {
 	// The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
 	Handler pulumi.StringInput
 	// The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-	Imports  FunctionScalaImportArrayInput
+	Imports FunctionScalaImportArrayInput
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsSecure pulumi.StringPtrInput
 	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
@@ -453,6 +589,7 @@ func (o FunctionScalaOutput) Imports() FunctionScalaImportArrayOutput {
 	return o.ApplyT(func(v *FunctionScala) FunctionScalaImportArrayOutput { return v.Imports }).(FunctionScalaImportArrayOutput)
 }
 
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o FunctionScalaOutput) IsSecure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionScala) pulumi.StringPtrOutput { return v.IsSecure }).(pulumi.StringPtrOutput)
 }

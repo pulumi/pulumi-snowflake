@@ -93,9 +93,17 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Specifies the password value to store in the secret. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
+    /**
+     * @return Specifies the password value to store in the secret. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
@@ -308,11 +316,23 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
             return name(Output.of(name));
         }
 
+        /**
+         * @param password Specifies the password value to store in the secret. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
+        /**
+         * @param password Specifies the password value to store in the secret. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder password(String password) {
             return password(Output.of(password));
         }

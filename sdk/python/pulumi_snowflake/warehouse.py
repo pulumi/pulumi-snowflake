@@ -684,6 +684,13 @@ class Warehouse(pulumi.CustomResource):
                  warehouse_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        <!-- TODO(SNOW-1642723): Remove or adjust this note.-->
+        > **Note** Assigning resource monitors to warehouses requires ACCOUNTADMIN role. To do this, either manage the warehouse resource with ACCOUNTADMIN role, or use execute instead. See this issue for more details.
+
+        > **Note** Since [2025_07 BCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), `describe_output` field is different from Snowflake. Now, in Snowflake always `resource_constraint` and `generation` are present. The provider, always takes the value from `resource_constraint` and dispatches it based on the warehouse type: for Standard warehouses, it sets `generation`, for Snowpark-optimized warehouses, it sets `resource_constraint`. This will be adjusted later.
+
+        Resource used to manage warehouse objects. For more information, check [warehouse documentation](https://docs.snowflake.com/en/sql-reference/commands-warehouse).
+
         ## Import
 
         ```sh
@@ -718,6 +725,13 @@ class Warehouse(pulumi.CustomResource):
                  args: Optional[WarehouseArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        <!-- TODO(SNOW-1642723): Remove or adjust this note.-->
+        > **Note** Assigning resource monitors to warehouses requires ACCOUNTADMIN role. To do this, either manage the warehouse resource with ACCOUNTADMIN role, or use execute instead. See this issue for more details.
+
+        > **Note** Since [2025_07 BCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), `describe_output` field is different from Snowflake. Now, in Snowflake always `resource_constraint` and `generation` are present. The provider, always takes the value from `resource_constraint` and dispatches it based on the warehouse type: for Standard warehouses, it sets `generation`, for Snowpark-optimized warehouses, it sets `resource_constraint`. This will be adjusted later.
+
+        Resource used to manage warehouse objects. For more information, check [warehouse documentation](https://docs.snowflake.com/en/sql-reference/commands-warehouse).
+
         ## Import
 
         ```sh

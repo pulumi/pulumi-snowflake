@@ -18,6 +18,88 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+ * 
+ * !&gt; **Note** To use `allowedUserDomains` and `allowedEmailPatterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
+ * 
+ * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+ * This may have impact on detecting external changes for the `saml2X509Cert` field.
+ * 
+ * Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Saml2Integration;
+ * import com.pulumi.snowflake.Saml2IntegrationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         // basic resource
+ *         // each pem file contains a base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+ *         var samlIntegration = new Saml2Integration("samlIntegration", Saml2IntegrationArgs.builder()
+ *             .name("saml_integration")
+ *             .saml2Provider("CUSTOM")
+ *             .saml2Issuer("test_issuer")
+ *             .saml2SsoUrl("https://example.com")
+ *             .saml2X509Cert(StdFunctions.file(FileArgs.builder()
+ *                 .input("cert.pem")
+ *                 .build()).result())
+ *             .build());
+ * 
+ *         // resource with all fields set
+ *         var test = new Saml2Integration("test", Saml2IntegrationArgs.builder()
+ *             .allowedEmailPatterns("^(.+dev)}{@literal @}{@code example.com$")
+ *             .allowedUserDomains("example.com")
+ *             .comment("foo")
+ *             .enabled("true")
+ *             .name("saml_integration")
+ *             .saml2EnableSpInitiated("true")
+ *             .saml2ForceAuthn("true")
+ *             .saml2Issuer("foo")
+ *             .saml2PostLogoutRedirectUrl("https://example.com")
+ *             .saml2Provider("CUSTOM")
+ *             .saml2RequestedNameidFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified")
+ *             .saml2SignRequest("true")
+ *             .saml2SnowflakeAcsUrl("example.snowflakecomputing.com/fed/login")
+ *             .saml2SnowflakeIssuerUrl("example.snowflakecomputing.com/fed/login")
+ *             .saml2SnowflakeX509Cert(StdFunctions.file(FileArgs.builder()
+ *                 .input("snowflake_cert.pem")
+ *                 .build()).result())
+ *             .saml2SpInitiatedLoginPageLabel("foo")
+ *             .saml2SsoUrl("https://example.com")
+ *             .saml2X509Cert(StdFunctions.file(FileArgs.builder()
+ *                 .input("cert.pem")
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

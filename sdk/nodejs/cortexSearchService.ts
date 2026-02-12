@@ -7,6 +7,57 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * > **Note**: Default timeout is set to 60 minutes for Terraform Create and Update operations.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * //# Basic
+ * const test = new snowflake.Database("test", {name: "some_database"});
+ * const testSchema = new snowflake.Schema("test", {
+ *     database: test.name,
+ *     name: "some_schema",
+ * });
+ * const testTable = new snowflake.Table("test", {
+ *     database: test.name,
+ *     schema: testSchema.name,
+ *     name: "some_table",
+ *     changeTracking: true,
+ *     columns: [
+ *         {
+ *             name: "ID",
+ *             type: "NUMBER(38,0)",
+ *         },
+ *         {
+ *             name: "SOME_TEXT",
+ *             type: "VARCHAR",
+ *         },
+ *     ],
+ * });
+ * const testCortexSearchService = new snowflake.CortexSearchService("test", {
+ *     database: test.name,
+ *     schema: testSchema.name,
+ *     name: "some_name",
+ *     on: "SOME_TEXT",
+ *     targetLag: "2 minutes",
+ *     warehouse: "some_warehouse",
+ *     query: "SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\"",
+ *     comment: "some comment",
+ *     embeddingModel: "snowflake-arctic-embed-m-v1.5",
+ * }, {
+ *     dependsOn: [testTable],
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh

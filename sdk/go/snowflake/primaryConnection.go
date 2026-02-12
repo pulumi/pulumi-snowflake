@@ -11,6 +11,60 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource used to manage primary connections. For managing replicated connection check resource snowflake_secondary_connection. For more information, check [connection documentation](https://docs.snowflake.com/en/sql-reference/sql/create-connection.html).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// # Minimal
+//			_, err := snowflake.NewPrimaryConnection(ctx, "basic", &snowflake.PrimaryConnectionArgs{
+//				Name: pulumi.String("connection_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// # Complete (with every optional set)
+//			_, err = snowflake.NewPrimaryConnection(ctx, "complete", &snowflake.PrimaryConnectionArgs{
+//				Name:    pulumi.String("connection_name"),
+//				Comment: pulumi.String("my complete connection"),
+//				EnableFailoverToAccounts: pulumi.StringArray{
+//					pulumi.String("\"<secondary_account_organization_name>\".\"<secondary_account_name>\""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+//
+// > **Note** This resource cannot be dropped when it has any dependent secondary connections. If you want to drop the primary connection, you must first drop all secondary connections that depend on it or promote other connection to be primary. The first option may need to be done in two steps (terraform applies): first remove all secondary connections, then primary ones. Snowflake needs some time to register the primary connection doesn't have any dependent connections and is safe for removal. The second option may require removing the resource from the state and removing it manually from Snowflake.
+//
+// > **Note** To demote `PrimaryConnection` to `SecondaryConnection`, resources need to be migrated manually. For guidance on removing and importing resources into the state check resource migration. Remove the resource from the state with terraform state rm, then recreate it in manually using:
+//
+//	```    CREATE CONNECTION <name> AS REPLICA OF <organization_name>.<account_name>.<connection_name>;
+//	```
+//
+// and then import it as the `SecondaryConnection`.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh
@@ -25,7 +79,8 @@ type PrimaryConnection struct {
 	EnableFailoverToAccounts pulumi.StringArrayOutput `pulumi:"enableFailoverToAccounts"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	IsPrimary          pulumi.BoolOutput   `pulumi:"isPrimary"`
+	// Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+	IsPrimary pulumi.BoolOutput `pulumi:"isPrimary"`
 	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
@@ -68,7 +123,8 @@ type primaryConnectionState struct {
 	EnableFailoverToAccounts []string `pulumi:"enableFailoverToAccounts"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	IsPrimary          *bool   `pulumi:"isPrimary"`
+	// Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+	IsPrimary *bool `pulumi:"isPrimary"`
 	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
@@ -82,7 +138,8 @@ type PrimaryConnectionState struct {
 	EnableFailoverToAccounts pulumi.StringArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	IsPrimary          pulumi.BoolPtrInput
+	// Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+	IsPrimary pulumi.BoolPtrInput
 	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
@@ -214,6 +271,7 @@ func (o PrimaryConnectionOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryConnection) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
+// Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
 func (o PrimaryConnectionOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PrimaryConnection) pulumi.BoolOutput { return v.IsPrimary }).(pulumi.BoolOutput)
 }

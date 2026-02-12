@@ -117,10 +117,12 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the user.
         :param pulumi.Input[_builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         :param pulumi.Input[_builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        :param pulumi.Input[_builtins.int] days_to_expiry: Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
         :param pulumi.Input[_builtins.str] default_role: Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] default_secondary_roles_option: (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
         :param pulumi.Input[_builtins.str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+        :param pulumi.Input[_builtins.str] disable_mfa: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[_builtins.str] email: Email address for the user.
@@ -140,12 +142,15 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] login_name: The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
         :param pulumi.Input[_builtins.str] middle_name: Middle name of the user.
+        :param pulumi.Input[_builtins.int] mins_to_bypass_mfa: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.int] mins_to_unlock: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         :param pulumi.Input[_builtins.str] must_change_password: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] network_policy: Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         :param pulumi.Input[_builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         :param pulumi.Input[_builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        :param pulumi.Input[_builtins.str] password: Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.bool] prevent_unload_to_internal_stages: Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \\n\\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
         :param pulumi.Input[_builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         :param pulumi.Input[_builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
@@ -519,6 +524,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="daysToExpiry")
     def days_to_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "days_to_expiry")
 
     @days_to_expiry.setter
@@ -576,6 +584,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="disableMfa")
     def disable_mfa(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "disable_mfa")
 
     @disable_mfa.setter
@@ -813,6 +824,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="minsToBypassMfa")
     def mins_to_bypass_mfa(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_bypass_mfa")
 
     @mins_to_bypass_mfa.setter
@@ -822,6 +836,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="minsToUnlock")
     def mins_to_unlock(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_unlock")
 
     @mins_to_unlock.setter
@@ -903,6 +920,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -1373,10 +1393,12 @@ class _UserState:
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the user.
         :param pulumi.Input[_builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         :param pulumi.Input[_builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        :param pulumi.Input[_builtins.int] days_to_expiry: Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
         :param pulumi.Input[_builtins.str] default_role: Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] default_secondary_roles_option: (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
         :param pulumi.Input[_builtins.str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+        :param pulumi.Input[_builtins.str] disable_mfa: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[_builtins.str] email: Email address for the user.
@@ -1397,6 +1419,8 @@ class _UserState:
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] login_name: The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
         :param pulumi.Input[_builtins.str] middle_name: Middle name of the user.
+        :param pulumi.Input[_builtins.int] mins_to_bypass_mfa: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.int] mins_to_unlock: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         :param pulumi.Input[_builtins.str] must_change_password: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -1404,6 +1428,7 @@ class _UserState:
         :param pulumi.Input[_builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         :param pulumi.Input[_builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         :param pulumi.Input[Sequence[pulumi.Input['UserParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
+        :param pulumi.Input[_builtins.str] password: Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.bool] prevent_unload_to_internal_stages: Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \\n\\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
         :param pulumi.Input[_builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         :param pulumi.Input[_builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
@@ -1787,6 +1812,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="daysToExpiry")
     def days_to_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "days_to_expiry")
 
     @days_to_expiry.setter
@@ -1844,6 +1872,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="disableMfa")
     def disable_mfa(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "disable_mfa")
 
     @disable_mfa.setter
@@ -2093,6 +2124,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="minsToBypassMfa")
     def mins_to_bypass_mfa(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_bypass_mfa")
 
     @mins_to_bypass_mfa.setter
@@ -2102,6 +2136,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="minsToUnlock")
     def mins_to_unlock(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_unlock")
 
     @mins_to_unlock.setter
@@ -2195,6 +2232,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -2673,6 +2713,125 @@ class User(pulumi.CustomResource):
                  week_start: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
+        !> **Caution** Use `network_policy` attribute instead of the `NetworkPolicyAttachment` resource. `NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+
+        !> **Sensitive values** This resource's `display_name`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name`, `show_output.middle_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        > **Note** `UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+
+        > **Note** Attaching user policies will be handled in the following versions of the provider which may still affect this resource.
+
+        > **Note** Other two user types are handled in separate resources: `ServiceUser` for user type `service` and `LegacyServiceUser` for user type `legacy_service`.
+
+        > **Note** External changes to `days_to_expiry`, `mins_to_unlock`, and `mins_to_bypass_mfa` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
+
+        Resource used to manage user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # minimal
+        minimal = snowflake.User("minimal", name="Snowflake User - minimal")
+        config = pulumi.Config()
+        email = config.require("email")
+        login_name = config.require("loginName")
+        password = config.require("password")
+        first_name = config.require("firstName")
+        middle_name = config.require("middleName")
+        last_name = config.require("lastName")
+        # with all attributes set
+        user = snowflake.User("user",
+            name="Snowflake User",
+            login_name=login_name,
+            first_name=first_name,
+            middle_name=middle_name,
+            last_name=last_name,
+            comment="User of snowflake.",
+            password=password,
+            disabled="false",
+            display_name="Snowflake User display name",
+            email=email,
+            default_warehouse=example_snowflake_warehouse["fullyQualifiedName"],
+            default_secondary_roles_option="ALL",
+            default_role=example["fullyQualifiedName"],
+            default_namespace="some.namespace",
+            mins_to_unlock=9,
+            days_to_expiry=8,
+            mins_to_bypass_mfa=10,
+            rsa_public_key="...",
+            rsa_public_key2="...",
+            must_change_password="true",
+            disable_mfa="false")
+        # all parameters set on the resource level
+        u = snowflake.User("u",
+            name="Snowflake User with all parameters",
+            abort_detached_query=True,
+            autocommit=False,
+            binary_input_format="UTF8",
+            binary_output_format="BASE64",
+            client_memory_limit=1024,
+            client_metadata_request_use_connection_ctx=True,
+            client_prefetch_threads=2,
+            client_result_chunk_size=48,
+            client_result_column_case_insensitive=True,
+            client_session_keep_alive=True,
+            client_session_keep_alive_heartbeat_frequency=2400,
+            client_timestamp_type_mapping="TIMESTAMP_NTZ",
+            date_input_format="YYYY-MM-DD",
+            date_output_format="YY-MM-DD",
+            enable_unload_physical_type_optimization=False,
+            enable_unredacted_query_syntax_error=True,
+            error_on_nondeterministic_merge=False,
+            error_on_nondeterministic_update=True,
+            geography_output_format="WKB",
+            geometry_output_format="WKB",
+            jdbc_treat_decimal_as_int=False,
+            jdbc_treat_timestamp_ntz_as_utc=True,
+            jdbc_use_session_timezone=False,
+            json_indent=4,
+            lock_timeout=21222,
+            log_level="ERROR",
+            multi_statement_count=0,
+            network_policy="BVYDGRAT_0D5E3DD1_F644_03DE_318A_1179886518A7",
+            noorder_sequence_as_default=False,
+            odbc_treat_decimal_as_int=True,
+            prevent_unload_to_internal_stages=True,
+            query_tag="some_tag",
+            quoted_identifiers_ignore_case=True,
+            rows_per_resultset=2,
+            search_path="$public, $current",
+            simulated_data_sharing_consumer="some_consumer",
+            statement_queued_timeout_in_seconds=10,
+            statement_timeout_in_seconds=10,
+            strict_json_output=True,
+            s3_stage_vpce_dns_name="vpce-id.s3.region.vpce.amazonaws.com",
+            time_input_format="HH24:MI",
+            time_output_format="HH24:MI",
+            timestamp_day_is_always24h=True,
+            timestamp_input_format="YYYY-MM-DD",
+            timestamp_ltz_output_format="YYYY-MM-DD HH24:MI:SS",
+            timestamp_ntz_output_format="YYYY-MM-DD HH24:MI:SS",
+            timestamp_output_format="YYYY-MM-DD HH24:MI:SS",
+            timestamp_type_mapping="TIMESTAMP_LTZ",
+            timestamp_tz_output_format="YYYY-MM-DD HH24:MI:SS",
+            timezone="Europe/Warsaw",
+            trace_level="PROPAGATE",
+            transaction_abort_on_error=True,
+            transaction_default_isolation_level="READ COMMITTED",
+            two_digit_century_start=1980,
+            unsupported_ddl_action="FAIL",
+            use_cached_result=False,
+            week_of_year_policy=1,
+            week_start=1)
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -2698,10 +2857,12 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the user.
         :param pulumi.Input[_builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         :param pulumi.Input[_builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        :param pulumi.Input[_builtins.int] days_to_expiry: Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
         :param pulumi.Input[_builtins.str] default_role: Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] default_secondary_roles_option: (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
         :param pulumi.Input[_builtins.str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+        :param pulumi.Input[_builtins.str] disable_mfa: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[_builtins.str] email: Email address for the user.
@@ -2721,12 +2882,15 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] login_name: The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
         :param pulumi.Input[_builtins.str] middle_name: Middle name of the user.
+        :param pulumi.Input[_builtins.int] mins_to_bypass_mfa: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.int] mins_to_unlock: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         :param pulumi.Input[_builtins.str] must_change_password: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] network_policy: Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         :param pulumi.Input[_builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         :param pulumi.Input[_builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        :param pulumi.Input[_builtins.str] password: Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.bool] prevent_unload_to_internal_stages: Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \\n\\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
         :param pulumi.Input[_builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         :param pulumi.Input[_builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
@@ -2765,6 +2929,125 @@ class User(pulumi.CustomResource):
                  args: Optional[UserArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution** Use `network_policy` attribute instead of the `NetworkPolicyAttachment` resource. `NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+
+        !> **Sensitive values** This resource's `display_name`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name`, `show_output.middle_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        > **Note** `UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+
+        > **Note** Attaching user policies will be handled in the following versions of the provider which may still affect this resource.
+
+        > **Note** Other two user types are handled in separate resources: `ServiceUser` for user type `service` and `LegacyServiceUser` for user type `legacy_service`.
+
+        > **Note** External changes to `days_to_expiry`, `mins_to_unlock`, and `mins_to_bypass_mfa` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
+
+        Resource used to manage user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # minimal
+        minimal = snowflake.User("minimal", name="Snowflake User - minimal")
+        config = pulumi.Config()
+        email = config.require("email")
+        login_name = config.require("loginName")
+        password = config.require("password")
+        first_name = config.require("firstName")
+        middle_name = config.require("middleName")
+        last_name = config.require("lastName")
+        # with all attributes set
+        user = snowflake.User("user",
+            name="Snowflake User",
+            login_name=login_name,
+            first_name=first_name,
+            middle_name=middle_name,
+            last_name=last_name,
+            comment="User of snowflake.",
+            password=password,
+            disabled="false",
+            display_name="Snowflake User display name",
+            email=email,
+            default_warehouse=example_snowflake_warehouse["fullyQualifiedName"],
+            default_secondary_roles_option="ALL",
+            default_role=example["fullyQualifiedName"],
+            default_namespace="some.namespace",
+            mins_to_unlock=9,
+            days_to_expiry=8,
+            mins_to_bypass_mfa=10,
+            rsa_public_key="...",
+            rsa_public_key2="...",
+            must_change_password="true",
+            disable_mfa="false")
+        # all parameters set on the resource level
+        u = snowflake.User("u",
+            name="Snowflake User with all parameters",
+            abort_detached_query=True,
+            autocommit=False,
+            binary_input_format="UTF8",
+            binary_output_format="BASE64",
+            client_memory_limit=1024,
+            client_metadata_request_use_connection_ctx=True,
+            client_prefetch_threads=2,
+            client_result_chunk_size=48,
+            client_result_column_case_insensitive=True,
+            client_session_keep_alive=True,
+            client_session_keep_alive_heartbeat_frequency=2400,
+            client_timestamp_type_mapping="TIMESTAMP_NTZ",
+            date_input_format="YYYY-MM-DD",
+            date_output_format="YY-MM-DD",
+            enable_unload_physical_type_optimization=False,
+            enable_unredacted_query_syntax_error=True,
+            error_on_nondeterministic_merge=False,
+            error_on_nondeterministic_update=True,
+            geography_output_format="WKB",
+            geometry_output_format="WKB",
+            jdbc_treat_decimal_as_int=False,
+            jdbc_treat_timestamp_ntz_as_utc=True,
+            jdbc_use_session_timezone=False,
+            json_indent=4,
+            lock_timeout=21222,
+            log_level="ERROR",
+            multi_statement_count=0,
+            network_policy="BVYDGRAT_0D5E3DD1_F644_03DE_318A_1179886518A7",
+            noorder_sequence_as_default=False,
+            odbc_treat_decimal_as_int=True,
+            prevent_unload_to_internal_stages=True,
+            query_tag="some_tag",
+            quoted_identifiers_ignore_case=True,
+            rows_per_resultset=2,
+            search_path="$public, $current",
+            simulated_data_sharing_consumer="some_consumer",
+            statement_queued_timeout_in_seconds=10,
+            statement_timeout_in_seconds=10,
+            strict_json_output=True,
+            s3_stage_vpce_dns_name="vpce-id.s3.region.vpce.amazonaws.com",
+            time_input_format="HH24:MI",
+            time_output_format="HH24:MI",
+            timestamp_day_is_always24h=True,
+            timestamp_input_format="YYYY-MM-DD",
+            timestamp_ltz_output_format="YYYY-MM-DD HH24:MI:SS",
+            timestamp_ntz_output_format="YYYY-MM-DD HH24:MI:SS",
+            timestamp_output_format="YYYY-MM-DD HH24:MI:SS",
+            timestamp_type_mapping="TIMESTAMP_LTZ",
+            timestamp_tz_output_format="YYYY-MM-DD HH24:MI:SS",
+            timezone="Europe/Warsaw",
+            trace_level="PROPAGATE",
+            transaction_abort_on_error=True,
+            transaction_default_isolation_level="READ COMMITTED",
+            two_digit_century_start=1980,
+            unsupported_ddl_action="FAIL",
+            use_cached_result=False,
+            week_of_year_policy=1,
+            week_start=1)
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -3076,10 +3359,12 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the user.
         :param pulumi.Input[_builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         :param pulumi.Input[_builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        :param pulumi.Input[_builtins.int] days_to_expiry: Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] default_namespace: Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
         :param pulumi.Input[_builtins.str] default_role: Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] default_secondary_roles_option: (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
         :param pulumi.Input[_builtins.str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+        :param pulumi.Input[_builtins.str] disable_mfa: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[_builtins.str] email: Email address for the user.
@@ -3100,6 +3385,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] login_name: The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
         :param pulumi.Input[_builtins.str] middle_name: Middle name of the user.
+        :param pulumi.Input[_builtins.int] mins_to_bypass_mfa: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.int] mins_to_unlock: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         :param pulumi.Input[_builtins.str] must_change_password: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -3107,6 +3394,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         :param pulumi.Input[_builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserParameterArgs', 'UserParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
+        :param pulumi.Input[_builtins.str] password: Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.bool] prevent_unload_to_internal_stages: Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \\n\\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
         :param pulumi.Input[_builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         :param pulumi.Input[_builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
@@ -3352,6 +3640,9 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="daysToExpiry")
     def days_to_expiry(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "days_to_expiry")
 
     @_builtins.property
@@ -3389,6 +3680,9 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="disableMfa")
     def disable_mfa(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Allows enabling or disabling [multi-factor authentication](https://docs.snowflake.com/en/user-guide/security-mfa). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "disable_mfa")
 
     @_builtins.property
@@ -3554,11 +3848,17 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="minsToBypassMfa")
     def mins_to_bypass_mfa(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes to temporarily bypass MFA for the user. This property can be used to allow a MFA-enrolled user to temporarily bypass MFA during login in the event that their MFA device is not available. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_bypass_mfa")
 
     @_builtins.property
     @pulumi.getter(name="minsToUnlock")
     def mins_to_unlock(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "mins_to_unlock")
 
     @_builtins.property
@@ -3620,6 +3920,9 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "password")
 
     @_builtins.property

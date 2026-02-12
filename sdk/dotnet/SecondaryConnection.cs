@@ -10,6 +10,48 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// Resource used to manage secondary (replicated) connections. To manage primary connection check resource snowflake_primary_connection. For more information, check [connection documentation](https://docs.snowflake.com/en/sql-reference/sql/create-connection.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //# Minimal
+    ///     var basic = new Snowflake.SecondaryConnection("basic", new()
+    ///     {
+    ///         Name = "connection_name",
+    ///         AsReplicaOf = "\"&lt;organization_name&gt;\".\"&lt;account_name&gt;\".\"&lt;connection_name&gt;\"",
+    ///     });
+    /// 
+    ///     //# Complete (with every optional set)
+    ///     var complete = new Snowflake.SecondaryConnection("complete", new()
+    ///     {
+    ///         Name = "connection_name",
+    ///         AsReplicaOf = "\"&lt;organization_name&gt;\".\"&lt;account_name&gt;\".\"&lt;connection_name&gt;\"",
+    ///         Comment = "my complete secondary connection",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// 
+    /// &gt; **Note** When creating a `snowflake.SecondaryConnection` and `snowflake.PrimaryConnection` in one `pulumi up` run, the `snowflake.SecondaryConnection` may return errors, because Snowflake needs some time to register the primary connection before you can create secondary connections based on it. The provider is handling it internally with a retry mechanism, but the time to register may differ and be longer than retry's maximum wait time. Generally, it is recommended to create the `snowflake.PrimaryConnection` first, then create the `snowflake.SecondaryConnection` in a second `pulumi up` run. If you tried to create both in one run, and it failed, just re-run the `pulumi up`. The time between both runs should be enough for Snowflake to register the primary connection.
+    /// 
+    /// &gt; **Note** To promote `snowflake.SecondaryConnection` to `snowflake.PrimaryConnection`, resources need to be migrated manually. For guidance on removing and importing resources into the state check resource migration. Remove the resource from the state with terraform state rm, then promote it manually using:
+    ///     ```    ALTER CONNECTION &lt;name&gt; PRIMARY;
+    ///     ```
+    /// and then import it as the `snowflake.PrimaryConnection`.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

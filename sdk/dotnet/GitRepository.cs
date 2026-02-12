@@ -10,6 +10,51 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// &lt;!-- TODO(SNOW-1348334): support GitHttpsApi type in SnowflakeApiIntegrationResource --&gt;
+    /// &gt; **Note** Note that `SnowflakeApiIntegrationResource` currently does not support `GitHttpsApi` type. It will be added during the resource rework. Instead, you can use execute resource.
+    /// 
+    /// Resource used to manage git repositories. For more information, check [git repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-git-repository).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // basic resource
+    ///     var basic = new Snowflake.GitRepository("basic", new()
+    ///     {
+    ///         Database = "DATABASE",
+    ///         Schema = "SCHEMA",
+    ///         Name = "GIT_REPOSITORY",
+    ///         Origin = "https://github.com/user/repo",
+    ///         ApiIntegration = "API_INTEGRATION",
+    ///     });
+    /// 
+    ///     // complete resource
+    ///     var complete = new Snowflake.GitRepository("complete", new()
+    ///     {
+    ///         Name = "GIT_REPOSITORY",
+    ///         Database = "DATABASE",
+    ///         Schema = "SCHEMA",
+    ///         Origin = "https://github.com/user/repo",
+    ///         ApiIntegration = "API_INTEGRATION",
+    ///         GitCredentials = secretName.FullyQualifiedName,
+    ///         Comment = "comment",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

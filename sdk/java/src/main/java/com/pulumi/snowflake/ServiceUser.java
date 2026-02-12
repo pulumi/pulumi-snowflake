@@ -20,6 +20,142 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution** Use `networkPolicy` attribute instead of the `snowflake.NetworkPolicyAttachment` resource. `snowflake.NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+ * 
+ * !&gt; **Sensitive values** This resource&#39;s `displayName`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * 
+ * &gt; **Note** `snowflake.UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+ * 
+ * &gt; **Note** Attaching user policies will be handled in the following versions of the provider which may still affect this resource.
+ * 
+ * &gt; **Note** Other two user types are handled in separate resources: `snowflake.LegacyServiceUser` for user type `legacyService` and `snowflake.User` for user type `person`.
+ * 
+ * &gt; **Note** External changes to `daysToExpiry` and `minsToUnlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
+ * 
+ * Resource used to manage service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.ServiceUser;
+ * import com.pulumi.snowflake.ServiceUserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         // minimal
+ *         var minimal = new ServiceUser("minimal", ServiceUserArgs.builder()
+ *             .name("Snowflake Service User - minimal")
+ *             .build());
+ * 
+ *         final var email = config.get("email");
+ *         final var loginName = config.get("loginName");
+ *         // with all attributes set
+ *         var serviceUser = new ServiceUser("serviceUser", ServiceUserArgs.builder()
+ *             .name("Snowflake Service User")
+ *             .loginName(loginName)
+ *             .comment("A service user of snowflake.")
+ *             .disabled("false")
+ *             .displayName("Snowflake Service User")
+ *             .email(email)
+ *             .defaultWarehouse("warehouse")
+ *             .defaultSecondaryRolesOption("ALL")
+ *             .defaultRole("role1")
+ *             .defaultNamespace("some.namespace")
+ *             .minsToUnlock(9)
+ *             .daysToExpiry(8)
+ *             .rsaPublicKey("...")
+ *             .rsaPublicKey2("...")
+ *             .build());
+ * 
+ *         // all parameters set on the resource level
+ *         var u = new ServiceUser("u", ServiceUserArgs.builder()
+ *             .name("Snowflake Service User with all parameters")
+ *             .abortDetachedQuery(true)
+ *             .autocommit(false)
+ *             .binaryInputFormat("UTF8")
+ *             .binaryOutputFormat("BASE64")
+ *             .clientMemoryLimit(1024)
+ *             .clientMetadataRequestUseConnectionCtx(true)
+ *             .clientPrefetchThreads(2)
+ *             .clientResultChunkSize(48)
+ *             .clientResultColumnCaseInsensitive(true)
+ *             .clientSessionKeepAlive(true)
+ *             .clientSessionKeepAliveHeartbeatFrequency(2400)
+ *             .clientTimestampTypeMapping("TIMESTAMP_NTZ")
+ *             .dateInputFormat("YYYY-MM-DD")
+ *             .dateOutputFormat("YY-MM-DD")
+ *             .enableUnloadPhysicalTypeOptimization(false)
+ *             .enableUnredactedQuerySyntaxError(true)
+ *             .errorOnNondeterministicMerge(false)
+ *             .errorOnNondeterministicUpdate(true)
+ *             .geographyOutputFormat("WKB")
+ *             .geometryOutputFormat("WKB")
+ *             .jdbcTreatDecimalAsInt(false)
+ *             .jdbcTreatTimestampNtzAsUtc(true)
+ *             .jdbcUseSessionTimezone(false)
+ *             .jsonIndent(4)
+ *             .lockTimeout(21222)
+ *             .logLevel("ERROR")
+ *             .multiStatementCount(0)
+ *             .networkPolicy("BVYDGRAT_0D5E3DD1_F644_03DE_318A_1179886518A7")
+ *             .noorderSequenceAsDefault(false)
+ *             .odbcTreatDecimalAsInt(true)
+ *             .preventUnloadToInternalStages(true)
+ *             .queryTag("some_tag")
+ *             .quotedIdentifiersIgnoreCase(true)
+ *             .rowsPerResultset(2)
+ *             .searchPath("$public, $current")
+ *             .simulatedDataSharingConsumer("some_consumer")
+ *             .statementQueuedTimeoutInSeconds(10)
+ *             .statementTimeoutInSeconds(10)
+ *             .strictJsonOutput(true)
+ *             .s3StageVpceDnsName("vpce-id.s3.region.vpce.amazonaws.com")
+ *             .timeInputFormat("HH24:MI")
+ *             .timeOutputFormat("HH24:MI")
+ *             .timestampDayIsAlways24h(true)
+ *             .timestampInputFormat("YYYY-MM-DD")
+ *             .timestampLtzOutputFormat("YYYY-MM-DD HH24:MI:SS")
+ *             .timestampNtzOutputFormat("YYYY-MM-DD HH24:MI:SS")
+ *             .timestampOutputFormat("YYYY-MM-DD HH24:MI:SS")
+ *             .timestampTypeMapping("TIMESTAMP_LTZ")
+ *             .timestampTzOutputFormat("YYYY-MM-DD HH24:MI:SS")
+ *             .timezone("Europe/Warsaw")
+ *             .traceLevel("PROPAGATE")
+ *             .transactionAbortOnError(true)
+ *             .transactionDefaultIsolationLevel("READ COMMITTED")
+ *             .twoDigitCenturyStart(1980)
+ *             .unsupportedDdlAction("FAIL")
+ *             .useCachedResult(false)
+ *             .weekOfYearPolicy(1)
+ *             .weekStart(1)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
@@ -239,9 +375,17 @@ public class ServiceUser extends com.pulumi.resources.CustomResource {
     public Output<String> dateOutputFormat() {
         return this.dateOutputFormat;
     }
+    /**
+     * Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="daysToExpiry", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> daysToExpiry;
 
+    /**
+     * @return Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<Integer>> daysToExpiry() {
         return Codegen.optional(this.daysToExpiry);
     }
@@ -539,9 +683,17 @@ public class ServiceUser extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> loginName() {
         return Codegen.optional(this.loginName);
     }
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="minsToUnlock", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minsToUnlock;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<Integer>> minsToUnlock() {
         return Codegen.optional(this.minsToUnlock);
     }

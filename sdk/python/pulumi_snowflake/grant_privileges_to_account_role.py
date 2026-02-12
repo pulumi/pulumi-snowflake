@@ -35,6 +35,7 @@ class GrantPrivilegesToAccountRoleArgs:
         The set of arguments for constructing a GrantPrivilegesToAccountRole resource.
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
+        :param pulumi.Input[_builtins.bool] always_apply: (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
         :param pulumi.Input[_builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[_builtins.bool] on_account: (Default: `false`) If true, the privileges will be granted on the account.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs'] on_account_object: Specifies the account object on which privileges will be granted
@@ -90,6 +91,9 @@ class GrantPrivilegesToAccountRoleArgs:
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
     def always_apply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+        """
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
@@ -198,6 +202,7 @@ class _GrantPrivilegesToAccountRoleState:
         Input properties used for looking up and filtering GrantPrivilegesToAccountRole resources.
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
+        :param pulumi.Input[_builtins.bool] always_apply: (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
         :param pulumi.Input[_builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[_builtins.bool] on_account: (Default: `false`) If true, the privileges will be granted on the account.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs'] on_account_object: Specifies the account object on which privileges will be granted
@@ -254,6 +259,9 @@ class _GrantPrivilegesToAccountRoleState:
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
     def always_apply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+        """
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
@@ -363,38 +371,21 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
-        ## Import
+        !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 
-        ### Import examples
+        > **Note** Manage grants on `HYBRID TABLE` by specifying `TABLE` or `TABLES` in `object_type` field. This applies to a single object, all objects, or future objects. This reflects the current behavior in Snowflake.
 
-        #### Grant all privileges OnAccountObject (Database)
+        > **Note** When granting privileges on applications (for example, the default "SNOWFLAKE" application) use `on_account_object.object_type = "DATABASE"` instead.
 
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
-        ```
+        > **Note** When using `IMPORTED PRIVILEGES` privilege, the `with_grant_option` field is not supported. Additionally, when the `IMPORTED PRIVILEGES` privilege is not set in the config, and it is granted externally, this change is not detected because of Snowflake limitations. Also, granting individual privileges on imported database is not allowed, this is a Snowflake limitation. Use `IMPORTED PRIVILEGES` instead.
 
-        #### Grant list of privileges OnAllSchemasInDatabase
-
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
-        ```
-
-        #### Grant list of privileges on table
-
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
-        ```
-
-        #### Grant list of privileges OnAll tables in schema
-
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
-        ```
+        > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
+        :param pulumi.Input[_builtins.bool] always_apply: (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
         :param pulumi.Input[_builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[_builtins.bool] on_account: (Default: `false`) If true, the privileges will be granted on the account.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']] on_account_object: Specifies the account object on which privileges will be granted
@@ -410,33 +401,15 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  args: GrantPrivilegesToAccountRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
+        !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
 
-        ### Import examples
+        > **Note** Manage grants on `HYBRID TABLE` by specifying `TABLE` or `TABLES` in `object_type` field. This applies to a single object, all objects, or future objects. This reflects the current behavior in Snowflake.
 
-        #### Grant all privileges OnAccountObject (Database)
+        > **Note** When granting privileges on applications (for example, the default "SNOWFLAKE" application) use `on_account_object.object_type = "DATABASE"` instead.
 
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
-        ```
+        > **Note** When using `IMPORTED PRIVILEGES` privilege, the `with_grant_option` field is not supported. Additionally, when the `IMPORTED PRIVILEGES` privilege is not set in the config, and it is granted externally, this change is not detected because of Snowflake limitations. Also, granting individual privileges on imported database is not allowed, this is a Snowflake limitation. Use `IMPORTED PRIVILEGES` instead.
 
-        #### Grant list of privileges OnAllSchemasInDatabase
-
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
-        ```
-
-        #### Grant list of privileges on table
-
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
-        ```
-
-        #### Grant list of privileges OnAll tables in schema
-
-        ```sh
-        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
-        ```
+        > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
 
         :param str resource_name: The name of the resource.
         :param GrantPrivilegesToAccountRoleArgs args: The arguments to use to populate this resource's properties.
@@ -513,6 +486,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
+        :param pulumi.Input[_builtins.bool] always_apply: (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
         :param pulumi.Input[_builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[_builtins.bool] on_account: (Default: `false`) If true, the privileges will be granted on the account.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']] on_account_object: Specifies the account object on which privileges will be granted
@@ -556,6 +530,9 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
     def always_apply(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
+        """
         return pulumi.get(self, "always_apply")
 
     @_builtins.property

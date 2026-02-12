@@ -7,6 +7,64 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Sensitive values** This resource's `oauthRedirectUri` and `describe_output.oauth_redirect_uri` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ *
+ * !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+ *
+ * > **Missing fields** The `oauthClientId` and `oauthRedirectUri` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+ * This may have impact on detecting external changes for the `oauthRedirectUri` field.
+ *
+ * Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ * import * as std from "@pulumi/std";
+ *
+ * // basic resource
+ * const basic = new snowflake.OauthIntegrationForCustomClients("basic", {
+ *     name: "integration",
+ *     oauthClientType: "CONFIDENTIAL",
+ *     oauthRedirectUri: "https://example.com",
+ * });
+ * // resource with all fields set
+ * const complete = new snowflake.OauthIntegrationForCustomClients("complete", {
+ *     name: "integration",
+ *     oauthClientType: "CONFIDENTIAL",
+ *     oauthRedirectUri: "https://example.com",
+ *     enabled: "true",
+ *     oauthAllowNonTlsRedirectUri: "true",
+ *     oauthEnforcePkce: "true",
+ *     oauthUseSecondaryRoles: "NONE",
+ *     preAuthorizedRolesLists: [
+ *         one.fullyQualifiedName,
+ *         two.fullyQualifiedName,
+ *     ],
+ *     blockedRolesLists: [
+ *         "ACCOUNTADMIN",
+ *         "SECURITYADMIN",
+ *         three.fullyQualifiedName,
+ *         four.fullyQualifiedName,
+ *     ],
+ *     oauthIssueRefreshTokens: "true",
+ *     oauthRefreshTokenValidity: 87600,
+ *     networkPolicy: example.fullyQualifiedName,
+ *     oauthClientRsaPublicKey: std.file({
+ *         input: "rsa.pub",
+ *     }).then(invoke => invoke.result),
+ *     oauthClientRsaPublicKey2: std.file({
+ *         input: "rsa2.pub",
+ *     }).then(invoke => invoke.result),
+ *     comment: "my oauth integration",
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh
@@ -73,7 +131,13 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     declare public readonly oauthAllowNonTlsRedirectUri: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly oauthClientRsaPublicKey: pulumi.Output<string | undefined>;
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     declare public readonly oauthClientRsaPublicKey2: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
@@ -215,7 +279,13 @@ export interface OauthIntegrationForCustomClientsState {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     oauthAllowNonTlsRedirectUri?: pulumi.Input<string>;
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     oauthClientRsaPublicKey?: pulumi.Input<string>;
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     oauthClientRsaPublicKey2?: pulumi.Input<string>;
     /**
      * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
@@ -283,7 +353,13 @@ export interface OauthIntegrationForCustomClientsArgs {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     oauthAllowNonTlsRedirectUri?: pulumi.Input<string>;
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     oauthClientRsaPublicKey?: pulumi.Input<string>;
+    /**
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     oauthClientRsaPublicKey2?: pulumi.Input<string>;
     /**
      * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.

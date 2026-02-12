@@ -300,6 +300,8 @@ class SecretWithClientCredentials(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+
         ## Import
 
         ```sh
@@ -322,6 +324,8 @@ class SecretWithClientCredentials(pulumi.CustomResource):
                  args: SecretWithClientCredentialsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+
         ## Import
 
         ```sh

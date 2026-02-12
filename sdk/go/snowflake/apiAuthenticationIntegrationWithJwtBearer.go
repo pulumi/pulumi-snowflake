@@ -12,6 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+//
+// > **Missing fields** The `oauthClientId` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+// This may have impact on detecting external changes for the `oauthClientId` field.
+//
+// Resource used to manage api authentication security integration objects with jwt bearer. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-api-auth).
+//
 // ## Import
 //
 // ```sh
@@ -38,7 +45,8 @@ type ApiAuthenticationIntegrationWithJwtBearer struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrOutput `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId     pulumi.StringOutput `pulumi:"oauthClientId"`
+	OauthClientId pulumi.StringOutput `pulumi:"oauthClientId"`
+	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthClientSecret pulumi.StringOutput `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
@@ -119,7 +127,8 @@ type apiAuthenticationIntegrationWithJwtBearerState struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod *string `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId     *string `pulumi:"oauthClientId"`
+	OauthClientId *string `pulumi:"oauthClientId"`
+	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthClientSecret *string `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
@@ -148,7 +157,8 @@ type ApiAuthenticationIntegrationWithJwtBearerState struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrInput
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId     pulumi.StringPtrInput
+	OauthClientId pulumi.StringPtrInput
+	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthClientSecret pulumi.StringPtrInput
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
@@ -177,7 +187,8 @@ type apiAuthenticationIntegrationWithJwtBearerArgs struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod *string `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId     string `pulumi:"oauthClientId"`
+	OauthClientId string `pulumi:"oauthClientId"`
+	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthClientSecret string `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
@@ -201,7 +212,8 @@ type ApiAuthenticationIntegrationWithJwtBearerArgs struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrInput
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId     pulumi.StringInput
+	OauthClientId pulumi.StringInput
+	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	OauthClientSecret pulumi.StringInput
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
@@ -353,6 +365,7 @@ func (o ApiAuthenticationIntegrationWithJwtBearerOutput) OauthClientId() pulumi.
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.OauthClientId }).(pulumi.StringOutput)
 }
 
+// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o ApiAuthenticationIntegrationWithJwtBearerOutput) OauthClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.OauthClientSecret }).(pulumi.StringOutput)
 }

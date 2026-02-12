@@ -19,6 +19,73 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.ExternalTable;
+ * import com.pulumi.snowflake.ExternalTableArgs;
+ * import com.pulumi.snowflake.inputs.ExternalTableColumnArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var externalTable = new ExternalTable("externalTable", ExternalTableArgs.builder()
+ *             .database("db")
+ *             .schema("schema")
+ *             .name("external_table")
+ *             .comment("External table")
+ *             .fileFormat("TYPE = CSV FIELD_DELIMITER = '|'")
+ *             .columns(            
+ *                 ExternalTableColumnArgs.builder()
+ *                     .name("id")
+ *                     .type("int")
+ *                     .build(),
+ *                 ExternalTableColumnArgs.builder()
+ *                     .name("data")
+ *                     .type("text")
+ *                     .build())
+ *             .build());
+ * 
+ *         // with a location pointing to an existing stage
+ *         // name is hardcoded, please see resource documentation for other options
+ *         var externalTableWithLocation = new ExternalTable("externalTableWithLocation", ExternalTableArgs.builder()
+ *             .database("db")
+ *             .schema("schema")
+ *             .name("external_table_with_location")
+ *             .location("}{@literal @}{@code MYDB.MYSCHEMA.MYSTAGE")
+ *             .columns(ExternalTableColumnArgs.builder()
+ *                 .name("id")
+ *                 .type("int")
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * format is database name | schema name | external table name

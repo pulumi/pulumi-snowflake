@@ -15,9 +15,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * 
  * ## Import
  * 
- * format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
+ * format is roleName (string) | granteeObjectType (ROLE|USER) | granteeName (string)
  * 
  * ```sh
  * $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example &#39;&#34;test_role&#34;|ROLE|&#34;test_parent_role&#34;&#39;

@@ -1307,9 +1307,17 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.requireStorageIntegrationForStageOperation);
     }
 
+    /**
+     * Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Import(name="resourceMonitor")
     private @Nullable Output<String> resourceMonitor;
 
+    /**
+     * @return Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Optional<Output<String>> resourceMonitor() {
         return Optional.ofNullable(this.resourceMonitor);
     }
@@ -3790,11 +3798,23 @@ public final class CurrentAccountState extends com.pulumi.resources.ResourceArgs
             return requireStorageIntegrationForStageOperation(Output.of(requireStorageIntegrationForStageOperation));
         }
 
+        /**
+         * @param resourceMonitor Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceMonitor(@Nullable Output<String> resourceMonitor) {
             $.resourceMonitor = resourceMonitor;
             return this;
         }
 
+        /**
+         * @param resourceMonitor Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceMonitor(String resourceMonitor) {
             return resourceMonitor(Output.of(resourceMonitor));
         }

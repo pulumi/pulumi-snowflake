@@ -18,6 +18,109 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * !&gt; **Warning** This resource shouldn&#39;t be used with `snowflake.CurrentAccount` resource in the same configuration to set parameters on the current account, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`. More details in the snowflake.CurrentAccount resource documentation.
+ * 
+ * &gt; **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
+ * import com.pulumi.snowflake.ObjectParameter;
+ * import com.pulumi.snowflake.ObjectParameterArgs;
+ * import com.pulumi.snowflake.inputs.ObjectParameterObjectIdentifierArgs;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var d = new Database("d", DatabaseArgs.builder()
+ *             .name("TEST_DB")
+ *             .build());
+ * 
+ *         var o = new ObjectParameter("o", ObjectParameterArgs.builder()
+ *             .key("SUSPEND_TASK_AFTER_NUM_FAILURES")
+ *             .value("33")
+ *             .objectType("DATABASE")
+ *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
+ *                 .name(d.name())
+ *                 .build())
+ *             .build());
+ * 
+ *         var s = new Schema("s", SchemaArgs.builder()
+ *             .name("TEST_SCHEMA")
+ *             .database(d.name())
+ *             .build());
+ * 
+ *         var o2 = new ObjectParameter("o2", ObjectParameterArgs.builder()
+ *             .key("USER_TASK_TIMEOUT_MS")
+ *             .value("500")
+ *             .objectType("SCHEMA")
+ *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
+ *                 .database(d.name())
+ *                 .name(s.name())
+ *                 .build())
+ *             .build());
+ * 
+ *         var t = new Table("t", TableArgs.builder()
+ *             .name("TEST_TABLE")
+ *             .database(d.name())
+ *             .schema(s.name())
+ *             .columns(TableColumnArgs.builder()
+ *                 .name("id")
+ *                 .type("NUMBER")
+ *                 .build())
+ *             .build());
+ * 
+ *         var o3 = new ObjectParameter("o3", ObjectParameterArgs.builder()
+ *             .key("DATA_RETENTION_TIME_IN_DAYS")
+ *             .value("89")
+ *             .objectType("TABLE")
+ *             .objectIdentifiers(ObjectParameterObjectIdentifierArgs.builder()
+ *                 .database(d.name())
+ *                 .schema(s.name())
+ *                 .name(t.name())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Setting object parameter at account level
+ *         var o4 = new ObjectParameter("o4", ObjectParameterArgs.builder()
+ *             .key("DATA_RETENTION_TIME_IN_DAYS")
+ *             .value("89")
+ *             .onAccount(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

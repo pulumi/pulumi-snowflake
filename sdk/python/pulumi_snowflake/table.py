@@ -417,6 +417,75 @@ class Table(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        schema = snowflake.Schema("schema",
+            database="database",
+            name="schema",
+            data_retention_days=1)
+        sequence = snowflake.Sequence("sequence",
+            database=schema.database,
+            schema=schema.name,
+            name="sequence")
+        table = snowflake.Table("table",
+            database=schema.database,
+            schema=schema.name,
+            name="table",
+            comment="A table.",
+            cluster_bies=["to_date(DATE)"],
+            data_retention_time_in_days=schema.data_retention_time_in_days,
+            change_tracking=False,
+            columns=[
+                {
+                    "name": "id",
+                    "type": "int",
+                    "nullable": True,
+                    "default": {
+                        "sequence": sequence.fully_qualified_name,
+                    },
+                },
+                {
+                    "name": "identity",
+                    "type": "NUMBER(38,0)",
+                    "nullable": True,
+                    "identity": {
+                        "start_num": 1,
+                        "step_num": 3,
+                    },
+                },
+                {
+                    "name": "data",
+                    "type": "text",
+                    "nullable": False,
+                    "collate": "en-ci",
+                },
+                {
+                    "name": "DATE",
+                    "type": "TIMESTAMP_NTZ(9)",
+                },
+                {
+                    "name": "extra",
+                    "type": "VARIANT",
+                    "comment": "extra data",
+                },
+            ],
+            primary_key={
+                "name": "my_key",
+                "keys": ["data"],
+            })
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         format is database name | schema name | table name
@@ -445,6 +514,75 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        schema = snowflake.Schema("schema",
+            database="database",
+            name="schema",
+            data_retention_days=1)
+        sequence = snowflake.Sequence("sequence",
+            database=schema.database,
+            schema=schema.name,
+            name="sequence")
+        table = snowflake.Table("table",
+            database=schema.database,
+            schema=schema.name,
+            name="table",
+            comment="A table.",
+            cluster_bies=["to_date(DATE)"],
+            data_retention_time_in_days=schema.data_retention_time_in_days,
+            change_tracking=False,
+            columns=[
+                {
+                    "name": "id",
+                    "type": "int",
+                    "nullable": True,
+                    "default": {
+                        "sequence": sequence.fully_qualified_name,
+                    },
+                },
+                {
+                    "name": "identity",
+                    "type": "NUMBER(38,0)",
+                    "nullable": True,
+                    "identity": {
+                        "start_num": 1,
+                        "step_num": 3,
+                    },
+                },
+                {
+                    "name": "data",
+                    "type": "text",
+                    "nullable": False,
+                    "collate": "en-ci",
+                },
+                {
+                    "name": "DATE",
+                    "type": "TIMESTAMP_NTZ(9)",
+                },
+                {
+                    "name": "extra",
+                    "type": "VARIANT",
+                    "comment": "extra data",
+                },
+            ],
+            primary_key={
+                "name": "my_key",
+                "keys": ["data"],
+            })
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         format is database name | schema name | table name

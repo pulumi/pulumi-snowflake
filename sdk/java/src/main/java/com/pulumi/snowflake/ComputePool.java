@@ -19,6 +19,67 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note** Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)).
+ * 
+ * &gt; **Note** Managing compute pool state is limited. It is handled by `initiallySuspended`, `autoSuspendSecs`, and `autoResume` fields. The provider does not support managing the state of compute pools in Snowflake with `ALTER ... SUSPEND` and `ALTER ... RESUME`. See [Compute pool lifecycle documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool#compute-pool-lifecycle) for more details.
+ * 
+ * Resource used to manage compute pools. For more information, check [compute pools documentation](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool). A compute pool is a collection of one or more virtual machine (VM) nodes on which Snowflake runs your Snowpark Container Services services (including job services). See [Working with compute pools](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool) developer guide for more details.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.ComputePool;
+ * import com.pulumi.snowflake.ComputePoolArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // basic resource
+ *         var basic = new ComputePool("basic", ComputePoolArgs.builder()
+ *             .name("COMPUTE_POOL")
+ *             .minNodes(1)
+ *             .maxNodes(2)
+ *             .instanceFamily("CPU_X64_S")
+ *             .build());
+ * 
+ *         // complete resource
+ *         var complete = new ComputePool("complete", ComputePoolArgs.builder()
+ *             .name("COMPUTE_POOL")
+ *             .forApplication("APPLICATION_NAME")
+ *             .minNodes(1)
+ *             .maxNodes(2)
+ *             .instanceFamily("CPU_X64_S")
+ *             .autoResume("true")
+ *             .initiallySuspended("true")
+ *             .autoSuspendSecs(1200)
+ *             .comment("A compute pool.")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

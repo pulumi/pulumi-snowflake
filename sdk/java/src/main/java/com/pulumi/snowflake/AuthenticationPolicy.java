@@ -21,6 +21,87 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * !&gt; **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-authentication-policy#usage-notes), an authentication policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+ * 
+ * &gt; **Note** External changes are not detected for the following fields: `mfaPolicy`, `patPolicy`, `workloadIdentityPolicy`. Also, they cannot be imported and should be manually set to the correct values during the import operation.
+ * 
+ * Resource used to manage authentication policy objects. For more information, check [authentication policy documentation](https://docs.snowflake.com/en/sql-reference/sql/create-authentication-policy).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.AuthenticationPolicy;
+ * import com.pulumi.snowflake.AuthenticationPolicyArgs;
+ * import com.pulumi.snowflake.inputs.AuthenticationPolicyMfaPolicyArgs;
+ * import com.pulumi.snowflake.inputs.AuthenticationPolicyPatPolicyArgs;
+ * import com.pulumi.snowflake.inputs.AuthenticationPolicyWorkloadIdentityPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         //# Minimal
+ *         var basic = new AuthenticationPolicy("basic", AuthenticationPolicyArgs.builder()
+ *             .database("database_name")
+ *             .schema("schema_name")
+ *             .name("network_policy_name")
+ *             .build());
+ * 
+ *         //# Complete (with every optional set)
+ *         var complete = new AuthenticationPolicy("complete", AuthenticationPolicyArgs.builder()
+ *             .database("database_name")
+ *             .schema("schema_name")
+ *             .name("network_policy_name")
+ *             .authenticationMethods("ALL")
+ *             .mfaEnrollment("OPTIONAL")
+ *             .clientTypes("ALL")
+ *             .securityIntegrations("ALL")
+ *             .mfaPolicy(AuthenticationPolicyMfaPolicyArgs.builder()
+ *                 .allowedMethods(                
+ *                     "PASSKEY",
+ *                     "DUO")
+ *                 .enforceMfaOnExternalAuthentication("ALL")
+ *                 .build())
+ *             .patPolicy(AuthenticationPolicyPatPolicyArgs.builder()
+ *                 .defaultExpiryInDays(1)
+ *                 .maxExpiryInDays(30)
+ *                 .networkPolicyEvaluation("NOT_ENFORCED")
+ *                 .build())
+ *             .workloadIdentityPolicy(AuthenticationPolicyWorkloadIdentityPolicyArgs.builder()
+ *                 .allowedProviders("ALL")
+ *                 .allowedAwsAccounts("111122223333")
+ *                 .allowedAzureIssuers("https://login.microsoftonline.com/tenantid/v2.0")
+ *                 .allowedOidcIssuers("https://example.com")
+ *                 .build())
+ *             .comment("My authentication policy.")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:

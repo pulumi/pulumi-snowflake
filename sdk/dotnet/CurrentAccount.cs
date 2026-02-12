@@ -10,6 +10,166 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// !&gt; **Warning** During create operation every parameter that is not set in the resource will be unset on the account.
+    /// 
+    /// !&gt; **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
+    /// 
+    /// !&gt; **Warning** This resource shouldn't be used with `snowflake.CurrentOrganizationAccount`, `snowflake.ObjectParameter` (with `OnAccount` field set), and `snowflake.AccountParameter` resources in the same configuration, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `snowflake.CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `snowflake.CurrentAccount` resource.
+    /// 
+    /// !&gt; **Warning** This resource shouldn't be also used with `snowflake.AccountPasswordPolicyAttachment`, `snowflake.NetworkPolicyAttachment`, `snowflake.AccountAuthenticationPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
+    /// 
+    /// &gt; **Note** On removal, the resource will unset all account properties. To remove the resource without unsetting properties, use terraform state rm command.
+    /// 
+    /// &gt; **Note** You can manage only one such resource **per account**. More instances on one account could cause unexpected behavior.
+    /// 
+    /// &gt; **Note** Currently, this resource does not support organization user group management.
+    /// 
+    /// Resource used to manage the account you are currently connected to. This resource is used to set account parameters and other account-level settings. See [ALTER ACCOUNT](https://docs.snowflake.com/en/sql-reference/sql/alter-account) documentation for more information on resource capabilities.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //# Minimal
+    ///     var minimal = new Snowflake.CurrentAccount("minimal");
+    /// 
+    ///     //# Complete (with every optional set)
+    ///     var complete = new Snowflake.CurrentAccount("complete", new()
+    ///     {
+    ///         AbortDetachedQuery = true,
+    ///         AllowClientMfaCaching = true,
+    ///         AllowIdToken = true,
+    ///         AuthenticationPolicy = example.FullyQualifiedName,
+    ///         Autocommit = false,
+    ///         BaseLocationPrefix = "STORAGE_BASE_URL/",
+    ///         BinaryInputFormat = "BASE64",
+    ///         BinaryOutputFormat = "BASE64",
+    ///         Catalog = "SNOWFLAKE",
+    ///         ClientEnableLogInfoStatementParameters = true,
+    ///         ClientEncryptionKeySize = 256,
+    ///         ClientMemoryLimit = 1540,
+    ///         ClientMetadataRequestUseConnectionCtx = true,
+    ///         ClientMetadataUseSessionDatabase = true,
+    ///         ClientPrefetchThreads = 5,
+    ///         ClientResultChunkSize = 159,
+    ///         ClientResultColumnCaseInsensitive = true,
+    ///         ClientSessionKeepAlive = true,
+    ///         ClientSessionKeepAliveHeartbeatFrequency = 3599,
+    ///         ClientTimestampTypeMapping = "TIMESTAMP_NTZ",
+    ///         CortexEnabledCrossRegion = "ANY_REGION",
+    ///         CortexModelsAllowlist = "All",
+    ///         CsvTimestampFormat = "YYYY-MM-DD",
+    ///         DataRetentionTimeInDays = 2,
+    ///         DateInputFormat = "YYYY-MM-DD",
+    ///         DateOutputFormat = "YYYY-MM-DD",
+    ///         DefaultDdlCollation = "en-cs",
+    ///         DefaultNotebookComputePoolCpu = "CPU_X64_S",
+    ///         DefaultNotebookComputePoolGpu = "GPU_NV_S",
+    ///         DefaultNullOrdering = "FIRST",
+    ///         DefaultStreamlitNotebookWarehouse = exampleSnowflakeWarehouse.FullyQualifiedName,
+    ///         DisableUiDownloadButton = true,
+    ///         DisableUserPrivilegeGrants = true,
+    ///         EnableAutomaticSensitiveDataClassificationLog = false,
+    ///         EnableEgressCostOptimizer = false,
+    ///         EnableIdentifierFirstLogin = false,
+    ///         EnableTriSecretAndRekeyOptOutForImageRepository = true,
+    ///         EnableTriSecretAndRekeyOptOutForSpcsBlockStorage = true,
+    ///         EnableUnhandledExceptionsReporting = false,
+    ///         EnableUnloadPhysicalTypeOptimization = false,
+    ///         EnableUnredactedQuerySyntaxError = true,
+    ///         EnableUnredactedSecureObjectError = true,
+    ///         EnforceNetworkRulesForInternalStages = true,
+    ///         ErrorOnNondeterministicMerge = false,
+    ///         ErrorOnNondeterministicUpdate = true,
+    ///         EventTable = "\"&lt;database_name&gt;\".\"&lt;schema_name&gt;\".\"&lt;event_table_name&gt;\"",
+    ///         ExternalOauthAddPrivilegedRolesToBlockedList = false,
+    ///         ExternalVolume = "XWDVEAAT_A6FEE9D6_5D41_AB3D_EB0C_51DA5E5F0BE2",
+    ///         FeaturePolicy = "\"&lt;database_name&gt;\".\"&lt;schema_name&gt;\".\"&lt;feature_policy_name&gt;\"",
+    ///         GeographyOutputFormat = "WKT",
+    ///         GeometryOutputFormat = "WKT",
+    ///         HybridTableLockTimeout = 3599,
+    ///         InitialReplicationSizeLimitInTb = "9.9",
+    ///         JdbcTreatDecimalAsInt = false,
+    ///         JdbcTreatTimestampNtzAsUtc = true,
+    ///         JdbcUseSessionTimezone = false,
+    ///         JsTreatIntegerAsBigint = true,
+    ///         JsonIndent = 4,
+    ///         ListingAutoFulfillmentReplicationRefreshSchedule = "2 minutes",
+    ///         LockTimeout = 43201,
+    ///         LogLevel = "INFO",
+    ///         MaxConcurrencyLevel = 7,
+    ///         MaxDataExtensionTimeInDays = 13,
+    ///         MetricLevel = "ALL",
+    ///         MinDataRetentionTimeInDays = 1,
+    ///         MultiStatementCount = 0,
+    ///         NetworkPolicy = exampleSnowflakeNetworkPolicy.FullyQualifiedName,
+    ///         NoorderSequenceAsDefault = false,
+    ///         OauthAddPrivilegedRolesToBlockedList = false,
+    ///         OdbcTreatDecimalAsInt = true,
+    ///         PackagesPolicy = "\"&lt;database_name&gt;\".\"&lt;schema_name&gt;\".\"&lt;packages_policy_name&gt;\"",
+    ///         PasswordPolicy = exampleSnowflakePasswordPolicy.FullyQualifiedName,
+    ///         PeriodicDataRekeying = false,
+    ///         PipeExecutionPaused = true,
+    ///         PreventUnloadToInlineUrl = true,
+    ///         PreventUnloadToInternalStages = true,
+    ///         PythonProfilerTargetStage = exampleSnowflakeStage.FullyQualifiedName,
+    ///         QueryTag = "test-query-tag",
+    ///         QuotedIdentifiersIgnoreCase = true,
+    ///         ReplaceInvalidCharacters = true,
+    ///         RequireStorageIntegrationForStageCreation = true,
+    ///         RequireStorageIntegrationForStageOperation = true,
+    ///         ResourceMonitor = exampleSnowflakeResourceMonitor.FullyQualifiedName,
+    ///         RowsPerResultset = 1000,
+    ///         SearchPath = "$current, $public",
+    ///         ServerlessTaskMaxStatementSize = "XLARGE",
+    ///         ServerlessTaskMinStatementSize = "SMALL",
+    ///         SessionPolicy = "\"&lt;database_name&gt;\".\"&lt;schema_name&gt;\".\"&lt;session_policy_name&gt;\"",
+    ///         SsoLoginPage = true,
+    ///         StatementQueuedTimeoutInSeconds = 1,
+    ///         StatementTimeoutInSeconds = 1,
+    ///         StorageSerializationPolicy = "OPTIMIZED",
+    ///         StrictJsonOutput = true,
+    ///         SuspendTaskAfterNumFailures = 3,
+    ///         TaskAutoRetryAttempts = 3,
+    ///         TimeInputFormat = "YYYY-MM-DD",
+    ///         TimeOutputFormat = "YYYY-MM-DD",
+    ///         TimestampDayIsAlways24h = true,
+    ///         TimestampInputFormat = "YYYY-MM-DD",
+    ///         TimestampLtzOutputFormat = "YYYY-MM-DD",
+    ///         TimestampNtzOutputFormat = "YYYY-MM-DD",
+    ///         TimestampOutputFormat = "YYYY-MM-DD",
+    ///         TimestampTypeMapping = "TIMESTAMP_LTZ",
+    ///         TimestampTzOutputFormat = "YYYY-MM-DD",
+    ///         Timezone = "Europe/London",
+    ///         TraceLevel = "PROPAGATE",
+    ///         TransactionAbortOnError = true,
+    ///         TransactionDefaultIsolationLevel = "READ COMMITTED",
+    ///         TwoDigitCenturyStart = 1971,
+    ///         UnsupportedDdlAction = "FAIL",
+    ///         UseCachedResult = false,
+    ///         UserTaskManagedInitialWarehouseSize = "SMALL",
+    ///         UserTaskMinimumTriggerIntervalInSeconds = 10,
+    ///         UserTaskTimeoutMs = 10,
+    ///         WeekOfYearPolicy = 1,
+    ///         WeekStart = 1,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// This resource may contain a any identifier, but the following format is recommended.
@@ -537,6 +697,9 @@ namespace Pulumi.Snowflake
         [Output("requireStorageIntegrationForStageOperation")]
         public Output<bool> RequireStorageIntegrationForStageOperation { get; private set; } = null!;
 
+        /// <summary>
+        /// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("resourceMonitor")]
         public Output<string?> ResourceMonitor { get; private set; } = null!;
 
@@ -1312,6 +1475,9 @@ namespace Pulumi.Snowflake
         [Input("requireStorageIntegrationForStageOperation")]
         public Input<bool>? RequireStorageIntegrationForStageOperation { get; set; }
 
+        /// <summary>
+        /// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("resourceMonitor")]
         public Input<string>? ResourceMonitor { get; set; }
 
@@ -2049,6 +2215,9 @@ namespace Pulumi.Snowflake
         [Input("requireStorageIntegrationForStageOperation")]
         public Input<bool>? RequireStorageIntegrationForStageOperation { get; set; }
 
+        /// <summary>
+        /// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("resourceMonitor")]
         public Input<string>? ResourceMonitor { get; set; }
 

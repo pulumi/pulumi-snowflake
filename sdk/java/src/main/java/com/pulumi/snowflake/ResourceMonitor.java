@@ -18,6 +18,81 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note** For more details about resource monitor usage, please visit [this guide on Snowflake documentation page](https://docs.snowflake.com/en/user-guide/resource-monitors).
+ * 
+ * &gt; **Note** Currently assigning a resource monitor to account is not supported. This will be available in a new resource for managing account dependencies. For now, please use execute instead.
+ * 
+ * **! Warning !** Due to Snowflake limitations, the following actions are not supported:
+ * - Cannot create resource monitors with only triggers set, any other attribute has to be set.
+ * - Once a resource monitor has at least one trigger assigned, it cannot fully unset them (has to have at least one trigger, doesn&#39;t matter of which type). That&#39;s why when you unset all the triggers on a resource monitor, it will be automatically recreated.
+ * 
+ * Resource used to manage resource monitor objects. For more information, check [resource monitor documentation](https://docs.snowflake.com/en/user-guide/resource-monitors).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.ResourceMonitor;
+ * import com.pulumi.snowflake.ResourceMonitorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Note: Without credit quota and triggers specified in the configuration, the resource monitor is not performing any work.
+ *         // More on resource monitor usage: https://docs.snowflake.com/en/user-guide/resource-monitors.
+ *         var minimal = new ResourceMonitor("minimal", ResourceMonitorArgs.builder()
+ *             .name("resource-monitor-name")
+ *             .build());
+ * 
+ *         // Note: Resource monitors have to be attached to account or warehouse to be able to track credit usage.
+ *         var minimalWorking = new ResourceMonitor("minimalWorking", ResourceMonitorArgs.builder()
+ *             .name("resource-monitor-name")
+ *             .creditQuota(100)
+ *             .suspendTrigger(100)
+ *             .notifyUsers(            
+ *                 one.fullyQualifiedName(),
+ *                 two.fullyQualifiedName())
+ *             .build());
+ * 
+ *         var complete = new ResourceMonitor("complete", ResourceMonitorArgs.builder()
+ *             .name("resource-monitor-name")
+ *             .creditQuota(100)
+ *             .frequency("DAILY")
+ *             .startTimestamp("2030-12-07 00:00")
+ *             .endTimestamp("2035-12-07 00:00")
+ *             .notifyTriggers(            
+ *                 40,
+ *                 50)
+ *             .suspendTrigger(50)
+ *             .suspendImmediateTrigger(90)
+ *             .notifyUsers(            
+ *                 one.fullyQualifiedName(),
+ *                 two.fullyQualifiedName())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
@@ -139,9 +214,17 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
     public Output<List<ResourceMonitorShowOutput>> showOutputs() {
         return this.showOutputs;
     }
+    /**
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+     * 
+     */
     @Export(name="startTimestamp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startTimestamp;
 
+    /**
+     * @return The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+     * 
+     */
     public Output<Optional<String>> startTimestamp() {
         return Codegen.optional(this.startTimestamp);
     }

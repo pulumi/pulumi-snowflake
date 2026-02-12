@@ -46,6 +46,8 @@ class OauthIntegrationForCustomClientsArgs:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] oauth_allow_non_tls_redirect_uri: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] oauth_client_rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.str] oauth_client_rsa_public_key2: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] oauth_enforce_pkce: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] oauth_issue_refresh_tokens: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] oauth_refresh_token_validity: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -180,6 +182,9 @@ class OauthIntegrationForCustomClientsArgs:
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey")
     def oauth_client_rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_rsa_public_key")
 
     @oauth_client_rsa_public_key.setter
@@ -189,6 +194,9 @@ class OauthIntegrationForCustomClientsArgs:
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey2")
     def oauth_client_rsa_public_key2(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_rsa_public_key2")
 
     @oauth_client_rsa_public_key2.setter
@@ -288,6 +296,8 @@ class _OauthIntegrationForCustomClientsState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] oauth_allow_non_tls_redirect_uri: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] oauth_client_rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.str] oauth_client_rsa_public_key2: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         :param pulumi.Input[_builtins.str] oauth_enforce_pkce: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] oauth_issue_refresh_tokens: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -436,6 +446,9 @@ class _OauthIntegrationForCustomClientsState:
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey")
     def oauth_client_rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_rsa_public_key")
 
     @oauth_client_rsa_public_key.setter
@@ -445,6 +458,9 @@ class _OauthIntegrationForCustomClientsState:
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey2")
     def oauth_client_rsa_public_key2(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_rsa_public_key2")
 
     @oauth_client_rsa_public_key2.setter
@@ -583,6 +599,58 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
                  pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        !> **Sensitive values** This resource's `oauth_redirect_uri` and `describe_output.oauth_redirect_uri` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+
+        > **Missing fields** The `oauth_client_id` and `oauth_redirect_uri` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+        This may have impact on detecting external changes for the `oauth_redirect_uri` field.
+
+        Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+        import pulumi_std as std
+
+        # basic resource
+        basic = snowflake.OauthIntegrationForCustomClients("basic",
+            name="integration",
+            oauth_client_type="CONFIDENTIAL",
+            oauth_redirect_uri="https://example.com")
+        # resource with all fields set
+        complete = snowflake.OauthIntegrationForCustomClients("complete",
+            name="integration",
+            oauth_client_type="CONFIDENTIAL",
+            oauth_redirect_uri="https://example.com",
+            enabled="true",
+            oauth_allow_non_tls_redirect_uri="true",
+            oauth_enforce_pkce="true",
+            oauth_use_secondary_roles="NONE",
+            pre_authorized_roles_lists=[
+                one["fullyQualifiedName"],
+                two["fullyQualifiedName"],
+            ],
+            blocked_roles_lists=[
+                "ACCOUNTADMIN",
+                "SECURITYADMIN",
+                three["fullyQualifiedName"],
+                four["fullyQualifiedName"],
+            ],
+            oauth_issue_refresh_tokens="true",
+            oauth_refresh_token_validity=87600,
+            network_policy=example["fullyQualifiedName"],
+            oauth_client_rsa_public_key=std.file(input="rsa.pub").result,
+            oauth_client_rsa_public_key2=std.file(input="rsa2.pub").result,
+            comment="my oauth integration")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -597,6 +665,8 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] oauth_allow_non_tls_redirect_uri: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] oauth_client_rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.str] oauth_client_rsa_public_key2: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         :param pulumi.Input[_builtins.str] oauth_enforce_pkce: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] oauth_issue_refresh_tokens: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -612,6 +682,58 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
                  args: OauthIntegrationForCustomClientsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Sensitive values** This resource's `oauth_redirect_uri` and `describe_output.oauth_redirect_uri` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+
+        > **Missing fields** The `oauth_client_id` and `oauth_redirect_uri` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+        This may have impact on detecting external changes for the `oauth_redirect_uri` field.
+
+        Resource used to manage oauth security integration for custom clients objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+        import pulumi_std as std
+
+        # basic resource
+        basic = snowflake.OauthIntegrationForCustomClients("basic",
+            name="integration",
+            oauth_client_type="CONFIDENTIAL",
+            oauth_redirect_uri="https://example.com")
+        # resource with all fields set
+        complete = snowflake.OauthIntegrationForCustomClients("complete",
+            name="integration",
+            oauth_client_type="CONFIDENTIAL",
+            oauth_redirect_uri="https://example.com",
+            enabled="true",
+            oauth_allow_non_tls_redirect_uri="true",
+            oauth_enforce_pkce="true",
+            oauth_use_secondary_roles="NONE",
+            pre_authorized_roles_lists=[
+                one["fullyQualifiedName"],
+                two["fullyQualifiedName"],
+            ],
+            blocked_roles_lists=[
+                "ACCOUNTADMIN",
+                "SECURITYADMIN",
+                three["fullyQualifiedName"],
+                four["fullyQualifiedName"],
+            ],
+            oauth_issue_refresh_tokens="true",
+            oauth_refresh_token_validity=87600,
+            network_policy=example["fullyQualifiedName"],
+            oauth_client_rsa_public_key=std.file(input="rsa.pub").result,
+            oauth_client_rsa_public_key2=std.file(input="rsa2.pub").result,
+            comment="my oauth integration")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -726,6 +848,8 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] network_policy: Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] oauth_allow_non_tls_redirect_uri: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] oauth_client_rsa_public_key: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.str] oauth_client_rsa_public_key2: Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         :param pulumi.Input[_builtins.str] oauth_enforce_pkce: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] oauth_issue_refresh_tokens: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -828,11 +952,17 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey")
     def oauth_client_rsa_public_key(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_rsa_public_key")
 
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey2")
     def oauth_client_rsa_public_key2(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_rsa_public_key2")
 
     @_builtins.property

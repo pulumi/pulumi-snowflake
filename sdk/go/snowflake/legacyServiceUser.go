@@ -11,6 +11,143 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution** Use `networkPolicy` attribute instead of the `NetworkPolicyAttachment` resource. `NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+//
+// !> **Sensitive values** This resource's `displayName`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+//
+// > **Note** `UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+//
+// > **Note** Attaching user policies will be handled in the following versions of the provider which may still affect this resource.
+//
+// > **Note** Other two user types are handled in separate resources: `ServiceUser` for user type `service` and `User` for user type `person`.
+//
+// > **Note** External changes to `daysToExpiry` and `minsToUnlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
+//
+// Resource used to manage legacy service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// minimal
+//			_, err := snowflake.NewLegacyServiceUser(ctx, "minimal", &snowflake.LegacyServiceUserArgs{
+//				Name: pulumi.String("Snowflake Legacy Service User - minimal"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			cfg := config.New(ctx, "")
+//			email := cfg.Require("email")
+//			loginName := cfg.Require("loginName")
+//			password := cfg.Require("password")
+//			// with all attributes set
+//			_, err = snowflake.NewLegacyServiceUser(ctx, "user", &snowflake.LegacyServiceUserArgs{
+//				Name:                        pulumi.String("Snowflake Legacy Service User"),
+//				LoginName:                   pulumi.String(loginName),
+//				Comment:                     pulumi.String("A legacy service user of snowflake."),
+//				Password:                    pulumi.String(password),
+//				Disabled:                    pulumi.String("false"),
+//				DisplayName:                 pulumi.String("Snowflake Legacy Service User display name"),
+//				Email:                       pulumi.String(email),
+//				DefaultWarehouse:            pulumi.String("warehouse"),
+//				DefaultSecondaryRolesOption: pulumi.String("ALL"),
+//				DefaultRole:                 pulumi.String("role1"),
+//				DefaultNamespace:            pulumi.String("some.namespace"),
+//				MinsToUnlock:                pulumi.Int(9),
+//				DaysToExpiry:                pulumi.Int(8),
+//				RsaPublicKey:                pulumi.String("..."),
+//				RsaPublicKey2:               pulumi.String("..."),
+//				MustChangePassword:          pulumi.String("true"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// all parameters set on the resource level
+//			_, err = snowflake.NewLegacyServiceUser(ctx, "u", &snowflake.LegacyServiceUserArgs{
+//				Name:                                     pulumi.String("Snowflake Legacy Service User with all parameters"),
+//				AbortDetachedQuery:                       pulumi.Bool(true),
+//				Autocommit:                               pulumi.Bool(false),
+//				BinaryInputFormat:                        pulumi.String("UTF8"),
+//				BinaryOutputFormat:                       pulumi.String("BASE64"),
+//				ClientMemoryLimit:                        pulumi.Int(1024),
+//				ClientMetadataRequestUseConnectionCtx:    pulumi.Bool(true),
+//				ClientPrefetchThreads:                    pulumi.Int(2),
+//				ClientResultChunkSize:                    pulumi.Int(48),
+//				ClientResultColumnCaseInsensitive:        pulumi.Bool(true),
+//				ClientSessionKeepAlive:                   pulumi.Bool(true),
+//				ClientSessionKeepAliveHeartbeatFrequency: pulumi.Int(2400),
+//				ClientTimestampTypeMapping:               pulumi.String("TIMESTAMP_NTZ"),
+//				DateInputFormat:                          pulumi.String("YYYY-MM-DD"),
+//				DateOutputFormat:                         pulumi.String("YY-MM-DD"),
+//				EnableUnloadPhysicalTypeOptimization:     pulumi.Bool(false),
+//				EnableUnredactedQuerySyntaxError:         pulumi.Bool(true),
+//				ErrorOnNondeterministicMerge:             pulumi.Bool(false),
+//				ErrorOnNondeterministicUpdate:            pulumi.Bool(true),
+//				GeographyOutputFormat:                    pulumi.String("WKB"),
+//				GeometryOutputFormat:                     pulumi.String("WKB"),
+//				JdbcTreatDecimalAsInt:                    pulumi.Bool(false),
+//				JdbcTreatTimestampNtzAsUtc:               pulumi.Bool(true),
+//				JdbcUseSessionTimezone:                   pulumi.Bool(false),
+//				JsonIndent:                               pulumi.Int(4),
+//				LockTimeout:                              pulumi.Int(21222),
+//				LogLevel:                                 pulumi.String("ERROR"),
+//				MultiStatementCount:                      pulumi.Int(0),
+//				NetworkPolicy:                            pulumi.String("BVYDGRAT_0D5E3DD1_F644_03DE_318A_1179886518A7"),
+//				NoorderSequenceAsDefault:                 pulumi.Bool(false),
+//				OdbcTreatDecimalAsInt:                    pulumi.Bool(true),
+//				PreventUnloadToInternalStages:            pulumi.Bool(true),
+//				QueryTag:                                 pulumi.String("some_tag"),
+//				QuotedIdentifiersIgnoreCase:              pulumi.Bool(true),
+//				RowsPerResultset:                         pulumi.Int(2),
+//				SearchPath:                               pulumi.String("$public, $current"),
+//				SimulatedDataSharingConsumer:             pulumi.String("some_consumer"),
+//				StatementQueuedTimeoutInSeconds:          pulumi.Int(10),
+//				StatementTimeoutInSeconds:                pulumi.Int(10),
+//				StrictJsonOutput:                         pulumi.Bool(true),
+//				S3StageVpceDnsName:                       pulumi.String("vpce-id.s3.region.vpce.amazonaws.com"),
+//				TimeInputFormat:                          pulumi.String("HH24:MI"),
+//				TimeOutputFormat:                         pulumi.String("HH24:MI"),
+//				TimestampDayIsAlways24h:                  pulumi.Bool(true),
+//				TimestampInputFormat:                     pulumi.String("YYYY-MM-DD"),
+//				TimestampLtzOutputFormat:                 pulumi.String("YYYY-MM-DD HH24:MI:SS"),
+//				TimestampNtzOutputFormat:                 pulumi.String("YYYY-MM-DD HH24:MI:SS"),
+//				TimestampOutputFormat:                    pulumi.String("YYYY-MM-DD HH24:MI:SS"),
+//				TimestampTypeMapping:                     pulumi.String("TIMESTAMP_LTZ"),
+//				TimestampTzOutputFormat:                  pulumi.String("YYYY-MM-DD HH24:MI:SS"),
+//				Timezone:                                 pulumi.String("Europe/Warsaw"),
+//				TraceLevel:                               pulumi.String("PROPAGATE"),
+//				TransactionAbortOnError:                  pulumi.Bool(true),
+//				TransactionDefaultIsolationLevel:         pulumi.String("READ COMMITTED"),
+//				TwoDigitCenturyStart:                     pulumi.Int(1980),
+//				UnsupportedDdlAction:                     pulumi.String("FAIL"),
+//				UseCachedResult:                          pulumi.Bool(false),
+//				WeekOfYearPolicy:                         pulumi.Int(1),
+//				WeekStart:                                pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh
@@ -51,7 +188,8 @@ type LegacyServiceUser struct {
 	DateInputFormat pulumi.StringOutput `pulumi:"dateInputFormat"`
 	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat pulumi.StringOutput `pulumi:"dateOutputFormat"`
-	DaysToExpiry     pulumi.IntPtrOutput `pulumi:"daysToExpiry"`
+	// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	DaysToExpiry pulumi.IntPtrOutput `pulumi:"daysToExpiry"`
 	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace pulumi.StringPtrOutput `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
@@ -93,8 +231,9 @@ type LegacyServiceUser struct {
 	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
-	LoginName    pulumi.StringPtrOutput `pulumi:"loginName"`
-	MinsToUnlock pulumi.IntPtrOutput    `pulumi:"minsToUnlock"`
+	LoginName pulumi.StringPtrOutput `pulumi:"loginName"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	MinsToUnlock pulumi.IntPtrOutput `pulumi:"minsToUnlock"`
 	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount pulumi.IntOutput `pulumi:"multiStatementCount"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -109,7 +248,8 @@ type LegacyServiceUser struct {
 	OdbcTreatDecimalAsInt pulumi.BoolOutput `pulumi:"odbcTreatDecimalAsInt"`
 	// Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
 	Parameters LegacyServiceUserParameterArrayOutput `pulumi:"parameters"`
-	Password   pulumi.StringPtrOutput                `pulumi:"password"`
+	// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages pulumi.BoolOutput `pulumi:"preventUnloadToInternalStages"`
 	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
@@ -251,7 +391,8 @@ type legacyServiceUserState struct {
 	DateInputFormat *string `pulumi:"dateInputFormat"`
 	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat *string `pulumi:"dateOutputFormat"`
-	DaysToExpiry     *int    `pulumi:"daysToExpiry"`
+	// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	DaysToExpiry *int `pulumi:"daysToExpiry"`
 	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
@@ -293,8 +434,9 @@ type legacyServiceUserState struct {
 	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
-	LoginName    *string `pulumi:"loginName"`
-	MinsToUnlock *int    `pulumi:"minsToUnlock"`
+	LoginName *string `pulumi:"loginName"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	MinsToUnlock *int `pulumi:"minsToUnlock"`
 	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount *int `pulumi:"multiStatementCount"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -309,7 +451,8 @@ type legacyServiceUserState struct {
 	OdbcTreatDecimalAsInt *bool `pulumi:"odbcTreatDecimalAsInt"`
 	// Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
 	Parameters []LegacyServiceUserParameter `pulumi:"parameters"`
-	Password   *string                      `pulumi:"password"`
+	// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	Password *string `pulumi:"password"`
 	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages *bool `pulumi:"preventUnloadToInternalStages"`
 	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
@@ -407,7 +550,8 @@ type LegacyServiceUserState struct {
 	DateInputFormat pulumi.StringPtrInput
 	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat pulumi.StringPtrInput
-	DaysToExpiry     pulumi.IntPtrInput
+	// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	DaysToExpiry pulumi.IntPtrInput
 	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
@@ -449,7 +593,8 @@ type LegacyServiceUserState struct {
 	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
-	LoginName    pulumi.StringPtrInput
+	LoginName pulumi.StringPtrInput
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MinsToUnlock pulumi.IntPtrInput
 	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount pulumi.IntPtrInput
@@ -465,7 +610,8 @@ type LegacyServiceUserState struct {
 	OdbcTreatDecimalAsInt pulumi.BoolPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
 	Parameters LegacyServiceUserParameterArrayInput
-	Password   pulumi.StringPtrInput
+	// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	Password pulumi.StringPtrInput
 	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages pulumi.BoolPtrInput
 	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
@@ -567,7 +713,8 @@ type legacyServiceUserArgs struct {
 	DateInputFormat *string `pulumi:"dateInputFormat"`
 	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat *string `pulumi:"dateOutputFormat"`
-	DaysToExpiry     *int    `pulumi:"daysToExpiry"`
+	// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	DaysToExpiry *int `pulumi:"daysToExpiry"`
 	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
@@ -607,8 +754,9 @@ type legacyServiceUserArgs struct {
 	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
-	LoginName    *string `pulumi:"loginName"`
-	MinsToUnlock *int    `pulumi:"minsToUnlock"`
+	LoginName *string `pulumi:"loginName"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	MinsToUnlock *int `pulumi:"minsToUnlock"`
 	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount *int `pulumi:"multiStatementCount"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -620,8 +768,9 @@ type legacyServiceUserArgs struct {
 	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
 	NoorderSequenceAsDefault *bool `pulumi:"noorderSequenceAsDefault"`
 	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
-	OdbcTreatDecimalAsInt *bool   `pulumi:"odbcTreatDecimalAsInt"`
-	Password              *string `pulumi:"password"`
+	OdbcTreatDecimalAsInt *bool `pulumi:"odbcTreatDecimalAsInt"`
+	// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	Password *string `pulumi:"password"`
 	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages *bool `pulumi:"preventUnloadToInternalStages"`
 	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
@@ -716,7 +865,8 @@ type LegacyServiceUserArgs struct {
 	DateInputFormat pulumi.StringPtrInput
 	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat pulumi.StringPtrInput
-	DaysToExpiry     pulumi.IntPtrInput
+	// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	DaysToExpiry pulumi.IntPtrInput
 	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
@@ -756,7 +906,8 @@ type LegacyServiceUserArgs struct {
 	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
-	LoginName    pulumi.StringPtrInput
+	LoginName pulumi.StringPtrInput
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MinsToUnlock pulumi.IntPtrInput
 	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount pulumi.IntPtrInput
@@ -770,7 +921,8 @@ type LegacyServiceUserArgs struct {
 	NoorderSequenceAsDefault pulumi.BoolPtrInput
 	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
 	OdbcTreatDecimalAsInt pulumi.BoolPtrInput
-	Password              pulumi.StringPtrInput
+	// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	Password pulumi.StringPtrInput
 	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages pulumi.BoolPtrInput
 	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
@@ -995,6 +1147,7 @@ func (o LegacyServiceUserOutput) DateOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.DateOutputFormat }).(pulumi.StringOutput)
 }
 
+// Specifies the number of days after which the user status is set to `Expired` and the user is no longer allowed to log in. This is useful for defining temporary users (i.e. users who should only have access to Snowflake for a limited time period). In general, you should not set this property for [account administrators](https://docs.snowflake.com/en/user-guide/security-access-control-considerations.html#label-accountadmin-users) (i.e. users with the `ACCOUNTADMIN` role) because Snowflake locks them out when they become `Expired`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o LegacyServiceUserOutput) DaysToExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntPtrOutput { return v.DaysToExpiry }).(pulumi.IntPtrOutput)
 }
@@ -1104,6 +1257,7 @@ func (o LegacyServiceUserOutput) LoginName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.LoginName }).(pulumi.StringPtrOutput)
 }
 
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of minutes until the temporary lock on the user login is cleared. To protect against unauthorized user login, Snowflake places a temporary lock on a user after five consecutive unsuccessful login attempts. When creating a user, this property can be set to prevent them from logging in until the specified amount of time passes. To remove a lock immediately for a user, specify a value of 0 for this parameter. **Note** because this value changes continuously after setting it, the provider is currently NOT handling the external changes to it. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o LegacyServiceUserOutput) MinsToUnlock() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntPtrOutput { return v.MinsToUnlock }).(pulumi.IntPtrOutput)
 }
@@ -1143,6 +1297,7 @@ func (o LegacyServiceUserOutput) Parameters() LegacyServiceUserParameterArrayOut
 	return o.ApplyT(func(v *LegacyServiceUser) LegacyServiceUserParameterArrayOutput { return v.Parameters }).(LegacyServiceUserParameterArrayOutput)
 }
 
+// Password for the user. **WARNING:** this will put the password in the terraform state file. Use carefully. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o LegacyServiceUserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }

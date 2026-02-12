@@ -526,6 +526,41 @@ class Stage(pulumi.CustomResource):
                  url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        > **Note** Starting from the [Bundle 2025_05](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_05/bcr-1989), a stage cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        config = pulumi.Config()
+        example_aws_key_id = config.require("exampleAwsKeyId")
+        example_aws_secret_key = config.require("exampleAwsSecretKey")
+        example_stage = snowflake.Stage("example_stage",
+            name="EXAMPLE_STAGE",
+            url="s3://com.example.bucket/prefix",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'")
+        # with an existing hardcoded file format
+        # please see other examples in the snowflake_file_format resource documentation
+        example_stage_with_file_format = snowflake.Stage("example_stage_with_file_format",
+            name="EXAMPLE_STAGE",
+            url="s3://com.example.bucket/prefix",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'",
+            file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         format is database name | schema name | stage name
@@ -558,6 +593,41 @@ class Stage(pulumi.CustomResource):
                  args: StageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        > **Note** Starting from the [Bundle 2025_05](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_05/bcr-1989), a stage cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
+
+        ## Example Usage
+
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        config = pulumi.Config()
+        example_aws_key_id = config.require("exampleAwsKeyId")
+        example_aws_secret_key = config.require("exampleAwsSecretKey")
+        example_stage = snowflake.Stage("example_stage",
+            name="EXAMPLE_STAGE",
+            url="s3://com.example.bucket/prefix",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'")
+        # with an existing hardcoded file format
+        # please see other examples in the snowflake_file_format resource documentation
+        example_stage_with_file_format = snowflake.Stage("example_stage_with_file_format",
+            name="EXAMPLE_STAGE",
+            url="s3://com.example.bucket/prefix",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            credentials=f"AWS_KEY_ID='{example_aws_key_id}' AWS_SECRET_KEY='{example_aws_secret_key}'",
+            file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME")
+        ```
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         format is database name | schema name | stage name

@@ -36,6 +36,7 @@ class ApiAuthenticationIntegrationWithJwtBearerArgs:
         The set of arguments for constructing a ApiAuthenticationIntegrationWithJwtBearer resource.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this security integration is enabled or disabled.
         :param pulumi.Input[_builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
+        :param pulumi.Input[_builtins.str] oauth_client_secret: Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] oauth_access_token_validity: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
@@ -99,6 +100,9 @@ class ApiAuthenticationIntegrationWithJwtBearerArgs:
     @_builtins.property
     @pulumi.getter(name="oauthClientSecret")
     def oauth_client_secret(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_secret")
 
     @oauth_client_secret.setter
@@ -218,6 +222,7 @@ class _ApiAuthenticationIntegrationWithJwtBearerState:
         :param pulumi.Input[_builtins.str] oauth_authorization_endpoint: Specifies the URL for authenticating to the external service.
         :param pulumi.Input[_builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         :param pulumi.Input[_builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
+        :param pulumi.Input[_builtins.str] oauth_client_secret: Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
         :param pulumi.Input[_builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         :param pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
@@ -371,6 +376,9 @@ class _ApiAuthenticationIntegrationWithJwtBearerState:
     @_builtins.property
     @pulumi.getter(name="oauthClientSecret")
     def oauth_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_secret")
 
     @oauth_client_secret.setter
@@ -433,6 +441,13 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
                  oauth_token_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+
+        > **Missing fields** The `oauth_client_id` field is not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+        This may have impact on detecting external changes for the `oauth_client_id` field.
+
+        Resource used to manage api authentication security integration objects with jwt bearer. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-api-auth).
+
         ## Import
 
         ```sh
@@ -448,6 +463,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oauth_authorization_endpoint: Specifies the URL for authenticating to the external service.
         :param pulumi.Input[_builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         :param pulumi.Input[_builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
+        :param pulumi.Input[_builtins.str] oauth_client_secret: Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
         :param pulumi.Input[_builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         """
@@ -458,6 +474,13 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
                  args: ApiAuthenticationIntegrationWithJwtBearerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+
+        > **Missing fields** The `oauth_client_id` field is not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+        This may have impact on detecting external changes for the `oauth_client_id` field.
+
+        Resource used to manage api authentication security integration objects with jwt bearer. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-api-auth).
+
         ## Import
 
         ```sh
@@ -563,6 +586,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oauth_authorization_endpoint: Specifies the URL for authenticating to the external service.
         :param pulumi.Input[_builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         :param pulumi.Input[_builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
+        :param pulumi.Input[_builtins.str] oauth_client_secret: Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
         :param pulumi.Input[_builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
@@ -667,6 +691,9 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="oauthClientSecret")
     def oauth_client_secret(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
         return pulumi.get(self, "oauth_client_secret")
 
     @_builtins.property

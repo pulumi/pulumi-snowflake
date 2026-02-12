@@ -20,6 +20,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Sensitive values** This resource&#39;s `oauthRedirectUri` and `describe_output.oauth_redirect_uri` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * 
+ * !&gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+ * 
+ * &gt; **Missing fields** The `oauthClientId` and `oauthRedirectUri` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+ * This may have impact on detecting external changes for the `oauthRedirectUri` field.
+ * 
+ * Resource used to manage oauth security integration for partner applications objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-oauth-snowflake).
+ * 
  * ## Import
  * 
  * ```sh

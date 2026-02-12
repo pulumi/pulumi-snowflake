@@ -63,9 +63,17 @@ public final class PrimaryConnectionState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.fullyQualifiedName);
     }
 
+    /**
+     * Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+     * 
+     */
     @Import(name="isPrimary")
     private @Nullable Output<Boolean> isPrimary;
 
+    /**
+     * @return Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+     * 
+     */
     public Optional<Output<Boolean>> isPrimary() {
         return Optional.ofNullable(this.isPrimary);
     }
@@ -202,11 +210,23 @@ public final class PrimaryConnectionState extends com.pulumi.resources.ResourceA
             return fullyQualifiedName(Output.of(fullyQualifiedName));
         }
 
+        /**
+         * @param isPrimary Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isPrimary(@Nullable Output<Boolean> isPrimary) {
             $.isPrimary = isPrimary;
             return this;
         }
 
+        /**
+         * @param isPrimary Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isPrimary(Boolean isPrimary) {
             return isPrimary(Output.of(isPrimary));
         }

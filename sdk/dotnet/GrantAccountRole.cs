@@ -10,9 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
-    /// format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
+    /// format is RoleName (string) | GranteeObjectType (ROLE|USER) | GranteeName (string)
     /// 
     /// ```sh
     /// $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'

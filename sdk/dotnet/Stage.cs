@@ -10,6 +10,52 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// &gt; **Note** Starting from the [Bundle 202505](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_05/bcr-1989), a stage cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var exampleAwsKeyId = config.Require("exampleAwsKeyId");
+    ///     var exampleAwsSecretKey = config.Require("exampleAwsSecretKey");
+    ///     var exampleStage = new Snowflake.Stage("example_stage", new()
+    ///     {
+    ///         Name = "EXAMPLE_STAGE",
+    ///         Url = "s3://com.example.bucket/prefix",
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         Credentials = $"AWS_KEY_ID='{exampleAwsKeyId}' AWS_SECRET_KEY='{exampleAwsSecretKey}'",
+    ///     });
+    /// 
+    ///     // with an existing hardcoded file format
+    ///     // please see other examples in the snowflake_file_format resource documentation
+    ///     var exampleStageWithFileFormat = new Snowflake.Stage("example_stage_with_file_format", new()
+    ///     {
+    ///         Name = "EXAMPLE_STAGE",
+    ///         Url = "s3://com.example.bucket/prefix",
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         Credentials = $"AWS_KEY_ID='{exampleAwsKeyId}' AWS_SECRET_KEY='{exampleAwsSecretKey}'",
+    ///         FileFormat = "FORMAT_NAME = DB.SCHEMA.FORMATNAME",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// format is database name | schema name | stage name

@@ -12,6 +12,114 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration to set parameters on the current account, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`. More details in the CurrentAccount resource documentation.
+//
+// > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			d, err := snowflake.NewDatabase(ctx, "d", &snowflake.DatabaseArgs{
+//				Name: pulumi.String("TEST_DB"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewObjectParameter(ctx, "o", &snowflake.ObjectParameterArgs{
+//				Key:        pulumi.String("SUSPEND_TASK_AFTER_NUM_FAILURES"),
+//				Value:      pulumi.String("33"),
+//				ObjectType: pulumi.String("DATABASE"),
+//				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
+//					&snowflake.ObjectParameterObjectIdentifierArgs{
+//						Name: d.Name,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			s, err := snowflake.NewSchema(ctx, "s", &snowflake.SchemaArgs{
+//				Name:     pulumi.String("TEST_SCHEMA"),
+//				Database: d.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewObjectParameter(ctx, "o2", &snowflake.ObjectParameterArgs{
+//				Key:        pulumi.String("USER_TASK_TIMEOUT_MS"),
+//				Value:      pulumi.String("500"),
+//				ObjectType: pulumi.String("SCHEMA"),
+//				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
+//					&snowflake.ObjectParameterObjectIdentifierArgs{
+//						Database: d.Name,
+//						Name:     s.Name,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			t, err := snowflake.NewTable(ctx, "t", &snowflake.TableArgs{
+//				Name:     pulumi.String("TEST_TABLE"),
+//				Database: d.Name,
+//				Schema:   s.Name,
+//				Columns: snowflake.TableColumnArray{
+//					&snowflake.TableColumnArgs{
+//						Name: pulumi.String("id"),
+//						Type: pulumi.String("NUMBER"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = snowflake.NewObjectParameter(ctx, "o3", &snowflake.ObjectParameterArgs{
+//				Key:        pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
+//				Value:      pulumi.String("89"),
+//				ObjectType: pulumi.String("TABLE"),
+//				ObjectIdentifiers: snowflake.ObjectParameterObjectIdentifierArray{
+//					&snowflake.ObjectParameterObjectIdentifierArgs{
+//						Database: d.Name,
+//						Schema:   s.Name,
+//						Name:     t.Name,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Setting object parameter at account level
+//			_, err = snowflake.NewObjectParameter(ctx, "o4", &snowflake.ObjectParameterArgs{
+//				Key:       pulumi.String("DATA_RETENTION_TIME_IN_DAYS"),
+//				Value:     pulumi.String("89"),
+//				OnAccount: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

@@ -14,6 +14,14 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * !&gt; **Important** Starting from v0.95.0, it is advised to use this resource **only** if users are not managed through terraform. Check more in the migration guide.
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
+ */
 @ResourceType(type="snowflake:index/userPublicKeys:UserPublicKeys")
 public class UserPublicKeys extends com.pulumi.resources.CustomResource {
     /**

@@ -18,10 +18,136 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
+ * import com.pulumi.snowflake.Schema;
+ * import com.pulumi.snowflake.SchemaArgs;
+ * import com.pulumi.snowflake.Table;
+ * import com.pulumi.snowflake.TableArgs;
+ * import com.pulumi.snowflake.inputs.TableColumnArgs;
+ * import com.pulumi.snowflake.TableConstraint;
+ * import com.pulumi.snowflake.TableConstraintArgs;
+ * import com.pulumi.snowflake.inputs.TableConstraintForeignKeyPropertiesArgs;
+ * import com.pulumi.snowflake.inputs.TableConstraintForeignKeyPropertiesReferencesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var d = new Database("d", DatabaseArgs.builder()
+ *             .name("some_db")
+ *             .build());
+ * 
+ *         var s = new Schema("s", SchemaArgs.builder()
+ *             .name("some_schema")
+ *             .database(d.name())
+ *             .build());
+ * 
+ *         var t = new Table("t", TableArgs.builder()
+ *             .database(d.name())
+ *             .schema(s.name())
+ *             .name("some_table")
+ *             .columns(            
+ *                 TableColumnArgs.builder()
+ *                     .name("col1")
+ *                     .type("text")
+ *                     .nullable(false)
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("col2")
+ *                     .type("text")
+ *                     .nullable(false)
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("col3")
+ *                     .type("text")
+ *                     .nullable(false)
+ *                     .build())
+ *             .build());
+ * 
+ *         var fkT = new Table("fkT", TableArgs.builder()
+ *             .database(d.name())
+ *             .schema(s.name())
+ *             .name("fk_table")
+ *             .columns(            
+ *                 TableColumnArgs.builder()
+ *                     .name("fk_col1")
+ *                     .type("text")
+ *                     .nullable(false)
+ *                     .build(),
+ *                 TableColumnArgs.builder()
+ *                     .name("fk_col2")
+ *                     .type("text")
+ *                     .nullable(false)
+ *                     .build())
+ *             .build());
+ * 
+ *         var primaryKey = new TableConstraint("primaryKey", TableConstraintArgs.builder()
+ *             .name("myconstraint")
+ *             .type("PRIMARY KEY")
+ *             .tableId(t.fullyQualifiedName())
+ *             .columns("col1")
+ *             .comment("hello world")
+ *             .build());
+ * 
+ *         var foreignKey = new TableConstraint("foreignKey", TableConstraintArgs.builder()
+ *             .name("myconstraintfk")
+ *             .type("FOREIGN KEY")
+ *             .tableId(t.fullyQualifiedName())
+ *             .columns("col2")
+ *             .foreignKeyProperties(TableConstraintForeignKeyPropertiesArgs.builder()
+ *                 .references(TableConstraintForeignKeyPropertiesReferencesArgs.builder()
+ *                     .tableId(fkT.fullyQualifiedName())
+ *                     .columns("fk_col1")
+ *                     .build())
+ *                 .build())
+ *             .enforced(false)
+ *             .deferrable(false)
+ *             .initially("IMMEDIATE")
+ *             .comment("hello fk")
+ *             .build());
+ * 
+ *         var unique = new TableConstraint("unique", TableConstraintArgs.builder()
+ *             .name("unique")
+ *             .type("UNIQUE")
+ *             .tableId(t.fullyQualifiedName())
+ *             .columns("col3")
+ *             .comment("hello unique")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/tableConstraint:TableConstraint example &#39;myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName&#39;
+ * terraform import snowflake_table_constraint.example &#39;myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName&#39;
  * ```
  * 
  */

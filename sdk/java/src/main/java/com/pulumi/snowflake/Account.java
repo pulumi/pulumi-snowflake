@@ -18,6 +18,16 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * The account resource allows you to create and manage Snowflake accounts. For more information, check [account documentation](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts).
+ * 
+ * &gt; **Note** To use this resource you have to use an account with a privilege to use the ORGADMIN role.
+ * 
+ * &gt; **Note** Changes for the following fields won&#39;t be detected: `adminName`, `adminPassword`, `adminRsaPublicKey`, `adminUserType`, `firstName`, `lastName`, `email`, `mustChangePassword`. This is because these fields only supply initial values for creating the admin user. Once the account is created, the admin user becomes an independent entity. Modifying users from the account resource is challenging since it requires logging into that account. This would require the account resource logging into the account it created to read or alter admin user properties, which is impractical, because any external change to the admin user would disrupt the change detection anyway.
+ * 
+ * &gt; **Note** During the import, when Terraform detects changes on a field with `ForceNew`, it will try to recreate the resource. Due to Terraform limitations, `gracePeriodInDays` is not set at that moment. This means that Terraform will try to drop the account with the empty grace period which is required, and fail.
+ * Before importing, ensure if the resource configuration matches the actual state.
+ * See more in our Resource Migration guide and issue #3390.
+ * 
  * ## Import
  * 
  * ```sh
@@ -27,27 +37,59 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
+    /**
+     * Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="adminName", refs={String.class}, tree="[0]")
     private Output<String> adminName;
 
+    /**
+     * @return Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<String> adminName() {
         return this.adminName;
     }
+    /**
+     * Password for the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminPassword;
 
+    /**
+     * @return Password for the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> adminPassword() {
         return Codegen.optional(this.adminPassword);
     }
+    /**
+     * Assigns a public key to the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="adminRsaPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminRsaPublicKey;
 
+    /**
+     * @return Assigns a public key to the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> adminRsaPublicKey() {
         return Codegen.optional(this.adminRsaPublicKey);
     }
+    /**
+     * Used for setting the type of the first user that is assigned the ACCOUNTADMIN role during account creation. Valid options are: `PERSON` | `SERVICE` | `LEGACY_SERVICE` External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="adminUserType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminUserType;
 
+    /**
+     * @return Used for setting the type of the first user that is assigned the ACCOUNTADMIN role during account creation. Valid options are: `PERSON` | `SERVICE` | `LEGACY_SERVICE` External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> adminUserType() {
         return Codegen.optional(this.adminUserType);
     }
@@ -93,15 +135,31 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> edition() {
         return this.edition;
     }
+    /**
+     * Email address of the initial administrative user of the account. This email address is used to send any notifications about the account. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
+    /**
+     * @return Email address of the initial administrative user of the account. This email address is used to send any notifications about the account. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<String> email() {
         return this.email;
     }
+    /**
+     * First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="firstName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firstName;
 
+    /**
+     * @return First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> firstName() {
         return Codegen.optional(this.firstName);
     }
@@ -147,15 +205,31 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> isOrgAdmin() {
         return Codegen.optional(this.isOrgAdmin);
     }
+    /**
+     * Last name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="lastName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lastName;
 
+    /**
+     * @return Last name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> lastName() {
         return Codegen.optional(this.lastName);
     }
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     @Export(name="mustChangePassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mustChangePassword;
 
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
     public Output<Optional<String>> mustChangePassword() {
         return Codegen.optional(this.mustChangePassword);
     }

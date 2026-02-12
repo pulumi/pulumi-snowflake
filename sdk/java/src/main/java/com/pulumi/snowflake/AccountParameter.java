@@ -14,6 +14,55 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Warning** This resource shouldn&#39;t be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the snowflake.CurrentAccount resource documentation.
+ * 
+ * &gt; **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+ * 
+ * Resource used to manage current account parameters. For more information, check [parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.AccountParameter;
+ * import com.pulumi.snowflake.AccountParameterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var p = new AccountParameter("p", AccountParameterArgs.builder()
+ *             .key("ALLOW_ID_TOKEN")
+ *             .value("true")
+ *             .build());
+ * 
+ *         var p2 = new AccountParameter("p2", AccountParameterArgs.builder()
+ *             .key("CLIENT_ENCRYPTION_KEY_SIZE")
+ *             .value("256")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh

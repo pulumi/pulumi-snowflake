@@ -48,6 +48,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("storageBaseUrl", required: true)]
         public Input<string> StorageBaseUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the storage location. Must be unique for the external volume. Do not use the name `TerraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// </summary>
         [Input("storageLocationName", required: true)]
         public Input<string> StorageLocationName { get; set; } = null!;
 

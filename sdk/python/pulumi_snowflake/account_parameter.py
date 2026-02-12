@@ -104,6 +104,30 @@ class AccountParameter(pulumi.CustomResource):
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the CurrentAccount resource documentation.
+
+        > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+
+        Resource used to manage current account parameters. For more information, check [parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        p = snowflake.AccountParameter("p",
+            key="ALLOW_ID_TOKEN",
+            value="true")
+        p2 = snowflake.AccountParameter("p2",
+            key="CLIENT_ENCRYPTION_KEY_SIZE",
+            value="256")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -122,6 +146,30 @@ class AccountParameter(pulumi.CustomResource):
                  args: AccountParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the CurrentAccount resource documentation.
+
+        > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+
+        Resource used to manage current account parameters. For more information, check [parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        p = snowflake.AccountParameter("p",
+            key="ALLOW_ID_TOKEN",
+            value="true")
+        p2 = snowflake.AccountParameter("p2",
+            key="CLIENT_ENCRYPTION_KEY_SIZE",
+            value="256")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh

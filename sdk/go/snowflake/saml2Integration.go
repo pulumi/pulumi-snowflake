@@ -12,6 +12,98 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+//
+// !> **Note** To use `allowedUserDomains` and `allowedEmailPatterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
+//
+// > **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
+// This may have impact on detecting external changes for the `saml2X509Cert` field.
+//
+// Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "cert.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// basic resource
+//			// each pem file contains a base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
+//			_, err = snowflake.NewSaml2Integration(ctx, "saml_integration", &snowflake.Saml2IntegrationArgs{
+//				Name:          pulumi.String("saml_integration"),
+//				Saml2Provider: pulumi.String("CUSTOM"),
+//				Saml2Issuer:   pulumi.String("test_issuer"),
+//				Saml2SsoUrl:   pulumi.String("https://example.com"),
+//				Saml2X509Cert: pulumi.String(invokeFile.Result),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "snowflake_cert.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile2, err := std.File(ctx, &std.FileArgs{
+//				Input: "cert.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// resource with all fields set
+//			_, err = snowflake.NewSaml2Integration(ctx, "test", &snowflake.Saml2IntegrationArgs{
+//				AllowedEmailPatterns: pulumi.StringArray{
+//					pulumi.String("^(.+dev)@example.com$"),
+//				},
+//				AllowedUserDomains: pulumi.StringArray{
+//					pulumi.String("example.com"),
+//				},
+//				Comment:                        pulumi.String("foo"),
+//				Enabled:                        pulumi.String("true"),
+//				Name:                           pulumi.String("saml_integration"),
+//				Saml2EnableSpInitiated:         pulumi.String("true"),
+//				Saml2ForceAuthn:                pulumi.String("true"),
+//				Saml2Issuer:                    pulumi.String("foo"),
+//				Saml2PostLogoutRedirectUrl:     pulumi.String("https://example.com"),
+//				Saml2Provider:                  pulumi.String("CUSTOM"),
+//				Saml2RequestedNameidFormat:     pulumi.String("urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"),
+//				Saml2SignRequest:               pulumi.String("true"),
+//				Saml2SnowflakeAcsUrl:           pulumi.String("example.snowflakecomputing.com/fed/login"),
+//				Saml2SnowflakeIssuerUrl:        pulumi.String("example.snowflakecomputing.com/fed/login"),
+//				Saml2SnowflakeX509Cert:         invokeFile1.Result,
+//				Saml2SpInitiatedLoginPageLabel: pulumi.String("foo"),
+//				Saml2SsoUrl:                    pulumi.String("https://example.com"),
+//				Saml2X509Cert:                  pulumi.String(invokeFile2.Result),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh

@@ -50,6 +50,10 @@ namespace Pulumi.Snowflake.Inputs
 
         [Input("allowedProviders")]
         private InputList<string>? _allowedProviders;
+
+        /// <summary>
+        /// Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+        /// </summary>
         public InputList<string> AllowedProviders
         {
             get => _allowedProviders ?? (_allowedProviders = new InputList<string>());

@@ -18,6 +18,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("argDataType", required: true)]
         public Input<string> ArgDataType { get; set; } = null!;
 
+        /// <summary>
+        /// Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Input("argDefaultValue")]
         public Input<string>? ArgDefaultValue { get; set; }
 

@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// Resource used to manage secret objects with OAuth Authorization Code Grant. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -55,6 +57,9 @@ namespace Pulumi.Snowflake
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         [Output("oauthRefreshToken")]
         public Output<string> OauthRefreshToken { get; private set; } = null!;
 
@@ -158,6 +163,10 @@ namespace Pulumi.Snowflake
 
         [Input("oauthRefreshToken", required: true)]
         private Input<string>? _oauthRefreshToken;
+
+        /// <summary>
+        /// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public Input<string>? OauthRefreshToken
         {
             get => _oauthRefreshToken;
@@ -232,6 +241,10 @@ namespace Pulumi.Snowflake
 
         [Input("oauthRefreshToken")]
         private Input<string>? _oauthRefreshToken;
+
+        /// <summary>
+        /// Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
         public Input<string>? OauthRefreshToken
         {
             get => _oauthRefreshToken;

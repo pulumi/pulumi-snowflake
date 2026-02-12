@@ -10,6 +10,108 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// !&gt; **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration to set parameters on the current account, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`. More details in the snowflake.CurrentAccount resource documentation.
+    /// 
+    /// &gt; **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var d = new Snowflake.Database("d", new()
+    ///     {
+    ///         Name = "TEST_DB",
+    ///     });
+    /// 
+    ///     var o = new Snowflake.ObjectParameter("o", new()
+    ///     {
+    ///         Key = "SUSPEND_TASK_AFTER_NUM_FAILURES",
+    ///         Value = "33",
+    ///         ObjectType = "DATABASE",
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs
+    ///             {
+    ///                 Name = d.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var s = new Snowflake.Schema("s", new()
+    ///     {
+    ///         Name = "TEST_SCHEMA",
+    ///         Database = d.Name,
+    ///     });
+    /// 
+    ///     var o2 = new Snowflake.ObjectParameter("o2", new()
+    ///     {
+    ///         Key = "USER_TASK_TIMEOUT_MS",
+    ///         Value = "500",
+    ///         ObjectType = "SCHEMA",
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs
+    ///             {
+    ///                 Database = d.Name,
+    ///                 Name = s.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var t = new Snowflake.Table("t", new()
+    ///     {
+    ///         Name = "TEST_TABLE",
+    ///         Database = d.Name,
+    ///         Schema = s.Name,
+    ///         Columns = new[]
+    ///         {
+    ///             new Snowflake.Inputs.TableColumnArgs
+    ///             {
+    ///                 Name = "id",
+    ///                 Type = "NUMBER",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var o3 = new Snowflake.ObjectParameter("o3", new()
+    ///     {
+    ///         Key = "DATA_RETENTION_TIME_IN_DAYS",
+    ///         Value = "89",
+    ///         ObjectType = "TABLE",
+    ///         ObjectIdentifiers = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ObjectParameterObjectIdentifierArgs
+    ///             {
+    ///                 Database = d.Name,
+    ///                 Schema = s.Name,
+    ///                 Name = t.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Setting object parameter at account level
+    ///     var o4 = new Snowflake.ObjectParameter("o4", new()
+    ///     {
+    ///         Key = "DATA_RETENTION_TIME_IN_DAYS",
+    ///         Value = "89",
+    ///         OnAccount = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh

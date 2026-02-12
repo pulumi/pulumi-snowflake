@@ -11,6 +11,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// !> **Warning** Create in this resource works differently from other resources as it doesn't create anything on the Snowflake side. It works mostly as import, nothing will be created or altered during it, only the `name` field will be validated to ensure it matches the current organization account name. It's done this way, because of the Terraform limitation which prevents us from presenting planned modifications on the Snowflake side during resource creation.
+//
+// !> **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
+//
+// !> **Warning** This resource shouldn't be used with `CurrentAccount`, `ObjectParameter` (with `onAccount` field set), and `AccountParameter` resources in the same configuration pointing to the same account, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `CurrentOrganizationAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `CurrentOrganizationAccount` resource.
+//
+// !> **Warning** This resource shouldn't be also used with `AccountPasswordPolicyAttachment`, `NetworkPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
+//
+// > **Note** On removal, the resource will unset all account properties. To remove the resource without unsetting properties, use terraform state rm command.
+//
+// > **Note** You can manage only one such resource **per organization**. More instances in one organization could cause unexpected behavior.
+//
+// > **Note** Moving organization accounts to different regions is not supported by the provider due to Snowflake and Terraform limitations.
+//
+// Resource used to manage an organization account within the organization you are connected to. See [ALTER ORGANIZATION ACCOUNT](https://docs.snowflake.com/en/sql-reference/sql/alter-organization-account) documentation for more information on resource capabilities.
+//
+// ## Example Usage
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// # Minimal
+//			_, err := snowflake.NewCurrentOrganizationAccount(ctx, "minimal", nil)
+//			if err != nil {
+//				return err
+//			}
+//			// # Complete (with every optional set)
+//			_, err = snowflake.NewCurrentOrganizationAccount(ctx, "complete", &snowflake.CurrentOrganizationAccountArgs{
+//				Comment:                                          pulumi.String("This is a comment for the current organization account resource"),
+//				ResourceMonitor:                                  pulumi.Any(exampleSnowflakeResourceMonitor.FullyQualifiedName),
+//				SessionPolicy:                                    pulumi.String("\"<database_name>\".\"<schema_name>\".\"<session_policy_name>\""),
+//				PasswordPolicy:                                   pulumi.Any(exampleSnowflakePasswordPolicy.FullyQualifiedName),
+//				AbortDetachedQuery:                               pulumi.Bool(true),
+//				AllowClientMfaCaching:                            pulumi.Bool(true),
+//				AllowIdToken:                                     pulumi.Bool(true),
+//				Autocommit:                                       pulumi.Bool(false),
+//				BaseLocationPrefix:                               pulumi.String("STORAGE_BASE_URL/"),
+//				BinaryInputFormat:                                pulumi.String("BASE64"),
+//				BinaryOutputFormat:                               pulumi.String("BASE64"),
+//				Catalog:                                          pulumi.String("SNOWFLAKE"),
+//				ClientEnableLogInfoStatementParameters:           pulumi.Bool(true),
+//				ClientEncryptionKeySize:                          pulumi.Int(256),
+//				ClientMemoryLimit:                                pulumi.Int(1540),
+//				ClientMetadataRequestUseConnectionCtx:            pulumi.Bool(true),
+//				ClientMetadataUseSessionDatabase:                 pulumi.Bool(true),
+//				ClientPrefetchThreads:                            pulumi.Int(5),
+//				ClientResultChunkSize:                            pulumi.Int(159),
+//				ClientResultColumnCaseInsensitive:                pulumi.Bool(true),
+//				ClientSessionKeepAlive:                           pulumi.Bool(true),
+//				ClientSessionKeepAliveHeartbeatFrequency:         pulumi.Int(3599),
+//				ClientTimestampTypeMapping:                       pulumi.String("TIMESTAMP_NTZ"),
+//				CortexEnabledCrossRegion:                         pulumi.String("ANY_REGION"),
+//				CortexModelsAllowlist:                            pulumi.String("All"),
+//				CsvTimestampFormat:                               pulumi.String("YYYY-MM-DD"),
+//				DataRetentionTimeInDays:                          pulumi.Int(2),
+//				DateInputFormat:                                  pulumi.String("YYYY-MM-DD"),
+//				DateOutputFormat:                                 pulumi.String("YYYY-MM-DD"),
+//				DefaultDdlCollation:                              pulumi.String("en-cs"),
+//				DefaultNotebookComputePoolCpu:                    pulumi.String("CPU_X64_S"),
+//				DefaultNotebookComputePoolGpu:                    pulumi.String("GPU_NV_S"),
+//				DefaultNullOrdering:                              pulumi.String("FIRST"),
+//				DefaultStreamlitNotebookWarehouse:                pulumi.Any(example.FullyQualifiedName),
+//				DisableUiDownloadButton:                          pulumi.Bool(true),
+//				DisableUserPrivilegeGrants:                       pulumi.Bool(true),
+//				EnableAutomaticSensitiveDataClassificationLog:    pulumi.Bool(false),
+//				EnableEgressCostOptimizer:                        pulumi.Bool(false),
+//				EnableIdentifierFirstLogin:                       pulumi.Bool(false),
+//				EnableTriSecretAndRekeyOptOutForImageRepository:  pulumi.Bool(true),
+//				EnableTriSecretAndRekeyOptOutForSpcsBlockStorage: pulumi.Bool(true),
+//				EnableUnhandledExceptionsReporting:               pulumi.Bool(false),
+//				EnableUnloadPhysicalTypeOptimization:             pulumi.Bool(false),
+//				EnableUnredactedQuerySyntaxError:                 pulumi.Bool(true),
+//				EnableUnredactedSecureObjectError:                pulumi.Bool(true),
+//				EnforceNetworkRulesForInternalStages:             pulumi.Bool(true),
+//				ErrorOnNondeterministicMerge:                     pulumi.Bool(false),
+//				ErrorOnNondeterministicUpdate:                    pulumi.Bool(true),
+//				EventTable:                                       pulumi.String("\"<database_name>\".\"<schema_name>\".\"<event_table_name>\""),
+//				ExternalOauthAddPrivilegedRolesToBlockedList:     pulumi.Bool(false),
+//				ExternalVolume:                                   pulumi.String("XWDVEAAT_A6FEE9D6_5D41_AB3D_EB0C_51DA5E5F0BE2"),
+//				GeographyOutputFormat:                            pulumi.String("WKT"),
+//				GeometryOutputFormat:                             pulumi.String("WKT"),
+//				HybridTableLockTimeout:                           pulumi.Int(3599),
+//				InitialReplicationSizeLimitInTb:                  pulumi.String("9.9"),
+//				JdbcTreatDecimalAsInt:                            pulumi.Bool(false),
+//				JdbcTreatTimestampNtzAsUtc:                       pulumi.Bool(true),
+//				JdbcUseSessionTimezone:                           pulumi.Bool(false),
+//				JsTreatIntegerAsBigint:                           pulumi.Bool(true),
+//				JsonIndent:                                       pulumi.Int(4),
+//				ListingAutoFulfillmentReplicationRefreshSchedule: pulumi.String("2 minutes"),
+//				LockTimeout:                                      pulumi.Int(43201),
+//				LogLevel:                                         pulumi.String("INFO"),
+//				MaxConcurrencyLevel:                              pulumi.Int(7),
+//				MaxDataExtensionTimeInDays:                       pulumi.Int(13),
+//				MetricLevel:                                      pulumi.String("ALL"),
+//				MinDataRetentionTimeInDays:                       pulumi.Int(1),
+//				MultiStatementCount:                              pulumi.Int(0),
+//				NetworkPolicy:                                    pulumi.Any(exampleSnowflakeNetworkPolicy.FullyQualifiedName),
+//				NoorderSequenceAsDefault:                         pulumi.Bool(false),
+//				OauthAddPrivilegedRolesToBlockedList:             pulumi.Bool(false),
+//				OdbcTreatDecimalAsInt:                            pulumi.Bool(true),
+//				PeriodicDataRekeying:                             pulumi.Bool(false),
+//				PipeExecutionPaused:                              pulumi.Bool(true),
+//				PreventUnloadToInlineUrl:                         pulumi.Bool(true),
+//				PreventUnloadToInternalStages:                    pulumi.Bool(true),
+//				PythonProfilerTargetStage:                        pulumi.Any(exampleSnowflakeStage.FullyQualifiedName),
+//				QueryTag:                                         pulumi.String("test-query-tag"),
+//				QuotedIdentifiersIgnoreCase:                      pulumi.Bool(true),
+//				ReplaceInvalidCharacters:                         pulumi.Bool(true),
+//				RequireStorageIntegrationForStageCreation:        pulumi.Bool(true),
+//				RequireStorageIntegrationForStageOperation:       pulumi.Bool(true),
+//				RowsPerResultset:                                 pulumi.Int(1000),
+//				SearchPath:                                       pulumi.String("$current, $public"),
+//				ServerlessTaskMaxStatementSize:                   pulumi.String("XLARGE"),
+//				ServerlessTaskMinStatementSize:                   pulumi.String("SMALL"),
+//				SsoLoginPage:                                     pulumi.Bool(true),
+//				StatementQueuedTimeoutInSeconds:                  pulumi.Int(1),
+//				StatementTimeoutInSeconds:                        pulumi.Int(1),
+//				StorageSerializationPolicy:                       pulumi.String("OPTIMIZED"),
+//				StrictJsonOutput:                                 pulumi.Bool(true),
+//				SuspendTaskAfterNumFailures:                      pulumi.Int(3),
+//				TaskAutoRetryAttempts:                            pulumi.Int(3),
+//				TimeInputFormat:                                  pulumi.String("YYYY-MM-DD"),
+//				TimeOutputFormat:                                 pulumi.String("YYYY-MM-DD"),
+//				TimestampDayIsAlways24h:                          pulumi.Bool(true),
+//				TimestampInputFormat:                             pulumi.String("YYYY-MM-DD"),
+//				TimestampLtzOutputFormat:                         pulumi.String("YYYY-MM-DD"),
+//				TimestampNtzOutputFormat:                         pulumi.String("YYYY-MM-DD"),
+//				TimestampOutputFormat:                            pulumi.String("YYYY-MM-DD"),
+//				TimestampTypeMapping:                             pulumi.String("TIMESTAMP_LTZ"),
+//				TimestampTzOutputFormat:                          pulumi.String("YYYY-MM-DD"),
+//				Timezone:                                         pulumi.String("Europe/London"),
+//				TraceLevel:                                       pulumi.String("PROPAGATE"),
+//				TransactionAbortOnError:                          pulumi.Bool(true),
+//				TransactionDefaultIsolationLevel:                 pulumi.String("READ COMMITTED"),
+//				TwoDigitCenturyStart:                             pulumi.Int(1971),
+//				UnsupportedDdlAction:                             pulumi.String("FAIL"),
+//				UseCachedResult:                                  pulumi.Bool(false),
+//				UserTaskManagedInitialWarehouseSize:              pulumi.String("SMALL"),
+//				UserTaskMinimumTriggerIntervalInSeconds:          pulumi.Int(10),
+//				UserTaskTimeoutMs:                                pulumi.Int(10),
+//				WeekOfYearPolicy:                                 pulumi.Int(1),
+//				WeekStart:                                        pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh
@@ -188,8 +356,9 @@ type CurrentOrganizationAccount struct {
 	// Specifies whether to require a storage integration object as cloud credentials when creating a named external stage (using [CREATE STAGE](https://docs.snowflake.com/en/sql-reference/sql/create-stage)) to access a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_CREATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-creation).
 	RequireStorageIntegrationForStageCreation pulumi.BoolOutput `pulumi:"requireStorageIntegrationForStageCreation"`
 	// Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
-	RequireStorageIntegrationForStageOperation pulumi.BoolOutput      `pulumi:"requireStorageIntegrationForStageOperation"`
-	ResourceMonitor                            pulumi.StringPtrOutput `pulumi:"resourceMonitor"`
+	RequireStorageIntegrationForStageOperation pulumi.BoolOutput `pulumi:"requireStorageIntegrationForStageOperation"`
+	// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	ResourceMonitor pulumi.StringPtrOutput `pulumi:"resourceMonitor"`
 	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset pulumi.IntOutput `pulumi:"rowsPerResultset"`
 	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
@@ -463,8 +632,9 @@ type currentOrganizationAccountState struct {
 	// Specifies whether to require a storage integration object as cloud credentials when creating a named external stage (using [CREATE STAGE](https://docs.snowflake.com/en/sql-reference/sql/create-stage)) to access a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_CREATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-creation).
 	RequireStorageIntegrationForStageCreation *bool `pulumi:"requireStorageIntegrationForStageCreation"`
 	// Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
-	RequireStorageIntegrationForStageOperation *bool   `pulumi:"requireStorageIntegrationForStageOperation"`
-	ResourceMonitor                            *string `pulumi:"resourceMonitor"`
+	RequireStorageIntegrationForStageOperation *bool `pulumi:"requireStorageIntegrationForStageOperation"`
+	// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset *int `pulumi:"rowsPerResultset"`
 	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
@@ -710,7 +880,8 @@ type CurrentOrganizationAccountState struct {
 	RequireStorageIntegrationForStageCreation pulumi.BoolPtrInput
 	// Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
 	RequireStorageIntegrationForStageOperation pulumi.BoolPtrInput
-	ResourceMonitor                            pulumi.StringPtrInput
+	// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset pulumi.IntPtrInput
 	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
@@ -959,8 +1130,9 @@ type currentOrganizationAccountArgs struct {
 	// Specifies whether to require a storage integration object as cloud credentials when creating a named external stage (using [CREATE STAGE](https://docs.snowflake.com/en/sql-reference/sql/create-stage)) to access a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_CREATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-creation).
 	RequireStorageIntegrationForStageCreation *bool `pulumi:"requireStorageIntegrationForStageCreation"`
 	// Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
-	RequireStorageIntegrationForStageOperation *bool   `pulumi:"requireStorageIntegrationForStageOperation"`
-	ResourceMonitor                            *string `pulumi:"resourceMonitor"`
+	RequireStorageIntegrationForStageOperation *bool `pulumi:"requireStorageIntegrationForStageOperation"`
+	// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset *int `pulumi:"rowsPerResultset"`
 	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
@@ -1205,7 +1377,8 @@ type CurrentOrganizationAccountArgs struct {
 	RequireStorageIntegrationForStageCreation pulumi.BoolPtrInput
 	// Specifies whether to require using a named external stage that references a storage integration object as cloud credentials when loading data from or unloading data to a private cloud storage location. For more information, check [REQUIRE*STORAGE*INTEGRATION*FOR*STAGE_OPERATION docs](https://docs.snowflake.com/en/sql-reference/parameters#require-storage-integration-for-stage-operation).
 	RequireStorageIntegrationForStageOperation pulumi.BoolPtrInput
-	ResourceMonitor                            pulumi.StringPtrInput
+	// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset pulumi.IntPtrInput
 	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
@@ -1806,6 +1979,7 @@ func (o CurrentOrganizationAccountOutput) RequireStorageIntegrationForStageOpera
 	}).(pulumi.BoolOutput)
 }
 
+// Parameter that specifies the name of the resource monitor used to control all virtual warehouses created in the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 func (o CurrentOrganizationAccountOutput) ResourceMonitor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CurrentOrganizationAccount) pulumi.StringPtrOutput { return v.ResourceMonitor }).(pulumi.StringPtrOutput)
 }

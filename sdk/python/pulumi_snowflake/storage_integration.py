@@ -548,6 +548,12 @@ class StorageIntegration(pulumi.CustomResource):
                  use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        > **Note** This resource manages storage integrations for AWS, Azure, and GCS storage providers. Make sure you use only fields that are supported for the storage provider you are using, as they are not validated by the provider. In the future, we are planning to implement separate resources for each storage provider.
+
+        > **Note** Currently, `describe_output` field is not used in all the relevant fields (only `storage_aws_external_id` is supported). This will be addressed during the resource rework.
+
         ## Import
 
         ```sh
@@ -576,6 +582,12 @@ class StorageIntegration(pulumi.CustomResource):
                  args: StorageIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        > **Note** This resource manages storage integrations for AWS, Azure, and GCS storage providers. Make sure you use only fields that are supported for the storage provider you are using, as they are not validated by the provider. In the future, we are planning to implement separate resources for each storage provider.
+
+        > **Note** Currently, `describe_output` field is not used in all the relevant fields (only `storage_aws_external_id` is supported). This will be addressed during the resource rework.
+
         ## Import
 
         ```sh

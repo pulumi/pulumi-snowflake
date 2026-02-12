@@ -9,6 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// 
+    /// !&gt; **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
+    /// 
+    /// Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Snowflake.AuthenticationPolicy("default", new()
+    ///     {
+    ///         Database = "prod",
+    ///         Schema = "security",
+    ///         Name = "default_policy",
+    ///     });
+    /// 
+    ///     var attachment = new Snowflake.AccountAuthenticationPolicyAttachment("attachment", new()
+    ///     {
+    ///         AuthenticationPolicy = @default.FullyQualifiedName,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment")]
     public partial class AccountAuthenticationPolicyAttachment : global::Pulumi.CustomResource
     {

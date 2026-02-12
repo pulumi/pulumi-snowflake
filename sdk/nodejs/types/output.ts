@@ -387,6 +387,9 @@ export interface AuthenticationPolicyDescribeOutput {
 }
 
 export interface AuthenticationPolicyMfaPolicy {
+    /**
+     * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+     */
     allowedMethods?: string[];
     /**
      * Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
@@ -434,6 +437,9 @@ export interface AuthenticationPolicyWorkloadIdentityPolicy {
      * Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
      */
     allowedOidcIssuers?: string[];
+    /**
+     * Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+     */
     allowedProviders?: string[];
 }
 
@@ -799,6 +805,9 @@ export interface ExternalVolumeStorageLocation {
      * Specifies the base URL for your cloud storage location.
      */
     storageBaseUrl: string;
+    /**
+     * Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     */
     storageLocationName: string;
     /**
      * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
@@ -848,6 +857,9 @@ export interface FunctionJavaArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
@@ -860,6 +872,9 @@ export interface FunctionJavaImport {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -941,6 +956,9 @@ export interface FunctionJavaTargetPath {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -949,6 +967,9 @@ export interface FunctionJavascriptArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
@@ -1023,6 +1044,9 @@ export interface FunctionPythonArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
@@ -1035,6 +1059,9 @@ export interface FunctionPythonImport {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -1116,6 +1143,9 @@ export interface FunctionScalaArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
@@ -1128,6 +1158,9 @@ export interface FunctionScalaImport {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -1209,6 +1242,9 @@ export interface FunctionScalaTargetPath {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -1217,6 +1253,9 @@ export interface FunctionSqlArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
@@ -6716,6 +6755,9 @@ export interface ProcedureJavaArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
@@ -6728,6 +6770,9 @@ export interface ProcedureJavaImport {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -6805,6 +6850,9 @@ export interface ProcedureJavaTargetPath {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -6813,6 +6861,9 @@ export interface ProcedureJavascriptArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
@@ -6883,6 +6934,9 @@ export interface ProcedurePythonArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
@@ -6895,6 +6949,9 @@ export interface ProcedurePythonImport {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -6972,6 +7029,9 @@ export interface ProcedureScalaArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
@@ -6984,6 +7044,9 @@ export interface ProcedureScalaImport {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -7061,6 +7124,9 @@ export interface ProcedureScalaTargetPath {
      * Path for import on stage, without the leading `/`.
      */
     pathOnStage: string;
+    /**
+     * Stage location without leading `@`. To use your user's stage set this to `~`, otherwise pass fully qualified name of the stage (with every part contained in double quotes or use `snowflake_stage.<your stage's resource name>.fully_qualified_name` if you manage this stage through terraform).
+     */
     stageLocation: string;
 }
 
@@ -7069,6 +7135,9 @@ export interface ProcedureSqlArgument {
      * The argument type.
      */
     argDataType: string;
+    /**
+     * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
     argDefaultValue?: string;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.

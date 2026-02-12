@@ -106,9 +106,17 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
         return this.storageBaseUrl;
     }
 
+    /**
+     * Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * 
+     */
     @Import(name="storageLocationName", required=true)
     private Output<String> storageLocationName;
 
+    /**
+     * @return Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * 
+     */
     public Output<String> storageLocationName() {
         return this.storageLocationName;
     }
@@ -285,11 +293,23 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
             return storageBaseUrl(Output.of(storageBaseUrl));
         }
 
+        /**
+         * @param storageLocationName Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageLocationName(Output<String> storageLocationName) {
             $.storageLocationName = storageLocationName;
             return this;
         }
 
+        /**
+         * @param storageLocationName Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder storageLocationName(String storageLocationName) {
             return storageLocationName(Output.of(storageLocationName));
         }

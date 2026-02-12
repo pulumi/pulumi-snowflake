@@ -139,7 +139,12 @@ class UserPublicKeys(pulumi.CustomResource):
                  rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a UserPublicKeys resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Important** Starting from v0.95.0, it is advised to use this resource **only** if users are not managed through terraform. Check more in the migration guide.
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the user.
@@ -153,7 +158,12 @@ class UserPublicKeys(pulumi.CustomResource):
                  args: Optional[UserPublicKeysArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UserPublicKeys resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Important** Starting from v0.95.0, it is advised to use this resource **only** if users are not managed through terraform. Check more in the migration guide.
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         :param str resource_name: The name of the resource.
         :param UserPublicKeysArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

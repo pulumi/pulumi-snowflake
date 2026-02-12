@@ -17,6 +17,20 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
+ * 
+ * !&gt; **Warning** Do not run `USE ROLE ...` or `USE WAREHOUSE ...` statements as they will cause the provider to produce inconsistent results. Use provider aliases with different roles instead.
+ * 
+ * !&gt; **Sensitive values** This resource&#39;s `execute`, `query`, `revert` and `queryResults` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * 
+ * &gt; **Note** It can be theoretically used to manage resource that are not supported by the provider. This is risky and may break other resources if used incorrectly.
+ * 
+ * &gt; **Note** Use `query` parameter with caution. It will fetch **ALL** the results returned by the query provided. Try to limit the number of results by writing query with filters. Query failure does not stop resource creation; it simply results in `queryResults` being empty.
+ * 
+ * &gt; **Note**: Default timeout is set to 60 minutes for each Terraform operation.
+ * 
+ * Resource allowing execution of ANY SQL statement.
+ * 
  * ## Import
  * 
  * ```sh

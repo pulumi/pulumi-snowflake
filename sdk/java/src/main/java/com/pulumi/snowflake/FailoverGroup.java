@@ -19,6 +19,82 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * 
+ * !&gt; **Updating `allowedAccounts`** Currently, updating the `allowedAccounts` field may fail due to an incorrect query being sent (see #3946). This will be fixed during the resource rework. As a workaround, use the `execute` resource to update the allowed accounts manually. After that, refresh the state with the updated `allowedAccounts` field in the resource configuration.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.Database;
+ * import com.pulumi.snowflake.DatabaseArgs;
+ * import com.pulumi.snowflake.FailoverGroup;
+ * import com.pulumi.snowflake.FailoverGroupArgs;
+ * import com.pulumi.snowflake.inputs.FailoverGroupReplicationScheduleArgs;
+ * import com.pulumi.snowflake.inputs.FailoverGroupReplicationScheduleCronArgs;
+ * import com.pulumi.snowflake.inputs.FailoverGroupFromReplicaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var db = new Database("db", DatabaseArgs.builder()
+ *             .name("db1")
+ *             .build());
+ * 
+ *         var sourceFailoverGroup = new FailoverGroup("sourceFailoverGroup", FailoverGroupArgs.builder()
+ *             .name("FG1")
+ *             .objectTypes(            
+ *                 "WAREHOUSES",
+ *                 "DATABASES",
+ *                 "INTEGRATIONS",
+ *                 "ROLES")
+ *             .allowedAccounts(            
+ *                 "<org_name>.<target_account_name1>",
+ *                 "<org_name>.<target_account_name2>")
+ *             .allowedDatabases(db.name())
+ *             .allowedIntegrationTypes("SECURITY INTEGRATIONS")
+ *             .replicationSchedule(FailoverGroupReplicationScheduleArgs.builder()
+ *                 .cron(FailoverGroupReplicationScheduleCronArgs.builder()
+ *                     .expression("0 0 10-20 * TUE,THU")
+ *                     .timeZone("UTC")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var targetFailoverGroup = new FailoverGroup("targetFailoverGroup", FailoverGroupArgs.builder()
+ *             .name("FG1")
+ *             .fromReplica(FailoverGroupFromReplicaArgs.builder()
+ *                 .organizationName("...")
+ *                 .sourceAccountName("...")
+ *                 .name(sourceFailoverGroup.name())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
