@@ -4,9 +4,12 @@
 package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.inputs.GetStagesIn;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetStagesPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -14,40 +17,56 @@ public final class GetStagesPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetStagesPlainArgs Empty = new GetStagesPlainArgs();
 
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      * 
      */
-    @Import(name="database", required=true)
-    private String database;
+    @Import(name="in")
+    private @Nullable GetStagesIn in;
 
     /**
-     * @return The database from which to return the schemas from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    public String database() {
-        return this.database;
+    public Optional<GetStagesIn> in() {
+        return Optional.ofNullable(this.in);
     }
 
     /**
-     * The schema from which to return the stages from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="schema", required=true)
-    private String schema;
+    @Import(name="like")
+    private @Nullable String like;
 
     /**
-     * @return The schema from which to return the stages from.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+
+    /**
+     * (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    @Import(name="withDescribe")
+    private @Nullable Boolean withDescribe;
+
+    /**
+     * @return (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     private GetStagesPlainArgs() {}
 
     private GetStagesPlainArgs(GetStagesPlainArgs $) {
-        this.database = $.database;
-        this.schema = $.schema;
+        this.in = $.in;
+        this.like = $.like;
+        this.withDescribe = $.withDescribe;
     }
 
     public static Builder builder() {
@@ -69,34 +88,39 @@ public final class GetStagesPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param database The database from which to return the schemas from.
+         * @param in IN clause to filter the list of objects
          * 
          * @return builder
          * 
          */
-        public Builder database(String database) {
-            $.database = database;
+        public Builder in(@Nullable GetStagesIn in) {
+            $.in = in;
             return this;
         }
 
         /**
-         * @param schema The schema from which to return the stages from.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder schema(String schema) {
-            $.schema = schema;
+        public Builder like(@Nullable String like) {
+            $.like = like;
+            return this;
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+            $.withDescribe = withDescribe;
             return this;
         }
 
         public GetStagesPlainArgs build() {
-            if ($.database == null) {
-                throw new MissingRequiredPropertyException("GetStagesPlainArgs", "database");
-            }
-            if ($.schema == null) {
-                throw new MissingRequiredPropertyException("GetStagesPlainArgs", "schema");
-            }
             return $;
         }
     }

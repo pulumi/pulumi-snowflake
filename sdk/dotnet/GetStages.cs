@@ -14,80 +14,23 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetStages.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Stages`.
         /// </summary>
-        public static Task<GetStagesResult> InvokeAsync(GetStagesArgs args, InvokeOptions? options = null)
+        public static Task<GetStagesResult> InvokeAsync(GetStagesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStagesResult>("snowflake:index/getStages:getStages", args ?? new GetStagesArgs(), options.WithDefaults());
 
         /// <summary>
         /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetStages.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Stages`.
         /// </summary>
-        public static Output<GetStagesResult> Invoke(GetStagesInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetStagesResult> Invoke(GetStagesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStagesResult>("snowflake:index/getStages:getStages", args ?? new GetStagesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetStages.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Stages`.
         /// </summary>
         public static Output<GetStagesResult> Invoke(GetStagesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStagesResult>("snowflake:index/getStages:getStages", args ?? new GetStagesInvokeArgs(), options.WithDefaults());
@@ -97,16 +40,22 @@ namespace Pulumi.Snowflake
     public sealed class GetStagesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public string Database { get; set; } = null!;
+        [Input("in")]
+        public Inputs.GetStagesInArgs? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the stages from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public string Schema { get; set; } = null!;
+        [Input("like")]
+        public string? Like { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
 
         public GetStagesArgs()
         {
@@ -117,16 +66,22 @@ namespace Pulumi.Snowflake
     public sealed class GetStagesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public Input<string> Database { get; set; } = null!;
+        [Input("in")]
+        public Input<Inputs.GetStagesInInputArgs>? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the stages from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public Input<string> Schema { get; set; } = null!;
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
 
         public GetStagesInvokeArgs()
         {
@@ -139,36 +94,43 @@ namespace Pulumi.Snowflake
     public sealed class GetStagesResult
     {
         /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
-        public readonly string Database;
-        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The schema from which to return the stages from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        public readonly string Schema;
+        public readonly Outputs.GetStagesInResult? In;
         /// <summary>
-        /// The stages in the schema
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Holds the aggregated output of all stages details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStagesStageResult> Stages;
+        /// <summary>
+        /// (Default: `True`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithDescribe;
 
         [OutputConstructor]
         private GetStagesResult(
-            string database,
-
             string id,
 
-            string schema,
+            Outputs.GetStagesInResult? @in,
 
-            ImmutableArray<Outputs.GetStagesStageResult> stages)
+            string? like,
+
+            ImmutableArray<Outputs.GetStagesStageResult> stages,
+
+            bool? withDescribe)
         {
-            Database = database;
             Id = id;
-            Schema = schema;
+            In = @in;
+            Like = like;
             Stages = stages;
+            WithDescribe = withDescribe;
         }
     }
 }

@@ -289,7 +289,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
         /// </summary>
-        [Obsolete(@"This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.")]
+        [Obsolete(@"This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `EnforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.")]
         public InputList<string> MfaAuthenticationMethods
         {
             get => _mfaAuthenticationMethods ?? (_mfaAuthenticationMethods = new InputList<string>());
@@ -412,7 +412,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
         /// </summary>
-        [Obsolete(@"This field is deprecated and will be removed in the future. The new field `ENFORCE_MFA_ON_EXTERNAL_AUTHENTICATION` will be added in the next versions of the provider. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.")]
+        [Obsolete(@"This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `EnforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.")]
         public InputList<string> MfaAuthenticationMethods
         {
             get => _mfaAuthenticationMethods ?? (_mfaAuthenticationMethods = new InputList<string>());

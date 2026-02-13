@@ -13,54 +13,56 @@ import (
 
 // !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetStorageIntegrations(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
-func GetStorageIntegrations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetStorageIntegrationsResult, error) {
+// Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storageIntegrations`.
+func GetStorageIntegrations(ctx *pulumi.Context, args *GetStorageIntegrationsArgs, opts ...pulumi.InvokeOption) (*GetStorageIntegrationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStorageIntegrationsResult
-	err := ctx.Invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", nil, &rv, opts...)
+	err := ctx.Invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getStorageIntegrations.
+type GetStorageIntegrationsArgs struct {
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
+}
+
 // A collection of values returned by getStorageIntegrations.
 type GetStorageIntegrationsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The storage integrations in the database
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Holds the aggregated output of all storage integrations details queries.
 	StorageIntegrations []GetStorageIntegrationsStorageIntegration `pulumi:"storageIntegrations"`
+	// (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
-func GetStorageIntegrationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetStorageIntegrationsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetStorageIntegrationsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("snowflake:index/getStorageIntegrations:getStorageIntegrations", nil, GetStorageIntegrationsResultOutput{}, options).(GetStorageIntegrationsResultOutput), nil
-	}).(GetStorageIntegrationsResultOutput)
+func GetStorageIntegrationsOutput(ctx *pulumi.Context, args GetStorageIntegrationsOutputArgs, opts ...pulumi.InvokeOption) GetStorageIntegrationsResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetStorageIntegrationsResultOutput, error) {
+			args := v.(GetStorageIntegrationsArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getStorageIntegrations:getStorageIntegrations", args, GetStorageIntegrationsResultOutput{}, options).(GetStorageIntegrationsResultOutput), nil
+		}).(GetStorageIntegrationsResultOutput)
+}
+
+// A collection of arguments for invoking getStorageIntegrations.
+type GetStorageIntegrationsOutputArgs struct {
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
+}
+
+func (GetStorageIntegrationsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStorageIntegrationsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getStorageIntegrations.
@@ -83,11 +85,21 @@ func (o GetStorageIntegrationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStorageIntegrationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The storage integrations in the database
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetStorageIntegrationsResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetStorageIntegrationsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Holds the aggregated output of all storage integrations details queries.
 func (o GetStorageIntegrationsResultOutput) StorageIntegrations() GetStorageIntegrationsStorageIntegrationArrayOutput {
 	return o.ApplyT(func(v GetStorageIntegrationsResult) []GetStorageIntegrationsStorageIntegration {
 		return v.StorageIntegrations
 	}).(GetStorageIntegrationsStorageIntegrationArrayOutput)
+}
+
+// (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+func (o GetStorageIntegrationsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStorageIntegrationsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

@@ -36,7 +36,7 @@ type Warehouse struct {
 	EnableQueryAcceleration pulumi.StringPtrOutput `pulumi:"enableQueryAcceleration"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	Generation pulumi.StringPtrOutput `pulumi:"generation"`
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended pulumi.BoolPtrOutput `pulumi:"initiallySuspended"`
@@ -52,7 +52,7 @@ type Warehouse struct {
 	Parameters WarehouseParameterArrayOutput `pulumi:"parameters"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor pulumi.IntPtrOutput `pulumi:"queryAccelerationMaxScaleFactor"`
-	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	ResourceConstraint pulumi.StringPtrOutput `pulumi:"resourceConstraint"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
 	ResourceMonitor pulumi.StringPtrOutput `pulumi:"resourceMonitor"`
@@ -110,7 +110,7 @@ type warehouseState struct {
 	EnableQueryAcceleration *string `pulumi:"enableQueryAcceleration"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	Generation *string `pulumi:"generation"`
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
@@ -126,7 +126,7 @@ type warehouseState struct {
 	Parameters []WarehouseParameter `pulumi:"parameters"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor *int `pulumi:"queryAccelerationMaxScaleFactor"`
-	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	ResourceConstraint *string `pulumi:"resourceConstraint"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
@@ -155,7 +155,7 @@ type WarehouseState struct {
 	EnableQueryAcceleration pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	Generation pulumi.StringPtrInput
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended pulumi.BoolPtrInput
@@ -171,7 +171,7 @@ type WarehouseState struct {
 	Parameters WarehouseParameterArrayInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor pulumi.IntPtrInput
-	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	ResourceConstraint pulumi.StringPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
 	ResourceMonitor pulumi.StringPtrInput
@@ -202,7 +202,7 @@ type warehouseArgs struct {
 	Comment *string `pulumi:"comment"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	EnableQueryAcceleration *string `pulumi:"enableQueryAcceleration"`
-	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	Generation *string `pulumi:"generation"`
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
@@ -216,7 +216,7 @@ type warehouseArgs struct {
 	Name *string `pulumi:"name"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor *int `pulumi:"queryAccelerationMaxScaleFactor"`
-	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	ResourceConstraint *string `pulumi:"resourceConstraint"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
@@ -242,7 +242,7 @@ type WarehouseArgs struct {
 	Comment pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	EnableQueryAcceleration pulumi.StringPtrInput
-	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+	// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	Generation pulumi.StringPtrInput
 	// Specifies whether the warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended pulumi.BoolPtrInput
@@ -256,7 +256,7 @@ type WarehouseArgs struct {
 	Name pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
 	QueryAccelerationMaxScaleFactor pulumi.IntPtrInput
-	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+	// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 	ResourceConstraint pulumi.StringPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
 	ResourceMonitor pulumi.StringPtrInput
@@ -384,7 +384,7 @@ func (o WarehouseOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 func (o WarehouseOutput) Generation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringPtrOutput { return v.Generation }).(pulumi.StringPtrOutput)
 }
@@ -424,7 +424,7 @@ func (o WarehouseOutput) QueryAccelerationMaxScaleFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.QueryAccelerationMaxScaleFactor }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
 func (o WarehouseOutput) ResourceConstraint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.StringPtrOutput { return v.ResourceConstraint }).(pulumi.StringPtrOutput)
 }

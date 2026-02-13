@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** For manifest reference visit [Snowflake&#39;s listing manifest reference documentation](https://docs.snowflake.com/en/progaccess/listing-manifest-reference).
  * 
+ * &gt; **Note** To use listings in gov deployments, please read the [Government providers documentation](https://docs.snowflake.com/en/collaboration/provider-listings-government-providers) first.
+ * 
  * Resource used to manage listing objects. For more information, check [listing documentation](https://other-docs.snowflake.com/en/collaboration/collaboration-listings-about).
  * 
  * ## Import

@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** Currently, `describeOutput` field is not used in all the relevant fields (only `storageAwsExternalId` is supported). This will be addressed during the resource rework.
  * 
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `snowflake.StorageIntegrationAws` | `snowflake.StorageIntegrationAzure` | `snowflake.StorageIntegrationGcs`. &lt;deprecation&gt;
+ * 
  * ## Import
  * 
  * ```sh

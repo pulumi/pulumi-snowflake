@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetStagesResult',
@@ -27,27 +28,22 @@ class GetStagesResult:
     """
     A collection of values returned by getStages.
     """
-    def __init__(__self__, database=None, id=None, schema=None, stages=None):
-        if database and not isinstance(database, str):
-            raise TypeError("Expected argument 'database' to be a str")
-        pulumi.set(__self__, "database", database)
+    def __init__(__self__, id=None, in_=None, like=None, stages=None, with_describe=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if schema and not isinstance(schema, str):
-            raise TypeError("Expected argument 'schema' to be a str")
-        pulumi.set(__self__, "schema", schema)
+        if in_ and not isinstance(in_, dict):
+            raise TypeError("Expected argument 'in_' to be a dict")
+        pulumi.set(__self__, "in_", in_)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
         if stages and not isinstance(stages, list):
             raise TypeError("Expected argument 'stages' to be a list")
         pulumi.set(__self__, "stages", stages)
-
-    @_builtins.property
-    @pulumi.getter
-    def database(self) -> _builtins.str:
-        """
-        The database from which to return the schemas from.
-        """
-        return pulumi.get(self, "database")
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
 
     @_builtins.property
     @pulumi.getter
@@ -58,20 +54,36 @@ class GetStagesResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="in")
+    def in_(self) -> Optional['outputs.GetStagesInResult']:
+        """
+        IN clause to filter the list of objects
+        """
+        return pulumi.get(self, "in_")
+
+    @_builtins.property
     @pulumi.getter
-    def schema(self) -> _builtins.str:
+    def like(self) -> Optional[_builtins.str]:
         """
-        The schema from which to return the stages from.
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "schema")
+        return pulumi.get(self, "like")
 
     @_builtins.property
     @pulumi.getter
     def stages(self) -> Sequence['outputs.GetStagesStageResult']:
         """
-        The stages in the schema
+        Holds the aggregated output of all stages details queries.
         """
         return pulumi.get(self, "stages")
+
+    @_builtins.property
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[_builtins.bool]:
+        """
+        (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describe_output field. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_describe")
 
 
 class AwaitableGetStagesResult(GetStagesResult):
@@ -80,74 +92,63 @@ class AwaitableGetStagesResult(GetStagesResult):
         if False:
             yield self
         return GetStagesResult(
-            database=self.database,
             id=self.id,
-            schema=self.schema,
-            stages=self.stages)
+            in_=self.in_,
+            like=self.like,
+            stages=self.stages,
+            with_describe=self.with_describe)
 
 
-def get_stages(database: Optional[_builtins.str] = None,
-               schema: Optional[_builtins.str] = None,
+def get_stages(in_: Optional[Union['GetStagesInArgs', 'GetStagesInArgsDict']] = None,
+               like: Optional[_builtins.str] = None,
+               with_describe: Optional[_builtins.bool] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStagesResult:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_stages(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
 
 
-    :param _builtins.str database: The database from which to return the schemas from.
-    :param _builtins.str schema: The schema from which to return the stages from.
+    :param Union['GetStagesInArgs', 'GetStagesInArgsDict'] in_: IN clause to filter the list of objects
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getStages:getStages', __args__, opts=opts, typ=GetStagesResult).value
 
     return AwaitableGetStagesResult(
-        database=pulumi.get(__ret__, 'database'),
         id=pulumi.get(__ret__, 'id'),
-        schema=pulumi.get(__ret__, 'schema'),
-        stages=pulumi.get(__ret__, 'stages'))
-def get_stages_output(database: Optional[pulumi.Input[_builtins.str]] = None,
-                      schema: Optional[pulumi.Input[_builtins.str]] = None,
+        in_=pulumi.get(__ret__, 'in_'),
+        like=pulumi.get(__ret__, 'like'),
+        stages=pulumi.get(__ret__, 'stages'),
+        with_describe=pulumi.get(__ret__, 'with_describe'))
+def get_stages_output(in_: Optional[pulumi.Input[Optional[Union['GetStagesInArgs', 'GetStagesInArgsDict']]]] = None,
+                      like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                      with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStagesResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_stages(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
 
 
-    :param _builtins.str database: The database from which to return the schemas from.
-    :param _builtins.str schema: The schema from which to return the stages from.
+    :param Union['GetStagesInArgs', 'GetStagesInArgsDict'] in_: IN clause to filter the list of objects
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getStages:getStages', __args__, opts=opts, typ=GetStagesResult)
     return __ret__.apply(lambda __response__: GetStagesResult(
-        database=pulumi.get(__response__, 'database'),
         id=pulumi.get(__response__, 'id'),
-        schema=pulumi.get(__response__, 'schema'),
-        stages=pulumi.get(__response__, 'stages')))
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        stages=pulumi.get(__response__, 'stages'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

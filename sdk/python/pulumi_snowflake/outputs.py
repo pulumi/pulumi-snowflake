@@ -162,6 +162,11 @@ __all__ = [
     'JobServiceFromSpecificationTemplate',
     'JobServiceFromSpecificationTemplateUsing',
     'JobServiceShowOutput',
+    'LegacyServiceUserDefaultWorkloadIdentity',
+    'LegacyServiceUserDefaultWorkloadIdentityAws',
+    'LegacyServiceUserDefaultWorkloadIdentityAzure',
+    'LegacyServiceUserDefaultWorkloadIdentityGcp',
+    'LegacyServiceUserDefaultWorkloadIdentityOidc',
     'LegacyServiceUserParameter',
     'LegacyServiceUserParameterAbortDetachedQuery',
     'LegacyServiceUserParameterAutocommit',
@@ -399,6 +404,11 @@ __all__ = [
     'ServiceFromSpecificationTemplate',
     'ServiceFromSpecificationTemplateUsing',
     'ServiceShowOutput',
+    'ServiceUserDefaultWorkloadIdentity',
+    'ServiceUserDefaultWorkloadIdentityAws',
+    'ServiceUserDefaultWorkloadIdentityAzure',
+    'ServiceUserDefaultWorkloadIdentityGcp',
+    'ServiceUserDefaultWorkloadIdentityOidc',
     'ServiceUserParameter',
     'ServiceUserParameterAbortDetachedQuery',
     'ServiceUserParameterAutocommit',
@@ -459,7 +469,121 @@ __all__ = [
     'ServiceUserParameterWeekOfYearPolicy',
     'ServiceUserParameterWeekStart',
     'ServiceUserShowOutput',
+    'StageExternalAzureCredentials',
+    'StageExternalAzureDescribeOutput',
+    'StageExternalAzureDescribeOutputDirectoryTable',
+    'StageExternalAzureDescribeOutputFileFormat',
+    'StageExternalAzureDescribeOutputFileFormatAvro',
+    'StageExternalAzureDescribeOutputFileFormatCsv',
+    'StageExternalAzureDescribeOutputFileFormatJson',
+    'StageExternalAzureDescribeOutputFileFormatOrc',
+    'StageExternalAzureDescribeOutputFileFormatParquet',
+    'StageExternalAzureDescribeOutputFileFormatXml',
+    'StageExternalAzureDirectory',
+    'StageExternalAzureEncryption',
+    'StageExternalAzureEncryptionAzureCse',
+    'StageExternalAzureEncryptionNone',
+    'StageExternalAzureFileFormat',
+    'StageExternalAzureFileFormatAvro',
+    'StageExternalAzureFileFormatCsv',
+    'StageExternalAzureFileFormatJson',
+    'StageExternalAzureFileFormatOrc',
+    'StageExternalAzureFileFormatParquet',
+    'StageExternalAzureFileFormatXml',
+    'StageExternalAzureShowOutput',
+    'StageExternalGcsDescribeOutput',
+    'StageExternalGcsDescribeOutputDirectoryTable',
+    'StageExternalGcsDescribeOutputFileFormat',
+    'StageExternalGcsDescribeOutputFileFormatAvro',
+    'StageExternalGcsDescribeOutputFileFormatCsv',
+    'StageExternalGcsDescribeOutputFileFormatJson',
+    'StageExternalGcsDescribeOutputFileFormatOrc',
+    'StageExternalGcsDescribeOutputFileFormatParquet',
+    'StageExternalGcsDescribeOutputFileFormatXml',
+    'StageExternalGcsDirectory',
+    'StageExternalGcsEncryption',
+    'StageExternalGcsEncryptionGcsSseKms',
+    'StageExternalGcsEncryptionNone',
+    'StageExternalGcsFileFormat',
+    'StageExternalGcsFileFormatAvro',
+    'StageExternalGcsFileFormatCsv',
+    'StageExternalGcsFileFormatJson',
+    'StageExternalGcsFileFormatOrc',
+    'StageExternalGcsFileFormatParquet',
+    'StageExternalGcsFileFormatXml',
+    'StageExternalGcsShowOutput',
+    'StageExternalS3CompatibleCredentials',
+    'StageExternalS3CompatibleDescribeOutput',
+    'StageExternalS3CompatibleDescribeOutputDirectoryTable',
+    'StageExternalS3CompatibleDescribeOutputFileFormat',
+    'StageExternalS3CompatibleDescribeOutputFileFormatAvro',
+    'StageExternalS3CompatibleDescribeOutputFileFormatCsv',
+    'StageExternalS3CompatibleDescribeOutputFileFormatJson',
+    'StageExternalS3CompatibleDescribeOutputFileFormatOrc',
+    'StageExternalS3CompatibleDescribeOutputFileFormatParquet',
+    'StageExternalS3CompatibleDescribeOutputFileFormatXml',
+    'StageExternalS3CompatibleDescribeOutputLocation',
+    'StageExternalS3CompatibleDirectory',
+    'StageExternalS3CompatibleFileFormat',
+    'StageExternalS3CompatibleFileFormatAvro',
+    'StageExternalS3CompatibleFileFormatCsv',
+    'StageExternalS3CompatibleFileFormatJson',
+    'StageExternalS3CompatibleFileFormatOrc',
+    'StageExternalS3CompatibleFileFormatParquet',
+    'StageExternalS3CompatibleFileFormatXml',
+    'StageExternalS3CompatibleShowOutput',
+    'StageExternalS3Credentials',
+    'StageExternalS3DescribeOutput',
+    'StageExternalS3DescribeOutputDirectoryTable',
+    'StageExternalS3DescribeOutputFileFormat',
+    'StageExternalS3DescribeOutputFileFormatAvro',
+    'StageExternalS3DescribeOutputFileFormatCsv',
+    'StageExternalS3DescribeOutputFileFormatJson',
+    'StageExternalS3DescribeOutputFileFormatOrc',
+    'StageExternalS3DescribeOutputFileFormatParquet',
+    'StageExternalS3DescribeOutputFileFormatXml',
+    'StageExternalS3DescribeOutputLocation',
+    'StageExternalS3DescribeOutputPrivatelink',
+    'StageExternalS3Directory',
+    'StageExternalS3Encryption',
+    'StageExternalS3EncryptionAwsCse',
+    'StageExternalS3EncryptionAwsSseKms',
+    'StageExternalS3EncryptionAwsSseS3',
+    'StageExternalS3EncryptionNone',
+    'StageExternalS3FileFormat',
+    'StageExternalS3FileFormatAvro',
+    'StageExternalS3FileFormatCsv',
+    'StageExternalS3FileFormatJson',
+    'StageExternalS3FileFormatOrc',
+    'StageExternalS3FileFormatParquet',
+    'StageExternalS3FileFormatXml',
+    'StageExternalS3ShowOutput',
+    'StageInternalDescribeOutput',
+    'StageInternalDescribeOutputDirectoryTable',
+    'StageInternalDescribeOutputFileFormat',
+    'StageInternalDescribeOutputFileFormatAvro',
+    'StageInternalDescribeOutputFileFormatCsv',
+    'StageInternalDescribeOutputFileFormatJson',
+    'StageInternalDescribeOutputFileFormatOrc',
+    'StageInternalDescribeOutputFileFormatParquet',
+    'StageInternalDescribeOutputFileFormatXml',
+    'StageInternalDirectory',
+    'StageInternalEncryption',
+    'StageInternalEncryptionSnowflakeFull',
+    'StageInternalEncryptionSnowflakeSse',
+    'StageInternalFileFormat',
+    'StageInternalFileFormatAvro',
+    'StageInternalFileFormatCsv',
+    'StageInternalFileFormatJson',
+    'StageInternalFileFormatOrc',
+    'StageInternalFileFormatParquet',
+    'StageInternalFileFormatXml',
+    'StageInternalShowOutput',
     'StageTag',
+    'StorageIntegrationAwsDescribeOutput',
+    'StorageIntegrationAwsShowOutput',
+    'StorageIntegrationAzureDescribeOutput',
+    'StorageIntegrationAzureShowOutput',
     'StorageIntegrationDescribeOutput',
     'StorageIntegrationDescribeOutputAzureConsentUrl',
     'StorageIntegrationDescribeOutputAzureMultiTenantAppName',
@@ -474,6 +598,8 @@ __all__ = [
     'StorageIntegrationDescribeOutputStorageGcpServiceAccount',
     'StorageIntegrationDescribeOutputStorageProvider',
     'StorageIntegrationDescribeOutputUsePrivatelinkEndpoint',
+    'StorageIntegrationGcsDescribeOutput',
+    'StorageIntegrationGcsShowOutput',
     'StreamOnDirectoryTableDescribeOutput',
     'StreamOnDirectoryTableShowOutput',
     'StreamOnExternalTableAt',
@@ -829,8 +955,23 @@ __all__ = [
     'GetServicesServiceDescribeOutputResult',
     'GetServicesServiceShowOutputResult',
     'GetSharesShareResult',
+    'GetStagesInResult',
     'GetStagesStageResult',
+    'GetStagesStageDescribeOutputResult',
+    'GetStagesStageDescribeOutputDirectoryTableResult',
+    'GetStagesStageDescribeOutputFileFormatResult',
+    'GetStagesStageDescribeOutputFileFormatAvroResult',
+    'GetStagesStageDescribeOutputFileFormatCsvResult',
+    'GetStagesStageDescribeOutputFileFormatJsonResult',
+    'GetStagesStageDescribeOutputFileFormatOrcResult',
+    'GetStagesStageDescribeOutputFileFormatParquetResult',
+    'GetStagesStageDescribeOutputFileFormatXmlResult',
+    'GetStagesStageDescribeOutputLocationResult',
+    'GetStagesStageDescribeOutputPrivatelinkResult',
+    'GetStagesStageShowOutputResult',
     'GetStorageIntegrationsStorageIntegrationResult',
+    'GetStorageIntegrationsStorageIntegrationDescribeOutputResult',
+    'GetStorageIntegrationsStorageIntegrationShowOutputResult',
     'GetStreamlitsInResult',
     'GetStreamlitsLimitResult',
     'GetStreamlitsStreamlitResult',
@@ -10941,6 +11082,184 @@ class JobServiceShowOutput(dict):
     @pulumi.getter(name="updatedOn")
     def updated_on(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class LegacyServiceUserDefaultWorkloadIdentity(dict):
+    def __init__(__self__, *,
+                 aws: Optional['outputs.LegacyServiceUserDefaultWorkloadIdentityAws'] = None,
+                 azure: Optional['outputs.LegacyServiceUserDefaultWorkloadIdentityAzure'] = None,
+                 gcp: Optional['outputs.LegacyServiceUserDefaultWorkloadIdentityGcp'] = None,
+                 oidc: Optional['outputs.LegacyServiceUserDefaultWorkloadIdentityOidc'] = None):
+        """
+        :param 'LegacyServiceUserDefaultWorkloadIdentityAwsArgs' aws: AWS workload identity configuration.
+        :param 'LegacyServiceUserDefaultWorkloadIdentityAzureArgs' azure: Azure workload identity configuration.
+        :param 'LegacyServiceUserDefaultWorkloadIdentityGcpArgs' gcp: GCP workload identity configuration.
+        :param 'LegacyServiceUserDefaultWorkloadIdentityOidcArgs' oidc: Generic OIDC workload identity configuration.
+        """
+        if aws is not None:
+            pulumi.set(__self__, "aws", aws)
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
+        if oidc is not None:
+            pulumi.set(__self__, "oidc", oidc)
+
+    @_builtins.property
+    @pulumi.getter
+    def aws(self) -> Optional['outputs.LegacyServiceUserDefaultWorkloadIdentityAws']:
+        """
+        AWS workload identity configuration.
+        """
+        return pulumi.get(self, "aws")
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> Optional['outputs.LegacyServiceUserDefaultWorkloadIdentityAzure']:
+        """
+        Azure workload identity configuration.
+        """
+        return pulumi.get(self, "azure")
+
+    @_builtins.property
+    @pulumi.getter
+    def gcp(self) -> Optional['outputs.LegacyServiceUserDefaultWorkloadIdentityGcp']:
+        """
+        GCP workload identity configuration.
+        """
+        return pulumi.get(self, "gcp")
+
+    @_builtins.property
+    @pulumi.getter
+    def oidc(self) -> Optional['outputs.LegacyServiceUserDefaultWorkloadIdentityOidc']:
+        """
+        Generic OIDC workload identity configuration.
+        """
+        return pulumi.get(self, "oidc")
+
+
+@pulumi.output_type
+class LegacyServiceUserDefaultWorkloadIdentityAws(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        """
+        :param _builtins.str arn: The ARN of the AWS IAM role to use for workload identity federation.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS IAM role to use for workload identity federation.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class LegacyServiceUserDefaultWorkloadIdentityAzure(dict):
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 subject: _builtins.str):
+        """
+        :param _builtins.str issuer: The Azure issuer URL.
+        :param _builtins.str subject: The Azure subject identifier.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        The Azure issuer URL.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The Azure subject identifier.
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class LegacyServiceUserDefaultWorkloadIdentityGcp(dict):
+    def __init__(__self__, *,
+                 subject: _builtins.str):
+        """
+        :param _builtins.str subject: The GCP service account subject identifier.
+        """
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The GCP service account subject identifier.
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class LegacyServiceUserDefaultWorkloadIdentityOidc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oidcAudienceLists":
+            suggest = "oidc_audience_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LegacyServiceUserDefaultWorkloadIdentityOidc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LegacyServiceUserDefaultWorkloadIdentityOidc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LegacyServiceUserDefaultWorkloadIdentityOidc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 subject: _builtins.str,
+                 oidc_audience_lists: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str issuer: The OIDC issuer URL.
+        :param _builtins.str subject: The OIDC subject identifier.
+        :param Sequence[_builtins.str] oidc_audience_lists: List of allowed OIDC audiences.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "subject", subject)
+        if oidc_audience_lists is not None:
+            pulumi.set(__self__, "oidc_audience_lists", oidc_audience_lists)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        The OIDC issuer URL.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The OIDC subject identifier.
+        """
+        return pulumi.get(self, "subject")
+
+    @_builtins.property
+    @pulumi.getter(name="oidcAudienceLists")
+    def oidc_audience_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of allowed OIDC audiences.
+        """
+        return pulumi.get(self, "oidc_audience_lists")
 
 
 @pulumi.output_type
@@ -25833,6 +26152,184 @@ class ServiceShowOutput(dict):
 
 
 @pulumi.output_type
+class ServiceUserDefaultWorkloadIdentity(dict):
+    def __init__(__self__, *,
+                 aws: Optional['outputs.ServiceUserDefaultWorkloadIdentityAws'] = None,
+                 azure: Optional['outputs.ServiceUserDefaultWorkloadIdentityAzure'] = None,
+                 gcp: Optional['outputs.ServiceUserDefaultWorkloadIdentityGcp'] = None,
+                 oidc: Optional['outputs.ServiceUserDefaultWorkloadIdentityOidc'] = None):
+        """
+        :param 'ServiceUserDefaultWorkloadIdentityAwsArgs' aws: AWS workload identity configuration.
+        :param 'ServiceUserDefaultWorkloadIdentityAzureArgs' azure: Azure workload identity configuration.
+        :param 'ServiceUserDefaultWorkloadIdentityGcpArgs' gcp: GCP workload identity configuration.
+        :param 'ServiceUserDefaultWorkloadIdentityOidcArgs' oidc: Generic OIDC workload identity configuration.
+        """
+        if aws is not None:
+            pulumi.set(__self__, "aws", aws)
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+        if gcp is not None:
+            pulumi.set(__self__, "gcp", gcp)
+        if oidc is not None:
+            pulumi.set(__self__, "oidc", oidc)
+
+    @_builtins.property
+    @pulumi.getter
+    def aws(self) -> Optional['outputs.ServiceUserDefaultWorkloadIdentityAws']:
+        """
+        AWS workload identity configuration.
+        """
+        return pulumi.get(self, "aws")
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> Optional['outputs.ServiceUserDefaultWorkloadIdentityAzure']:
+        """
+        Azure workload identity configuration.
+        """
+        return pulumi.get(self, "azure")
+
+    @_builtins.property
+    @pulumi.getter
+    def gcp(self) -> Optional['outputs.ServiceUserDefaultWorkloadIdentityGcp']:
+        """
+        GCP workload identity configuration.
+        """
+        return pulumi.get(self, "gcp")
+
+    @_builtins.property
+    @pulumi.getter
+    def oidc(self) -> Optional['outputs.ServiceUserDefaultWorkloadIdentityOidc']:
+        """
+        Generic OIDC workload identity configuration.
+        """
+        return pulumi.get(self, "oidc")
+
+
+@pulumi.output_type
+class ServiceUserDefaultWorkloadIdentityAws(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        """
+        :param _builtins.str arn: The ARN of the AWS IAM role to use for workload identity federation.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS IAM role to use for workload identity federation.
+        """
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class ServiceUserDefaultWorkloadIdentityAzure(dict):
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 subject: _builtins.str):
+        """
+        :param _builtins.str issuer: The Azure issuer URL.
+        :param _builtins.str subject: The Azure subject identifier.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        The Azure issuer URL.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The Azure subject identifier.
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class ServiceUserDefaultWorkloadIdentityGcp(dict):
+    def __init__(__self__, *,
+                 subject: _builtins.str):
+        """
+        :param _builtins.str subject: The GCP service account subject identifier.
+        """
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The GCP service account subject identifier.
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class ServiceUserDefaultWorkloadIdentityOidc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oidcAudienceLists":
+            suggest = "oidc_audience_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceUserDefaultWorkloadIdentityOidc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceUserDefaultWorkloadIdentityOidc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceUserDefaultWorkloadIdentityOidc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 subject: _builtins.str,
+                 oidc_audience_lists: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str issuer: The OIDC issuer URL.
+        :param _builtins.str subject: The OIDC subject identifier.
+        :param Sequence[_builtins.str] oidc_audience_lists: List of allowed OIDC audiences.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "subject", subject)
+        if oidc_audience_lists is not None:
+            pulumi.set(__self__, "oidc_audience_lists", oidc_audience_lists)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        The OIDC issuer URL.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The OIDC subject identifier.
+        """
+        return pulumi.get(self, "subject")
+
+    @_builtins.property
+    @pulumi.getter(name="oidcAudienceLists")
+    def oidc_audience_lists(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of allowed OIDC audiences.
+        """
+        return pulumi.get(self, "oidc_audience_lists")
+
+
+@pulumi.output_type
 class ServiceUserParameter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -29337,6 +29834,11621 @@ class ServiceUserShowOutput(dict):
 
 
 @pulumi.output_type
+class StageExternalAzureCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSasToken":
+            suggest = "azure_sas_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_sas_token: _builtins.str):
+        """
+        :param _builtins.str azure_sas_token: Specifies the shared access signature (SAS) token for Azure.
+        """
+        pulumi.set(__self__, "azure_sas_token", azure_sas_token)
+
+    @_builtins.property
+    @pulumi.getter(name="azureSasToken")
+    def azure_sas_token(self) -> _builtins.str:
+        """
+        Specifies the shared access signature (SAS) token for Azure.
+        """
+        return pulumi.get(self, "azure_sas_token")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryTables":
+            suggest = "directory_tables"
+        elif key == "fileFormats":
+            suggest = "file_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_tables: Optional[Sequence['outputs.StageExternalAzureDescribeOutputDirectoryTable']] = None,
+                 file_formats: Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormat']] = None):
+        if directory_tables is not None:
+            pulumi.set(__self__, "directory_tables", directory_tables)
+        if file_formats is not None:
+            pulumi.set(__self__, "file_formats", file_formats)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryTables")
+    def directory_tables(self) -> Optional[Sequence['outputs.StageExternalAzureDescribeOutputDirectoryTable']]:
+        return pulumi.get(self, "directory_tables")
+
+    @_builtins.property
+    @pulumi.getter(name="fileFormats")
+    def file_formats(self) -> Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormat']]:
+        return pulumi.get(self, "file_formats")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutputDirectoryTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutputDirectoryTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutputDirectoryTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutputDirectoryTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh: Optional[_builtins.bool] = None,
+                 enable: Optional[_builtins.bool] = None):
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutputFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutputFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutputFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutputFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avros: Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatAvro']] = None,
+                 csvs: Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatCsv']] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 jsons: Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatJson']] = None,
+                 orcs: Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatOrc']] = None,
+                 parquets: Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatParquet']] = None,
+                 xmls: Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatXml']] = None):
+        if avros is not None:
+            pulumi.set(__self__, "avros", avros)
+        if csvs is not None:
+            pulumi.set(__self__, "csvs", csvs)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if orcs is not None:
+            pulumi.set(__self__, "orcs", orcs)
+        if parquets is not None:
+            pulumi.set(__self__, "parquets", parquets)
+        if xmls is not None:
+            pulumi.set(__self__, "xmls", xmls)
+
+    @_builtins.property
+    @pulumi.getter
+    def avros(self) -> Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatAvro']]:
+        return pulumi.get(self, "avros")
+
+    @_builtins.property
+    @pulumi.getter
+    def csvs(self) -> Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatCsv']]:
+        return pulumi.get(self, "csvs")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def jsons(self) -> Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatJson']]:
+        return pulumi.get(self, "jsons")
+
+    @_builtins.property
+    @pulumi.getter
+    def orcs(self) -> Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatOrc']]:
+        return pulumi.get(self, "orcs")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquets(self) -> Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatParquet']]:
+        return pulumi.get(self, "parquets")
+
+    @_builtins.property
+    @pulumi.getter
+    def xmls(self) -> Optional[Sequence['outputs.StageExternalAzureDescribeOutputFileFormatXml']]:
+        return pulumi.get(self, "xmls")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutputFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutputFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutputFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutputFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutputFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "validateUtf8":
+            suggest = "validate_utf8"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutputFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutputFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutputFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.bool] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.bool] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.bool] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_blank_lines: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 validate_utf8: Optional[_builtins.bool] = None):
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if validate_utf8 is not None:
+            pulumi.set(__self__, "validate_utf8", validate_utf8)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="validateUtf8")
+    def validate_utf8(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "validate_utf8")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutputFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutputFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutputFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutputFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.bool] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.bool] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_null_values: Optional[_builtins.bool] = None,
+                 strip_outer_array: Optional[_builtins.bool] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutputFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutputFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutputFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutputFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutputFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutputFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutputFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutputFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.bool] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.bool] = None,
+                 use_vectorized_scanner: Optional[_builtins.bool] = None):
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageExternalAzureDescribeOutputFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDescribeOutputFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDescribeOutputFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDescribeOutputFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.bool] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 preserve_space: Optional[_builtins.bool] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_outer_element: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_element")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalAzureDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+        elif key == "notificationIntegration":
+            suggest = "notification_integration"
+        elif key == "refreshOnCreate":
+            suggest = "refresh_on_create"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable: _builtins.bool,
+                 auto_refresh: Optional[_builtins.str] = None,
+                 notification_integration: Optional[_builtins.str] = None,
+                 refresh_on_create: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enable: Specifies whether to enable a directory table on the external stage.
+        :param _builtins.str auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        :param _builtins.str notification_integration: Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param _builtins.str refresh_on_create: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+        """
+        pulumi.set(__self__, "enable", enable)
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if notification_integration is not None:
+            pulumi.set(__self__, "notification_integration", notification_integration)
+        if refresh_on_create is not None:
+            pulumi.set(__self__, "refresh_on_create", refresh_on_create)
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> _builtins.bool:
+        """
+        Specifies whether to enable a directory table on the external stage.
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        """
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationIntegration")
+    def notification_integration(self) -> Optional[_builtins.str]:
+        """
+        Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        """
+        return pulumi.get(self, "notification_integration")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshOnCreate")
+    def refresh_on_create(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+        """
+        return pulumi.get(self, "refresh_on_create")
+
+
+@pulumi.output_type
+class StageExternalAzureEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureCse":
+            suggest = "azure_cse"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_cse: Optional['outputs.StageExternalAzureEncryptionAzureCse'] = None,
+                 none: Optional['outputs.StageExternalAzureEncryptionNone'] = None):
+        """
+        :param 'StageExternalAzureEncryptionAzureCseArgs' azure_cse: Azure client-side encryption using a master key.
+        :param 'StageExternalAzureEncryptionNoneArgs' none: No encryption.
+        """
+        if azure_cse is not None:
+            pulumi.set(__self__, "azure_cse", azure_cse)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+
+    @_builtins.property
+    @pulumi.getter(name="azureCse")
+    def azure_cse(self) -> Optional['outputs.StageExternalAzureEncryptionAzureCse']:
+        """
+        Azure client-side encryption using a master key.
+        """
+        return pulumi.get(self, "azure_cse")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional['outputs.StageExternalAzureEncryptionNone']:
+        """
+        No encryption.
+        """
+        return pulumi.get(self, "none")
+
+
+@pulumi.output_type
+class StageExternalAzureEncryptionAzureCse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "masterKey":
+            suggest = "master_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureEncryptionAzureCse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureEncryptionAzureCse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureEncryptionAzureCse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 master_key: _builtins.str):
+        """
+        :param _builtins.str master_key: Specifies the 128-bit or 256-bit client-side master key.
+        """
+        pulumi.set(__self__, "master_key", master_key)
+
+    @_builtins.property
+    @pulumi.getter(name="masterKey")
+    def master_key(self) -> _builtins.str:
+        """
+        Specifies the 128-bit or 256-bit client-side master key.
+        """
+        return pulumi.get(self, "master_key")
+
+
+@pulumi.output_type
+class StageExternalAzureEncryptionNone(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class StageExternalAzureFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avro: Optional['outputs.StageExternalAzureFileFormatAvro'] = None,
+                 csv: Optional['outputs.StageExternalAzureFileFormatCsv'] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 json: Optional['outputs.StageExternalAzureFileFormatJson'] = None,
+                 orc: Optional['outputs.StageExternalAzureFileFormatOrc'] = None,
+                 parquet: Optional['outputs.StageExternalAzureFileFormatParquet'] = None,
+                 xml: Optional['outputs.StageExternalAzureFileFormatXml'] = None):
+        """
+        :param 'StageExternalAzureFileFormatAvroArgs' avro: AVRO file format options.
+        :param 'StageExternalAzureFileFormatCsvArgs' csv: CSV file format options.
+        :param _builtins.str format_name: Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        :param 'StageExternalAzureFileFormatJsonArgs' json: JSON file format options.
+        :param 'StageExternalAzureFileFormatOrcArgs' orc: ORC file format options.
+        :param 'StageExternalAzureFileFormatParquetArgs' parquet: Parquet file format options.
+        :param 'StageExternalAzureFileFormatXmlArgs' xml: XML file format options.
+        """
+        if avro is not None:
+            pulumi.set(__self__, "avro", avro)
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if orc is not None:
+            pulumi.set(__self__, "orc", orc)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+        if xml is not None:
+            pulumi.set(__self__, "xml", xml)
+
+    @_builtins.property
+    @pulumi.getter
+    def avro(self) -> Optional['outputs.StageExternalAzureFileFormatAvro']:
+        """
+        AVRO file format options.
+        """
+        return pulumi.get(self, "avro")
+
+    @_builtins.property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.StageExternalAzureFileFormatCsv']:
+        """
+        CSV file format options.
+        """
+        return pulumi.get(self, "csv")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        """
+        Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        """
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.StageExternalAzureFileFormatJson']:
+        """
+        JSON file format options.
+        """
+        return pulumi.get(self, "json")
+
+    @_builtins.property
+    @pulumi.getter
+    def orc(self) -> Optional['outputs.StageExternalAzureFileFormatOrc']:
+        """
+        ORC file format options.
+        """
+        return pulumi.get(self, "orc")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquet(self) -> Optional['outputs.StageExternalAzureFileFormatParquet']:
+        """
+        Parquet file format options.
+        """
+        return pulumi.get(self, "parquet")
+
+    @_builtins.property
+    @pulumi.getter
+    def xml(self) -> Optional['outputs.StageExternalAzureFileFormatXml']:
+        """
+        XML file format options.
+        """
+        return pulumi.get(self, "xml")
+
+
+@pulumi.output_type
+class StageExternalAzureFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalAzureFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.str] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.str] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.str] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_blank_lines: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param _builtins.str error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str field_delimiter: One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str field_optionally_enclosed_by: Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str parse_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str record_delimiter: One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_blank_lines: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.int skip_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        """
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        """
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        """
+        Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        """
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        """
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalAzureFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.str] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_null_values: Optional[_builtins.str] = None,
+                 strip_outer_array: Optional[_builtins.str] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str allow_duplicate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str enable_octal: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_null_values: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_array: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalAzureFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalAzureFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.str] = None,
+                 use_vectorized_scanner: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_as_text: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_logical_type: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_vectorized_scanner: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageExternalAzureFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 preserve_space: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_outer_element: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str disable_auto_convert: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str preserve_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_element: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_element")
+
+
+@pulumi.output_type
+class StageExternalAzureShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "directoryEnabled":
+            suggest = "directory_enabled"
+        elif key == "hasCredentials":
+            suggest = "has_credentials"
+        elif key == "hasEncryptionKey":
+            suggest = "has_encryption_key"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "storageIntegration":
+            suggest = "storage_integration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalAzureShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalAzureShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalAzureShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 directory_enabled: Optional[_builtins.bool] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 has_credentials: Optional[_builtins.bool] = None,
+                 has_encryption_key: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 storage_integration: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None):
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if directory_enabled is not None:
+            pulumi.set(__self__, "directory_enabled", directory_enabled)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if has_credentials is not None:
+            pulumi.set(__self__, "has_credentials", has_credentials)
+        if has_encryption_key is not None:
+            pulumi.set(__self__, "has_encryption_key", has_encryption_key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if storage_integration is not None:
+            pulumi.set(__self__, "storage_integration", storage_integration)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryEnabled")
+    def directory_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "directory_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="hasCredentials")
+    def has_credentials(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="hasEncryptionKey")
+    def has_encryption_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_encryption_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_integration")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryTables":
+            suggest = "directory_tables"
+        elif key == "fileFormats":
+            suggest = "file_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_tables: Optional[Sequence['outputs.StageExternalGcsDescribeOutputDirectoryTable']] = None,
+                 file_formats: Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormat']] = None):
+        if directory_tables is not None:
+            pulumi.set(__self__, "directory_tables", directory_tables)
+        if file_formats is not None:
+            pulumi.set(__self__, "file_formats", file_formats)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryTables")
+    def directory_tables(self) -> Optional[Sequence['outputs.StageExternalGcsDescribeOutputDirectoryTable']]:
+        return pulumi.get(self, "directory_tables")
+
+    @_builtins.property
+    @pulumi.getter(name="fileFormats")
+    def file_formats(self) -> Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormat']]:
+        return pulumi.get(self, "file_formats")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutputDirectoryTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutputDirectoryTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutputDirectoryTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutputDirectoryTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh: Optional[_builtins.bool] = None,
+                 enable: Optional[_builtins.bool] = None):
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutputFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutputFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutputFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutputFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avros: Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatAvro']] = None,
+                 csvs: Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatCsv']] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 jsons: Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatJson']] = None,
+                 orcs: Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatOrc']] = None,
+                 parquets: Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatParquet']] = None,
+                 xmls: Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatXml']] = None):
+        if avros is not None:
+            pulumi.set(__self__, "avros", avros)
+        if csvs is not None:
+            pulumi.set(__self__, "csvs", csvs)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if orcs is not None:
+            pulumi.set(__self__, "orcs", orcs)
+        if parquets is not None:
+            pulumi.set(__self__, "parquets", parquets)
+        if xmls is not None:
+            pulumi.set(__self__, "xmls", xmls)
+
+    @_builtins.property
+    @pulumi.getter
+    def avros(self) -> Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatAvro']]:
+        return pulumi.get(self, "avros")
+
+    @_builtins.property
+    @pulumi.getter
+    def csvs(self) -> Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatCsv']]:
+        return pulumi.get(self, "csvs")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def jsons(self) -> Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatJson']]:
+        return pulumi.get(self, "jsons")
+
+    @_builtins.property
+    @pulumi.getter
+    def orcs(self) -> Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatOrc']]:
+        return pulumi.get(self, "orcs")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquets(self) -> Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatParquet']]:
+        return pulumi.get(self, "parquets")
+
+    @_builtins.property
+    @pulumi.getter
+    def xmls(self) -> Optional[Sequence['outputs.StageExternalGcsDescribeOutputFileFormatXml']]:
+        return pulumi.get(self, "xmls")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutputFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutputFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutputFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutputFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutputFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "validateUtf8":
+            suggest = "validate_utf8"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutputFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutputFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutputFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.bool] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.bool] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.bool] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_blank_lines: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 validate_utf8: Optional[_builtins.bool] = None):
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if validate_utf8 is not None:
+            pulumi.set(__self__, "validate_utf8", validate_utf8)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="validateUtf8")
+    def validate_utf8(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "validate_utf8")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutputFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutputFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutputFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutputFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.bool] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.bool] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_null_values: Optional[_builtins.bool] = None,
+                 strip_outer_array: Optional[_builtins.bool] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutputFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutputFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutputFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutputFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutputFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutputFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutputFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutputFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.bool] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.bool] = None,
+                 use_vectorized_scanner: Optional[_builtins.bool] = None):
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageExternalGcsDescribeOutputFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDescribeOutputFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDescribeOutputFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDescribeOutputFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.bool] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 preserve_space: Optional[_builtins.bool] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_outer_element: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_element")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalGcsDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+        elif key == "notificationIntegration":
+            suggest = "notification_integration"
+        elif key == "refreshOnCreate":
+            suggest = "refresh_on_create"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable: _builtins.bool,
+                 auto_refresh: Optional[_builtins.str] = None,
+                 notification_integration: Optional[_builtins.str] = None,
+                 refresh_on_create: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enable: Specifies whether to enable a directory table on the external stage.
+        :param _builtins.str auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        :param _builtins.str notification_integration: Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param _builtins.str refresh_on_create: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+        """
+        pulumi.set(__self__, "enable", enable)
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if notification_integration is not None:
+            pulumi.set(__self__, "notification_integration", notification_integration)
+        if refresh_on_create is not None:
+            pulumi.set(__self__, "refresh_on_create", refresh_on_create)
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> _builtins.bool:
+        """
+        Specifies whether to enable a directory table on the external stage.
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        """
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationIntegration")
+    def notification_integration(self) -> Optional[_builtins.str]:
+        """
+        Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        """
+        return pulumi.get(self, "notification_integration")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshOnCreate")
+    def refresh_on_create(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+        """
+        return pulumi.get(self, "refresh_on_create")
+
+
+@pulumi.output_type
+class StageExternalGcsEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gcsSseKms":
+            suggest = "gcs_sse_kms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gcs_sse_kms: Optional['outputs.StageExternalGcsEncryptionGcsSseKms'] = None,
+                 none: Optional['outputs.StageExternalGcsEncryptionNone'] = None):
+        """
+        :param 'StageExternalGcsEncryptionGcsSseKmsArgs' gcs_sse_kms: GCS server-side encryption using a KMS key.
+        :param 'StageExternalGcsEncryptionNoneArgs' none: No encryption.
+        """
+        if gcs_sse_kms is not None:
+            pulumi.set(__self__, "gcs_sse_kms", gcs_sse_kms)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+
+    @_builtins.property
+    @pulumi.getter(name="gcsSseKms")
+    def gcs_sse_kms(self) -> Optional['outputs.StageExternalGcsEncryptionGcsSseKms']:
+        """
+        GCS server-side encryption using a KMS key.
+        """
+        return pulumi.get(self, "gcs_sse_kms")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional['outputs.StageExternalGcsEncryptionNone']:
+        """
+        No encryption.
+        """
+        return pulumi.get(self, "none")
+
+
+@pulumi.output_type
+class StageExternalGcsEncryptionGcsSseKms(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsEncryptionGcsSseKms. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsEncryptionGcsSseKms.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsEncryptionGcsSseKms.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str kms_key_id: Specifies the KMS-managed key ID.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        Specifies the KMS-managed key ID.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class StageExternalGcsEncryptionNone(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class StageExternalGcsFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avro: Optional['outputs.StageExternalGcsFileFormatAvro'] = None,
+                 csv: Optional['outputs.StageExternalGcsFileFormatCsv'] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 json: Optional['outputs.StageExternalGcsFileFormatJson'] = None,
+                 orc: Optional['outputs.StageExternalGcsFileFormatOrc'] = None,
+                 parquet: Optional['outputs.StageExternalGcsFileFormatParquet'] = None,
+                 xml: Optional['outputs.StageExternalGcsFileFormatXml'] = None):
+        """
+        :param 'StageExternalGcsFileFormatAvroArgs' avro: AVRO file format options.
+        :param 'StageExternalGcsFileFormatCsvArgs' csv: CSV file format options.
+        :param _builtins.str format_name: Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        :param 'StageExternalGcsFileFormatJsonArgs' json: JSON file format options.
+        :param 'StageExternalGcsFileFormatOrcArgs' orc: ORC file format options.
+        :param 'StageExternalGcsFileFormatParquetArgs' parquet: Parquet file format options.
+        :param 'StageExternalGcsFileFormatXmlArgs' xml: XML file format options.
+        """
+        if avro is not None:
+            pulumi.set(__self__, "avro", avro)
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if orc is not None:
+            pulumi.set(__self__, "orc", orc)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+        if xml is not None:
+            pulumi.set(__self__, "xml", xml)
+
+    @_builtins.property
+    @pulumi.getter
+    def avro(self) -> Optional['outputs.StageExternalGcsFileFormatAvro']:
+        """
+        AVRO file format options.
+        """
+        return pulumi.get(self, "avro")
+
+    @_builtins.property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.StageExternalGcsFileFormatCsv']:
+        """
+        CSV file format options.
+        """
+        return pulumi.get(self, "csv")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        """
+        Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        """
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.StageExternalGcsFileFormatJson']:
+        """
+        JSON file format options.
+        """
+        return pulumi.get(self, "json")
+
+    @_builtins.property
+    @pulumi.getter
+    def orc(self) -> Optional['outputs.StageExternalGcsFileFormatOrc']:
+        """
+        ORC file format options.
+        """
+        return pulumi.get(self, "orc")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquet(self) -> Optional['outputs.StageExternalGcsFileFormatParquet']:
+        """
+        Parquet file format options.
+        """
+        return pulumi.get(self, "parquet")
+
+    @_builtins.property
+    @pulumi.getter
+    def xml(self) -> Optional['outputs.StageExternalGcsFileFormatXml']:
+        """
+        XML file format options.
+        """
+        return pulumi.get(self, "xml")
+
+
+@pulumi.output_type
+class StageExternalGcsFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalGcsFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.str] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.str] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.str] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_blank_lines: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param _builtins.str error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str field_delimiter: One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str field_optionally_enclosed_by: Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str parse_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str record_delimiter: One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_blank_lines: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.int skip_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        """
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        """
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        """
+        Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        """
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        """
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalGcsFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.str] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_null_values: Optional[_builtins.str] = None,
+                 strip_outer_array: Optional[_builtins.str] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str allow_duplicate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str enable_octal: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_null_values: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_array: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalGcsFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalGcsFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.str] = None,
+                 use_vectorized_scanner: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_as_text: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_logical_type: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_vectorized_scanner: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageExternalGcsFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 preserve_space: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_outer_element: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str disable_auto_convert: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str preserve_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_element: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_element")
+
+
+@pulumi.output_type
+class StageExternalGcsShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "directoryEnabled":
+            suggest = "directory_enabled"
+        elif key == "hasCredentials":
+            suggest = "has_credentials"
+        elif key == "hasEncryptionKey":
+            suggest = "has_encryption_key"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "storageIntegration":
+            suggest = "storage_integration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalGcsShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalGcsShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalGcsShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 directory_enabled: Optional[_builtins.bool] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 has_credentials: Optional[_builtins.bool] = None,
+                 has_encryption_key: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 storage_integration: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None):
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if directory_enabled is not None:
+            pulumi.set(__self__, "directory_enabled", directory_enabled)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if has_credentials is not None:
+            pulumi.set(__self__, "has_credentials", has_credentials)
+        if has_encryption_key is not None:
+            pulumi.set(__self__, "has_encryption_key", has_encryption_key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if storage_integration is not None:
+            pulumi.set(__self__, "storage_integration", storage_integration)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryEnabled")
+    def directory_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "directory_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="hasCredentials")
+    def has_credentials(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="hasEncryptionKey")
+    def has_encryption_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_encryption_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_integration")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsKeyId":
+            suggest = "aws_key_id"
+        elif key == "awsSecretKey":
+            suggest = "aws_secret_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_key_id: _builtins.str,
+                 aws_secret_key: _builtins.str):
+        """
+        :param _builtins.str aws_key_id: Specifies the AWS access key ID.
+        :param _builtins.str aws_secret_key: Specifies the AWS secret access key.
+        """
+        pulumi.set(__self__, "aws_key_id", aws_key_id)
+        pulumi.set(__self__, "aws_secret_key", aws_secret_key)
+
+    @_builtins.property
+    @pulumi.getter(name="awsKeyId")
+    def aws_key_id(self) -> _builtins.str:
+        """
+        Specifies the AWS access key ID.
+        """
+        return pulumi.get(self, "aws_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSecretKey")
+    def aws_secret_key(self) -> _builtins.str:
+        """
+        Specifies the AWS secret access key.
+        """
+        return pulumi.get(self, "aws_secret_key")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryTables":
+            suggest = "directory_tables"
+        elif key == "fileFormats":
+            suggest = "file_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_tables: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputDirectoryTable']] = None,
+                 file_formats: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormat']] = None,
+                 locations: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputLocation']] = None):
+        if directory_tables is not None:
+            pulumi.set(__self__, "directory_tables", directory_tables)
+        if file_formats is not None:
+            pulumi.set(__self__, "file_formats", file_formats)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryTables")
+    def directory_tables(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputDirectoryTable']]:
+        return pulumi.get(self, "directory_tables")
+
+    @_builtins.property
+    @pulumi.getter(name="fileFormats")
+    def file_formats(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormat']]:
+        return pulumi.get(self, "file_formats")
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputLocation']]:
+        return pulumi.get(self, "locations")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputDirectoryTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutputDirectoryTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutputDirectoryTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutputDirectoryTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh: Optional[_builtins.bool] = None,
+                 enable: Optional[_builtins.bool] = None):
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutputFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avros: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatAvro']] = None,
+                 csvs: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatCsv']] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 jsons: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatJson']] = None,
+                 orcs: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatOrc']] = None,
+                 parquets: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatParquet']] = None,
+                 xmls: Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatXml']] = None):
+        if avros is not None:
+            pulumi.set(__self__, "avros", avros)
+        if csvs is not None:
+            pulumi.set(__self__, "csvs", csvs)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if orcs is not None:
+            pulumi.set(__self__, "orcs", orcs)
+        if parquets is not None:
+            pulumi.set(__self__, "parquets", parquets)
+        if xmls is not None:
+            pulumi.set(__self__, "xmls", xmls)
+
+    @_builtins.property
+    @pulumi.getter
+    def avros(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatAvro']]:
+        return pulumi.get(self, "avros")
+
+    @_builtins.property
+    @pulumi.getter
+    def csvs(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatCsv']]:
+        return pulumi.get(self, "csvs")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def jsons(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatJson']]:
+        return pulumi.get(self, "jsons")
+
+    @_builtins.property
+    @pulumi.getter
+    def orcs(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatOrc']]:
+        return pulumi.get(self, "orcs")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquets(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatParquet']]:
+        return pulumi.get(self, "parquets")
+
+    @_builtins.property
+    @pulumi.getter
+    def xmls(self) -> Optional[Sequence['outputs.StageExternalS3CompatibleDescribeOutputFileFormatXml']]:
+        return pulumi.get(self, "xmls")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutputFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "validateUtf8":
+            suggest = "validate_utf8"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutputFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.bool] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.bool] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.bool] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_blank_lines: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 validate_utf8: Optional[_builtins.bool] = None):
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if validate_utf8 is not None:
+            pulumi.set(__self__, "validate_utf8", validate_utf8)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="validateUtf8")
+    def validate_utf8(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "validate_utf8")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutputFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.bool] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.bool] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_null_values: Optional[_builtins.bool] = None,
+                 strip_outer_array: Optional[_builtins.bool] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutputFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutputFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.bool] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.bool] = None,
+                 use_vectorized_scanner: Optional[_builtins.bool] = None):
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDescribeOutputFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDescribeOutputFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.bool] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 preserve_space: Optional[_builtins.bool] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_outer_element: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_element")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDescribeOutputLocation(dict):
+    def __init__(__self__, *,
+                 urls: Optional[Sequence[_builtins.str]] = None):
+        if urls is not None:
+            pulumi.set(__self__, "urls", urls)
+
+    @_builtins.property
+    @pulumi.getter
+    def urls(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "urls")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+        elif key == "refreshOnCreate":
+            suggest = "refresh_on_create"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable: _builtins.bool,
+                 auto_refresh: Optional[_builtins.str] = None,
+                 refresh_on_create: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enable: Specifies whether to enable a directory table on the external stage.
+        :param _builtins.str auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        :param _builtins.str refresh_on_create: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+        """
+        pulumi.set(__self__, "enable", enable)
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if refresh_on_create is not None:
+            pulumi.set(__self__, "refresh_on_create", refresh_on_create)
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> _builtins.bool:
+        """
+        Specifies whether to enable a directory table on the external stage.
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        """
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshOnCreate")
+    def refresh_on_create(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+        """
+        return pulumi.get(self, "refresh_on_create")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avro: Optional['outputs.StageExternalS3CompatibleFileFormatAvro'] = None,
+                 csv: Optional['outputs.StageExternalS3CompatibleFileFormatCsv'] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 json: Optional['outputs.StageExternalS3CompatibleFileFormatJson'] = None,
+                 orc: Optional['outputs.StageExternalS3CompatibleFileFormatOrc'] = None,
+                 parquet: Optional['outputs.StageExternalS3CompatibleFileFormatParquet'] = None,
+                 xml: Optional['outputs.StageExternalS3CompatibleFileFormatXml'] = None):
+        """
+        :param 'StageExternalS3CompatibleFileFormatAvroArgs' avro: AVRO file format options.
+        :param 'StageExternalS3CompatibleFileFormatCsvArgs' csv: CSV file format options.
+        :param _builtins.str format_name: Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        :param 'StageExternalS3CompatibleFileFormatJsonArgs' json: JSON file format options.
+        :param 'StageExternalS3CompatibleFileFormatOrcArgs' orc: ORC file format options.
+        :param 'StageExternalS3CompatibleFileFormatParquetArgs' parquet: Parquet file format options.
+        :param 'StageExternalS3CompatibleFileFormatXmlArgs' xml: XML file format options.
+        """
+        if avro is not None:
+            pulumi.set(__self__, "avro", avro)
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if orc is not None:
+            pulumi.set(__self__, "orc", orc)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+        if xml is not None:
+            pulumi.set(__self__, "xml", xml)
+
+    @_builtins.property
+    @pulumi.getter
+    def avro(self) -> Optional['outputs.StageExternalS3CompatibleFileFormatAvro']:
+        """
+        AVRO file format options.
+        """
+        return pulumi.get(self, "avro")
+
+    @_builtins.property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.StageExternalS3CompatibleFileFormatCsv']:
+        """
+        CSV file format options.
+        """
+        return pulumi.get(self, "csv")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        """
+        Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        """
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.StageExternalS3CompatibleFileFormatJson']:
+        """
+        JSON file format options.
+        """
+        return pulumi.get(self, "json")
+
+    @_builtins.property
+    @pulumi.getter
+    def orc(self) -> Optional['outputs.StageExternalS3CompatibleFileFormatOrc']:
+        """
+        ORC file format options.
+        """
+        return pulumi.get(self, "orc")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquet(self) -> Optional['outputs.StageExternalS3CompatibleFileFormatParquet']:
+        """
+        Parquet file format options.
+        """
+        return pulumi.get(self, "parquet")
+
+    @_builtins.property
+    @pulumi.getter
+    def xml(self) -> Optional['outputs.StageExternalS3CompatibleFileFormatXml']:
+        """
+        XML file format options.
+        """
+        return pulumi.get(self, "xml")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.str] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.str] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.str] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_blank_lines: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param _builtins.str error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str field_delimiter: One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str field_optionally_enclosed_by: Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str parse_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str record_delimiter: One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_blank_lines: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.int skip_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        """
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        """
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        """
+        Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        """
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        """
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.str] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_null_values: Optional[_builtins.str] = None,
+                 strip_outer_array: Optional[_builtins.str] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str allow_duplicate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str enable_octal: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_null_values: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_array: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.str] = None,
+                 use_vectorized_scanner: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_as_text: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_logical_type: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_vectorized_scanner: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 preserve_space: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_outer_element: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str disable_auto_convert: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str preserve_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_element: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_element")
+
+
+@pulumi.output_type
+class StageExternalS3CompatibleShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "directoryEnabled":
+            suggest = "directory_enabled"
+        elif key == "hasCredentials":
+            suggest = "has_credentials"
+        elif key == "hasEncryptionKey":
+            suggest = "has_encryption_key"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "storageIntegration":
+            suggest = "storage_integration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3CompatibleShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3CompatibleShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3CompatibleShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 directory_enabled: Optional[_builtins.bool] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 has_credentials: Optional[_builtins.bool] = None,
+                 has_encryption_key: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 storage_integration: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None):
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if directory_enabled is not None:
+            pulumi.set(__self__, "directory_enabled", directory_enabled)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if has_credentials is not None:
+            pulumi.set(__self__, "has_credentials", has_credentials)
+        if has_encryption_key is not None:
+            pulumi.set(__self__, "has_encryption_key", has_encryption_key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if storage_integration is not None:
+            pulumi.set(__self__, "storage_integration", storage_integration)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryEnabled")
+    def directory_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "directory_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="hasCredentials")
+    def has_credentials(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="hasEncryptionKey")
+    def has_encryption_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_encryption_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_integration")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class StageExternalS3Credentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsKeyId":
+            suggest = "aws_key_id"
+        elif key == "awsRole":
+            suggest = "aws_role"
+        elif key == "awsSecretKey":
+            suggest = "aws_secret_key"
+        elif key == "awsToken":
+            suggest = "aws_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3Credentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3Credentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3Credentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_key_id: Optional[_builtins.str] = None,
+                 aws_role: Optional[_builtins.str] = None,
+                 aws_secret_key: Optional[_builtins.str] = None,
+                 aws_token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str aws_key_id: Specifies the AWS access key ID.
+        :param _builtins.str aws_role: Specifies the AWS IAM role ARN to use for accessing the bucket.
+        :param _builtins.str aws_secret_key: Specifies the AWS secret access key.
+        :param _builtins.str aws_token: Specifies the AWS session token for temporary credentials.
+        """
+        if aws_key_id is not None:
+            pulumi.set(__self__, "aws_key_id", aws_key_id)
+        if aws_role is not None:
+            pulumi.set(__self__, "aws_role", aws_role)
+        if aws_secret_key is not None:
+            pulumi.set(__self__, "aws_secret_key", aws_secret_key)
+        if aws_token is not None:
+            pulumi.set(__self__, "aws_token", aws_token)
+
+    @_builtins.property
+    @pulumi.getter(name="awsKeyId")
+    def aws_key_id(self) -> Optional[_builtins.str]:
+        """
+        Specifies the AWS access key ID.
+        """
+        return pulumi.get(self, "aws_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="awsRole")
+    def aws_role(self) -> Optional[_builtins.str]:
+        """
+        Specifies the AWS IAM role ARN to use for accessing the bucket.
+        """
+        return pulumi.get(self, "aws_role")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSecretKey")
+    def aws_secret_key(self) -> Optional[_builtins.str]:
+        """
+        Specifies the AWS secret access key.
+        """
+        return pulumi.get(self, "aws_secret_key")
+
+    @_builtins.property
+    @pulumi.getter(name="awsToken")
+    def aws_token(self) -> Optional[_builtins.str]:
+        """
+        Specifies the AWS session token for temporary credentials.
+        """
+        return pulumi.get(self, "aws_token")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryTables":
+            suggest = "directory_tables"
+        elif key == "fileFormats":
+            suggest = "file_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_tables: Optional[Sequence['outputs.StageExternalS3DescribeOutputDirectoryTable']] = None,
+                 file_formats: Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormat']] = None,
+                 locations: Optional[Sequence['outputs.StageExternalS3DescribeOutputLocation']] = None,
+                 privatelinks: Optional[Sequence['outputs.StageExternalS3DescribeOutputPrivatelink']] = None):
+        if directory_tables is not None:
+            pulumi.set(__self__, "directory_tables", directory_tables)
+        if file_formats is not None:
+            pulumi.set(__self__, "file_formats", file_formats)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if privatelinks is not None:
+            pulumi.set(__self__, "privatelinks", privatelinks)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryTables")
+    def directory_tables(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputDirectoryTable']]:
+        return pulumi.get(self, "directory_tables")
+
+    @_builtins.property
+    @pulumi.getter(name="fileFormats")
+    def file_formats(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormat']]:
+        return pulumi.get(self, "file_formats")
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputLocation']]:
+        return pulumi.get(self, "locations")
+
+    @_builtins.property
+    @pulumi.getter
+    def privatelinks(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputPrivatelink']]:
+        return pulumi.get(self, "privatelinks")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputDirectoryTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputDirectoryTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputDirectoryTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputDirectoryTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh: Optional[_builtins.bool] = None,
+                 enable: Optional[_builtins.bool] = None):
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avros: Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatAvro']] = None,
+                 csvs: Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatCsv']] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 jsons: Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatJson']] = None,
+                 orcs: Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatOrc']] = None,
+                 parquets: Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatParquet']] = None,
+                 xmls: Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatXml']] = None):
+        if avros is not None:
+            pulumi.set(__self__, "avros", avros)
+        if csvs is not None:
+            pulumi.set(__self__, "csvs", csvs)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if orcs is not None:
+            pulumi.set(__self__, "orcs", orcs)
+        if parquets is not None:
+            pulumi.set(__self__, "parquets", parquets)
+        if xmls is not None:
+            pulumi.set(__self__, "xmls", xmls)
+
+    @_builtins.property
+    @pulumi.getter
+    def avros(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatAvro']]:
+        return pulumi.get(self, "avros")
+
+    @_builtins.property
+    @pulumi.getter
+    def csvs(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatCsv']]:
+        return pulumi.get(self, "csvs")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def jsons(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatJson']]:
+        return pulumi.get(self, "jsons")
+
+    @_builtins.property
+    @pulumi.getter
+    def orcs(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatOrc']]:
+        return pulumi.get(self, "orcs")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquets(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatParquet']]:
+        return pulumi.get(self, "parquets")
+
+    @_builtins.property
+    @pulumi.getter
+    def xmls(self) -> Optional[Sequence['outputs.StageExternalS3DescribeOutputFileFormatXml']]:
+        return pulumi.get(self, "xmls")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "validateUtf8":
+            suggest = "validate_utf8"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.bool] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.bool] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.bool] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_blank_lines: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 validate_utf8: Optional[_builtins.bool] = None):
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if validate_utf8 is not None:
+            pulumi.set(__self__, "validate_utf8", validate_utf8)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="validateUtf8")
+    def validate_utf8(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "validate_utf8")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.bool] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.bool] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_null_values: Optional[_builtins.bool] = None,
+                 strip_outer_array: Optional[_builtins.bool] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.bool] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.bool] = None,
+                 use_vectorized_scanner: Optional[_builtins.bool] = None):
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.bool] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 preserve_space: Optional[_builtins.bool] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_outer_element: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_element")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsAccessPointArn":
+            suggest = "aws_access_point_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_access_point_arn: Optional[_builtins.str] = None,
+                 urls: Optional[Sequence[_builtins.str]] = None):
+        if aws_access_point_arn is not None:
+            pulumi.set(__self__, "aws_access_point_arn", aws_access_point_arn)
+        if urls is not None:
+            pulumi.set(__self__, "urls", urls)
+
+    @_builtins.property
+    @pulumi.getter(name="awsAccessPointArn")
+    def aws_access_point_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "aws_access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def urls(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "urls")
+
+
+@pulumi.output_type
+class StageExternalS3DescribeOutputPrivatelink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usePrivatelinkEndpoint":
+            suggest = "use_privatelink_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3DescribeOutputPrivatelink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3DescribeOutputPrivatelink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3DescribeOutputPrivatelink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_privatelink_endpoint: Optional[_builtins.bool] = None):
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+
+@pulumi.output_type
+class StageExternalS3Directory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+        elif key == "refreshOnCreate":
+            suggest = "refresh_on_create"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3Directory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3Directory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3Directory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable: _builtins.bool,
+                 auto_refresh: Optional[_builtins.str] = None,
+                 refresh_on_create: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enable: Specifies whether to enable a directory table on the external stage.
+        :param _builtins.str auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        :param _builtins.str refresh_on_create: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+        """
+        pulumi.set(__self__, "enable", enable)
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if refresh_on_create is not None:
+            pulumi.set(__self__, "refresh_on_create", refresh_on_create)
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> _builtins.bool:
+        """
+        Specifies whether to enable a directory table on the external stage.
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        """
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshOnCreate")
+    def refresh_on_create(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+        """
+        return pulumi.get(self, "refresh_on_create")
+
+
+@pulumi.output_type
+class StageExternalS3Encryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsCse":
+            suggest = "aws_cse"
+        elif key == "awsSseKms":
+            suggest = "aws_sse_kms"
+        elif key == "awsSseS3":
+            suggest = "aws_sse_s3"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3Encryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3Encryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3Encryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_cse: Optional['outputs.StageExternalS3EncryptionAwsCse'] = None,
+                 aws_sse_kms: Optional['outputs.StageExternalS3EncryptionAwsSseKms'] = None,
+                 aws_sse_s3: Optional['outputs.StageExternalS3EncryptionAwsSseS3'] = None,
+                 none: Optional['outputs.StageExternalS3EncryptionNone'] = None):
+        """
+        :param 'StageExternalS3EncryptionAwsCseArgs' aws_cse: AWS client-side encryption using a master key.
+        :param 'StageExternalS3EncryptionAwsSseKmsArgs' aws_sse_kms: AWS server-side encryption using KMS-managed keys.
+        :param 'StageExternalS3EncryptionAwsSseS3Args' aws_sse_s3: AWS server-side encryption using S3-managed keys.
+        :param 'StageExternalS3EncryptionNoneArgs' none: No encryption.
+        """
+        if aws_cse is not None:
+            pulumi.set(__self__, "aws_cse", aws_cse)
+        if aws_sse_kms is not None:
+            pulumi.set(__self__, "aws_sse_kms", aws_sse_kms)
+        if aws_sse_s3 is not None:
+            pulumi.set(__self__, "aws_sse_s3", aws_sse_s3)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+
+    @_builtins.property
+    @pulumi.getter(name="awsCse")
+    def aws_cse(self) -> Optional['outputs.StageExternalS3EncryptionAwsCse']:
+        """
+        AWS client-side encryption using a master key.
+        """
+        return pulumi.get(self, "aws_cse")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSseKms")
+    def aws_sse_kms(self) -> Optional['outputs.StageExternalS3EncryptionAwsSseKms']:
+        """
+        AWS server-side encryption using KMS-managed keys.
+        """
+        return pulumi.get(self, "aws_sse_kms")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSseS3")
+    def aws_sse_s3(self) -> Optional['outputs.StageExternalS3EncryptionAwsSseS3']:
+        """
+        AWS server-side encryption using S3-managed keys.
+        """
+        return pulumi.get(self, "aws_sse_s3")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional['outputs.StageExternalS3EncryptionNone']:
+        """
+        No encryption.
+        """
+        return pulumi.get(self, "none")
+
+
+@pulumi.output_type
+class StageExternalS3EncryptionAwsCse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "masterKey":
+            suggest = "master_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3EncryptionAwsCse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3EncryptionAwsCse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3EncryptionAwsCse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 master_key: _builtins.str):
+        """
+        :param _builtins.str master_key: Specifies the 128-bit or 256-bit client-side master key.
+        """
+        pulumi.set(__self__, "master_key", master_key)
+
+    @_builtins.property
+    @pulumi.getter(name="masterKey")
+    def master_key(self) -> _builtins.str:
+        """
+        Specifies the 128-bit or 256-bit client-side master key.
+        """
+        return pulumi.get(self, "master_key")
+
+
+@pulumi.output_type
+class StageExternalS3EncryptionAwsSseKms(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3EncryptionAwsSseKms. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3EncryptionAwsSseKms.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3EncryptionAwsSseKms.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str kms_key_id: Specifies the KMS-managed key ID.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        Specifies the KMS-managed key ID.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class StageExternalS3EncryptionAwsSseS3(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class StageExternalS3EncryptionNone(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class StageExternalS3FileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3FileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3FileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3FileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avro: Optional['outputs.StageExternalS3FileFormatAvro'] = None,
+                 csv: Optional['outputs.StageExternalS3FileFormatCsv'] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 json: Optional['outputs.StageExternalS3FileFormatJson'] = None,
+                 orc: Optional['outputs.StageExternalS3FileFormatOrc'] = None,
+                 parquet: Optional['outputs.StageExternalS3FileFormatParquet'] = None,
+                 xml: Optional['outputs.StageExternalS3FileFormatXml'] = None):
+        """
+        :param 'StageExternalS3FileFormatAvroArgs' avro: AVRO file format options.
+        :param 'StageExternalS3FileFormatCsvArgs' csv: CSV file format options.
+        :param _builtins.str format_name: Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        :param 'StageExternalS3FileFormatJsonArgs' json: JSON file format options.
+        :param 'StageExternalS3FileFormatOrcArgs' orc: ORC file format options.
+        :param 'StageExternalS3FileFormatParquetArgs' parquet: Parquet file format options.
+        :param 'StageExternalS3FileFormatXmlArgs' xml: XML file format options.
+        """
+        if avro is not None:
+            pulumi.set(__self__, "avro", avro)
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if orc is not None:
+            pulumi.set(__self__, "orc", orc)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+        if xml is not None:
+            pulumi.set(__self__, "xml", xml)
+
+    @_builtins.property
+    @pulumi.getter
+    def avro(self) -> Optional['outputs.StageExternalS3FileFormatAvro']:
+        """
+        AVRO file format options.
+        """
+        return pulumi.get(self, "avro")
+
+    @_builtins.property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.StageExternalS3FileFormatCsv']:
+        """
+        CSV file format options.
+        """
+        return pulumi.get(self, "csv")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        """
+        Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        """
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.StageExternalS3FileFormatJson']:
+        """
+        JSON file format options.
+        """
+        return pulumi.get(self, "json")
+
+    @_builtins.property
+    @pulumi.getter
+    def orc(self) -> Optional['outputs.StageExternalS3FileFormatOrc']:
+        """
+        ORC file format options.
+        """
+        return pulumi.get(self, "orc")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquet(self) -> Optional['outputs.StageExternalS3FileFormatParquet']:
+        """
+        Parquet file format options.
+        """
+        return pulumi.get(self, "parquet")
+
+    @_builtins.property
+    @pulumi.getter
+    def xml(self) -> Optional['outputs.StageExternalS3FileFormatXml']:
+        """
+        XML file format options.
+        """
+        return pulumi.get(self, "xml")
+
+
+@pulumi.output_type
+class StageExternalS3FileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3FileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3FileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3FileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalS3FileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3FileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3FileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3FileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.str] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.str] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.str] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_blank_lines: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param _builtins.str error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str field_delimiter: One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str field_optionally_enclosed_by: Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str parse_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str record_delimiter: One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_blank_lines: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.int skip_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        """
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        """
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        """
+        Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        """
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        """
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalS3FileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3FileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3FileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3FileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.str] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_null_values: Optional[_builtins.str] = None,
+                 strip_outer_array: Optional[_builtins.str] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str allow_duplicate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str enable_octal: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_null_values: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_array: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalS3FileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3FileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3FileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3FileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageExternalS3FileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3FileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3FileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3FileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.str] = None,
+                 use_vectorized_scanner: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_as_text: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_logical_type: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_vectorized_scanner: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageExternalS3FileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3FileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3FileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3FileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 preserve_space: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_outer_element: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str disable_auto_convert: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str preserve_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_element: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_element")
+
+
+@pulumi.output_type
+class StageExternalS3ShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "directoryEnabled":
+            suggest = "directory_enabled"
+        elif key == "hasCredentials":
+            suggest = "has_credentials"
+        elif key == "hasEncryptionKey":
+            suggest = "has_encryption_key"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "storageIntegration":
+            suggest = "storage_integration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageExternalS3ShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageExternalS3ShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageExternalS3ShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 directory_enabled: Optional[_builtins.bool] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 has_credentials: Optional[_builtins.bool] = None,
+                 has_encryption_key: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 storage_integration: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None):
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if directory_enabled is not None:
+            pulumi.set(__self__, "directory_enabled", directory_enabled)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if has_credentials is not None:
+            pulumi.set(__self__, "has_credentials", has_credentials)
+        if has_encryption_key is not None:
+            pulumi.set(__self__, "has_encryption_key", has_encryption_key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if storage_integration is not None:
+            pulumi.set(__self__, "storage_integration", storage_integration)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryEnabled")
+    def directory_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "directory_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="hasCredentials")
+    def has_credentials(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="hasEncryptionKey")
+    def has_encryption_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_encryption_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_integration")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryTables":
+            suggest = "directory_tables"
+        elif key == "fileFormats":
+            suggest = "file_formats"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_tables: Optional[Sequence['outputs.StageInternalDescribeOutputDirectoryTable']] = None,
+                 file_formats: Optional[Sequence['outputs.StageInternalDescribeOutputFileFormat']] = None):
+        if directory_tables is not None:
+            pulumi.set(__self__, "directory_tables", directory_tables)
+        if file_formats is not None:
+            pulumi.set(__self__, "file_formats", file_formats)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryTables")
+    def directory_tables(self) -> Optional[Sequence['outputs.StageInternalDescribeOutputDirectoryTable']]:
+        return pulumi.get(self, "directory_tables")
+
+    @_builtins.property
+    @pulumi.getter(name="fileFormats")
+    def file_formats(self) -> Optional[Sequence['outputs.StageInternalDescribeOutputFileFormat']]:
+        return pulumi.get(self, "file_formats")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutputDirectoryTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutputDirectoryTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutputDirectoryTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutputDirectoryTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh: Optional[_builtins.bool] = None,
+                 enable: Optional[_builtins.bool] = None):
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutputFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutputFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutputFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutputFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avros: Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatAvro']] = None,
+                 csvs: Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatCsv']] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 jsons: Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatJson']] = None,
+                 orcs: Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatOrc']] = None,
+                 parquets: Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatParquet']] = None,
+                 xmls: Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatXml']] = None):
+        if avros is not None:
+            pulumi.set(__self__, "avros", avros)
+        if csvs is not None:
+            pulumi.set(__self__, "csvs", csvs)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if jsons is not None:
+            pulumi.set(__self__, "jsons", jsons)
+        if orcs is not None:
+            pulumi.set(__self__, "orcs", orcs)
+        if parquets is not None:
+            pulumi.set(__self__, "parquets", parquets)
+        if xmls is not None:
+            pulumi.set(__self__, "xmls", xmls)
+
+    @_builtins.property
+    @pulumi.getter
+    def avros(self) -> Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatAvro']]:
+        return pulumi.get(self, "avros")
+
+    @_builtins.property
+    @pulumi.getter
+    def csvs(self) -> Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatCsv']]:
+        return pulumi.get(self, "csvs")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def jsons(self) -> Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatJson']]:
+        return pulumi.get(self, "jsons")
+
+    @_builtins.property
+    @pulumi.getter
+    def orcs(self) -> Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatOrc']]:
+        return pulumi.get(self, "orcs")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquets(self) -> Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatParquet']]:
+        return pulumi.get(self, "parquets")
+
+    @_builtins.property
+    @pulumi.getter
+    def xmls(self) -> Optional[Sequence['outputs.StageInternalDescribeOutputFileFormatXml']]:
+        return pulumi.get(self, "xmls")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutputFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutputFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutputFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutputFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutputFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "validateUtf8":
+            suggest = "validate_utf8"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutputFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutputFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutputFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.bool] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.bool] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.bool] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_blank_lines: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 validate_utf8: Optional[_builtins.bool] = None):
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if validate_utf8 is not None:
+            pulumi.set(__self__, "validate_utf8", validate_utf8)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="validateUtf8")
+    def validate_utf8(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "validate_utf8")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutputFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutputFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutputFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutputFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.bool] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.bool] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_null_values: Optional[_builtins.bool] = None,
+                 strip_outer_array: Optional[_builtins.bool] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutputFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutputFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutputFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutputFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutputFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutputFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutputFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutputFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.bool] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.bool] = None,
+                 use_vectorized_scanner: Optional[_builtins.bool] = None):
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageInternalDescribeOutputFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDescribeOutputFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDescribeOutputFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDescribeOutputFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.bool] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 preserve_space: Optional[_builtins.bool] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_outer_element: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_element")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StageInternalDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefresh":
+            suggest = "auto_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable: _builtins.bool,
+                 auto_refresh: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enable: Specifies whether to enable a directory table on the internal named stage.
+        :param _builtins.str auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should automatically refresh the directory table metadata when new or updated data files are available on the internal named stage.
+        """
+        pulumi.set(__self__, "enable", enable)
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> _builtins.bool:
+        """
+        Specifies whether to enable a directory table on the internal named stage.
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should automatically refresh the directory table metadata when new or updated data files are available on the internal named stage.
+        """
+        return pulumi.get(self, "auto_refresh")
+
+
+@pulumi.output_type
+class StageInternalEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snowflakeFull":
+            suggest = "snowflake_full"
+        elif key == "snowflakeSse":
+            suggest = "snowflake_sse"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 snowflake_full: Optional['outputs.StageInternalEncryptionSnowflakeFull'] = None,
+                 snowflake_sse: Optional['outputs.StageInternalEncryptionSnowflakeSse'] = None):
+        """
+        :param 'StageInternalEncryptionSnowflakeFullArgs' snowflake_full: Client-side and server-side encryption.
+        :param 'StageInternalEncryptionSnowflakeSseArgs' snowflake_sse: Server-side encryption only.
+        """
+        if snowflake_full is not None:
+            pulumi.set(__self__, "snowflake_full", snowflake_full)
+        if snowflake_sse is not None:
+            pulumi.set(__self__, "snowflake_sse", snowflake_sse)
+
+    @_builtins.property
+    @pulumi.getter(name="snowflakeFull")
+    def snowflake_full(self) -> Optional['outputs.StageInternalEncryptionSnowflakeFull']:
+        """
+        Client-side and server-side encryption.
+        """
+        return pulumi.get(self, "snowflake_full")
+
+    @_builtins.property
+    @pulumi.getter(name="snowflakeSse")
+    def snowflake_sse(self) -> Optional['outputs.StageInternalEncryptionSnowflakeSse']:
+        """
+        Server-side encryption only.
+        """
+        return pulumi.get(self, "snowflake_sse")
+
+
+@pulumi.output_type
+class StageInternalEncryptionSnowflakeFull(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class StageInternalEncryptionSnowflakeSse(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class StageInternalFileFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formatName":
+            suggest = "format_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalFileFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalFileFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalFileFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avro: Optional['outputs.StageInternalFileFormatAvro'] = None,
+                 csv: Optional['outputs.StageInternalFileFormatCsv'] = None,
+                 format_name: Optional[_builtins.str] = None,
+                 json: Optional['outputs.StageInternalFileFormatJson'] = None,
+                 orc: Optional['outputs.StageInternalFileFormatOrc'] = None,
+                 parquet: Optional['outputs.StageInternalFileFormatParquet'] = None,
+                 xml: Optional['outputs.StageInternalFileFormatXml'] = None):
+        """
+        :param 'StageInternalFileFormatAvroArgs' avro: AVRO file format options.
+        :param 'StageInternalFileFormatCsvArgs' csv: CSV file format options.
+        :param _builtins.str format_name: Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        :param 'StageInternalFileFormatJsonArgs' json: JSON file format options.
+        :param 'StageInternalFileFormatOrcArgs' orc: ORC file format options.
+        :param 'StageInternalFileFormatParquetArgs' parquet: Parquet file format options.
+        :param 'StageInternalFileFormatXmlArgs' xml: XML file format options.
+        """
+        if avro is not None:
+            pulumi.set(__self__, "avro", avro)
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if format_name is not None:
+            pulumi.set(__self__, "format_name", format_name)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if orc is not None:
+            pulumi.set(__self__, "orc", orc)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+        if xml is not None:
+            pulumi.set(__self__, "xml", xml)
+
+    @_builtins.property
+    @pulumi.getter
+    def avro(self) -> Optional['outputs.StageInternalFileFormatAvro']:
+        """
+        AVRO file format options.
+        """
+        return pulumi.get(self, "avro")
+
+    @_builtins.property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.StageInternalFileFormatCsv']:
+        """
+        CSV file format options.
+        """
+        return pulumi.get(self, "csv")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> Optional[_builtins.str]:
+        """
+        Fully qualified name of the file format (e.g., 'database.schema.format_name').
+        """
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.StageInternalFileFormatJson']:
+        """
+        JSON file format options.
+        """
+        return pulumi.get(self, "json")
+
+    @_builtins.property
+    @pulumi.getter
+    def orc(self) -> Optional['outputs.StageInternalFileFormatOrc']:
+        """
+        ORC file format options.
+        """
+        return pulumi.get(self, "orc")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquet(self) -> Optional['outputs.StageInternalFileFormatParquet']:
+        """
+        Parquet file format options.
+        """
+        return pulumi.get(self, "parquet")
+
+    @_builtins.property
+    @pulumi.getter
+    def xml(self) -> Optional['outputs.StageInternalFileFormatXml']:
+        """
+        XML file format options.
+        """
+        return pulumi.get(self, "xml")
+
+
+@pulumi.output_type
+class StageInternalFileFormatAvro(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalFileFormatAvro. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalFileFormatAvro.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalFileFormatAvro.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageInternalFileFormatCsv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalFileFormatCsv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalFileFormatCsv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalFileFormatCsv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.str] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.str] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.str] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_blank_lines: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param _builtins.str error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        :param _builtins.str field_delimiter: One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str field_optionally_enclosed_by: Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str parse_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str record_delimiter: One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_blank_lines: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.int skip_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        """
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        """
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        """
+        Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+        """
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        """
+        Character used to enclose strings. Use `NONE` to specify no enclosure character.
+        """
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        """
+        One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+        """
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+        """
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageInternalFileFormatJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalFileFormatJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalFileFormatJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalFileFormatJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.str] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_null_values: Optional[_builtins.str] = None,
+                 strip_outer_array: Optional[_builtins.str] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str allow_duplicate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str binary_format: Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str enable_octal: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str file_extension: Specifies the extension for files unloaded to a stage.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str multi_line: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_null_values: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_array: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str time_format: Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str timestamp_format: Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+        """
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        """
+        Specifies the extension for files unloaded to a stage.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        """
+        Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+        """
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageInternalFileFormatOrc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalFileFormatOrc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalFileFormatOrc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalFileFormatOrc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+
+@pulumi.output_type
+class StageInternalFileFormatParquet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalFileFormatParquet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalFileFormatParquet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalFileFormatParquet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.str] = None,
+                 use_vectorized_scanner: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str binary_as_text: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        :param Sequence[_builtins.str] null_ifs: String used to convert to and from SQL NULL.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_logical_type: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str use_vectorized_scanner: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        String used to convert to and from SQL NULL.
+        """
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class StageInternalFileFormatXml(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalFileFormatXml. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalFileFormatXml.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalFileFormatXml.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.str] = None,
+                 preserve_space: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.str] = None,
+                 skip_byte_order_mark: Optional[_builtins.str] = None,
+                 strip_outer_element: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        :param _builtins.str disable_auto_convert: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str preserve_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str strip_outer_element: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        """
+        Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "strip_outer_element")
+
+
+@pulumi.output_type
+class StageInternalShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "directoryEnabled":
+            suggest = "directory_enabled"
+        elif key == "hasCredentials":
+            suggest = "has_credentials"
+        elif key == "hasEncryptionKey":
+            suggest = "has_encryption_key"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "storageIntegration":
+            suggest = "storage_integration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageInternalShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageInternalShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageInternalShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 directory_enabled: Optional[_builtins.bool] = None,
+                 endpoint: Optional[_builtins.str] = None,
+                 has_credentials: Optional[_builtins.bool] = None,
+                 has_encryption_key: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 region: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 storage_integration: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 url: Optional[_builtins.str] = None):
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if directory_enabled is not None:
+            pulumi.set(__self__, "directory_enabled", directory_enabled)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if has_credentials is not None:
+            pulumi.set(__self__, "has_credentials", has_credentials)
+        if has_encryption_key is not None:
+            pulumi.set(__self__, "has_encryption_key", has_encryption_key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if storage_integration is not None:
+            pulumi.set(__self__, "storage_integration", storage_integration)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cloud")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryEnabled")
+    def directory_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "directory_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="hasCredentials")
+    def has_credentials(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="hasEncryptionKey")
+    def has_encryption_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "has_encryption_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_integration")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
 class StageTag(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
@@ -29387,6 +41499,384 @@ class StageTag(dict):
         Name of the schema that the tag was created in.
         """
         return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class StorageIntegrationAwsDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedLocations":
+            suggest = "allowed_locations"
+        elif key == "blockedLocations":
+            suggest = "blocked_locations"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "iamUserArn":
+            suggest = "iam_user_arn"
+        elif key == "objectAcl":
+            suggest = "object_acl"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "usePrivatelinkEndpoint":
+            suggest = "use_privatelink_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageIntegrationAwsDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageIntegrationAwsDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageIntegrationAwsDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_locations: Optional[Sequence[_builtins.str]] = None,
+                 blocked_locations: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 iam_user_arn: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 object_acl: Optional[_builtins.str] = None,
+                 provider: Optional[_builtins.str] = None,
+                 role_arn: Optional[_builtins.str] = None,
+                 use_privatelink_endpoint: Optional[_builtins.bool] = None):
+        if allowed_locations is not None:
+            pulumi.set(__self__, "allowed_locations", allowed_locations)
+        if blocked_locations is not None:
+            pulumi.set(__self__, "blocked_locations", blocked_locations)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if iam_user_arn is not None:
+            pulumi.set(__self__, "iam_user_arn", iam_user_arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if object_acl is not None:
+            pulumi.set(__self__, "object_acl", object_acl)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedLocations")
+    def allowed_locations(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_locations")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedLocations")
+    def blocked_locations(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_locations")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="iamUserArn")
+    def iam_user_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "iam_user_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="objectAcl")
+    def object_acl(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "object_acl")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "provider")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+
+@pulumi.output_type
+class StorageIntegrationAwsShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageIntegrationAwsShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageIntegrationAwsShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageIntegrationAwsShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 storage_type: Optional[_builtins.str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_type")
+
+
+@pulumi.output_type
+class StorageIntegrationAzureDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedLocations":
+            suggest = "allowed_locations"
+        elif key == "blockedLocations":
+            suggest = "blocked_locations"
+        elif key == "consentUrl":
+            suggest = "consent_url"
+        elif key == "multiTenantAppName":
+            suggest = "multi_tenant_app_name"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "usePrivatelinkEndpoint":
+            suggest = "use_privatelink_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageIntegrationAzureDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageIntegrationAzureDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageIntegrationAzureDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_locations: Optional[Sequence[_builtins.str]] = None,
+                 blocked_locations: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 consent_url: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 id: Optional[_builtins.str] = None,
+                 multi_tenant_app_name: Optional[_builtins.str] = None,
+                 provider: Optional[_builtins.str] = None,
+                 tenant_id: Optional[_builtins.str] = None,
+                 use_privatelink_endpoint: Optional[_builtins.bool] = None):
+        if allowed_locations is not None:
+            pulumi.set(__self__, "allowed_locations", allowed_locations)
+        if blocked_locations is not None:
+            pulumi.set(__self__, "blocked_locations", blocked_locations)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if consent_url is not None:
+            pulumi.set(__self__, "consent_url", consent_url)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if multi_tenant_app_name is not None:
+            pulumi.set(__self__, "multi_tenant_app_name", multi_tenant_app_name)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedLocations")
+    def allowed_locations(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_locations")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedLocations")
+    def blocked_locations(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_locations")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="consentUrl")
+    def consent_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "consent_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="multiTenantAppName")
+    def multi_tenant_app_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "multi_tenant_app_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "provider")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+
+@pulumi.output_type
+class StorageIntegrationAzureShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageIntegrationAzureShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageIntegrationAzureShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageIntegrationAzureShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 storage_type: Optional[_builtins.str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_type")
 
 
 @pulumi.output_type
@@ -30014,6 +42504,170 @@ class StorageIntegrationDescribeOutputUsePrivatelinkEndpoint(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StorageIntegrationGcsDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedLocations":
+            suggest = "allowed_locations"
+        elif key == "blockedLocations":
+            suggest = "blocked_locations"
+        elif key == "serviceAccount":
+            suggest = "service_account"
+        elif key == "usePrivatelinkEndpoint":
+            suggest = "use_privatelink_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageIntegrationGcsDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageIntegrationGcsDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageIntegrationGcsDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_locations: Optional[Sequence[_builtins.str]] = None,
+                 blocked_locations: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 id: Optional[_builtins.str] = None,
+                 provider: Optional[_builtins.str] = None,
+                 service_account: Optional[_builtins.str] = None,
+                 use_privatelink_endpoint: Optional[_builtins.bool] = None):
+        if allowed_locations is not None:
+            pulumi.set(__self__, "allowed_locations", allowed_locations)
+        if blocked_locations is not None:
+            pulumi.set(__self__, "blocked_locations", blocked_locations)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+        if service_account is not None:
+            pulumi.set(__self__, "service_account", service_account)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedLocations")
+    def allowed_locations(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_locations")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedLocations")
+    def blocked_locations(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_locations")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "provider")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "service_account")
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+
+@pulumi.output_type
+class StorageIntegrationGcsShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "storageType":
+            suggest = "storage_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageIntegrationGcsShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageIntegrationGcsShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageIntegrationGcsShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 storage_type: Optional[_builtins.str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_type")
 
 
 @pulumi.output_type
@@ -50749,18 +63403,770 @@ class GetSharesShareResult(dict):
 
 
 @pulumi.output_type
+class GetStagesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
 class GetStagesStageResult(dict):
     def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetStagesStageDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetStagesStageShowOutputResult']):
+        """
+        :param Sequence['GetStagesStageDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE STAGE.
+        :param Sequence['GetStagesStageShowOutputArgs'] show_outputs: Holds the output of SHOW STAGES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetStagesStageDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE STAGE.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetStagesStageShowOutputResult']:
+        """
+        Holds the output of SHOW STAGES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 directory_tables: Sequence['outputs.GetStagesStageDescribeOutputDirectoryTableResult'],
+                 file_formats: Sequence['outputs.GetStagesStageDescribeOutputFileFormatResult'],
+                 locations: Sequence['outputs.GetStagesStageDescribeOutputLocationResult'],
+                 privatelinks: Sequence['outputs.GetStagesStageDescribeOutputPrivatelinkResult']):
+        pulumi.set(__self__, "directory_tables", directory_tables)
+        pulumi.set(__self__, "file_formats", file_formats)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "privatelinks", privatelinks)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryTables")
+    def directory_tables(self) -> Sequence['outputs.GetStagesStageDescribeOutputDirectoryTableResult']:
+        return pulumi.get(self, "directory_tables")
+
+    @_builtins.property
+    @pulumi.getter(name="fileFormats")
+    def file_formats(self) -> Sequence['outputs.GetStagesStageDescribeOutputFileFormatResult']:
+        return pulumi.get(self, "file_formats")
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> Sequence['outputs.GetStagesStageDescribeOutputLocationResult']:
+        return pulumi.get(self, "locations")
+
+    @_builtins.property
+    @pulumi.getter
+    def privatelinks(self) -> Sequence['outputs.GetStagesStageDescribeOutputPrivatelinkResult']:
+        return pulumi.get(self, "privatelinks")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputDirectoryTableResult(dict):
+    def __init__(__self__, *,
+                 auto_refresh: _builtins.bool,
+                 enable: _builtins.bool):
+        pulumi.set(__self__, "auto_refresh", auto_refresh)
+        pulumi.set(__self__, "enable", enable)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> _builtins.bool:
+        return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> _builtins.bool:
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputFileFormatResult(dict):
+    def __init__(__self__, *,
+                 avros: Sequence['outputs.GetStagesStageDescribeOutputFileFormatAvroResult'],
+                 csvs: Sequence['outputs.GetStagesStageDescribeOutputFileFormatCsvResult'],
+                 format_name: _builtins.str,
+                 jsons: Sequence['outputs.GetStagesStageDescribeOutputFileFormatJsonResult'],
+                 orcs: Sequence['outputs.GetStagesStageDescribeOutputFileFormatOrcResult'],
+                 parquets: Sequence['outputs.GetStagesStageDescribeOutputFileFormatParquetResult'],
+                 xmls: Sequence['outputs.GetStagesStageDescribeOutputFileFormatXmlResult']):
+        pulumi.set(__self__, "avros", avros)
+        pulumi.set(__self__, "csvs", csvs)
+        pulumi.set(__self__, "format_name", format_name)
+        pulumi.set(__self__, "jsons", jsons)
+        pulumi.set(__self__, "orcs", orcs)
+        pulumi.set(__self__, "parquets", parquets)
+        pulumi.set(__self__, "xmls", xmls)
+
+    @_builtins.property
+    @pulumi.getter
+    def avros(self) -> Sequence['outputs.GetStagesStageDescribeOutputFileFormatAvroResult']:
+        return pulumi.get(self, "avros")
+
+    @_builtins.property
+    @pulumi.getter
+    def csvs(self) -> Sequence['outputs.GetStagesStageDescribeOutputFileFormatCsvResult']:
+        return pulumi.get(self, "csvs")
+
+    @_builtins.property
+    @pulumi.getter(name="formatName")
+    def format_name(self) -> _builtins.str:
+        return pulumi.get(self, "format_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def jsons(self) -> Sequence['outputs.GetStagesStageDescribeOutputFileFormatJsonResult']:
+        return pulumi.get(self, "jsons")
+
+    @_builtins.property
+    @pulumi.getter
+    def orcs(self) -> Sequence['outputs.GetStagesStageDescribeOutputFileFormatOrcResult']:
+        return pulumi.get(self, "orcs")
+
+    @_builtins.property
+    @pulumi.getter
+    def parquets(self) -> Sequence['outputs.GetStagesStageDescribeOutputFileFormatParquetResult']:
+        return pulumi.get(self, "parquets")
+
+    @_builtins.property
+    @pulumi.getter
+    def xmls(self) -> Sequence['outputs.GetStagesStageDescribeOutputFileFormatXmlResult']:
+        return pulumi.get(self, "xmls")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputFileFormatAvroResult(dict):
+    def __init__(__self__, *,
+                 compression: _builtins.str,
+                 null_ifs: Sequence[_builtins.str],
+                 replace_invalid_characters: _builtins.bool,
+                 trim_space: _builtins.bool,
+                 type: _builtins.str):
+        pulumi.set(__self__, "compression", compression)
+        pulumi.set(__self__, "null_ifs", null_ifs)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "trim_space", trim_space)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> _builtins.str:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> _builtins.bool:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> _builtins.bool:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputFileFormatCsvResult(dict):
+    def __init__(__self__, *,
+                 binary_format: _builtins.str,
+                 compression: _builtins.str,
+                 date_format: _builtins.str,
+                 empty_field_as_null: _builtins.bool,
+                 encoding: _builtins.str,
+                 error_on_column_count_mismatch: _builtins.bool,
+                 escape: _builtins.str,
+                 escape_unenclosed_field: _builtins.str,
+                 field_delimiter: _builtins.str,
+                 field_optionally_enclosed_by: _builtins.str,
+                 file_extension: _builtins.str,
+                 multi_line: _builtins.bool,
+                 null_ifs: Sequence[_builtins.str],
+                 parse_header: _builtins.bool,
+                 record_delimiter: _builtins.str,
+                 replace_invalid_characters: _builtins.bool,
+                 skip_blank_lines: _builtins.bool,
+                 skip_byte_order_mark: _builtins.bool,
+                 skip_header: _builtins.int,
+                 time_format: _builtins.str,
+                 timestamp_format: _builtins.str,
+                 trim_space: _builtins.bool,
+                 type: _builtins.str,
+                 validate_utf8: _builtins.bool):
+        pulumi.set(__self__, "binary_format", binary_format)
+        pulumi.set(__self__, "compression", compression)
+        pulumi.set(__self__, "date_format", date_format)
+        pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        pulumi.set(__self__, "encoding", encoding)
+        pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        pulumi.set(__self__, "escape", escape)
+        pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        pulumi.set(__self__, "field_delimiter", field_delimiter)
+        pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        pulumi.set(__self__, "file_extension", file_extension)
+        pulumi.set(__self__, "multi_line", multi_line)
+        pulumi.set(__self__, "null_ifs", null_ifs)
+        pulumi.set(__self__, "parse_header", parse_header)
+        pulumi.set(__self__, "record_delimiter", record_delimiter)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        pulumi.set(__self__, "skip_header", skip_header)
+        pulumi.set(__self__, "time_format", time_format)
+        pulumi.set(__self__, "timestamp_format", timestamp_format)
+        pulumi.set(__self__, "trim_space", trim_space)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "validate_utf8", validate_utf8)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> _builtins.str:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> _builtins.str:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> _builtins.str:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> _builtins.bool:
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> _builtins.str:
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> _builtins.bool:
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> _builtins.str:
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> _builtins.str:
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> _builtins.str:
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> _builtins.str:
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> _builtins.str:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> _builtins.bool:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> _builtins.bool:
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> _builtins.str:
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> _builtins.bool:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> _builtins.bool:
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> _builtins.bool:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> _builtins.int:
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> _builtins.str:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> _builtins.str:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> _builtins.bool:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="validateUtf8")
+    def validate_utf8(self) -> _builtins.bool:
+        return pulumi.get(self, "validate_utf8")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputFileFormatJsonResult(dict):
+    def __init__(__self__, *,
+                 allow_duplicate: _builtins.bool,
+                 binary_format: _builtins.str,
+                 compression: _builtins.str,
+                 date_format: _builtins.str,
+                 enable_octal: _builtins.bool,
+                 file_extension: _builtins.str,
+                 ignore_utf8_errors: _builtins.bool,
+                 multi_line: _builtins.bool,
+                 null_ifs: Sequence[_builtins.str],
+                 replace_invalid_characters: _builtins.bool,
+                 skip_byte_order_mark: _builtins.bool,
+                 strip_null_values: _builtins.bool,
+                 strip_outer_array: _builtins.bool,
+                 time_format: _builtins.str,
+                 timestamp_format: _builtins.str,
+                 trim_space: _builtins.bool,
+                 type: _builtins.str):
+        pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        pulumi.set(__self__, "binary_format", binary_format)
+        pulumi.set(__self__, "compression", compression)
+        pulumi.set(__self__, "date_format", date_format)
+        pulumi.set(__self__, "enable_octal", enable_octal)
+        pulumi.set(__self__, "file_extension", file_extension)
+        pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        pulumi.set(__self__, "multi_line", multi_line)
+        pulumi.set(__self__, "null_ifs", null_ifs)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        pulumi.set(__self__, "strip_null_values", strip_null_values)
+        pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        pulumi.set(__self__, "time_format", time_format)
+        pulumi.set(__self__, "timestamp_format", timestamp_format)
+        pulumi.set(__self__, "trim_space", trim_space)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> _builtins.bool:
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> _builtins.str:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> _builtins.str:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> _builtins.str:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> _builtins.bool:
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> _builtins.str:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> _builtins.bool:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> _builtins.bool:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> _builtins.bool:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> _builtins.bool:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> _builtins.bool:
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> _builtins.bool:
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> _builtins.str:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> _builtins.str:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> _builtins.bool:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputFileFormatOrcResult(dict):
+    def __init__(__self__, *,
+                 null_ifs: Sequence[_builtins.str],
+                 replace_invalid_characters: _builtins.bool,
+                 trim_space: _builtins.bool,
+                 type: _builtins.str):
+        pulumi.set(__self__, "null_ifs", null_ifs)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "trim_space", trim_space)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> _builtins.bool:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> _builtins.bool:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputFileFormatParquetResult(dict):
+    def __init__(__self__, *,
+                 binary_as_text: _builtins.bool,
+                 compression: _builtins.str,
+                 null_ifs: Sequence[_builtins.str],
+                 replace_invalid_characters: _builtins.bool,
+                 trim_space: _builtins.bool,
+                 type: _builtins.str,
+                 use_logical_type: _builtins.bool,
+                 use_vectorized_scanner: _builtins.bool):
+        pulumi.set(__self__, "binary_as_text", binary_as_text)
+        pulumi.set(__self__, "compression", compression)
+        pulumi.set(__self__, "null_ifs", null_ifs)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "trim_space", trim_space)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "use_logical_type", use_logical_type)
+        pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> _builtins.bool:
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> _builtins.str:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> _builtins.bool:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> _builtins.bool:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> _builtins.bool:
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> _builtins.bool:
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputFileFormatXmlResult(dict):
+    def __init__(__self__, *,
+                 compression: _builtins.str,
+                 disable_auto_convert: _builtins.bool,
+                 ignore_utf8_errors: _builtins.bool,
+                 preserve_space: _builtins.bool,
+                 replace_invalid_characters: _builtins.bool,
+                 skip_byte_order_mark: _builtins.bool,
+                 strip_outer_element: _builtins.bool,
+                 type: _builtins.str):
+        pulumi.set(__self__, "compression", compression)
+        pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        pulumi.set(__self__, "preserve_space", preserve_space)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> _builtins.str:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> _builtins.bool:
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> _builtins.bool:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> _builtins.bool:
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> _builtins.bool:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> _builtins.bool:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> _builtins.bool:
+        return pulumi.get(self, "strip_outer_element")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputLocationResult(dict):
+    def __init__(__self__, *,
+                 aws_access_point_arn: _builtins.str,
+                 urls: Sequence[_builtins.str]):
+        pulumi.set(__self__, "aws_access_point_arn", aws_access_point_arn)
+        pulumi.set(__self__, "urls", urls)
+
+    @_builtins.property
+    @pulumi.getter(name="awsAccessPointArn")
+    def aws_access_point_arn(self) -> _builtins.str:
+        return pulumi.get(self, "aws_access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def urls(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "urls")
+
+
+@pulumi.output_type
+class GetStagesStageDescribeOutputPrivatelinkResult(dict):
+    def __init__(__self__, *,
+                 use_privatelink_endpoint: _builtins.bool):
+        pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> _builtins.bool:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+
+@pulumi.output_type
+class GetStagesStageShowOutputResult(dict):
+    def __init__(__self__, *,
+                 cloud: _builtins.str,
                  comment: _builtins.str,
-                 database: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 directory_enabled: _builtins.bool,
+                 endpoint: _builtins.str,
+                 has_credentials: _builtins.bool,
+                 has_encryption_key: _builtins.bool,
                  name: _builtins.str,
-                 schema: _builtins.str,
-                 storage_integration: _builtins.str):
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 region: _builtins.str,
+                 schema_name: _builtins.str,
+                 storage_integration: _builtins.str,
+                 type: _builtins.str,
+                 url: _builtins.str):
+        pulumi.set(__self__, "cloud", cloud)
         pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "directory_enabled", directory_enabled)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "has_credentials", has_credentials)
+        pulumi.set(__self__, "has_encryption_key", has_encryption_key)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "schema_name", schema_name)
         pulumi.set(__self__, "storage_integration", storage_integration)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def cloud(self) -> _builtins.str:
+        return pulumi.get(self, "cloud")
 
     @_builtins.property
     @pulumi.getter
@@ -50768,9 +64174,34 @@ class GetStagesStageResult(dict):
         return pulumi.get(self, "comment")
 
     @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryEnabled")
+    def directory_enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "directory_enabled")
+
+    @_builtins.property
     @pulumi.getter
-    def database(self) -> _builtins.str:
-        return pulumi.get(self, "database")
+    def endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="hasCredentials")
+    def has_credentials(self) -> _builtins.bool:
+        return pulumi.get(self, "has_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="hasEncryptionKey")
+    def has_encryption_key(self) -> _builtins.bool:
+        return pulumi.get(self, "has_encryption_key")
 
     @_builtins.property
     @pulumi.getter
@@ -50779,31 +64210,209 @@ class GetStagesStageResult(dict):
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> _builtins.str:
-        return pulumi.get(self, "schema")
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
 
     @_builtins.property
     @pulumi.getter(name="storageIntegration")
     def storage_integration(self) -> _builtins.str:
         return pulumi.get(self, "storage_integration")
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        return pulumi.get(self, "url")
+
 
 @pulumi.output_type
 class GetStorageIntegrationsStorageIntegrationResult(dict):
     def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetStorageIntegrationsStorageIntegrationDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetStorageIntegrationsStorageIntegrationShowOutputResult']):
+        """
+        :param Sequence['GetStorageIntegrationsStorageIntegrationDescribeOutputArgs'] describe_outputs: Holds the aggregated output of DESCRIBE STORAGE INTEGRATIONS.
+        :param Sequence['GetStorageIntegrationsStorageIntegrationShowOutputArgs'] show_outputs: Holds the output of SHOW STORAGE INTEGRATIONS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetStorageIntegrationsStorageIntegrationDescribeOutputResult']:
+        """
+        Holds the aggregated output of DESCRIBE STORAGE INTEGRATIONS.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetStorageIntegrationsStorageIntegrationShowOutputResult']:
+        """
+        Holds the output of SHOW STORAGE INTEGRATIONS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetStorageIntegrationsStorageIntegrationDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 allowed_locations: Sequence[_builtins.str],
+                 blocked_locations: Sequence[_builtins.str],
                  comment: _builtins.str,
+                 consent_url: _builtins.str,
                  enabled: _builtins.bool,
-                 name: _builtins.str,
-                 type: _builtins.str):
+                 external_id: _builtins.str,
+                 iam_user_arn: _builtins.str,
+                 id: _builtins.str,
+                 multi_tenant_app_name: _builtins.str,
+                 object_acl: _builtins.str,
+                 provider: _builtins.str,
+                 role_arn: _builtins.str,
+                 service_account: _builtins.str,
+                 tenant_id: _builtins.str,
+                 use_privatelink_endpoint: _builtins.bool):
+        pulumi.set(__self__, "allowed_locations", allowed_locations)
+        pulumi.set(__self__, "blocked_locations", blocked_locations)
         pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "consent_url", consent_url)
         pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "iam_user_arn", iam_user_arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "multi_tenant_app_name", multi_tenant_app_name)
+        pulumi.set(__self__, "object_acl", object_acl)
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "service_account", service_account)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedLocations")
+    def allowed_locations(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_locations")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedLocations")
+    def blocked_locations(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "blocked_locations")
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> _builtins.str:
         return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="consentUrl")
+    def consent_url(self) -> _builtins.str:
+        return pulumi.get(self, "consent_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> _builtins.str:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="iamUserArn")
+    def iam_user_arn(self) -> _builtins.str:
+        return pulumi.get(self, "iam_user_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="multiTenantAppName")
+    def multi_tenant_app_name(self) -> _builtins.str:
+        return pulumi.get(self, "multi_tenant_app_name")
+
+    @_builtins.property
+    @pulumi.getter(name="objectAcl")
+    def object_acl(self) -> _builtins.str:
+        return pulumi.get(self, "object_acl")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> _builtins.str:
+        return pulumi.get(self, "provider")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> _builtins.str:
+        return pulumi.get(self, "service_account")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> _builtins.bool:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+
+@pulumi.output_type
+class GetStorageIntegrationsStorageIntegrationShowOutputResult(dict):
+    def __init__(__self__, *,
+                 category: _builtins.str,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 enabled: _builtins.bool,
+                 name: _builtins.str,
+                 storage_type: _builtins.str):
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_type", storage_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
 
     @_builtins.property
     @pulumi.getter
@@ -50816,9 +64425,9 @@ class GetStorageIntegrationsStorageIntegrationResult(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        return pulumi.get(self, "type")
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> _builtins.str:
+        return pulumi.get(self, "storage_type")
 
 
 @pulumi.output_type

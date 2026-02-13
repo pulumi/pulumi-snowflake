@@ -3623,19 +3623,210 @@ export interface GetSharesShare {
     tos: any[];
 }
 
+export interface GetStagesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
 export interface GetStagesStage {
+    /**
+     * Holds the output of DESCRIBE STAGE.
+     */
+    describeOutputs: outputs.GetStagesStageDescribeOutput[];
+    /**
+     * Holds the output of SHOW STAGES.
+     */
+    showOutputs: outputs.GetStagesStageShowOutput[];
+}
+
+export interface GetStagesStageDescribeOutput {
+    directoryTables: outputs.GetStagesStageDescribeOutputDirectoryTable[];
+    fileFormats: outputs.GetStagesStageDescribeOutputFileFormat[];
+    locations: outputs.GetStagesStageDescribeOutputLocation[];
+    privatelinks: outputs.GetStagesStageDescribeOutputPrivatelink[];
+}
+
+export interface GetStagesStageDescribeOutputDirectoryTable {
+    autoRefresh: boolean;
+    enable: boolean;
+}
+
+export interface GetStagesStageDescribeOutputFileFormat {
+    avros: outputs.GetStagesStageDescribeOutputFileFormatAvro[];
+    csvs: outputs.GetStagesStageDescribeOutputFileFormatCsv[];
+    formatName: string;
+    jsons: outputs.GetStagesStageDescribeOutputFileFormatJson[];
+    orcs: outputs.GetStagesStageDescribeOutputFileFormatOrc[];
+    parquets: outputs.GetStagesStageDescribeOutputFileFormatParquet[];
+    xmls: outputs.GetStagesStageDescribeOutputFileFormatXml[];
+}
+
+export interface GetStagesStageDescribeOutputFileFormatAvro {
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface GetStagesStageDescribeOutputFileFormatCsv {
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    emptyFieldAsNull: boolean;
+    encoding: string;
+    errorOnColumnCountMismatch: boolean;
+    escape: string;
+    escapeUnenclosedField: string;
+    fieldDelimiter: string;
+    fieldOptionallyEnclosedBy: string;
+    fileExtension: string;
+    multiLine: boolean;
+    nullIfs: string[];
+    parseHeader: boolean;
+    recordDelimiter: string;
+    replaceInvalidCharacters: boolean;
+    skipBlankLines: boolean;
+    skipByteOrderMark: boolean;
+    skipHeader: number;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+    validateUtf8: boolean;
+}
+
+export interface GetStagesStageDescribeOutputFileFormatJson {
+    allowDuplicate: boolean;
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    enableOctal: boolean;
+    fileExtension: string;
+    ignoreUtf8Errors: boolean;
+    multiLine: boolean;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripNullValues: boolean;
+    stripOuterArray: boolean;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface GetStagesStageDescribeOutputFileFormatOrc {
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface GetStagesStageDescribeOutputFileFormatParquet {
+    binaryAsText: boolean;
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+    useLogicalType: boolean;
+    useVectorizedScanner: boolean;
+}
+
+export interface GetStagesStageDescribeOutputFileFormatXml {
+    compression: string;
+    disableAutoConvert: boolean;
+    ignoreUtf8Errors: boolean;
+    preserveSpace: boolean;
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripOuterElement: boolean;
+    type: string;
+}
+
+export interface GetStagesStageDescribeOutputLocation {
+    awsAccessPointArn: string;
+    urls: string[];
+}
+
+export interface GetStagesStageDescribeOutputPrivatelink {
+    usePrivatelinkEndpoint: boolean;
+}
+
+export interface GetStagesStageShowOutput {
+    cloud: string;
     comment: string;
-    database: string;
+    createdOn: string;
+    databaseName: string;
+    directoryEnabled: boolean;
+    endpoint: string;
+    hasCredentials: boolean;
+    hasEncryptionKey: boolean;
     name: string;
-    schema: string;
+    owner: string;
+    ownerRoleType: string;
+    region: string;
+    schemaName: string;
     storageIntegration: string;
+    type: string;
+    url: string;
 }
 
 export interface GetStorageIntegrationsStorageIntegration {
+    /**
+     * Holds the aggregated output of DESCRIBE STORAGE INTEGRATIONS.
+     */
+    describeOutputs: outputs.GetStorageIntegrationsStorageIntegrationDescribeOutput[];
+    /**
+     * Holds the output of SHOW STORAGE INTEGRATIONS.
+     */
+    showOutputs: outputs.GetStorageIntegrationsStorageIntegrationShowOutput[];
+}
+
+export interface GetStorageIntegrationsStorageIntegrationDescribeOutput {
+    allowedLocations: string[];
+    blockedLocations: string[];
     comment: string;
+    consentUrl: string;
+    enabled: boolean;
+    externalId: string;
+    iamUserArn: string;
+    id: string;
+    multiTenantAppName: string;
+    objectAcl: string;
+    provider: string;
+    roleArn: string;
+    serviceAccount: string;
+    tenantId: string;
+    usePrivatelinkEndpoint: boolean;
+}
+
+export interface GetStorageIntegrationsStorageIntegrationShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
     enabled: boolean;
     name: string;
-    type: string;
+    storageType: string;
 }
 
 export interface GetStreamlitsIn {
@@ -5655,6 +5846,65 @@ export interface JobServiceShowOutput {
     suspendedOn: string;
     targetInstances: number;
     updatedOn: string;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentity {
+    /**
+     * AWS workload identity configuration.
+     */
+    aws?: outputs.LegacyServiceUserDefaultWorkloadIdentityAws;
+    /**
+     * Azure workload identity configuration.
+     */
+    azure?: outputs.LegacyServiceUserDefaultWorkloadIdentityAzure;
+    /**
+     * GCP workload identity configuration.
+     */
+    gcp?: outputs.LegacyServiceUserDefaultWorkloadIdentityGcp;
+    /**
+     * Generic OIDC workload identity configuration.
+     */
+    oidc?: outputs.LegacyServiceUserDefaultWorkloadIdentityOidc;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentityAws {
+    /**
+     * The ARN of the AWS IAM role to use for workload identity federation.
+     */
+    arn: string;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentityAzure {
+    /**
+     * The Azure issuer URL.
+     */
+    issuer: string;
+    /**
+     * The Azure subject identifier.
+     */
+    subject: string;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentityGcp {
+    /**
+     * The GCP service account subject identifier.
+     */
+    subject: string;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentityOidc {
+    /**
+     * The OIDC issuer URL.
+     */
+    issuer: string;
+    /**
+     * List of allowed OIDC audiences.
+     */
+    oidcAudienceLists?: string[];
+    /**
+     * The OIDC subject identifier.
+     */
+    subject: string;
 }
 
 export interface LegacyServiceUserParameter {
@@ -8057,6 +8307,65 @@ export interface ServiceShowOutput {
     updatedOn: string;
 }
 
+export interface ServiceUserDefaultWorkloadIdentity {
+    /**
+     * AWS workload identity configuration.
+     */
+    aws?: outputs.ServiceUserDefaultWorkloadIdentityAws;
+    /**
+     * Azure workload identity configuration.
+     */
+    azure?: outputs.ServiceUserDefaultWorkloadIdentityAzure;
+    /**
+     * GCP workload identity configuration.
+     */
+    gcp?: outputs.ServiceUserDefaultWorkloadIdentityGcp;
+    /**
+     * Generic OIDC workload identity configuration.
+     */
+    oidc?: outputs.ServiceUserDefaultWorkloadIdentityOidc;
+}
+
+export interface ServiceUserDefaultWorkloadIdentityAws {
+    /**
+     * The ARN of the AWS IAM role to use for workload identity federation.
+     */
+    arn: string;
+}
+
+export interface ServiceUserDefaultWorkloadIdentityAzure {
+    /**
+     * The Azure issuer URL.
+     */
+    issuer: string;
+    /**
+     * The Azure subject identifier.
+     */
+    subject: string;
+}
+
+export interface ServiceUserDefaultWorkloadIdentityGcp {
+    /**
+     * The GCP service account subject identifier.
+     */
+    subject: string;
+}
+
+export interface ServiceUserDefaultWorkloadIdentityOidc {
+    /**
+     * The OIDC issuer URL.
+     */
+    issuer: string;
+    /**
+     * List of allowed OIDC audiences.
+     */
+    oidcAudienceLists?: string[];
+    /**
+     * The OIDC subject identifier.
+     */
+    subject: string;
+}
+
 export interface ServiceUserParameter {
     abortDetachedQueries: outputs.ServiceUserParameterAbortDetachedQuery[];
     autocommits: outputs.ServiceUserParameterAutocommit[];
@@ -8614,6 +8923,2276 @@ export interface ServiceUserShowOutput {
     type: string;
 }
 
+export interface StageExternalAzureCredentials {
+    /**
+     * Specifies the shared access signature (SAS) token for Azure.
+     */
+    azureSasToken: string;
+}
+
+export interface StageExternalAzureDescribeOutput {
+    directoryTables: outputs.StageExternalAzureDescribeOutputDirectoryTable[];
+    fileFormats: outputs.StageExternalAzureDescribeOutputFileFormat[];
+}
+
+export interface StageExternalAzureDescribeOutputDirectoryTable {
+    autoRefresh: boolean;
+    enable: boolean;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormat {
+    avros: outputs.StageExternalAzureDescribeOutputFileFormatAvro[];
+    csvs: outputs.StageExternalAzureDescribeOutputFileFormatCsv[];
+    formatName: string;
+    jsons: outputs.StageExternalAzureDescribeOutputFileFormatJson[];
+    orcs: outputs.StageExternalAzureDescribeOutputFileFormatOrc[];
+    parquets: outputs.StageExternalAzureDescribeOutputFileFormatParquet[];
+    xmls: outputs.StageExternalAzureDescribeOutputFileFormatXml[];
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatAvro {
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatCsv {
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    emptyFieldAsNull: boolean;
+    encoding: string;
+    errorOnColumnCountMismatch: boolean;
+    escape: string;
+    escapeUnenclosedField: string;
+    fieldDelimiter: string;
+    fieldOptionallyEnclosedBy: string;
+    fileExtension: string;
+    multiLine: boolean;
+    nullIfs: string[];
+    parseHeader: boolean;
+    recordDelimiter: string;
+    replaceInvalidCharacters: boolean;
+    skipBlankLines: boolean;
+    skipByteOrderMark: boolean;
+    skipHeader: number;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+    validateUtf8: boolean;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatJson {
+    allowDuplicate: boolean;
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    enableOctal: boolean;
+    fileExtension: string;
+    ignoreUtf8Errors: boolean;
+    multiLine: boolean;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripNullValues: boolean;
+    stripOuterArray: boolean;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatOrc {
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatParquet {
+    binaryAsText: boolean;
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+    useLogicalType: boolean;
+    useVectorizedScanner: boolean;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatXml {
+    compression: string;
+    disableAutoConvert: boolean;
+    ignoreUtf8Errors: boolean;
+    preserveSpace: boolean;
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripOuterElement: boolean;
+    type: string;
+}
+
+export interface StageExternalAzureDirectory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+     */
+    autoRefresh?: string;
+    /**
+     * Specifies whether to enable a directory table on the external stage.
+     */
+    enable: boolean;
+    /**
+     * Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     */
+    notificationIntegration?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+     */
+    refreshOnCreate?: string;
+}
+
+export interface StageExternalAzureEncryption {
+    /**
+     * Azure client-side encryption using a master key.
+     */
+    azureCse?: outputs.StageExternalAzureEncryptionAzureCse;
+    /**
+     * No encryption.
+     */
+    none?: outputs.StageExternalAzureEncryptionNone;
+}
+
+export interface StageExternalAzureEncryptionAzureCse {
+    /**
+     * Specifies the 128-bit or 256-bit client-side master key.
+     */
+    masterKey: string;
+}
+
+export interface StageExternalAzureEncryptionNone {
+}
+
+export interface StageExternalAzureFileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: outputs.StageExternalAzureFileFormatAvro;
+    /**
+     * CSV file format options.
+     */
+    csv?: outputs.StageExternalAzureFileFormatCsv;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: string;
+    /**
+     * JSON file format options.
+     */
+    json?: outputs.StageExternalAzureFileFormatJson;
+    /**
+     * ORC file format options.
+     */
+    orc?: outputs.StageExternalAzureFileFormatOrc;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: outputs.StageExternalAzureFileFormatParquet;
+    /**
+     * XML file format options.
+     */
+    xml?: outputs.StageExternalAzureFileFormatXml;
+}
+
+export interface StageExternalAzureFileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalAzureFileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: string;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: string;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: string;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: string;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: number;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalAzureFileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: string;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: string;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalAzureFileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalAzureFileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: string;
+}
+
+export interface StageExternalAzureFileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: string;
+}
+
+export interface StageExternalAzureShowOutput {
+    cloud: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    directoryEnabled: boolean;
+    endpoint: string;
+    hasCredentials: boolean;
+    hasEncryptionKey: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    region: string;
+    schemaName: string;
+    storageIntegration: string;
+    type: string;
+    url: string;
+}
+
+export interface StageExternalGcsDescribeOutput {
+    directoryTables: outputs.StageExternalGcsDescribeOutputDirectoryTable[];
+    fileFormats: outputs.StageExternalGcsDescribeOutputFileFormat[];
+}
+
+export interface StageExternalGcsDescribeOutputDirectoryTable {
+    autoRefresh: boolean;
+    enable: boolean;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormat {
+    avros: outputs.StageExternalGcsDescribeOutputFileFormatAvro[];
+    csvs: outputs.StageExternalGcsDescribeOutputFileFormatCsv[];
+    formatName: string;
+    jsons: outputs.StageExternalGcsDescribeOutputFileFormatJson[];
+    orcs: outputs.StageExternalGcsDescribeOutputFileFormatOrc[];
+    parquets: outputs.StageExternalGcsDescribeOutputFileFormatParquet[];
+    xmls: outputs.StageExternalGcsDescribeOutputFileFormatXml[];
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatAvro {
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatCsv {
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    emptyFieldAsNull: boolean;
+    encoding: string;
+    errorOnColumnCountMismatch: boolean;
+    escape: string;
+    escapeUnenclosedField: string;
+    fieldDelimiter: string;
+    fieldOptionallyEnclosedBy: string;
+    fileExtension: string;
+    multiLine: boolean;
+    nullIfs: string[];
+    parseHeader: boolean;
+    recordDelimiter: string;
+    replaceInvalidCharacters: boolean;
+    skipBlankLines: boolean;
+    skipByteOrderMark: boolean;
+    skipHeader: number;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+    validateUtf8: boolean;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatJson {
+    allowDuplicate: boolean;
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    enableOctal: boolean;
+    fileExtension: string;
+    ignoreUtf8Errors: boolean;
+    multiLine: boolean;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripNullValues: boolean;
+    stripOuterArray: boolean;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatOrc {
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatParquet {
+    binaryAsText: boolean;
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+    useLogicalType: boolean;
+    useVectorizedScanner: boolean;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatXml {
+    compression: string;
+    disableAutoConvert: boolean;
+    ignoreUtf8Errors: boolean;
+    preserveSpace: boolean;
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripOuterElement: boolean;
+    type: string;
+}
+
+export interface StageExternalGcsDirectory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+     */
+    autoRefresh?: string;
+    /**
+     * Specifies whether to enable a directory table on the external stage.
+     */
+    enable: boolean;
+    /**
+     * Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     */
+    notificationIntegration?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+     */
+    refreshOnCreate?: string;
+}
+
+export interface StageExternalGcsEncryption {
+    /**
+     * GCS server-side encryption using a KMS key.
+     */
+    gcsSseKms?: outputs.StageExternalGcsEncryptionGcsSseKms;
+    /**
+     * No encryption.
+     */
+    none?: outputs.StageExternalGcsEncryptionNone;
+}
+
+export interface StageExternalGcsEncryptionGcsSseKms {
+    /**
+     * Specifies the KMS-managed key ID.
+     */
+    kmsKeyId?: string;
+}
+
+export interface StageExternalGcsEncryptionNone {
+}
+
+export interface StageExternalGcsFileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: outputs.StageExternalGcsFileFormatAvro;
+    /**
+     * CSV file format options.
+     */
+    csv?: outputs.StageExternalGcsFileFormatCsv;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: string;
+    /**
+     * JSON file format options.
+     */
+    json?: outputs.StageExternalGcsFileFormatJson;
+    /**
+     * ORC file format options.
+     */
+    orc?: outputs.StageExternalGcsFileFormatOrc;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: outputs.StageExternalGcsFileFormatParquet;
+    /**
+     * XML file format options.
+     */
+    xml?: outputs.StageExternalGcsFileFormatXml;
+}
+
+export interface StageExternalGcsFileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalGcsFileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: string;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: string;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: string;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: string;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: number;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalGcsFileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: string;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: string;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalGcsFileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalGcsFileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: string;
+}
+
+export interface StageExternalGcsFileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: string;
+}
+
+export interface StageExternalGcsShowOutput {
+    cloud: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    directoryEnabled: boolean;
+    endpoint: string;
+    hasCredentials: boolean;
+    hasEncryptionKey: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    region: string;
+    schemaName: string;
+    storageIntegration: string;
+    type: string;
+    url: string;
+}
+
+export interface StageExternalS3CompatibleCredentials {
+    /**
+     * Specifies the AWS access key ID.
+     */
+    awsKeyId: string;
+    /**
+     * Specifies the AWS secret access key.
+     */
+    awsSecretKey: string;
+}
+
+export interface StageExternalS3CompatibleDescribeOutput {
+    directoryTables: outputs.StageExternalS3CompatibleDescribeOutputDirectoryTable[];
+    fileFormats: outputs.StageExternalS3CompatibleDescribeOutputFileFormat[];
+    locations: outputs.StageExternalS3CompatibleDescribeOutputLocation[];
+}
+
+export interface StageExternalS3CompatibleDescribeOutputDirectoryTable {
+    autoRefresh: boolean;
+    enable: boolean;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormat {
+    avros: outputs.StageExternalS3CompatibleDescribeOutputFileFormatAvro[];
+    csvs: outputs.StageExternalS3CompatibleDescribeOutputFileFormatCsv[];
+    formatName: string;
+    jsons: outputs.StageExternalS3CompatibleDescribeOutputFileFormatJson[];
+    orcs: outputs.StageExternalS3CompatibleDescribeOutputFileFormatOrc[];
+    parquets: outputs.StageExternalS3CompatibleDescribeOutputFileFormatParquet[];
+    xmls: outputs.StageExternalS3CompatibleDescribeOutputFileFormatXml[];
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatAvro {
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatCsv {
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    emptyFieldAsNull: boolean;
+    encoding: string;
+    errorOnColumnCountMismatch: boolean;
+    escape: string;
+    escapeUnenclosedField: string;
+    fieldDelimiter: string;
+    fieldOptionallyEnclosedBy: string;
+    fileExtension: string;
+    multiLine: boolean;
+    nullIfs: string[];
+    parseHeader: boolean;
+    recordDelimiter: string;
+    replaceInvalidCharacters: boolean;
+    skipBlankLines: boolean;
+    skipByteOrderMark: boolean;
+    skipHeader: number;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+    validateUtf8: boolean;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatJson {
+    allowDuplicate: boolean;
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    enableOctal: boolean;
+    fileExtension: string;
+    ignoreUtf8Errors: boolean;
+    multiLine: boolean;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripNullValues: boolean;
+    stripOuterArray: boolean;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatOrc {
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatParquet {
+    binaryAsText: boolean;
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+    useLogicalType: boolean;
+    useVectorizedScanner: boolean;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatXml {
+    compression: string;
+    disableAutoConvert: boolean;
+    ignoreUtf8Errors: boolean;
+    preserveSpace: boolean;
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripOuterElement: boolean;
+    type: string;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputLocation {
+    urls: string[];
+}
+
+export interface StageExternalS3CompatibleDirectory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+     */
+    autoRefresh?: string;
+    /**
+     * Specifies whether to enable a directory table on the external stage.
+     */
+    enable: boolean;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+     */
+    refreshOnCreate?: string;
+}
+
+export interface StageExternalS3CompatibleFileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: outputs.StageExternalS3CompatibleFileFormatAvro;
+    /**
+     * CSV file format options.
+     */
+    csv?: outputs.StageExternalS3CompatibleFileFormatCsv;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: string;
+    /**
+     * JSON file format options.
+     */
+    json?: outputs.StageExternalS3CompatibleFileFormatJson;
+    /**
+     * ORC file format options.
+     */
+    orc?: outputs.StageExternalS3CompatibleFileFormatOrc;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: outputs.StageExternalS3CompatibleFileFormatParquet;
+    /**
+     * XML file format options.
+     */
+    xml?: outputs.StageExternalS3CompatibleFileFormatXml;
+}
+
+export interface StageExternalS3CompatibleFileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalS3CompatibleFileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: string;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: string;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: string;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: string;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: number;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalS3CompatibleFileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: string;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: string;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalS3CompatibleFileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalS3CompatibleFileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: string;
+}
+
+export interface StageExternalS3CompatibleFileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: string;
+}
+
+export interface StageExternalS3CompatibleShowOutput {
+    cloud: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    directoryEnabled: boolean;
+    endpoint: string;
+    hasCredentials: boolean;
+    hasEncryptionKey: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    region: string;
+    schemaName: string;
+    storageIntegration: string;
+    type: string;
+    url: string;
+}
+
+export interface StageExternalS3Credentials {
+    /**
+     * Specifies the AWS access key ID.
+     */
+    awsKeyId?: string;
+    /**
+     * Specifies the AWS IAM role ARN to use for accessing the bucket.
+     */
+    awsRole?: string;
+    /**
+     * Specifies the AWS secret access key.
+     */
+    awsSecretKey?: string;
+    /**
+     * Specifies the AWS session token for temporary credentials.
+     */
+    awsToken?: string;
+}
+
+export interface StageExternalS3DescribeOutput {
+    directoryTables: outputs.StageExternalS3DescribeOutputDirectoryTable[];
+    fileFormats: outputs.StageExternalS3DescribeOutputFileFormat[];
+    locations: outputs.StageExternalS3DescribeOutputLocation[];
+    privatelinks: outputs.StageExternalS3DescribeOutputPrivatelink[];
+}
+
+export interface StageExternalS3DescribeOutputDirectoryTable {
+    autoRefresh: boolean;
+    enable: boolean;
+}
+
+export interface StageExternalS3DescribeOutputFileFormat {
+    avros: outputs.StageExternalS3DescribeOutputFileFormatAvro[];
+    csvs: outputs.StageExternalS3DescribeOutputFileFormatCsv[];
+    formatName: string;
+    jsons: outputs.StageExternalS3DescribeOutputFileFormatJson[];
+    orcs: outputs.StageExternalS3DescribeOutputFileFormatOrc[];
+    parquets: outputs.StageExternalS3DescribeOutputFileFormatParquet[];
+    xmls: outputs.StageExternalS3DescribeOutputFileFormatXml[];
+}
+
+export interface StageExternalS3DescribeOutputFileFormatAvro {
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatCsv {
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    emptyFieldAsNull: boolean;
+    encoding: string;
+    errorOnColumnCountMismatch: boolean;
+    escape: string;
+    escapeUnenclosedField: string;
+    fieldDelimiter: string;
+    fieldOptionallyEnclosedBy: string;
+    fileExtension: string;
+    multiLine: boolean;
+    nullIfs: string[];
+    parseHeader: boolean;
+    recordDelimiter: string;
+    replaceInvalidCharacters: boolean;
+    skipBlankLines: boolean;
+    skipByteOrderMark: boolean;
+    skipHeader: number;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+    validateUtf8: boolean;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatJson {
+    allowDuplicate: boolean;
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    enableOctal: boolean;
+    fileExtension: string;
+    ignoreUtf8Errors: boolean;
+    multiLine: boolean;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripNullValues: boolean;
+    stripOuterArray: boolean;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatOrc {
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatParquet {
+    binaryAsText: boolean;
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+    useLogicalType: boolean;
+    useVectorizedScanner: boolean;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatXml {
+    compression: string;
+    disableAutoConvert: boolean;
+    ignoreUtf8Errors: boolean;
+    preserveSpace: boolean;
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripOuterElement: boolean;
+    type: string;
+}
+
+export interface StageExternalS3DescribeOutputLocation {
+    awsAccessPointArn: string;
+    urls: string[];
+}
+
+export interface StageExternalS3DescribeOutputPrivatelink {
+    usePrivatelinkEndpoint: boolean;
+}
+
+export interface StageExternalS3Directory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+     */
+    autoRefresh?: string;
+    /**
+     * Specifies whether to enable a directory table on the external stage.
+     */
+    enable: boolean;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+     */
+    refreshOnCreate?: string;
+}
+
+export interface StageExternalS3Encryption {
+    /**
+     * AWS client-side encryption using a master key.
+     */
+    awsCse?: outputs.StageExternalS3EncryptionAwsCse;
+    /**
+     * AWS server-side encryption using KMS-managed keys.
+     */
+    awsSseKms?: outputs.StageExternalS3EncryptionAwsSseKms;
+    /**
+     * AWS server-side encryption using S3-managed keys.
+     */
+    awsSseS3?: outputs.StageExternalS3EncryptionAwsSseS3;
+    /**
+     * No encryption.
+     */
+    none?: outputs.StageExternalS3EncryptionNone;
+}
+
+export interface StageExternalS3EncryptionAwsCse {
+    /**
+     * Specifies the 128-bit or 256-bit client-side master key.
+     */
+    masterKey: string;
+}
+
+export interface StageExternalS3EncryptionAwsSseKms {
+    /**
+     * Specifies the KMS-managed key ID.
+     */
+    kmsKeyId?: string;
+}
+
+export interface StageExternalS3EncryptionAwsSseS3 {
+}
+
+export interface StageExternalS3EncryptionNone {
+}
+
+export interface StageExternalS3FileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: outputs.StageExternalS3FileFormatAvro;
+    /**
+     * CSV file format options.
+     */
+    csv?: outputs.StageExternalS3FileFormatCsv;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: string;
+    /**
+     * JSON file format options.
+     */
+    json?: outputs.StageExternalS3FileFormatJson;
+    /**
+     * ORC file format options.
+     */
+    orc?: outputs.StageExternalS3FileFormatOrc;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: outputs.StageExternalS3FileFormatParquet;
+    /**
+     * XML file format options.
+     */
+    xml?: outputs.StageExternalS3FileFormatXml;
+}
+
+export interface StageExternalS3FileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalS3FileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: string;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: string;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: string;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: string;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: number;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalS3FileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: string;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: string;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalS3FileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageExternalS3FileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: string;
+}
+
+export interface StageExternalS3FileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: string;
+}
+
+export interface StageExternalS3ShowOutput {
+    cloud: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    directoryEnabled: boolean;
+    endpoint: string;
+    hasCredentials: boolean;
+    hasEncryptionKey: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    region: string;
+    schemaName: string;
+    storageIntegration: string;
+    type: string;
+    url: string;
+}
+
+export interface StageInternalDescribeOutput {
+    directoryTables: outputs.StageInternalDescribeOutputDirectoryTable[];
+    fileFormats: outputs.StageInternalDescribeOutputFileFormat[];
+}
+
+export interface StageInternalDescribeOutputDirectoryTable {
+    autoRefresh: boolean;
+    enable: boolean;
+}
+
+export interface StageInternalDescribeOutputFileFormat {
+    avros: outputs.StageInternalDescribeOutputFileFormatAvro[];
+    csvs: outputs.StageInternalDescribeOutputFileFormatCsv[];
+    formatName: string;
+    jsons: outputs.StageInternalDescribeOutputFileFormatJson[];
+    orcs: outputs.StageInternalDescribeOutputFileFormatOrc[];
+    parquets: outputs.StageInternalDescribeOutputFileFormatParquet[];
+    xmls: outputs.StageInternalDescribeOutputFileFormatXml[];
+}
+
+export interface StageInternalDescribeOutputFileFormatAvro {
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageInternalDescribeOutputFileFormatCsv {
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    emptyFieldAsNull: boolean;
+    encoding: string;
+    errorOnColumnCountMismatch: boolean;
+    escape: string;
+    escapeUnenclosedField: string;
+    fieldDelimiter: string;
+    fieldOptionallyEnclosedBy: string;
+    fileExtension: string;
+    multiLine: boolean;
+    nullIfs: string[];
+    parseHeader: boolean;
+    recordDelimiter: string;
+    replaceInvalidCharacters: boolean;
+    skipBlankLines: boolean;
+    skipByteOrderMark: boolean;
+    skipHeader: number;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+    validateUtf8: boolean;
+}
+
+export interface StageInternalDescribeOutputFileFormatJson {
+    allowDuplicate: boolean;
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    enableOctal: boolean;
+    fileExtension: string;
+    ignoreUtf8Errors: boolean;
+    multiLine: boolean;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripNullValues: boolean;
+    stripOuterArray: boolean;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageInternalDescribeOutputFileFormatOrc {
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface StageInternalDescribeOutputFileFormatParquet {
+    binaryAsText: boolean;
+    compression: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+    useLogicalType: boolean;
+    useVectorizedScanner: boolean;
+}
+
+export interface StageInternalDescribeOutputFileFormatXml {
+    compression: string;
+    disableAutoConvert: boolean;
+    ignoreUtf8Errors: boolean;
+    preserveSpace: boolean;
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripOuterElement: boolean;
+    type: string;
+}
+
+export interface StageInternalDirectory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should automatically refresh the directory table metadata when new or updated data files are available on the internal named stage.
+     */
+    autoRefresh?: string;
+    /**
+     * Specifies whether to enable a directory table on the internal named stage.
+     */
+    enable: boolean;
+}
+
+export interface StageInternalEncryption {
+    /**
+     * Client-side and server-side encryption.
+     */
+    snowflakeFull?: outputs.StageInternalEncryptionSnowflakeFull;
+    /**
+     * Server-side encryption only.
+     */
+    snowflakeSse?: outputs.StageInternalEncryptionSnowflakeSse;
+}
+
+export interface StageInternalEncryptionSnowflakeFull {
+}
+
+export interface StageInternalEncryptionSnowflakeSse {
+}
+
+export interface StageInternalFileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: outputs.StageInternalFileFormatAvro;
+    /**
+     * CSV file format options.
+     */
+    csv?: outputs.StageInternalFileFormatCsv;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: string;
+    /**
+     * JSON file format options.
+     */
+    json?: outputs.StageInternalFileFormatJson;
+    /**
+     * ORC file format options.
+     */
+    orc?: outputs.StageInternalFileFormatOrc;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: outputs.StageInternalFileFormatParquet;
+    /**
+     * XML file format options.
+     */
+    xml?: outputs.StageInternalFileFormatXml;
+}
+
+export interface StageInternalFileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageInternalFileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: string;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: string;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: string;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: string;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: string;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: number;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageInternalFileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: string;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: string;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: string;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: string;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageInternalFileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+}
+
+export interface StageInternalFileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: string;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: string;
+}
+
+export interface StageInternalFileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: string;
+}
+
+export interface StageInternalShowOutput {
+    cloud: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    directoryEnabled: boolean;
+    endpoint: string;
+    hasCredentials: boolean;
+    hasEncryptionKey: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    region: string;
+    schemaName: string;
+    storageIntegration: string;
+    type: string;
+    url: string;
+}
+
 export interface StageTag {
     /**
      * Name of the database that the tag was created in.
@@ -8631,6 +11210,51 @@ export interface StageTag {
      * Tag value, e.g. marketing_info.
      */
     value: string;
+}
+
+export interface StorageIntegrationAwsDescribeOutput {
+    allowedLocations: string[];
+    blockedLocations: string[];
+    comment: string;
+    enabled: boolean;
+    externalId: string;
+    iamUserArn: string;
+    id: string;
+    objectAcl: string;
+    provider: string;
+    roleArn: string;
+    usePrivatelinkEndpoint: boolean;
+}
+
+export interface StorageIntegrationAwsShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    storageType: string;
+}
+
+export interface StorageIntegrationAzureDescribeOutput {
+    allowedLocations: string[];
+    blockedLocations: string[];
+    comment: string;
+    consentUrl: string;
+    enabled: boolean;
+    id: string;
+    multiTenantAppName: string;
+    provider: string;
+    tenantId: string;
+    usePrivatelinkEndpoint: boolean;
+}
+
+export interface StorageIntegrationAzureShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    storageType: string;
 }
 
 export interface StorageIntegrationDescribeOutput {
@@ -8738,6 +11362,26 @@ export interface StorageIntegrationDescribeOutputUsePrivatelinkEndpoint {
     name: string;
     type: string;
     value: string;
+}
+
+export interface StorageIntegrationGcsDescribeOutput {
+    allowedLocations: string[];
+    blockedLocations: string[];
+    comment: string;
+    enabled: boolean;
+    id: string;
+    provider: string;
+    serviceAccount: string;
+    usePrivatelinkEndpoint: boolean;
+}
+
+export interface StorageIntegrationGcsShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    storageType: string;
 }
 
 export interface StreamOnDirectoryTableDescribeOutput {

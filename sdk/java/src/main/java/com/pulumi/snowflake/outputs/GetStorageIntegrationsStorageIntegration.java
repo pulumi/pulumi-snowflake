@@ -5,29 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetStorageIntegrationsStorageIntegrationDescribeOutput;
+import com.pulumi.snowflake.outputs.GetStorageIntegrationsStorageIntegrationShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetStorageIntegrationsStorageIntegration {
-    private String comment;
-    private Boolean enabled;
-    private String name;
-    private String type;
+    /**
+     * @return Holds the aggregated output of DESCRIBE STORAGE INTEGRATIONS.
+     * 
+     */
+    private List<GetStorageIntegrationsStorageIntegrationDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW STORAGE INTEGRATIONS.
+     * 
+     */
+    private List<GetStorageIntegrationsStorageIntegrationShowOutput> showOutputs;
 
     private GetStorageIntegrationsStorageIntegration() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the aggregated output of DESCRIBE STORAGE INTEGRATIONS.
+     * 
+     */
+    public List<GetStorageIntegrationsStorageIntegrationDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public Boolean enabled() {
-        return this.enabled;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String type() {
-        return this.type;
+    /**
+     * @return Holds the output of SHOW STORAGE INTEGRATIONS.
+     * 
+     */
+    public List<GetStorageIntegrationsStorageIntegrationShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -39,57 +48,41 @@ public final class GetStorageIntegrationsStorageIntegration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private Boolean enabled;
-        private String name;
-        private String type;
+        private List<GetStorageIntegrationsStorageIntegrationDescribeOutput> describeOutputs;
+        private List<GetStorageIntegrationsStorageIntegrationShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetStorageIntegrationsStorageIntegration defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.enabled = defaults.enabled;
-    	      this.name = defaults.name;
-    	      this.type = defaults.type;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetStorageIntegrationsStorageIntegration", "comment");
+        public Builder describeOutputs(List<GetStorageIntegrationsStorageIntegrationDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetStorageIntegrationsStorageIntegration", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            if (enabled == null) {
-              throw new MissingRequiredPropertyException("GetStorageIntegrationsStorageIntegration", "enabled");
-            }
-            this.enabled = enabled;
-            return this;
+        public Builder describeOutputs(GetStorageIntegrationsStorageIntegrationDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetStorageIntegrationsStorageIntegration", "name");
+        public Builder showOutputs(List<GetStorageIntegrationsStorageIntegrationShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetStorageIntegrationsStorageIntegration", "showOutputs");
             }
-            this.name = name;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder type(String type) {
-            if (type == null) {
-              throw new MissingRequiredPropertyException("GetStorageIntegrationsStorageIntegration", "type");
-            }
-            this.type = type;
-            return this;
+        public Builder showOutputs(GetStorageIntegrationsStorageIntegrationShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetStorageIntegrationsStorageIntegration build() {
             final var _resultValue = new GetStorageIntegrationsStorageIntegration();
-            _resultValue.comment = comment;
-            _resultValue.enabled = enabled;
-            _resultValue.name = name;
-            _resultValue.type = type;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

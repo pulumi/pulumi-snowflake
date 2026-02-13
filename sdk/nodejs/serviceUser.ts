@@ -19,6 +19,9 @@ import * as utilities from "./utilities";
  *
  * > **Note** External changes to `daysToExpiry` and `minsToUnlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
  *
+ * <!-- TODO(SNOW-3003261): Remove this note.-->
+ * > **Note** External changes to `default_workload_identity.aws`, including setting AWS type externally, are not currently handled by the provider because of lack of certain data in Snowflake API.
+ *
  * Resource used to manage service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
  *
  * ## Example Usage
@@ -110,6 +113,45 @@ import * as utilities from "./utilities";
  *     useCachedResult: false,
  *     weekOfYearPolicy: 1,
  *     weekStart: 1,
+ * });
+ * // with AWS workload identity
+ * const withAwsWif = new snowflake.ServiceUser("with_aws_wif", {
+ *     name: "service_user_aws",
+ *     defaultWorkloadIdentity: {
+ *         aws: {
+ *             arn: "arn:aws:iam::123456789012:role/snowflake-service-role",
+ *         },
+ *     },
+ * });
+ * // with GCP workload identity
+ * const withGcpWif = new snowflake.ServiceUser("with_gcp_wif", {
+ *     name: "service_user_gcp",
+ *     defaultWorkloadIdentity: {
+ *         gcp: {
+ *             subject: "1122334455",
+ *         },
+ *     },
+ * });
+ * // with Azure workload identity
+ * const withAzureWif = new snowflake.ServiceUser("with_azure_wif", {
+ *     name: "service_user_azure",
+ *     defaultWorkloadIdentity: {
+ *         azure: {
+ *             issuer: "https://login.microsoftonline.com/tenant-id/v2.0",
+ *             subject: "application-id",
+ *         },
+ *     },
+ * });
+ * // with OIDC workload identity
+ * const withOidcWif = new snowflake.ServiceUser("with_oidc_wif", {
+ *     name: "service_user_oidc",
+ *     defaultWorkloadIdentity: {
+ *         oidc: {
+ *             issuer: "https://oidc.example.com",
+ *             subject: "service-principal",
+ *             oidcAudienceLists: ["snowflake"],
+ *         },
+ *     },
  * });
  * ```
  * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
@@ -231,6 +273,10 @@ export class ServiceUser extends pulumi.CustomResource {
      * Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
      */
     declare public readonly defaultWarehouse: pulumi.Output<string | undefined>;
+    /**
+     * Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+     */
+    declare public readonly defaultWorkloadIdentity: pulumi.Output<outputs.ServiceUserDefaultWorkloadIdentity | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
@@ -489,6 +535,7 @@ export class ServiceUser extends pulumi.CustomResource {
             resourceInputs["defaultRole"] = state?.defaultRole;
             resourceInputs["defaultSecondaryRolesOption"] = state?.defaultSecondaryRolesOption;
             resourceInputs["defaultWarehouse"] = state?.defaultWarehouse;
+            resourceInputs["defaultWorkloadIdentity"] = state?.defaultWorkloadIdentity;
             resourceInputs["disabled"] = state?.disabled;
             resourceInputs["displayName"] = state?.displayName;
             resourceInputs["email"] = state?.email;
@@ -567,6 +614,7 @@ export class ServiceUser extends pulumi.CustomResource {
             resourceInputs["defaultRole"] = args?.defaultRole;
             resourceInputs["defaultSecondaryRolesOption"] = args?.defaultSecondaryRolesOption;
             resourceInputs["defaultWarehouse"] = args?.defaultWarehouse;
+            resourceInputs["defaultWorkloadIdentity"] = args?.defaultWorkloadIdentity;
             resourceInputs["disabled"] = args?.disabled;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["email"] = args?.email ? pulumi.secret(args.email) : undefined;
@@ -715,6 +763,10 @@ export interface ServiceUserState {
      * Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
      */
     defaultWarehouse?: pulumi.Input<string>;
+    /**
+     * Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+     */
+    defaultWorkloadIdentity?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentity>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
@@ -1025,6 +1077,10 @@ export interface ServiceUserArgs {
      * Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
      */
     defaultWarehouse?: pulumi.Input<string>;
+    /**
+     * Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+     */
+    defaultWorkloadIdentity?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentity>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */

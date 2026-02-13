@@ -76,7 +76,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly includeRetryReason: pulumi.Output<string | undefined>;
     /**
-     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
      */
     declare public readonly noProxy: pulumi.Output<string | undefined>;
     /**
@@ -140,19 +140,19 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
-     * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     * The host of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
      */
     declare public readonly proxyHost: pulumi.Output<string | undefined>;
     /**
-     * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     * The password of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
      */
     declare public readonly proxyPassword: pulumi.Output<string | undefined>;
     /**
-     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
      */
     declare public readonly proxyProtocol: pulumi.Output<string | undefined>;
     /**
-     * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     * The user of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
      */
     declare public readonly proxyUser: pulumi.Output<string | undefined>;
     /**
@@ -360,7 +360,7 @@ export interface ProviderArgs {
      */
     enableSingleUseRefreshTokens?: pulumi.Input<boolean>;
     /**
-     * A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Valid options are: `PARAMETERS_IGNORE_VALUE_CHANGES_IF_NOT_ON_OBJECT_LEVEL` | `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE`.
+     * A list of experimental features. Similarly to preview features, they are not yet stable features of the provider. Enabling given experiment is still considered a preview feature, even when applied to the stable resource. These switches offer experiments altering the provider behavior. If the given experiment is successful, it can be considered an addition in the future provider versions. This field can not be set with environmental variables. Check more details in the experimental features section. Active experiments are: `WAREHOUSE_SHOW_IMPROVED_PERFORMANCE` | `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` | `PARAMETERS_IGNORE_VALUE_CHANGES_IF_NOT_ON_OBJECT_LEVEL` | `PARAMETERS_REDUCED_OUTPUT` | `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY`.
      */
     experimentalFeaturesEnableds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -410,7 +410,7 @@ export interface ProviderArgs {
      */
     maxRetryCount?: pulumi.Input<number>;
     /**
-     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
      */
     noProxy?: pulumi.Input<string>;
     /**
@@ -470,7 +470,7 @@ export interface ProviderArgs {
      */
     port?: pulumi.Input<number>;
     /**
-     * A list of preview features that are handled by the provider. See [preview features list](https://github.com/Snowflake-Labs/terraform-provider-snowflake/blob/main/v1-preparations/LIST_OF_PREVIEW_FEATURES_FOR_V1.md). Preview features may have breaking changes in future releases, even without raising the major version. This field can not be set with environmental variables. Preview features that can be enabled are: `snowflakeAccountAuthenticationPolicyAttachmentResource` | `snowflakeAccountPasswordPolicyAttachmentResource` | `snowflakeAlertResource` | `snowflakeAlertsDatasource` | `snowflakeApiIntegrationResource` | `snowflakeAuthenticationPolicyResource` | `snowflakeAuthenticationPoliciesDatasource` | `snowflakeCortexSearchServiceResource` | `snowflakeCortexSearchServicesDatasource` | `snowflakeCurrentAccountResource` | `snowflakeCurrentAccountDatasource` | `snowflakeCurrentOrganizationAccountResource` | `snowflakeDatabaseDatasource` | `snowflakeDatabaseRoleDatasource` | `snowflakeDynamicTableResource` | `snowflakeDynamicTablesDatasource` | `snowflakeExternalFunctionResource` | `snowflakeExternalFunctionsDatasource` | `snowflakeExternalTableResource` | `snowflakeExternalTablesDatasource` | `snowflakeExternalVolumeResource` | `snowflakeFailoverGroupResource` | `snowflakeFailoverGroupsDatasource` | `snowflakeFileFormatResource` | `snowflakeFileFormatsDatasource` | `snowflakeFunctionJavaResource` | `snowflakeFunctionJavascriptResource` | `snowflakeFunctionPythonResource` | `snowflakeFunctionScalaResource` | `snowflakeFunctionSqlResource` | `snowflakeFunctionsDatasource` | `snowflakeJobServiceResource` | `snowflakeListingsDatasource` | `snowflakeManagedAccountResource` | `snowflakeMaterializedViewResource` | `snowflakeMaterializedViewsDatasource` | `snowflakeNetworkPolicyAttachmentResource` | `snowflakeNetworkRuleResource` | `snowflakeNotebookResource` | `snowflakeNotebooksDatasource` | `snowflakeEmailNotificationIntegrationResource` | `snowflakeNotificationIntegrationResource` | `snowflakeObjectParameterResource` | `snowflakePasswordPolicyResource` | `snowflakePipeResource` | `snowflakePipesDatasource` | `snowflakeCurrentRoleDatasource` | `snowflakeSemanticViewResource` | `snowflakeSemanticViewsDatasource` | `snowflakeSequenceResource` | `snowflakeSequencesDatasource` | `snowflakeShareResource` | `snowflakeSharesDatasource` | `snowflakeParametersDatasource` | `snowflakeProcedureJavaResource` | `snowflakeProcedureJavascriptResource` | `snowflakeProcedurePythonResource` | `snowflakeProcedureScalaResource` | `snowflakeProcedureSqlResource` | `snowflakeProceduresDatasource` | `snowflakeStageResource` | `snowflakeStagesDatasource` | `snowflakeStorageIntegrationResource` | `snowflakeStorageIntegrationsDatasource` | `snowflakeSystemGenerateScimAccessTokenDatasource` | `snowflakeSystemGetAwsSnsIamPolicyDatasource` | `snowflakeSystemGetPrivatelinkConfigDatasource` | `snowflakeSystemGetSnowflakePlatformInfoDatasource` | `snowflakeTableColumnMaskingPolicyApplicationResource` | `snowflakeTableConstraintResource` | `snowflakeTableResource` | `snowflakeTablesDatasource` | `snowflakeUserAuthenticationPolicyAttachmentResource` | `snowflakeUserPublicKeysResource` | `snowflakeUserPasswordPolicyAttachmentResource`. Promoted features that are stable and are enabled by default are: `snowflakeComputePoolResource` | `snowflakeComputePoolsDatasource` | `snowflakeGitRepositoryResource` | `snowflakeGitRepositoriesDatasource` | `snowflakeImageRepositoryResource` | `snowflakeImageRepositoriesDatasource` | `snowflakeListingResource` | `snowflakeServiceResource` | `snowflakeServicesDatasource` | `snowflakeUserProgrammaticAccessTokenResource` | `snowflakeUserProgrammaticAccessTokensDatasource`. Promoted features can be safely removed from this field. They will be removed in the next major version.
+     * A list of preview features that are handled by the provider. See [preview features list](https://github.com/Snowflake-Labs/terraform-provider-snowflake/blob/main/v1-preparations/LIST_OF_PREVIEW_FEATURES_FOR_V1.md). Preview features may have breaking changes in future releases, even without raising the major version. This field can not be set with environmental variables. Preview features that can be enabled are: `snowflakeAccountAuthenticationPolicyAttachmentResource` | `snowflakeAccountPasswordPolicyAttachmentResource` | `snowflakeAlertResource` | `snowflakeAlertsDatasource` | `snowflakeApiIntegrationResource` | `snowflakeAuthenticationPolicyResource` | `snowflakeAuthenticationPoliciesDatasource` | `snowflakeCortexSearchServiceResource` | `snowflakeCortexSearchServicesDatasource` | `snowflakeCurrentAccountResource` | `snowflakeCurrentAccountDatasource` | `snowflakeCurrentOrganizationAccountResource` | `snowflakeDatabaseDatasource` | `snowflakeDatabaseRoleDatasource` | `snowflakeDynamicTableResource` | `snowflakeDynamicTablesDatasource` | `snowflakeStageExternalAzureResource` | `snowflakeExternalFunctionResource` | `snowflakeExternalFunctionsDatasource` | `snowflakeStageExternalGcsResource` | `snowflakeStageExternalS3Resource` | `snowflakeStageExternalS3CompatibleResource` | `snowflakeExternalTableResource` | `snowflakeExternalTablesDatasource` | `snowflakeExternalVolumeResource` | `snowflakeFailoverGroupResource` | `snowflakeFailoverGroupsDatasource` | `snowflakeFileFormatResource` | `snowflakeFileFormatsDatasource` | `snowflakeFunctionJavaResource` | `snowflakeFunctionJavascriptResource` | `snowflakeFunctionPythonResource` | `snowflakeFunctionScalaResource` | `snowflakeFunctionSqlResource` | `snowflakeFunctionsDatasource` | `snowflakeStageInternalResource` | `snowflakeJobServiceResource` | `snowflakeListingsDatasource` | `snowflakeManagedAccountResource` | `snowflakeMaterializedViewResource` | `snowflakeMaterializedViewsDatasource` | `snowflakeNetworkPolicyAttachmentResource` | `snowflakeNetworkRuleResource` | `snowflakeNotebookResource` | `snowflakeNotebooksDatasource` | `snowflakeEmailNotificationIntegrationResource` | `snowflakeNotificationIntegrationResource` | `snowflakeObjectParameterResource` | `snowflakePasswordPolicyResource` | `snowflakePipeResource` | `snowflakePipesDatasource` | `snowflakeCurrentRoleDatasource` | `snowflakeSemanticViewResource` | `snowflakeSemanticViewsDatasource` | `snowflakeSequenceResource` | `snowflakeSequencesDatasource` | `snowflakeShareResource` | `snowflakeSharesDatasource` | `snowflakeParametersDatasource` | `snowflakeProcedureJavaResource` | `snowflakeProcedureJavascriptResource` | `snowflakeProcedurePythonResource` | `snowflakeProcedureScalaResource` | `snowflakeProcedureSqlResource` | `snowflakeProceduresDatasource` | `snowflakeStageResource` | `snowflakeStagesDatasource` | `snowflakeStorageIntegrationResource` | `snowflakeStorageIntegrationAwsResource` | `snowflakeStorageIntegrationAzureResource` | `snowflakeStorageIntegrationGcsResource` | `snowflakeStorageIntegrationsDatasource` | `snowflakeSystemGenerateScimAccessTokenDatasource` | `snowflakeSystemGetAwsSnsIamPolicyDatasource` | `snowflakeSystemGetPrivatelinkConfigDatasource` | `snowflakeSystemGetSnowflakePlatformInfoDatasource` | `snowflakeTableColumnMaskingPolicyApplicationResource` | `snowflakeTableConstraintResource` | `snowflakeTableResource` | `snowflakeTablesDatasource` | `snowflakeUserAuthenticationPolicyAttachmentResource` | `snowflakeUserPublicKeysResource` | `snowflakeUserPasswordPolicyAttachmentResource`. Promoted features that are stable and are enabled by default are: `snowflakeComputePoolResource` | `snowflakeComputePoolsDatasource` | `snowflakeGitRepositoryResource` | `snowflakeGitRepositoriesDatasource` | `snowflakeImageRepositoryResource` | `snowflakeImageRepositoriesDatasource` | `snowflakeListingResource` | `snowflakeServiceResource` | `snowflakeServicesDatasource` | `snowflakeUserProgrammaticAccessTokenResource` | `snowflakeUserProgrammaticAccessTokensDatasource`. Promoted features can be safely removed from this field. They will be removed in the next major version.
      */
     previewFeaturesEnabled?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -490,23 +490,23 @@ export interface ProviderArgs {
      */
     protocol?: pulumi.Input<string>;
     /**
-     * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     * The host of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
      */
     proxyHost?: pulumi.Input<string>;
     /**
-     * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     * The password of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
      */
     proxyPassword?: pulumi.Input<string>;
     /**
-     * The port of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
+     * The port of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PORT` environment variable.
      */
     proxyPort?: pulumi.Input<number>;
     /**
-     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
      */
     proxyProtocol?: pulumi.Input<string>;
     /**
-     * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     * The user of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
      */
     proxyUser?: pulumi.Input<string>;
     /**

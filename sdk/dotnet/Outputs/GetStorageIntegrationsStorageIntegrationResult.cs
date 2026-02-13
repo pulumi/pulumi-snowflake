@@ -13,25 +13,23 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetStorageIntegrationsStorageIntegrationResult
     {
-        public readonly string Comment;
-        public readonly bool Enabled;
-        public readonly string Name;
-        public readonly string Type;
+        /// <summary>
+        /// Holds the aggregated output of DESCRIBE STORAGE INTEGRATIONS.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetStorageIntegrationsStorageIntegrationDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW STORAGE INTEGRATIONS.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetStorageIntegrationsStorageIntegrationShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetStorageIntegrationsStorageIntegrationResult(
-            string comment,
+            ImmutableArray<Outputs.GetStorageIntegrationsStorageIntegrationDescribeOutputResult> describeOutputs,
 
-            bool enabled,
-
-            string name,
-
-            string type)
+            ImmutableArray<Outputs.GetStorageIntegrationsStorageIntegrationShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Enabled = enabled;
-            Name = name;
-            Type = type;
+            DescribeOutputs = describeOutputs;
+            ShowOutputs = showOutputs;
         }
     }
 }

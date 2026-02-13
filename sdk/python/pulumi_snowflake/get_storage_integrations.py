@@ -27,13 +27,19 @@ class GetStorageIntegrationsResult:
     """
     A collection of values returned by getStorageIntegrations.
     """
-    def __init__(__self__, id=None, storage_integrations=None):
+    def __init__(__self__, id=None, like=None, storage_integrations=None, with_describe=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
         if storage_integrations and not isinstance(storage_integrations, list):
             raise TypeError("Expected argument 'storage_integrations' to be a list")
         pulumi.set(__self__, "storage_integrations", storage_integrations)
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
 
     @_builtins.property
     @pulumi.getter
@@ -44,12 +50,28 @@ class GetStorageIntegrationsResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter
+    def like(self) -> Optional[_builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
+        return pulumi.get(self, "like")
+
+    @_builtins.property
     @pulumi.getter(name="storageIntegrations")
     def storage_integrations(self) -> Sequence['outputs.GetStorageIntegrationsStorageIntegrationResult']:
         """
-        The storage integrations in the database
+        Holds the aggregated output of all storage integrations details queries.
         """
         return pulumi.get(self, "storage_integrations")
+
+    @_builtins.property
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[_builtins.bool]:
+        """
+        (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_describe")
 
 
 class AwaitableGetStorageIntegrationsResult(GetStorageIntegrationsResult):
@@ -59,49 +81,53 @@ class AwaitableGetStorageIntegrationsResult(GetStorageIntegrationsResult):
             yield self
         return GetStorageIntegrationsResult(
             id=self.id,
-            storage_integrations=self.storage_integrations)
+            like=self.like,
+            storage_integrations=self.storage_integrations,
+            with_describe=self.with_describe)
 
 
-def get_storage_integrations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageIntegrationsResult:
+def get_storage_integrations(like: Optional[_builtins.str] = None,
+                             with_describe: Optional[_builtins.bool] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageIntegrationsResult:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
+    Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storage_integrations`.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
 
-    current = snowflake.get_storage_integrations()
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getStorageIntegrations:getStorageIntegrations', __args__, opts=opts, typ=GetStorageIntegrationsResult).value
 
     return AwaitableGetStorageIntegrationsResult(
         id=pulumi.get(__ret__, 'id'),
-        storage_integrations=pulumi.get(__ret__, 'storage_integrations'))
-def get_storage_integrations_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageIntegrationsResult]:
+        like=pulumi.get(__ret__, 'like'),
+        storage_integrations=pulumi.get(__ret__, 'storage_integrations'),
+        with_describe=pulumi.get(__ret__, 'with_describe'))
+def get_storage_integrations_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                    with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageIntegrationsResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
+    Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storage_integrations`.
 
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
 
-    current = snowflake.get_storage_integrations()
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getStorageIntegrations:getStorageIntegrations', __args__, opts=opts, typ=GetStorageIntegrationsResult)
     return __ret__.apply(lambda __response__: GetStorageIntegrationsResult(
         id=pulumi.get(__response__, 'id'),
-        storage_integrations=pulumi.get(__response__, 'storage_integrations')))
+        like=pulumi.get(__response__, 'like'),
+        storage_integrations=pulumi.get(__response__, 'storage_integrations'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

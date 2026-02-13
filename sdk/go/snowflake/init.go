@@ -181,8 +181,24 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SharedDatabase{}
 	case "snowflake:index/stage:Stage":
 		r = &Stage{}
+	case "snowflake:index/stageExternalAzure:StageExternalAzure":
+		r = &StageExternalAzure{}
+	case "snowflake:index/stageExternalGcs:StageExternalGcs":
+		r = &StageExternalGcs{}
+	case "snowflake:index/stageExternalS3:StageExternalS3":
+		r = &StageExternalS3{}
+	case "snowflake:index/stageExternalS3Compatible:StageExternalS3Compatible":
+		r = &StageExternalS3Compatible{}
+	case "snowflake:index/stageInternal:StageInternal":
+		r = &StageInternal{}
 	case "snowflake:index/storageIntegration:StorageIntegration":
 		r = &StorageIntegration{}
+	case "snowflake:index/storageIntegrationAws:StorageIntegrationAws":
+		r = &StorageIntegrationAws{}
+	case "snowflake:index/storageIntegrationAzure:StorageIntegrationAzure":
+		r = &StorageIntegrationAzure{}
+	case "snowflake:index/storageIntegrationGcs:StorageIntegrationGcs":
+		r = &StorageIntegrationGcs{}
 	case "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable":
 		r = &StreamOnDirectoryTable{}
 	case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
@@ -652,7 +668,47 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/stageExternalAzure",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/stageExternalGcs",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/stageExternalS3",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/stageExternalS3Compatible",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/stageInternal",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/storageIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/storageIntegrationAws",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/storageIntegrationAzure",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/storageIntegrationGcs",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
