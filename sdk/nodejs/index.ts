@@ -360,7 +360,7 @@ export const getStages: typeof import("./getStages").getStages = null as any;
 export const getStagesOutput: typeof import("./getStages").getStagesOutput = null as any;
 utilities.lazyLoad(exports, ["getStages","getStagesOutput"], () => require("./getStages"));
 
-export { GetStorageIntegrationsResult } from "./getStorageIntegrations";
+export { GetStorageIntegrationsArgs, GetStorageIntegrationsResult, GetStorageIntegrationsOutputArgs } from "./getStorageIntegrations";
 export const getStorageIntegrations: typeof import("./getStorageIntegrations").getStorageIntegrations = null as any;
 export const getStorageIntegrationsOutput: typeof import("./getStorageIntegrations").getStorageIntegrationsOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageIntegrations","getStorageIntegrationsOutput"], () => require("./getStorageIntegrations"));
@@ -678,10 +678,50 @@ export type Stage = import("./stage").Stage;
 export const Stage: typeof import("./stage").Stage = null as any;
 utilities.lazyLoad(exports, ["Stage"], () => require("./stage"));
 
+export { StageExternalAzureArgs, StageExternalAzureState } from "./stageExternalAzure";
+export type StageExternalAzure = import("./stageExternalAzure").StageExternalAzure;
+export const StageExternalAzure: typeof import("./stageExternalAzure").StageExternalAzure = null as any;
+utilities.lazyLoad(exports, ["StageExternalAzure"], () => require("./stageExternalAzure"));
+
+export { StageExternalGcsArgs, StageExternalGcsState } from "./stageExternalGcs";
+export type StageExternalGcs = import("./stageExternalGcs").StageExternalGcs;
+export const StageExternalGcs: typeof import("./stageExternalGcs").StageExternalGcs = null as any;
+utilities.lazyLoad(exports, ["StageExternalGcs"], () => require("./stageExternalGcs"));
+
+export { StageExternalS3Args, StageExternalS3State } from "./stageExternalS3";
+export type StageExternalS3 = import("./stageExternalS3").StageExternalS3;
+export const StageExternalS3: typeof import("./stageExternalS3").StageExternalS3 = null as any;
+utilities.lazyLoad(exports, ["StageExternalS3"], () => require("./stageExternalS3"));
+
+export { StageExternalS3CompatibleArgs, StageExternalS3CompatibleState } from "./stageExternalS3Compatible";
+export type StageExternalS3Compatible = import("./stageExternalS3Compatible").StageExternalS3Compatible;
+export const StageExternalS3Compatible: typeof import("./stageExternalS3Compatible").StageExternalS3Compatible = null as any;
+utilities.lazyLoad(exports, ["StageExternalS3Compatible"], () => require("./stageExternalS3Compatible"));
+
+export { StageInternalArgs, StageInternalState } from "./stageInternal";
+export type StageInternal = import("./stageInternal").StageInternal;
+export const StageInternal: typeof import("./stageInternal").StageInternal = null as any;
+utilities.lazyLoad(exports, ["StageInternal"], () => require("./stageInternal"));
+
 export { StorageIntegrationArgs, StorageIntegrationState } from "./storageIntegration";
 export type StorageIntegration = import("./storageIntegration").StorageIntegration;
 export const StorageIntegration: typeof import("./storageIntegration").StorageIntegration = null as any;
 utilities.lazyLoad(exports, ["StorageIntegration"], () => require("./storageIntegration"));
+
+export { StorageIntegrationAwsArgs, StorageIntegrationAwsState } from "./storageIntegrationAws";
+export type StorageIntegrationAws = import("./storageIntegrationAws").StorageIntegrationAws;
+export const StorageIntegrationAws: typeof import("./storageIntegrationAws").StorageIntegrationAws = null as any;
+utilities.lazyLoad(exports, ["StorageIntegrationAws"], () => require("./storageIntegrationAws"));
+
+export { StorageIntegrationAzureArgs, StorageIntegrationAzureState } from "./storageIntegrationAzure";
+export type StorageIntegrationAzure = import("./storageIntegrationAzure").StorageIntegrationAzure;
+export const StorageIntegrationAzure: typeof import("./storageIntegrationAzure").StorageIntegrationAzure = null as any;
+utilities.lazyLoad(exports, ["StorageIntegrationAzure"], () => require("./storageIntegrationAzure"));
+
+export { StorageIntegrationGcsArgs, StorageIntegrationGcsState } from "./storageIntegrationGcs";
+export type StorageIntegrationGcs = import("./storageIntegrationGcs").StorageIntegrationGcs;
+export const StorageIntegrationGcs: typeof import("./storageIntegrationGcs").StorageIntegrationGcs = null as any;
+utilities.lazyLoad(exports, ["StorageIntegrationGcs"], () => require("./storageIntegrationGcs"));
 
 export { StreamOnDirectoryTableArgs, StreamOnDirectoryTableState } from "./streamOnDirectoryTable";
 export type StreamOnDirectoryTable = import("./streamOnDirectoryTable").StreamOnDirectoryTable;
@@ -947,8 +987,24 @@ const _module = {
                 return new SharedDatabase(name, <any>undefined, { urn })
             case "snowflake:index/stage:Stage":
                 return new Stage(name, <any>undefined, { urn })
+            case "snowflake:index/stageExternalAzure:StageExternalAzure":
+                return new StageExternalAzure(name, <any>undefined, { urn })
+            case "snowflake:index/stageExternalGcs:StageExternalGcs":
+                return new StageExternalGcs(name, <any>undefined, { urn })
+            case "snowflake:index/stageExternalS3:StageExternalS3":
+                return new StageExternalS3(name, <any>undefined, { urn })
+            case "snowflake:index/stageExternalS3Compatible:StageExternalS3Compatible":
+                return new StageExternalS3Compatible(name, <any>undefined, { urn })
+            case "snowflake:index/stageInternal:StageInternal":
+                return new StageInternal(name, <any>undefined, { urn })
             case "snowflake:index/storageIntegration:StorageIntegration":
                 return new StorageIntegration(name, <any>undefined, { urn })
+            case "snowflake:index/storageIntegrationAws:StorageIntegrationAws":
+                return new StorageIntegrationAws(name, <any>undefined, { urn })
+            case "snowflake:index/storageIntegrationAzure:StorageIntegrationAzure":
+                return new StorageIntegrationAzure(name, <any>undefined, { urn })
+            case "snowflake:index/storageIntegrationGcs:StorageIntegrationGcs":
+                return new StorageIntegrationGcs(name, <any>undefined, { urn })
             case "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable":
                 return new StreamOnDirectoryTable(name, <any>undefined, { urn })
             case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
@@ -1070,7 +1126,15 @@ pulumi.runtime.registerResourceModule("snowflake", "index/serviceUser", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/share", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sharedDatabase", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/stage", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/stageExternalAzure", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/stageExternalGcs", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/stageExternalS3", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/stageExternalS3Compatible", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/stageInternal", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegration", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegrationAws", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegrationAzure", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegrationGcs", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnDirectoryTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnExternalTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnTable", _module)

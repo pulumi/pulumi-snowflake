@@ -14,71 +14,67 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetStorageIntegrations.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `StorageIntegrations`.
         /// </summary>
-        public static Task<GetStorageIntegrationsResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetStorageIntegrationsResult> InvokeAsync(GetStorageIntegrationsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", args ?? new GetStorageIntegrationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetStorageIntegrations.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `StorageIntegrations`.
         /// </summary>
-        public static Output<GetStorageIntegrationsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetStorageIntegrationsResult> Invoke(GetStorageIntegrationsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", args ?? new GetStorageIntegrationsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetStorageIntegrations.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `StorageIntegrations`.
         /// </summary>
-        public static Output<GetStorageIntegrationsResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetStorageIntegrationsResult> Invoke(GetStorageIntegrationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageIntegrationsResult>("snowflake:index/getStorageIntegrations:getStorageIntegrations", args ?? new GetStorageIntegrationsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetStorageIntegrationsArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        [Input("like")]
+        public string? Like { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
+
+        public GetStorageIntegrationsArgs()
+        {
+        }
+        public static new GetStorageIntegrationsArgs Empty => new GetStorageIntegrationsArgs();
+    }
+
+    public sealed class GetStorageIntegrationsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
+
+        public GetStorageIntegrationsInvokeArgs()
+        {
+        }
+        public static new GetStorageIntegrationsInvokeArgs Empty => new GetStorageIntegrationsInvokeArgs();
     }
 
 
@@ -90,18 +86,32 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The storage integrations in the database
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// Holds the aggregated output of all storage integrations details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStorageIntegrationsStorageIntegrationResult> StorageIntegrations;
+        /// <summary>
+        /// (Default: `True`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithDescribe;
 
         [OutputConstructor]
         private GetStorageIntegrationsResult(
             string id,
 
-            ImmutableArray<Outputs.GetStorageIntegrationsStorageIntegrationResult> storageIntegrations)
+            string? like,
+
+            ImmutableArray<Outputs.GetStorageIntegrationsStorageIntegrationResult> storageIntegrations,
+
+            bool? withDescribe)
         {
             Id = id;
+            Like = like;
             StorageIntegrations = storageIntegrations;
+            WithDescribe = withDescribe;
         }
     }
 }

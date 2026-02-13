@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.LegacyServiceUserDefaultWorkloadIdentityArgs;
 import com.pulumi.snowflake.inputs.LegacyServiceUserParameterArgs;
 import com.pulumi.snowflake.inputs.LegacyServiceUserShowOutputArgs;
 import java.lang.Boolean;
@@ -318,6 +319,21 @@ public final class LegacyServiceUserState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<String>> defaultWarehouse() {
         return Optional.ofNullable(this.defaultWarehouse);
+    }
+
+    /**
+     * Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+     * 
+     */
+    @Import(name="defaultWorkloadIdentity")
+    private @Nullable Output<LegacyServiceUserDefaultWorkloadIdentityArgs> defaultWorkloadIdentity;
+
+    /**
+     * @return Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+     * 
+     */
+    public Optional<Output<LegacyServiceUserDefaultWorkloadIdentityArgs>> defaultWorkloadIdentity() {
+        return Optional.ofNullable(this.defaultWorkloadIdentity);
     }
 
     /**
@@ -1213,6 +1229,7 @@ public final class LegacyServiceUserState extends com.pulumi.resources.ResourceA
         this.defaultRole = $.defaultRole;
         this.defaultSecondaryRolesOption = $.defaultSecondaryRolesOption;
         this.defaultWarehouse = $.defaultWarehouse;
+        this.defaultWorkloadIdentity = $.defaultWorkloadIdentity;
         this.disabled = $.disabled;
         this.displayName = $.displayName;
         this.email = $.email;
@@ -1709,6 +1726,27 @@ public final class LegacyServiceUserState extends com.pulumi.resources.ResourceA
          */
         public Builder defaultWarehouse(String defaultWarehouse) {
             return defaultWarehouse(Output.of(defaultWarehouse));
+        }
+
+        /**
+         * @param defaultWorkloadIdentity Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultWorkloadIdentity(@Nullable Output<LegacyServiceUserDefaultWorkloadIdentityArgs> defaultWorkloadIdentity) {
+            $.defaultWorkloadIdentity = defaultWorkloadIdentity;
+            return this;
+        }
+
+        /**
+         * @param defaultWorkloadIdentity Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultWorkloadIdentity(LegacyServiceUserDefaultWorkloadIdentityArgs defaultWorkloadIdentity) {
+            return defaultWorkloadIdentity(Output.of(defaultWorkloadIdentity));
         }
 
         /**

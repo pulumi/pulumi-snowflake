@@ -13,29 +13,23 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetStagesStageResult
     {
-        public readonly string Comment;
-        public readonly string Database;
-        public readonly string Name;
-        public readonly string Schema;
-        public readonly string StorageIntegration;
+        /// <summary>
+        /// Holds the output of DESCRIBE STAGE.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetStagesStageDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW STAGES.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetStagesStageShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetStagesStageResult(
-            string comment,
+            ImmutableArray<Outputs.GetStagesStageDescribeOutputResult> describeOutputs,
 
-            string database,
-
-            string name,
-
-            string schema,
-
-            string storageIntegration)
+            ImmutableArray<Outputs.GetStagesStageShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Database = database;
-            Name = name;
-            Schema = schema;
-            StorageIntegration = storageIntegration;
+            DescribeOutputs = describeOutputs;
+            ShowOutputs = showOutputs;
         }
     }
 }

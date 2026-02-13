@@ -892,6 +892,32 @@
                 "current": "snowflake:index/legacyServiceUser:LegacyServiceUser",
                 "majorVersion": 2,
                 "fields": {
+                    "default_workload_identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "aws": {
+                                    "maxItemsOne": true
+                                },
+                                "azure": {
+                                    "maxItemsOne": true
+                                },
+                                "gcp": {
+                                    "maxItemsOne": true
+                                },
+                                "oidc": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "oidc_audience_list": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "parameters": {
                         "maxItemsOne": false,
                         "elem": {
@@ -2075,6 +2101,32 @@
                 "current": "snowflake:index/serviceUser:ServiceUser",
                 "majorVersion": 2,
                 "fields": {
+                    "default_workload_identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "aws": {
+                                    "maxItemsOne": true
+                                },
+                                "azure": {
+                                    "maxItemsOne": true
+                                },
+                                "gcp": {
+                                    "maxItemsOne": true
+                                },
+                                "oidc": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "oidc_audience_list": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
                     "parameters": {
                         "maxItemsOne": false,
                         "elem": {
@@ -2283,6 +2335,806 @@
                     }
                 }
             },
+            "snowflake_stage_external_azure": {
+                "current": "snowflake:index/stageExternalAzure:StageExternalAzure",
+                "majorVersion": 2,
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "directory_table": {
+                                    "maxItemsOne": false
+                                },
+                                "file_format": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "avro": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "csv": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "json": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "orc": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "parquet": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "xml": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "directory": {
+                        "maxItemsOne": true
+                    },
+                    "encryption": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "azure_cse": {
+                                    "maxItemsOne": true
+                                },
+                                "none": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "file_format": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "avro": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "csv": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "json": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "orc": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "parquet": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "xml": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_stage_external_gcs": {
+                "current": "snowflake:index/stageExternalGcs:StageExternalGcs",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "directory_table": {
+                                    "maxItemsOne": false
+                                },
+                                "file_format": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "avro": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "csv": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "json": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "orc": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "parquet": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "xml": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "directory": {
+                        "maxItemsOne": true
+                    },
+                    "encryption": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "gcs_sse_kms": {
+                                    "maxItemsOne": true
+                                },
+                                "none": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "file_format": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "avro": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "csv": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "json": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "orc": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "parquet": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "xml": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_stage_external_s3": {
+                "current": "snowflake:index/stageExternalS3:StageExternalS3",
+                "majorVersion": 2,
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "directory_table": {
+                                    "maxItemsOne": false
+                                },
+                                "file_format": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "avro": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "csv": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "json": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "orc": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "parquet": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "xml": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "location": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "url": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "privatelink": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "directory": {
+                        "maxItemsOne": true
+                    },
+                    "encryption": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "aws_cse": {
+                                    "maxItemsOne": true
+                                },
+                                "aws_sse_kms": {
+                                    "maxItemsOne": true
+                                },
+                                "aws_sse_s3": {
+                                    "maxItemsOne": true
+                                },
+                                "none": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "file_format": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "avro": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "csv": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "json": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "orc": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "parquet": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "xml": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_stage_external_s3_compatible": {
+                "current": "snowflake:index/stageExternalS3Compatible:StageExternalS3Compatible",
+                "majorVersion": 2,
+                "fields": {
+                    "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "directory_table": {
+                                    "maxItemsOne": false
+                                },
+                                "file_format": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "avro": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "csv": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "json": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "orc": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "parquet": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "xml": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "location": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "url": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "directory": {
+                        "maxItemsOne": true
+                    },
+                    "file_format": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "avro": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "csv": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "json": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "orc": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "parquet": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "xml": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_stage_internal": {
+                "current": "snowflake:index/stageInternal:StageInternal",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "directory_table": {
+                                    "maxItemsOne": false
+                                },
+                                "file_format": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "avro": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "csv": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "json": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "orc": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "parquet": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "null_if": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "xml": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "directory": {
+                        "maxItemsOne": true
+                    },
+                    "encryption": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "snowflake_full": {
+                                    "maxItemsOne": true
+                                },
+                                "snowflake_sse": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "file_format": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "avro": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "csv": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "json": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "orc": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "parquet": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "null_if": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "xml": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_storage_integration": {
                 "current": "snowflake:index/storageIntegration:StorageIntegration",
                 "majorVersion": 2,
@@ -2332,6 +3184,90 @@
                                 }
                             }
                         }
+                    },
+                    "storage_allowed_locations": {
+                        "maxItemsOne": false
+                    },
+                    "storage_blocked_locations": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_storage_integration_aws": {
+                "current": "snowflake:index/storageIntegrationAws:StorageIntegrationAws",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_locations": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_locations": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    },
+                    "storage_allowed_locations": {
+                        "maxItemsOne": false
+                    },
+                    "storage_blocked_locations": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_storage_integration_azure": {
+                "current": "snowflake:index/storageIntegrationAzure:StorageIntegrationAzure",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_locations": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_locations": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    },
+                    "storage_allowed_locations": {
+                        "maxItemsOne": false
+                    },
+                    "storage_blocked_locations": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_storage_integration_gcs": {
+                "current": "snowflake:index/storageIntegrationGcs:StorageIntegrationGcs",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_locations": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_locations": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
                     },
                     "storage_allowed_locations": {
                         "maxItemsOne": false
@@ -4088,8 +5024,101 @@
                 "current": "snowflake:index/getStages:getStages",
                 "majorVersion": 2,
                 "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
                     "stages": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "directory_table": {
+                                                "maxItemsOne": false
+                                            },
+                                            "file_format": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "avro": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "null_if": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "csv": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "null_if": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "json": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "null_if": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "orc": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "null_if": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "parquet": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "null_if": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "xml": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "location": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "url": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "privatelink": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -4098,7 +5127,27 @@
                 "majorVersion": 2,
                 "fields": {
                     "storage_integrations": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_locations": {
+                                                "maxItemsOne": false
+                                            },
+                                            "blocked_locations": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },

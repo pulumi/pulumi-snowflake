@@ -192,14 +192,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.includeRetryReason);
     }
     /**
-     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     * A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
      * 
      */
     @Export(name="noProxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> noProxy;
 
     /**
-     * @return A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
+     * @return A comma-separated list of hostnames, domains, and IP addresses to exclude from proxying. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_NO_PROXY` environment variable.
      * 
      */
     public Output<Optional<String>> noProxy() {
@@ -416,56 +416,56 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.protocol);
     }
     /**
-     * The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     * The host of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
      * 
      */
     @Export(name="proxyHost", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxyHost;
 
     /**
-     * @return The host of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
+     * @return The host of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_HOST` environment variable.
      * 
      */
     public Output<Optional<String>> proxyHost() {
         return Codegen.optional(this.proxyHost);
     }
     /**
-     * The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     * The password of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
      * 
      */
     @Export(name="proxyPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxyPassword;
 
     /**
-     * @return The password of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
+     * @return The password of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PASSWORD` environment variable.
      * 
      */
     public Output<Optional<String>> proxyPassword() {
         return Codegen.optional(this.proxyPassword);
     }
     /**
-     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     * The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
      * 
      */
     @Export(name="proxyProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxyProtocol;
 
     /**
-     * @return The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
+     * @return The protocol of the proxy to use for the connection. Valid options are: `http` | `https`. The value is case-insensitive. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_PROTOCOL` environment variable.
      * 
      */
     public Output<Optional<String>> proxyProtocol() {
         return Codegen.optional(this.proxyProtocol);
     }
     /**
-     * The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     * The user of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
      * 
      */
     @Export(name="proxyUser", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxyUser;
 
     /**
-     * @return The user of the proxy to use for the connection. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
+     * @return The user of the proxy to use for the connection. See more in the proxy section below. Can also be sourced from the `SNOWFLAKE_PROXY_USER` environment variable.
      * 
      */
     public Output<Optional<String>> proxyUser() {

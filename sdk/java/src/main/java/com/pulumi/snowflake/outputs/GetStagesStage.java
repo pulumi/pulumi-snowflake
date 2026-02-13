@@ -5,32 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetStagesStageDescribeOutput;
+import com.pulumi.snowflake.outputs.GetStagesStageShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetStagesStage {
-    private String comment;
-    private String database;
-    private String name;
-    private String schema;
-    private String storageIntegration;
+    /**
+     * @return Holds the output of DESCRIBE STAGE.
+     * 
+     */
+    private List<GetStagesStageDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW STAGES.
+     * 
+     */
+    private List<GetStagesStageShowOutput> showOutputs;
 
     private GetStagesStage() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE STAGE.
+     * 
+     */
+    public List<GetStagesStageDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String database() {
-        return this.database;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String schema() {
-        return this.schema;
-    }
-    public String storageIntegration() {
-        return this.storageIntegration;
+    /**
+     * @return Holds the output of SHOW STAGES.
+     * 
+     */
+    public List<GetStagesStageShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -42,68 +48,41 @@ public final class GetStagesStage {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String database;
-        private String name;
-        private String schema;
-        private String storageIntegration;
+        private List<GetStagesStageDescribeOutput> describeOutputs;
+        private List<GetStagesStageShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetStagesStage defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.database = defaults.database;
-    	      this.name = defaults.name;
-    	      this.schema = defaults.schema;
-    	      this.storageIntegration = defaults.storageIntegration;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetStagesStage", "comment");
+        public Builder describeOutputs(List<GetStagesStageDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetStagesStage", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetStagesStage", "database");
-            }
-            this.database = database;
-            return this;
+        public Builder describeOutputs(GetStagesStageDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetStagesStage", "name");
+        public Builder showOutputs(List<GetStagesStageShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetStagesStage", "showOutputs");
             }
-            this.name = name;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetStagesStage", "schema");
-            }
-            this.schema = schema;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder storageIntegration(String storageIntegration) {
-            if (storageIntegration == null) {
-              throw new MissingRequiredPropertyException("GetStagesStage", "storageIntegration");
-            }
-            this.storageIntegration = storageIntegration;
-            return this;
+        public Builder showOutputs(GetStagesStageShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetStagesStage build() {
             final var _resultValue = new GetStagesStage();
-            _resultValue.comment = comment;
-            _resultValue.database = database;
-            _resultValue.name = name;
-            _resultValue.schema = schema;
-            _resultValue.storageIntegration = storageIntegration;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

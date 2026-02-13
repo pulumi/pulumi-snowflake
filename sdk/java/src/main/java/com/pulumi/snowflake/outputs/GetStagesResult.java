@@ -5,42 +5,44 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetStagesIn;
 import com.pulumi.snowflake.outputs.GetStagesStage;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStagesResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return The schema from which to return the stages from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    private String schema;
+    private @Nullable GetStagesIn in;
     /**
-     * @return The stages in the schema
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all stages details queries.
      * 
      */
     private List<GetStagesStage> stages;
-
-    private GetStagesResult() {}
     /**
-     * @return The database from which to return the schemas from.
+     * @return (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describeOutput field. By default this value is set to true.
      * 
      */
-    public String database() {
-        return this.database;
-    }
+    private @Nullable Boolean withDescribe;
+
+    private GetStagesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -49,18 +51,32 @@ public final class GetStagesResult {
         return this.id;
     }
     /**
-     * @return The schema from which to return the stages from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<GetStagesIn> in() {
+        return Optional.ofNullable(this.in);
     }
     /**
-     * @return The stages in the schema
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Holds the aggregated output of all stages details queries.
      * 
      */
     public List<GetStagesStage> stages() {
         return this.stages;
+    }
+    /**
+     * @return (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     public static Builder builder() {
@@ -72,27 +88,21 @@ public final class GetStagesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
         private String id;
-        private String schema;
+        private @Nullable GetStagesIn in;
+        private @Nullable String like;
         private List<GetStagesStage> stages;
+        private @Nullable Boolean withDescribe;
         public Builder() {}
         public Builder(GetStagesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.database = defaults.database;
     	      this.id = defaults.id;
-    	      this.schema = defaults.schema;
+    	      this.in = defaults.in;
+    	      this.like = defaults.like;
     	      this.stages = defaults.stages;
+    	      this.withDescribe = defaults.withDescribe;
         }
 
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetStagesResult", "database");
-            }
-            this.database = database;
-            return this;
-        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -102,11 +112,15 @@ public final class GetStagesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetStagesResult", "schema");
-            }
-            this.schema = schema;
+        public Builder in(@Nullable GetStagesIn in) {
+
+            this.in = in;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
             return this;
         }
         @CustomType.Setter
@@ -120,12 +134,19 @@ public final class GetStagesResult {
         public Builder stages(GetStagesStage... stages) {
             return stages(List.of(stages));
         }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
+            return this;
+        }
         public GetStagesResult build() {
             final var _resultValue = new GetStagesResult();
-            _resultValue.database = database;
             _resultValue.id = id;
-            _resultValue.schema = schema;
+            _resultValue.in = in;
+            _resultValue.like = like;
             _resultValue.stages = stages;
+            _resultValue.withDescribe = withDescribe;
             return _resultValue;
         }
     }

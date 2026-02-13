@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
  * 
+ * !&gt; **Warning** The new `strictPrivilegeManagement` flag was added. It has similar behavior to the `enableMultipleGrants` flag present in the old grant resources, and it makes the resource able to detect external changes for privileges other than those present in the configuration, which can make the resource a central point of knowledge privilege management for a given object and role. See our Strict privilege management guide for more information.
+ * 
  */
 @ResourceType(type="snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole")
 public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomResource {
@@ -158,6 +160,20 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
      */
     public Output<Optional<List<String>>> privileges() {
         return Codegen.optional(this.privileges);
+    }
+    /**
+     * (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn&#39;t revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they&#39;re defined in for future grants). See our Strict privilege management guide for more information.
+     * 
+     */
+    @Export(name="strictPrivilegeManagement", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> strictPrivilegeManagement;
+
+    /**
+     * @return (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn&#39;t revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they&#39;re defined in for future grants). See our Strict privilege management guide for more information.
+     * 
+     */
+    public Output<Optional<Boolean>> strictPrivilegeManagement() {
+        return Codegen.optional(this.strictPrivilegeManagement);
     }
     /**
      * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.

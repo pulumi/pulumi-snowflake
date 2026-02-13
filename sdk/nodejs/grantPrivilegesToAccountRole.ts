@@ -16,6 +16,8 @@ import * as utilities from "./utilities";
  * > **Note** When using `IMPORTED PRIVILEGES` privilege, the `withGrantOption` field is not supported. Additionally, when the `IMPORTED PRIVILEGES` privilege is not set in the config, and it is granted externally, this change is not detected because of Snowflake limitations. Also, granting individual privileges on imported database is not allowed, this is a Snowflake limitation. Use `IMPORTED PRIVILEGES` instead.
  *
  * > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
+ *
+ * !> **Warning** The new `strictPrivilegeManagement` flag was added. It has similar behavior to the `enableMultipleGrants` flag present in the old grant resources, and it makes the resource able to detect external changes for privileges other than those present in the configuration, which can make the resource a central point of knowledge privilege management for a given object and role. See our Strict privilege management guide for more information.
  */
 export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
     /**
@@ -82,6 +84,10 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
      */
     declare public readonly privileges: pulumi.Output<string[] | undefined>;
     /**
+     * (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn't revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they're defined in for future grants). See our Strict privilege management guide for more information.
+     */
+    declare public readonly strictPrivilegeManagement: pulumi.Output<boolean | undefined>;
+    /**
      * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */
     declare public readonly withGrantOption: pulumi.Output<boolean | undefined>;
@@ -108,6 +114,7 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
             resourceInputs["onSchema"] = state?.onSchema;
             resourceInputs["onSchemaObject"] = state?.onSchemaObject;
             resourceInputs["privileges"] = state?.privileges;
+            resourceInputs["strictPrivilegeManagement"] = state?.strictPrivilegeManagement;
             resourceInputs["withGrantOption"] = state?.withGrantOption;
         } else {
             const args = argsOrState as GrantPrivilegesToAccountRoleArgs | undefined;
@@ -123,6 +130,7 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
             resourceInputs["onSchema"] = args?.onSchema;
             resourceInputs["onSchemaObject"] = args?.onSchemaObject;
             resourceInputs["privileges"] = args?.privileges;
+            resourceInputs["strictPrivilegeManagement"] = args?.strictPrivilegeManagement;
             resourceInputs["withGrantOption"] = args?.withGrantOption;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -171,6 +179,10 @@ export interface GrantPrivilegesToAccountRoleState {
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn't revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they're defined in for future grants). See our Strict privilege management guide for more information.
+     */
+    strictPrivilegeManagement?: pulumi.Input<boolean>;
+    /**
      * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */
     withGrantOption?: pulumi.Input<boolean>;
@@ -216,6 +228,10 @@ export interface GrantPrivilegesToAccountRoleArgs {
      * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn't revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they're defined in for future grants). See our Strict privilege management guide for more information.
+     */
+    strictPrivilegeManagement?: pulumi.Input<boolean>;
     /**
      * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */

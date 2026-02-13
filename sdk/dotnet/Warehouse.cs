@@ -57,7 +57,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
         /// </summary>
         [Output("generation")]
         public Output<string?> Generation { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Snowflake
         public Output<int?> QueryAccelerationMaxScaleFactor { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `Generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `Generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
         /// </summary>
         [Output("resourceConstraint")]
         public Output<string?> ResourceConstraint { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Snowflake
         public Input<string>? EnableQueryAcceleration { get; set; }
 
         /// <summary>
-        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
         /// </summary>
         [Input("generation")]
         public Input<string>? Generation { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Snowflake
         public Input<int>? QueryAccelerationMaxScaleFactor { get; set; }
 
         /// <summary>
-        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `Generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `Generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
         /// </summary>
         [Input("resourceConstraint")]
         public Input<string>? ResourceConstraint { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`.
+        /// Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
         /// </summary>
         [Input("generation")]
         public Input<string>? Generation { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Snowflake
         public Input<int>? QueryAccelerationMaxScaleFactor { get; set; }
 
         /// <summary>
-        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `Generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`.
+        /// Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `Generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
         /// </summary>
         [Input("resourceConstraint")]
         public Input<string>? ResourceConstraint { get; set; }

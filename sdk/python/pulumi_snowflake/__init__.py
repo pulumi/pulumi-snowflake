@@ -141,7 +141,15 @@ from .service_user import *
 from .share import *
 from .shared_database import *
 from .stage import *
+from .stage_external_azure import *
+from .stage_external_gcs import *
+from .stage_external_s3 import *
+from .stage_external_s3_compatible import *
+from .stage_internal import *
 from .storage_integration import *
+from .storage_integration_aws import *
+from .storage_integration_azure import *
+from .storage_integration_gcs import *
 from .stream_on_directory_table import *
 from .stream_on_external_table import *
 from .stream_on_table import *
@@ -815,10 +823,74 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/stageExternalAzure",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/stageExternalAzure:StageExternalAzure": "StageExternalAzure"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/stageExternalGcs",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/stageExternalGcs:StageExternalGcs": "StageExternalGcs"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/stageExternalS3",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/stageExternalS3:StageExternalS3": "StageExternalS3"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/stageExternalS3Compatible",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/stageExternalS3Compatible:StageExternalS3Compatible": "StageExternalS3Compatible"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/stageInternal",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/stageInternal:StageInternal": "StageInternal"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/storageIntegration",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/storageIntegration:StorageIntegration": "StorageIntegration"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/storageIntegrationAws",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/storageIntegrationAws:StorageIntegrationAws": "StorageIntegrationAws"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/storageIntegrationAzure",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/storageIntegrationAzure:StorageIntegrationAzure": "StorageIntegrationAzure"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/storageIntegrationGcs",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/storageIntegrationGcs:StorageIntegrationGcs": "StorageIntegrationGcs"
   }
  },
  {

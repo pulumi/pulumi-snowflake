@@ -41,6 +41,7 @@ class ServiceUserArgs:
                  default_role: Optional[pulumi.Input[_builtins.str]] = None,
                  default_secondary_roles_option: Optional[pulumi.Input[_builtins.str]] = None,
                  default_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_workload_identity: Optional[pulumi.Input['ServiceUserDefaultWorkloadIdentityArgs']] = None,
                  disabled: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -115,6 +116,7 @@ class ServiceUserArgs:
         :param pulumi.Input[_builtins.str] default_role: Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] default_secondary_roles_option: (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
         :param pulumi.Input[_builtins.str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+        :param pulumi.Input['ServiceUserDefaultWorkloadIdentityArgs'] default_workload_identity: Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimental_features_enabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[_builtins.str] email: Email address for the user.
@@ -208,6 +210,8 @@ class ServiceUserArgs:
             pulumi.set(__self__, "default_secondary_roles_option", default_secondary_roles_option)
         if default_warehouse is not None:
             pulumi.set(__self__, "default_warehouse", default_warehouse)
+        if default_workload_identity is not None:
+            pulumi.set(__self__, "default_workload_identity", default_workload_identity)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
         if display_name is not None:
@@ -552,6 +556,18 @@ class ServiceUserArgs:
     @default_warehouse.setter
     def default_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "default_warehouse", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultWorkloadIdentity")
+    def default_workload_identity(self) -> Optional[pulumi.Input['ServiceUserDefaultWorkloadIdentityArgs']]:
+        """
+        Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimental_features_enabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+        """
+        return pulumi.get(self, "default_workload_identity")
+
+    @default_workload_identity.setter
+    def default_workload_identity(self, value: Optional[pulumi.Input['ServiceUserDefaultWorkloadIdentityArgs']]):
+        pulumi.set(self, "default_workload_identity", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1201,6 +1217,7 @@ class _ServiceUserState:
                  default_role: Optional[pulumi.Input[_builtins.str]] = None,
                  default_secondary_roles_option: Optional[pulumi.Input[_builtins.str]] = None,
                  default_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_workload_identity: Optional[pulumi.Input['ServiceUserDefaultWorkloadIdentityArgs']] = None,
                  disabled: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1279,6 +1296,7 @@ class _ServiceUserState:
         :param pulumi.Input[_builtins.str] default_role: Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] default_secondary_roles_option: (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
         :param pulumi.Input[_builtins.str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+        :param pulumi.Input['ServiceUserDefaultWorkloadIdentityArgs'] default_workload_identity: Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimental_features_enabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[_builtins.str] email: Email address for the user.
@@ -1376,6 +1394,8 @@ class _ServiceUserState:
             pulumi.set(__self__, "default_secondary_roles_option", default_secondary_roles_option)
         if default_warehouse is not None:
             pulumi.set(__self__, "default_warehouse", default_warehouse)
+        if default_workload_identity is not None:
+            pulumi.set(__self__, "default_workload_identity", default_workload_identity)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
         if display_name is not None:
@@ -1728,6 +1748,18 @@ class _ServiceUserState:
     @default_warehouse.setter
     def default_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "default_warehouse", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultWorkloadIdentity")
+    def default_workload_identity(self) -> Optional[pulumi.Input['ServiceUserDefaultWorkloadIdentityArgs']]:
+        """
+        Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimental_features_enabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+        """
+        return pulumi.get(self, "default_workload_identity")
+
+    @default_workload_identity.setter
+    def default_workload_identity(self, value: Optional[pulumi.Input['ServiceUserDefaultWorkloadIdentityArgs']]):
+        pulumi.set(self, "default_workload_identity", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2428,6 +2460,7 @@ class ServiceUser(pulumi.CustomResource):
                  default_role: Optional[pulumi.Input[_builtins.str]] = None,
                  default_secondary_roles_option: Optional[pulumi.Input[_builtins.str]] = None,
                  default_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_workload_identity: Optional[pulumi.Input[Union['ServiceUserDefaultWorkloadIdentityArgs', 'ServiceUserDefaultWorkloadIdentityArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2493,6 +2526,9 @@ class ServiceUser(pulumi.CustomResource):
         > **Note** Other two user types are handled in separate resources: `LegacyServiceUser` for user type `legacy_service` and `User` for user type `person`.
 
         > **Note** External changes to `days_to_expiry` and `mins_to_unlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
+
+        <!-- TODO(SNOW-3003261): Remove this note.-->
+        > **Note** External changes to `default_workload_identity.aws`, including setting AWS type externally, are not currently handled by the provider because of lack of certain data in Snowflake API.
 
         Resource used to manage service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
 
@@ -2584,6 +2620,41 @@ class ServiceUser(pulumi.CustomResource):
             use_cached_result=False,
             week_of_year_policy=1,
             week_start=1)
+        # with AWS workload identity
+        with_aws_wif = snowflake.ServiceUser("with_aws_wif",
+            name="service_user_aws",
+            default_workload_identity={
+                "aws": {
+                    "arn": "arn:aws:iam::123456789012:role/snowflake-service-role",
+                },
+            })
+        # with GCP workload identity
+        with_gcp_wif = snowflake.ServiceUser("with_gcp_wif",
+            name="service_user_gcp",
+            default_workload_identity={
+                "gcp": {
+                    "subject": "1122334455",
+                },
+            })
+        # with Azure workload identity
+        with_azure_wif = snowflake.ServiceUser("with_azure_wif",
+            name="service_user_azure",
+            default_workload_identity={
+                "azure": {
+                    "issuer": "https://login.microsoftonline.com/tenant-id/v2.0",
+                    "subject": "application-id",
+                },
+            })
+        # with OIDC workload identity
+        with_oidc_wif = snowflake.ServiceUser("with_oidc_wif",
+            name="service_user_oidc",
+            default_workload_identity={
+                "oidc": {
+                    "issuer": "https://oidc.example.com",
+                    "subject": "service-principal",
+                    "oidc_audience_lists": ["snowflake"],
+                },
+            })
         ```
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
@@ -2618,6 +2689,7 @@ class ServiceUser(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_role: Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] default_secondary_roles_option: (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
         :param pulumi.Input[_builtins.str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+        :param pulumi.Input[Union['ServiceUserDefaultWorkloadIdentityArgs', 'ServiceUserDefaultWorkloadIdentityArgsDict']] default_workload_identity: Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimental_features_enabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[_builtins.str] email: Email address for the user.
@@ -2690,6 +2762,9 @@ class ServiceUser(pulumi.CustomResource):
 
         > **Note** External changes to `days_to_expiry` and `mins_to_unlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
 
+        <!-- TODO(SNOW-3003261): Remove this note.-->
+        > **Note** External changes to `default_workload_identity.aws`, including setting AWS type externally, are not currently handled by the provider because of lack of certain data in Snowflake API.
+
         Resource used to manage service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
 
         ## Example Usage
@@ -2780,6 +2855,41 @@ class ServiceUser(pulumi.CustomResource):
             use_cached_result=False,
             week_of_year_policy=1,
             week_start=1)
+        # with AWS workload identity
+        with_aws_wif = snowflake.ServiceUser("with_aws_wif",
+            name="service_user_aws",
+            default_workload_identity={
+                "aws": {
+                    "arn": "arn:aws:iam::123456789012:role/snowflake-service-role",
+                },
+            })
+        # with GCP workload identity
+        with_gcp_wif = snowflake.ServiceUser("with_gcp_wif",
+            name="service_user_gcp",
+            default_workload_identity={
+                "gcp": {
+                    "subject": "1122334455",
+                },
+            })
+        # with Azure workload identity
+        with_azure_wif = snowflake.ServiceUser("with_azure_wif",
+            name="service_user_azure",
+            default_workload_identity={
+                "azure": {
+                    "issuer": "https://login.microsoftonline.com/tenant-id/v2.0",
+                    "subject": "application-id",
+                },
+            })
+        # with OIDC workload identity
+        with_oidc_wif = snowflake.ServiceUser("with_oidc_wif",
+            name="service_user_oidc",
+            default_workload_identity={
+                "oidc": {
+                    "issuer": "https://oidc.example.com",
+                    "subject": "service-principal",
+                    "oidc_audience_lists": ["snowflake"],
+                },
+            })
         ```
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
@@ -2827,6 +2937,7 @@ class ServiceUser(pulumi.CustomResource):
                  default_role: Optional[pulumi.Input[_builtins.str]] = None,
                  default_secondary_roles_option: Optional[pulumi.Input[_builtins.str]] = None,
                  default_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_workload_identity: Optional[pulumi.Input[Union['ServiceUserDefaultWorkloadIdentityArgs', 'ServiceUserDefaultWorkloadIdentityArgsDict']]] = None,
                  disabled: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2908,6 +3019,7 @@ class ServiceUser(pulumi.CustomResource):
             __props__.__dict__["default_role"] = default_role
             __props__.__dict__["default_secondary_roles_option"] = default_secondary_roles_option
             __props__.__dict__["default_warehouse"] = default_warehouse
+            __props__.__dict__["default_workload_identity"] = default_workload_identity
             __props__.__dict__["disabled"] = disabled
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["email"] = None if email is None else pulumi.Output.secret(email)
@@ -2996,6 +3108,7 @@ class ServiceUser(pulumi.CustomResource):
             default_role: Optional[pulumi.Input[_builtins.str]] = None,
             default_secondary_roles_option: Optional[pulumi.Input[_builtins.str]] = None,
             default_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+            default_workload_identity: Optional[pulumi.Input[Union['ServiceUserDefaultWorkloadIdentityArgs', 'ServiceUserDefaultWorkloadIdentityArgsDict']]] = None,
             disabled: Optional[pulumi.Input[_builtins.str]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
             email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -3079,6 +3192,7 @@ class ServiceUser(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_role: Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] default_secondary_roles_option: (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
         :param pulumi.Input[_builtins.str] default_warehouse: Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+        :param pulumi.Input[Union['ServiceUserDefaultWorkloadIdentityArgs', 'ServiceUserDefaultWorkloadIdentityArgsDict']] default_workload_identity: Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimental_features_enabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] display_name: Name displayed for the user in the Snowflake web interface.
         :param pulumi.Input[_builtins.str] email: Email address for the user.
@@ -3160,6 +3274,7 @@ class ServiceUser(pulumi.CustomResource):
         __props__.__dict__["default_role"] = default_role
         __props__.__dict__["default_secondary_roles_option"] = default_secondary_roles_option
         __props__.__dict__["default_warehouse"] = default_warehouse
+        __props__.__dict__["default_workload_identity"] = default_workload_identity
         __props__.__dict__["disabled"] = disabled
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["email"] = email
@@ -3377,6 +3492,14 @@ class ServiceUser(pulumi.CustomResource):
         Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
         """
         return pulumi.get(self, "default_warehouse")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultWorkloadIdentity")
+    def default_workload_identity(self) -> pulumi.Output[Optional['outputs.ServiceUserDefaultWorkloadIdentity']]:
+        """
+        Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimental_features_enabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+        """
+        return pulumi.get(self, "default_workload_identity")
 
     @_builtins.property
     @pulumi.getter

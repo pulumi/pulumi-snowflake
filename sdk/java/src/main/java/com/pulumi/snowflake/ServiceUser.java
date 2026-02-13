@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.ServiceUserArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.ServiceUserState;
+import com.pulumi.snowflake.outputs.ServiceUserDefaultWorkloadIdentity;
 import com.pulumi.snowflake.outputs.ServiceUserParameter;
 import com.pulumi.snowflake.outputs.ServiceUserShowOutput;
 import java.lang.Boolean;
@@ -32,6 +33,9 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** External changes to `daysToExpiry` and `minsToUnlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
  * 
+ * &lt;!-- TODO(SNOW-3003261): Remove this note.--&gt;
+ * &gt; **Note** External changes to `default_workload_identity.aws`, including setting AWS type externally, are not currently handled by the provider because of lack of certain data in Snowflake API.
+ * 
  * Resource used to manage service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
  * 
  * ## Example Usage
@@ -45,6 +49,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.snowflake.ServiceUser;
  * import com.pulumi.snowflake.ServiceUserArgs;
+ * import com.pulumi.snowflake.inputs.ServiceUserDefaultWorkloadIdentityArgs;
+ * import com.pulumi.snowflake.inputs.ServiceUserDefaultWorkloadIdentityAwsArgs;
+ * import com.pulumi.snowflake.inputs.ServiceUserDefaultWorkloadIdentityGcpArgs;
+ * import com.pulumi.snowflake.inputs.ServiceUserDefaultWorkloadIdentityAzureArgs;
+ * import com.pulumi.snowflake.inputs.ServiceUserDefaultWorkloadIdentityOidcArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -145,6 +154,49 @@ import javax.annotation.Nullable;
  *             .useCachedResult(false)
  *             .weekOfYearPolicy(1)
  *             .weekStart(1)
+ *             .build());
+ * 
+ *         // with AWS workload identity
+ *         var withAwsWif = new ServiceUser("withAwsWif", ServiceUserArgs.builder()
+ *             .name("service_user_aws")
+ *             .defaultWorkloadIdentity(ServiceUserDefaultWorkloadIdentityArgs.builder()
+ *                 .aws(ServiceUserDefaultWorkloadIdentityAwsArgs.builder()
+ *                     .arn("arn:aws:iam::123456789012:role/snowflake-service-role")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // with GCP workload identity
+ *         var withGcpWif = new ServiceUser("withGcpWif", ServiceUserArgs.builder()
+ *             .name("service_user_gcp")
+ *             .defaultWorkloadIdentity(ServiceUserDefaultWorkloadIdentityArgs.builder()
+ *                 .gcp(ServiceUserDefaultWorkloadIdentityGcpArgs.builder()
+ *                     .subject("1122334455")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // with Azure workload identity
+ *         var withAzureWif = new ServiceUser("withAzureWif", ServiceUserArgs.builder()
+ *             .name("service_user_azure")
+ *             .defaultWorkloadIdentity(ServiceUserDefaultWorkloadIdentityArgs.builder()
+ *                 .azure(ServiceUserDefaultWorkloadIdentityAzureArgs.builder()
+ *                     .issuer("https://login.microsoftonline.com/tenant-id/v2.0")
+ *                     .subject("application-id")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // with OIDC workload identity
+ *         var withOidcWif = new ServiceUser("withOidcWif", ServiceUserArgs.builder()
+ *             .name("service_user_oidc")
+ *             .defaultWorkloadIdentity(ServiceUserDefaultWorkloadIdentityArgs.builder()
+ *                 .oidc(ServiceUserDefaultWorkloadIdentityOidcArgs.builder()
+ *                     .issuer("https://oidc.example.com")
+ *                     .subject("service-principal")
+ *                     .oidcAudienceLists("snowflake")
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -444,6 +496,20 @@ public class ServiceUser extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> defaultWarehouse() {
         return Codegen.optional(this.defaultWarehouse);
+    }
+    /**
+     * Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+     * 
+     */
+    @Export(name="defaultWorkloadIdentity", refs={ServiceUserDefaultWorkloadIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceUserDefaultWorkloadIdentity> defaultWorkloadIdentity;
+
+    /**
+     * @return Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+     * 
+     */
+    public Output<Optional<ServiceUserDefaultWorkloadIdentity>> defaultWorkloadIdentity() {
+        return Codegen.optional(this.defaultWorkloadIdentity);
     }
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.

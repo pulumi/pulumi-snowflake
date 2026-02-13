@@ -156,6 +156,21 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
     }
 
     /**
+     * (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn&#39;t revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they&#39;re defined in for future grants). See our Strict privilege management guide for more information.
+     * 
+     */
+    @Import(name="strictPrivilegeManagement")
+    private @Nullable Output<Boolean> strictPrivilegeManagement;
+
+    /**
+     * @return (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn&#39;t revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they&#39;re defined in for future grants). See our Strict privilege management guide for more information.
+     * 
+     */
+    public Optional<Output<Boolean>> strictPrivilegeManagement() {
+        return Optional.ofNullable(this.strictPrivilegeManagement);
+    }
+
+    /**
      * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      * 
      */
@@ -182,6 +197,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         this.onSchema = $.onSchema;
         this.onSchemaObject = $.onSchemaObject;
         this.privileges = $.privileges;
+        this.strictPrivilegeManagement = $.strictPrivilegeManagement;
         this.withGrantOption = $.withGrantOption;
     }
 
@@ -400,6 +416,27 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
          */
         public Builder privileges(String... privileges) {
             return privileges(List.of(privileges));
+        }
+
+        /**
+         * @param strictPrivilegeManagement (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn&#39;t revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they&#39;re defined in for future grants). See our Strict privilege management guide for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder strictPrivilegeManagement(@Nullable Output<Boolean> strictPrivilegeManagement) {
+            $.strictPrivilegeManagement = strictPrivilegeManagement;
+            return this;
+        }
+
+        /**
+         * @param strictPrivilegeManagement (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn&#39;t revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they&#39;re defined in for future grants). See our Strict privilege management guide for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder strictPrivilegeManagement(Boolean strictPrivilegeManagement) {
+            return strictPrivilegeManagement(Output.of(strictPrivilegeManagement));
         }
 
         /**

@@ -2259,6 +2259,52 @@ export interface GetServicesLimitArgs {
     rows: pulumi.Input<number>;
 }
 
+export interface GetStagesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetStagesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
 export interface GetStreamlitsIn {
     /**
      * Returns records for the entire account.
@@ -2965,6 +3011,65 @@ export interface JobServiceShowOutput {
     suspendedOn?: pulumi.Input<string>;
     targetInstances?: pulumi.Input<number>;
     updatedOn?: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentity {
+    /**
+     * AWS workload identity configuration.
+     */
+    aws?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityAws>;
+    /**
+     * Azure workload identity configuration.
+     */
+    azure?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityAzure>;
+    /**
+     * GCP workload identity configuration.
+     */
+    gcp?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityGcp>;
+    /**
+     * Generic OIDC workload identity configuration.
+     */
+    oidc?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityOidc>;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentityAws {
+    /**
+     * The ARN of the AWS IAM role to use for workload identity federation.
+     */
+    arn: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentityAzure {
+    /**
+     * The Azure issuer URL.
+     */
+    issuer: pulumi.Input<string>;
+    /**
+     * The Azure subject identifier.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentityGcp {
+    /**
+     * The GCP service account subject identifier.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface LegacyServiceUserDefaultWorkloadIdentityOidc {
+    /**
+     * The OIDC issuer URL.
+     */
+    issuer: pulumi.Input<string>;
+    /**
+     * List of allowed OIDC audiences.
+     */
+    oidcAudienceLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The OIDC subject identifier.
+     */
+    subject: pulumi.Input<string>;
 }
 
 export interface LegacyServiceUserParameter {
@@ -5390,6 +5495,65 @@ export interface ServiceShowOutput {
     updatedOn?: pulumi.Input<string>;
 }
 
+export interface ServiceUserDefaultWorkloadIdentity {
+    /**
+     * AWS workload identity configuration.
+     */
+    aws?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityAws>;
+    /**
+     * Azure workload identity configuration.
+     */
+    azure?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityAzure>;
+    /**
+     * GCP workload identity configuration.
+     */
+    gcp?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityGcp>;
+    /**
+     * Generic OIDC workload identity configuration.
+     */
+    oidc?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityOidc>;
+}
+
+export interface ServiceUserDefaultWorkloadIdentityAws {
+    /**
+     * The ARN of the AWS IAM role to use for workload identity federation.
+     */
+    arn: pulumi.Input<string>;
+}
+
+export interface ServiceUserDefaultWorkloadIdentityAzure {
+    /**
+     * The Azure issuer URL.
+     */
+    issuer: pulumi.Input<string>;
+    /**
+     * The Azure subject identifier.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface ServiceUserDefaultWorkloadIdentityGcp {
+    /**
+     * The GCP service account subject identifier.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface ServiceUserDefaultWorkloadIdentityOidc {
+    /**
+     * The OIDC issuer URL.
+     */
+    issuer: pulumi.Input<string>;
+    /**
+     * List of allowed OIDC audiences.
+     */
+    oidcAudienceLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The OIDC subject identifier.
+     */
+    subject: pulumi.Input<string>;
+}
+
 export interface ServiceUserParameter {
     abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAbortDetachedQuery>[]>;
     autocommits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAutocommit>[]>;
@@ -5947,6 +6111,2276 @@ export interface ServiceUserShowOutput {
     type?: pulumi.Input<string>;
 }
 
+export interface StageExternalAzureCredentials {
+    /**
+     * Specifies the shared access signature (SAS) token for Azure.
+     */
+    azureSasToken: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureDescribeOutput {
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputDirectoryTable>[]>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormat>[]>;
+}
+
+export interface StageExternalAzureDescribeOutputDirectoryTable {
+    autoRefresh?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormat {
+    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatAvro>[]>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatCsv>[]>;
+    formatName?: pulumi.Input<string>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatJson>[]>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatOrc>[]>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatParquet>[]>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatXml>[]>;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatAvro {
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatCsv {
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<boolean>;
+    encoding?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
+    escape?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    parseHeader?: pulumi.Input<boolean>;
+    recordDelimiter?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipBlankLines?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    skipHeader?: pulumi.Input<number>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    validateUtf8?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatJson {
+    allowDuplicate?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<boolean>;
+    fileExtension?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripNullValues?: pulumi.Input<boolean>;
+    stripOuterArray?: pulumi.Input<boolean>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatOrc {
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatParquet {
+    binaryAsText?: pulumi.Input<boolean>;
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<boolean>;
+    useVectorizedScanner?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalAzureDescribeOutputFileFormatXml {
+    compression?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<boolean>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    preserveSpace?: pulumi.Input<boolean>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripOuterElement?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureDirectory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+     */
+    autoRefresh?: pulumi.Input<string>;
+    /**
+     * Specifies whether to enable a directory table on the external stage.
+     */
+    enable: pulumi.Input<boolean>;
+    /**
+     * Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     */
+    notificationIntegration?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+     */
+    refreshOnCreate?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureEncryption {
+    /**
+     * Azure client-side encryption using a master key.
+     */
+    azureCse?: pulumi.Input<inputs.StageExternalAzureEncryptionAzureCse>;
+    /**
+     * No encryption.
+     */
+    none?: pulumi.Input<inputs.StageExternalAzureEncryptionNone>;
+}
+
+export interface StageExternalAzureEncryptionAzureCse {
+    /**
+     * Specifies the 128-bit or 256-bit client-side master key.
+     */
+    masterKey: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureEncryptionNone {
+}
+
+export interface StageExternalAzureFileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: pulumi.Input<inputs.StageExternalAzureFileFormatAvro>;
+    /**
+     * CSV file format options.
+     */
+    csv?: pulumi.Input<inputs.StageExternalAzureFileFormatCsv>;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: pulumi.Input<string>;
+    /**
+     * JSON file format options.
+     */
+    json?: pulumi.Input<inputs.StageExternalAzureFileFormatJson>;
+    /**
+     * ORC file format options.
+     */
+    orc?: pulumi.Input<inputs.StageExternalAzureFileFormatOrc>;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: pulumi.Input<inputs.StageExternalAzureFileFormatParquet>;
+    /**
+     * XML file format options.
+     */
+    xml?: pulumi.Input<inputs.StageExternalAzureFileFormatXml>;
+}
+
+export interface StageExternalAzureFileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureFileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: pulumi.Input<string>;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: pulumi.Input<string>;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: pulumi.Input<number>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureFileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: pulumi.Input<string>;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: pulumi.Input<string>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureFileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureFileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureFileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: pulumi.Input<string>;
+}
+
+export interface StageExternalAzureShowOutput {
+    cloud?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    directoryEnabled?: pulumi.Input<boolean>;
+    endpoint?: pulumi.Input<string>;
+    hasCredentials?: pulumi.Input<boolean>;
+    hasEncryptionKey?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsDescribeOutput {
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputDirectoryTable>[]>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormat>[]>;
+}
+
+export interface StageExternalGcsDescribeOutputDirectoryTable {
+    autoRefresh?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormat {
+    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatAvro>[]>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatCsv>[]>;
+    formatName?: pulumi.Input<string>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatJson>[]>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatOrc>[]>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatParquet>[]>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatXml>[]>;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatAvro {
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatCsv {
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<boolean>;
+    encoding?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
+    escape?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    parseHeader?: pulumi.Input<boolean>;
+    recordDelimiter?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipBlankLines?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    skipHeader?: pulumi.Input<number>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    validateUtf8?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatJson {
+    allowDuplicate?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<boolean>;
+    fileExtension?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripNullValues?: pulumi.Input<boolean>;
+    stripOuterArray?: pulumi.Input<boolean>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatOrc {
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatParquet {
+    binaryAsText?: pulumi.Input<boolean>;
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<boolean>;
+    useVectorizedScanner?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalGcsDescribeOutputFileFormatXml {
+    compression?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<boolean>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    preserveSpace?: pulumi.Input<boolean>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripOuterElement?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsDirectory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+     */
+    autoRefresh?: pulumi.Input<string>;
+    /**
+     * Specifies whether to enable a directory table on the external stage.
+     */
+    enable: pulumi.Input<boolean>;
+    /**
+     * Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     */
+    notificationIntegration?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+     */
+    refreshOnCreate?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsEncryption {
+    /**
+     * GCS server-side encryption using a KMS key.
+     */
+    gcsSseKms?: pulumi.Input<inputs.StageExternalGcsEncryptionGcsSseKms>;
+    /**
+     * No encryption.
+     */
+    none?: pulumi.Input<inputs.StageExternalGcsEncryptionNone>;
+}
+
+export interface StageExternalGcsEncryptionGcsSseKms {
+    /**
+     * Specifies the KMS-managed key ID.
+     */
+    kmsKeyId?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsEncryptionNone {
+}
+
+export interface StageExternalGcsFileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: pulumi.Input<inputs.StageExternalGcsFileFormatAvro>;
+    /**
+     * CSV file format options.
+     */
+    csv?: pulumi.Input<inputs.StageExternalGcsFileFormatCsv>;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: pulumi.Input<string>;
+    /**
+     * JSON file format options.
+     */
+    json?: pulumi.Input<inputs.StageExternalGcsFileFormatJson>;
+    /**
+     * ORC file format options.
+     */
+    orc?: pulumi.Input<inputs.StageExternalGcsFileFormatOrc>;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: pulumi.Input<inputs.StageExternalGcsFileFormatParquet>;
+    /**
+     * XML file format options.
+     */
+    xml?: pulumi.Input<inputs.StageExternalGcsFileFormatXml>;
+}
+
+export interface StageExternalGcsFileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsFileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: pulumi.Input<string>;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: pulumi.Input<string>;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: pulumi.Input<number>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsFileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: pulumi.Input<string>;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: pulumi.Input<string>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsFileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsFileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsFileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: pulumi.Input<string>;
+}
+
+export interface StageExternalGcsShowOutput {
+    cloud?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    directoryEnabled?: pulumi.Input<boolean>;
+    endpoint?: pulumi.Input<string>;
+    hasCredentials?: pulumi.Input<boolean>;
+    hasEncryptionKey?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleCredentials {
+    /**
+     * Specifies the AWS access key ID.
+     */
+    awsKeyId: pulumi.Input<string>;
+    /**
+     * Specifies the AWS secret access key.
+     */
+    awsSecretKey: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutput {
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputDirectoryTable>[]>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormat>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputLocation>[]>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputDirectoryTable {
+    autoRefresh?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormat {
+    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatAvro>[]>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatCsv>[]>;
+    formatName?: pulumi.Input<string>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatJson>[]>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatOrc>[]>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatParquet>[]>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatXml>[]>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatAvro {
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatCsv {
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<boolean>;
+    encoding?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
+    escape?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    parseHeader?: pulumi.Input<boolean>;
+    recordDelimiter?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipBlankLines?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    skipHeader?: pulumi.Input<number>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    validateUtf8?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatJson {
+    allowDuplicate?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<boolean>;
+    fileExtension?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripNullValues?: pulumi.Input<boolean>;
+    stripOuterArray?: pulumi.Input<boolean>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatOrc {
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatParquet {
+    binaryAsText?: pulumi.Input<boolean>;
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<boolean>;
+    useVectorizedScanner?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputFileFormatXml {
+    compression?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<boolean>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    preserveSpace?: pulumi.Input<boolean>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripOuterElement?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleDescribeOutputLocation {
+    urls?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface StageExternalS3CompatibleDirectory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+     */
+    autoRefresh?: pulumi.Input<string>;
+    /**
+     * Specifies whether to enable a directory table on the external stage.
+     */
+    enable: pulumi.Input<boolean>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+     */
+    refreshOnCreate?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleFileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatAvro>;
+    /**
+     * CSV file format options.
+     */
+    csv?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatCsv>;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: pulumi.Input<string>;
+    /**
+     * JSON file format options.
+     */
+    json?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatJson>;
+    /**
+     * ORC file format options.
+     */
+    orc?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatOrc>;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatParquet>;
+    /**
+     * XML file format options.
+     */
+    xml?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatXml>;
+}
+
+export interface StageExternalS3CompatibleFileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleFileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: pulumi.Input<string>;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: pulumi.Input<string>;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: pulumi.Input<number>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleFileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: pulumi.Input<string>;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: pulumi.Input<string>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleFileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleFileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleFileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3CompatibleShowOutput {
+    cloud?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    directoryEnabled?: pulumi.Input<boolean>;
+    endpoint?: pulumi.Input<string>;
+    hasCredentials?: pulumi.Input<boolean>;
+    hasEncryptionKey?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3Credentials {
+    /**
+     * Specifies the AWS access key ID.
+     */
+    awsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies the AWS IAM role ARN to use for accessing the bucket.
+     */
+    awsRole?: pulumi.Input<string>;
+    /**
+     * Specifies the AWS secret access key.
+     */
+    awsSecretKey?: pulumi.Input<string>;
+    /**
+     * Specifies the AWS session token for temporary credentials.
+     */
+    awsToken?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3DescribeOutput {
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputDirectoryTable>[]>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormat>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputLocation>[]>;
+    privatelinks?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputPrivatelink>[]>;
+}
+
+export interface StageExternalS3DescribeOutputDirectoryTable {
+    autoRefresh?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalS3DescribeOutputFileFormat {
+    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatAvro>[]>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatCsv>[]>;
+    formatName?: pulumi.Input<string>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatJson>[]>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatOrc>[]>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatParquet>[]>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatXml>[]>;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatAvro {
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatCsv {
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<boolean>;
+    encoding?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
+    escape?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    parseHeader?: pulumi.Input<boolean>;
+    recordDelimiter?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipBlankLines?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    skipHeader?: pulumi.Input<number>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    validateUtf8?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatJson {
+    allowDuplicate?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<boolean>;
+    fileExtension?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripNullValues?: pulumi.Input<boolean>;
+    stripOuterArray?: pulumi.Input<boolean>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatOrc {
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatParquet {
+    binaryAsText?: pulumi.Input<boolean>;
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<boolean>;
+    useVectorizedScanner?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalS3DescribeOutputFileFormatXml {
+    compression?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<boolean>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    preserveSpace?: pulumi.Input<boolean>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripOuterElement?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3DescribeOutputLocation {
+    awsAccessPointArn?: pulumi.Input<string>;
+    urls?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface StageExternalS3DescribeOutputPrivatelink {
+    usePrivatelinkEndpoint?: pulumi.Input<boolean>;
+}
+
+export interface StageExternalS3Directory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+     */
+    autoRefresh?: pulumi.Input<string>;
+    /**
+     * Specifies whether to enable a directory table on the external stage.
+     */
+    enable: pulumi.Input<boolean>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
+     */
+    refreshOnCreate?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3Encryption {
+    /**
+     * AWS client-side encryption using a master key.
+     */
+    awsCse?: pulumi.Input<inputs.StageExternalS3EncryptionAwsCse>;
+    /**
+     * AWS server-side encryption using KMS-managed keys.
+     */
+    awsSseKms?: pulumi.Input<inputs.StageExternalS3EncryptionAwsSseKms>;
+    /**
+     * AWS server-side encryption using S3-managed keys.
+     */
+    awsSseS3?: pulumi.Input<inputs.StageExternalS3EncryptionAwsSseS3>;
+    /**
+     * No encryption.
+     */
+    none?: pulumi.Input<inputs.StageExternalS3EncryptionNone>;
+}
+
+export interface StageExternalS3EncryptionAwsCse {
+    /**
+     * Specifies the 128-bit or 256-bit client-side master key.
+     */
+    masterKey: pulumi.Input<string>;
+}
+
+export interface StageExternalS3EncryptionAwsSseKms {
+    /**
+     * Specifies the KMS-managed key ID.
+     */
+    kmsKeyId?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3EncryptionAwsSseS3 {
+}
+
+export interface StageExternalS3EncryptionNone {
+}
+
+export interface StageExternalS3FileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: pulumi.Input<inputs.StageExternalS3FileFormatAvro>;
+    /**
+     * CSV file format options.
+     */
+    csv?: pulumi.Input<inputs.StageExternalS3FileFormatCsv>;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: pulumi.Input<string>;
+    /**
+     * JSON file format options.
+     */
+    json?: pulumi.Input<inputs.StageExternalS3FileFormatJson>;
+    /**
+     * ORC file format options.
+     */
+    orc?: pulumi.Input<inputs.StageExternalS3FileFormatOrc>;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: pulumi.Input<inputs.StageExternalS3FileFormatParquet>;
+    /**
+     * XML file format options.
+     */
+    xml?: pulumi.Input<inputs.StageExternalS3FileFormatXml>;
+}
+
+export interface StageExternalS3FileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3FileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: pulumi.Input<string>;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: pulumi.Input<string>;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: pulumi.Input<number>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3FileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: pulumi.Input<string>;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: pulumi.Input<string>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3FileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3FileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3FileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: pulumi.Input<string>;
+}
+
+export interface StageExternalS3ShowOutput {
+    cloud?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    directoryEnabled?: pulumi.Input<boolean>;
+    endpoint?: pulumi.Input<string>;
+    hasCredentials?: pulumi.Input<boolean>;
+    hasEncryptionKey?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
+}
+
+export interface StageInternalDescribeOutput {
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputDirectoryTable>[]>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormat>[]>;
+}
+
+export interface StageInternalDescribeOutputDirectoryTable {
+    autoRefresh?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean>;
+}
+
+export interface StageInternalDescribeOutputFileFormat {
+    avros?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatAvro>[]>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatCsv>[]>;
+    formatName?: pulumi.Input<string>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatJson>[]>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatOrc>[]>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatParquet>[]>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatXml>[]>;
+}
+
+export interface StageInternalDescribeOutputFileFormatAvro {
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageInternalDescribeOutputFileFormatCsv {
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<boolean>;
+    encoding?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
+    escape?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    parseHeader?: pulumi.Input<boolean>;
+    recordDelimiter?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipBlankLines?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    skipHeader?: pulumi.Input<number>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    validateUtf8?: pulumi.Input<boolean>;
+}
+
+export interface StageInternalDescribeOutputFileFormatJson {
+    allowDuplicate?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<boolean>;
+    fileExtension?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    multiLine?: pulumi.Input<boolean>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripNullValues?: pulumi.Input<boolean>;
+    stripOuterArray?: pulumi.Input<boolean>;
+    timeFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageInternalDescribeOutputFileFormatOrc {
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageInternalDescribeOutputFileFormatParquet {
+    binaryAsText?: pulumi.Input<boolean>;
+    compression?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    trimSpace?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<boolean>;
+    useVectorizedScanner?: pulumi.Input<boolean>;
+}
+
+export interface StageInternalDescribeOutputFileFormatXml {
+    compression?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<boolean>;
+    ignoreUtf8Errors?: pulumi.Input<boolean>;
+    preserveSpace?: pulumi.Input<boolean>;
+    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    skipByteOrderMark?: pulumi.Input<boolean>;
+    stripOuterElement?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+}
+
+export interface StageInternalDirectory {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should automatically refresh the directory table metadata when new or updated data files are available on the internal named stage.
+     */
+    autoRefresh?: pulumi.Input<string>;
+    /**
+     * Specifies whether to enable a directory table on the internal named stage.
+     */
+    enable: pulumi.Input<boolean>;
+}
+
+export interface StageInternalEncryption {
+    /**
+     * Client-side and server-side encryption.
+     */
+    snowflakeFull?: pulumi.Input<inputs.StageInternalEncryptionSnowflakeFull>;
+    /**
+     * Server-side encryption only.
+     */
+    snowflakeSse?: pulumi.Input<inputs.StageInternalEncryptionSnowflakeSse>;
+}
+
+export interface StageInternalEncryptionSnowflakeFull {
+}
+
+export interface StageInternalEncryptionSnowflakeSse {
+}
+
+export interface StageInternalFileFormat {
+    /**
+     * AVRO file format options.
+     */
+    avro?: pulumi.Input<inputs.StageInternalFileFormatAvro>;
+    /**
+     * CSV file format options.
+     */
+    csv?: pulumi.Input<inputs.StageInternalFileFormatCsv>;
+    /**
+     * Fully qualified name of the file format (e.g., 'database.schema.format_name').
+     */
+    formatName?: pulumi.Input<string>;
+    /**
+     * JSON file format options.
+     */
+    json?: pulumi.Input<inputs.StageInternalFileFormatJson>;
+    /**
+     * ORC file format options.
+     */
+    orc?: pulumi.Input<inputs.StageInternalFileFormatOrc>;
+    /**
+     * Parquet file format options.
+     */
+    parquet?: pulumi.Input<inputs.StageInternalFileFormatParquet>;
+    /**
+     * XML file format options.
+     */
+    xml?: pulumi.Input<inputs.StageInternalFileFormatXml>;
+}
+
+export interface StageInternalFileFormatAvro {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageInternalFileFormatCsv {
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    emptyFieldAsNull?: pulumi.Input<string>;
+    /**
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     */
+    encoding?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escape?: pulumi.Input<string>;
+    /**
+     * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
+     */
+    escapeUnenclosedField?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
+     */
+    fieldDelimiter?: pulumi.Input<string>;
+    /**
+     * Character used to enclose strings. Use `NONE` to specify no enclosure character.
+     */
+    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    parseHeader?: pulumi.Input<string>;
+    /**
+     * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
+     */
+    recordDelimiter?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipBlankLines?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
+     */
+    skipHeader?: pulumi.Input<number>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageInternalFileFormatJson {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    allowDuplicate?: pulumi.Input<string>;
+    /**
+     * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
+     */
+    binaryFormat?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    dateFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enableOctal?: pulumi.Input<string>;
+    /**
+     * Specifies the extension for files unloaded to a stage.
+     */
+    fileExtension?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    multiLine?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripNullValues?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterArray?: pulumi.Input<string>;
+    /**
+     * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timeFormat?: pulumi.Input<string>;
+    /**
+     * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
+     */
+    timestampFormat?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageInternalFileFormatOrc {
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+}
+
+export interface StageInternalFileFormatParquet {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    binaryAsText?: pulumi.Input<string>;
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * String used to convert to and from SQL NULL.
+     */
+    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    trimSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useLogicalType?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    useVectorizedScanner?: pulumi.Input<string>;
+}
+
+export interface StageInternalFileFormatXml {
+    /**
+     * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
+     */
+    compression?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    disableAutoConvert?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    ignoreUtf8Errors?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    preserveSpace?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    replaceInvalidCharacters?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    skipByteOrderMark?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    stripOuterElement?: pulumi.Input<string>;
+}
+
+export interface StageInternalShowOutput {
+    cloud?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    directoryEnabled?: pulumi.Input<boolean>;
+    endpoint?: pulumi.Input<string>;
+    hasCredentials?: pulumi.Input<boolean>;
+    hasEncryptionKey?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
+}
+
 export interface StageTag {
     /**
      * Name of the database that the tag was created in.
@@ -5964,6 +8398,51 @@ export interface StageTag {
      * Tag value, e.g. marketing_info.
      */
     value: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationAwsDescribeOutput {
+    allowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    externalId?: pulumi.Input<string>;
+    iamUserArn?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    objectAcl?: pulumi.Input<string>;
+    provider?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<boolean>;
+}
+
+export interface StorageIntegrationAwsShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationAzureDescribeOutput {
+    allowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    consentUrl?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    id?: pulumi.Input<string>;
+    multiTenantAppName?: pulumi.Input<string>;
+    provider?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<boolean>;
+}
+
+export interface StorageIntegrationAzureShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string>;
 }
 
 export interface StorageIntegrationDescribeOutput {
@@ -6071,6 +8550,26 @@ export interface StorageIntegrationDescribeOutputUsePrivatelinkEndpoint {
     name?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
     value?: pulumi.Input<string>;
+}
+
+export interface StorageIntegrationGcsDescribeOutput {
+    allowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    id?: pulumi.Input<string>;
+    provider?: pulumi.Input<string>;
+    serviceAccount?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<boolean>;
+}
+
+export interface StorageIntegrationGcsShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string>;
 }
 
 export interface StreamOnDirectoryTableDescribeOutput {

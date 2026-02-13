@@ -554,6 +554,8 @@ class StorageIntegration(pulumi.CustomResource):
 
         > **Note** Currently, `describe_output` field is not used in all the relevant fields (only `storage_aws_external_id` is supported). This will be addressed during the resource rework.
 
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `StorageIntegrationAws` | `StorageIntegrationAzure` | `StorageIntegrationGcs`. <deprecation>
+
         ## Import
 
         ```sh
@@ -587,6 +589,8 @@ class StorageIntegration(pulumi.CustomResource):
         > **Note** This resource manages storage integrations for AWS, Azure, and GCS storage providers. Make sure you use only fields that are supported for the storage provider you are using, as they are not validated by the provider. In the future, we are planning to implement separate resources for each storage provider.
 
         > **Note** Currently, `describe_output` field is not used in all the relevant fields (only `storage_aws_external_id` is supported). This will be addressed during the resource rework.
+
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `StorageIntegrationAws` | `StorageIntegrationAzure` | `StorageIntegrationGcs`. <deprecation>
 
         ## Import
 

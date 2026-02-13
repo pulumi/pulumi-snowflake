@@ -23,6 +23,9 @@ import (
 //
 // > **Note** External changes to `daysToExpiry` and `minsToUnlock` are not currently handled by the provider (because the value changes continuously on Snowflake side after setting it).
 //
+// <!-- TODO(SNOW-3003261): Remove this note.-->
+// > **Note** External changes to `default_workload_identity.aws`, including setting AWS type externally, are not currently handled by the provider because of lack of certain data in Snowflake API.
+//
 // Resource used to manage legacy service user objects. For more information, check [user documentation](https://docs.snowflake.com/en/sql-reference/commands-user-role#user-management).
 //
 // ## Example Usage
@@ -138,6 +141,59 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// with AWS workload identity
+//			_, err = snowflake.NewLegacyServiceUser(ctx, "with_aws_wif", &snowflake.LegacyServiceUserArgs{
+//				Name: pulumi.String("legacy_service_user_aws"),
+//				DefaultWorkloadIdentity: &snowflake.LegacyServiceUserDefaultWorkloadIdentityArgs{
+//					Aws: &snowflake.LegacyServiceUserDefaultWorkloadIdentityAwsArgs{
+//						Arn: pulumi.String("arn:aws:iam::123456789012:role/snowflake-service-role"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// with GCP workload identity
+//			_, err = snowflake.NewLegacyServiceUser(ctx, "with_gcp_wif", &snowflake.LegacyServiceUserArgs{
+//				Name: pulumi.String("legacy_service_user_gcp"),
+//				DefaultWorkloadIdentity: &snowflake.LegacyServiceUserDefaultWorkloadIdentityArgs{
+//					Gcp: &snowflake.LegacyServiceUserDefaultWorkloadIdentityGcpArgs{
+//						Subject: pulumi.String("1122334455"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// with Azure workload identity
+//			_, err = snowflake.NewLegacyServiceUser(ctx, "with_azure_wif", &snowflake.LegacyServiceUserArgs{
+//				Name: pulumi.String("legacy_service_user_azure"),
+//				DefaultWorkloadIdentity: &snowflake.LegacyServiceUserDefaultWorkloadIdentityArgs{
+//					Azure: &snowflake.LegacyServiceUserDefaultWorkloadIdentityAzureArgs{
+//						Issuer:  pulumi.String("https://login.microsoftonline.com/tenant-id/v2.0"),
+//						Subject: pulumi.String("application-id"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// with OIDC workload identity
+//			_, err = snowflake.NewLegacyServiceUser(ctx, "with_oidc_wif", &snowflake.LegacyServiceUserArgs{
+//				Name: pulumi.String("legacy_service_user_oidc"),
+//				DefaultWorkloadIdentity: &snowflake.LegacyServiceUserDefaultWorkloadIdentityArgs{
+//					Oidc: &snowflake.LegacyServiceUserDefaultWorkloadIdentityOidcArgs{
+//						Issuer:  pulumi.String("https://oidc.example.com"),
+//						Subject: pulumi.String("service-principal"),
+//						OidcAudienceLists: pulumi.StringArray{
+//							pulumi.String("snowflake"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -198,6 +254,8 @@ type LegacyServiceUser struct {
 	DefaultSecondaryRolesOption pulumi.StringPtrOutput `pulumi:"defaultSecondaryRolesOption"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrOutput `pulumi:"defaultWarehouse"`
+	// Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+	DefaultWorkloadIdentity LegacyServiceUserDefaultWorkloadIdentityPtrOutput `pulumi:"defaultWorkloadIdentity"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrOutput `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
@@ -401,6 +459,8 @@ type legacyServiceUserState struct {
 	DefaultSecondaryRolesOption *string `pulumi:"defaultSecondaryRolesOption"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
+	// Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+	DefaultWorkloadIdentity *LegacyServiceUserDefaultWorkloadIdentity `pulumi:"defaultWorkloadIdentity"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled *string `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
@@ -560,6 +620,8 @@ type LegacyServiceUserState struct {
 	DefaultSecondaryRolesOption pulumi.StringPtrInput
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrInput
+	// Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+	DefaultWorkloadIdentity LegacyServiceUserDefaultWorkloadIdentityPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrInput
 	// Name displayed for the user in the Snowflake web interface.
@@ -723,6 +785,8 @@ type legacyServiceUserArgs struct {
 	DefaultSecondaryRolesOption *string `pulumi:"defaultSecondaryRolesOption"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
+	// Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+	DefaultWorkloadIdentity *LegacyServiceUserDefaultWorkloadIdentity `pulumi:"defaultWorkloadIdentity"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled *string `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
@@ -875,6 +939,8 @@ type LegacyServiceUserArgs struct {
 	DefaultSecondaryRolesOption pulumi.StringPtrInput
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrInput
+	// Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+	DefaultWorkloadIdentity LegacyServiceUserDefaultWorkloadIdentityPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrInput
 	// Name displayed for the user in the Snowflake web interface.
@@ -1170,6 +1236,13 @@ func (o LegacyServiceUserOutput) DefaultSecondaryRolesOption() pulumi.StringPtrO
 // Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 func (o LegacyServiceUserOutput) DefaultWarehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.DefaultWarehouse }).(pulumi.StringPtrOutput)
+}
+
+// Configures the default workload identity for the user. This is used for workload identity federation to allow third-party services to authenticate as this user. Only applicable for service users and legacy service users. This field can be only used when `USER_ENABLE_DEFAULT_WORKLOAD_IDENTITY` option is specified in provider block in the `experimentalFeaturesEnabled` field. If this feature is not enabled, attempting to set this field will result in an error. The provider will not get WIF information from Snowflake.
+func (o LegacyServiceUserOutput) DefaultWorkloadIdentity() LegacyServiceUserDefaultWorkloadIdentityPtrOutput {
+	return o.ApplyT(func(v *LegacyServiceUser) LegacyServiceUserDefaultWorkloadIdentityPtrOutput {
+		return v.DefaultWorkloadIdentity
+	}).(LegacyServiceUserDefaultWorkloadIdentityPtrOutput)
 }
 
 // (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.

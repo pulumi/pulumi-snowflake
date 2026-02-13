@@ -6,9 +6,12 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetStorageIntegrationsStorageIntegration;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStorageIntegrationsResult {
@@ -18,10 +21,20 @@ public final class GetStorageIntegrationsResult {
      */
     private String id;
     /**
-     * @return The storage integrations in the database
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all storage integrations details queries.
      * 
      */
     private List<GetStorageIntegrationsStorageIntegration> storageIntegrations;
+    /**
+     * @return (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withDescribe;
 
     private GetStorageIntegrationsResult() {}
     /**
@@ -32,11 +45,25 @@ public final class GetStorageIntegrationsResult {
         return this.id;
     }
     /**
-     * @return The storage integrations in the database
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Holds the aggregated output of all storage integrations details queries.
      * 
      */
     public List<GetStorageIntegrationsStorageIntegration> storageIntegrations() {
         return this.storageIntegrations;
+    }
+    /**
+     * @return (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     public static Builder builder() {
@@ -49,12 +76,16 @@ public final class GetStorageIntegrationsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private @Nullable String like;
         private List<GetStorageIntegrationsStorageIntegration> storageIntegrations;
+        private @Nullable Boolean withDescribe;
         public Builder() {}
         public Builder(GetStorageIntegrationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.like = defaults.like;
     	      this.storageIntegrations = defaults.storageIntegrations;
+    	      this.withDescribe = defaults.withDescribe;
         }
 
         @CustomType.Setter
@@ -63,6 +94,12 @@ public final class GetStorageIntegrationsResult {
               throw new MissingRequiredPropertyException("GetStorageIntegrationsResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
             return this;
         }
         @CustomType.Setter
@@ -76,10 +113,18 @@ public final class GetStorageIntegrationsResult {
         public Builder storageIntegrations(GetStorageIntegrationsStorageIntegration... storageIntegrations) {
             return storageIntegrations(List.of(storageIntegrations));
         }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
+            return this;
+        }
         public GetStorageIntegrationsResult build() {
             final var _resultValue = new GetStorageIntegrationsResult();
             _resultValue.id = id;
+            _resultValue.like = like;
             _resultValue.storageIntegrations = storageIntegrations;
+            _resultValue.withDescribe = withDescribe;
             return _resultValue;
         }
     }

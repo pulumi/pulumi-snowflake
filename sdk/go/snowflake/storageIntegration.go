@@ -18,6 +18,8 @@ import (
 //
 // > **Note** Currently, `describeOutput` field is not used in all the relevant fields (only `storageAwsExternalId` is supported). This will be addressed during the resource rework.
 //
+// > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `StorageIntegrationAws` | `StorageIntegrationAzure` | `StorageIntegrationGcs`. <deprecation>
+//
 // ## Import
 //
 // ```sh
