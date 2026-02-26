@@ -63,6 +63,7 @@ from .get_listings import *
 from .get_masking_policies import *
 from .get_materialized_views import *
 from .get_network_policies import *
+from .get_network_rules import *
 from .get_notebooks import *
 from .get_parameters import *
 from .get_pipes import *

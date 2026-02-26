@@ -6,12 +6,14 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetStagesStageDescribeOutputDirectoryTable {
     private Boolean autoRefresh;
     private Boolean enable;
+    private String lastRefreshedOn;
 
     private GetStagesStageDescribeOutputDirectoryTable() {}
     public Boolean autoRefresh() {
@@ -19,6 +21,9 @@ public final class GetStagesStageDescribeOutputDirectoryTable {
     }
     public Boolean enable() {
         return this.enable;
+    }
+    public String lastRefreshedOn() {
+        return this.lastRefreshedOn;
     }
 
     public static Builder builder() {
@@ -32,11 +37,13 @@ public final class GetStagesStageDescribeOutputDirectoryTable {
     public static final class Builder {
         private Boolean autoRefresh;
         private Boolean enable;
+        private String lastRefreshedOn;
         public Builder() {}
         public Builder(GetStagesStageDescribeOutputDirectoryTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRefresh = defaults.autoRefresh;
     	      this.enable = defaults.enable;
+    	      this.lastRefreshedOn = defaults.lastRefreshedOn;
         }
 
         @CustomType.Setter
@@ -55,10 +62,19 @@ public final class GetStagesStageDescribeOutputDirectoryTable {
             this.enable = enable;
             return this;
         }
+        @CustomType.Setter
+        public Builder lastRefreshedOn(String lastRefreshedOn) {
+            if (lastRefreshedOn == null) {
+              throw new MissingRequiredPropertyException("GetStagesStageDescribeOutputDirectoryTable", "lastRefreshedOn");
+            }
+            this.lastRefreshedOn = lastRefreshedOn;
+            return this;
+        }
         public GetStagesStageDescribeOutputDirectoryTable build() {
             final var _resultValue = new GetStagesStageDescribeOutputDirectoryTable();
             _resultValue.autoRefresh = autoRefresh;
             _resultValue.enable = enable;
+            _resultValue.lastRefreshedOn = lastRefreshedOn;
             return _resultValue;
         }
     }

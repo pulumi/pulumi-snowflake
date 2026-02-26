@@ -18,6 +18,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
+        [Input("lastRefreshedOn")]
+        public Input<string>? LastRefreshedOn { get; set; }
+
         public StageExternalS3DescribeOutputDirectoryTableArgs()
         {
         }

@@ -290,6 +290,11 @@ export const getNetworkPolicies: typeof import("./getNetworkPolicies").getNetwor
 export const getNetworkPoliciesOutput: typeof import("./getNetworkPolicies").getNetworkPoliciesOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkPolicies","getNetworkPoliciesOutput"], () => require("./getNetworkPolicies"));
 
+export { GetNetworkRulesArgs, GetNetworkRulesResult, GetNetworkRulesOutputArgs } from "./getNetworkRules";
+export const getNetworkRules: typeof import("./getNetworkRules").getNetworkRules = null as any;
+export const getNetworkRulesOutput: typeof import("./getNetworkRules").getNetworkRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkRules","getNetworkRulesOutput"], () => require("./getNetworkRules"));
+
 export { GetNotebooksArgs, GetNotebooksResult, GetNotebooksOutputArgs } from "./getNotebooks";
 export const getNotebooks: typeof import("./getNotebooks").getNotebooks = null as any;
 export const getNotebooksOutput: typeof import("./getNotebooks").getNotebooksOutput = null as any;
