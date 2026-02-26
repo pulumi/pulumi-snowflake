@@ -32,6 +32,7 @@ class MaterializedViewArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None):
         """
         The set of arguments for constructing a MaterializedView resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
@@ -185,6 +186,7 @@ class _MaterializedViewState:
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MaterializedView resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Don't use the | character.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -397,6 +399,7 @@ class MaterializedView(pulumi.CustomResource):
         $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
@@ -453,6 +456,7 @@ class MaterializedView(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MaterializedViewArgs args: The arguments to use to populate this resource's properties.

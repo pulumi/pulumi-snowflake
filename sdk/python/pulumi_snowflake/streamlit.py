@@ -33,6 +33,7 @@ class StreamlitArgs:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Streamlit resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -200,6 +201,7 @@ class _StreamlitState:
                  title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Streamlit resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the streamlit.
         :param pulumi.Input[_builtins.str] database: The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
@@ -432,6 +434,7 @@ class Streamlit(pulumi.CustomResource):
         $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the streamlit.
@@ -467,6 +470,7 @@ class Streamlit(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StreamlitArgs args: The arguments to use to populate this resource's properties.

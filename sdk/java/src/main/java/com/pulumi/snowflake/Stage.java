@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var exampleAwsKeyId = config.get("exampleAwsKeyId");
- *         final var exampleAwsSecretKey = config.get("exampleAwsSecretKey");
+ *         final var exampleAwsKeyId = config.require("exampleAwsKeyId");
+ *         final var exampleAwsSecretKey = config.require("exampleAwsSecretKey");
  *         var exampleStage = new Stage("exampleStage", StageArgs.builder()
  *             .name("EXAMPLE_STAGE")
  *             .url("s3://com.example.bucket/prefix")

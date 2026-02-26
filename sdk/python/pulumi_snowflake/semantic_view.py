@@ -32,6 +32,7 @@ class SemanticViewArgs:
                  relationships: Optional[pulumi.Input[Sequence[pulumi.Input['SemanticViewRelationshipArgs']]]] = None):
         """
         The set of arguments for constructing a SemanticView resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['SemanticViewTableArgs']]] tables: The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -183,6 +184,7 @@ class _SemanticViewState:
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input['SemanticViewTableArgs']]]] = None):
         """
         Input properties used for looking up and filtering SemanticView resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the semantic view.
         :param pulumi.Input[_builtins.str] database: The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['SemanticViewDimensionArgs']]] dimensions: The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -509,6 +511,7 @@ class SemanticView(pulumi.CustomResource):
 
         Note: Because the external changes for `dimensions`, `facts`, `metrics`, `relationships`, and `tables` are not currently handled, then import won't populate these fields too.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the semantic view.
@@ -668,6 +671,7 @@ class SemanticView(pulumi.CustomResource):
         ```
 
         Note: Because the external changes for `dimensions`, `facts`, `metrics`, `relationships`, and `tables` are not currently handled, then import won't populate these fields too.
+
 
         :param str resource_name: The name of the resource.
         :param SemanticViewArgs args: The arguments to use to populate this resource's properties.

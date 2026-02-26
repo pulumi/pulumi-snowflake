@@ -26,6 +26,7 @@ class ManagedAccountArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedAccount resource.
+
         :param pulumi.Input[_builtins.str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
         :param pulumi.Input[_builtins.str] admin_password: Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the managed account.
@@ -118,6 +119,7 @@ class _ManagedAccountState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedAccount resources.
+
         :param pulumi.Input[_builtins.str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
         :param pulumi.Input[_builtins.str] admin_password: Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         :param pulumi.Input[_builtins.str] cloud: Cloud in which the managed account is located.
@@ -331,6 +333,7 @@ class ManagedAccount(pulumi.CustomResource):
         $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_name: Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
@@ -377,6 +380,7 @@ class ManagedAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ManagedAccountArgs args: The arguments to use to populate this resource's properties.

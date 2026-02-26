@@ -23,6 +23,7 @@ class UserAuthenticationPolicyAttachmentArgs:
                  user_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserAuthenticationPolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy
         :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to
         """
@@ -61,6 +62,7 @@ class _UserAuthenticationPolicyAttachmentState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserAuthenticationPolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy
         :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to
         """
@@ -131,6 +133,7 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy
@@ -169,6 +172,7 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
         :param str resource_name: The name of the resource.
         :param UserAuthenticationPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

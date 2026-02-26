@@ -26,6 +26,7 @@ class TagAssociationArgs:
                  skip_validation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TagAssociation resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[_builtins.str] object_type: Specifies the type of object to add a tag. Allowed object types: `ACCOUNT` | `APPLICATION` | `APPLICATION PACKAGE` | `COMPUTE POOL` | `DATABASE` | `FAILOVER GROUP` | `INTEGRATION` | `NETWORK POLICY` | `REPLICATION GROUP` | `ROLE` | `SHARE` | `USER` | `WAREHOUSE` | `DATABASE ROLE` | `SCHEMA` | `ALERT` | `SNOWFLAKE.CORE.BUDGET` | `SNOWFLAKE.ML.CLASSIFICATION` | `EXTERNAL FUNCTION` | `EXTERNAL TABLE` | `FUNCTION` | `IMAGE REPOSITORY` | `GIT REPOSITORY` | `ICEBERG TABLE` | `MATERIALIZED VIEW` | `PIPE` | `MASKING POLICY` | `PASSWORD POLICY` | `ROW ACCESS POLICY` | `SESSION POLICY` | `PRIVACY POLICY` | `PROCEDURE` | `SERVICE` | `STAGE` | `STREAM` | `TABLE` | `TASK` | `VIEW` | `COLUMN` | `EVENT TABLE`.
         :param pulumi.Input[_builtins.str] tag_id: Specifies the identifier for the tag.
@@ -110,6 +111,7 @@ class _TagAssociationState:
                  tag_value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagAssociation resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[_builtins.str] object_type: Specifies the type of object to add a tag. Allowed object types: `ACCOUNT` | `APPLICATION` | `APPLICATION PACKAGE` | `COMPUTE POOL` | `DATABASE` | `FAILOVER GROUP` | `INTEGRATION` | `NETWORK POLICY` | `REPLICATION GROUP` | `ROLE` | `SHARE` | `USER` | `WAREHOUSE` | `DATABASE ROLE` | `SCHEMA` | `ALERT` | `SNOWFLAKE.CORE.BUDGET` | `SNOWFLAKE.ML.CLASSIFICATION` | `EXTERNAL FUNCTION` | `EXTERNAL TABLE` | `FUNCTION` | `IMAGE REPOSITORY` | `GIT REPOSITORY` | `ICEBERG TABLE` | `MATERIALIZED VIEW` | `PIPE` | `MASKING POLICY` | `PASSWORD POLICY` | `ROW ACCESS POLICY` | `SESSION POLICY` | `PRIVACY POLICY` | `PROCEDURE` | `SERVICE` | `STAGE` | `STREAM` | `TABLE` | `TASK` | `VIEW` | `COLUMN` | `EVENT TABLE`.
         :param pulumi.Input[_builtins.bool] skip_validation: (Default: `true`) If true, skips validation of the tag association.
@@ -280,6 +282,7 @@ class TagAssociation(pulumi.CustomResource):
         $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_identifiers: Specifies the object identifiers for the tag association.
@@ -373,6 +376,7 @@ class TagAssociation(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagAssociationArgs args: The arguments to use to populate this resource's properties.

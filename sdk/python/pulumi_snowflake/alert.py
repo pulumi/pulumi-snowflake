@@ -32,6 +32,7 @@ class AlertArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Alert resource.
+
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
         :param pulumi.Input[_builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[_builtins.str] database: The database in which to create the alert.
@@ -180,6 +181,7 @@ class _AlertState:
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Alert resources.
+
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
         :param pulumi.Input['AlertAlertScheduleArgs'] alert_schedule: The schedule for periodically running an alert.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the alert.
@@ -385,6 +387,7 @@ class Alert(pulumi.CustomResource):
         $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
@@ -438,6 +441,7 @@ class Alert(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AlertArgs args: The arguments to use to populate this resource's properties.

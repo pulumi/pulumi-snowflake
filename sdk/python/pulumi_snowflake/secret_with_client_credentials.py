@@ -29,6 +29,7 @@ class SecretWithClientCredentialsArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecretWithClientCredentials resource.
+
         :param pulumi.Input[_builtins.str] api_authentication: Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
@@ -133,6 +134,7 @@ class _SecretWithClientCredentialsState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['SecretWithClientCredentialsShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering SecretWithClientCredentials resources.
+
         :param pulumi.Input[_builtins.str] api_authentication: Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -308,6 +310,7 @@ class SecretWithClientCredentials(pulumi.CustomResource):
         $ pulumi import snowflake:index/secretWithClientCredentials:SecretWithClientCredentials example '"<database_name>"."<schema_name>"."<secret_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_authentication: Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
@@ -331,6 +334,7 @@ class SecretWithClientCredentials(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/secretWithClientCredentials:SecretWithClientCredentials example '"<database_name>"."<schema_name>"."<secret_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecretWithClientCredentialsArgs args: The arguments to use to populate this resource's properties.

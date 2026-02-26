@@ -33,6 +33,7 @@ class TableArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         The set of arguments for constructing a Table resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[_builtins.str] database: The database in which to create the table.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the table.
@@ -208,6 +209,7 @@ class _TableState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Table resources.
+
         :param pulumi.Input[_builtins.bool] change_tracking: (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
@@ -494,6 +496,7 @@ class Table(pulumi.CustomResource):
         $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] change_tracking: (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
@@ -590,6 +593,7 @@ class Table(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

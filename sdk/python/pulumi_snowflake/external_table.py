@@ -38,6 +38,7 @@ class ExternalTableArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         The set of arguments for constructing a ExternalTable resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[_builtins.str] database: The database in which to create the external table.
         :param pulumi.Input[_builtins.str] file_format: Specifies the file format for the external table.
@@ -287,6 +288,7 @@ class _ExternalTableState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalTable resources.
+
         :param pulumi.Input[_builtins.bool] auto_refresh: (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[_builtins.str] aws_sns_topic: Specifies the aws sns topic for the external table.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
@@ -622,6 +624,7 @@ class ExternalTable(pulumi.CustomResource):
         $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_refresh: (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
@@ -696,6 +699,7 @@ class ExternalTable(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExternalTableArgs args: The arguments to use to populate this resource's properties.

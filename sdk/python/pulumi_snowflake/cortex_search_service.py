@@ -33,6 +33,7 @@ class CortexSearchServiceArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CortexSearchService resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the Cortex search service.
         :param pulumi.Input[_builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
         :param pulumi.Input[_builtins.str] query: Specifies the query to use to populate the Cortex search service.
@@ -198,6 +199,7 @@ class _CortexSearchServiceState:
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CortexSearchService resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[_builtins.str] created_on: Creation date for the given Cortex search service.
@@ -467,6 +469,7 @@ class CortexSearchService(pulumi.CustomResource):
         $ pulumi import snowflake:index/cortexSearchService:CortexSearchService example 'dbName|schemaName|fileFormatName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
@@ -539,6 +542,7 @@ class CortexSearchService(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/cortexSearchService:CortexSearchService example 'dbName|schemaName|fileFormatName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CortexSearchServiceArgs args: The arguments to use to populate this resource's properties.

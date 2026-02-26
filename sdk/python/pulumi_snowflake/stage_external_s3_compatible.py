@@ -32,6 +32,7 @@ class StageExternalS3CompatibleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StageExternalS3Compatible resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] endpoint: Specifies the endpoint for the S3-compatible storage provider.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -185,6 +186,7 @@ class _StageExternalS3CompatibleState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StageExternalS3Compatible resources.
+
         :param pulumi.Input[_builtins.str] cloud: Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input['StageExternalS3CompatibleCredentialsArgs'] credentials: Specifies the AWS credentials for the S3-compatible external stage.
@@ -617,6 +619,7 @@ class StageExternalS3Compatible(pulumi.CustomResource):
         $ pulumi import snowflake:index/stageExternalS3Compatible:StageExternalS3Compatible example '"<database_name>"."<schema_name>"."<stage_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
@@ -837,6 +840,7 @@ class StageExternalS3Compatible(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/stageExternalS3Compatible:StageExternalS3Compatible example '"<database_name>"."<schema_name>"."<stage_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StageExternalS3CompatibleArgs args: The arguments to use to populate this resource's properties.

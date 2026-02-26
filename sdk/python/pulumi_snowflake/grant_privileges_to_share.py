@@ -30,6 +30,7 @@ class GrantPrivilegesToShareArgs:
                  on_view: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToShare resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
         :param pulumi.Input[_builtins.str] to_share: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
@@ -180,6 +181,7 @@ class _GrantPrivilegesToShareState:
                  to_share: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantPrivilegesToShare resources.
+
         :param pulumi.Input[_builtins.str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
         :param pulumi.Input[_builtins.str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] on_function: The fully qualified name of the function on which privileges will be granted.
@@ -337,6 +339,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         """
         > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
@@ -357,6 +360,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
+
 
         :param str resource_name: The name of the resource.
         :param GrantPrivilegesToShareArgs args: The arguments to use to populate this resource's properties.

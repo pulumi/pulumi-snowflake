@@ -27,6 +27,7 @@ class GrantOwnershipArgs:
                  outbound_privileges: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantOwnership resource.
+
         :param pulumi.Input['GrantOwnershipOnArgs'] on: Configures which object(s) should transfer their ownership to the specified role.
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
@@ -98,6 +99,7 @@ class _GrantOwnershipState:
                  outbound_privileges: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantOwnership resources.
+
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input['GrantOwnershipOnArgs'] on: Configures which object(s) should transfer their ownership to the specified role.
@@ -183,6 +185,7 @@ class GrantOwnership(pulumi.CustomResource):
 
         !> **Warning** Grant ownership resource still has some limitations. Delete operation is not implemented for on_future grants (you have to remove the config and then revoke ownership grant on future X manually).
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
@@ -206,6 +209,7 @@ class GrantOwnership(pulumi.CustomResource):
         > **Warning** Be careful when using this resource on managed schema or any object within it, as in Snowflake managed schemas follow different ownership and privilege model. For more details, please visit [Schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema#optional-parameters) (scroll to `WITH MANAGED ACCESS` option).
 
         !> **Warning** Grant ownership resource still has some limitations. Delete operation is not implemented for on_future grants (you have to remove the config and then revoke ownership grant on future X manually).
+
 
         :param str resource_name: The name of the resource.
         :param GrantOwnershipArgs args: The arguments to use to populate this resource's properties.

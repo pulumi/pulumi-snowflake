@@ -36,6 +36,7 @@ class FunctionSqlArgs:
                  trace_level: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionSql resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[_builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
@@ -252,6 +253,7 @@ class _FunctionSqlState:
                  trace_level: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionSql resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['FunctionSqlArgumentArgs']]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
         :param pulumi.Input[_builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -599,6 +601,7 @@ class FunctionSql(pulumi.CustomResource):
         Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
         Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
@@ -689,6 +692,7 @@ class FunctionSql(pulumi.CustomResource):
 
         Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
         Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
+
 
         :param str resource_name: The name of the resource.
         :param FunctionSqlArgs args: The arguments to use to populate this resource's properties.

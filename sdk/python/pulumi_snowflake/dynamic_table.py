@@ -33,6 +33,7 @@ class DynamicTableArgs:
                  refresh_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DynamicTable resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the dynamic table.
         :param pulumi.Input[_builtins.str] query: Specifies the query to use to populate the dynamic table.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the dynamic table.
@@ -209,6 +210,7 @@ class _DynamicTableState:
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DynamicTable resources.
+
         :param pulumi.Input[_builtins.bool] automatic_clustering: Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
         :param pulumi.Input[_builtins.int] bytes: Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
         :param pulumi.Input[_builtins.str] cluster_by: The clustering key for the dynamic table.
@@ -607,6 +609,7 @@ class DynamicTable(pulumi.CustomResource):
         $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the dynamic table.
@@ -658,6 +661,7 @@ class DynamicTable(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DynamicTableArgs args: The arguments to use to populate this resource's properties.

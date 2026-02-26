@@ -32,6 +32,7 @@ class ComputePoolArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ComputePool resource.
+
         :param pulumi.Input[_builtins.str] instance_family: Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G`. Not all instance families are supported in all regions. Run `SHOW COMPUTE POOL INSTANCE FAMILIES` to see the list of supported instance families in your region.
         :param pulumi.Input[_builtins.int] max_nodes: Specifies the maximum number of nodes for the compute pool.
         :param pulumi.Input[_builtins.int] min_nodes: Specifies the minimum number of nodes for the compute pool.
@@ -184,6 +185,7 @@ class _ComputePoolState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ComputePoolShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering ComputePool resources.
+
         :param pulumi.Input[_builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a compute pool when a service or job is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] auto_suspend_secs: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the compute pool.
@@ -426,6 +428,7 @@ class ComputePool(pulumi.CustomResource):
         $ pulumi import snowflake:index/computePool:ComputePool example '"<compute_pool_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a compute pool when a service or job is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -486,6 +489,7 @@ class ComputePool(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/computePool:ComputePool example '"<compute_pool_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ComputePoolArgs args: The arguments to use to populate this resource's properties.

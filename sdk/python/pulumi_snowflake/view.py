@@ -38,6 +38,7 @@ class ViewArgs:
                  row_access_policy: Optional[pulumi.Input['ViewRowAccessPolicyArgs']] = None):
         """
         The set of arguments for constructing a View resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
@@ -286,6 +287,7 @@ class _ViewState:
                  statement: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering View resources.
+
         :param pulumi.Input['ViewAggregationPolicyArgs'] aggregation_policy: Specifies the aggregation policy to set on a view.
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
@@ -598,6 +600,7 @@ class View(pulumi.CustomResource):
         $ pulumi import snowflake:index/view:View example '"<database_name>"."<schema_name>"."<view_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a view.
@@ -638,6 +641,7 @@ class View(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/view:View example '"<database_name>"."<schema_name>"."<view_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.

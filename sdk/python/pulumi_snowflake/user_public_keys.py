@@ -24,6 +24,7 @@ class UserPublicKeysArgs:
                  rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPublicKeys resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the user.
         :param pulumi.Input[_builtins.str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[_builtins.str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
@@ -80,6 +81,7 @@ class _UserPublicKeysState:
                  rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPublicKeys resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the user.
         :param pulumi.Input[_builtins.str] rsa_public_key: Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         :param pulumi.Input[_builtins.str] rsa_public_key2: Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
@@ -145,6 +147,7 @@ class UserPublicKeys(pulumi.CustomResource):
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the user.
@@ -163,6 +166,7 @@ class UserPublicKeys(pulumi.CustomResource):
         !> **Important** Starting from v0.95.0, it is advised to use this resource **only** if users are not managed through terraform. Check more in the migration guide.
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
         :param str resource_name: The name of the resource.
         :param UserPublicKeysArgs args: The arguments to use to populate this resource's properties.

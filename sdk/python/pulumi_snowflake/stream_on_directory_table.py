@@ -29,6 +29,7 @@ class StreamOnDirectoryTableArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StreamOnDirectoryTable resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
@@ -135,6 +136,7 @@ class _StreamOnDirectoryTableState:
                  stream_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamOnDirectoryTable resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stream.
         :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -327,6 +329,7 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
         $ pulumi import snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable example '"<database_name>"."<schema_name>"."<stream_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stream.
@@ -352,6 +355,7 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable example '"<database_name>"."<schema_name>"."<stream_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StreamOnDirectoryTableArgs args: The arguments to use to populate this resource's properties.

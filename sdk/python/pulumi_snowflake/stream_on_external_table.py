@@ -32,6 +32,7 @@ class StreamOnExternalTableArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StreamOnExternalTable resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] external_table: Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -186,6 +187,7 @@ class _StreamOnExternalTableState:
                  stream_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamOnExternalTable resources.
+
         :param pulumi.Input['StreamOnExternalTableAtArgs'] at: This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input['StreamOnExternalTableBeforeArgs'] before: This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stream.
@@ -426,6 +428,7 @@ class StreamOnExternalTable(pulumi.CustomResource):
         $ pulumi import snowflake:index/streamOnExternalTable:StreamOnExternalTable example '"<database_name>"."<schema_name>"."<stream_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['StreamOnExternalTableAtArgs', 'StreamOnExternalTableAtArgsDict']] at: This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -454,6 +457,7 @@ class StreamOnExternalTable(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/streamOnExternalTable:StreamOnExternalTable example '"<database_name>"."<schema_name>"."<stream_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StreamOnExternalTableArgs args: The arguments to use to populate this resource's properties.

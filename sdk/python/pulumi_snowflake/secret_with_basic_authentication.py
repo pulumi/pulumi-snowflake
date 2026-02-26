@@ -29,6 +29,7 @@ class SecretWithBasicAuthenticationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecretWithBasicAuthentication resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] password: Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -133,6 +134,7 @@ class _SecretWithBasicAuthenticationState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecretWithBasicAuthentication resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['SecretWithBasicAuthenticationDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
@@ -308,6 +310,7 @@ class SecretWithBasicAuthentication(pulumi.CustomResource):
         $ pulumi import snowflake:index/secretWithBasicAuthentication:SecretWithBasicAuthentication example '"<database_name>"."<schema_name>"."<secret_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
@@ -331,6 +334,7 @@ class SecretWithBasicAuthentication(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/secretWithBasicAuthentication:SecretWithBasicAuthentication example '"<database_name>"."<schema_name>"."<secret_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecretWithBasicAuthenticationArgs args: The arguments to use to populate this resource's properties.

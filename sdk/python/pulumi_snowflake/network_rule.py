@@ -30,6 +30,7 @@ class NetworkRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkRule resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the network rule.
         :param pulumi.Input[_builtins.str] mode: Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the network rule.
@@ -148,6 +149,7 @@ class _NetworkRuleState:
                  value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkRule resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the network rule.
         :param pulumi.Input[_builtins.str] database: The database in which to create the network rule.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkRuleDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE NETWORK RULE` for the given network rule.
@@ -347,6 +349,7 @@ class NetworkRule(pulumi.CustomResource):
         $ pulumi import snowflake:index/networkRule:NetworkRule example '"<database_name>"."<schema_name>"."<network_rule_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the network rule.
@@ -394,6 +397,7 @@ class NetworkRule(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/networkRule:NetworkRule example '"<database_name>"."<schema_name>"."<network_rule_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkRuleArgs args: The arguments to use to populate this resource's properties.

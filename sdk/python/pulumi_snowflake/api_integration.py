@@ -33,6 +33,7 @@ class ApiIntegrationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiIntegration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
         :param pulumi.Input[_builtins.str] api_provider: Specifies the HTTPS proxy service type.
         :param pulumi.Input[_builtins.str] api_aws_role_arn: (Default: ``) ARN of a cloud platform role.
@@ -233,6 +234,7 @@ class _ApiIntegrationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiIntegration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
         :param pulumi.Input[_builtins.str] api_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[_builtins.str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
@@ -556,6 +558,7 @@ class ApiIntegration(pulumi.CustomResource):
         $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
@@ -618,6 +621,7 @@ class ApiIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiIntegrationArgs args: The arguments to use to populate this resource's properties.

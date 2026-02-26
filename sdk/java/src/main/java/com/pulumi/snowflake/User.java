@@ -64,12 +64,12 @@ import javax.annotation.Nullable;
  *             .name("Snowflake User - minimal")
  *             .build());
  * 
- *         final var email = config.get("email");
- *         final var loginName = config.get("loginName");
- *         final var password = config.get("password");
- *         final var firstName = config.get("firstName");
- *         final var middleName = config.get("middleName");
- *         final var lastName = config.get("lastName");
+ *         final var email = config.require("email");
+ *         final var loginName = config.require("loginName");
+ *         final var password = config.require("password");
+ *         final var firstName = config.require("firstName");
+ *         final var middleName = config.require("middleName");
+ *         final var lastName = config.require("lastName");
  *         // with all attributes set
  *         var user = new User("user", UserArgs.builder()
  *             .name("Snowflake User")

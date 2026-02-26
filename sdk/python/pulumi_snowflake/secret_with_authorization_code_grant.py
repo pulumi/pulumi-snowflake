@@ -30,6 +30,7 @@ class SecretWithAuthorizationCodeGrantArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecretWithAuthorizationCodeGrant resource.
+
         :param pulumi.Input[_builtins.str] api_authentication: Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] oauth_refresh_token: Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -149,6 +150,7 @@ class _SecretWithAuthorizationCodeGrantState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['SecretWithAuthorizationCodeGrantShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering SecretWithAuthorizationCodeGrant resources.
+
         :param pulumi.Input[_builtins.str] api_authentication: Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -340,6 +342,7 @@ class SecretWithAuthorizationCodeGrant(pulumi.CustomResource):
         $ pulumi import snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant example '"<database_name>"."<schema_name>"."<secret_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_authentication: Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
@@ -364,6 +367,7 @@ class SecretWithAuthorizationCodeGrant(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant example '"<database_name>"."<schema_name>"."<secret_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecretWithAuthorizationCodeGrantArgs args: The arguments to use to populate this resource's properties.

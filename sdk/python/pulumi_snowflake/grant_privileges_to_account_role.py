@@ -34,6 +34,7 @@ class GrantPrivilegesToAccountRoleArgs:
                  with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToAccountRole resource.
+
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         :param pulumi.Input[_builtins.bool] always_apply: (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
@@ -217,6 +218,7 @@ class _GrantPrivilegesToAccountRoleState:
                  with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GrantPrivilegesToAccountRole resources.
+
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         :param pulumi.Input[_builtins.bool] always_apply: (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
@@ -416,6 +418,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
 
         !> **Warning** The new `strict_privilege_management` flag was added. It has similar behavior to the `enable_multiple_grants` flag present in the old grant resources, and it makes the resource able to detect external changes for privileges other than those present in the configuration, which can make the resource a central point of knowledge privilege management for a given object and role. See our Strict privilege management guide for more information.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
@@ -448,6 +451,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
 
         !> **Warning** The new `strict_privilege_management` flag was added. It has similar behavior to the `enable_multiple_grants` flag present in the old grant resources, and it makes the resource able to detect external changes for privileges other than those present in the configuration, which can make the resource a central point of knowledge privilege management for a given object and role. See our Strict privilege management guide for more information.
+
 
         :param str resource_name: The name of the resource.
         :param GrantPrivilegesToAccountRoleArgs args: The arguments to use to populate this resource's properties.

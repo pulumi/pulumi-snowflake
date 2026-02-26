@@ -25,6 +25,7 @@ class EmailNotificationIntegrationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailNotificationIntegration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_recipients: List of email addresses that should receive notifications.
         :param pulumi.Input[_builtins.str] comment: A comment for the email integration.
         """
@@ -89,6 +90,7 @@ class _EmailNotificationIntegrationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailNotificationIntegration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_recipients: List of email addresses that should receive notifications.
         :param pulumi.Input[_builtins.str] comment: A comment for the email integration.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -197,6 +199,7 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_recipients: List of email addresses that should receive notifications.
@@ -234,6 +237,7 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailNotificationIntegrationArgs args: The arguments to use to populate this resource's properties.

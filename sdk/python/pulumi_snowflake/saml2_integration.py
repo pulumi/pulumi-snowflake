@@ -40,6 +40,7 @@ class Saml2IntegrationArgs:
                  saml2_sp_initiated_login_page_label: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Saml2Integration resource.
+
         :param pulumi.Input[_builtins.str] saml2_issuer: The string containing the IdP EntityID / Issuer.
         :param pulumi.Input[_builtins.str] saml2_provider: The string describing the IdP. Valid options are: `OKTA` | `ADFS` | `CUSTOM`.
         :param pulumi.Input[_builtins.str] saml2_sso_url: The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
@@ -319,6 +320,7 @@ class _Saml2IntegrationState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Saml2Integration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_email_patterns: A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_user_domains: A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
@@ -703,6 +705,7 @@ class Saml2Integration(pulumi.CustomResource):
         $ pulumi import snowflake:index/saml2Integration:Saml2Integration example '"<integration_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_email_patterns: A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
@@ -785,6 +788,7 @@ class Saml2Integration(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/saml2Integration:Saml2Integration example '"<integration_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param Saml2IntegrationArgs args: The arguments to use to populate this resource's properties.

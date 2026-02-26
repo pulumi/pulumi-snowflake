@@ -27,6 +27,7 @@ class SequenceArgs:
                  ordering: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Sequence resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the sequence. Don't use the | character.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the sequence. Don't use the | character.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the sequence.
@@ -131,6 +132,7 @@ class _SequenceState:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Sequence resources.
+
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the sequence.
         :param pulumi.Input[_builtins.str] database: The database in which to create the sequence. Don't use the | character.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -299,6 +301,7 @@ class Sequence(pulumi.CustomResource):
         $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the sequence.
@@ -345,6 +348,7 @@ class Sequence(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SequenceArgs args: The arguments to use to populate this resource's properties.

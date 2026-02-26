@@ -22,6 +22,7 @@ class AccountAuthenticationPolicyAttachmentArgs:
                  authentication_policy: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AccountAuthenticationPolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] authentication_policy: Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
         """
         pulumi.set(__self__, "authentication_policy", authentication_policy)
@@ -45,6 +46,7 @@ class _AccountAuthenticationPolicyAttachmentState:
                  authentication_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountAuthenticationPolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] authentication_policy: Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
         """
         if authentication_policy is not None:
@@ -95,6 +97,7 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authentication_policy: Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
@@ -128,6 +131,7 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
         :param str resource_name: The name of the resource.
         :param AccountAuthenticationPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
