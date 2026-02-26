@@ -29,6 +29,7 @@ class TagArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag.
@@ -133,6 +134,7 @@ class _TagState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TagShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the tag.
         :param pulumi.Input[_builtins.str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -282,6 +284,7 @@ class Tag(pulumi.CustomResource):
         $ pulumi import snowflake:index/tag:Tag example '"<database_name>"."<schema_name>"."<tag_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag.
@@ -309,6 +312,7 @@ class Tag(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/tag:Tag example '"<database_name>"."<schema_name>"."<tag_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

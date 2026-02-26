@@ -24,6 +24,7 @@ class GrantApplicationRoleArgs:
                  parent_account_role_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantApplicationRole resource.
+
         :param pulumi.Input[_builtins.str] application_role_name: Specifies the identifier for the application role to grant.
         :param pulumi.Input[_builtins.str] application_name: The fully qualified name of the application on which application role will be granted.
         :param pulumi.Input[_builtins.str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
@@ -79,6 +80,7 @@ class _GrantApplicationRoleState:
                  parent_account_role_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantApplicationRole resources.
+
         :param pulumi.Input[_builtins.str] application_name: The fully qualified name of the application on which application role will be granted.
         :param pulumi.Input[_builtins.str] application_role_name: Specifies the identifier for the application role to grant.
         :param pulumi.Input[_builtins.str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
@@ -148,6 +150,7 @@ class GrantApplicationRole(pulumi.CustomResource):
         $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole example '"my_application"."app_role_1"|ACCOUNT_ROLE|"my_role"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The fully qualified name of the application on which application role will be granted.
@@ -170,6 +173,7 @@ class GrantApplicationRole(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole example '"my_application"."app_role_1"|ACCOUNT_ROLE|"my_role"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GrantApplicationRoleArgs args: The arguments to use to populate this resource's properties.

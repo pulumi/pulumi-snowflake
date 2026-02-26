@@ -28,6 +28,7 @@ class ObjectParameterArgs:
                  on_account: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ObjectParameter resource.
+
         :param pulumi.Input[_builtins.str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
         :param pulumi.Input[_builtins.str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
@@ -114,6 +115,7 @@ class _ObjectParameterState:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectParameter resources.
+
         :param pulumi.Input[_builtins.str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
         :param pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[_builtins.str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
@@ -270,6 +272,7 @@ class ObjectParameter(pulumi.CustomResource):
         $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>|<object_type>|<object_identifier>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
@@ -349,6 +352,7 @@ class ObjectParameter(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>|<object_type>|<object_identifier>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ObjectParameterArgs args: The arguments to use to populate this resource's properties.

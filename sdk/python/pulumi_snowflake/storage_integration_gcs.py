@@ -28,6 +28,7 @@ class StorageIntegrationGcsArgs:
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageIntegrationGcs resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the storage integration.
@@ -117,6 +118,7 @@ class _StorageIntegrationGcsState:
                  storage_blocked_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering StorageIntegrationGcs resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the storage integration.
         :param pulumi.Input[Sequence[pulumi.Input['StorageIntegrationGcsDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
@@ -296,6 +298,7 @@ class StorageIntegrationGcs(pulumi.CustomResource):
         $ pulumi import snowflake:index/storageIntegrationGcs:StorageIntegrationGcs example '"<storage_integration_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the storage integration.
@@ -353,6 +356,7 @@ class StorageIntegrationGcs(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/storageIntegrationGcs:StorageIntegrationGcs example '"<storage_integration_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageIntegrationGcsArgs args: The arguments to use to populate this resource's properties.

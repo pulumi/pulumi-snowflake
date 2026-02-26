@@ -29,6 +29,7 @@ class NetworkPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_network_rule_lists: Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
@@ -136,6 +137,7 @@ class _NetworkPolicyState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering NetworkPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_network_rule_lists: Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
@@ -322,6 +324,7 @@ class NetworkPolicy(pulumi.CustomResource):
         $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example '"<network_policy_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_lists: Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
@@ -371,6 +374,7 @@ class NetworkPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example '"<network_policy_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkPolicyArgs args: The arguments to use to populate this resource's properties.

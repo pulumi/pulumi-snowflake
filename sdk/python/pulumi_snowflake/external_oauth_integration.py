@@ -39,6 +39,7 @@ class ExternalOauthIntegrationArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExternalOauthIntegration resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
         :param pulumi.Input[_builtins.str] external_oauth_issuer: Specifies the URL to define the OAuth 2.0 authorization server.
         :param pulumi.Input[_builtins.str] external_oauth_snowflake_user_mapping_attribute: Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
@@ -302,6 +303,7 @@ class _ExternalOauthIntegrationState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalOauthIntegration resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
@@ -643,6 +645,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example '"<integration_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the OAuth integration.
@@ -682,6 +685,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example '"<integration_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExternalOauthIntegrationArgs args: The arguments to use to populate this resource's properties.

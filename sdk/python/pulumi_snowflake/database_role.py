@@ -26,6 +26,7 @@ class DatabaseRoleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseRole resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database role.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -83,6 +84,7 @@ class _DatabaseRoleState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering DatabaseRole resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database role.
         :param pulumi.Input[_builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -197,6 +199,7 @@ class DatabaseRole(pulumi.CustomResource):
         $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"<database_name>"."<database_role_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database role.
@@ -234,6 +237,7 @@ class DatabaseRole(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"<database_name>"."<database_role_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DatabaseRoleArgs args: The arguments to use to populate this resource's properties.

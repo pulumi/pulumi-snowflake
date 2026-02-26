@@ -39,6 +39,7 @@ class AccountArgs:
                  region_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Account resource.
+
         :param pulumi.Input[_builtins.str] admin_name: Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] edition: Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
         :param pulumi.Input[_builtins.str] email: Email address of the initial administrative user of the account. This email address is used to send any notifications about the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -301,6 +302,7 @@ class _AccountState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AccountShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+
         :param pulumi.Input[_builtins.str] admin_name: Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] admin_password: Password for the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] admin_rsa_public_key: Assigns a public key to the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -614,6 +616,7 @@ class Account(pulumi.CustomResource):
         $ pulumi import snowflake:index/account:Account example '"<organization_name>"."<account_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] admin_name: Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -655,6 +658,7 @@ class Account(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/account:Account example '"<organization_name>"."<account_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class UserProgrammaticAccessTokenArgs:
                  role_restriction: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserProgrammaticAccessToken resource.
+
         :param pulumi.Input[_builtins.str] user: The name of the user that the token is associated with. A user cannot use another user's programmatic access token to authenticate. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] comment: Descriptive comment about the programmatic access token.
         :param pulumi.Input[_builtins.int] days_to_expiry: The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -186,6 +187,7 @@ class _UserProgrammaticAccessTokenState:
                  user: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserProgrammaticAccessToken resources.
+
         :param pulumi.Input[_builtins.str] comment: Descriptive comment about the programmatic access token.
         :param pulumi.Input[_builtins.int] days_to_expiry: The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] disabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -456,6 +458,7 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
         $ pulumi import snowflake:index/userProgrammaticAccessToken:UserProgrammaticAccessToken example '"<user_name>"|"<token_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Descriptive comment about the programmatic access token.
@@ -544,6 +547,7 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/userProgrammaticAccessToken:UserProgrammaticAccessToken example '"<user_name>"|"<token_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserProgrammaticAccessTokenArgs args: The arguments to use to populate this resource's properties.

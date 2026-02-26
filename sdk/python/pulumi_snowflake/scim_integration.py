@@ -30,6 +30,7 @@ class ScimIntegrationArgs:
                  sync_password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScimIntegration resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Specify whether the security integration is enabled.
         :param pulumi.Input[_builtins.str] run_as_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `generic_scim_provisioner`, `okta_provisioner`, or `aad_provisioner`, which are automatically converted to uppercase for backwards compatibility.
         :param pulumi.Input[_builtins.str] scim_client: Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
@@ -150,6 +151,7 @@ class _ScimIntegrationState:
                  sync_password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScimIntegration resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
         :param pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[_builtins.bool] enabled: Specify whether the security integration is enabled.
@@ -328,6 +330,7 @@ class ScimIntegration(pulumi.CustomResource):
         $ pulumi import snowflake:index/scimIntegration:ScimIntegration example '"<integration_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
@@ -354,6 +357,7 @@ class ScimIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/scimIntegration:ScimIntegration example '"<integration_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ScimIntegrationArgs args: The arguments to use to populate this resource's properties.

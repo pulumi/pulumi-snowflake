@@ -24,6 +24,7 @@ class ExecuteArgs:
                  query: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Execute resource.
+
         :param pulumi.Input[_builtins.str] execute: SQL statement to execute. Forces recreation of resource on change.
         :param pulumi.Input[_builtins.str] revert: SQL statement to revert the execute statement. Invoked when resource is being destroyed.
         :param pulumi.Input[_builtins.str] query: Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
@@ -79,6 +80,7 @@ class _ExecuteState:
                  revert: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Execute resources.
+
         :param pulumi.Input[_builtins.str] execute: SQL statement to execute. Forces recreation of resource on change.
         :param pulumi.Input[_builtins.str] query: Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] query_results: List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
@@ -173,6 +175,7 @@ class Execute(pulumi.CustomResource):
         $ pulumi import snowflake:index/execute:Execute example '<random_uuid>'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] execute: SQL statement to execute. Forces recreation of resource on change.
@@ -205,6 +208,7 @@ class Execute(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/execute:Execute example '<random_uuid>'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExecuteArgs args: The arguments to use to populate this resource's properties.

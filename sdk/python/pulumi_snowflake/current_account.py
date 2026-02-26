@@ -143,6 +143,7 @@ class CurrentAccountArgs:
                  week_start: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a CurrentAccount resource.
+
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         :param pulumi.Input[_builtins.str] active_python_profiler: Sets the profiler to use for the session when [profiling Python handler code](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-profiler). Valid values are (case-insensitive): `LINE` | `MEMORY`. For more information, check [ACTIVE*PYTHON*PROFILER docs](https://docs.snowflake.com/en/sql-reference/parameters#active-python-profiler).
         :param pulumi.Input[_builtins.bool] allow_client_mfa_caching: Specifies whether an MFA token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to respond to an MFA prompt at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using MFA token caching to minimize the number of prompts during authentication — optional.](https://docs.snowflake.com/en/user-guide/security-mfa.html#label-mfa-token-caching) For more information, check [ALLOW*CLIENT*MFA_CACHING docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-client-mfa-caching).
@@ -2103,6 +2104,7 @@ class _CurrentAccountState:
                  week_start: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CurrentAccount resources.
+
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         :param pulumi.Input[_builtins.str] active_python_profiler: Sets the profiler to use for the session when [profiling Python handler code](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-profiler). Valid values are (case-insensitive): `LINE` | `MEMORY`. For more information, check [ACTIVE*PYTHON*PROFILER docs](https://docs.snowflake.com/en/sql-reference/parameters#active-python-profiler).
         :param pulumi.Input[_builtins.bool] allow_client_mfa_caching: Specifies whether an MFA token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to respond to an MFA prompt at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using MFA token caching to minimize the number of prompts during authentication — optional.](https://docs.snowflake.com/en/user-guide/security-mfa.html#label-mfa-token-caching) For more information, check [ALLOW*CLIENT*MFA_CACHING docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-client-mfa-caching).
@@ -4225,6 +4227,7 @@ class CurrentAccount(pulumi.CustomResource):
         $ pulumi import snowflake:index/currentAccount:CurrentAccount example 'current_account'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
@@ -4515,6 +4518,7 @@ class CurrentAccount(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/currentAccount:CurrentAccount example 'current_account'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CurrentAccountArgs args: The arguments to use to populate this resource's properties.

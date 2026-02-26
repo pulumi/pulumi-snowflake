@@ -24,6 +24,7 @@ class GrantAccountRoleArgs:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantAccountRole resource.
+
         :param pulumi.Input[_builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
@@ -79,6 +80,7 @@ class _GrantAccountRoleState:
                  user_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantAccountRole resources.
+
         :param pulumi.Input[_builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
@@ -148,6 +150,7 @@ class GrantAccountRole(pulumi.CustomResource):
         $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
@@ -170,6 +173,7 @@ class GrantAccountRole(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GrantAccountRoleArgs args: The arguments to use to populate this resource's properties.

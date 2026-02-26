@@ -41,6 +41,7 @@ class SecondaryDatabaseArgs:
                  user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecondaryDatabase resource.
+
         :param pulumi.Input[_builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database.
@@ -369,6 +370,7 @@ class _SecondaryDatabaseState:
                  user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SecondaryDatabase resources.
+
         :param pulumi.Input[_builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database.
@@ -732,6 +734,7 @@ class SecondaryDatabase(pulumi.CustomResource):
         $ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '"<secondary_database_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
@@ -778,6 +781,7 @@ class SecondaryDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '"<secondary_database_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecondaryDatabaseArgs args: The arguments to use to populate this resource's properties.

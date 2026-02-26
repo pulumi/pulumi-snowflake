@@ -37,6 +37,7 @@ class StageArgs:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Stage resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage.
         :param pulumi.Input[_builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
@@ -272,6 +273,7 @@ class _StageState:
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Stage resources.
+
         :param pulumi.Input[_builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[_builtins.str] copy_options: Specifies the copy options for the stage.
@@ -571,6 +573,7 @@ class Stage(pulumi.CustomResource):
         $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
@@ -639,6 +642,7 @@ class Stage(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.

@@ -98,6 +98,7 @@ class LegacyServiceUserArgs:
                  week_start: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a LegacyServiceUser resource.
+
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         :param pulumi.Input[_builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         :param pulumi.Input[_builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
@@ -1310,6 +1311,7 @@ class _LegacyServiceUserState:
                  week_start: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering LegacyServiceUser resources.
+
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         :param pulumi.Input[_builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         :param pulumi.Input[_builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
@@ -2738,6 +2740,7 @@ class LegacyServiceUser(pulumi.CustomResource):
 
         Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
@@ -2979,6 +2982,7 @@ class LegacyServiceUser(pulumi.CustomResource):
         ```
 
         Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
+
 
         :param str resource_name: The name of the resource.
         :param LegacyServiceUserArgs args: The arguments to use to populate this resource's properties.

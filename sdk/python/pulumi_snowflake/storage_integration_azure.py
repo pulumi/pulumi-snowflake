@@ -30,6 +30,7 @@ class StorageIntegrationAzureArgs:
                  use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageIntegrationAzure resource.
+
         :param pulumi.Input[_builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
@@ -150,6 +151,7 @@ class _StorageIntegrationAzureState:
                  use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageIntegrationAzure resources.
+
         :param pulumi.Input[_builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the storage integration.
         :param pulumi.Input[Sequence[pulumi.Input['StorageIntegrationAzureDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
@@ -364,6 +366,7 @@ class StorageIntegrationAzure(pulumi.CustomResource):
         $ pulumi import snowflake:index/storageIntegrationAzure:StorageIntegrationAzure example '"<storage_integration_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
@@ -426,6 +429,7 @@ class StorageIntegrationAzure(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/storageIntegrationAzure:StorageIntegrationAzure example '"<storage_integration_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageIntegrationAzureArgs args: The arguments to use to populate this resource's properties.

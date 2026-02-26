@@ -22,6 +22,7 @@ class AccountPasswordPolicyAttachmentArgs:
                  password_policy: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AccountPasswordPolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] password_policy: Qualified name (`"db"."schema"."policy_name"`) of the password policy to apply to the current account.
         """
         pulumi.set(__self__, "password_policy", password_policy)
@@ -45,6 +46,7 @@ class _AccountPasswordPolicyAttachmentState:
                  password_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountPasswordPolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] password_policy: Qualified name (`"db"."schema"."policy_name"`) of the password policy to apply to the current account.
         """
         if password_policy is not None:
@@ -95,6 +97,7 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] password_policy: Qualified name (`"db"."schema"."policy_name"`) of the password policy to apply to the current account.
@@ -128,6 +131,7 @@ class AccountPasswordPolicyAttachment(pulumi.CustomResource):
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
         :param str resource_name: The name of the resource.
         :param AccountPasswordPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

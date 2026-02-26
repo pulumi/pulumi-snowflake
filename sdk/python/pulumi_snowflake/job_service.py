@@ -32,6 +32,7 @@ class JobServiceArgs:
                  query_warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobService resource.
+
         :param pulumi.Input[_builtins.str] compute_pool: Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -185,6 +186,7 @@ class _JobServiceState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobServiceShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering JobService resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the service.
         :param pulumi.Input[_builtins.str] compute_pool: Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -417,6 +419,7 @@ class JobService(pulumi.CustomResource):
         $ pulumi import snowflake:index/jobService:JobService example '"<database_name>"."<schema_name>"."<job_service_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the service.
@@ -452,6 +455,7 @@ class JobService(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/jobService:JobService example '"<database_name>"."<schema_name>"."<job_service_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param JobServiceArgs args: The arguments to use to populate this resource's properties.

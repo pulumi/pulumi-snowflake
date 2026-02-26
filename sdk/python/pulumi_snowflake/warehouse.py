@@ -41,6 +41,7 @@ class WarehouseArgs:
                  warehouse_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Warehouse resource.
+
         :param pulumi.Input[_builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] auto_suspend: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the warehouse.
@@ -340,6 +341,7 @@ class _WarehouseState:
                  warehouse_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Warehouse resources.
+
         :param pulumi.Input[_builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] auto_suspend: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the warehouse.
@@ -697,6 +699,7 @@ class Warehouse(pulumi.CustomResource):
         $ pulumi import snowflake:index/warehouse:Warehouse example '"<warehouse_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -737,6 +740,7 @@ class Warehouse(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/warehouse:Warehouse example '"<warehouse_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WarehouseArgs args: The arguments to use to populate this resource's properties.

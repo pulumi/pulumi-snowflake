@@ -57,6 +57,7 @@ class FileFormatArgs:
                  trim_space: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FileFormat resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the file format.
         :param pulumi.Input[_builtins.str] format_type: Specifies the format of the input files (for data loading) or output files (for data unloading).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the file format.
@@ -639,6 +640,7 @@ class _FileFormatState:
                  trim_space: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FileFormat resources.
+
         :param pulumi.Input[_builtins.bool] allow_duplicate: Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
         :param pulumi.Input[_builtins.bool] binary_as_text: Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text.
         :param pulumi.Input[_builtins.str] binary_format: Defines the encoding format for binary input or output.
@@ -1271,6 +1273,7 @@ class FileFormat(pulumi.CustomResource):
         $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_duplicate: Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
@@ -1346,6 +1349,7 @@ class FileFormat(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FileFormatArgs args: The arguments to use to populate this resource's properties.

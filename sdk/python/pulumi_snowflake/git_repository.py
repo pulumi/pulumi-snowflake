@@ -30,6 +30,7 @@ class GitRepositoryArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GitRepository resource.
+
         :param pulumi.Input[_builtins.str] api_integration: Identifier of API INTEGRATION containing information about the remote Git repository such as allowed credentials and prefixes for target URLs.
         :param pulumi.Input[_builtins.str] database: The database in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] origin: Specifies the origin URL of the remote Git repository that this Git repository clone represents. The URL must use HTTPS.
@@ -149,6 +150,7 @@ class _GitRepositoryState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['GitRepositoryShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering GitRepository resources.
+
         :param pulumi.Input[_builtins.str] api_integration: Identifier of API INTEGRATION containing information about the remote Git repository such as allowed credentials and prefixes for target URLs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the git repository.
         :param pulumi.Input[_builtins.str] database: The database in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -357,6 +359,7 @@ class GitRepository(pulumi.CustomResource):
         $ pulumi import snowflake:index/gitRepository:GitRepository example '"<db_name>"."<schema_name>"."<git_repository_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_integration: Identifier of API INTEGRATION containing information about the remote Git repository such as allowed credentials and prefixes for target URLs.
@@ -413,6 +416,7 @@ class GitRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/gitRepository:GitRepository example '"<db_name>"."<schema_name>"."<git_repository_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GitRepositoryArgs args: The arguments to use to populate this resource's properties.

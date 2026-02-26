@@ -24,6 +24,7 @@ class ShareArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
@@ -81,6 +82,7 @@ class _ShareState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -190,6 +192,7 @@ class Share(pulumi.CustomResource):
         $ pulumi import snowflake:index/share:Share example name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
@@ -237,6 +240,7 @@ class Share(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/share:Share example name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.

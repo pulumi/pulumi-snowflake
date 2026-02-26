@@ -32,6 +32,7 @@ class ResourceMonitorArgs:
                  suspend_trigger: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ResourceMonitor resource.
+
         :param pulumi.Input[_builtins.int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         :param pulumi.Input[_builtins.str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
         :param pulumi.Input[_builtins.str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
@@ -186,6 +187,7 @@ class _ResourceMonitorState:
                  suspend_trigger: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ResourceMonitor resources.
+
         :param pulumi.Input[_builtins.int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         :param pulumi.Input[_builtins.str] end_timestamp: The date and time when the resource monitor suspends the assigned warehouses.
         :param pulumi.Input[_builtins.str] frequency: The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
@@ -427,6 +429,7 @@ class ResourceMonitor(pulumi.CustomResource):
         $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example '"<resource_monitor_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] credit_quota: The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
@@ -501,6 +504,7 @@ class ResourceMonitor(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example '"<resource_monitor_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceMonitorArgs args: The arguments to use to populate this resource's properties.

@@ -29,6 +29,7 @@ class ListingArgs:
                  share: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Listing resource.
+
         :param pulumi.Input['ListingManifestArgs'] manifest: Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] application_package: Specifies the application package attached to the listing.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the listing.
@@ -134,6 +135,7 @@ class _ListingState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ListingShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Listing resources.
+
         :param pulumi.Input[_builtins.str] application_package: Specifies the application package attached to the listing.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the listing.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -297,6 +299,7 @@ class Listing(pulumi.CustomResource):
         $ pulumi import snowflake:index/listing:Listing example '"<listing_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_package: Specifies the application package attached to the listing.
@@ -338,6 +341,7 @@ class Listing(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/listing:Listing example '"<listing_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ListingArgs args: The arguments to use to populate this resource's properties.

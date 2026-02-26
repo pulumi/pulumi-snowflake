@@ -24,6 +24,7 @@ class NetworkPolicyAttachmentArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkPolicyAttachment resource.
+
         :param pulumi.Input[_builtins.str] network_policy_name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         :param pulumi.Input[_builtins.bool] set_for_account: (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\\n\\n\\n\\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\\n\\n\\n\\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: Specifies which users the network policy should be attached to
@@ -79,6 +80,7 @@ class _NetworkPolicyAttachmentState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkPolicyAttachment resources.
+
         :param pulumi.Input[_builtins.str] network_policy_name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
         :param pulumi.Input[_builtins.bool] set_for_account: (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\\n\\n\\n\\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\\n\\n\\n\\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: Specifies which users the network policy should be attached to
@@ -170,6 +172,7 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
         $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] network_policy_name: Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
@@ -214,6 +217,7 @@ class NetworkPolicyAttachment(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetworkPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

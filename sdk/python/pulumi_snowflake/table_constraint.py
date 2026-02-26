@@ -35,6 +35,7 @@ class TableConstraintArgs:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TableConstraint resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Columns to use in constraint key
         :param pulumi.Input[_builtins.str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[_builtins.str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
@@ -236,6 +237,7 @@ class _TableConstraintState:
                  validate: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering TableConstraint resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Columns to use in constraint key
         :param pulumi.Input[_builtins.str] comment: Comment for the table constraint
         :param pulumi.Input[_builtins.bool] deferrable: (Default: `true`) Whether the constraint is deferrable
@@ -532,6 +534,7 @@ class TableConstraint(pulumi.CustomResource):
         terraform import snowflake_table_constraint.example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Columns to use in constraint key
@@ -642,6 +645,7 @@ class TableConstraint(pulumi.CustomResource):
         ```sh
         terraform import snowflake_table_constraint.example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TableConstraintArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class SecretWithGenericStringArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecretWithGenericString resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] secret_string: Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -117,6 +118,7 @@ class _SecretWithGenericStringState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['SecretWithGenericStringShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering SecretWithGenericString resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['SecretWithGenericStringDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
@@ -276,6 +278,7 @@ class SecretWithGenericString(pulumi.CustomResource):
         $ pulumi import snowflake:index/secretWithGenericString:SecretWithGenericString example '"<database_name>"."<schema_name>"."<secret_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
@@ -298,6 +301,7 @@ class SecretWithGenericString(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/secretWithGenericString:SecretWithGenericString example '"<database_name>"."<schema_name>"."<secret_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecretWithGenericStringArgs args: The arguments to use to populate this resource's properties.

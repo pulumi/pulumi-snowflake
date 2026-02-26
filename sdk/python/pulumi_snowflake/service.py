@@ -37,6 +37,7 @@ class ServiceArgs:
                  query_warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
+
         :param pulumi.Input[_builtins.str] compute_pool: Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -270,6 +271,7 @@ class _ServiceState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
+
         :param pulumi.Input[_builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a service. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] auto_suspend_secs: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity (service is idle) after which Snowflake automatically suspends the service.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the service.
@@ -577,6 +579,7 @@ class Service(pulumi.CustomResource):
         $ pulumi import snowflake:index/service:Service example '"<database_name>"."<schema_name>"."<service_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a service. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -612,6 +615,7 @@ class Service(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/service:Service example '"<database_name>"."<schema_name>"."<service_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

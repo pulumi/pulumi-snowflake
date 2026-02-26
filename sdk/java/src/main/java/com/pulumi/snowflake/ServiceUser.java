@@ -73,8 +73,8 @@ import javax.annotation.Nullable;
  *             .name("Snowflake Service User - minimal")
  *             .build());
  * 
- *         final var email = config.get("email");
- *         final var loginName = config.get("loginName");
+ *         final var email = config.require("email");
+ *         final var loginName = config.require("loginName");
  *         // with all attributes set
  *         var serviceUser = new ServiceUser("serviceUser", ServiceUserArgs.builder()
  *             .name("Snowflake Service User")

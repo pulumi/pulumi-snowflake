@@ -27,6 +27,7 @@ class ImageRepositoryArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageRepository resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the object.
@@ -99,6 +100,7 @@ class _ImageRepositoryState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRepositoryShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering ImageRepository resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the object.
         :param pulumi.Input[_builtins.str] database: The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -238,6 +240,7 @@ class ImageRepository(pulumi.CustomResource):
         $ pulumi import snowflake:index/imageRepository:ImageRepository example '"<database_name>"."<schema_name>"."<image_repository_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the object.
@@ -285,6 +288,7 @@ class ImageRepository(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/imageRepository:ImageRepository example '"<database_name>"."<schema_name>"."<image_repository_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ImageRepositoryArgs args: The arguments to use to populate this resource's properties.

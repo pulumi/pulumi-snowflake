@@ -25,6 +25,7 @@ class GrantDatabaseRoleArgs:
                  share_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantDatabaseRole resource.
+
         :param pulumi.Input[_builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
@@ -96,6 +97,7 @@ class _GrantDatabaseRoleState:
                  share_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantDatabaseRole resources.
+
         :param pulumi.Input[_builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
@@ -181,6 +183,7 @@ class GrantDatabaseRole(pulumi.CustomResource):
         $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
@@ -204,6 +207,7 @@ class GrantDatabaseRole(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GrantDatabaseRoleArgs args: The arguments to use to populate this resource's properties.

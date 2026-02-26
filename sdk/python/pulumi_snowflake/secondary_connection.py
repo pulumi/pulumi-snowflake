@@ -26,6 +26,7 @@ class SecondaryConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecondaryConnection resource.
+
         :param pulumi.Input[_builtins.str] as_replica_of: Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secondary connection.
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -84,6 +85,7 @@ class _SecondaryConnectionState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['SecondaryConnectionShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering SecondaryConnection resources.
+
         :param pulumi.Input[_builtins.str] as_replica_of: Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secondary connection.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -225,6 +227,7 @@ class SecondaryConnection(pulumi.CustomResource):
         $ pulumi import snowflake:index/secondaryConnection:SecondaryConnection example '"<secondary_connection_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] as_replica_of: Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
@@ -274,6 +277,7 @@ class SecondaryConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/secondaryConnection:SecondaryConnection example '"<secondary_connection_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecondaryConnectionArgs args: The arguments to use to populate this resource's properties.

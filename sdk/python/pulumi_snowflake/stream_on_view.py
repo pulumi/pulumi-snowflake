@@ -33,6 +33,7 @@ class StreamOnViewArgs:
                  show_initial_rows: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StreamOnView resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
@@ -203,6 +204,7 @@ class _StreamOnViewState:
                  view: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamOnView resources.
+
         :param pulumi.Input[_builtins.str] append_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input['StreamOnViewAtArgs'] at: This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input['StreamOnViewBeforeArgs'] before: This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -459,6 +461,7 @@ class StreamOnView(pulumi.CustomResource):
         $ pulumi import snowflake:index/streamOnView:StreamOnView example '"<database_name>"."<schema_name>"."<stream_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] append_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -488,6 +491,7 @@ class StreamOnView(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/streamOnView:StreamOnView example '"<database_name>"."<schema_name>"."<stream_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StreamOnViewArgs args: The arguments to use to populate this resource's properties.

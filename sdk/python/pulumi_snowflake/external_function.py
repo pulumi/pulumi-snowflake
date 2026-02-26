@@ -40,6 +40,7 @@ class ExternalFunctionArgs:
                  return_null_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ExternalFunction resource.
+
         :param pulumi.Input[_builtins.str] api_integration: The name of the API integration object that should be used to authenticate the call to the proxy service.
         :param pulumi.Input[_builtins.str] database: The database in which to create the external function.
         :param pulumi.Input[_builtins.str] return_behavior: Specifies the behavior of the function when returning results
@@ -316,6 +317,7 @@ class _ExternalFunctionState:
                  url_of_proxy_and_resource: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExternalFunction resources.
+
         :param pulumi.Input[_builtins.str] api_integration: The name of the API integration object that should be used to authenticate the call to the proxy service.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined function`) A description of the external function.
@@ -671,6 +673,7 @@ class ExternalFunction(pulumi.CustomResource):
         terraform import snowflake_external_function.example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_integration: The name of the API integration object that should be used to authenticate the call to the proxy service.
@@ -739,6 +742,7 @@ class ExternalFunction(pulumi.CustomResource):
         # format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
         terraform import snowflake_external_function.example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ExternalFunctionArgs args: The arguments to use to populate this resource's properties.

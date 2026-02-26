@@ -35,6 +35,7 @@ class AuthenticationPolicyArgs:
                  workload_identity_policy: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']] = None):
         """
         The set of arguments for constructing a AuthenticationPolicy resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
@@ -240,6 +241,7 @@ class _AuthenticationPolicyState:
                  workload_identity_policy: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']] = None):
         """
         Input properties used for looking up and filtering AuthenticationPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
@@ -554,6 +556,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
         $ pulumi import snowflake:index/authenticationPolicy:AuthenticationPolicy example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
@@ -637,6 +640,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/authenticationPolicy:AuthenticationPolicy example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthenticationPolicyArgs args: The arguments to use to populate this resource's properties.

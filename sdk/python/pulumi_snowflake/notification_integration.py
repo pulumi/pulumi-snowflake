@@ -35,6 +35,7 @@ class NotificationIntegrationArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NotificationIntegration resource.
+
         :param pulumi.Input[_builtins.str] notification_provider: The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         :param pulumi.Input[_builtins.str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         :param pulumi.Input[_builtins.str] aws_sns_topic_arn: AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
@@ -285,6 +286,7 @@ class _NotificationIntegrationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NotificationIntegration resources.
+
         :param pulumi.Input[_builtins.str] aws_sns_external_id: The external ID that Snowflake will use when assuming the AWS role
         :param pulumi.Input[_builtins.str] aws_sns_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[_builtins.str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
@@ -675,6 +677,7 @@ class NotificationIntegration(pulumi.CustomResource):
         $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_sns_role_arn: AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
@@ -727,6 +730,7 @@ class NotificationIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotificationIntegrationArgs args: The arguments to use to populate this resource's properties.

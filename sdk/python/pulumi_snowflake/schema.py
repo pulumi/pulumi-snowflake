@@ -45,6 +45,7 @@ class SchemaArgs:
                  with_managed_access: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Schema resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the schema.
@@ -408,6 +409,7 @@ class _SchemaState:
                  with_managed_access: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Schema resources.
+
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the schema.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
@@ -850,6 +852,7 @@ class Schema(pulumi.CustomResource):
         $ pulumi import snowflake:index/schema:Schema example '"<database_name>"."<schema_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
@@ -900,6 +903,7 @@ class Schema(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/schema:Schema example '"<database_name>"."<schema_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

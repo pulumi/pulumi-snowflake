@@ -24,6 +24,7 @@ class TableColumnMaskingPolicyApplicationArgs:
                  table: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a TableColumnMaskingPolicyApplication resource.
+
         :param pulumi.Input[_builtins.str] column: The column to apply the masking policy to.
         :param pulumi.Input[_builtins.str] masking_policy: Fully qualified name (`database.schema.policyname`) of the policy to apply.
         :param pulumi.Input[_builtins.str] table: The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.
@@ -77,6 +78,7 @@ class _TableColumnMaskingPolicyApplicationState:
                  table: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableColumnMaskingPolicyApplication resources.
+
         :param pulumi.Input[_builtins.str] column: The column to apply the masking policy to.
         :param pulumi.Input[_builtins.str] masking_policy: Fully qualified name (`database.schema.policyname`) of the policy to apply.
         :param pulumi.Input[_builtins.str] table: The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.
@@ -177,6 +179,7 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] column: The column to apply the masking policy to.
@@ -230,6 +233,7 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
         :param str resource_name: The name of the resource.
         :param TableColumnMaskingPolicyApplicationArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class NotebookArgs:
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Notebook resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the notebook.
@@ -185,6 +186,7 @@ class _NotebookState:
                  warehouse: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Notebook resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the notebook.
         :param pulumi.Input[_builtins.str] database: The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['NotebookDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE NOTEBOOK` for the given notebook.
@@ -433,6 +435,7 @@ class Notebook(pulumi.CustomResource):
         $ pulumi import snowflake:index/notebook:Notebook example '"<db_name>"."<schema_name>"."<notebook_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the notebook.
@@ -499,6 +502,7 @@ class Notebook(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/notebook:Notebook example '"<db_name>"."<schema_name>"."<notebook_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NotebookArgs args: The arguments to use to populate this resource's properties.

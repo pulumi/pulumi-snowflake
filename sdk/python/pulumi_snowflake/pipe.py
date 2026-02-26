@@ -30,6 +30,7 @@ class PipeArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Pipe resource.
+
         :param pulumi.Input[_builtins.str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[_builtins.str] database: The database in which to create the pipe.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the pipe.
@@ -182,6 +183,7 @@ class _PipeState:
                  schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Pipe resources.
+
         :param pulumi.Input[_builtins.bool] auto_ingest: (Default: `false`) Specifies a auto_ingest param for the pipe.
         :param pulumi.Input[_builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the pipe.
@@ -394,6 +396,7 @@ class Pipe(pulumi.CustomResource):
         $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_ingest: (Default: `false`) Specifies a auto_ingest param for the pipe.
@@ -424,6 +427,7 @@ class Pipe(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PipeArgs args: The arguments to use to populate this resource's properties.

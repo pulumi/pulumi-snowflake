@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var adminPassword = config.get("adminPassword");
+ *         final var adminPassword = config.require("adminPassword");
  *         var account = new ManagedAccount("account", ManagedAccountArgs.builder()
  *             .name("managed account")
  *             .adminName("admin")

@@ -29,6 +29,7 @@ class RowAccessPolicyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RowAccessPolicy resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]] arguments: List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
         :param pulumi.Input[_builtins.str] body: Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[_builtins.str] database: The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -132,6 +133,7 @@ class _RowAccessPolicyState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering RowAccessPolicy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RowAccessPolicyArgumentArgs']]] arguments: List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
         :param pulumi.Input[_builtins.str] body: Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the row access policy.
@@ -329,6 +331,7 @@ class RowAccessPolicy(pulumi.CustomResource):
         $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example '"<database_name>"."<schema_name>"."<row_access_policy_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RowAccessPolicyArgumentArgs', 'RowAccessPolicyArgumentArgsDict']]]] arguments: List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
@@ -389,6 +392,7 @@ class RowAccessPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example '"<database_name>"."<schema_name>"."<row_access_policy_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RowAccessPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -1537,12 +1537,12 @@ public class App {
 
     public static void stack(Context ctx) {
         final var config = ctx.config();
-        final var proxyPassword = config.get("proxyPassword");
-        final var oauthClientId = config.get("oauthClientId");
-        final var oauthClientSecret = config.get("oauthClientSecret");
-        final var oauthTokenRequestUrl = config.get("oauthTokenRequestUrl");
-        final var oauthAuthorizationUrl = config.get("oauthAuthorizationUrl");
-        final var oauthRedirectUri = config.get("oauthRedirectUri");
+        final var proxyPassword = config.require("proxyPassword");
+        final var oauthClientId = config.require("oauthClientId");
+        final var oauthClientSecret = config.require("oauthClientSecret");
+        final var oauthTokenRequestUrl = config.require("oauthTokenRequestUrl");
+        final var oauthAuthorizationUrl = config.require("oauthAuthorizationUrl");
+        final var oauthRedirectUri = config.require("oauthRedirectUri");
     }
 }
 ```

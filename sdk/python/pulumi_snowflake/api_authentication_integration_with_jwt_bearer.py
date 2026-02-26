@@ -34,6 +34,7 @@ class ApiAuthenticationIntegrationWithJwtBearerArgs:
                  oauth_token_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiAuthenticationIntegrationWithJwtBearer resource.
+
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this security integration is enabled or disabled.
         :param pulumi.Input[_builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
         :param pulumi.Input[_builtins.str] oauth_client_secret: Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
@@ -213,6 +214,7 @@ class _ApiAuthenticationIntegrationWithJwtBearerState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering ApiAuthenticationIntegrationWithJwtBearer resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
         :param pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this security integration is enabled or disabled.
@@ -454,6 +456,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
         $ pulumi import snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer example '"<integration_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
@@ -486,6 +489,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer example '"<integration_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiAuthenticationIntegrationWithJwtBearerArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class AccountRoleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountRole resource.
+
         :param pulumi.Input[_builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         if comment is not None:
@@ -63,6 +64,7 @@ class _AccountRoleState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRoleShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering AccountRole resources.
+
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountRoleShowOutputArgs']]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
@@ -160,6 +162,7 @@ class AccountRole(pulumi.CustomResource):
         $ pulumi import snowflake:index/accountRole:AccountRole example '"<account_role_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -198,6 +201,7 @@ class AccountRole(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/accountRole:AccountRole example '"<account_role_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccountRoleArgs args: The arguments to use to populate this resource's properties.

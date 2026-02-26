@@ -44,6 +44,7 @@ class ProcedurePythonArgs:
                  trace_level: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProcedurePython resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] handler: Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from a stage, specify the fully-qualified handler function name as `<module_name>.<function_name>`.
         :param pulumi.Input[_builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL-Python Data Type Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
@@ -386,6 +387,7 @@ class _ProcedurePythonState:
                  trace_level: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProcedurePython resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
         :param pulumi.Input[_builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -860,6 +862,7 @@ class ProcedurePython(pulumi.CustomResource):
         Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
         Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonArgumentArgs', 'ProcedurePythonArgumentArgsDict']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
@@ -957,6 +960,7 @@ class ProcedurePython(pulumi.CustomResource):
 
         Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
         Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
+
 
         :param str resource_name: The name of the resource.
         :param ProcedurePythonArgs args: The arguments to use to populate this resource's properties.

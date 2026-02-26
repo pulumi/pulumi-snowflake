@@ -38,6 +38,7 @@ class SharedDatabaseArgs:
                  user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a SharedDatabase resource.
+
         :param pulumi.Input[_builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database.
@@ -318,6 +319,7 @@ class _SharedDatabaseState:
                  user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SharedDatabase resources.
+
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database.
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
@@ -630,6 +632,7 @@ class SharedDatabase(pulumi.CustomResource):
         $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example '"<shared_database_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
@@ -670,6 +673,7 @@ class SharedDatabase(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example '"<shared_database_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SharedDatabaseArgs args: The arguments to use to populate this resource's properties.

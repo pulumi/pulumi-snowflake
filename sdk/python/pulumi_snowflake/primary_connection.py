@@ -26,6 +26,7 @@ class PrimaryConnectionArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrimaryConnection resource.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the connection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -85,6 +86,7 @@ class _PrimaryConnectionState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['PrimaryConnectionShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering PrimaryConnection resources.
+
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the connection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -224,6 +226,7 @@ class PrimaryConnection(pulumi.CustomResource):
         $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example '"<primary_connection_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the connection.
@@ -271,6 +274,7 @@ class PrimaryConnection(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example '"<primary_connection_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PrimaryConnectionArgs args: The arguments to use to populate this resource's properties.

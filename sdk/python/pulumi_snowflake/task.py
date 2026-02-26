@@ -98,6 +98,7 @@ class TaskArgs:
                  when: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Task resource.
+
         :param pulumi.Input[_builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
@@ -1305,6 +1306,7 @@ class _TaskState:
                  when: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Task resources.
+
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] allow_overlapping_execution: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -2575,6 +2577,7 @@ class Task(pulumi.CustomResource):
         $ pulumi import snowflake:index/task:Task example '"<database_name>"."<schema_name>"."<task_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
@@ -2673,6 +2676,7 @@ class Task(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/task:Task example '"<database_name>"."<schema_name>"."<task_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.

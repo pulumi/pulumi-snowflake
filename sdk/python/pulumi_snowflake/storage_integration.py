@@ -35,6 +35,7 @@ class StorageIntegrationArgs:
                  use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StorageIntegration resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[_builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
         :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
@@ -240,6 +241,7 @@ class _StorageIntegrationState:
                  use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StorageIntegration resources.
+
         :param pulumi.Input[_builtins.str] azure_consent_url: The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
         :param pulumi.Input[_builtins.str] azure_multi_tenant_app_name: This is the name of the Snowflake client application created for your account.
         :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
@@ -562,6 +564,7 @@ class StorageIntegration(pulumi.CustomResource):
         $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
@@ -597,6 +600,7 @@ class StorageIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
         ```
+
 
         :param str resource_name: The name of the resource.
         :param StorageIntegrationArgs args: The arguments to use to populate this resource's properties.

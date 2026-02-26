@@ -38,6 +38,7 @@ class OauthIntegrationForCustomClientsArgs:
                  pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OauthIntegrationForCustomClients resource.
+
         :param pulumi.Input[_builtins.str] oauth_client_type: Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         :param pulumi.Input[_builtins.str] oauth_redirect_uri: Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
@@ -288,6 +289,7 @@ class _OauthIntegrationForCustomClientsState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering OauthIntegrationForCustomClients resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
@@ -657,6 +659,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         $ pulumi import snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients example '"<integration_name>"'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
@@ -739,6 +742,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         ```sh
         $ pulumi import snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients example '"<integration_name>"'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OauthIntegrationForCustomClientsArgs args: The arguments to use to populate this resource's properties.
