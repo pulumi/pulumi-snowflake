@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -29,11 +30,19 @@ public final class StageExternalAzureDescribeOutputDirectoryTableArgs extends co
         return Optional.ofNullable(this.enable);
     }
 
+    @Import(name="lastRefreshedOn")
+    private @Nullable Output<String> lastRefreshedOn;
+
+    public Optional<Output<String>> lastRefreshedOn() {
+        return Optional.ofNullable(this.lastRefreshedOn);
+    }
+
     private StageExternalAzureDescribeOutputDirectoryTableArgs() {}
 
     private StageExternalAzureDescribeOutputDirectoryTableArgs(StageExternalAzureDescribeOutputDirectoryTableArgs $) {
         this.autoRefresh = $.autoRefresh;
         this.enable = $.enable;
+        this.lastRefreshedOn = $.lastRefreshedOn;
     }
 
     public static Builder builder() {
@@ -70,6 +79,15 @@ public final class StageExternalAzureDescribeOutputDirectoryTableArgs extends co
 
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
+        }
+
+        public Builder lastRefreshedOn(@Nullable Output<String> lastRefreshedOn) {
+            $.lastRefreshedOn = lastRefreshedOn;
+            return this;
+        }
+
+        public Builder lastRefreshedOn(String lastRefreshedOn) {
+            return lastRefreshedOn(Output.of(lastRefreshedOn));
         }
 
         public StageExternalAzureDescribeOutputDirectoryTableArgs build() {

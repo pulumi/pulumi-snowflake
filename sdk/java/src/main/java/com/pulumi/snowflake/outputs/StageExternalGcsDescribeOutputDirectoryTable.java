@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -13,6 +14,7 @@ import javax.annotation.Nullable;
 public final class StageExternalGcsDescribeOutputDirectoryTable {
     private @Nullable Boolean autoRefresh;
     private @Nullable Boolean enable;
+    private @Nullable String lastRefreshedOn;
 
     private StageExternalGcsDescribeOutputDirectoryTable() {}
     public Optional<Boolean> autoRefresh() {
@@ -20,6 +22,9 @@ public final class StageExternalGcsDescribeOutputDirectoryTable {
     }
     public Optional<Boolean> enable() {
         return Optional.ofNullable(this.enable);
+    }
+    public Optional<String> lastRefreshedOn() {
+        return Optional.ofNullable(this.lastRefreshedOn);
     }
 
     public static Builder builder() {
@@ -33,11 +38,13 @@ public final class StageExternalGcsDescribeOutputDirectoryTable {
     public static final class Builder {
         private @Nullable Boolean autoRefresh;
         private @Nullable Boolean enable;
+        private @Nullable String lastRefreshedOn;
         public Builder() {}
         public Builder(StageExternalGcsDescribeOutputDirectoryTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRefresh = defaults.autoRefresh;
     	      this.enable = defaults.enable;
+    	      this.lastRefreshedOn = defaults.lastRefreshedOn;
         }
 
         @CustomType.Setter
@@ -52,10 +59,17 @@ public final class StageExternalGcsDescribeOutputDirectoryTable {
             this.enable = enable;
             return this;
         }
+        @CustomType.Setter
+        public Builder lastRefreshedOn(@Nullable String lastRefreshedOn) {
+
+            this.lastRefreshedOn = lastRefreshedOn;
+            return this;
+        }
         public StageExternalGcsDescribeOutputDirectoryTable build() {
             final var _resultValue = new StageExternalGcsDescribeOutputDirectoryTable();
             _resultValue.autoRefresh = autoRefresh;
             _resultValue.enable = enable;
+            _resultValue.lastRefreshedOn = lastRefreshedOn;
             return _resultValue;
         }
     }

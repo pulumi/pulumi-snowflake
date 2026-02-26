@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
  * !> **Note** A network rule cannot be dropped successfully if it is currently assigned to a network policy. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the network rule from the relevant objects. See guide for more details.
  *
  * ## Example Usage
@@ -36,7 +36,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/networkRule:NetworkRule example 'databaseName|schemaName|networkRuleName'
+ * $ pulumi import snowflake:index/networkRule:NetworkRule example '"<database_name>"."<schema_name>"."<network_rule_name>"'
  * ```
  */
 export class NetworkRule extends pulumi.CustomResource {
@@ -76,11 +76,15 @@ export class NetworkRule extends pulumi.CustomResource {
      */
     declare public readonly database: pulumi.Output<string>;
     /**
+     * Outputs the result of `DESCRIBE NETWORK RULE` for the given network rule.
+     */
+    declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.NetworkRuleDescribeOutput[]>;
+    /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
-     * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
      */
     declare public readonly mode: pulumi.Output<string>;
     /**
@@ -92,7 +96,11 @@ export class NetworkRule extends pulumi.CustomResource {
      */
     declare public readonly schema: pulumi.Output<string>;
     /**
-     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Outputs the result of `SHOW NETWORK RULES` for the given network rule.
+     */
+    declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.NetworkRuleShowOutput[]>;
+    /**
+     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `IPV4` | `AWSVPCEID` | `AZURELINKID` | `GCPPSCID` | `HOST_PORT` | `PRIVATE_HOST_PORT`.
      */
     declare public readonly type: pulumi.Output<string>;
     /**
@@ -115,10 +123,12 @@ export class NetworkRule extends pulumi.CustomResource {
             const state = argsOrState as NetworkRuleState | undefined;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["database"] = state?.database;
+            resourceInputs["describeOutputs"] = state?.describeOutputs;
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
             resourceInputs["mode"] = state?.mode;
             resourceInputs["name"] = state?.name;
             resourceInputs["schema"] = state?.schema;
+            resourceInputs["showOutputs"] = state?.showOutputs;
             resourceInputs["type"] = state?.type;
             resourceInputs["valueLists"] = state?.valueLists;
         } else {
@@ -145,7 +155,9 @@ export class NetworkRule extends pulumi.CustomResource {
             resourceInputs["schema"] = args?.schema;
             resourceInputs["type"] = args?.type;
             resourceInputs["valueLists"] = args?.valueLists;
+            resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkRule.__pulumiType, name, resourceInputs, opts);
@@ -165,11 +177,15 @@ export interface NetworkRuleState {
      */
     database?: pulumi.Input<string>;
     /**
+     * Outputs the result of `DESCRIBE NETWORK RULE` for the given network rule.
+     */
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkRuleDescribeOutput>[]>;
+    /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -181,7 +197,11 @@ export interface NetworkRuleState {
      */
     schema?: pulumi.Input<string>;
     /**
-     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Outputs the result of `SHOW NETWORK RULES` for the given network rule.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkRuleShowOutput>[]>;
+    /**
+     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `IPV4` | `AWSVPCEID` | `AZURELINKID` | `GCPPSCID` | `HOST_PORT` | `PRIVATE_HOST_PORT`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -203,7 +223,7 @@ export interface NetworkRuleArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
      */
     mode: pulumi.Input<string>;
     /**
@@ -215,7 +235,7 @@ export interface NetworkRuleArgs {
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `IPV4` | `AWSVPCEID` | `AZURELINKID` | `GCPPSCID` | `HOST_PORT` | `PRIVATE_HOST_PORT`.
      */
     type: pulumi.Input<string>;
     /**

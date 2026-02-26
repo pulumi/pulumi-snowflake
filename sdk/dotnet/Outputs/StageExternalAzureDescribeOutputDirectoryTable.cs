@@ -15,15 +15,19 @@ namespace Pulumi.Snowflake.Outputs
     {
         public readonly bool? AutoRefresh;
         public readonly bool? Enable;
+        public readonly string? LastRefreshedOn;
 
         [OutputConstructor]
         private StageExternalAzureDescribeOutputDirectoryTable(
             bool? autoRefresh,
 
-            bool? enable)
+            bool? enable,
+
+            string? lastRefreshedOn)
         {
             AutoRefresh = autoRefresh;
             Enable = enable;
+            LastRefreshedOn = lastRefreshedOn;
         }
     }
 }

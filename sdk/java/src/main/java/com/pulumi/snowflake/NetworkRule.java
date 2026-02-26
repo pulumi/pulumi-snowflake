@@ -10,14 +10,14 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.NetworkRuleArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.NetworkRuleState;
+import com.pulumi.snowflake.outputs.NetworkRuleDescribeOutput;
+import com.pulumi.snowflake.outputs.NetworkRuleShowOutput;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- * 
  * !&gt; **Note** A network rule cannot be dropped successfully if it is currently assigned to a network policy. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the network rule from the relevant objects. See guide for more details.
  * 
  * ## Example Usage
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/networkRule:NetworkRule example &#39;databaseName|schemaName|networkRuleName&#39;
+ * $ pulumi import snowflake:index/networkRule:NetworkRule example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;network_rule_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -103,6 +103,20 @@ public class NetworkRule extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
+     * Outputs the result of `DESCRIBE NETWORK RULE` for the given network rule.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,NetworkRuleDescribeOutput.class}, tree="[0,1]")
+    private Output<List<NetworkRuleDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE NETWORK RULE` for the given network rule.
+     * 
+     */
+    public Output<List<NetworkRuleDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
+    }
+    /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
@@ -117,14 +131,14 @@ public class NetworkRule extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
-     * @return Specifies what is restricted by the network rule. Valid values are INGRESS, INTERNAL_STAGE and EGRESS; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * @return Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
      * 
      */
     public Output<String> mode() {
@@ -159,14 +173,28 @@ public class NetworkRule extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * Outputs the result of `SHOW NETWORK RULES` for the given network rule.
+     * 
+     */
+    @Export(name="showOutputs", refs={List.class,NetworkRuleShowOutput.class}, tree="[0,1]")
+    private Output<List<NetworkRuleShowOutput>> showOutputs;
+
+    /**
+     * @return Outputs the result of `SHOW NETWORK RULES` for the given network rule.
+     * 
+     */
+    public Output<List<NetworkRuleShowOutput>> showOutputs() {
+        return this.showOutputs;
+    }
+    /**
+     * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `IPV4` | `AWSVPCEID` | `AZURELINKID` | `GCPPSCID` | `HOST_PORT` | `PRIVATE_HOST_PORT`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are IPV4, AWSVPCEID, AZURELINKID and HOST_PORT; allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
+     * @return Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `IPV4` | `AWSVPCEID` | `AZURELINKID` | `GCPPSCID` | `HOST_PORT` | `PRIVATE_HOST_PORT`.
      * 
      */
     public Output<String> type() {

@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -13,6 +14,7 @@ import javax.annotation.Nullable;
 public final class StageExternalS3DescribeOutputDirectoryTable {
     private @Nullable Boolean autoRefresh;
     private @Nullable Boolean enable;
+    private @Nullable String lastRefreshedOn;
 
     private StageExternalS3DescribeOutputDirectoryTable() {}
     public Optional<Boolean> autoRefresh() {
@@ -20,6 +22,9 @@ public final class StageExternalS3DescribeOutputDirectoryTable {
     }
     public Optional<Boolean> enable() {
         return Optional.ofNullable(this.enable);
+    }
+    public Optional<String> lastRefreshedOn() {
+        return Optional.ofNullable(this.lastRefreshedOn);
     }
 
     public static Builder builder() {
@@ -33,11 +38,13 @@ public final class StageExternalS3DescribeOutputDirectoryTable {
     public static final class Builder {
         private @Nullable Boolean autoRefresh;
         private @Nullable Boolean enable;
+        private @Nullable String lastRefreshedOn;
         public Builder() {}
         public Builder(StageExternalS3DescribeOutputDirectoryTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRefresh = defaults.autoRefresh;
     	      this.enable = defaults.enable;
+    	      this.lastRefreshedOn = defaults.lastRefreshedOn;
         }
 
         @CustomType.Setter
@@ -52,10 +59,17 @@ public final class StageExternalS3DescribeOutputDirectoryTable {
             this.enable = enable;
             return this;
         }
+        @CustomType.Setter
+        public Builder lastRefreshedOn(@Nullable String lastRefreshedOn) {
+
+            this.lastRefreshedOn = lastRefreshedOn;
+            return this;
+        }
         public StageExternalS3DescribeOutputDirectoryTable build() {
             final var _resultValue = new StageExternalS3DescribeOutputDirectoryTable();
             _resultValue.autoRefresh = autoRefresh;
             _resultValue.enable = enable;
+            _resultValue.lastRefreshedOn = lastRefreshedOn;
             return _resultValue;
         }
     }

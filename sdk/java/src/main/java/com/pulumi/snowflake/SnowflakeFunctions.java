@@ -58,6 +58,8 @@ import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsPlainArgs;
 import com.pulumi.snowflake.inputs.GetNetworkPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetNetworkPoliciesPlainArgs;
+import com.pulumi.snowflake.inputs.GetNetworkRulesArgs;
+import com.pulumi.snowflake.inputs.GetNetworkRulesPlainArgs;
 import com.pulumi.snowflake.inputs.GetNotebooksArgs;
 import com.pulumi.snowflake.inputs.GetNotebooksPlainArgs;
 import com.pulumi.snowflake.inputs.GetParametersArgs;
@@ -136,6 +138,7 @@ import com.pulumi.snowflake.outputs.GetListingsResult;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesResult;
 import com.pulumi.snowflake.outputs.GetMaterializedViewsResult;
 import com.pulumi.snowflake.outputs.GetNetworkPoliciesResult;
+import com.pulumi.snowflake.outputs.GetNetworkRulesResult;
 import com.pulumi.snowflake.outputs.GetNotebooksResult;
 import com.pulumi.snowflake.outputs.GetParametersResult;
 import com.pulumi.snowflake.outputs.GetPipesResult;
@@ -4902,6 +4905,69 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetNetworkPoliciesResult> getNetworkPoliciesPlain(GetNetworkPoliciesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getNetworkPolicies:getNetworkPolicies", TypeShape.of(GetNetworkPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
+     * 
+     */
+    public static Output<GetNetworkRulesResult> getNetworkRules() {
+        return getNetworkRules(GetNetworkRulesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
+     * 
+     */
+    public static CompletableFuture<GetNetworkRulesResult> getNetworkRulesPlain() {
+        return getNetworkRulesPlain(GetNetworkRulesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
+     * 
+     */
+    public static Output<GetNetworkRulesResult> getNetworkRules(GetNetworkRulesArgs args) {
+        return getNetworkRules(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
+     * 
+     */
+    public static CompletableFuture<GetNetworkRulesResult> getNetworkRulesPlain(GetNetworkRulesPlainArgs args) {
+        return getNetworkRulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
+     * 
+     */
+    public static Output<GetNetworkRulesResult> getNetworkRules(GetNetworkRulesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getNetworkRules:getNetworkRules", TypeShape.of(GetNetworkRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
+     * 
+     */
+    public static Output<GetNetworkRulesResult> getNetworkRules(GetNetworkRulesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getNetworkRules:getNetworkRules", TypeShape.of(GetNetworkRulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
+     * 
+     */
+    public static CompletableFuture<GetNetworkRulesResult> getNetworkRulesPlain(GetNetworkRulesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getNetworkRules:getNetworkRules", TypeShape.of(GetNetworkRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

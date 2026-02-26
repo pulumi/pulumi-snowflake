@@ -1951,6 +1951,58 @@ export interface GetMaskingPoliciesLimitArgs {
     rows: pulumi.Input<number>;
 }
 
+export interface GetNetworkRulesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetNetworkRulesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetNetworkRulesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetNetworkRulesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetNotebooksLimit {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
@@ -2798,7 +2850,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: pulumi.Input<string>;
 }
@@ -2807,7 +2859,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2816,7 +2868,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2850,7 +2902,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: pulumi.Input<string>;
 }
@@ -2865,7 +2917,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2880,7 +2932,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -3757,6 +3809,31 @@ export interface NetworkPolicyShowOutput {
     entriesInBlockedIpList?: pulumi.Input<number>;
     entriesInBlockedNetworkRules?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
+}
+
+export interface NetworkRuleDescribeOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    valueLists?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NetworkRuleShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    entriesInValueList?: pulumi.Input<number>;
+    mode?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 export interface NotebookDescribeOutput {
@@ -6126,6 +6203,7 @@ export interface StageExternalAzureDescribeOutput {
 export interface StageExternalAzureDescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean>;
     enable?: pulumi.Input<boolean>;
+    lastRefreshedOn?: pulumi.Input<string>;
 }
 
 export interface StageExternalAzureDescribeOutputFileFormat {
@@ -6574,6 +6652,7 @@ export interface StageExternalGcsDescribeOutput {
 export interface StageExternalGcsDescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean>;
     enable?: pulumi.Input<boolean>;
+    lastRefreshedOn?: pulumi.Input<string>;
 }
 
 export interface StageExternalGcsDescribeOutputFileFormat {
@@ -7034,6 +7113,7 @@ export interface StageExternalS3CompatibleDescribeOutput {
 export interface StageExternalS3CompatibleDescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean>;
     enable?: pulumi.Input<boolean>;
+    lastRefreshedOn?: pulumi.Input<string>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputFileFormat {
@@ -7482,6 +7562,7 @@ export interface StageExternalS3DescribeOutput {
 export interface StageExternalS3DescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean>;
     enable?: pulumi.Input<boolean>;
+    lastRefreshedOn?: pulumi.Input<string>;
 }
 
 export interface StageExternalS3DescribeOutputFileFormat {
@@ -7953,6 +8034,7 @@ export interface StageInternalDescribeOutput {
 export interface StageInternalDescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean>;
     enable?: pulumi.Input<boolean>;
+    lastRefreshedOn?: pulumi.Input<string>;
 }
 
 export interface StageInternalDescribeOutputFileFormat {

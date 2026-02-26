@@ -457,6 +457,10 @@ __all__ = [
     'NetworkPolicyDescribeOutputArgsDict',
     'NetworkPolicyShowOutputArgs',
     'NetworkPolicyShowOutputArgsDict',
+    'NetworkRuleDescribeOutputArgs',
+    'NetworkRuleDescribeOutputArgsDict',
+    'NetworkRuleShowOutputArgs',
+    'NetworkRuleShowOutputArgsDict',
     'NotebookDescribeOutputArgs',
     'NotebookDescribeOutputArgsDict',
     'NotebookFromArgs',
@@ -1561,6 +1565,10 @@ __all__ = [
     'GetMaskingPoliciesInArgsDict',
     'GetMaskingPoliciesLimitArgs',
     'GetMaskingPoliciesLimitArgsDict',
+    'GetNetworkRulesInArgs',
+    'GetNetworkRulesInArgsDict',
+    'GetNetworkRulesLimitArgs',
+    'GetNetworkRulesLimitArgsDict',
     'GetNotebooksLimitArgs',
     'GetNotebooksLimitArgsDict',
     'GetRowAccessPoliciesInArgs',
@@ -12972,7 +12980,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict(TypedDict):
     """
     object_type: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
+    The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
     """
 
 @pulumi.input_type
@@ -12986,7 +12994,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
+        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -13037,7 +13045,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
+        The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         return pulumi.get(self, "object_type")
 
@@ -13049,7 +13057,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
+    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
     """
     in_database: NotRequired[pulumi.Input[_builtins.str]]
     in_schema: NotRequired[pulumi.Input[_builtins.str]]
@@ -13061,7 +13069,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -13073,7 +13081,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13103,7 +13111,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
+    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
     """
     in_database: NotRequired[pulumi.Input[_builtins.str]]
     in_schema: NotRequired[pulumi.Input[_builtins.str]]
@@ -13115,7 +13123,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -13127,7 +13135,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13238,7 +13246,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict(TypedDict):
     """
     object_type: NotRequired[pulumi.Input[_builtins.str]]
     """
-    The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
+    The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
     """
 
 @pulumi.input_type
@@ -13252,7 +13260,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
+        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -13303,7 +13311,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | STORAGE LIFECYCLE POLICY | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STREAM | STREAMLIT | ONLINE FEATURE TABLE | TABLE | TAG | TASK | VIEW | WORKSPACE
+        The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         return pulumi.get(self, "object_type")
 
@@ -13315,7 +13323,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
+    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
     """
     in_database: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -13333,7 +13341,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -13347,7 +13355,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | JOIN POLICIES | MASKING POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13383,7 +13391,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
+    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
     """
     in_database: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -13401,7 +13409,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -13415,7 +13423,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | JOIN POLICIES | MATERIALIZED VIEWS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | ONLINE FEATURE TABLES | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -21138,6 +21146,267 @@ class NetworkPolicyShowOutputArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+
+class NetworkRuleDescribeOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    owner: NotRequired[pulumi.Input[_builtins.str]]
+    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    value_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class NetworkRuleDescribeOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value_lists is not None:
+            pulumi.set(__self__, "value_lists", value_lists)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLists")
+    def value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "value_lists")
+
+    @value_lists.setter
+    def value_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "value_lists", value)
+
+
+class NetworkRuleShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    entries_in_value_list: NotRequired[pulumi.Input[_builtins.int]]
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    owner: NotRequired[pulumi.Input[_builtins.str]]
+    owner_role_type: NotRequired[pulumi.Input[_builtins.str]]
+    schema_name: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class NetworkRuleShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 entries_in_value_list: Optional[pulumi.Input[_builtins.int]] = None,
+                 mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if entries_in_value_list is not None:
+            pulumi.set(__self__, "entries_in_value_list", entries_in_value_list)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entriesInValueList")
+    def entries_in_value_list(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "entries_in_value_list")
+
+    @entries_in_value_list.setter
+    def entries_in_value_list(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "entries_in_value_list", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 class NotebookDescribeOutputArgsDict(TypedDict):
@@ -41105,16 +41374,20 @@ class StageExternalAzureDescribeOutputArgs:
 class StageExternalAzureDescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[_builtins.bool]]
     enable: NotRequired[pulumi.Input[_builtins.bool]]
+    last_refreshed_on: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StageExternalAzureDescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 last_refreshed_on: Optional[pulumi.Input[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
+        if last_refreshed_on is not None:
+            pulumi.set(__self__, "last_refreshed_on", last_refreshed_on)
 
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
@@ -41133,6 +41406,15 @@ class StageExternalAzureDescribeOutputDirectoryTableArgs:
     @enable.setter
     def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastRefreshedOn")
+    def last_refreshed_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_refreshed_on")
+
+    @last_refreshed_on.setter
+    def last_refreshed_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_refreshed_on", value)
 
 
 class StageExternalAzureDescribeOutputFileFormatArgsDict(TypedDict):
@@ -43941,16 +44223,20 @@ class StageExternalGcsDescribeOutputArgs:
 class StageExternalGcsDescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[_builtins.bool]]
     enable: NotRequired[pulumi.Input[_builtins.bool]]
+    last_refreshed_on: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StageExternalGcsDescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 last_refreshed_on: Optional[pulumi.Input[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
+        if last_refreshed_on is not None:
+            pulumi.set(__self__, "last_refreshed_on", last_refreshed_on)
 
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
@@ -43969,6 +44255,15 @@ class StageExternalGcsDescribeOutputDirectoryTableArgs:
     @enable.setter
     def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastRefreshedOn")
+    def last_refreshed_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_refreshed_on")
+
+    @last_refreshed_on.setter
+    def last_refreshed_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_refreshed_on", value)
 
 
 class StageExternalGcsDescribeOutputFileFormatArgsDict(TypedDict):
@@ -46838,16 +47133,20 @@ class StageExternalS3CompatibleDescribeOutputArgs:
 class StageExternalS3CompatibleDescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[_builtins.bool]]
     enable: NotRequired[pulumi.Input[_builtins.bool]]
+    last_refreshed_on: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StageExternalS3CompatibleDescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 last_refreshed_on: Optional[pulumi.Input[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
+        if last_refreshed_on is not None:
+            pulumi.set(__self__, "last_refreshed_on", last_refreshed_on)
 
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
@@ -46866,6 +47165,15 @@ class StageExternalS3CompatibleDescribeOutputDirectoryTableArgs:
     @enable.setter
     def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastRefreshedOn")
+    def last_refreshed_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_refreshed_on")
+
+    @last_refreshed_on.setter
+    def last_refreshed_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_refreshed_on", value)
 
 
 class StageExternalS3CompatibleDescribeOutputFileFormatArgsDict(TypedDict):
@@ -49703,16 +50011,20 @@ class StageExternalS3DescribeOutputArgs:
 class StageExternalS3DescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[_builtins.bool]]
     enable: NotRequired[pulumi.Input[_builtins.bool]]
+    last_refreshed_on: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StageExternalS3DescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 last_refreshed_on: Optional[pulumi.Input[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
+        if last_refreshed_on is not None:
+            pulumi.set(__self__, "last_refreshed_on", last_refreshed_on)
 
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
@@ -49731,6 +50043,15 @@ class StageExternalS3DescribeOutputDirectoryTableArgs:
     @enable.setter
     def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastRefreshedOn")
+    def last_refreshed_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_refreshed_on")
+
+    @last_refreshed_on.setter
+    def last_refreshed_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_refreshed_on", value)
 
 
 class StageExternalS3DescribeOutputFileFormatArgsDict(TypedDict):
@@ -52650,16 +52971,20 @@ class StageInternalDescribeOutputArgs:
 class StageInternalDescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[_builtins.bool]]
     enable: NotRequired[pulumi.Input[_builtins.bool]]
+    last_refreshed_on: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class StageInternalDescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 last_refreshed_on: Optional[pulumi.Input[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
+        if last_refreshed_on is not None:
+            pulumi.set(__self__, "last_refreshed_on", last_refreshed_on)
 
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
@@ -52678,6 +53003,15 @@ class StageInternalDescribeOutputDirectoryTableArgs:
     @enable.setter
     def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastRefreshedOn")
+    def last_refreshed_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "last_refreshed_on")
+
+    @last_refreshed_on.setter
+    def last_refreshed_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "last_refreshed_on", value)
 
 
 class StageInternalDescribeOutputFileFormatArgsDict(TypedDict):
@@ -74044,6 +74378,123 @@ class GetMaskingPoliciesLimitArgsDict(TypedDict):
 
 @pulumi.input_type
 class GetMaskingPoliciesLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+class GetNetworkRulesInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetNetworkRulesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetNetworkRulesLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetNetworkRulesLimitArgs:
     def __init__(__self__, *,
                  rows: _builtins.int,
                  from_: Optional[_builtins.str] = None):
