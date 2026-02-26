@@ -1195,6 +1195,19 @@
                 "current": "snowflake:index/networkRule:NetworkRule",
                 "majorVersion": 2,
                 "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "value_list": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    },
                     "value_list": {
                         "maxItemsOne": false
                     }
@@ -4523,6 +4536,38 @@
                             "fields": {
                                 "describe_output": {
                                     "maxItemsOne": false
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_network_rules": {
+                "current": "snowflake:index/getNetworkRules:getNetworkRules",
+                "majorVersion": 2,
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "network_rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "value_list": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 },
                                 "show_output": {
                                     "maxItemsOne": false
