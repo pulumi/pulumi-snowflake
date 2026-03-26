@@ -529,6 +529,8 @@ class StageExternalS3(pulumi.CustomResource):
 
         > **Note** This resource is meant only for S3 stages, not S3-compatible stages. For S3-compatible stages, use the `StageExternalS3Compatible` resource instead. Do not use this resource with `s3compat://` URLs.
 
+        > **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect. See the migration guide for details.
+
         Resource used to manage external S3 stages. For more information, check [external stage documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stage#external-stage-parameters-externalstageparams).
 
         ## Example Usage
@@ -800,6 +802,8 @@ class StageExternalS3(pulumi.CustomResource):
         > **Note** Integration based stages are not allowed to be altered to use privatelink endpoint. You must either alter the storage integration itself, or first unset the storage integration from the stage instead.
 
         > **Note** This resource is meant only for S3 stages, not S3-compatible stages. For S3-compatible stages, use the `StageExternalS3Compatible` resource instead. Do not use this resource with `s3compat://` URLs.
+
+        > **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect. See the migration guide for details.
 
         Resource used to manage external S3 stages. For more information, check [external stage documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stage#external-stage-parameters-externalstageparams).
 

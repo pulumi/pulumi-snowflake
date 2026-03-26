@@ -16,7 +16,6 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? AuthenticationMethods;
         public readonly string? ClientTypes;
         public readonly string? Comment;
-        public readonly string? MfaAuthenticationMethods;
         public readonly string? MfaEnrollment;
         public readonly string? MfaPolicy;
         public readonly string? Name;
@@ -32,8 +31,6 @@ namespace Pulumi.Snowflake.Outputs
             string? clientTypes,
 
             string? comment,
-
-            string? mfaAuthenticationMethods,
 
             string? mfaEnrollment,
 
@@ -52,7 +49,6 @@ namespace Pulumi.Snowflake.Outputs
             AuthenticationMethods = authenticationMethods;
             ClientTypes = clientTypes;
             Comment = comment;
-            MfaAuthenticationMethods = mfaAuthenticationMethods;
             MfaEnrollment = mfaEnrollment;
             MfaPolicy = mfaPolicy;
             Name = name;

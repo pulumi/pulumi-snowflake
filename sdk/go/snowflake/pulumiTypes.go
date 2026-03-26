@@ -5550,17 +5550,16 @@ func (o ApiAuthenticationIntegrationWithJwtBearerShowOutputArrayOutput) Index(i 
 }
 
 type AuthenticationPolicyDescribeOutput struct {
-	AuthenticationMethods    *string `pulumi:"authenticationMethods"`
-	ClientTypes              *string `pulumi:"clientTypes"`
-	Comment                  *string `pulumi:"comment"`
-	MfaAuthenticationMethods *string `pulumi:"mfaAuthenticationMethods"`
-	MfaEnrollment            *string `pulumi:"mfaEnrollment"`
-	MfaPolicy                *string `pulumi:"mfaPolicy"`
-	Name                     *string `pulumi:"name"`
-	Owner                    *string `pulumi:"owner"`
-	PatPolicy                *string `pulumi:"patPolicy"`
-	SecurityIntegrations     *string `pulumi:"securityIntegrations"`
-	WorkloadIdentityPolicy   *string `pulumi:"workloadIdentityPolicy"`
+	AuthenticationMethods  *string `pulumi:"authenticationMethods"`
+	ClientTypes            *string `pulumi:"clientTypes"`
+	Comment                *string `pulumi:"comment"`
+	MfaEnrollment          *string `pulumi:"mfaEnrollment"`
+	MfaPolicy              *string `pulumi:"mfaPolicy"`
+	Name                   *string `pulumi:"name"`
+	Owner                  *string `pulumi:"owner"`
+	PatPolicy              *string `pulumi:"patPolicy"`
+	SecurityIntegrations   *string `pulumi:"securityIntegrations"`
+	WorkloadIdentityPolicy *string `pulumi:"workloadIdentityPolicy"`
 }
 
 // AuthenticationPolicyDescribeOutputInput is an input type that accepts AuthenticationPolicyDescribeOutputArgs and AuthenticationPolicyDescribeOutputOutput values.
@@ -5575,17 +5574,16 @@ type AuthenticationPolicyDescribeOutputInput interface {
 }
 
 type AuthenticationPolicyDescribeOutputArgs struct {
-	AuthenticationMethods    pulumi.StringPtrInput `pulumi:"authenticationMethods"`
-	ClientTypes              pulumi.StringPtrInput `pulumi:"clientTypes"`
-	Comment                  pulumi.StringPtrInput `pulumi:"comment"`
-	MfaAuthenticationMethods pulumi.StringPtrInput `pulumi:"mfaAuthenticationMethods"`
-	MfaEnrollment            pulumi.StringPtrInput `pulumi:"mfaEnrollment"`
-	MfaPolicy                pulumi.StringPtrInput `pulumi:"mfaPolicy"`
-	Name                     pulumi.StringPtrInput `pulumi:"name"`
-	Owner                    pulumi.StringPtrInput `pulumi:"owner"`
-	PatPolicy                pulumi.StringPtrInput `pulumi:"patPolicy"`
-	SecurityIntegrations     pulumi.StringPtrInput `pulumi:"securityIntegrations"`
-	WorkloadIdentityPolicy   pulumi.StringPtrInput `pulumi:"workloadIdentityPolicy"`
+	AuthenticationMethods  pulumi.StringPtrInput `pulumi:"authenticationMethods"`
+	ClientTypes            pulumi.StringPtrInput `pulumi:"clientTypes"`
+	Comment                pulumi.StringPtrInput `pulumi:"comment"`
+	MfaEnrollment          pulumi.StringPtrInput `pulumi:"mfaEnrollment"`
+	MfaPolicy              pulumi.StringPtrInput `pulumi:"mfaPolicy"`
+	Name                   pulumi.StringPtrInput `pulumi:"name"`
+	Owner                  pulumi.StringPtrInput `pulumi:"owner"`
+	PatPolicy              pulumi.StringPtrInput `pulumi:"patPolicy"`
+	SecurityIntegrations   pulumi.StringPtrInput `pulumi:"securityIntegrations"`
+	WorkloadIdentityPolicy pulumi.StringPtrInput `pulumi:"workloadIdentityPolicy"`
 }
 
 func (AuthenticationPolicyDescribeOutputArgs) ElementType() reflect.Type {
@@ -5649,10 +5647,6 @@ func (o AuthenticationPolicyDescribeOutputOutput) ClientTypes() pulumi.StringPtr
 
 func (o AuthenticationPolicyDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o AuthenticationPolicyDescribeOutputOutput) MfaAuthenticationMethods() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.MfaAuthenticationMethods }).(pulumi.StringPtrOutput)
 }
 
 func (o AuthenticationPolicyDescribeOutputOutput) MfaEnrollment() pulumi.StringPtrOutput {

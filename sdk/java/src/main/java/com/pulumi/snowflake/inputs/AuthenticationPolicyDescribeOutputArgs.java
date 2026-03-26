@@ -36,13 +36,6 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
         return Optional.ofNullable(this.comment);
     }
 
-    @Import(name="mfaAuthenticationMethods")
-    private @Nullable Output<String> mfaAuthenticationMethods;
-
-    public Optional<Output<String>> mfaAuthenticationMethods() {
-        return Optional.ofNullable(this.mfaAuthenticationMethods);
-    }
-
     @Import(name="mfaEnrollment")
     private @Nullable Output<String> mfaEnrollment;
 
@@ -98,7 +91,6 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
         this.authenticationMethods = $.authenticationMethods;
         this.clientTypes = $.clientTypes;
         this.comment = $.comment;
-        this.mfaAuthenticationMethods = $.mfaAuthenticationMethods;
         this.mfaEnrollment = $.mfaEnrollment;
         this.mfaPolicy = $.mfaPolicy;
         this.name = $.name;
@@ -151,15 +143,6 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
 
         public Builder comment(String comment) {
             return comment(Output.of(comment));
-        }
-
-        public Builder mfaAuthenticationMethods(@Nullable Output<String> mfaAuthenticationMethods) {
-            $.mfaAuthenticationMethods = mfaAuthenticationMethods;
-            return this;
-        }
-
-        public Builder mfaAuthenticationMethods(String mfaAuthenticationMethods) {
-            return mfaAuthenticationMethods(Output.of(mfaAuthenticationMethods));
         }
 
         public Builder mfaEnrollment(@Nullable Output<String> mfaEnrollment) {

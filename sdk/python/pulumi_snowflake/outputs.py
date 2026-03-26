@@ -3464,8 +3464,6 @@ class AuthenticationPolicyDescribeOutput(dict):
             suggest = "authentication_methods"
         elif key == "clientTypes":
             suggest = "client_types"
-        elif key == "mfaAuthenticationMethods":
-            suggest = "mfa_authentication_methods"
         elif key == "mfaEnrollment":
             suggest = "mfa_enrollment"
         elif key == "mfaPolicy":
@@ -3492,7 +3490,6 @@ class AuthenticationPolicyDescribeOutput(dict):
                  authentication_methods: Optional[_builtins.str] = None,
                  client_types: Optional[_builtins.str] = None,
                  comment: Optional[_builtins.str] = None,
-                 mfa_authentication_methods: Optional[_builtins.str] = None,
                  mfa_enrollment: Optional[_builtins.str] = None,
                  mfa_policy: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
@@ -3506,8 +3503,6 @@ class AuthenticationPolicyDescribeOutput(dict):
             pulumi.set(__self__, "client_types", client_types)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
-        if mfa_authentication_methods is not None:
-            pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         if mfa_enrollment is not None:
             pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
         if mfa_policy is not None:
@@ -3537,11 +3532,6 @@ class AuthenticationPolicyDescribeOutput(dict):
     @pulumi.getter
     def comment(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "comment")
-
-    @_builtins.property
-    @pulumi.getter(name="mfaAuthenticationMethods")
-    def mfa_authentication_methods(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "mfa_authentication_methods")
 
     @_builtins.property
     @pulumi.getter(name="mfaEnrollment")
@@ -54162,7 +54152,6 @@ class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult(dict):
                  authentication_methods: _builtins.str,
                  client_types: _builtins.str,
                  comment: _builtins.str,
-                 mfa_authentication_methods: _builtins.str,
                  mfa_enrollment: _builtins.str,
                  mfa_policy: _builtins.str,
                  name: _builtins.str,
@@ -54173,7 +54162,6 @@ class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult(dict):
         pulumi.set(__self__, "authentication_methods", authentication_methods)
         pulumi.set(__self__, "client_types", client_types)
         pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
         pulumi.set(__self__, "mfa_policy", mfa_policy)
         pulumi.set(__self__, "name", name)
@@ -54196,11 +54184,6 @@ class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult(dict):
     @pulumi.getter
     def comment(self) -> _builtins.str:
         return pulumi.get(self, "comment")
-
-    @_builtins.property
-    @pulumi.getter(name="mfaAuthenticationMethods")
-    def mfa_authentication_methods(self) -> _builtins.str:
-        return pulumi.get(self, "mfa_authentication_methods")
 
     @_builtins.property
     @pulumi.getter(name="mfaEnrollment")

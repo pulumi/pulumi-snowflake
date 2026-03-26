@@ -13,7 +13,6 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
     private String authenticationMethods;
     private String clientTypes;
     private String comment;
-    private String mfaAuthenticationMethods;
     private String mfaEnrollment;
     private String mfaPolicy;
     private String name;
@@ -31,9 +30,6 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
     }
     public String comment() {
         return this.comment;
-    }
-    public String mfaAuthenticationMethods() {
-        return this.mfaAuthenticationMethods;
     }
     public String mfaEnrollment() {
         return this.mfaEnrollment;
@@ -69,7 +65,6 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
         private String authenticationMethods;
         private String clientTypes;
         private String comment;
-        private String mfaAuthenticationMethods;
         private String mfaEnrollment;
         private String mfaPolicy;
         private String name;
@@ -83,7 +78,6 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
     	      this.authenticationMethods = defaults.authenticationMethods;
     	      this.clientTypes = defaults.clientTypes;
     	      this.comment = defaults.comment;
-    	      this.mfaAuthenticationMethods = defaults.mfaAuthenticationMethods;
     	      this.mfaEnrollment = defaults.mfaEnrollment;
     	      this.mfaPolicy = defaults.mfaPolicy;
     	      this.name = defaults.name;
@@ -115,14 +109,6 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
               throw new MissingRequiredPropertyException("GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput", "comment");
             }
             this.comment = comment;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder mfaAuthenticationMethods(String mfaAuthenticationMethods) {
-            if (mfaAuthenticationMethods == null) {
-              throw new MissingRequiredPropertyException("GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput", "mfaAuthenticationMethods");
-            }
-            this.mfaAuthenticationMethods = mfaAuthenticationMethods;
             return this;
         }
         @CustomType.Setter
@@ -186,7 +172,6 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
             _resultValue.authenticationMethods = authenticationMethods;
             _resultValue.clientTypes = clientTypes;
             _resultValue.comment = comment;
-            _resultValue.mfaAuthenticationMethods = mfaAuthenticationMethods;
             _resultValue.mfaEnrollment = mfaEnrollment;
             _resultValue.mfaPolicy = mfaPolicy;
             _resultValue.name = name;
