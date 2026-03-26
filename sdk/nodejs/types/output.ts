@@ -376,7 +376,6 @@ export interface AuthenticationPolicyDescribeOutput {
     authenticationMethods: string;
     clientTypes: string;
     comment: string;
-    mfaAuthenticationMethods: string;
     mfaEnrollment: string;
     mfaPolicy: string;
     name: string;
@@ -1430,7 +1429,6 @@ export interface GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
     authenticationMethods: string;
     clientTypes: string;
     comment: string;
-    mfaAuthenticationMethods: string;
     mfaEnrollment: string;
     mfaPolicy: string;
     name: string;

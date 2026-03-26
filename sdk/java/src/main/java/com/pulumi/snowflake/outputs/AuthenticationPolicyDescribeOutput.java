@@ -14,7 +14,6 @@ public final class AuthenticationPolicyDescribeOutput {
     private @Nullable String authenticationMethods;
     private @Nullable String clientTypes;
     private @Nullable String comment;
-    private @Nullable String mfaAuthenticationMethods;
     private @Nullable String mfaEnrollment;
     private @Nullable String mfaPolicy;
     private @Nullable String name;
@@ -32,9 +31,6 @@ public final class AuthenticationPolicyDescribeOutput {
     }
     public Optional<String> comment() {
         return Optional.ofNullable(this.comment);
-    }
-    public Optional<String> mfaAuthenticationMethods() {
-        return Optional.ofNullable(this.mfaAuthenticationMethods);
     }
     public Optional<String> mfaEnrollment() {
         return Optional.ofNullable(this.mfaEnrollment);
@@ -70,7 +66,6 @@ public final class AuthenticationPolicyDescribeOutput {
         private @Nullable String authenticationMethods;
         private @Nullable String clientTypes;
         private @Nullable String comment;
-        private @Nullable String mfaAuthenticationMethods;
         private @Nullable String mfaEnrollment;
         private @Nullable String mfaPolicy;
         private @Nullable String name;
@@ -84,7 +79,6 @@ public final class AuthenticationPolicyDescribeOutput {
     	      this.authenticationMethods = defaults.authenticationMethods;
     	      this.clientTypes = defaults.clientTypes;
     	      this.comment = defaults.comment;
-    	      this.mfaAuthenticationMethods = defaults.mfaAuthenticationMethods;
     	      this.mfaEnrollment = defaults.mfaEnrollment;
     	      this.mfaPolicy = defaults.mfaPolicy;
     	      this.name = defaults.name;
@@ -110,12 +104,6 @@ public final class AuthenticationPolicyDescribeOutput {
         public Builder comment(@Nullable String comment) {
 
             this.comment = comment;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder mfaAuthenticationMethods(@Nullable String mfaAuthenticationMethods) {
-
-            this.mfaAuthenticationMethods = mfaAuthenticationMethods;
             return this;
         }
         @CustomType.Setter
@@ -165,7 +153,6 @@ public final class AuthenticationPolicyDescribeOutput {
             _resultValue.authenticationMethods = authenticationMethods;
             _resultValue.clientTypes = clientTypes;
             _resultValue.comment = comment;
-            _resultValue.mfaAuthenticationMethods = mfaAuthenticationMethods;
             _resultValue.mfaEnrollment = mfaEnrollment;
             _resultValue.mfaPolicy = mfaPolicy;
             _resultValue.name = name;

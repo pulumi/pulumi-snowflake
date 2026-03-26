@@ -4890,7 +4890,6 @@ class AuthenticationPolicyDescribeOutputArgsDict(TypedDict):
     authentication_methods: NotRequired[pulumi.Input[_builtins.str]]
     client_types: NotRequired[pulumi.Input[_builtins.str]]
     comment: NotRequired[pulumi.Input[_builtins.str]]
-    mfa_authentication_methods: NotRequired[pulumi.Input[_builtins.str]]
     mfa_enrollment: NotRequired[pulumi.Input[_builtins.str]]
     mfa_policy: NotRequired[pulumi.Input[_builtins.str]]
     name: NotRequired[pulumi.Input[_builtins.str]]
@@ -4905,7 +4904,6 @@ class AuthenticationPolicyDescribeOutputArgs:
                  authentication_methods: Optional[pulumi.Input[_builtins.str]] = None,
                  client_types: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_authentication_methods: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4919,8 +4917,6 @@ class AuthenticationPolicyDescribeOutputArgs:
             pulumi.set(__self__, "client_types", client_types)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
-        if mfa_authentication_methods is not None:
-            pulumi.set(__self__, "mfa_authentication_methods", mfa_authentication_methods)
         if mfa_enrollment is not None:
             pulumi.set(__self__, "mfa_enrollment", mfa_enrollment)
         if mfa_policy is not None:
@@ -4962,15 +4958,6 @@ class AuthenticationPolicyDescribeOutputArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "comment", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mfaAuthenticationMethods")
-    def mfa_authentication_methods(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "mfa_authentication_methods")
-
-    @mfa_authentication_methods.setter
-    def mfa_authentication_methods(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "mfa_authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaEnrollment")

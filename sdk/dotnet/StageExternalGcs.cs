@@ -18,6 +18,8 @@ namespace Pulumi.Snowflake
     /// 
     /// &gt; **Note** Due to Snowflake limitations, when `directory.auto_refresh` is set to a new value in the configuration, the resource is recreated. When it is unset, the provider alters the whole `Directory` field with the `Enable` value from the configuration.
     /// 
+    /// &gt; **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect. See the migration guide for details.
+    /// 
     /// Resource used to manage external GCS stages. For more information, check [external stage documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stage#external-stage-parameters-externalstageparams).
     /// 
     /// ## Example Usage

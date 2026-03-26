@@ -376,7 +376,6 @@ export interface AuthenticationPolicyDescribeOutput {
     authenticationMethods?: pulumi.Input<string>;
     clientTypes?: pulumi.Input<string>;
     comment?: pulumi.Input<string>;
-    mfaAuthenticationMethods?: pulumi.Input<string>;
     mfaEnrollment?: pulumi.Input<string>;
     mfaPolicy?: pulumi.Input<string>;
     name?: pulumi.Input<string>;

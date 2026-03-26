@@ -21,9 +21,6 @@ namespace Pulumi.Snowflake.Inputs
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        [Input("mfaAuthenticationMethods")]
-        public Input<string>? MfaAuthenticationMethods { get; set; }
-
         [Input("mfaEnrollment")]
         public Input<string>? MfaEnrollment { get; set; }
 
