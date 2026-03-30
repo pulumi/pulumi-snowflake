@@ -57,12 +57,12 @@ import (
 //			// with all attributes set
 //			_, err = snowflake.NewLegacyServiceUser(ctx, "user", &snowflake.LegacyServiceUserArgs{
 //				Name:                        pulumi.String("Snowflake Legacy Service User"),
-//				LoginName:                   pulumi.String(loginName),
+//				LoginName:                   pulumi.String(pulumi.String(loginName)),
 //				Comment:                     pulumi.String("A legacy service user of snowflake."),
-//				Password:                    pulumi.String(password),
+//				Password:                    pulumi.String(pulumi.String(password)),
 //				Disabled:                    pulumi.String("false"),
 //				DisplayName:                 pulumi.String("Snowflake Legacy Service User display name"),
-//				Email:                       pulumi.String(email),
+//				Email:                       pulumi.String(pulumi.String(email)),
 //				DefaultWarehouse:            pulumi.String("warehouse"),
 //				DefaultSecondaryRolesOption: pulumi.String("ALL"),
 //				DefaultRole:                 pulumi.String("role1"),

@@ -37,7 +37,7 @@ import (
 //			_, err := snowflake.NewManagedAccount(ctx, "account", &snowflake.ManagedAccountArgs{
 //				Name:          pulumi.String("managed account"),
 //				AdminName:     pulumi.String("admin"),
-//				AdminPassword: pulumi.String(adminPassword),
+//				AdminPassword: pulumi.String(pulumi.String(adminPassword)),
 //				Type:          pulumi.String("READER"),
 //				Comment:       pulumi.String("A managed account."),
 //				Cloud:         "aws",
