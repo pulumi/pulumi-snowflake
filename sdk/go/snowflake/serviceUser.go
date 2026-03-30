@@ -56,11 +56,11 @@ import (
 //			// with all attributes set
 //			_, err = snowflake.NewServiceUser(ctx, "service_user", &snowflake.ServiceUserArgs{
 //				Name:                        pulumi.String("Snowflake Service User"),
-//				LoginName:                   pulumi.String(loginName),
+//				LoginName:                   pulumi.String(pulumi.String(loginName)),
 //				Comment:                     pulumi.String("A service user of snowflake."),
 //				Disabled:                    pulumi.String("false"),
 //				DisplayName:                 pulumi.String("Snowflake Service User"),
-//				Email:                       pulumi.String(email),
+//				Email:                       pulumi.String(pulumi.String(email)),
 //				DefaultWarehouse:            pulumi.String("warehouse"),
 //				DefaultSecondaryRolesOption: pulumi.String("ALL"),
 //				DefaultRole:                 pulumi.String("role1"),
