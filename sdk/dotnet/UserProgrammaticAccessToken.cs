@@ -39,14 +39,14 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource
-    ///     var basic = new Snowflake.UserProgrammaticAccessToken("basic", new()
+    ///     var basic = new Snowflake.Index.UserProgrammaticAccessToken("basic", new()
     ///     {
     ///         User = "USER",
     ///         Name = "TOKEN",
     ///     });
     /// 
     ///     // complete resource
-    ///     var complete = new Snowflake.UserProgrammaticAccessToken("complete", new()
+    ///     var complete = new Snowflake.Index.UserProgrammaticAccessToken("complete", new()
     ///     {
     ///         User = "USER",
     ///         Name = "TOKEN",
@@ -58,25 +58,25 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Set up dependencies and reference them from the token resource.
-    ///     var role = new Snowflake.AccountRole("role", new()
+    ///     var role = new Snowflake.Index.AccountRole("role", new()
     ///     {
     ///         Name = "ROLE",
     ///     });
     /// 
-    ///     var user = new Snowflake.User("user", new()
+    ///     var user = new Snowflake.Index.User("user", new()
     ///     {
     ///         Name = "USER",
     ///     });
     /// 
     ///     // Grant the role to the user. This is required to authenticate with PAT with role restriction.
-    ///     var grantRoleToUser = new Snowflake.GrantAccountRole("grant_role_to_user", new()
+    ///     var grantRoleToUser = new Snowflake.Index.GrantAccountRole("grant_role_to_user", new()
     ///     {
     ///         RoleName = role.Name,
     ///         UserName = user.Name,
     ///     });
     /// 
     ///     // complete resource with external references
-    ///     var completeWithExternalReferences = new Snowflake.UserProgrammaticAccessToken("complete_with_external_references", new()
+    ///     var completeWithExternalReferences = new Snowflake.Index.UserProgrammaticAccessToken("complete_with_external_references", new()
     ///     {
     ///         User = user.Name,
     ///         Name = "TOKEN",
@@ -95,7 +95,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Rotate the token regularly using the keeper field and time_rotating resource.
-    ///     var rotating = new Snowflake.UserProgrammaticAccessToken("rotating", new()
+    ///     var rotating = new Snowflake.Index.UserProgrammaticAccessToken("rotating", new()
     ///     {
     ///         User = "USER",
     ///         Name = "TOKEN",

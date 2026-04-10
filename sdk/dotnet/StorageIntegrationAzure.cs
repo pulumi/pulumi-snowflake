@@ -30,7 +30,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // minimal
-    ///     var minimal = new Snowflake.StorageIntegrationAzure("minimal", new()
+    ///     var minimal = new Snowflake.Index.StorageIntegrationAzure("minimal", new()
     ///     {
     ///         Name = "example_azure_storage_integration",
     ///         Enabled = true,
@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // all fields
-    ///     var all = new Snowflake.StorageIntegrationAzure("all", new()
+    ///     var all = new Snowflake.Index.StorageIntegrationAzure("all", new()
     ///     {
     ///         Name = "example_azure_storage_integration",
     ///         Enabled = true,

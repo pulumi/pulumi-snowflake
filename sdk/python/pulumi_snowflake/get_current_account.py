@@ -97,7 +97,7 @@ def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_current_account()
-    snowflake_account_url = aws.index.SsmParameter("snowflake_account_url",
+    snowflake_account_url = aws.SsmParameter("snowflake_account_url",
         name=/snowflake/account_url,
         type=String,
         value=this.url)
@@ -126,7 +126,7 @@ def get_current_account_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi
     import pulumi_snowflake as snowflake
 
     this = snowflake.get_current_account()
-    snowflake_account_url = aws.index.SsmParameter("snowflake_account_url",
+    snowflake_account_url = aws.SsmParameter("snowflake_account_url",
         name=/snowflake/account_url,
         type=String,
         value=this.url)

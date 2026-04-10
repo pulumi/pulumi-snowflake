@@ -27,12 +27,12 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var db = new Snowflake.Database("db", new()
+    ///     var db = new Snowflake.Index.Database("db", new()
     ///     {
     ///         Name = "db1",
     ///     });
     /// 
-    ///     var sourceFailoverGroup = new Snowflake.FailoverGroup("source_failover_group", new()
+    ///     var sourceFailoverGroup = new Snowflake.Index.FailoverGroup("source_failover_group", new()
     ///     {
     ///         Name = "FG1",
     ///         ObjectTypes = new[]
@@ -65,7 +65,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var targetFailoverGroup = new Snowflake.FailoverGroup("target_failover_group", new()
+    ///     var targetFailoverGroup = new Snowflake.Index.FailoverGroup("target_failover_group", new()
     ///     {
     ///         Name = "FG1",
     ///         FromReplica = new Snowflake.Inputs.FailoverGroupFromReplicaArgs

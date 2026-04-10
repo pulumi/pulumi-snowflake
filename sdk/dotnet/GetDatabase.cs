@@ -24,7 +24,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetDatabase.Invoke(new()
+        ///     var @this = Snowflake.Index.GetDatabase.Invoke(new()
         ///     {
         ///         Name = "DEMO_DB",
         ///     });
@@ -50,7 +50,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetDatabase.Invoke(new()
+        ///     var @this = Snowflake.Index.GetDatabase.Invoke(new()
         ///     {
         ///         Name = "DEMO_DB",
         ///     });
@@ -76,7 +76,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetDatabase.Invoke(new()
+        ///     var @this = Snowflake.Index.GetDatabase.Invoke(new()
         ///     {
         ///         Name = "DEMO_DB",
         ///     });

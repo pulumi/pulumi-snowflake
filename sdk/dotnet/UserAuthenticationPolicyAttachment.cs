@@ -26,19 +26,19 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var user = new Snowflake.User("user", new()
+    ///     var user = new Snowflake.Index.User("user", new()
     ///     {
     ///         Name = "USER_NAME",
     ///     });
     /// 
-    ///     var ap = new Snowflake.AuthenticationPolicy("ap", new()
+    ///     var ap = new Snowflake.Index.AuthenticationPolicy("ap", new()
     ///     {
     ///         Database = "prod",
     ///         Schema = "security",
     ///         Name = "default_policy",
     ///     });
     /// 
-    ///     var apa = new Snowflake.UserAuthenticationPolicyAttachment("apa", new()
+    ///     var apa = new Snowflake.Index.UserAuthenticationPolicyAttachment("apa", new()
     ///     {
     ///         AuthenticationPolicyName = ap.FullyQualifiedName,
     ///         UserName = user.Name,

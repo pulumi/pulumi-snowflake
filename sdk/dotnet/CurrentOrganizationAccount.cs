@@ -42,10 +42,10 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //# Minimal
-    ///     var minimal = new Snowflake.CurrentOrganizationAccount("minimal");
+    ///     var minimal = new Snowflake.Index.CurrentOrganizationAccount("minimal");
     /// 
     ///     //# Complete (with every optional set)
-    ///     var complete = new Snowflake.CurrentOrganizationAccount("complete", new()
+    ///     var complete = new Snowflake.Index.CurrentOrganizationAccount("complete", new()
     ///     {
     ///         Comment = "This is a comment for the current organization account resource",
     ///         ResourceMonitor = exampleSnowflakeResourceMonitor.FullyQualifiedName,

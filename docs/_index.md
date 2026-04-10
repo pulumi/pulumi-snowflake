@@ -1635,7 +1635,7 @@ using Snowflake = Pulumi.Snowflake;
 
 return await Deployment.RunAsync(() =>
 {
-    var test = new Snowflake.Execute("test", new()
+    var test = new Snowflake.Index.Execute("test", new()
     {
         ExecuteSQL = "CREATE DATABASE ABC",
         Revert = "DROP DATABASE ABC",

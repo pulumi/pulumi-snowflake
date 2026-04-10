@@ -25,18 +25,18 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //# Basic
-    ///     var test = new Snowflake.Database("test", new()
+    ///     var test = new Snowflake.Index.Database("test", new()
     ///     {
     ///         Name = "some_database",
     ///     });
     /// 
-    ///     var testSchema = new Snowflake.Schema("test", new()
+    ///     var testSchema = new Snowflake.Index.Schema("test", new()
     ///     {
     ///         Database = test.Name,
     ///         Name = "some_schema",
     ///     });
     /// 
-    ///     var testTable = new Snowflake.Table("test", new()
+    ///     var testTable = new Snowflake.Index.Table("test", new()
     ///     {
     ///         Database = test.Name,
     ///         Schema = testSchema.Name,
@@ -57,7 +57,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var testCortexSearchService = new Snowflake.CortexSearchService("test", new()
+    ///     var testCortexSearchService = new Snowflake.Index.CortexSearchService("test", new()
     ///     {
     ///         Database = test.Name,
     ///         Schema = testSchema.Name,

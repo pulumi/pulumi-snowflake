@@ -169,7 +169,7 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
     import pulumi_snowflake as snowflake
 
     snowflake_private_link = snowflake.get_system_get_private_link_config()
-    snowflake_private_link_security_group = aws.index.SecurityGroup("snowflake_private_link",
+    snowflake_private_link_security_group = aws.SecurityGroup("snowflake_private_link",
         vpc_id=vpc_id,
         ingress=[
             {
@@ -185,25 +185,25 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
                 protocol: tcp,
             },
         ])
-    snowflake_private_link_vpc_endpoint = aws.index.VpcEndpoint("snowflake_private_link",
+    snowflake_private_link_vpc_endpoint = aws.VpcEndpoint("snowflake_private_link",
         vpc_id=vpc_id,
         service_name=snowflake_private_link.aws_vpce_id,
         vpc_endpoint_type=Interface,
         security_group_ids=[snowflake_private_link_security_group.id],
         subnet_ids=subnet_ids,
         private_dns_enabled=False)
-    snowflake_private_link_route53_zone = aws.index.Route53Zone("snowflake_private_link",
+    snowflake_private_link_route53_zone = aws.Route53Zone("snowflake_private_link",
         name=privatelink.snowflakecomputing.com,
         vpc=[{
             vpcId: vpc_id,
         }])
-    snowflake_private_link_url = aws.index.Route53Record("snowflake_private_link_url",
+    snowflake_private_link_url = aws.Route53Record("snowflake_private_link_url",
         zone_id=snowflake_private_link_route53_zone.zone_id,
         name=snowflake_private_link.account_url,
         type=CNAME,
         ttl=300,
         records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
-    snowflake_private_link_ocsp_url = aws.index.Route53Record("snowflake_private_link_ocsp_url",
+    snowflake_private_link_ocsp_url = aws.Route53Record("snowflake_private_link_ocsp_url",
         zone_id=snowflake_private_link_route53_zone.zone_id,
         name=snowflake_private_link.ocsp_url,
         type=CNAME,
@@ -240,7 +240,7 @@ def get_system_get_private_link_config_output(opts: Optional[Union[pulumi.Invoke
     import pulumi_snowflake as snowflake
 
     snowflake_private_link = snowflake.get_system_get_private_link_config()
-    snowflake_private_link_security_group = aws.index.SecurityGroup("snowflake_private_link",
+    snowflake_private_link_security_group = aws.SecurityGroup("snowflake_private_link",
         vpc_id=vpc_id,
         ingress=[
             {
@@ -256,25 +256,25 @@ def get_system_get_private_link_config_output(opts: Optional[Union[pulumi.Invoke
                 protocol: tcp,
             },
         ])
-    snowflake_private_link_vpc_endpoint = aws.index.VpcEndpoint("snowflake_private_link",
+    snowflake_private_link_vpc_endpoint = aws.VpcEndpoint("snowflake_private_link",
         vpc_id=vpc_id,
         service_name=snowflake_private_link.aws_vpce_id,
         vpc_endpoint_type=Interface,
         security_group_ids=[snowflake_private_link_security_group.id],
         subnet_ids=subnet_ids,
         private_dns_enabled=False)
-    snowflake_private_link_route53_zone = aws.index.Route53Zone("snowflake_private_link",
+    snowflake_private_link_route53_zone = aws.Route53Zone("snowflake_private_link",
         name=privatelink.snowflakecomputing.com,
         vpc=[{
             vpcId: vpc_id,
         }])
-    snowflake_private_link_url = aws.index.Route53Record("snowflake_private_link_url",
+    snowflake_private_link_url = aws.Route53Record("snowflake_private_link_url",
         zone_id=snowflake_private_link_route53_zone.zone_id,
         name=snowflake_private_link.account_url,
         type=CNAME,
         ttl=300,
         records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
-    snowflake_private_link_ocsp_url = aws.index.Route53Record("snowflake_private_link_ocsp_url",
+    snowflake_private_link_ocsp_url = aws.Route53Record("snowflake_private_link_ocsp_url",
         zone_id=snowflake_private_link_route53_zone.zone_id,
         name=snowflake_private_link.ocsp_url,
         type=CNAME,

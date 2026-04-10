@@ -30,7 +30,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // minimal
-    ///     var minimal = new Snowflake.StorageIntegrationGcs("minimal", new()
+    ///     var minimal = new Snowflake.Index.StorageIntegrationGcs("minimal", new()
     ///     {
     ///         Name = "example_gcs_storage_integration",
     ///         Enabled = true,
@@ -41,7 +41,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // all fields
-    ///     var all = new Snowflake.StorageIntegrationGcs("all", new()
+    ///     var all = new Snowflake.Index.StorageIntegrationGcs("all", new()
     ///     {
     ///         Name = "example_gcs_storage_integration",
     ///         Enabled = true,

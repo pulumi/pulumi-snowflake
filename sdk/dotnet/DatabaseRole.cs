@@ -22,12 +22,12 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testDatabase = new Snowflake.Database("test_database", new()
+    ///     var testDatabase = new Snowflake.Index.Database("test_database", new()
     ///     {
     ///         Name = "database_name",
     ///     });
     /// 
-    ///     var testDatabaseRole = new Snowflake.DatabaseRole("test_database_role", new()
+    ///     var testDatabaseRole = new Snowflake.Index.DatabaseRole("test_database_role", new()
     ///     {
     ///         Database = testDatabase.FullyQualifiedName,
     ///         Name = "database_role_name",

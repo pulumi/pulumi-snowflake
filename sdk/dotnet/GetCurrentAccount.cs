@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetCurrentAccount.Invoke();
+        ///     var @this = Snowflake.Index.GetCurrentAccount.Invoke();
         /// 
         ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
         ///     {
@@ -56,7 +56,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetCurrentAccount.Invoke();
+        ///     var @this = Snowflake.Index.GetCurrentAccount.Invoke();
         /// 
         ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
         ///     {
@@ -87,7 +87,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetCurrentAccount.Invoke();
+        ///     var @this = Snowflake.Index.GetCurrentAccount.Invoke();
         /// 
         ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
         ///     {

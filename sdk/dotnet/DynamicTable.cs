@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
-    ///     var dt = new Snowflake.DynamicTable("dt", new()
+    ///     var dt = new Snowflake.Index.DynamicTable("dt", new()
     ///     {
     ///         Name = "product",
     ///         Database = "mydb",

@@ -27,13 +27,13 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //# Minimal
-    ///     var basic = new Snowflake.NetworkPolicy("basic", new()
+    ///     var basic = new Snowflake.Index.NetworkPolicy("basic", new()
     ///     {
     ///         Name = "network_policy_name",
     ///     });
     /// 
     ///     //# Complete (with every optional set)
-    ///     var complete = new Snowflake.NetworkPolicy("complete", new()
+    ///     var complete = new Snowflake.Index.NetworkPolicy("complete", new()
     ///     {
     ///         Name = "network_policy_name",
     ///         AllowedNetworkRuleLists = new[]

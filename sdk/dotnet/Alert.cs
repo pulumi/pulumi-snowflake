@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var alert = new Snowflake.Alert("alert", new()
+    ///     var alert = new Snowflake.Index.Alert("alert", new()
     ///     {
     ///         Database = "database",
     ///         Schema = "schema",

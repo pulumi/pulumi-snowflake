@@ -43,7 +43,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Minimal
-    ///     var minimal = new Snowflake.FunctionJavascript("minimal", new()
+    ///     var minimal = new Snowflake.Index.FunctionJavascript("minimal", new()
     ///     {
     ///         Database = test.Name,
     ///         Schema = testSnowflakeSchema.Name,

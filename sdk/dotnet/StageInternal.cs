@@ -36,7 +36,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource
-    ///     var basic = new Snowflake.StageInternal("basic", new()
+    ///     var basic = new Snowflake.Index.StageInternal("basic", new()
     ///     {
     ///         Name = "my_internal_stage",
     ///         Database = "my_database",
@@ -44,7 +44,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // complete resource
-    ///     var complete = new Snowflake.StageInternal("complete", new()
+    ///     var complete = new Snowflake.Index.StageInternal("complete", new()
     ///     {
     ///         Name = "complete_stage",
     ///         Database = "my_database",
@@ -62,7 +62,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline CSV file format
-    ///     var withCsvFormat = new Snowflake.StageInternal("with_csv_format", new()
+    ///     var withCsvFormat = new Snowflake.Index.StageInternal("with_csv_format", new()
     ///     {
     ///         Name = "csv_format_stage",
     ///         Database = "my_database",
@@ -102,7 +102,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline JSON file format
-    ///     var withJsonFormat = new Snowflake.StageInternal("with_json_format", new()
+    ///     var withJsonFormat = new Snowflake.Index.StageInternal("with_json_format", new()
     ///     {
     ///         Name = "json_format_stage",
     ///         Database = "my_database",
@@ -135,7 +135,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline AVRO file format
-    ///     var withAvroFormat = new Snowflake.StageInternal("with_avro_format", new()
+    ///     var withAvroFormat = new Snowflake.Index.StageInternal("with_avro_format", new()
     ///     {
     ///         Name = "avro_format_stage",
     ///         Database = "my_database",
@@ -157,7 +157,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline ORC file format
-    ///     var withOrcFormat = new Snowflake.StageInternal("with_orc_format", new()
+    ///     var withOrcFormat = new Snowflake.Index.StageInternal("with_orc_format", new()
     ///     {
     ///         Name = "orc_format_stage",
     ///         Database = "my_database",
@@ -178,7 +178,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline Parquet file format
-    ///     var withParquetFormat = new Snowflake.StageInternal("with_parquet_format", new()
+    ///     var withParquetFormat = new Snowflake.Index.StageInternal("with_parquet_format", new()
     ///     {
     ///         Name = "parquet_format_stage",
     ///         Database = "my_database",
@@ -203,7 +203,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline XML file format
-    ///     var withXmlFormat = new Snowflake.StageInternal("with_xml_format", new()
+    ///     var withXmlFormat = new Snowflake.Index.StageInternal("with_xml_format", new()
     ///     {
     ///         Name = "xml_format_stage",
     ///         Database = "my_database",
@@ -223,7 +223,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with named file format
-    ///     var withNamedFormat = new Snowflake.StageInternal("with_named_format", new()
+    ///     var withNamedFormat = new Snowflake.Index.StageInternal("with_named_format", new()
     ///     {
     ///         Name = "named_format_stage",
     ///         Database = "my_database",

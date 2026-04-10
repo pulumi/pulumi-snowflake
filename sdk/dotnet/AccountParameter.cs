@@ -26,13 +26,13 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var p = new Snowflake.AccountParameter("p", new()
+    ///     var p = new Snowflake.Index.AccountParameter("p", new()
     ///     {
     ///         Key = "ALLOW_ID_TOKEN",
     ///         Value = "true",
     ///     });
     /// 
-    ///     var p2 = new Snowflake.AccountParameter("p2", new()
+    ///     var p2 = new Snowflake.Index.AccountParameter("p2", new()
     ///     {
     ///         Key = "CLIENT_ENCRYPTION_KEY_SIZE",
     ///         Value = "256",

@@ -29,7 +29,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource
-    ///     var basic = new Snowflake.GitRepository("basic", new()
+    ///     var basic = new Snowflake.Index.GitRepository("basic", new()
     ///     {
     ///         Database = "DATABASE",
     ///         Schema = "SCHEMA",
@@ -39,7 +39,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // complete resource
-    ///     var complete = new Snowflake.GitRepository("complete", new()
+    ///     var complete = new Snowflake.Index.GitRepository("complete", new()
     ///     {
     ///         Name = "GIT_REPOSITORY",
     ///         Database = "DATABASE",

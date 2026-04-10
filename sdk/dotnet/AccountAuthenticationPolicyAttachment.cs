@@ -26,14 +26,14 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Snowflake.AuthenticationPolicy("default", new()
+    ///     var @default = new Snowflake.Index.AuthenticationPolicy("default", new()
     ///     {
     ///         Database = "prod",
     ///         Schema = "security",
     ///         Name = "default_policy",
     ///     });
     /// 
-    ///     var attachment = new Snowflake.AccountAuthenticationPolicyAttachment("attachment", new()
+    ///     var attachment = new Snowflake.Index.AccountAuthenticationPolicyAttachment("attachment", new()
     ///     {
     ///         AuthenticationPolicy = @default.FullyQualifiedName,
     ///     });

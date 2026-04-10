@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var externalTable = new Snowflake.ExternalTable("external_table", new()
+    ///     var externalTable = new Snowflake.Index.ExternalTable("external_table", new()
     ///     {
     ///         Database = "db",
     ///         Schema = "schema",
@@ -49,7 +49,7 @@ namespace Pulumi.Snowflake
     /// 
     ///     // with a location pointing to an existing stage
     ///     // name is hardcoded, please see resource documentation for other options
-    ///     var externalTableWithLocation = new Snowflake.ExternalTable("external_table_with_location", new()
+    ///     var externalTableWithLocation = new Snowflake.Index.ExternalTable("external_table_with_location", new()
     ///     {
     ///         Database = "db",
     ///         Schema = "schema",

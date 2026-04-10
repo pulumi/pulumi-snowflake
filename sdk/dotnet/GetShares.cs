@@ -24,9 +24,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetShares.Invoke();
+        ///     var @this = Snowflake.Index.GetShares.Invoke();
         /// 
-        ///     var ad = Snowflake.GetShares.Invoke(new()
+        ///     var ad = Snowflake.Index.GetShares.Invoke(new()
         ///     {
         ///         Pattern = "usage",
         ///     });
@@ -52,9 +52,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetShares.Invoke();
+        ///     var @this = Snowflake.Index.GetShares.Invoke();
         /// 
-        ///     var ad = Snowflake.GetShares.Invoke(new()
+        ///     var ad = Snowflake.Index.GetShares.Invoke(new()
         ///     {
         ///         Pattern = "usage",
         ///     });
@@ -80,9 +80,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.GetShares.Invoke();
+        ///     var @this = Snowflake.Index.GetShares.Invoke();
         /// 
-        ///     var ad = Snowflake.GetShares.Invoke(new()
+        ///     var ad = Snowflake.Index.GetShares.Invoke(new()
         ///     {
         ///         Pattern = "usage",
         ///     });

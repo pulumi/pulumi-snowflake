@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePolicy = Snowflake.GetSystemGetAwsSnsIamPolicy.Invoke(new()
+        ///     var snowflakePolicy = Snowflake.Index.GetSystemGetAwsSnsIamPolicy.Invoke(new()
         ///     {
         ///         AwsSnsTopicArn = "&lt;aws_sns_topic_arn&gt;",
         ///     });
@@ -58,7 +58,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePolicy = Snowflake.GetSystemGetAwsSnsIamPolicy.Invoke(new()
+        ///     var snowflakePolicy = Snowflake.Index.GetSystemGetAwsSnsIamPolicy.Invoke(new()
         ///     {
         ///         AwsSnsTopicArn = "&lt;aws_sns_topic_arn&gt;",
         ///     });
@@ -88,7 +88,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePolicy = Snowflake.GetSystemGetAwsSnsIamPolicy.Invoke(new()
+        ///     var snowflakePolicy = Snowflake.Index.GetSystemGetAwsSnsIamPolicy.Invoke(new()
         ///     {
         ///         AwsSnsTopicArn = "&lt;aws_sns_topic_arn&gt;",
         ///     });

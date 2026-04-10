@@ -23,14 +23,14 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //# Minimal
-    ///     var basic = new Snowflake.SecondaryConnection("basic", new()
+    ///     var basic = new Snowflake.Index.SecondaryConnection("basic", new()
     ///     {
     ///         Name = "connection_name",
     ///         AsReplicaOf = "\"&lt;organization_name&gt;\".\"&lt;account_name&gt;\".\"&lt;connection_name&gt;\"",
     ///     });
     /// 
     ///     //# Complete (with every optional set)
-    ///     var complete = new Snowflake.SecondaryConnection("complete", new()
+    ///     var complete = new Snowflake.Index.SecondaryConnection("complete", new()
     ///     {
     ///         Name = "connection_name",
     ///         AsReplicaOf = "\"&lt;organization_name&gt;\".\"&lt;account_name&gt;\".\"&lt;connection_name&gt;\"",

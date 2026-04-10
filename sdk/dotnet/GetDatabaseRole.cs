@@ -24,7 +24,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var dbRole = Snowflake.GetDatabaseRole.Invoke(new()
+        ///     var dbRole = Snowflake.Index.GetDatabaseRole.Invoke(new()
         ///     {
         ///         Database = "MYDB",
         ///         Name = "DBROLE",
@@ -51,7 +51,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var dbRole = Snowflake.GetDatabaseRole.Invoke(new()
+        ///     var dbRole = Snowflake.Index.GetDatabaseRole.Invoke(new()
         ///     {
         ///         Database = "MYDB",
         ///         Name = "DBROLE",
@@ -78,7 +78,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var dbRole = Snowflake.GetDatabaseRole.Invoke(new()
+        ///     var dbRole = Snowflake.Index.GetDatabaseRole.Invoke(new()
         ///     {
         ///         Database = "MYDB",
         ///         Name = "DBROLE",

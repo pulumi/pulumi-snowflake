@@ -31,7 +31,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var view = new Snowflake.MaterializedView("view", new()
+    ///     var view = new Snowflake.Index.MaterializedView("view", new()
     ///     {
     ///         Database = "db",
     ///         Schema = "schema",

@@ -25,13 +25,13 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //# Minimal
-    ///     var minimal = new Snowflake.AccountRole("minimal", new()
+    ///     var minimal = new Snowflake.Index.AccountRole("minimal", new()
     ///     {
     ///         Name = "role_name",
     ///     });
     /// 
     ///     //# Complete (with every optional set)
-    ///     var complete = new Snowflake.AccountRole("complete", new()
+    ///     var complete = new Snowflake.Index.AccountRole("complete", new()
     ///     {
     ///         Name = "role_name",
     ///         Comment = "my account role",

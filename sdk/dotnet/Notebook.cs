@@ -34,7 +34,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource
-    ///     var basic = new Snowflake.Notebook("basic", new()
+    ///     var basic = new Snowflake.Index.Notebook("basic", new()
     ///     {
     ///         Database = "DATABASE",
     ///         Schema = "SCHEMA",
@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // complete resource
-    ///     var complete = new Snowflake.Notebook("complete", new()
+    ///     var complete = new Snowflake.Index.Notebook("complete", new()
     ///     {
     ///         Name = "NOTEBOOK",
     ///         Database = "DATABASE",

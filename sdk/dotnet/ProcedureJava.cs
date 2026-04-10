@@ -45,7 +45,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic example
-    ///     var basic = new Snowflake.ProcedureJava("basic", new()
+    ///     var basic = new Snowflake.Index.ProcedureJava("basic", new()
     ///     {
     ///         Database = "Database",
     ///         Schema = "Schema",
@@ -72,7 +72,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // full example
-    ///     var full = new Snowflake.ProcedureJava("full", new()
+    ///     var full = new Snowflake.Index.ProcedureJava("full", new()
     ///     {
     ///         Database = "Database",
     ///         Schema = "Schema",

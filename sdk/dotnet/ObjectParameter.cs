@@ -26,12 +26,12 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var d = new Snowflake.Database("d", new()
+    ///     var d = new Snowflake.Index.Database("d", new()
     ///     {
     ///         Name = "TEST_DB",
     ///     });
     /// 
-    ///     var o = new Snowflake.ObjectParameter("o", new()
+    ///     var o = new Snowflake.Index.ObjectParameter("o", new()
     ///     {
     ///         Key = "SUSPEND_TASK_AFTER_NUM_FAILURES",
     ///         Value = "33",
@@ -45,13 +45,13 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var s = new Snowflake.Schema("s", new()
+    ///     var s = new Snowflake.Index.Schema("s", new()
     ///     {
     ///         Name = "TEST_SCHEMA",
     ///         Database = d.Name,
     ///     });
     /// 
-    ///     var o2 = new Snowflake.ObjectParameter("o2", new()
+    ///     var o2 = new Snowflake.Index.ObjectParameter("o2", new()
     ///     {
     ///         Key = "USER_TASK_TIMEOUT_MS",
     ///         Value = "500",
@@ -66,7 +66,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var t = new Snowflake.Table("t", new()
+    ///     var t = new Snowflake.Index.Table("t", new()
     ///     {
     ///         Name = "TEST_TABLE",
     ///         Database = d.Name,
@@ -81,7 +81,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var o3 = new Snowflake.ObjectParameter("o3", new()
+    ///     var o3 = new Snowflake.Index.ObjectParameter("o3", new()
     ///     {
     ///         Key = "DATA_RETENTION_TIME_IN_DAYS",
     ///         Value = "89",
@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Setting object parameter at account level
-    ///     var o4 = new Snowflake.ObjectParameter("o4", new()
+    ///     var o4 = new Snowflake.Index.ObjectParameter("o4", new()
     ///     {
     ///         Key = "DATA_RETENTION_TIME_IN_DAYS",
     ///         Value = "89",

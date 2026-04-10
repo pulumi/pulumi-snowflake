@@ -27,7 +27,7 @@ namespace Pulumi.Snowflake
     /// {
     ///     var config = new Config();
     ///     var adminPassword = config.Require("adminPassword");
-    ///     var account = new Snowflake.ManagedAccount("account", new()
+    ///     var account = new Snowflake.Index.ManagedAccount("account", new()
     ///     {
     ///         Name = "managed account",
     ///         AdminName = "admin",

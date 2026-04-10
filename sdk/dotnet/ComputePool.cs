@@ -30,7 +30,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource
-    ///     var basic = new Snowflake.ComputePool("basic", new()
+    ///     var basic = new Snowflake.Index.ComputePool("basic", new()
     ///     {
     ///         Name = "COMPUTE_POOL",
     ///         MinNodes = 1,
@@ -39,7 +39,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // complete resource
-    ///     var complete = new Snowflake.ComputePool("complete", new()
+    ///     var complete = new Snowflake.Index.ComputePool("complete", new()
     ///     {
     ///         Name = "COMPUTE_POOL",
     ///         ForApplication = "APPLICATION_NAME",

@@ -33,7 +33,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Snowflake.Share("test", new()
+    ///     var test = new Snowflake.Index.Share("test", new()
     ///     {
     ///         Name = "share_name",
     ///         Comment = "cool comment",
@@ -43,7 +43,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var example = new Snowflake.Database("example", new()
+    ///     var example = new Snowflake.Index.Database("example", new()
     ///     {
     ///         Name = "test",
     ///     }, new CustomResourceOptions

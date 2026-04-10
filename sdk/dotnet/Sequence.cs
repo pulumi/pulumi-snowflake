@@ -25,18 +25,18 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Snowflake.Database("test", new()
+    ///     var test = new Snowflake.Index.Database("test", new()
     ///     {
     ///         Name = "things",
     ///     });
     /// 
-    ///     var testSchema = new Snowflake.Schema("test_schema", new()
+    ///     var testSchema = new Snowflake.Index.Schema("test_schema", new()
     ///     {
     ///         Name = "things",
     ///         Database = test.Name,
     ///     });
     /// 
-    ///     var testSequence = new Snowflake.Sequence("test_sequence", new()
+    ///     var testSequence = new Snowflake.Index.Sequence("test_sequence", new()
     ///     {
     ///         Database = test.Name,
     ///         Schema = testSchema.Name,
