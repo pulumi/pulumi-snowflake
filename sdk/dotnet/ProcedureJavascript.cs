@@ -43,7 +43,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic
-    ///     var basic = new Snowflake.ProcedureJavascript("basic", new()
+    ///     var basic = new Snowflake.Index.ProcedureJavascript("basic", new()
     ///     {
     ///         Database = "Database",
     ///         Schema = "Schema",

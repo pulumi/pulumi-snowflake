@@ -36,7 +36,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic resource with storage integration
-    ///     var basic = new Snowflake.StageExternalAzure("basic", new()
+    ///     var basic = new Snowflake.Index.StageExternalAzure("basic", new()
     ///     {
     ///         Name = "my_azure_stage",
     ///         Database = "my_database",
@@ -46,7 +46,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Complete resource with all options
-    ///     var complete = new Snowflake.StageExternalAzure("complete", new()
+    ///     var complete = new Snowflake.Index.StageExternalAzure("complete", new()
     ///     {
     ///         Name = "complete_azure_stage",
     ///         Database = "my_database",
@@ -70,7 +70,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with SAS token credentials instead of storage integration
-    ///     var withCredentials = new Snowflake.StageExternalAzure("with_credentials", new()
+    ///     var withCredentials = new Snowflake.Index.StageExternalAzure("with_credentials", new()
     ///     {
     ///         Name = "azure_stage_with_sas",
     ///         Database = "my_database",
@@ -83,7 +83,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with encryption set to none
-    ///     var noEncryption = new Snowflake.StageExternalAzure("no_encryption", new()
+    ///     var noEncryption = new Snowflake.Index.StageExternalAzure("no_encryption", new()
     ///     {
     ///         Name = "azure_stage_no_encryption",
     ///         Database = "my_database",
@@ -97,7 +97,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline CSV file format
-    ///     var withCsvFormat = new Snowflake.StageExternalAzure("with_csv_format", new()
+    ///     var withCsvFormat = new Snowflake.Index.StageExternalAzure("with_csv_format", new()
     ///     {
     ///         Name = "azure_csv_format_stage",
     ///         Database = "my_database",
@@ -139,7 +139,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline JSON file format
-    ///     var withJsonFormat = new Snowflake.StageExternalAzure("with_json_format", new()
+    ///     var withJsonFormat = new Snowflake.Index.StageExternalAzure("with_json_format", new()
     ///     {
     ///         Name = "azure_json_format_stage",
     ///         Database = "my_database",
@@ -174,7 +174,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline AVRO file format
-    ///     var withAvroFormat = new Snowflake.StageExternalAzure("with_avro_format", new()
+    ///     var withAvroFormat = new Snowflake.Index.StageExternalAzure("with_avro_format", new()
     ///     {
     ///         Name = "azure_avro_format_stage",
     ///         Database = "my_database",
@@ -198,7 +198,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline ORC file format
-    ///     var withOrcFormat = new Snowflake.StageExternalAzure("with_orc_format", new()
+    ///     var withOrcFormat = new Snowflake.Index.StageExternalAzure("with_orc_format", new()
     ///     {
     ///         Name = "azure_orc_format_stage",
     ///         Database = "my_database",
@@ -221,7 +221,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline Parquet file format
-    ///     var withParquetFormat = new Snowflake.StageExternalAzure("with_parquet_format", new()
+    ///     var withParquetFormat = new Snowflake.Index.StageExternalAzure("with_parquet_format", new()
     ///     {
     ///         Name = "azure_parquet_format_stage",
     ///         Database = "my_database",
@@ -248,7 +248,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline XML file format
-    ///     var withXmlFormat = new Snowflake.StageExternalAzure("with_xml_format", new()
+    ///     var withXmlFormat = new Snowflake.Index.StageExternalAzure("with_xml_format", new()
     ///     {
     ///         Name = "azure_xml_format_stage",
     ///         Database = "my_database",
@@ -270,7 +270,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with named file format
-    ///     var withNamedFormat = new Snowflake.StageExternalAzure("with_named_format", new()
+    ///     var withNamedFormat = new Snowflake.Index.StageExternalAzure("with_named_format", new()
     ///     {
     ///         Name = "azure_named_format_stage",
     ///         Database = "my_database",

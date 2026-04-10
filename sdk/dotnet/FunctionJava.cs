@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var w = new Snowflake.FunctionJava("w", new()
+    ///     var w = new Snowflake.Index.FunctionJava("w", new()
     ///     {
     ///         Database = "Database",
     ///         Schema = "Schema",

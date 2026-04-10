@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // minimal
-    ///     var minimal = new Snowflake.LegacyServiceUser("minimal", new()
+    ///     var minimal = new Snowflake.Index.LegacyServiceUser("minimal", new()
     ///     {
     ///         Name = "Snowflake Legacy Service User - minimal",
     ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Snowflake
     ///     var loginName = config.Require("loginName");
     ///     var password = config.Require("password");
     ///     // with all attributes set
-    ///     var user = new Snowflake.LegacyServiceUser("user", new()
+    ///     var user = new Snowflake.Index.LegacyServiceUser("user", new()
     ///     {
     ///         Name = "Snowflake Legacy Service User",
     ///         LoginName = loginName,
@@ -69,7 +69,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // all parameters set on the resource level
-    ///     var u = new Snowflake.LegacyServiceUser("u", new()
+    ///     var u = new Snowflake.Index.LegacyServiceUser("u", new()
     ///     {
     ///         Name = "Snowflake Legacy Service User with all parameters",
     ///         AbortDetachedQuery = true,
@@ -133,7 +133,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // with AWS workload identity
-    ///     var withAwsWif = new Snowflake.LegacyServiceUser("with_aws_wif", new()
+    ///     var withAwsWif = new Snowflake.Index.LegacyServiceUser("with_aws_wif", new()
     ///     {
     ///         Name = "legacy_service_user_aws",
     ///         DefaultWorkloadIdentity = new Snowflake.Inputs.LegacyServiceUserDefaultWorkloadIdentityArgs
@@ -146,7 +146,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // with GCP workload identity
-    ///     var withGcpWif = new Snowflake.LegacyServiceUser("with_gcp_wif", new()
+    ///     var withGcpWif = new Snowflake.Index.LegacyServiceUser("with_gcp_wif", new()
     ///     {
     ///         Name = "legacy_service_user_gcp",
     ///         DefaultWorkloadIdentity = new Snowflake.Inputs.LegacyServiceUserDefaultWorkloadIdentityArgs
@@ -159,7 +159,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // with Azure workload identity
-    ///     var withAzureWif = new Snowflake.LegacyServiceUser("with_azure_wif", new()
+    ///     var withAzureWif = new Snowflake.Index.LegacyServiceUser("with_azure_wif", new()
     ///     {
     ///         Name = "legacy_service_user_azure",
     ///         DefaultWorkloadIdentity = new Snowflake.Inputs.LegacyServiceUserDefaultWorkloadIdentityArgs
@@ -173,7 +173,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // with OIDC workload identity
-    ///     var withOidcWif = new Snowflake.LegacyServiceUser("with_oidc_wif", new()
+    ///     var withOidcWif = new Snowflake.Index.LegacyServiceUser("with_oidc_wif", new()
     ///     {
     ///         Name = "legacy_service_user_oidc",
     ///         DefaultWorkloadIdentity = new Snowflake.Inputs.LegacyServiceUserDefaultWorkloadIdentityArgs

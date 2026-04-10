@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // minimal
-    ///     var minimal = new Snowflake.User("minimal", new()
+    ///     var minimal = new Snowflake.Index.User("minimal", new()
     ///     {
     ///         Name = "Snowflake User - minimal",
     ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Snowflake
     ///     var middleName = config.Require("middleName");
     ///     var lastName = config.Require("lastName");
     ///     // with all attributes set
-    ///     var user = new Snowflake.User("user", new()
+    ///     var user = new Snowflake.Index.User("user", new()
     ///     {
     ///         Name = "Snowflake User",
     ///         LoginName = loginName,
@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // all parameters set on the resource level
-    ///     var u = new Snowflake.User("u", new()
+    ///     var u = new Snowflake.Index.User("u", new()
     ///     {
     ///         Name = "Snowflake User with all parameters",
     ///         AbortDetachedQuery = true,

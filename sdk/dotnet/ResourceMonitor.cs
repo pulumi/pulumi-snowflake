@@ -32,13 +32,13 @@ namespace Pulumi.Snowflake
     /// {
     ///     // Note: Without credit quota and triggers specified in the configuration, the resource monitor is not performing any work.
     ///     // More on resource monitor usage: https://docs.snowflake.com/en/user-guide/resource-monitors.
-    ///     var minimal = new Snowflake.ResourceMonitor("minimal", new()
+    ///     var minimal = new Snowflake.Index.ResourceMonitor("minimal", new()
     ///     {
     ///         Name = "resource-monitor-name",
     ///     });
     /// 
     ///     // Note: Resource monitors have to be attached to account or warehouse to be able to track credit usage.
-    ///     var minimalWorking = new Snowflake.ResourceMonitor("minimal_working", new()
+    ///     var minimalWorking = new Snowflake.Index.ResourceMonitor("minimal_working", new()
     ///     {
     ///         Name = "resource-monitor-name",
     ///         CreditQuota = 100,
@@ -50,7 +50,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var complete = new Snowflake.ResourceMonitor("complete", new()
+    ///     var complete = new Snowflake.Index.ResourceMonitor("complete", new()
     ///     {
     ///         Name = "resource-monitor-name",
     ///         CreditQuota = 100,

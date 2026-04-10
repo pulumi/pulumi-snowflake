@@ -41,7 +41,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Minimal
-    ///     var minimal = new Snowflake.FunctionScala("minimal", new()
+    ///     var minimal = new Snowflake.Index.FunctionScala("minimal", new()
     ///     {
     ///         Database = test.Name,
     ///         Schema = testSnowflakeSchema.Name,
@@ -66,7 +66,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Complete
-    ///     var complete = new Snowflake.FunctionScala("complete", new()
+    ///     var complete = new Snowflake.Index.FunctionScala("complete", new()
     ///     {
     ///         Database = test.Name,
     ///         Schema = testSnowflakeSchema.Name,

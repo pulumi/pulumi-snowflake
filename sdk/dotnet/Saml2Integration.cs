@@ -32,20 +32,20 @@ namespace Pulumi.Snowflake
     /// {
     ///     // basic resource
     ///     // each pem file contains a base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
-    ///     var samlIntegration = new Snowflake.Saml2Integration("saml_integration", new()
+    ///     var samlIntegration = new Snowflake.Index.Saml2Integration("saml_integration", new()
     ///     {
     ///         Name = "saml_integration",
     ///         Saml2Provider = "CUSTOM",
     ///         Saml2Issuer = "test_issuer",
     ///         Saml2SsoUrl = "https://example.com",
-    ///         Saml2X509Cert = Std.File.Invoke(new()
+    ///         Saml2X509Cert = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "cert.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     // resource with all fields set
-    ///     var test = new Snowflake.Saml2Integration("test", new()
+    ///     var test = new Snowflake.Index.Saml2Integration("test", new()
     ///     {
     ///         AllowedEmailPatterns = new[]
     ///         {
@@ -67,13 +67,13 @@ namespace Pulumi.Snowflake
     ///         Saml2SignRequest = "true",
     ///         Saml2SnowflakeAcsUrl = "example.snowflakecomputing.com/fed/login",
     ///         Saml2SnowflakeIssuerUrl = "example.snowflakecomputing.com/fed/login",
-    ///         Saml2SnowflakeX509Cert = Std.File.Invoke(new()
+    ///         Saml2SnowflakeX509Cert = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "snowflake_cert.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Saml2SpInitiatedLoginPageLabel = "foo",
     ///         Saml2SsoUrl = "https://example.com",
-    ///         Saml2X509Cert = Std.File.Invoke(new()
+    ///         Saml2X509Cert = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "cert.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),

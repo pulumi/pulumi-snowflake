@@ -27,7 +27,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // resource with all fields set
-    ///     var exampleRowAccessPolicy = new Snowflake.RowAccessPolicy("example_row_access_policy", new()
+    ///     var exampleRowAccessPolicy = new Snowflake.Index.RowAccessPolicy("example_row_access_policy", new()
     ///     {
     ///         Name = "EXAMPLE_ROW_ACCESS_POLICY",
     ///         Database = "EXAMPLE_DB",

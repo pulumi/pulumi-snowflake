@@ -40,7 +40,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var w = new Snowflake.ProcedureSql("w", new()
+    ///     var w = new Snowflake.Index.ProcedureSql("w", new()
     ///     {
     ///         Database = "Database",
     ///         Schema = "Schema",

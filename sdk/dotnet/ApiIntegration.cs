@@ -27,7 +27,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var aws = new Snowflake.ApiIntegration("aws", new()
+    ///     var aws = new Snowflake.Index.ApiIntegration("aws", new()
     ///     {
     ///         Name = "aws_integration",
     ///         ApiProvider = "aws_api_gateway",
@@ -39,7 +39,7 @@ namespace Pulumi.Snowflake
     ///         Enabled = true,
     ///     });
     /// 
-    ///     var azure = new Snowflake.ApiIntegration("azure", new()
+    ///     var azure = new Snowflake.Index.ApiIntegration("azure", new()
     ///     {
     ///         Name = "azure_integration",
     ///         ApiProvider = "azure_api_management",
@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
     ///         Enabled = true,
     ///     });
     /// 
-    ///     var gcp = new Snowflake.ApiIntegration("gcp", new()
+    ///     var gcp = new Snowflake.Index.ApiIntegration("gcp", new()
     ///     {
     ///         Name = "gcp_integration",
     ///         ApiProvider = "google_api_gateway",

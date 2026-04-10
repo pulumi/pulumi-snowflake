@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();
+        ///     var snowflakePrivateLink = Snowflake.Index.GetSystemGetPrivateLinkConfig.Invoke();
         /// 
         ///     var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup("snowflake_private_link", new()
         ///     {
@@ -120,7 +120,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();
+        ///     var snowflakePrivateLink = Snowflake.Index.GetSystemGetPrivateLinkConfig.Invoke();
         /// 
         ///     var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup("snowflake_private_link", new()
         ///     {
@@ -215,7 +215,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();
+        ///     var snowflakePrivateLink = Snowflake.Index.GetSystemGetPrivateLinkConfig.Invoke();
         /// 
         ///     var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup("snowflake_private_link", new()
         ///     {

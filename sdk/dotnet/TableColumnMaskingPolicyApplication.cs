@@ -29,7 +29,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policy = new Snowflake.MaskingPolicy("policy", new()
+    ///     var policy = new Snowflake.Index.MaskingPolicy("policy", new()
     ///     {
     ///         Name = "EXAMPLE_MASKING_POLICY",
     ///         Database = "EXAMPLE_DB",
@@ -40,7 +40,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Table is created by the default provider
-    ///     var table = new Snowflake.Table("table", new()
+    ///     var table = new Snowflake.Index.Table("table", new()
     ///     {
     ///         Database = "EXAMPLE_DB",
     ///         Schema = "EXAMPLE_SCHEMA",
@@ -55,7 +55,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var application = new Snowflake.TableColumnMaskingPolicyApplication("application", new()
+    ///     var application = new Snowflake.Index.TableColumnMaskingPolicyApplication("application", new()
     ///     {
     ///         Table = table.FullyQualifiedName,
     ///         Column = "secret",

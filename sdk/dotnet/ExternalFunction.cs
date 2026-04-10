@@ -27,7 +27,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testExtFunc = new Snowflake.ExternalFunction("test_ext_func", new()
+    ///     var testExtFunc = new Snowflake.Index.ExternalFunction("test_ext_func", new()
     ///     {
     ///         Name = "my_function",
     ///         Database = "my_test_db",

@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
         ///     //## SHOW GRANTS ON ...
         ///     //#################################
         ///     // account
-        ///     var exampleOnAccount = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccount = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -35,7 +35,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account object (e.g. database)
-        ///     var exampleOnAccountObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccountObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -45,7 +45,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database object (e.g. schema)
-        ///     var exampleOnDatabaseObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnDatabaseObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -55,7 +55,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // schema object (e.g. table)
-        ///     var exampleOnSchemaObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnSchemaObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -65,7 +65,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application
-        ///     var exampleToApplication = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToApplication = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application role
-        ///     var exampleToApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToApplicationRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -83,7 +83,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleToRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -92,7 +92,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -101,7 +101,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // share
-        ///     var exampleToShare = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToShare = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -113,7 +113,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // user
-        ///     var exampleToUser = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToUser = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -122,7 +122,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application role
-        ///     var exampleOfApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfApplicationRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -131,7 +131,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleOfDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -140,7 +140,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleOfRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -149,7 +149,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // share
-        ///     var exampleOfShare = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfShare = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -158,7 +158,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database
-        ///     var exampleFutureInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureInDatabase = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
         ///         {
@@ -167,7 +167,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // schema
-        ///     var exampleFutureInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureInSchema = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
         ///         {
@@ -176,7 +176,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleFutureToRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureToRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {
@@ -185,7 +185,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleFutureToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureToDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {
@@ -216,7 +216,7 @@ namespace Pulumi.Snowflake
         ///     //## SHOW GRANTS ON ...
         ///     //#################################
         ///     // account
-        ///     var exampleOnAccount = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccount = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -225,7 +225,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account object (e.g. database)
-        ///     var exampleOnAccountObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccountObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -235,7 +235,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database object (e.g. schema)
-        ///     var exampleOnDatabaseObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnDatabaseObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -245,7 +245,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // schema object (e.g. table)
-        ///     var exampleOnSchemaObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnSchemaObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -255,7 +255,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application
-        ///     var exampleToApplication = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToApplication = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -264,7 +264,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application role
-        ///     var exampleToApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToApplicationRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -273,7 +273,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleToRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -282,7 +282,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -291,7 +291,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // share
-        ///     var exampleToShare = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToShare = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -303,7 +303,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // user
-        ///     var exampleToUser = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToUser = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -312,7 +312,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application role
-        ///     var exampleOfApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfApplicationRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -321,7 +321,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleOfDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -330,7 +330,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleOfRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -339,7 +339,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // share
-        ///     var exampleOfShare = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfShare = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -348,7 +348,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database
-        ///     var exampleFutureInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureInDatabase = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
         ///         {
@@ -357,7 +357,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // schema
-        ///     var exampleFutureInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureInSchema = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
         ///         {
@@ -366,7 +366,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleFutureToRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureToRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {
@@ -375,7 +375,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleFutureToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureToDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {
@@ -406,7 +406,7 @@ namespace Pulumi.Snowflake
         ///     //## SHOW GRANTS ON ...
         ///     //#################################
         ///     // account
-        ///     var exampleOnAccount = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccount = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -415,7 +415,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account object (e.g. database)
-        ///     var exampleOnAccountObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnAccountObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -425,7 +425,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database object (e.g. schema)
-        ///     var exampleOnDatabaseObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnDatabaseObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -435,7 +435,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // schema object (e.g. table)
-        ///     var exampleOnSchemaObject = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOnSchemaObject = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOn = new Snowflake.Inputs.GetGrantsGrantsOnInputArgs
         ///         {
@@ -445,7 +445,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application
-        ///     var exampleToApplication = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToApplication = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -454,7 +454,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application role
-        ///     var exampleToApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToApplicationRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -463,7 +463,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleToRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -472,7 +472,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -481,7 +481,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // share
-        ///     var exampleToShare = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToShare = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -493,7 +493,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // user
-        ///     var exampleToUser = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleToUser = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsTo = new Snowflake.Inputs.GetGrantsGrantsToInputArgs
         ///         {
@@ -502,7 +502,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // application role
-        ///     var exampleOfApplicationRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfApplicationRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -511,7 +511,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleOfDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -520,7 +520,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleOfRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -529,7 +529,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // share
-        ///     var exampleOfShare = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleOfShare = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         GrantsOf = new Snowflake.Inputs.GetGrantsGrantsOfInputArgs
         ///         {
@@ -538,7 +538,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database
-        ///     var exampleFutureInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureInDatabase = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
         ///         {
@@ -547,7 +547,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // schema
-        ///     var exampleFutureInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureInSchema = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsIn = new Snowflake.Inputs.GetGrantsFutureGrantsInInputArgs
         ///         {
@@ -556,7 +556,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // account role
-        ///     var exampleFutureToRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureToRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {
@@ -565,7 +565,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // database role
-        ///     var exampleFutureToDatabaseRole = Snowflake.GetGrants.Invoke(new()
+        ///     var exampleFutureToDatabaseRole = Snowflake.Index.GetGrants.Invoke(new()
         ///     {
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {

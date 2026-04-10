@@ -42,10 +42,10 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //# Minimal
-    ///     var minimal = new Snowflake.CurrentAccount("minimal");
+    ///     var minimal = new Snowflake.Index.CurrentAccount("minimal");
     /// 
     ///     //# Complete (with every optional set)
-    ///     var complete = new Snowflake.CurrentAccount("complete", new()
+    ///     var complete = new Snowflake.Index.CurrentAccount("complete", new()
     ///     {
     ///         AbortDetachedQuery = true,
     ///         AllowClientMfaCaching = true,

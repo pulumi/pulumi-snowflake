@@ -25,22 +25,22 @@ namespace Pulumi.Snowflake
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Simple usage
-        ///     var simple = Snowflake.GetSecrets.Invoke();
+        ///     var simple = Snowflake.Index.GetSecrets.Invoke();
         /// 
         ///     // Filtering (like)
-        ///     var like = Snowflake.GetSecrets.Invoke(new()
+        ///     var like = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         Like = "secret-name",
         ///     });
         /// 
         ///     // Filtering by prefix (like)
-        ///     var likePrefix = Snowflake.GetSecrets.Invoke(new()
+        ///     var likePrefix = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         Like = "prefix%",
         ///     });
         /// 
         ///     // Filtering (in)
-        ///     var @in = Snowflake.GetSecrets.Invoke(new()
+        ///     var @in = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         In = new Snowflake.Inputs.GetSecretsInInputArgs
         ///         {
@@ -49,7 +49,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // Without additional data (to limit the number of calls make for every found secret)
-        ///     var onlyShow = Snowflake.GetSecrets.Invoke(new()
+        ///     var onlyShow = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         WithDescribe = false,
         ///     });
@@ -84,22 +84,22 @@ namespace Pulumi.Snowflake
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Simple usage
-        ///     var simple = Snowflake.GetSecrets.Invoke();
+        ///     var simple = Snowflake.Index.GetSecrets.Invoke();
         /// 
         ///     // Filtering (like)
-        ///     var like = Snowflake.GetSecrets.Invoke(new()
+        ///     var like = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         Like = "secret-name",
         ///     });
         /// 
         ///     // Filtering by prefix (like)
-        ///     var likePrefix = Snowflake.GetSecrets.Invoke(new()
+        ///     var likePrefix = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         Like = "prefix%",
         ///     });
         /// 
         ///     // Filtering (in)
-        ///     var @in = Snowflake.GetSecrets.Invoke(new()
+        ///     var @in = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         In = new Snowflake.Inputs.GetSecretsInInputArgs
         ///         {
@@ -108,7 +108,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // Without additional data (to limit the number of calls make for every found secret)
-        ///     var onlyShow = Snowflake.GetSecrets.Invoke(new()
+        ///     var onlyShow = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         WithDescribe = false,
         ///     });
@@ -143,22 +143,22 @@ namespace Pulumi.Snowflake
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Simple usage
-        ///     var simple = Snowflake.GetSecrets.Invoke();
+        ///     var simple = Snowflake.Index.GetSecrets.Invoke();
         /// 
         ///     // Filtering (like)
-        ///     var like = Snowflake.GetSecrets.Invoke(new()
+        ///     var like = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         Like = "secret-name",
         ///     });
         /// 
         ///     // Filtering by prefix (like)
-        ///     var likePrefix = Snowflake.GetSecrets.Invoke(new()
+        ///     var likePrefix = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         Like = "prefix%",
         ///     });
         /// 
         ///     // Filtering (in)
-        ///     var @in = Snowflake.GetSecrets.Invoke(new()
+        ///     var @in = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         In = new Snowflake.Inputs.GetSecretsInInputArgs
         ///         {
@@ -167,7 +167,7 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // Without additional data (to limit the number of calls make for every found secret)
-        ///     var onlyShow = Snowflake.GetSecrets.Invoke(new()
+        ///     var onlyShow = Snowflake.Index.GetSecrets.Invoke(new()
         ///     {
         ///         WithDescribe = false,
         ///     });

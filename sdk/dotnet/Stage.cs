@@ -32,7 +32,7 @@ namespace Pulumi.Snowflake
     ///     var config = new Config();
     ///     var exampleAwsKeyId = config.Require("exampleAwsKeyId");
     ///     var exampleAwsSecretKey = config.Require("exampleAwsSecretKey");
-    ///     var exampleStage = new Snowflake.Stage("example_stage", new()
+    ///     var exampleStage = new Snowflake.Index.Stage("example_stage", new()
     ///     {
     ///         Name = "EXAMPLE_STAGE",
     ///         Url = "s3://com.example.bucket/prefix",
@@ -43,7 +43,7 @@ namespace Pulumi.Snowflake
     /// 
     ///     // with an existing hardcoded file format
     ///     // please see other examples in the snowflake_file_format resource documentation
-    ///     var exampleStageWithFileFormat = new Snowflake.Stage("example_stage_with_file_format", new()
+    ///     var exampleStageWithFileFormat = new Snowflake.Index.Stage("example_stage_with_file_format", new()
     ///     {
     ///         Name = "EXAMPLE_STAGE",
     ///         Url = "s3://com.example.bucket/prefix",

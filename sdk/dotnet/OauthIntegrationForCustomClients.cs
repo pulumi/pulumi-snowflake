@@ -31,7 +31,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource
-    ///     var basic = new Snowflake.OauthIntegrationForCustomClients("basic", new()
+    ///     var basic = new Snowflake.Index.OauthIntegrationForCustomClients("basic", new()
     ///     {
     ///         Name = "integration",
     ///         OauthClientType = "CONFIDENTIAL",
@@ -39,7 +39,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with all fields set
-    ///     var complete = new Snowflake.OauthIntegrationForCustomClients("complete", new()
+    ///     var complete = new Snowflake.Index.OauthIntegrationForCustomClients("complete", new()
     ///     {
     ///         Name = "integration",
     ///         OauthClientType = "CONFIDENTIAL",
@@ -63,11 +63,11 @@ namespace Pulumi.Snowflake
     ///         OauthIssueRefreshTokens = "true",
     ///         OauthRefreshTokenValidity = 87600,
     ///         NetworkPolicy = example.FullyQualifiedName,
-    ///         OauthClientRsaPublicKey = Std.File.Invoke(new()
+    ///         OauthClientRsaPublicKey = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "rsa.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         OauthClientRsaPublicKey2 = Std.File.Invoke(new()
+    ///         OauthClientRsaPublicKey2 = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "rsa2.pub",
     ///         }).Apply(invoke =&gt; invoke.Result),

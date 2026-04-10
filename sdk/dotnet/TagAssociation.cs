@@ -31,18 +31,18 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Snowflake.Database("test", new()
+    ///     var test = new Snowflake.Index.Database("test", new()
     ///     {
     ///         Name = "database",
     ///     });
     /// 
-    ///     var testSchema = new Snowflake.Schema("test", new()
+    ///     var testSchema = new Snowflake.Index.Schema("test", new()
     ///     {
     ///         Name = "schema",
     ///         Database = test.Name,
     ///     });
     /// 
-    ///     var testTag = new Snowflake.Tag("test", new()
+    ///     var testTag = new Snowflake.Index.Tag("test", new()
     ///     {
     ///         Name = "cost_center",
     ///         Database = test.Name,
@@ -54,7 +54,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var dbAssociation = new Snowflake.TagAssociation("db_association", new()
+    ///     var dbAssociation = new Snowflake.Index.TagAssociation("db_association", new()
     ///     {
     ///         ObjectIdentifiers = new[]
     ///         {
@@ -65,7 +65,7 @@ namespace Pulumi.Snowflake
     ///         TagValue = "finance",
     ///     });
     /// 
-    ///     var testTable = new Snowflake.Table("test", new()
+    ///     var testTable = new Snowflake.Index.Table("test", new()
     ///     {
     ///         Database = test.Name,
     ///         Schema = testSchema.Name,
@@ -86,7 +86,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var tableAssociation = new Snowflake.TagAssociation("table_association", new()
+    ///     var tableAssociation = new Snowflake.Index.TagAssociation("table_association", new()
     ///     {
     ///         ObjectIdentifiers = new[]
     ///         {
@@ -97,11 +97,11 @@ namespace Pulumi.Snowflake
     ///         TagValue = "engineering",
     ///     });
     /// 
-    ///     var columnAssociation = new Snowflake.TagAssociation("column_association", new()
+    ///     var columnAssociation = new Snowflake.Index.TagAssociation("column_association", new()
     ///     {
     ///         ObjectIdentifiers = new[]
     ///         {
-    ///             Std.Format.Invoke(new()
+    ///             Std.Index.Format.Invoke(new()
     ///             {
     ///                 Input = "%s.\"column1\"",
     ///                 Args = new[]
@@ -115,7 +115,7 @@ namespace Pulumi.Snowflake
     ///         TagValue = "engineering",
     ///     });
     /// 
-    ///     var accountAssociation = new Snowflake.TagAssociation("account_association", new()
+    ///     var accountAssociation = new Snowflake.Index.TagAssociation("account_association", new()
     ///     {
     ///         ObjectIdentifiers = new[]
     ///         {

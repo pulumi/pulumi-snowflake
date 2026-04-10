@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var attach = new Snowflake.NetworkPolicyAttachment("attach", new()
+    ///     var attach = new Snowflake.Index.NetworkPolicyAttachment("attach", new()
     ///     {
     ///         NetworkPolicyName = "policy",
     ///         SetForAccount = false,

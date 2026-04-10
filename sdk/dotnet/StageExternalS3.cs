@@ -39,7 +39,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic resource with storage integration
-    ///     var basic = new Snowflake.StageExternalS3("basic", new()
+    ///     var basic = new Snowflake.Index.StageExternalS3("basic", new()
     ///     {
     ///         Name = "my_s3_stage",
     ///         Database = "my_database",
@@ -48,7 +48,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Complete resource with all options
-    ///     var complete = new Snowflake.StageExternalS3("complete", new()
+    ///     var complete = new Snowflake.Index.StageExternalS3("complete", new()
     ///     {
     ///         Name = "complete_s3_stage",
     ///         Database = "my_database",
@@ -73,7 +73,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with AWS key credentials instead of storage integration
-    ///     var withKeyCredentials = new Snowflake.StageExternalS3("with_key_credentials", new()
+    ///     var withKeyCredentials = new Snowflake.Index.StageExternalS3("with_key_credentials", new()
     ///     {
     ///         Name = "s3_stage_with_keys",
     ///         Database = "my_database",
@@ -88,7 +88,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with AWS IAM role credentials
-    ///     var withRoleCredentials = new Snowflake.StageExternalS3("with_role_credentials", new()
+    ///     var withRoleCredentials = new Snowflake.Index.StageExternalS3("with_role_credentials", new()
     ///     {
     ///         Name = "s3_stage_with_role",
     ///         Database = "my_database",
@@ -101,7 +101,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with SSE-S3 encryption
-    ///     var sseS3 = new Snowflake.StageExternalS3("sse_s3", new()
+    ///     var sseS3 = new Snowflake.Index.StageExternalS3("sse_s3", new()
     ///     {
     ///         Name = "s3_stage_sse_s3",
     ///         Database = "my_database",
@@ -115,7 +115,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with SSE-KMS encryption
-    ///     var sseKms = new Snowflake.StageExternalS3("sse_kms", new()
+    ///     var sseKms = new Snowflake.Index.StageExternalS3("sse_kms", new()
     ///     {
     ///         Name = "s3_stage_sse_kms",
     ///         Database = "my_database",
@@ -132,7 +132,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with encryption set to none
-    ///     var noEncryption = new Snowflake.StageExternalS3("no_encryption", new()
+    ///     var noEncryption = new Snowflake.Index.StageExternalS3("no_encryption", new()
     ///     {
     ///         Name = "s3_stage_no_encryption",
     ///         Database = "my_database",
@@ -146,7 +146,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline CSV file format
-    ///     var withCsvFormat = new Snowflake.StageExternalS3("with_csv_format", new()
+    ///     var withCsvFormat = new Snowflake.Index.StageExternalS3("with_csv_format", new()
     ///     {
     ///         Name = "s3_csv_format_stage",
     ///         Database = "my_database",
@@ -187,7 +187,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline JSON file format
-    ///     var withJsonFormat = new Snowflake.StageExternalS3("with_json_format", new()
+    ///     var withJsonFormat = new Snowflake.Index.StageExternalS3("with_json_format", new()
     ///     {
     ///         Name = "s3_json_format_stage",
     ///         Database = "my_database",
@@ -221,7 +221,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline AVRO file format
-    ///     var withAvroFormat = new Snowflake.StageExternalS3("with_avro_format", new()
+    ///     var withAvroFormat = new Snowflake.Index.StageExternalS3("with_avro_format", new()
     ///     {
     ///         Name = "s3_avro_format_stage",
     ///         Database = "my_database",
@@ -244,7 +244,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline ORC file format
-    ///     var withOrcFormat = new Snowflake.StageExternalS3("with_orc_format", new()
+    ///     var withOrcFormat = new Snowflake.Index.StageExternalS3("with_orc_format", new()
     ///     {
     ///         Name = "s3_orc_format_stage",
     ///         Database = "my_database",
@@ -266,7 +266,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline Parquet file format
-    ///     var withParquetFormat = new Snowflake.StageExternalS3("with_parquet_format", new()
+    ///     var withParquetFormat = new Snowflake.Index.StageExternalS3("with_parquet_format", new()
     ///     {
     ///         Name = "s3_parquet_format_stage",
     ///         Database = "my_database",
@@ -292,7 +292,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline XML file format
-    ///     var withXmlFormat = new Snowflake.StageExternalS3("with_xml_format", new()
+    ///     var withXmlFormat = new Snowflake.Index.StageExternalS3("with_xml_format", new()
     ///     {
     ///         Name = "s3_xml_format_stage",
     ///         Database = "my_database",
@@ -313,7 +313,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with named file format
-    ///     var withNamedFormat = new Snowflake.StageExternalS3("with_named_format", new()
+    ///     var withNamedFormat = new Snowflake.Index.StageExternalS3("with_named_format", new()
     ///     {
     ///         Name = "s3_named_format_stage",
     ///         Database = "my_database",

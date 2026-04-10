@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var emailInt = new Snowflake.EmailNotificationIntegration("email_int", new()
+    ///     var emailInt = new Snowflake.Index.EmailNotificationIntegration("email_int", new()
     ///     {
     ///         Name = "notification",
     ///         Comment = "A notification integration.",

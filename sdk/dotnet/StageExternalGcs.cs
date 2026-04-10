@@ -36,7 +36,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic resource with storage integration (required for GCS)
-    ///     var basic = new Snowflake.StageExternalGcs("basic", new()
+    ///     var basic = new Snowflake.Index.StageExternalGcs("basic", new()
     ///     {
     ///         Name = "my_gcs_stage",
     ///         Database = "my_database",
@@ -46,7 +46,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Complete resource with all options
-    ///     var complete = new Snowflake.StageExternalGcs("complete", new()
+    ///     var complete = new Snowflake.Index.StageExternalGcs("complete", new()
     ///     {
     ///         Name = "complete_gcs_stage",
     ///         Database = "my_database",
@@ -70,7 +70,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with encryption set to none
-    ///     var noEncryption = new Snowflake.StageExternalGcs("no_encryption", new()
+    ///     var noEncryption = new Snowflake.Index.StageExternalGcs("no_encryption", new()
     ///     {
     ///         Name = "gcs_stage_no_encryption",
     ///         Database = "my_database",
@@ -84,7 +84,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Resource with GCS SSE KMS encryption without specifying key
-    ///     var defaultKms = new Snowflake.StageExternalGcs("default_kms", new()
+    ///     var defaultKms = new Snowflake.Index.StageExternalGcs("default_kms", new()
     ///     {
     ///         Name = "gcs_stage_default_kms",
     ///         Database = "my_database",
@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline CSV file format
-    ///     var withCsvFormat = new Snowflake.StageExternalGcs("with_csv_format", new()
+    ///     var withCsvFormat = new Snowflake.Index.StageExternalGcs("with_csv_format", new()
     ///     {
     ///         Name = "gcs_csv_format_stage",
     ///         Database = "my_database",
@@ -140,7 +140,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline JSON file format
-    ///     var withJsonFormat = new Snowflake.StageExternalGcs("with_json_format", new()
+    ///     var withJsonFormat = new Snowflake.Index.StageExternalGcs("with_json_format", new()
     ///     {
     ///         Name = "gcs_json_format_stage",
     ///         Database = "my_database",
@@ -175,7 +175,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline AVRO file format
-    ///     var withAvroFormat = new Snowflake.StageExternalGcs("with_avro_format", new()
+    ///     var withAvroFormat = new Snowflake.Index.StageExternalGcs("with_avro_format", new()
     ///     {
     ///         Name = "gcs_avro_format_stage",
     ///         Database = "my_database",
@@ -199,7 +199,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline ORC file format
-    ///     var withOrcFormat = new Snowflake.StageExternalGcs("with_orc_format", new()
+    ///     var withOrcFormat = new Snowflake.Index.StageExternalGcs("with_orc_format", new()
     ///     {
     ///         Name = "gcs_orc_format_stage",
     ///         Database = "my_database",
@@ -222,7 +222,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline Parquet file format
-    ///     var withParquetFormat = new Snowflake.StageExternalGcs("with_parquet_format", new()
+    ///     var withParquetFormat = new Snowflake.Index.StageExternalGcs("with_parquet_format", new()
     ///     {
     ///         Name = "gcs_parquet_format_stage",
     ///         Database = "my_database",
@@ -249,7 +249,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with inline XML file format
-    ///     var withXmlFormat = new Snowflake.StageExternalGcs("with_xml_format", new()
+    ///     var withXmlFormat = new Snowflake.Index.StageExternalGcs("with_xml_format", new()
     ///     {
     ///         Name = "gcs_xml_format_stage",
     ///         Database = "my_database",
@@ -271,7 +271,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with named file format
-    ///     var withNamedFormat = new Snowflake.StageExternalGcs("with_named_format", new()
+    ///     var withNamedFormat = new Snowflake.Index.StageExternalGcs("with_named_format", new()
     ///     {
     ///         Name = "gcs_named_format_stage",
     ///         Database = "my_database",

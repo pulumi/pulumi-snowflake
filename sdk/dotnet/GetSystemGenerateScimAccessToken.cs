@@ -24,7 +24,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var scim = Snowflake.GetSystemGenerateScimAccessToken.Invoke(new()
+        ///     var scim = Snowflake.Index.GetSystemGenerateScimAccessToken.Invoke(new()
         ///     {
         ///         IntegrationName = "AAD_PROVISIONING",
         ///     });
@@ -50,7 +50,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var scim = Snowflake.GetSystemGenerateScimAccessToken.Invoke(new()
+        ///     var scim = Snowflake.Index.GetSystemGenerateScimAccessToken.Invoke(new()
         ///     {
         ///         IntegrationName = "AAD_PROVISIONING",
         ///     });
@@ -76,7 +76,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var scim = Snowflake.GetSystemGenerateScimAccessToken.Invoke(new()
+        ///     var scim = Snowflake.Index.GetSystemGenerateScimAccessToken.Invoke(new()
         ///     {
         ///         IntegrationName = "AAD_PROVISIONING",
         ///     });

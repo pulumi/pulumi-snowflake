@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var rule = new Snowflake.NetworkRule("rule", new()
+    ///     var rule = new Snowflake.Index.NetworkRule("rule", new()
     ///     {
     ///         Name = "rule",
     ///         Database = "EXAMPLE_DB",

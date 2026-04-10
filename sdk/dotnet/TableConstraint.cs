@@ -25,18 +25,18 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var d = new Snowflake.Database("d", new()
+    ///     var d = new Snowflake.Index.Database("d", new()
     ///     {
     ///         Name = "some_db",
     ///     });
     /// 
-    ///     var s = new Snowflake.Schema("s", new()
+    ///     var s = new Snowflake.Index.Schema("s", new()
     ///     {
     ///         Name = "some_schema",
     ///         Database = d.Name,
     ///     });
     /// 
-    ///     var t = new Snowflake.Table("t", new()
+    ///     var t = new Snowflake.Index.Table("t", new()
     ///     {
     ///         Database = d.Name,
     ///         Schema = s.Name,
@@ -64,7 +64,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var fkT = new Snowflake.Table("fk_t", new()
+    ///     var fkT = new Snowflake.Index.Table("fk_t", new()
     ///     {
     ///         Database = d.Name,
     ///         Schema = s.Name,
@@ -86,7 +86,7 @@ namespace Pulumi.Snowflake
     ///         },
     ///     });
     /// 
-    ///     var primaryKey = new Snowflake.TableConstraint("primary_key", new()
+    ///     var primaryKey = new Snowflake.Index.TableConstraint("primary_key", new()
     ///     {
     ///         Name = "myconstraint",
     ///         Type = "PRIMARY KEY",
@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
     ///         Comment = "hello world",
     ///     });
     /// 
-    ///     var foreignKey = new Snowflake.TableConstraint("foreign_key", new()
+    ///     var foreignKey = new Snowflake.Index.TableConstraint("foreign_key", new()
     ///     {
     ///         Name = "myconstraintfk",
     ///         Type = "FOREIGN KEY",
@@ -124,7 +124,7 @@ namespace Pulumi.Snowflake
     ///         Comment = "hello fk",
     ///     });
     /// 
-    ///     var unique = new Snowflake.TableConstraint("unique", new()
+    ///     var unique = new Snowflake.Index.TableConstraint("unique", new()
     ///     {
     ///         Name = "unique",
     ///         Type = "UNIQUE",

@@ -23,13 +23,13 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //# Minimal
-    ///     var basic = new Snowflake.PrimaryConnection("basic", new()
+    ///     var basic = new Snowflake.Index.PrimaryConnection("basic", new()
     ///     {
     ///         Name = "connection_name",
     ///     });
     /// 
     ///     //# Complete (with every optional set)
-    ///     var complete = new Snowflake.PrimaryConnection("complete", new()
+    ///     var complete = new Snowflake.Index.PrimaryConnection("complete", new()
     ///     {
     ///         Name = "connection_name",
     ///         Comment = "my complete connection",

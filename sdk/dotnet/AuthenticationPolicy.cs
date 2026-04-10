@@ -29,7 +29,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     //# Minimal
-    ///     var basic = new Snowflake.AuthenticationPolicy("basic", new()
+    ///     var basic = new Snowflake.Index.AuthenticationPolicy("basic", new()
     ///     {
     ///         Database = "database_name",
     ///         Schema = "schema_name",
@@ -37,7 +37,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     //# Complete (with every optional set)
-    ///     var complete = new Snowflake.AuthenticationPolicy("complete", new()
+    ///     var complete = new Snowflake.Index.AuthenticationPolicy("complete", new()
     ///     {
     ///         Database = "database_name",
     ///         Schema = "schema_name",

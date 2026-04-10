@@ -24,13 +24,13 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var d = new Snowflake.Database("d", new()
+        ///     var d = new Snowflake.Index.Database("d", new()
         ///     {
         ///         Name = "TEST_DB",
         ///     });
         /// 
         ///     // read all object parameters in database TEST_DB
-        ///     var p = Snowflake.GetParameters.Invoke(new()
+        ///     var p = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "OBJECT",
         ///         ObjectType = "DATABASE",
@@ -38,14 +38,14 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // read all account parameters with the pattern '%TIMESTAMP%'
-        ///     var p2 = Snowflake.GetParameters.Invoke(new()
+        ///     var p2 = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "ACCOUNT",
         ///         Pattern = "%TIMESTAMP%",
         ///     });
         /// 
         ///     // read the exact session parameter ROWS_PER_RESULTSET
-        ///     var p3 = Snowflake.GetParameters.Invoke(new()
+        ///     var p3 = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "SESSION",
         ///         Pattern = "ROWS_PER_RESULTSET",
@@ -73,13 +73,13 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var d = new Snowflake.Database("d", new()
+        ///     var d = new Snowflake.Index.Database("d", new()
         ///     {
         ///         Name = "TEST_DB",
         ///     });
         /// 
         ///     // read all object parameters in database TEST_DB
-        ///     var p = Snowflake.GetParameters.Invoke(new()
+        ///     var p = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "OBJECT",
         ///         ObjectType = "DATABASE",
@@ -87,14 +87,14 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // read all account parameters with the pattern '%TIMESTAMP%'
-        ///     var p2 = Snowflake.GetParameters.Invoke(new()
+        ///     var p2 = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "ACCOUNT",
         ///         Pattern = "%TIMESTAMP%",
         ///     });
         /// 
         ///     // read the exact session parameter ROWS_PER_RESULTSET
-        ///     var p3 = Snowflake.GetParameters.Invoke(new()
+        ///     var p3 = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "SESSION",
         ///         Pattern = "ROWS_PER_RESULTSET",
@@ -122,13 +122,13 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var d = new Snowflake.Database("d", new()
+        ///     var d = new Snowflake.Index.Database("d", new()
         ///     {
         ///         Name = "TEST_DB",
         ///     });
         /// 
         ///     // read all object parameters in database TEST_DB
-        ///     var p = Snowflake.GetParameters.Invoke(new()
+        ///     var p = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "OBJECT",
         ///         ObjectType = "DATABASE",
@@ -136,14 +136,14 @@ namespace Pulumi.Snowflake
         ///     });
         /// 
         ///     // read all account parameters with the pattern '%TIMESTAMP%'
-        ///     var p2 = Snowflake.GetParameters.Invoke(new()
+        ///     var p2 = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "ACCOUNT",
         ///         Pattern = "%TIMESTAMP%",
         ///     });
         /// 
         ///     // read the exact session parameter ROWS_PER_RESULTSET
-        ///     var p3 = Snowflake.GetParameters.Invoke(new()
+        ///     var p3 = Snowflake.Index.GetParameters.Invoke(new()
         ///     {
         ///         ParameterType = "SESSION",
         ///         Pattern = "ROWS_PER_RESULTSET",

@@ -24,7 +24,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Snowflake.GetProcedures.Invoke(new()
+        ///     var current = Snowflake.Index.GetProcedures.Invoke(new()
         ///     {
         ///         Database = "MYDB",
         ///         Schema = "MYSCHEMA",
@@ -51,7 +51,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Snowflake.GetProcedures.Invoke(new()
+        ///     var current = Snowflake.Index.GetProcedures.Invoke(new()
         ///     {
         ///         Database = "MYDB",
         ///         Schema = "MYSCHEMA",
@@ -78,7 +78,7 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var current = Snowflake.GetProcedures.Invoke(new()
+        ///     var current = Snowflake.Index.GetProcedures.Invoke(new()
         ///     {
         ///         Database = "MYDB",
         ///         Schema = "MYSCHEMA",
