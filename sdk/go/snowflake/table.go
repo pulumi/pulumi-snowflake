@@ -91,12 +91,6 @@ import (
 //						Comment: pulumi.String("extra data"),
 //					},
 //				},
-//				PrimaryKey: &snowflake.TablePrimaryKeyArgs{
-//					Name: pulumi.String("my_key"),
-//					Keys: pulumi.StringArray{
-//						pulumi.String("data"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

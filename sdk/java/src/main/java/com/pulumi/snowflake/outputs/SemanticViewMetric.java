@@ -6,12 +6,18 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.SemanticViewMetricSemanticExpression;
 import com.pulumi.snowflake.outputs.SemanticViewMetricWindowFunction;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class SemanticViewMetric {
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+     * 
+     */
+    private @Nullable String isPrivate;
     /**
      * @return Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
      * 
@@ -24,6 +30,13 @@ public final class SemanticViewMetric {
     private @Nullable SemanticViewMetricWindowFunction windowFunction;
 
     private SemanticViewMetric() {}
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+     * 
+     */
+    public Optional<String> isPrivate() {
+        return Optional.ofNullable(this.isPrivate);
+    }
     /**
      * @return Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
      * 
@@ -48,15 +61,23 @@ public final class SemanticViewMetric {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String isPrivate;
         private @Nullable SemanticViewMetricSemanticExpression semanticExpression;
         private @Nullable SemanticViewMetricWindowFunction windowFunction;
         public Builder() {}
         public Builder(SemanticViewMetric defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.isPrivate = defaults.isPrivate;
     	      this.semanticExpression = defaults.semanticExpression;
     	      this.windowFunction = defaults.windowFunction;
         }
 
+        @CustomType.Setter
+        public Builder isPrivate(@Nullable String isPrivate) {
+
+            this.isPrivate = isPrivate;
+            return this;
+        }
         @CustomType.Setter
         public Builder semanticExpression(@Nullable SemanticViewMetricSemanticExpression semanticExpression) {
 
@@ -71,6 +92,7 @@ public final class SemanticViewMetric {
         }
         public SemanticViewMetric build() {
             final var _resultValue = new SemanticViewMetric();
+            _resultValue.isPrivate = isPrivate;
             _resultValue.semanticExpression = semanticExpression;
             _resultValue.windowFunction = windowFunction;
             return _resultValue;

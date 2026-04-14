@@ -18,6 +18,10 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? Comment;
         /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether the fact is private.
+        /// </summary>
+        public readonly string? IsPrivate;
+        /// <summary>
         /// Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `"\"&lt;table_alias&gt;\".\"&lt;semantic_expression_name&gt;\""`.
         /// </summary>
         public readonly string QualifiedExpressionName;
@@ -34,6 +38,8 @@ namespace Pulumi.Snowflake.Outputs
         private SemanticViewFact(
             string? comment,
 
+            string? isPrivate,
+
             string qualifiedExpressionName,
 
             string sqlExpression,
@@ -41,6 +47,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<string> synonyms)
         {
             Comment = comment;
+            IsPrivate = isPrivate;
             QualifiedExpressionName = qualifiedExpressionName;
             SqlExpression = sqlExpression;
             Synonyms = synonyms;

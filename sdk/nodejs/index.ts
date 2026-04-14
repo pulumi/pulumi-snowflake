@@ -60,6 +60,26 @@ export type AuthenticationPolicy = import("./authenticationPolicy").Authenticati
 export const AuthenticationPolicy: typeof import("./authenticationPolicy").AuthenticationPolicy = null as any;
 utilities.lazyLoad(exports, ["AuthenticationPolicy"], () => require("./authenticationPolicy"));
 
+export { CatalogIntegrationAwsGlueArgs, CatalogIntegrationAwsGlueState } from "./catalogIntegrationAwsGlue";
+export type CatalogIntegrationAwsGlue = import("./catalogIntegrationAwsGlue").CatalogIntegrationAwsGlue;
+export const CatalogIntegrationAwsGlue: typeof import("./catalogIntegrationAwsGlue").CatalogIntegrationAwsGlue = null as any;
+utilities.lazyLoad(exports, ["CatalogIntegrationAwsGlue"], () => require("./catalogIntegrationAwsGlue"));
+
+export { CatalogIntegrationIcebergRestArgs, CatalogIntegrationIcebergRestState } from "./catalogIntegrationIcebergRest";
+export type CatalogIntegrationIcebergRest = import("./catalogIntegrationIcebergRest").CatalogIntegrationIcebergRest;
+export const CatalogIntegrationIcebergRest: typeof import("./catalogIntegrationIcebergRest").CatalogIntegrationIcebergRest = null as any;
+utilities.lazyLoad(exports, ["CatalogIntegrationIcebergRest"], () => require("./catalogIntegrationIcebergRest"));
+
+export { CatalogIntegrationObjectStorageArgs, CatalogIntegrationObjectStorageState } from "./catalogIntegrationObjectStorage";
+export type CatalogIntegrationObjectStorage = import("./catalogIntegrationObjectStorage").CatalogIntegrationObjectStorage;
+export const CatalogIntegrationObjectStorage: typeof import("./catalogIntegrationObjectStorage").CatalogIntegrationObjectStorage = null as any;
+utilities.lazyLoad(exports, ["CatalogIntegrationObjectStorage"], () => require("./catalogIntegrationObjectStorage"));
+
+export { CatalogIntegrationOpenCatalogArgs, CatalogIntegrationOpenCatalogState } from "./catalogIntegrationOpenCatalog";
+export type CatalogIntegrationOpenCatalog = import("./catalogIntegrationOpenCatalog").CatalogIntegrationOpenCatalog;
+export const CatalogIntegrationOpenCatalog: typeof import("./catalogIntegrationOpenCatalog").CatalogIntegrationOpenCatalog = null as any;
+utilities.lazyLoad(exports, ["CatalogIntegrationOpenCatalog"], () => require("./catalogIntegrationOpenCatalog"));
+
 export { ComputePoolArgs, ComputePoolState } from "./computePool";
 export type ComputePool = import("./computePool").ComputePool;
 export const ComputePool: typeof import("./computePool").ComputePool = null as any;
@@ -180,6 +200,11 @@ export const getAuthenticationPolicies: typeof import("./getAuthenticationPolici
 export const getAuthenticationPoliciesOutput: typeof import("./getAuthenticationPolicies").getAuthenticationPoliciesOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthenticationPolicies","getAuthenticationPoliciesOutput"], () => require("./getAuthenticationPolicies"));
 
+export { GetCatalogIntegrationsArgs, GetCatalogIntegrationsResult, GetCatalogIntegrationsOutputArgs } from "./getCatalogIntegrations";
+export const getCatalogIntegrations: typeof import("./getCatalogIntegrations").getCatalogIntegrations = null as any;
+export const getCatalogIntegrationsOutput: typeof import("./getCatalogIntegrations").getCatalogIntegrationsOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalogIntegrations","getCatalogIntegrationsOutput"], () => require("./getCatalogIntegrations"));
+
 export { GetComputePoolsArgs, GetComputePoolsResult, GetComputePoolsOutputArgs } from "./getComputePools";
 export const getComputePools: typeof import("./getComputePools").getComputePools = null as any;
 export const getComputePoolsOutput: typeof import("./getComputePools").getComputePoolsOutput = null as any;
@@ -239,6 +264,11 @@ export { GetExternalTablesArgs, GetExternalTablesResult, GetExternalTablesOutput
 export const getExternalTables: typeof import("./getExternalTables").getExternalTables = null as any;
 export const getExternalTablesOutput: typeof import("./getExternalTables").getExternalTablesOutput = null as any;
 utilities.lazyLoad(exports, ["getExternalTables","getExternalTablesOutput"], () => require("./getExternalTables"));
+
+export { GetExternalVolumesArgs, GetExternalVolumesResult, GetExternalVolumesOutputArgs } from "./getExternalVolumes";
+export const getExternalVolumes: typeof import("./getExternalVolumes").getExternalVolumes = null as any;
+export const getExternalVolumesOutput: typeof import("./getExternalVolumes").getExternalVolumesOutput = null as any;
+utilities.lazyLoad(exports, ["getExternalVolumes","getExternalVolumesOutput"], () => require("./getExternalVolumes"));
 
 export { GetFailoverGroupsArgs, GetFailoverGroupsResult, GetFailoverGroupsOutputArgs } from "./getFailoverGroups";
 export const getFailoverGroups: typeof import("./getFailoverGroups").getFailoverGroups = null as any;
@@ -818,6 +848,11 @@ export type Warehouse = import("./warehouse").Warehouse;
 export const Warehouse: typeof import("./warehouse").Warehouse = null as any;
 utilities.lazyLoad(exports, ["Warehouse"], () => require("./warehouse"));
 
+export { WarehouseAdaptiveArgs, WarehouseAdaptiveState } from "./warehouseAdaptive";
+export type WarehouseAdaptive = import("./warehouseAdaptive").WarehouseAdaptive;
+export const WarehouseAdaptive: typeof import("./warehouseAdaptive").WarehouseAdaptive = null as any;
+utilities.lazyLoad(exports, ["WarehouseAdaptive"], () => require("./warehouseAdaptive"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -854,6 +889,14 @@ const _module = {
                 return new ApiIntegration(name, <any>undefined, { urn })
             case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
                 return new AuthenticationPolicy(name, <any>undefined, { urn })
+            case "snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue":
+                return new CatalogIntegrationAwsGlue(name, <any>undefined, { urn })
+            case "snowflake:index/catalogIntegrationIcebergRest:CatalogIntegrationIcebergRest":
+                return new CatalogIntegrationIcebergRest(name, <any>undefined, { urn })
+            case "snowflake:index/catalogIntegrationObjectStorage:CatalogIntegrationObjectStorage":
+                return new CatalogIntegrationObjectStorage(name, <any>undefined, { urn })
+            case "snowflake:index/catalogIntegrationOpenCatalog:CatalogIntegrationOpenCatalog":
+                return new CatalogIntegrationOpenCatalog(name, <any>undefined, { urn })
             case "snowflake:index/computePool:ComputePool":
                 return new ComputePool(name, <any>undefined, { urn })
             case "snowflake:index/cortexSearchService:CortexSearchService":
@@ -1046,6 +1089,8 @@ const _module = {
                 return new View(name, <any>undefined, { urn })
             case "snowflake:index/warehouse:Warehouse":
                 return new Warehouse(name, <any>undefined, { urn })
+            case "snowflake:index/warehouseAdaptive:WarehouseAdaptive":
+                return new WarehouseAdaptive(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -1062,6 +1107,10 @@ pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationInteg
 pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithJwtBearer", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/authenticationPolicy", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationAwsGlue", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationIcebergRest", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationObjectStorage", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationOpenCatalog", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/computePool", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/cortexSearchService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/currentAccount", _module)
@@ -1158,6 +1207,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/userProgrammaticAccess
 pulumi.runtime.registerResourceModule("snowflake", "index/userPublicKeys", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouse", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/warehouseAdaptive", _module)
 pulumi.runtime.registerResourcePackage("snowflake", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

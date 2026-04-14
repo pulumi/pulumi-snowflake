@@ -95,7 +95,6 @@ namespace Pulumi.Snowflake
     ///         {
     ///             "col1",
     ///         },
-    ///         Comment = "hello world",
     ///     });
     /// 
     ///     var foreignKey = new Snowflake.Index.TableConstraint("foreign_key", new()
@@ -121,7 +120,6 @@ namespace Pulumi.Snowflake
     ///         Enforced = false,
     ///         Deferrable = false,
     ///         Initially = "IMMEDIATE",
-    ///         Comment = "hello fk",
     ///     });
     /// 
     ///     var unique = new Snowflake.Index.TableConstraint("unique", new()
@@ -133,7 +131,6 @@ namespace Pulumi.Snowflake
     ///         {
     ///             "col3",
     ///         },
-    ///         Comment = "hello unique",
     ///     });
     /// 
     /// });

@@ -24,6 +24,10 @@
         "apiAuthenticationIntegrationWithJwtBearer.ts",
         "apiIntegration.ts",
         "authenticationPolicy.ts",
+        "catalogIntegrationAwsGlue.ts",
+        "catalogIntegrationIcebergRest.ts",
+        "catalogIntegrationObjectStorage.ts",
+        "catalogIntegrationOpenCatalog.ts",
         "computePool.ts",
         "config/index.ts",
         "config/vars.ts",
@@ -50,6 +54,7 @@
         "getAccounts.ts",
         "getAlerts.ts",
         "getAuthenticationPolicies.ts",
+        "getCatalogIntegrations.ts",
         "getComputePools.ts",
         "getConnections.ts",
         "getCortexSearchServices.ts",
@@ -62,6 +67,7 @@
         "getDynamicTables.ts",
         "getExternalFunctions.ts",
         "getExternalTables.ts",
+        "getExternalVolumes.ts",
         "getFailoverGroups.ts",
         "getFileFormats.ts",
         "getFunctions.ts",
@@ -182,6 +188,7 @@
         "userPublicKeys.ts",
         "utilities.ts",
         "view.ts",
-        "warehouse.ts"
+        "warehouse.ts",
+        "warehouseAdaptive.ts"
     ]
 }

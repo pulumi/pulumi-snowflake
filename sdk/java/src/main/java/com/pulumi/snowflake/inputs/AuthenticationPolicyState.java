@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.AuthenticationPolicyClientPolicyArgs;
 import com.pulumi.snowflake.inputs.AuthenticationPolicyDescribeOutputArgs;
 import com.pulumi.snowflake.inputs.AuthenticationPolicyMfaPolicyArgs;
 import com.pulumi.snowflake.inputs.AuthenticationPolicyPatPolicyArgs;
@@ -34,6 +35,21 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
      */
     public Optional<Output<List<String>>> authenticationMethods() {
         return Optional.ofNullable(this.authenticationMethods);
+    }
+
+    /**
+     * Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+     * 
+     */
+    @Import(name="clientPolicies")
+    private @Nullable Output<List<AuthenticationPolicyClientPolicyArgs>> clientPolicies;
+
+    /**
+     * @return Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+     * 
+     */
+    public Optional<Output<List<AuthenticationPolicyClientPolicyArgs>>> clientPolicies() {
+        return Optional.ofNullable(this.clientPolicies);
     }
 
     /**
@@ -258,6 +274,7 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
 
     private AuthenticationPolicyState(AuthenticationPolicyState $) {
         this.authenticationMethods = $.authenticationMethods;
+        this.clientPolicies = $.clientPolicies;
         this.clientTypes = $.clientTypes;
         this.comment = $.comment;
         this.database = $.database;
@@ -321,6 +338,37 @@ public final class AuthenticationPolicyState extends com.pulumi.resources.Resour
          */
         public Builder authenticationMethods(String... authenticationMethods) {
             return authenticationMethods(List.of(authenticationMethods));
+        }
+
+        /**
+         * @param clientPolicies Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientPolicies(@Nullable Output<List<AuthenticationPolicyClientPolicyArgs>> clientPolicies) {
+            $.clientPolicies = clientPolicies;
+            return this;
+        }
+
+        /**
+         * @param clientPolicies Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientPolicies(List<AuthenticationPolicyClientPolicyArgs> clientPolicies) {
+            return clientPolicies(Output.of(clientPolicies));
+        }
+
+        /**
+         * @param clientPolicies Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientPolicies(AuthenticationPolicyClientPolicyArgs... clientPolicies) {
+            return clientPolicies(List.of(clientPolicies));
         }
 
         /**

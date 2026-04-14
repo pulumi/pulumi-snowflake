@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class AuthenticationPolicyDescribeOutput
     {
         public readonly string? AuthenticationMethods;
+        public readonly string? ClientPolicy;
         public readonly string? ClientTypes;
         public readonly string? Comment;
         public readonly string? MfaEnrollment;
@@ -27,6 +28,8 @@ namespace Pulumi.Snowflake.Outputs
         [OutputConstructor]
         private AuthenticationPolicyDescribeOutput(
             string? authenticationMethods,
+
+            string? clientPolicy,
 
             string? clientTypes,
 
@@ -47,6 +50,7 @@ namespace Pulumi.Snowflake.Outputs
             string? workloadIdentityPolicy)
         {
             AuthenticationMethods = authenticationMethods;
+            ClientPolicy = clientPolicy;
             ClientTypes = clientTypes;
             Comment = comment;
             MfaEnrollment = mfaEnrollment;

@@ -19,6 +19,12 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? Comment { get; set; }
 
         /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether the fact is private.
+        /// </summary>
+        [Input("isPrivate")]
+        public Input<string>? IsPrivate { get; set; }
+
+        /// <summary>
         /// Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `"\"&lt;table_alias&gt;\".\"&lt;semantic_expression_name&gt;\""`.
         /// </summary>
         [Input("qualifiedExpressionName", required: true)]

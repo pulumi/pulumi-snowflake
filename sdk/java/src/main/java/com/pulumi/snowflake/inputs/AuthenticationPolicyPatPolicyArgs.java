@@ -47,18 +47,33 @@ public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the network policy evaluation for the PAT.
+     * Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      * 
      */
     @Import(name="networkPolicyEvaluation")
     private @Nullable Output<String> networkPolicyEvaluation;
 
     /**
-     * @return Specifies the network policy evaluation for the PAT.
+     * @return Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      * 
      */
     public Optional<Output<String>> networkPolicyEvaluation() {
         return Optional.ofNullable(this.networkPolicyEvaluation);
+    }
+
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Import(name="requireRoleRestrictionForServiceUsers")
+    private @Nullable Output<String> requireRoleRestrictionForServiceUsers;
+
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<Output<String>> requireRoleRestrictionForServiceUsers() {
+        return Optional.ofNullable(this.requireRoleRestrictionForServiceUsers);
     }
 
     private AuthenticationPolicyPatPolicyArgs() {}
@@ -67,6 +82,7 @@ public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resource
         this.defaultExpiryInDays = $.defaultExpiryInDays;
         this.maxExpiryInDays = $.maxExpiryInDays;
         this.networkPolicyEvaluation = $.networkPolicyEvaluation;
+        this.requireRoleRestrictionForServiceUsers = $.requireRoleRestrictionForServiceUsers;
     }
 
     public static Builder builder() {
@@ -130,7 +146,7 @@ public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param networkPolicyEvaluation Specifies the network policy evaluation for the PAT.
+         * @param networkPolicyEvaluation Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
          * 
          * @return builder
          * 
@@ -141,13 +157,34 @@ public final class AuthenticationPolicyPatPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param networkPolicyEvaluation Specifies the network policy evaluation for the PAT.
+         * @param networkPolicyEvaluation Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
          * 
          * @return builder
          * 
          */
         public Builder networkPolicyEvaluation(String networkPolicyEvaluation) {
             return networkPolicyEvaluation(Output.of(networkPolicyEvaluation));
+        }
+
+        /**
+         * @param requireRoleRestrictionForServiceUsers (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireRoleRestrictionForServiceUsers(@Nullable Output<String> requireRoleRestrictionForServiceUsers) {
+            $.requireRoleRestrictionForServiceUsers = requireRoleRestrictionForServiceUsers;
+            return this;
+        }
+
+        /**
+         * @param requireRoleRestrictionForServiceUsers (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireRoleRestrictionForServiceUsers(String requireRoleRestrictionForServiceUsers) {
+            return requireRoleRestrictionForServiceUsers(Output.of(requireRoleRestrictionForServiceUsers));
         }
 
         public AuthenticationPolicyPatPolicyArgs build() {

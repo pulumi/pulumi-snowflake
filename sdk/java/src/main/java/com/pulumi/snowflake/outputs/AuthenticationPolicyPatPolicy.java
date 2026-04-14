@@ -23,10 +23,15 @@ public final class AuthenticationPolicyPatPolicy {
      */
     private @Nullable Integer maxExpiryInDays;
     /**
-     * @return Specifies the network policy evaluation for the PAT.
+     * @return Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      * 
      */
     private @Nullable String networkPolicyEvaluation;
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    private @Nullable String requireRoleRestrictionForServiceUsers;
 
     private AuthenticationPolicyPatPolicy() {}
     /**
@@ -44,11 +49,18 @@ public final class AuthenticationPolicyPatPolicy {
         return Optional.ofNullable(this.maxExpiryInDays);
     }
     /**
-     * @return Specifies the network policy evaluation for the PAT.
+     * @return Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      * 
      */
     public Optional<String> networkPolicyEvaluation() {
         return Optional.ofNullable(this.networkPolicyEvaluation);
+    }
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<String> requireRoleRestrictionForServiceUsers() {
+        return Optional.ofNullable(this.requireRoleRestrictionForServiceUsers);
     }
 
     public static Builder builder() {
@@ -63,12 +75,14 @@ public final class AuthenticationPolicyPatPolicy {
         private @Nullable Integer defaultExpiryInDays;
         private @Nullable Integer maxExpiryInDays;
         private @Nullable String networkPolicyEvaluation;
+        private @Nullable String requireRoleRestrictionForServiceUsers;
         public Builder() {}
         public Builder(AuthenticationPolicyPatPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultExpiryInDays = defaults.defaultExpiryInDays;
     	      this.maxExpiryInDays = defaults.maxExpiryInDays;
     	      this.networkPolicyEvaluation = defaults.networkPolicyEvaluation;
+    	      this.requireRoleRestrictionForServiceUsers = defaults.requireRoleRestrictionForServiceUsers;
         }
 
         @CustomType.Setter
@@ -89,11 +103,18 @@ public final class AuthenticationPolicyPatPolicy {
             this.networkPolicyEvaluation = networkPolicyEvaluation;
             return this;
         }
+        @CustomType.Setter
+        public Builder requireRoleRestrictionForServiceUsers(@Nullable String requireRoleRestrictionForServiceUsers) {
+
+            this.requireRoleRestrictionForServiceUsers = requireRoleRestrictionForServiceUsers;
+            return this;
+        }
         public AuthenticationPolicyPatPolicy build() {
             final var _resultValue = new AuthenticationPolicyPatPolicy();
             _resultValue.defaultExpiryInDays = defaultExpiryInDays;
             _resultValue.maxExpiryInDays = maxExpiryInDays;
             _resultValue.networkPolicyEvaluation = networkPolicyEvaluation;
+            _resultValue.requireRoleRestrictionForServiceUsers = requireRoleRestrictionForServiceUsers;
             return _resultValue;
         }
     }

@@ -20,6 +20,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? Name;
         public readonly string? Owner;
         public readonly string? OwnerRoleType;
+        public readonly string? Propagate;
         public readonly string? SchemaName;
 
         [OutputConstructor]
@@ -38,6 +39,8 @@ namespace Pulumi.Snowflake.Outputs
 
             string? ownerRoleType,
 
+            string? propagate,
+
             string? schemaName)
         {
             AllowedValues = allowedValues;
@@ -47,6 +50,7 @@ namespace Pulumi.Snowflake.Outputs
             Name = name;
             Owner = owner;
             OwnerRoleType = ownerRoleType;
+            Propagate = propagate;
             SchemaName = schemaName;
         }
     }

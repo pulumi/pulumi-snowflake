@@ -31,15 +31,56 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.NewNotificationIntegration(ctx, "integration", &snowflake.NotificationIntegrationArgs{
+//			// basic resource with AZURE_STORAGE_QUEUE
+//			_, err := snowflake.NewNotificationIntegration(ctx, "azure", &snowflake.NotificationIntegrationArgs{
 //				Name:                        pulumi.String("notification"),
-//				Comment:                     pulumi.String("A notification integration."),
 //				Enabled:                     pulumi.Bool(true),
-//				Type:                        pulumi.String("QUEUE"),
-//				Direction:                   pulumi.String("OUTBOUND"),
 //				NotificationProvider:        pulumi.String("AZURE_STORAGE_QUEUE"),
-//				AzureStorageQueuePrimaryUri: pulumi.String("..."),
-//				AzureTenantId:               pulumi.String("..."),
+//				AzureStorageQueuePrimaryUri: pulumi.String("https://myaccount.queue.core.windows.net/myqueue"),
+//				AzureTenantId:               pulumi.String("a123b4c5-1234-123a-a12b-1a23b45678c9"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// basic resource with AWS_SNS
+//			_, err = snowflake.NewNotificationIntegration(ctx, "aws", &snowflake.NotificationIntegrationArgs{
+//				Name:                 pulumi.String("notification"),
+//				Enabled:              pulumi.Bool(true),
+//				NotificationProvider: pulumi.String("AWS_SNS"),
+//				AwsSnsTopicArn:       pulumi.String("arn:aws:sns:us-east-1:001234567890:mytopic"),
+//				AwsSnsRoleArn:        pulumi.String("arn:aws:iam::001234567890:role/myrole"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// basic resource with GCP_PUBSUB (subscription)
+//			_, err = snowflake.NewNotificationIntegration(ctx, "gcp_subscription", &snowflake.NotificationIntegrationArgs{
+//				Name:                      pulumi.String("notification"),
+//				Enabled:                   pulumi.Bool(true),
+//				NotificationProvider:      pulumi.String("GCP_PUBSUB"),
+//				GcpPubsubSubscriptionName: pulumi.String("projects/myproject/subscriptions/mysubscription"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// basic resource with GCP_PUBSUB (topic)
+//			_, err = snowflake.NewNotificationIntegration(ctx, "gcp_topic", &snowflake.NotificationIntegrationArgs{
+//				Name:                 pulumi.String("notification"),
+//				Enabled:              pulumi.Bool(true),
+//				NotificationProvider: pulumi.String("GCP_PUBSUB"),
+//				GcpPubsubTopicName:   pulumi.String("projects/myproject/topics/mytopic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// resource with all non-provider-specific fields set
+//			_, err = snowflake.NewNotificationIntegration(ctx, "complete", &snowflake.NotificationIntegrationArgs{
+//				Name:                        pulumi.String("notification"),
+//				Enabled:                     pulumi.Bool(true),
+//				Comment:                     pulumi.String("A notification integration."),
+//				NotificationProvider:        pulumi.String("AZURE_STORAGE_QUEUE"),
+//				AzureStorageQueuePrimaryUri: pulumi.String("https://myaccount.queue.core.windows.net/myqueue"),
+//				AzureTenantId:               pulumi.String("a123b4c5-1234-123a-a12b-1a23b45678c9"),
 //			})
 //			if err != nil {
 //				return err

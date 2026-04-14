@@ -26,19 +26,30 @@ class TagArgs:
                  allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 no_allowed_values: Optional[pulumi.Input[_builtins.bool]] = None,
+                 on_conflict: Optional[pulumi.Input['TagOnConflictArgs']] = None,
+                 ordered_allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 propagate: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
 
         :param pulumi.Input[_builtins.str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `no_allowed_values` and `ordered_allowed_values`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the tag.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.bool] no_allowed_values: When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
+        :param pulumi.Input['TagOnConflictArgs'] on_conflict: Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ordered_allowed_values: Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`.
+        :param pulumi.Input[_builtins.str] propagate: Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
+        if allowed_values is not None:
+            warnings.warn("""This field is deprecated and will be removed in the next major version. Use `ordered_allowed_values` instead.""", DeprecationWarning)
+            pulumi.log.warn("""allowed_values is deprecated: This field is deprecated and will be removed in the next major version. Use `ordered_allowed_values` instead.""")
         if allowed_values is not None:
             pulumi.set(__self__, "allowed_values", allowed_values)
         if comment is not None:
@@ -47,6 +58,14 @@ class TagArgs:
             pulumi.set(__self__, "masking_policies", masking_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if no_allowed_values is not None:
+            pulumi.set(__self__, "no_allowed_values", no_allowed_values)
+        if on_conflict is not None:
+            pulumi.set(__self__, "on_conflict", on_conflict)
+        if ordered_allowed_values is not None:
+            pulumi.set(__self__, "ordered_allowed_values", ordered_allowed_values)
+        if propagate is not None:
+            pulumi.set(__self__, "propagate", propagate)
 
     @_builtins.property
     @pulumi.getter
@@ -74,9 +93,10 @@ class TagArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the next major version. Use `ordered_allowed_values` instead.""")
     def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of allowed values for the tag.
+        Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `no_allowed_values` and `ordered_allowed_values`.
         """
         return pulumi.get(self, "allowed_values")
 
@@ -120,6 +140,54 @@ class TagArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="noAllowedValues")
+    def no_allowed_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
+        """
+        return pulumi.get(self, "no_allowed_values")
+
+    @no_allowed_values.setter
+    def no_allowed_values(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "no_allowed_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="onConflict")
+    def on_conflict(self) -> Optional[pulumi.Input['TagOnConflictArgs']]:
+        """
+        Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "on_conflict")
+
+    @on_conflict.setter
+    def on_conflict(self, value: Optional[pulumi.Input['TagOnConflictArgs']]):
+        pulumi.set(self, "on_conflict", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orderedAllowedValues")
+    def ordered_allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`.
+        """
+        return pulumi.get(self, "ordered_allowed_values")
+
+    @ordered_allowed_values.setter
+    def ordered_allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ordered_allowed_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def propagate(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+        """
+        return pulumi.get(self, "propagate")
+
+    @propagate.setter
+    def propagate(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "propagate", value)
+
 
 @pulumi.input_type
 class _TagState:
@@ -130,20 +198,31 @@ class _TagState:
                  fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
                  masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 no_allowed_values: Optional[pulumi.Input[_builtins.bool]] = None,
+                 on_conflict: Optional[pulumi.Input['TagOnConflictArgs']] = None,
+                 ordered_allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 propagate: Optional[pulumi.Input[_builtins.str]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TagShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `no_allowed_values` and `ordered_allowed_values`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the tag.
         :param pulumi.Input[_builtins.str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.bool] no_allowed_values: When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
+        :param pulumi.Input['TagOnConflictArgs'] on_conflict: Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ordered_allowed_values: Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`.
+        :param pulumi.Input[_builtins.str] propagate: Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['TagShowOutputArgs']]] show_outputs: Outputs the result of `SHOW TAGS` for the given tag.
         """
+        if allowed_values is not None:
+            warnings.warn("""This field is deprecated and will be removed in the next major version. Use `ordered_allowed_values` instead.""", DeprecationWarning)
+            pulumi.log.warn("""allowed_values is deprecated: This field is deprecated and will be removed in the next major version. Use `ordered_allowed_values` instead.""")
         if allowed_values is not None:
             pulumi.set(__self__, "allowed_values", allowed_values)
         if comment is not None:
@@ -156,6 +235,14 @@ class _TagState:
             pulumi.set(__self__, "masking_policies", masking_policies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if no_allowed_values is not None:
+            pulumi.set(__self__, "no_allowed_values", no_allowed_values)
+        if on_conflict is not None:
+            pulumi.set(__self__, "on_conflict", on_conflict)
+        if ordered_allowed_values is not None:
+            pulumi.set(__self__, "ordered_allowed_values", ordered_allowed_values)
+        if propagate is not None:
+            pulumi.set(__self__, "propagate", propagate)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if show_outputs is not None:
@@ -163,9 +250,10 @@ class _TagState:
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the next major version. Use `ordered_allowed_values` instead.""")
     def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of allowed values for the tag.
+        Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `no_allowed_values` and `ordered_allowed_values`.
         """
         return pulumi.get(self, "allowed_values")
 
@@ -234,6 +322,54 @@ class _TagState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="noAllowedValues")
+    def no_allowed_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
+        """
+        return pulumi.get(self, "no_allowed_values")
+
+    @no_allowed_values.setter
+    def no_allowed_values(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "no_allowed_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="onConflict")
+    def on_conflict(self) -> Optional[pulumi.Input['TagOnConflictArgs']]:
+        """
+        Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "on_conflict")
+
+    @on_conflict.setter
+    def on_conflict(self, value: Optional[pulumi.Input['TagOnConflictArgs']]):
+        pulumi.set(self, "on_conflict", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orderedAllowedValues")
+    def ordered_allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`.
+        """
+        return pulumi.get(self, "ordered_allowed_values")
+
+    @ordered_allowed_values.setter
+    def ordered_allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ordered_allowed_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def propagate(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+        """
+        return pulumi.get(self, "propagate")
+
+    @propagate.setter
+    def propagate(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "propagate", value)
+
+    @_builtins.property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -269,12 +405,18 @@ class Tag(pulumi.CustomResource):
                  database: Optional[pulumi.Input[_builtins.str]] = None,
                  masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 no_allowed_values: Optional[pulumi.Input[_builtins.bool]] = None,
+                 on_conflict: Optional[pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']]] = None,
+                 ordered_allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 propagate: Optional[pulumi.Input[_builtins.str]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         > **Required warehouse** For this resource, the provider now uses [tag references](https://docs.snowflake.com/en/sql-reference/functions/tag_references) to get information about masking policies attached to tags. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
 
-        > **Current limitations** Recently, the tags propagation was introduced (check [2025-05-14-tag-propagation](https://docs.snowflake.com/en/release-notes/2025/other/2025-05-14-tag-propagation)). This resource is not currently supporting the `ON_CONFLICT` attribute and the tag allowed values ordering. If needed, use the `Execute` for the time-being. This limitation will be addressed in the next versions of the provider.
+        > **Deprecation notice** The `allowed_values` field (unordered set) is deprecated and will be removed in the next major version. Use `ordered_allowed_values` (ordered list) instead. `ordered_allowed_values` preserves the order you specify, which is required when using `on_conflict.allowed_values_sequence` for [tag propagation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation) conflict resolution. See the migration guide for details.
+
+        > **Note** A new `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experimental feature is available for this resource. When enabled, it improves how `allowed_values` / `ordered_allowed_values` are handled — removing the field from the configuration correctly reverts the tag to accepting any value, and a new `no_allowed_values` field allows you to explicitly block any value from being set on the tag (note that sometimes to enter this state, the provider may temporarily add and drop `SNOWFLAKE_TERRAFORM_TEMP_TAG_ALLOWED_VALUE` value). Without the flag, the behavior is unchanged from previous versions and the `no_allowed_values` field has no effect. To enable it, add `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` to the `experimental_features_enabled` provider field. See the migration guide for more details.
 
         Resource used to manage tags. For more information, check [tag documentation](https://docs.snowflake.com/en/sql-reference/sql/create-tag). For assigning tags to Snowflake objects, see tag_association resource.
 
@@ -287,11 +429,15 @@ class Tag(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `no_allowed_values` and `ordered_allowed_values`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the tag.
         :param pulumi.Input[_builtins.str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.bool] no_allowed_values: When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
+        :param pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']] on_conflict: Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ordered_allowed_values: Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`.
+        :param pulumi.Input[_builtins.str] propagate: Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         ...
@@ -303,7 +449,9 @@ class Tag(pulumi.CustomResource):
         """
         > **Required warehouse** For this resource, the provider now uses [tag references](https://docs.snowflake.com/en/sql-reference/functions/tag_references) to get information about masking policies attached to tags. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
 
-        > **Current limitations** Recently, the tags propagation was introduced (check [2025-05-14-tag-propagation](https://docs.snowflake.com/en/release-notes/2025/other/2025-05-14-tag-propagation)). This resource is not currently supporting the `ON_CONFLICT` attribute and the tag allowed values ordering. If needed, use the `Execute` for the time-being. This limitation will be addressed in the next versions of the provider.
+        > **Deprecation notice** The `allowed_values` field (unordered set) is deprecated and will be removed in the next major version. Use `ordered_allowed_values` (ordered list) instead. `ordered_allowed_values` preserves the order you specify, which is required when using `on_conflict.allowed_values_sequence` for [tag propagation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation) conflict resolution. See the migration guide for details.
+
+        > **Note** A new `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experimental feature is available for this resource. When enabled, it improves how `allowed_values` / `ordered_allowed_values` are handled — removing the field from the configuration correctly reverts the tag to accepting any value, and a new `no_allowed_values` field allows you to explicitly block any value from being set on the tag (note that sometimes to enter this state, the provider may temporarily add and drop `SNOWFLAKE_TERRAFORM_TEMP_TAG_ALLOWED_VALUE` value). Without the flag, the behavior is unchanged from previous versions and the `no_allowed_values` field has no effect. To enable it, add `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` to the `experimental_features_enabled` provider field. See the migration guide for more details.
 
         Resource used to manage tags. For more information, check [tag documentation](https://docs.snowflake.com/en/sql-reference/sql/create-tag). For assigning tags to Snowflake objects, see tag_association resource.
 
@@ -334,6 +482,10 @@ class Tag(pulumi.CustomResource):
                  database: Optional[pulumi.Input[_builtins.str]] = None,
                  masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 no_allowed_values: Optional[pulumi.Input[_builtins.bool]] = None,
+                 on_conflict: Optional[pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']]] = None,
+                 ordered_allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 propagate: Optional[pulumi.Input[_builtins.str]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -351,6 +503,10 @@ class Tag(pulumi.CustomResource):
             __props__.__dict__["database"] = database
             __props__.__dict__["masking_policies"] = masking_policies
             __props__.__dict__["name"] = name
+            __props__.__dict__["no_allowed_values"] = no_allowed_values
+            __props__.__dict__["on_conflict"] = on_conflict
+            __props__.__dict__["ordered_allowed_values"] = ordered_allowed_values
+            __props__.__dict__["propagate"] = propagate
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
@@ -372,6 +528,10 @@ class Tag(pulumi.CustomResource):
             fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
             masking_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            no_allowed_values: Optional[pulumi.Input[_builtins.bool]] = None,
+            on_conflict: Optional[pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']]] = None,
+            ordered_allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            propagate: Optional[pulumi.Input[_builtins.str]] = None,
             schema: Optional[pulumi.Input[_builtins.str]] = None,
             show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict']]]]] = None) -> 'Tag':
         """
@@ -381,12 +541,16 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `no_allowed_values` and `ordered_allowed_values`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the tag.
         :param pulumi.Input[_builtins.str] database: The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.bool] no_allowed_values: When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
+        :param pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']] on_conflict: Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ordered_allowed_values: Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`.
+        :param pulumi.Input[_builtins.str] propagate: Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW TAGS` for the given tag.
         """
@@ -400,15 +564,20 @@ class Tag(pulumi.CustomResource):
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["masking_policies"] = masking_policies
         __props__.__dict__["name"] = name
+        __props__.__dict__["no_allowed_values"] = no_allowed_values
+        __props__.__dict__["on_conflict"] = on_conflict
+        __props__.__dict__["ordered_allowed_values"] = ordered_allowed_values
+        __props__.__dict__["propagate"] = propagate
         __props__.__dict__["schema"] = schema
         __props__.__dict__["show_outputs"] = show_outputs
         return Tag(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
+    @_utilities.deprecated("""This field is deprecated and will be removed in the next major version. Use `ordered_allowed_values` instead.""")
     def allowed_values(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Set of allowed values for the tag.
+        Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `no_allowed_values` and `ordered_allowed_values`.
         """
         return pulumi.get(self, "allowed_values")
 
@@ -451,6 +620,38 @@ class Tag(pulumi.CustomResource):
         Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="noAllowedValues")
+    def no_allowed_values(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
+        """
+        return pulumi.get(self, "no_allowed_values")
+
+    @_builtins.property
+    @pulumi.getter(name="onConflict")
+    def on_conflict(self) -> pulumi.Output[Optional['outputs.TagOnConflict']]:
+        """
+        Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "on_conflict")
+
+    @_builtins.property
+    @pulumi.getter(name="orderedAllowedValues")
+    def ordered_allowed_values(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`.
+        """
+        return pulumi.get(self, "ordered_allowed_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def propagate(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+        """
+        return pulumi.get(self, "propagate")
 
     @_builtins.property
     @pulumi.getter

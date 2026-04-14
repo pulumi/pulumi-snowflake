@@ -22,9 +22,13 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly int? MaxExpiryInDays;
         /// <summary>
-        /// Specifies the network policy evaluation for the PAT.
+        /// Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
         /// </summary>
         public readonly string? NetworkPolicyEvaluation;
+        /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// </summary>
+        public readonly string? RequireRoleRestrictionForServiceUsers;
 
         [OutputConstructor]
         private AuthenticationPolicyPatPolicy(
@@ -32,11 +36,14 @@ namespace Pulumi.Snowflake.Outputs
 
             int? maxExpiryInDays,
 
-            string? networkPolicyEvaluation)
+            string? networkPolicyEvaluation,
+
+            string? requireRoleRestrictionForServiceUsers)
         {
             DefaultExpiryInDays = defaultExpiryInDays;
             MaxExpiryInDays = maxExpiryInDays;
             NetworkPolicyEvaluation = networkPolicyEvaluation;
+            RequireRoleRestrictionForServiceUsers = requireRoleRestrictionForServiceUsers;
         }
     }
 }

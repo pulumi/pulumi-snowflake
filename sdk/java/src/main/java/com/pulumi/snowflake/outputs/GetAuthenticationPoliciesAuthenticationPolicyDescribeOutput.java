@@ -11,6 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
     private String authenticationMethods;
+    private String clientPolicy;
     private String clientTypes;
     private String comment;
     private String mfaEnrollment;
@@ -24,6 +25,9 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
     private GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput() {}
     public String authenticationMethods() {
         return this.authenticationMethods;
+    }
+    public String clientPolicy() {
+        return this.clientPolicy;
     }
     public String clientTypes() {
         return this.clientTypes;
@@ -63,6 +67,7 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
     @CustomType.Builder
     public static final class Builder {
         private String authenticationMethods;
+        private String clientPolicy;
         private String clientTypes;
         private String comment;
         private String mfaEnrollment;
@@ -76,6 +81,7 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
         public Builder(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationMethods = defaults.authenticationMethods;
+    	      this.clientPolicy = defaults.clientPolicy;
     	      this.clientTypes = defaults.clientTypes;
     	      this.comment = defaults.comment;
     	      this.mfaEnrollment = defaults.mfaEnrollment;
@@ -93,6 +99,14 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
               throw new MissingRequiredPropertyException("GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput", "authenticationMethods");
             }
             this.authenticationMethods = authenticationMethods;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientPolicy(String clientPolicy) {
+            if (clientPolicy == null) {
+              throw new MissingRequiredPropertyException("GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput", "clientPolicy");
+            }
+            this.clientPolicy = clientPolicy;
             return this;
         }
         @CustomType.Setter
@@ -170,6 +184,7 @@ public final class GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
         public GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput build() {
             final var _resultValue = new GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput();
             _resultValue.authenticationMethods = authenticationMethods;
+            _resultValue.clientPolicy = clientPolicy;
             _resultValue.clientTypes = clientTypes;
             _resultValue.comment = comment;
             _resultValue.mfaEnrollment = mfaEnrollment;

@@ -12,6 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AuthenticationPolicyDescribeOutput {
     private @Nullable String authenticationMethods;
+    private @Nullable String clientPolicy;
     private @Nullable String clientTypes;
     private @Nullable String comment;
     private @Nullable String mfaEnrollment;
@@ -25,6 +26,9 @@ public final class AuthenticationPolicyDescribeOutput {
     private AuthenticationPolicyDescribeOutput() {}
     public Optional<String> authenticationMethods() {
         return Optional.ofNullable(this.authenticationMethods);
+    }
+    public Optional<String> clientPolicy() {
+        return Optional.ofNullable(this.clientPolicy);
     }
     public Optional<String> clientTypes() {
         return Optional.ofNullable(this.clientTypes);
@@ -64,6 +68,7 @@ public final class AuthenticationPolicyDescribeOutput {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String authenticationMethods;
+        private @Nullable String clientPolicy;
         private @Nullable String clientTypes;
         private @Nullable String comment;
         private @Nullable String mfaEnrollment;
@@ -77,6 +82,7 @@ public final class AuthenticationPolicyDescribeOutput {
         public Builder(AuthenticationPolicyDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationMethods = defaults.authenticationMethods;
+    	      this.clientPolicy = defaults.clientPolicy;
     	      this.clientTypes = defaults.clientTypes;
     	      this.comment = defaults.comment;
     	      this.mfaEnrollment = defaults.mfaEnrollment;
@@ -92,6 +98,12 @@ public final class AuthenticationPolicyDescribeOutput {
         public Builder authenticationMethods(@Nullable String authenticationMethods) {
 
             this.authenticationMethods = authenticationMethods;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientPolicy(@Nullable String clientPolicy) {
+
+            this.clientPolicy = clientPolicy;
             return this;
         }
         @CustomType.Setter
@@ -151,6 +163,7 @@ public final class AuthenticationPolicyDescribeOutput {
         public AuthenticationPolicyDescribeOutput build() {
             final var _resultValue = new AuthenticationPolicyDescribeOutput();
             _resultValue.authenticationMethods = authenticationMethods;
+            _resultValue.clientPolicy = clientPolicy;
             _resultValue.clientTypes = clientTypes;
             _resultValue.comment = comment;
             _resultValue.mfaEnrollment = mfaEnrollment;

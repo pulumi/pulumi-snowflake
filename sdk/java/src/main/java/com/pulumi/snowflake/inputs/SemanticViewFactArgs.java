@@ -33,6 +33,21 @@ public final class SemanticViewFactArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+     * 
+     */
+    @Import(name="isPrivate")
+    private @Nullable Output<String> isPrivate;
+
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+     * 
+     */
+    public Optional<Output<String>> isPrivate() {
+        return Optional.ofNullable(this.isPrivate);
+    }
+
+    /**
      * Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
      * 
      */
@@ -81,6 +96,7 @@ public final class SemanticViewFactArgs extends com.pulumi.resources.ResourceArg
 
     private SemanticViewFactArgs(SemanticViewFactArgs $) {
         this.comment = $.comment;
+        this.isPrivate = $.isPrivate;
         this.qualifiedExpressionName = $.qualifiedExpressionName;
         this.sqlExpression = $.sqlExpression;
         this.synonyms = $.synonyms;
@@ -123,6 +139,27 @@ public final class SemanticViewFactArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
+        }
+
+        /**
+         * @param isPrivate (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isPrivate(@Nullable Output<String> isPrivate) {
+            $.isPrivate = isPrivate;
+            return this;
+        }
+
+        /**
+         * @param isPrivate (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isPrivate(String isPrivate) {
+            return isPrivate(Output.of(isPrivate));
         }
 
         /**

@@ -5549,8 +5549,115 @@ func (o ApiAuthenticationIntegrationWithJwtBearerShowOutputArrayOutput) Index(i 
 	}).(ApiAuthenticationIntegrationWithJwtBearerShowOutputOutput)
 }
 
+type AuthenticationPolicyClientPolicy struct {
+	// The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+	ClientType string `pulumi:"clientType"`
+	// Minimum allowed version for this client/driver type (e.g. '1.14.1').
+	MinimumVersion string `pulumi:"minimumVersion"`
+}
+
+// AuthenticationPolicyClientPolicyInput is an input type that accepts AuthenticationPolicyClientPolicyArgs and AuthenticationPolicyClientPolicyOutput values.
+// You can construct a concrete instance of `AuthenticationPolicyClientPolicyInput` via:
+//
+//	AuthenticationPolicyClientPolicyArgs{...}
+type AuthenticationPolicyClientPolicyInput interface {
+	pulumi.Input
+
+	ToAuthenticationPolicyClientPolicyOutput() AuthenticationPolicyClientPolicyOutput
+	ToAuthenticationPolicyClientPolicyOutputWithContext(context.Context) AuthenticationPolicyClientPolicyOutput
+}
+
+type AuthenticationPolicyClientPolicyArgs struct {
+	// The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+	ClientType pulumi.StringInput `pulumi:"clientType"`
+	// Minimum allowed version for this client/driver type (e.g. '1.14.1').
+	MinimumVersion pulumi.StringInput `pulumi:"minimumVersion"`
+}
+
+func (AuthenticationPolicyClientPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationPolicyClientPolicy)(nil)).Elem()
+}
+
+func (i AuthenticationPolicyClientPolicyArgs) ToAuthenticationPolicyClientPolicyOutput() AuthenticationPolicyClientPolicyOutput {
+	return i.ToAuthenticationPolicyClientPolicyOutputWithContext(context.Background())
+}
+
+func (i AuthenticationPolicyClientPolicyArgs) ToAuthenticationPolicyClientPolicyOutputWithContext(ctx context.Context) AuthenticationPolicyClientPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyClientPolicyOutput)
+}
+
+// AuthenticationPolicyClientPolicyArrayInput is an input type that accepts AuthenticationPolicyClientPolicyArray and AuthenticationPolicyClientPolicyArrayOutput values.
+// You can construct a concrete instance of `AuthenticationPolicyClientPolicyArrayInput` via:
+//
+//	AuthenticationPolicyClientPolicyArray{ AuthenticationPolicyClientPolicyArgs{...} }
+type AuthenticationPolicyClientPolicyArrayInput interface {
+	pulumi.Input
+
+	ToAuthenticationPolicyClientPolicyArrayOutput() AuthenticationPolicyClientPolicyArrayOutput
+	ToAuthenticationPolicyClientPolicyArrayOutputWithContext(context.Context) AuthenticationPolicyClientPolicyArrayOutput
+}
+
+type AuthenticationPolicyClientPolicyArray []AuthenticationPolicyClientPolicyInput
+
+func (AuthenticationPolicyClientPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthenticationPolicyClientPolicy)(nil)).Elem()
+}
+
+func (i AuthenticationPolicyClientPolicyArray) ToAuthenticationPolicyClientPolicyArrayOutput() AuthenticationPolicyClientPolicyArrayOutput {
+	return i.ToAuthenticationPolicyClientPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i AuthenticationPolicyClientPolicyArray) ToAuthenticationPolicyClientPolicyArrayOutputWithContext(ctx context.Context) AuthenticationPolicyClientPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPolicyClientPolicyArrayOutput)
+}
+
+type AuthenticationPolicyClientPolicyOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationPolicyClientPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationPolicyClientPolicy)(nil)).Elem()
+}
+
+func (o AuthenticationPolicyClientPolicyOutput) ToAuthenticationPolicyClientPolicyOutput() AuthenticationPolicyClientPolicyOutput {
+	return o
+}
+
+func (o AuthenticationPolicyClientPolicyOutput) ToAuthenticationPolicyClientPolicyOutputWithContext(ctx context.Context) AuthenticationPolicyClientPolicyOutput {
+	return o
+}
+
+// The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+func (o AuthenticationPolicyClientPolicyOutput) ClientType() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthenticationPolicyClientPolicy) string { return v.ClientType }).(pulumi.StringOutput)
+}
+
+// Minimum allowed version for this client/driver type (e.g. '1.14.1').
+func (o AuthenticationPolicyClientPolicyOutput) MinimumVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthenticationPolicyClientPolicy) string { return v.MinimumVersion }).(pulumi.StringOutput)
+}
+
+type AuthenticationPolicyClientPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationPolicyClientPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthenticationPolicyClientPolicy)(nil)).Elem()
+}
+
+func (o AuthenticationPolicyClientPolicyArrayOutput) ToAuthenticationPolicyClientPolicyArrayOutput() AuthenticationPolicyClientPolicyArrayOutput {
+	return o
+}
+
+func (o AuthenticationPolicyClientPolicyArrayOutput) ToAuthenticationPolicyClientPolicyArrayOutputWithContext(ctx context.Context) AuthenticationPolicyClientPolicyArrayOutput {
+	return o
+}
+
+func (o AuthenticationPolicyClientPolicyArrayOutput) Index(i pulumi.IntInput) AuthenticationPolicyClientPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthenticationPolicyClientPolicy {
+		return vs[0].([]AuthenticationPolicyClientPolicy)[vs[1].(int)]
+	}).(AuthenticationPolicyClientPolicyOutput)
+}
+
 type AuthenticationPolicyDescribeOutput struct {
 	AuthenticationMethods  *string `pulumi:"authenticationMethods"`
+	ClientPolicy           *string `pulumi:"clientPolicy"`
 	ClientTypes            *string `pulumi:"clientTypes"`
 	Comment                *string `pulumi:"comment"`
 	MfaEnrollment          *string `pulumi:"mfaEnrollment"`
@@ -5575,6 +5682,7 @@ type AuthenticationPolicyDescribeOutputInput interface {
 
 type AuthenticationPolicyDescribeOutputArgs struct {
 	AuthenticationMethods  pulumi.StringPtrInput `pulumi:"authenticationMethods"`
+	ClientPolicy           pulumi.StringPtrInput `pulumi:"clientPolicy"`
 	ClientTypes            pulumi.StringPtrInput `pulumi:"clientTypes"`
 	Comment                pulumi.StringPtrInput `pulumi:"comment"`
 	MfaEnrollment          pulumi.StringPtrInput `pulumi:"mfaEnrollment"`
@@ -5641,6 +5749,10 @@ func (o AuthenticationPolicyDescribeOutputOutput) AuthenticationMethods() pulumi
 	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.AuthenticationMethods }).(pulumi.StringPtrOutput)
 }
 
+func (o AuthenticationPolicyDescribeOutputOutput) ClientPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.ClientPolicy }).(pulumi.StringPtrOutput)
+}
+
 func (o AuthenticationPolicyDescribeOutputOutput) ClientTypes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyDescribeOutput) *string { return v.ClientTypes }).(pulumi.StringPtrOutput)
 }
@@ -5698,7 +5810,7 @@ func (o AuthenticationPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type AuthenticationPolicyMfaPolicy struct {
-	// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+	// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 	AllowedMethods []string `pulumi:"allowedMethods"`
 	// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
 	EnforceMfaOnExternalAuthentication *string `pulumi:"enforceMfaOnExternalAuthentication"`
@@ -5716,7 +5828,7 @@ type AuthenticationPolicyMfaPolicyInput interface {
 }
 
 type AuthenticationPolicyMfaPolicyArgs struct {
-	// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+	// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
 	// Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
 	EnforceMfaOnExternalAuthentication pulumi.StringPtrInput `pulumi:"enforceMfaOnExternalAuthentication"`
@@ -5799,7 +5911,7 @@ func (o AuthenticationPolicyMfaPolicyOutput) ToAuthenticationPolicyMfaPolicyPtrO
 	}).(AuthenticationPolicyMfaPolicyPtrOutput)
 }
 
-// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 func (o AuthenticationPolicyMfaPolicyOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthenticationPolicyMfaPolicy) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
@@ -5833,7 +5945,7 @@ func (o AuthenticationPolicyMfaPolicyPtrOutput) Elem() AuthenticationPolicyMfaPo
 	}).(AuthenticationPolicyMfaPolicyOutput)
 }
 
-// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
 func (o AuthenticationPolicyMfaPolicyPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicyMfaPolicy) []string {
 		if v == nil {
@@ -5858,8 +5970,10 @@ type AuthenticationPolicyPatPolicy struct {
 	DefaultExpiryInDays *int `pulumi:"defaultExpiryInDays"`
 	// Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
 	MaxExpiryInDays *int `pulumi:"maxExpiryInDays"`
-	// Specifies the network policy evaluation for the PAT.
+	// Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
 	NetworkPolicyEvaluation *string `pulumi:"networkPolicyEvaluation"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	RequireRoleRestrictionForServiceUsers *string `pulumi:"requireRoleRestrictionForServiceUsers"`
 }
 
 // AuthenticationPolicyPatPolicyInput is an input type that accepts AuthenticationPolicyPatPolicyArgs and AuthenticationPolicyPatPolicyOutput values.
@@ -5878,8 +5992,10 @@ type AuthenticationPolicyPatPolicyArgs struct {
 	DefaultExpiryInDays pulumi.IntPtrInput `pulumi:"defaultExpiryInDays"`
 	// Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
 	MaxExpiryInDays pulumi.IntPtrInput `pulumi:"maxExpiryInDays"`
-	// Specifies the network policy evaluation for the PAT.
+	// Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
 	NetworkPolicyEvaluation pulumi.StringPtrInput `pulumi:"networkPolicyEvaluation"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	RequireRoleRestrictionForServiceUsers pulumi.StringPtrInput `pulumi:"requireRoleRestrictionForServiceUsers"`
 }
 
 func (AuthenticationPolicyPatPolicyArgs) ElementType() reflect.Type {
@@ -5969,9 +6085,14 @@ func (o AuthenticationPolicyPatPolicyOutput) MaxExpiryInDays() pulumi.IntPtrOutp
 	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *int { return v.MaxExpiryInDays }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the network policy evaluation for the PAT.
+// Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
 func (o AuthenticationPolicyPatPolicyOutput) NetworkPolicyEvaluation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *string { return v.NetworkPolicyEvaluation }).(pulumi.StringPtrOutput)
+}
+
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+func (o AuthenticationPolicyPatPolicyOutput) RequireRoleRestrictionForServiceUsers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticationPolicyPatPolicy) *string { return v.RequireRoleRestrictionForServiceUsers }).(pulumi.StringPtrOutput)
 }
 
 type AuthenticationPolicyPatPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -6018,13 +6139,23 @@ func (o AuthenticationPolicyPatPolicyPtrOutput) MaxExpiryInDays() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the network policy evaluation for the PAT.
+// Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
 func (o AuthenticationPolicyPatPolicyPtrOutput) NetworkPolicyEvaluation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) *string {
 		if v == nil {
 			return nil
 		}
 		return v.NetworkPolicyEvaluation
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+func (o AuthenticationPolicyPatPolicyPtrOutput) RequireRoleRestrictionForServiceUsers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthenticationPolicyPatPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequireRoleRestrictionForServiceUsers
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6362,6 +6493,2831 @@ func (o AuthenticationPolicyWorkloadIdentityPolicyPtrOutput) AllowedProviders() 
 		}
 		return v.AllowedProviders
 	}).(pulumi.StringArrayOutput)
+}
+
+type CatalogIntegrationAwsGlueDescribeOutput struct {
+	CatalogNamespace       *string `pulumi:"catalogNamespace"`
+	CatalogSource          *string `pulumi:"catalogSource"`
+	Comment                *string `pulumi:"comment"`
+	Enabled                *bool   `pulumi:"enabled"`
+	GlueAwsRoleArn         *string `pulumi:"glueAwsRoleArn"`
+	GlueCatalogId          *string `pulumi:"glueCatalogId"`
+	GlueRegion             *string `pulumi:"glueRegion"`
+	Id                     *string `pulumi:"id"`
+	RefreshIntervalSeconds *int    `pulumi:"refreshIntervalSeconds"`
+	TableFormat            *string `pulumi:"tableFormat"`
+}
+
+// CatalogIntegrationAwsGlueDescribeOutputInput is an input type that accepts CatalogIntegrationAwsGlueDescribeOutputArgs and CatalogIntegrationAwsGlueDescribeOutputOutput values.
+// You can construct a concrete instance of `CatalogIntegrationAwsGlueDescribeOutputInput` via:
+//
+//	CatalogIntegrationAwsGlueDescribeOutputArgs{...}
+type CatalogIntegrationAwsGlueDescribeOutputInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationAwsGlueDescribeOutputOutput() CatalogIntegrationAwsGlueDescribeOutputOutput
+	ToCatalogIntegrationAwsGlueDescribeOutputOutputWithContext(context.Context) CatalogIntegrationAwsGlueDescribeOutputOutput
+}
+
+type CatalogIntegrationAwsGlueDescribeOutputArgs struct {
+	CatalogNamespace       pulumi.StringPtrInput `pulumi:"catalogNamespace"`
+	CatalogSource          pulumi.StringPtrInput `pulumi:"catalogSource"`
+	Comment                pulumi.StringPtrInput `pulumi:"comment"`
+	Enabled                pulumi.BoolPtrInput   `pulumi:"enabled"`
+	GlueAwsRoleArn         pulumi.StringPtrInput `pulumi:"glueAwsRoleArn"`
+	GlueCatalogId          pulumi.StringPtrInput `pulumi:"glueCatalogId"`
+	GlueRegion             pulumi.StringPtrInput `pulumi:"glueRegion"`
+	Id                     pulumi.StringPtrInput `pulumi:"id"`
+	RefreshIntervalSeconds pulumi.IntPtrInput    `pulumi:"refreshIntervalSeconds"`
+	TableFormat            pulumi.StringPtrInput `pulumi:"tableFormat"`
+}
+
+func (CatalogIntegrationAwsGlueDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationAwsGlueDescribeOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationAwsGlueDescribeOutputArgs) ToCatalogIntegrationAwsGlueDescribeOutputOutput() CatalogIntegrationAwsGlueDescribeOutputOutput {
+	return i.ToCatalogIntegrationAwsGlueDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationAwsGlueDescribeOutputArgs) ToCatalogIntegrationAwsGlueDescribeOutputOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationAwsGlueDescribeOutputOutput)
+}
+
+// CatalogIntegrationAwsGlueDescribeOutputArrayInput is an input type that accepts CatalogIntegrationAwsGlueDescribeOutputArray and CatalogIntegrationAwsGlueDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationAwsGlueDescribeOutputArrayInput` via:
+//
+//	CatalogIntegrationAwsGlueDescribeOutputArray{ CatalogIntegrationAwsGlueDescribeOutputArgs{...} }
+type CatalogIntegrationAwsGlueDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationAwsGlueDescribeOutputArrayOutput() CatalogIntegrationAwsGlueDescribeOutputArrayOutput
+	ToCatalogIntegrationAwsGlueDescribeOutputArrayOutputWithContext(context.Context) CatalogIntegrationAwsGlueDescribeOutputArrayOutput
+}
+
+type CatalogIntegrationAwsGlueDescribeOutputArray []CatalogIntegrationAwsGlueDescribeOutputInput
+
+func (CatalogIntegrationAwsGlueDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationAwsGlueDescribeOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationAwsGlueDescribeOutputArray) ToCatalogIntegrationAwsGlueDescribeOutputArrayOutput() CatalogIntegrationAwsGlueDescribeOutputArrayOutput {
+	return i.ToCatalogIntegrationAwsGlueDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationAwsGlueDescribeOutputArray) ToCatalogIntegrationAwsGlueDescribeOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationAwsGlueDescribeOutputArrayOutput)
+}
+
+type CatalogIntegrationAwsGlueDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationAwsGlueDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationAwsGlueDescribeOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) ToCatalogIntegrationAwsGlueDescribeOutputOutput() CatalogIntegrationAwsGlueDescribeOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) ToCatalogIntegrationAwsGlueDescribeOutputOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueDescribeOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) CatalogNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.CatalogNamespace }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) CatalogSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.CatalogSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) GlueAwsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.GlueAwsRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) GlueCatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.GlueCatalogId }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) GlueRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.GlueRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) RefreshIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *int { return v.RefreshIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) TableFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.TableFormat }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationAwsGlueDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationAwsGlueDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationAwsGlueDescribeOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputArrayOutput) ToCatalogIntegrationAwsGlueDescribeOutputArrayOutput() CatalogIntegrationAwsGlueDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputArrayOutput) ToCatalogIntegrationAwsGlueDescribeOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationAwsGlueDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationAwsGlueDescribeOutput {
+		return vs[0].([]CatalogIntegrationAwsGlueDescribeOutput)[vs[1].(int)]
+	}).(CatalogIntegrationAwsGlueDescribeOutputOutput)
+}
+
+type CatalogIntegrationAwsGlueShowOutput struct {
+	Category  *string `pulumi:"category"`
+	Comment   *string `pulumi:"comment"`
+	CreatedOn *string `pulumi:"createdOn"`
+	Enabled   *bool   `pulumi:"enabled"`
+	Name      *string `pulumi:"name"`
+	Type      *string `pulumi:"type"`
+}
+
+// CatalogIntegrationAwsGlueShowOutputInput is an input type that accepts CatalogIntegrationAwsGlueShowOutputArgs and CatalogIntegrationAwsGlueShowOutputOutput values.
+// You can construct a concrete instance of `CatalogIntegrationAwsGlueShowOutputInput` via:
+//
+//	CatalogIntegrationAwsGlueShowOutputArgs{...}
+type CatalogIntegrationAwsGlueShowOutputInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationAwsGlueShowOutputOutput() CatalogIntegrationAwsGlueShowOutputOutput
+	ToCatalogIntegrationAwsGlueShowOutputOutputWithContext(context.Context) CatalogIntegrationAwsGlueShowOutputOutput
+}
+
+type CatalogIntegrationAwsGlueShowOutputArgs struct {
+	Category  pulumi.StringPtrInput `pulumi:"category"`
+	Comment   pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn pulumi.StringPtrInput `pulumi:"createdOn"`
+	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Type      pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CatalogIntegrationAwsGlueShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationAwsGlueShowOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationAwsGlueShowOutputArgs) ToCatalogIntegrationAwsGlueShowOutputOutput() CatalogIntegrationAwsGlueShowOutputOutput {
+	return i.ToCatalogIntegrationAwsGlueShowOutputOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationAwsGlueShowOutputArgs) ToCatalogIntegrationAwsGlueShowOutputOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationAwsGlueShowOutputOutput)
+}
+
+// CatalogIntegrationAwsGlueShowOutputArrayInput is an input type that accepts CatalogIntegrationAwsGlueShowOutputArray and CatalogIntegrationAwsGlueShowOutputArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationAwsGlueShowOutputArrayInput` via:
+//
+//	CatalogIntegrationAwsGlueShowOutputArray{ CatalogIntegrationAwsGlueShowOutputArgs{...} }
+type CatalogIntegrationAwsGlueShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationAwsGlueShowOutputArrayOutput() CatalogIntegrationAwsGlueShowOutputArrayOutput
+	ToCatalogIntegrationAwsGlueShowOutputArrayOutputWithContext(context.Context) CatalogIntegrationAwsGlueShowOutputArrayOutput
+}
+
+type CatalogIntegrationAwsGlueShowOutputArray []CatalogIntegrationAwsGlueShowOutputInput
+
+func (CatalogIntegrationAwsGlueShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationAwsGlueShowOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationAwsGlueShowOutputArray) ToCatalogIntegrationAwsGlueShowOutputArrayOutput() CatalogIntegrationAwsGlueShowOutputArrayOutput {
+	return i.ToCatalogIntegrationAwsGlueShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationAwsGlueShowOutputArray) ToCatalogIntegrationAwsGlueShowOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationAwsGlueShowOutputArrayOutput)
+}
+
+type CatalogIntegrationAwsGlueShowOutputOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationAwsGlueShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationAwsGlueShowOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputOutput) ToCatalogIntegrationAwsGlueShowOutputOutput() CatalogIntegrationAwsGlueShowOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputOutput) ToCatalogIntegrationAwsGlueShowOutputOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueShowOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueShowOutput) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueShowOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationAwsGlueShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationAwsGlueShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationAwsGlueShowOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputArrayOutput) ToCatalogIntegrationAwsGlueShowOutputArrayOutput() CatalogIntegrationAwsGlueShowOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputArrayOutput) ToCatalogIntegrationAwsGlueShowOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationAwsGlueShowOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationAwsGlueShowOutputArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationAwsGlueShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationAwsGlueShowOutput {
+		return vs[0].([]CatalogIntegrationAwsGlueShowOutput)[vs[1].(int)]
+	}).(CatalogIntegrationAwsGlueShowOutputOutput)
+}
+
+type CatalogIntegrationIcebergRestBearerRestAuthentication struct {
+	// The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	BearerToken string `pulumi:"bearerToken"`
+}
+
+// CatalogIntegrationIcebergRestBearerRestAuthenticationInput is an input type that accepts CatalogIntegrationIcebergRestBearerRestAuthenticationArgs and CatalogIntegrationIcebergRestBearerRestAuthenticationOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestBearerRestAuthenticationInput` via:
+//
+//	CatalogIntegrationIcebergRestBearerRestAuthenticationArgs{...}
+type CatalogIntegrationIcebergRestBearerRestAuthenticationInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestBearerRestAuthenticationOutput() CatalogIntegrationIcebergRestBearerRestAuthenticationOutput
+	ToCatalogIntegrationIcebergRestBearerRestAuthenticationOutputWithContext(context.Context) CatalogIntegrationIcebergRestBearerRestAuthenticationOutput
+}
+
+type CatalogIntegrationIcebergRestBearerRestAuthenticationArgs struct {
+	// The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	BearerToken pulumi.StringInput `pulumi:"bearerToken"`
+}
+
+func (CatalogIntegrationIcebergRestBearerRestAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestBearerRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestBearerRestAuthenticationArgs) ToCatalogIntegrationIcebergRestBearerRestAuthenticationOutput() CatalogIntegrationIcebergRestBearerRestAuthenticationOutput {
+	return i.ToCatalogIntegrationIcebergRestBearerRestAuthenticationOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestBearerRestAuthenticationArgs) ToCatalogIntegrationIcebergRestBearerRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestBearerRestAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestBearerRestAuthenticationOutput)
+}
+
+func (i CatalogIntegrationIcebergRestBearerRestAuthenticationArgs) ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput {
+	return i.ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestBearerRestAuthenticationArgs) ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestBearerRestAuthenticationOutput).ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationIcebergRestBearerRestAuthenticationPtrInput is an input type that accepts CatalogIntegrationIcebergRestBearerRestAuthenticationArgs, CatalogIntegrationIcebergRestBearerRestAuthenticationPtr and CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestBearerRestAuthenticationPtrInput` via:
+//
+//	        CatalogIntegrationIcebergRestBearerRestAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationIcebergRestBearerRestAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput
+	ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(context.Context) CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput
+}
+
+type catalogIntegrationIcebergRestBearerRestAuthenticationPtrType CatalogIntegrationIcebergRestBearerRestAuthenticationArgs
+
+func CatalogIntegrationIcebergRestBearerRestAuthenticationPtr(v *CatalogIntegrationIcebergRestBearerRestAuthenticationArgs) CatalogIntegrationIcebergRestBearerRestAuthenticationPtrInput {
+	return (*catalogIntegrationIcebergRestBearerRestAuthenticationPtrType)(v)
+}
+
+func (*catalogIntegrationIcebergRestBearerRestAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationIcebergRestBearerRestAuthentication)(nil)).Elem()
+}
+
+func (i *catalogIntegrationIcebergRestBearerRestAuthenticationPtrType) ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput {
+	return i.ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationIcebergRestBearerRestAuthenticationPtrType) ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestBearerRestAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestBearerRestAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestBearerRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationOutput) ToCatalogIntegrationIcebergRestBearerRestAuthenticationOutput() CatalogIntegrationIcebergRestBearerRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationOutput) ToCatalogIntegrationIcebergRestBearerRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestBearerRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationOutput) ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput {
+	return o.ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationOutput) ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationIcebergRestBearerRestAuthentication) *CatalogIntegrationIcebergRestBearerRestAuthentication {
+		return &v
+	}).(CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput)
+}
+
+// The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationOutput) BearerToken() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestBearerRestAuthentication) string { return v.BearerToken }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationIcebergRestBearerRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput) ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput) ToCatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput) Elem() CatalogIntegrationIcebergRestBearerRestAuthenticationOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestBearerRestAuthentication) CatalogIntegrationIcebergRestBearerRestAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationIcebergRestBearerRestAuthentication
+		return ret
+	}).(CatalogIntegrationIcebergRestBearerRestAuthenticationOutput)
+}
+
+// The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput) BearerToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestBearerRestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BearerToken
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutput struct {
+	BearerRestAuthentications []CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication `pulumi:"bearerRestAuthentications"`
+	CatalogNamespace          *string                                                               `pulumi:"catalogNamespace"`
+	CatalogSource             *string                                                               `pulumi:"catalogSource"`
+	Comment                   *string                                                               `pulumi:"comment"`
+	Enabled                   *bool                                                                 `pulumi:"enabled"`
+	Id                        *string                                                               `pulumi:"id"`
+	OauthRestAuthentications  []CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication  `pulumi:"oauthRestAuthentications"`
+	RefreshIntervalSeconds    *int                                                                  `pulumi:"refreshIntervalSeconds"`
+	RestConfigs               []CatalogIntegrationIcebergRestDescribeOutputRestConfig               `pulumi:"restConfigs"`
+	Sigv4RestAuthentications  []CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication  `pulumi:"sigv4RestAuthentications"`
+	TableFormat               *string                                                               `pulumi:"tableFormat"`
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputArgs and CatalogIntegrationIcebergRestDescribeOutputOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputArgs{...}
+type CatalogIntegrationIcebergRestDescribeOutputInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputOutput() CatalogIntegrationIcebergRestDescribeOutputOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputArgs struct {
+	BearerRestAuthentications CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayInput `pulumi:"bearerRestAuthentications"`
+	CatalogNamespace          pulumi.StringPtrInput                                                         `pulumi:"catalogNamespace"`
+	CatalogSource             pulumi.StringPtrInput                                                         `pulumi:"catalogSource"`
+	Comment                   pulumi.StringPtrInput                                                         `pulumi:"comment"`
+	Enabled                   pulumi.BoolPtrInput                                                           `pulumi:"enabled"`
+	Id                        pulumi.StringPtrInput                                                         `pulumi:"id"`
+	OauthRestAuthentications  CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayInput  `pulumi:"oauthRestAuthentications"`
+	RefreshIntervalSeconds    pulumi.IntPtrInput                                                            `pulumi:"refreshIntervalSeconds"`
+	RestConfigs               CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayInput               `pulumi:"restConfigs"`
+	Sigv4RestAuthentications  CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayInput  `pulumi:"sigv4RestAuthentications"`
+	TableFormat               pulumi.StringPtrInput                                                         `pulumi:"tableFormat"`
+}
+
+func (CatalogIntegrationIcebergRestDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputArgs) ToCatalogIntegrationIcebergRestDescribeOutputOutput() CatalogIntegrationIcebergRestDescribeOutputOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputArgs) ToCatalogIntegrationIcebergRestDescribeOutputOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputOutput)
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputArrayInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputArray and CatalogIntegrationIcebergRestDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputArrayInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputArray{ CatalogIntegrationIcebergRestDescribeOutputArgs{...} }
+type CatalogIntegrationIcebergRestDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputArrayOutput() CatalogIntegrationIcebergRestDescribeOutputArrayOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputArrayOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputArrayOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputArray []CatalogIntegrationIcebergRestDescribeOutputInput
+
+func (CatalogIntegrationIcebergRestDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputArray) ToCatalogIntegrationIcebergRestDescribeOutputArrayOutput() CatalogIntegrationIcebergRestDescribeOutputArrayOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputArray) ToCatalogIntegrationIcebergRestDescribeOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputArrayOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) ToCatalogIntegrationIcebergRestDescribeOutputOutput() CatalogIntegrationIcebergRestDescribeOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) ToCatalogIntegrationIcebergRestDescribeOutputOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) BearerRestAuthentications() CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) []CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication {
+		return v.BearerRestAuthentications
+	}).(CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) CatalogNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) *string { return v.CatalogNamespace }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) CatalogSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) *string { return v.CatalogSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) OauthRestAuthentications() CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) []CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication {
+		return v.OauthRestAuthentications
+	}).(CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) RefreshIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) *int { return v.RefreshIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) RestConfigs() CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) []CatalogIntegrationIcebergRestDescribeOutputRestConfig {
+		return v.RestConfigs
+	}).(CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) Sigv4RestAuthentications() CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) []CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication {
+		return v.Sigv4RestAuthentications
+	}).(CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOutput) TableFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutput) *string { return v.TableFormat }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputArrayOutput() CatalogIntegrationIcebergRestDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationIcebergRestDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationIcebergRestDescribeOutput {
+		return vs[0].([]CatalogIntegrationIcebergRestDescribeOutput)[vs[1].(int)]
+	}).(CatalogIntegrationIcebergRestDescribeOutputOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication struct {
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs and CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs{...}
+type CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs struct {
+}
+
+func (CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs) ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs) ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput)
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArray and CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArray{ CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs{...} }
+type CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArray []CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationInput
+
+func (CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArray) ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArray) ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput) ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput) ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput {
+	return o
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication {
+		return vs[0].([]CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication)[vs[1].(int)]
+	}).(CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication struct {
+	OauthAllowedScopes []string `pulumi:"oauthAllowedScopes"`
+	OauthClientId      *string  `pulumi:"oauthClientId"`
+	OauthTokenUri      *string  `pulumi:"oauthTokenUri"`
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs and CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs{...}
+type CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs struct {
+	OauthAllowedScopes pulumi.StringArrayInput `pulumi:"oauthAllowedScopes"`
+	OauthClientId      pulumi.StringPtrInput   `pulumi:"oauthClientId"`
+	OauthTokenUri      pulumi.StringPtrInput   `pulumi:"oauthTokenUri"`
+}
+
+func (CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs) ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs) ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput)
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArray and CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArray{ CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs{...} }
+type CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArray []CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationInput
+
+func (CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArray) ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArray) ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput) ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput) ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication) []string {
+		return v.OauthAllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput) OauthClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication) *string {
+		return v.OauthClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput) OauthTokenUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication) *string {
+		return v.OauthTokenUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication {
+		return vs[0].([]CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication)[vs[1].(int)]
+	}).(CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputRestConfig struct {
+	AccessDelegationMode *string `pulumi:"accessDelegationMode"`
+	CatalogApiType       *string `pulumi:"catalogApiType"`
+	CatalogName          *string `pulumi:"catalogName"`
+	CatalogUri           *string `pulumi:"catalogUri"`
+	Prefix               *string `pulumi:"prefix"`
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputRestConfigInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs and CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputRestConfigInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs{...}
+type CatalogIntegrationIcebergRestDescribeOutputRestConfigInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputRestConfigOutput() CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputRestConfigOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs struct {
+	AccessDelegationMode pulumi.StringPtrInput `pulumi:"accessDelegationMode"`
+	CatalogApiType       pulumi.StringPtrInput `pulumi:"catalogApiType"`
+	CatalogName          pulumi.StringPtrInput `pulumi:"catalogName"`
+	CatalogUri           pulumi.StringPtrInput `pulumi:"catalogUri"`
+	Prefix               pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputRestConfig)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs) ToCatalogIntegrationIcebergRestDescribeOutputRestConfigOutput() CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputRestConfigOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs) ToCatalogIntegrationIcebergRestDescribeOutputRestConfigOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput)
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputRestConfigArray and CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputRestConfigArray{ CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs{...} }
+type CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput() CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputRestConfigArray []CatalogIntegrationIcebergRestDescribeOutputRestConfigInput
+
+func (CatalogIntegrationIcebergRestDescribeOutputRestConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutputRestConfig)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputRestConfigArray) ToCatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput() CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputRestConfigArray) ToCatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputRestConfig)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput) ToCatalogIntegrationIcebergRestDescribeOutputRestConfigOutput() CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput) ToCatalogIntegrationIcebergRestDescribeOutputRestConfigOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput) AccessDelegationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputRestConfig) *string { return v.AccessDelegationMode }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput) CatalogApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputRestConfig) *string { return v.CatalogApiType }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputRestConfig) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput) CatalogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputRestConfig) *string { return v.CatalogUri }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputRestConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutputRestConfig)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput() CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationIcebergRestDescribeOutputRestConfig {
+		return vs[0].([]CatalogIntegrationIcebergRestDescribeOutputRestConfig)[vs[1].(int)]
+	}).(CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication struct {
+	Sigv4IamRole       *string `pulumi:"sigv4IamRole"`
+	Sigv4SigningRegion *string `pulumi:"sigv4SigningRegion"`
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs and CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs{...}
+type CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs struct {
+	Sigv4IamRole       pulumi.StringPtrInput `pulumi:"sigv4IamRole"`
+	Sigv4SigningRegion pulumi.StringPtrInput `pulumi:"sigv4SigningRegion"`
+}
+
+func (CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs) ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs) ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput)
+}
+
+// CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayInput is an input type that accepts CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArray and CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayInput` via:
+//
+//	CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArray{ CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs{...} }
+type CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput
+	ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutputWithContext(context.Context) CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArray []CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationInput
+
+func (CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArray) ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput {
+	return i.ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArray) ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput) ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput() CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput) ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput) Sigv4IamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication) *string {
+		return v.Sigv4IamRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput) Sigv4SigningRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication) *string {
+		return v.Sigv4SigningRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput() CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput) ToCatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication {
+		return vs[0].([]CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication)[vs[1].(int)]
+	}).(CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput)
+}
+
+type CatalogIntegrationIcebergRestOauthRestAuthentication struct {
+	// Specifies one or more scopes for the OAuth token.
+	OauthAllowedScopes []string `pulumi:"oauthAllowedScopes"`
+	// Specifies the client ID of the OAuth2 credential.
+	OauthClientId string `pulumi:"oauthClientId"`
+	// Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	OauthClientSecret string `pulumi:"oauthClientSecret"`
+	// Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+	OauthTokenUri *string `pulumi:"oauthTokenUri"`
+}
+
+// CatalogIntegrationIcebergRestOauthRestAuthenticationInput is an input type that accepts CatalogIntegrationIcebergRestOauthRestAuthenticationArgs and CatalogIntegrationIcebergRestOauthRestAuthenticationOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestOauthRestAuthenticationInput` via:
+//
+//	CatalogIntegrationIcebergRestOauthRestAuthenticationArgs{...}
+type CatalogIntegrationIcebergRestOauthRestAuthenticationInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestOauthRestAuthenticationOutput() CatalogIntegrationIcebergRestOauthRestAuthenticationOutput
+	ToCatalogIntegrationIcebergRestOauthRestAuthenticationOutputWithContext(context.Context) CatalogIntegrationIcebergRestOauthRestAuthenticationOutput
+}
+
+type CatalogIntegrationIcebergRestOauthRestAuthenticationArgs struct {
+	// Specifies one or more scopes for the OAuth token.
+	OauthAllowedScopes pulumi.StringArrayInput `pulumi:"oauthAllowedScopes"`
+	// Specifies the client ID of the OAuth2 credential.
+	OauthClientId pulumi.StringInput `pulumi:"oauthClientId"`
+	// Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	OauthClientSecret pulumi.StringInput `pulumi:"oauthClientSecret"`
+	// Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+	OauthTokenUri pulumi.StringPtrInput `pulumi:"oauthTokenUri"`
+}
+
+func (CatalogIntegrationIcebergRestOauthRestAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestOauthRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestOauthRestAuthenticationArgs) ToCatalogIntegrationIcebergRestOauthRestAuthenticationOutput() CatalogIntegrationIcebergRestOauthRestAuthenticationOutput {
+	return i.ToCatalogIntegrationIcebergRestOauthRestAuthenticationOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestOauthRestAuthenticationArgs) ToCatalogIntegrationIcebergRestOauthRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestOauthRestAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestOauthRestAuthenticationOutput)
+}
+
+func (i CatalogIntegrationIcebergRestOauthRestAuthenticationArgs) ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput {
+	return i.ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestOauthRestAuthenticationArgs) ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestOauthRestAuthenticationOutput).ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationIcebergRestOauthRestAuthenticationPtrInput is an input type that accepts CatalogIntegrationIcebergRestOauthRestAuthenticationArgs, CatalogIntegrationIcebergRestOauthRestAuthenticationPtr and CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestOauthRestAuthenticationPtrInput` via:
+//
+//	        CatalogIntegrationIcebergRestOauthRestAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationIcebergRestOauthRestAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput
+	ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(context.Context) CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput
+}
+
+type catalogIntegrationIcebergRestOauthRestAuthenticationPtrType CatalogIntegrationIcebergRestOauthRestAuthenticationArgs
+
+func CatalogIntegrationIcebergRestOauthRestAuthenticationPtr(v *CatalogIntegrationIcebergRestOauthRestAuthenticationArgs) CatalogIntegrationIcebergRestOauthRestAuthenticationPtrInput {
+	return (*catalogIntegrationIcebergRestOauthRestAuthenticationPtrType)(v)
+}
+
+func (*catalogIntegrationIcebergRestOauthRestAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationIcebergRestOauthRestAuthentication)(nil)).Elem()
+}
+
+func (i *catalogIntegrationIcebergRestOauthRestAuthenticationPtrType) ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput {
+	return i.ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationIcebergRestOauthRestAuthenticationPtrType) ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestOauthRestAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestOauthRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) ToCatalogIntegrationIcebergRestOauthRestAuthenticationOutput() CatalogIntegrationIcebergRestOauthRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) ToCatalogIntegrationIcebergRestOauthRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestOauthRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput {
+	return o.ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationIcebergRestOauthRestAuthentication) *CatalogIntegrationIcebergRestOauthRestAuthentication {
+		return &v
+	}).(CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput)
+}
+
+// Specifies one or more scopes for the OAuth token.
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestOauthRestAuthentication) []string { return v.OauthAllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the client ID of the OAuth2 credential.
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) OauthClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestOauthRestAuthentication) string { return v.OauthClientId }).(pulumi.StringOutput)
+}
+
+// Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) OauthClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestOauthRestAuthentication) string { return v.OauthClientSecret }).(pulumi.StringOutput)
+}
+
+// Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationOutput) OauthTokenUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestOauthRestAuthentication) *string { return v.OauthTokenUri }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationIcebergRestOauthRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput() CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) ToCatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) Elem() CatalogIntegrationIcebergRestOauthRestAuthenticationOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestOauthRestAuthentication) CatalogIntegrationIcebergRestOauthRestAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationIcebergRestOauthRestAuthentication
+		return ret
+	}).(CatalogIntegrationIcebergRestOauthRestAuthenticationOutput)
+}
+
+// Specifies one or more scopes for the OAuth token.
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestOauthRestAuthentication) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthAllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the client ID of the OAuth2 credential.
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) OauthClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestOauthRestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) OauthClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestOauthRestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+func (o CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput) OauthTokenUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestOauthRestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthTokenUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestRestConfig struct {
+	// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+	AccessDelegationMode *string `pulumi:"accessDelegationMode"`
+	// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+	CatalogApiType *string `pulumi:"catalogApiType"`
+	// Specifies the catalog or identifier to request from your remote catalog service.
+	CatalogName *string `pulumi:"catalogName"`
+	// Specifies the endpoint URL for the catalog REST API.
+	CatalogUri string `pulumi:"catalogUri"`
+	// Specifies an optional prefix appended to all API routes.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// CatalogIntegrationIcebergRestRestConfigInput is an input type that accepts CatalogIntegrationIcebergRestRestConfigArgs and CatalogIntegrationIcebergRestRestConfigOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestRestConfigInput` via:
+//
+//	CatalogIntegrationIcebergRestRestConfigArgs{...}
+type CatalogIntegrationIcebergRestRestConfigInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestRestConfigOutput() CatalogIntegrationIcebergRestRestConfigOutput
+	ToCatalogIntegrationIcebergRestRestConfigOutputWithContext(context.Context) CatalogIntegrationIcebergRestRestConfigOutput
+}
+
+type CatalogIntegrationIcebergRestRestConfigArgs struct {
+	// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+	AccessDelegationMode pulumi.StringPtrInput `pulumi:"accessDelegationMode"`
+	// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+	CatalogApiType pulumi.StringPtrInput `pulumi:"catalogApiType"`
+	// Specifies the catalog or identifier to request from your remote catalog service.
+	CatalogName pulumi.StringPtrInput `pulumi:"catalogName"`
+	// Specifies the endpoint URL for the catalog REST API.
+	CatalogUri pulumi.StringInput `pulumi:"catalogUri"`
+	// Specifies an optional prefix appended to all API routes.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (CatalogIntegrationIcebergRestRestConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestRestConfig)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestRestConfigArgs) ToCatalogIntegrationIcebergRestRestConfigOutput() CatalogIntegrationIcebergRestRestConfigOutput {
+	return i.ToCatalogIntegrationIcebergRestRestConfigOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestRestConfigArgs) ToCatalogIntegrationIcebergRestRestConfigOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestRestConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestRestConfigOutput)
+}
+
+func (i CatalogIntegrationIcebergRestRestConfigArgs) ToCatalogIntegrationIcebergRestRestConfigPtrOutput() CatalogIntegrationIcebergRestRestConfigPtrOutput {
+	return i.ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestRestConfigArgs) ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestRestConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestRestConfigOutput).ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationIcebergRestRestConfigPtrInput is an input type that accepts CatalogIntegrationIcebergRestRestConfigArgs, CatalogIntegrationIcebergRestRestConfigPtr and CatalogIntegrationIcebergRestRestConfigPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestRestConfigPtrInput` via:
+//
+//	        CatalogIntegrationIcebergRestRestConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationIcebergRestRestConfigPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestRestConfigPtrOutput() CatalogIntegrationIcebergRestRestConfigPtrOutput
+	ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(context.Context) CatalogIntegrationIcebergRestRestConfigPtrOutput
+}
+
+type catalogIntegrationIcebergRestRestConfigPtrType CatalogIntegrationIcebergRestRestConfigArgs
+
+func CatalogIntegrationIcebergRestRestConfigPtr(v *CatalogIntegrationIcebergRestRestConfigArgs) CatalogIntegrationIcebergRestRestConfigPtrInput {
+	return (*catalogIntegrationIcebergRestRestConfigPtrType)(v)
+}
+
+func (*catalogIntegrationIcebergRestRestConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationIcebergRestRestConfig)(nil)).Elem()
+}
+
+func (i *catalogIntegrationIcebergRestRestConfigPtrType) ToCatalogIntegrationIcebergRestRestConfigPtrOutput() CatalogIntegrationIcebergRestRestConfigPtrOutput {
+	return i.ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationIcebergRestRestConfigPtrType) ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestRestConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestRestConfigPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestRestConfigOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestRestConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestRestConfig)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestRestConfigOutput) ToCatalogIntegrationIcebergRestRestConfigOutput() CatalogIntegrationIcebergRestRestConfigOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestRestConfigOutput) ToCatalogIntegrationIcebergRestRestConfigOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestRestConfigOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestRestConfigOutput) ToCatalogIntegrationIcebergRestRestConfigPtrOutput() CatalogIntegrationIcebergRestRestConfigPtrOutput {
+	return o.ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationIcebergRestRestConfigOutput) ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestRestConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationIcebergRestRestConfig) *CatalogIntegrationIcebergRestRestConfig {
+		return &v
+	}).(CatalogIntegrationIcebergRestRestConfigPtrOutput)
+}
+
+// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+func (o CatalogIntegrationIcebergRestRestConfigOutput) AccessDelegationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestRestConfig) *string { return v.AccessDelegationMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+func (o CatalogIntegrationIcebergRestRestConfigOutput) CatalogApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestRestConfig) *string { return v.CatalogApiType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the catalog or identifier to request from your remote catalog service.
+func (o CatalogIntegrationIcebergRestRestConfigOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestRestConfig) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the endpoint URL for the catalog REST API.
+func (o CatalogIntegrationIcebergRestRestConfigOutput) CatalogUri() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestRestConfig) string { return v.CatalogUri }).(pulumi.StringOutput)
+}
+
+// Specifies an optional prefix appended to all API routes.
+func (o CatalogIntegrationIcebergRestRestConfigOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestRestConfig) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestRestConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestRestConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationIcebergRestRestConfig)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) ToCatalogIntegrationIcebergRestRestConfigPtrOutput() CatalogIntegrationIcebergRestRestConfigPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) ToCatalogIntegrationIcebergRestRestConfigPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestRestConfigPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) Elem() CatalogIntegrationIcebergRestRestConfigOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestRestConfig) CatalogIntegrationIcebergRestRestConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationIcebergRestRestConfig
+		return ret
+	}).(CatalogIntegrationIcebergRestRestConfigOutput)
+}
+
+// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) AccessDelegationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessDelegationMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) CatalogApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogApiType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the catalog or identifier to request from your remote catalog service.
+func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the endpoint URL for the catalog REST API.
+func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) CatalogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies an optional prefix appended to all API routes.
+func (o CatalogIntegrationIcebergRestRestConfigPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestShowOutput struct {
+	Category  *string `pulumi:"category"`
+	Comment   *string `pulumi:"comment"`
+	CreatedOn *string `pulumi:"createdOn"`
+	Enabled   *bool   `pulumi:"enabled"`
+	Name      *string `pulumi:"name"`
+	Type      *string `pulumi:"type"`
+}
+
+// CatalogIntegrationIcebergRestShowOutputInput is an input type that accepts CatalogIntegrationIcebergRestShowOutputArgs and CatalogIntegrationIcebergRestShowOutputOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestShowOutputInput` via:
+//
+//	CatalogIntegrationIcebergRestShowOutputArgs{...}
+type CatalogIntegrationIcebergRestShowOutputInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestShowOutputOutput() CatalogIntegrationIcebergRestShowOutputOutput
+	ToCatalogIntegrationIcebergRestShowOutputOutputWithContext(context.Context) CatalogIntegrationIcebergRestShowOutputOutput
+}
+
+type CatalogIntegrationIcebergRestShowOutputArgs struct {
+	Category  pulumi.StringPtrInput `pulumi:"category"`
+	Comment   pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn pulumi.StringPtrInput `pulumi:"createdOn"`
+	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Type      pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CatalogIntegrationIcebergRestShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestShowOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestShowOutputArgs) ToCatalogIntegrationIcebergRestShowOutputOutput() CatalogIntegrationIcebergRestShowOutputOutput {
+	return i.ToCatalogIntegrationIcebergRestShowOutputOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestShowOutputArgs) ToCatalogIntegrationIcebergRestShowOutputOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestShowOutputOutput)
+}
+
+// CatalogIntegrationIcebergRestShowOutputArrayInput is an input type that accepts CatalogIntegrationIcebergRestShowOutputArray and CatalogIntegrationIcebergRestShowOutputArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestShowOutputArrayInput` via:
+//
+//	CatalogIntegrationIcebergRestShowOutputArray{ CatalogIntegrationIcebergRestShowOutputArgs{...} }
+type CatalogIntegrationIcebergRestShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestShowOutputArrayOutput() CatalogIntegrationIcebergRestShowOutputArrayOutput
+	ToCatalogIntegrationIcebergRestShowOutputArrayOutputWithContext(context.Context) CatalogIntegrationIcebergRestShowOutputArrayOutput
+}
+
+type CatalogIntegrationIcebergRestShowOutputArray []CatalogIntegrationIcebergRestShowOutputInput
+
+func (CatalogIntegrationIcebergRestShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestShowOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestShowOutputArray) ToCatalogIntegrationIcebergRestShowOutputArrayOutput() CatalogIntegrationIcebergRestShowOutputArrayOutput {
+	return i.ToCatalogIntegrationIcebergRestShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestShowOutputArray) ToCatalogIntegrationIcebergRestShowOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestShowOutputArrayOutput)
+}
+
+type CatalogIntegrationIcebergRestShowOutputOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestShowOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputOutput) ToCatalogIntegrationIcebergRestShowOutputOutput() CatalogIntegrationIcebergRestShowOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputOutput) ToCatalogIntegrationIcebergRestShowOutputOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestShowOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestShowOutput) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestShowOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationIcebergRestShowOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputArrayOutput) ToCatalogIntegrationIcebergRestShowOutputArrayOutput() CatalogIntegrationIcebergRestShowOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputArrayOutput) ToCatalogIntegrationIcebergRestShowOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestShowOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestShowOutputArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationIcebergRestShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationIcebergRestShowOutput {
+		return vs[0].([]CatalogIntegrationIcebergRestShowOutput)[vs[1].(int)]
+	}).(CatalogIntegrationIcebergRestShowOutputOutput)
+}
+
+type CatalogIntegrationIcebergRestSigv4RestAuthentication struct {
+	// Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	Sigv4ExternalId *string `pulumi:"sigv4ExternalId"`
+	// Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+	Sigv4IamRole string `pulumi:"sigv4IamRole"`
+	// Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+	Sigv4SigningRegion *string `pulumi:"sigv4SigningRegion"`
+}
+
+// CatalogIntegrationIcebergRestSigv4RestAuthenticationInput is an input type that accepts CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs and CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestSigv4RestAuthenticationInput` via:
+//
+//	CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs{...}
+type CatalogIntegrationIcebergRestSigv4RestAuthenticationInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestSigv4RestAuthenticationOutput() CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput
+	ToCatalogIntegrationIcebergRestSigv4RestAuthenticationOutputWithContext(context.Context) CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput
+}
+
+type CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs struct {
+	// Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	Sigv4ExternalId pulumi.StringPtrInput `pulumi:"sigv4ExternalId"`
+	// Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+	Sigv4IamRole pulumi.StringInput `pulumi:"sigv4IamRole"`
+	// Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+	Sigv4SigningRegion pulumi.StringPtrInput `pulumi:"sigv4SigningRegion"`
+}
+
+func (CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestSigv4RestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationOutput() CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput {
+	return i.ToCatalogIntegrationIcebergRestSigv4RestAuthenticationOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput)
+}
+
+func (i CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput() CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput {
+	return i.ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput).ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrInput is an input type that accepts CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs, CatalogIntegrationIcebergRestSigv4RestAuthenticationPtr and CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrInput` via:
+//
+//	        CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput() CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput
+	ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(context.Context) CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput
+}
+
+type catalogIntegrationIcebergRestSigv4RestAuthenticationPtrType CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs
+
+func CatalogIntegrationIcebergRestSigv4RestAuthenticationPtr(v *CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs) CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrInput {
+	return (*catalogIntegrationIcebergRestSigv4RestAuthenticationPtrType)(v)
+}
+
+func (*catalogIntegrationIcebergRestSigv4RestAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationIcebergRestSigv4RestAuthentication)(nil)).Elem()
+}
+
+func (i *catalogIntegrationIcebergRestSigv4RestAuthenticationPtrType) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput() CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput {
+	return i.ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationIcebergRestSigv4RestAuthenticationPtrType) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationIcebergRestSigv4RestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationOutput() CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput() CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput {
+	return o.ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationIcebergRestSigv4RestAuthentication) *CatalogIntegrationIcebergRestSigv4RestAuthentication {
+		return &v
+	}).(CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput)
+}
+
+// Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput) Sigv4ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestSigv4RestAuthentication) *string { return v.Sigv4ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput) Sigv4IamRole() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestSigv4RestAuthentication) string { return v.Sigv4IamRole }).(pulumi.StringOutput)
+}
+
+// Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput) Sigv4SigningRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationIcebergRestSigv4RestAuthentication) *string { return v.Sigv4SigningRegion }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationIcebergRestSigv4RestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput() CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput) ToCatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput) Elem() CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestSigv4RestAuthentication) CatalogIntegrationIcebergRestSigv4RestAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationIcebergRestSigv4RestAuthentication
+		return ret
+	}).(CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput)
+}
+
+// Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput) Sigv4ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestSigv4RestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sigv4ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput) Sigv4IamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestSigv4RestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sigv4IamRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+func (o CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput) Sigv4SigningRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRestSigv4RestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sigv4SigningRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationObjectStorageDescribeOutput struct {
+	CatalogSource          *string `pulumi:"catalogSource"`
+	Comment                *string `pulumi:"comment"`
+	Enabled                *bool   `pulumi:"enabled"`
+	Id                     *string `pulumi:"id"`
+	RefreshIntervalSeconds *int    `pulumi:"refreshIntervalSeconds"`
+	TableFormat            *string `pulumi:"tableFormat"`
+}
+
+// CatalogIntegrationObjectStorageDescribeOutputInput is an input type that accepts CatalogIntegrationObjectStorageDescribeOutputArgs and CatalogIntegrationObjectStorageDescribeOutputOutput values.
+// You can construct a concrete instance of `CatalogIntegrationObjectStorageDescribeOutputInput` via:
+//
+//	CatalogIntegrationObjectStorageDescribeOutputArgs{...}
+type CatalogIntegrationObjectStorageDescribeOutputInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationObjectStorageDescribeOutputOutput() CatalogIntegrationObjectStorageDescribeOutputOutput
+	ToCatalogIntegrationObjectStorageDescribeOutputOutputWithContext(context.Context) CatalogIntegrationObjectStorageDescribeOutputOutput
+}
+
+type CatalogIntegrationObjectStorageDescribeOutputArgs struct {
+	CatalogSource          pulumi.StringPtrInput `pulumi:"catalogSource"`
+	Comment                pulumi.StringPtrInput `pulumi:"comment"`
+	Enabled                pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Id                     pulumi.StringPtrInput `pulumi:"id"`
+	RefreshIntervalSeconds pulumi.IntPtrInput    `pulumi:"refreshIntervalSeconds"`
+	TableFormat            pulumi.StringPtrInput `pulumi:"tableFormat"`
+}
+
+func (CatalogIntegrationObjectStorageDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationObjectStorageDescribeOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationObjectStorageDescribeOutputArgs) ToCatalogIntegrationObjectStorageDescribeOutputOutput() CatalogIntegrationObjectStorageDescribeOutputOutput {
+	return i.ToCatalogIntegrationObjectStorageDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationObjectStorageDescribeOutputArgs) ToCatalogIntegrationObjectStorageDescribeOutputOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationObjectStorageDescribeOutputOutput)
+}
+
+// CatalogIntegrationObjectStorageDescribeOutputArrayInput is an input type that accepts CatalogIntegrationObjectStorageDescribeOutputArray and CatalogIntegrationObjectStorageDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationObjectStorageDescribeOutputArrayInput` via:
+//
+//	CatalogIntegrationObjectStorageDescribeOutputArray{ CatalogIntegrationObjectStorageDescribeOutputArgs{...} }
+type CatalogIntegrationObjectStorageDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationObjectStorageDescribeOutputArrayOutput() CatalogIntegrationObjectStorageDescribeOutputArrayOutput
+	ToCatalogIntegrationObjectStorageDescribeOutputArrayOutputWithContext(context.Context) CatalogIntegrationObjectStorageDescribeOutputArrayOutput
+}
+
+type CatalogIntegrationObjectStorageDescribeOutputArray []CatalogIntegrationObjectStorageDescribeOutputInput
+
+func (CatalogIntegrationObjectStorageDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationObjectStorageDescribeOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationObjectStorageDescribeOutputArray) ToCatalogIntegrationObjectStorageDescribeOutputArrayOutput() CatalogIntegrationObjectStorageDescribeOutputArrayOutput {
+	return i.ToCatalogIntegrationObjectStorageDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationObjectStorageDescribeOutputArray) ToCatalogIntegrationObjectStorageDescribeOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationObjectStorageDescribeOutputArrayOutput)
+}
+
+type CatalogIntegrationObjectStorageDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationObjectStorageDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationObjectStorageDescribeOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputOutput) ToCatalogIntegrationObjectStorageDescribeOutputOutput() CatalogIntegrationObjectStorageDescribeOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputOutput) ToCatalogIntegrationObjectStorageDescribeOutputOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageDescribeOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputOutput) CatalogSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageDescribeOutput) *string { return v.CatalogSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageDescribeOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageDescribeOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputOutput) RefreshIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageDescribeOutput) *int { return v.RefreshIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputOutput) TableFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageDescribeOutput) *string { return v.TableFormat }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationObjectStorageDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationObjectStorageDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationObjectStorageDescribeOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputArrayOutput) ToCatalogIntegrationObjectStorageDescribeOutputArrayOutput() CatalogIntegrationObjectStorageDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputArrayOutput) ToCatalogIntegrationObjectStorageDescribeOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationObjectStorageDescribeOutputArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationObjectStorageDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationObjectStorageDescribeOutput {
+		return vs[0].([]CatalogIntegrationObjectStorageDescribeOutput)[vs[1].(int)]
+	}).(CatalogIntegrationObjectStorageDescribeOutputOutput)
+}
+
+type CatalogIntegrationObjectStorageShowOutput struct {
+	Category  *string `pulumi:"category"`
+	Comment   *string `pulumi:"comment"`
+	CreatedOn *string `pulumi:"createdOn"`
+	Enabled   *bool   `pulumi:"enabled"`
+	Name      *string `pulumi:"name"`
+	Type      *string `pulumi:"type"`
+}
+
+// CatalogIntegrationObjectStorageShowOutputInput is an input type that accepts CatalogIntegrationObjectStorageShowOutputArgs and CatalogIntegrationObjectStorageShowOutputOutput values.
+// You can construct a concrete instance of `CatalogIntegrationObjectStorageShowOutputInput` via:
+//
+//	CatalogIntegrationObjectStorageShowOutputArgs{...}
+type CatalogIntegrationObjectStorageShowOutputInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationObjectStorageShowOutputOutput() CatalogIntegrationObjectStorageShowOutputOutput
+	ToCatalogIntegrationObjectStorageShowOutputOutputWithContext(context.Context) CatalogIntegrationObjectStorageShowOutputOutput
+}
+
+type CatalogIntegrationObjectStorageShowOutputArgs struct {
+	Category  pulumi.StringPtrInput `pulumi:"category"`
+	Comment   pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn pulumi.StringPtrInput `pulumi:"createdOn"`
+	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Type      pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CatalogIntegrationObjectStorageShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationObjectStorageShowOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationObjectStorageShowOutputArgs) ToCatalogIntegrationObjectStorageShowOutputOutput() CatalogIntegrationObjectStorageShowOutputOutput {
+	return i.ToCatalogIntegrationObjectStorageShowOutputOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationObjectStorageShowOutputArgs) ToCatalogIntegrationObjectStorageShowOutputOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationObjectStorageShowOutputOutput)
+}
+
+// CatalogIntegrationObjectStorageShowOutputArrayInput is an input type that accepts CatalogIntegrationObjectStorageShowOutputArray and CatalogIntegrationObjectStorageShowOutputArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationObjectStorageShowOutputArrayInput` via:
+//
+//	CatalogIntegrationObjectStorageShowOutputArray{ CatalogIntegrationObjectStorageShowOutputArgs{...} }
+type CatalogIntegrationObjectStorageShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationObjectStorageShowOutputArrayOutput() CatalogIntegrationObjectStorageShowOutputArrayOutput
+	ToCatalogIntegrationObjectStorageShowOutputArrayOutputWithContext(context.Context) CatalogIntegrationObjectStorageShowOutputArrayOutput
+}
+
+type CatalogIntegrationObjectStorageShowOutputArray []CatalogIntegrationObjectStorageShowOutputInput
+
+func (CatalogIntegrationObjectStorageShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationObjectStorageShowOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationObjectStorageShowOutputArray) ToCatalogIntegrationObjectStorageShowOutputArrayOutput() CatalogIntegrationObjectStorageShowOutputArrayOutput {
+	return i.ToCatalogIntegrationObjectStorageShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationObjectStorageShowOutputArray) ToCatalogIntegrationObjectStorageShowOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationObjectStorageShowOutputArrayOutput)
+}
+
+type CatalogIntegrationObjectStorageShowOutputOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationObjectStorageShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationObjectStorageShowOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputOutput) ToCatalogIntegrationObjectStorageShowOutputOutput() CatalogIntegrationObjectStorageShowOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputOutput) ToCatalogIntegrationObjectStorageShowOutputOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageShowOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageShowOutput) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageShowOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationObjectStorageShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationObjectStorageShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationObjectStorageShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationObjectStorageShowOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputArrayOutput) ToCatalogIntegrationObjectStorageShowOutputArrayOutput() CatalogIntegrationObjectStorageShowOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputArrayOutput) ToCatalogIntegrationObjectStorageShowOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageShowOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationObjectStorageShowOutputArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationObjectStorageShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationObjectStorageShowOutput {
+		return vs[0].([]CatalogIntegrationObjectStorageShowOutput)[vs[1].(int)]
+	}).(CatalogIntegrationObjectStorageShowOutputOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutput struct {
+	CatalogNamespace       *string                                                         `pulumi:"catalogNamespace"`
+	CatalogSource          *string                                                         `pulumi:"catalogSource"`
+	Comment                *string                                                         `pulumi:"comment"`
+	Enabled                *bool                                                           `pulumi:"enabled"`
+	Id                     *string                                                         `pulumi:"id"`
+	RefreshIntervalSeconds *int                                                            `pulumi:"refreshIntervalSeconds"`
+	RestAuthentications    []CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication `pulumi:"restAuthentications"`
+	RestConfigs            []CatalogIntegrationOpenCatalogDescribeOutputRestConfig         `pulumi:"restConfigs"`
+	TableFormat            *string                                                         `pulumi:"tableFormat"`
+}
+
+// CatalogIntegrationOpenCatalogDescribeOutputInput is an input type that accepts CatalogIntegrationOpenCatalogDescribeOutputArgs and CatalogIntegrationOpenCatalogDescribeOutputOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogDescribeOutputInput` via:
+//
+//	CatalogIntegrationOpenCatalogDescribeOutputArgs{...}
+type CatalogIntegrationOpenCatalogDescribeOutputInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogDescribeOutputOutput() CatalogIntegrationOpenCatalogDescribeOutputOutput
+	ToCatalogIntegrationOpenCatalogDescribeOutputOutputWithContext(context.Context) CatalogIntegrationOpenCatalogDescribeOutputOutput
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputArgs struct {
+	CatalogNamespace       pulumi.StringPtrInput                                                   `pulumi:"catalogNamespace"`
+	CatalogSource          pulumi.StringPtrInput                                                   `pulumi:"catalogSource"`
+	Comment                pulumi.StringPtrInput                                                   `pulumi:"comment"`
+	Enabled                pulumi.BoolPtrInput                                                     `pulumi:"enabled"`
+	Id                     pulumi.StringPtrInput                                                   `pulumi:"id"`
+	RefreshIntervalSeconds pulumi.IntPtrInput                                                      `pulumi:"refreshIntervalSeconds"`
+	RestAuthentications    CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayInput `pulumi:"restAuthentications"`
+	RestConfigs            CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayInput         `pulumi:"restConfigs"`
+	TableFormat            pulumi.StringPtrInput                                                   `pulumi:"tableFormat"`
+}
+
+func (CatalogIntegrationOpenCatalogDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputArgs) ToCatalogIntegrationOpenCatalogDescribeOutputOutput() CatalogIntegrationOpenCatalogDescribeOutputOutput {
+	return i.ToCatalogIntegrationOpenCatalogDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputArgs) ToCatalogIntegrationOpenCatalogDescribeOutputOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogDescribeOutputOutput)
+}
+
+// CatalogIntegrationOpenCatalogDescribeOutputArrayInput is an input type that accepts CatalogIntegrationOpenCatalogDescribeOutputArray and CatalogIntegrationOpenCatalogDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogDescribeOutputArrayInput` via:
+//
+//	CatalogIntegrationOpenCatalogDescribeOutputArray{ CatalogIntegrationOpenCatalogDescribeOutputArgs{...} }
+type CatalogIntegrationOpenCatalogDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogDescribeOutputArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputArrayOutput
+	ToCatalogIntegrationOpenCatalogDescribeOutputArrayOutputWithContext(context.Context) CatalogIntegrationOpenCatalogDescribeOutputArrayOutput
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputArray []CatalogIntegrationOpenCatalogDescribeOutputInput
+
+func (CatalogIntegrationOpenCatalogDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationOpenCatalogDescribeOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputArray) ToCatalogIntegrationOpenCatalogDescribeOutputArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputArrayOutput {
+	return i.ToCatalogIntegrationOpenCatalogDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputArray) ToCatalogIntegrationOpenCatalogDescribeOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogDescribeOutputArrayOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) ToCatalogIntegrationOpenCatalogDescribeOutputOutput() CatalogIntegrationOpenCatalogDescribeOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) ToCatalogIntegrationOpenCatalogDescribeOutputOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) CatalogNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) *string { return v.CatalogNamespace }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) CatalogSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) *string { return v.CatalogSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) RefreshIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) *int { return v.RefreshIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) RestAuthentications() CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) []CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication {
+		return v.RestAuthentications
+	}).(CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) RestConfigs() CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) []CatalogIntegrationOpenCatalogDescribeOutputRestConfig {
+		return v.RestConfigs
+	}).(CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputOutput) TableFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutput) *string { return v.TableFormat }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationOpenCatalogDescribeOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputArrayOutput) ToCatalogIntegrationOpenCatalogDescribeOutputArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputArrayOutput) ToCatalogIntegrationOpenCatalogDescribeOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationOpenCatalogDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationOpenCatalogDescribeOutput {
+		return vs[0].([]CatalogIntegrationOpenCatalogDescribeOutput)[vs[1].(int)]
+	}).(CatalogIntegrationOpenCatalogDescribeOutputOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication struct {
+	OauthAllowedScopes []string `pulumi:"oauthAllowedScopes"`
+	OauthClientId      *string  `pulumi:"oauthClientId"`
+	OauthTokenUri      *string  `pulumi:"oauthTokenUri"`
+}
+
+// CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationInput is an input type that accepts CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs and CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationInput` via:
+//
+//	CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs{...}
+type CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput() CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput
+	ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutputWithContext(context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs struct {
+	OauthAllowedScopes pulumi.StringArrayInput `pulumi:"oauthAllowedScopes"`
+	OauthClientId      pulumi.StringPtrInput   `pulumi:"oauthClientId"`
+	OauthTokenUri      pulumi.StringPtrInput   `pulumi:"oauthTokenUri"`
+}
+
+func (CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs) ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput() CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput {
+	return i.ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs) ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput)
+}
+
+// CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayInput is an input type that accepts CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArray and CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayInput` via:
+//
+//	CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArray{ CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs{...} }
+type CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput
+	ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutputWithContext(context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArray []CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationInput
+
+func (CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArray) ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput {
+	return i.ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArray) ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput) ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput() CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput) ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication) []string {
+		return v.OauthAllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput) OauthClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication) *string { return v.OauthClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput) OauthTokenUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication) *string { return v.OauthTokenUri }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput) ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput) ToCatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication {
+		return vs[0].([]CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication)[vs[1].(int)]
+	}).(CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestConfig struct {
+	AccessDelegationMode *string `pulumi:"accessDelegationMode"`
+	CatalogApiType       *string `pulumi:"catalogApiType"`
+	CatalogName          *string `pulumi:"catalogName"`
+	CatalogUri           *string `pulumi:"catalogUri"`
+}
+
+// CatalogIntegrationOpenCatalogDescribeOutputRestConfigInput is an input type that accepts CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs and CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogDescribeOutputRestConfigInput` via:
+//
+//	CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs{...}
+type CatalogIntegrationOpenCatalogDescribeOutputRestConfigInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput() CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput
+	ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigOutputWithContext(context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs struct {
+	AccessDelegationMode pulumi.StringPtrInput `pulumi:"accessDelegationMode"`
+	CatalogApiType       pulumi.StringPtrInput `pulumi:"catalogApiType"`
+	CatalogName          pulumi.StringPtrInput `pulumi:"catalogName"`
+	CatalogUri           pulumi.StringPtrInput `pulumi:"catalogUri"`
+}
+
+func (CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputRestConfig)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs) ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput() CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput {
+	return i.ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs) ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput)
+}
+
+// CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayInput is an input type that accepts CatalogIntegrationOpenCatalogDescribeOutputRestConfigArray and CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayInput` via:
+//
+//	CatalogIntegrationOpenCatalogDescribeOutputRestConfigArray{ CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs{...} }
+type CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput
+	ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutputWithContext(context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestConfigArray []CatalogIntegrationOpenCatalogDescribeOutputRestConfigInput
+
+func (CatalogIntegrationOpenCatalogDescribeOutputRestConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationOpenCatalogDescribeOutputRestConfig)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputRestConfigArray) ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput {
+	return i.ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogDescribeOutputRestConfigArray) ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputRestConfig)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput) ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput() CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput) ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput) AccessDelegationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutputRestConfig) *string { return v.AccessDelegationMode }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput) CatalogApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutputRestConfig) *string { return v.CatalogApiType }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutputRestConfig) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput) CatalogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogDescribeOutputRestConfig) *string { return v.CatalogUri }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationOpenCatalogDescribeOutputRestConfig)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput) ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput() CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput) ToCatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationOpenCatalogDescribeOutputRestConfig {
+		return vs[0].([]CatalogIntegrationOpenCatalogDescribeOutputRestConfig)[vs[1].(int)]
+	}).(CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput)
+}
+
+type CatalogIntegrationOpenCatalogRestAuthentication struct {
+	// Specifies one or more scopes for the OAuth token.
+	OauthAllowedScopes []string `pulumi:"oauthAllowedScopes"`
+	// Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+	OauthClientId string `pulumi:"oauthClientId"`
+	// Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	OauthClientSecret string `pulumi:"oauthClientSecret"`
+	// Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+	OauthTokenUri *string `pulumi:"oauthTokenUri"`
+}
+
+// CatalogIntegrationOpenCatalogRestAuthenticationInput is an input type that accepts CatalogIntegrationOpenCatalogRestAuthenticationArgs and CatalogIntegrationOpenCatalogRestAuthenticationOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogRestAuthenticationInput` via:
+//
+//	CatalogIntegrationOpenCatalogRestAuthenticationArgs{...}
+type CatalogIntegrationOpenCatalogRestAuthenticationInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogRestAuthenticationOutput() CatalogIntegrationOpenCatalogRestAuthenticationOutput
+	ToCatalogIntegrationOpenCatalogRestAuthenticationOutputWithContext(context.Context) CatalogIntegrationOpenCatalogRestAuthenticationOutput
+}
+
+type CatalogIntegrationOpenCatalogRestAuthenticationArgs struct {
+	// Specifies one or more scopes for the OAuth token.
+	OauthAllowedScopes pulumi.StringArrayInput `pulumi:"oauthAllowedScopes"`
+	// Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+	OauthClientId pulumi.StringInput `pulumi:"oauthClientId"`
+	// Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	OauthClientSecret pulumi.StringInput `pulumi:"oauthClientSecret"`
+	// Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+	OauthTokenUri pulumi.StringPtrInput `pulumi:"oauthTokenUri"`
+}
+
+func (CatalogIntegrationOpenCatalogRestAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogRestAuthentication)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogRestAuthenticationArgs) ToCatalogIntegrationOpenCatalogRestAuthenticationOutput() CatalogIntegrationOpenCatalogRestAuthenticationOutput {
+	return i.ToCatalogIntegrationOpenCatalogRestAuthenticationOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogRestAuthenticationArgs) ToCatalogIntegrationOpenCatalogRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogRestAuthenticationOutput)
+}
+
+func (i CatalogIntegrationOpenCatalogRestAuthenticationArgs) ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutput() CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput {
+	return i.ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogRestAuthenticationArgs) ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogRestAuthenticationOutput).ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationOpenCatalogRestAuthenticationPtrInput is an input type that accepts CatalogIntegrationOpenCatalogRestAuthenticationArgs, CatalogIntegrationOpenCatalogRestAuthenticationPtr and CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogRestAuthenticationPtrInput` via:
+//
+//	        CatalogIntegrationOpenCatalogRestAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationOpenCatalogRestAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutput() CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput
+	ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(context.Context) CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput
+}
+
+type catalogIntegrationOpenCatalogRestAuthenticationPtrType CatalogIntegrationOpenCatalogRestAuthenticationArgs
+
+func CatalogIntegrationOpenCatalogRestAuthenticationPtr(v *CatalogIntegrationOpenCatalogRestAuthenticationArgs) CatalogIntegrationOpenCatalogRestAuthenticationPtrInput {
+	return (*catalogIntegrationOpenCatalogRestAuthenticationPtrType)(v)
+}
+
+func (*catalogIntegrationOpenCatalogRestAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationOpenCatalogRestAuthentication)(nil)).Elem()
+}
+
+func (i *catalogIntegrationOpenCatalogRestAuthenticationPtrType) ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutput() CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput {
+	return i.ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationOpenCatalogRestAuthenticationPtrType) ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogRestAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogRestAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogRestAuthenticationOutput) ToCatalogIntegrationOpenCatalogRestAuthenticationOutput() CatalogIntegrationOpenCatalogRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogRestAuthenticationOutput) ToCatalogIntegrationOpenCatalogRestAuthenticationOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestAuthenticationOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogRestAuthenticationOutput) ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutput() CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput {
+	return o.ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationOpenCatalogRestAuthenticationOutput) ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationOpenCatalogRestAuthentication) *CatalogIntegrationOpenCatalogRestAuthentication {
+		return &v
+	}).(CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput)
+}
+
+// Specifies one or more scopes for the OAuth token.
+func (o CatalogIntegrationOpenCatalogRestAuthenticationOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestAuthentication) []string { return v.OauthAllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+func (o CatalogIntegrationOpenCatalogRestAuthenticationOutput) OauthClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestAuthentication) string { return v.OauthClientId }).(pulumi.StringOutput)
+}
+
+// Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CatalogIntegrationOpenCatalogRestAuthenticationOutput) OauthClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestAuthentication) string { return v.OauthClientSecret }).(pulumi.StringOutput)
+}
+
+// Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+func (o CatalogIntegrationOpenCatalogRestAuthenticationOutput) OauthTokenUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestAuthentication) *string { return v.OauthTokenUri }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationOpenCatalogRestAuthentication)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutput() CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) ToCatalogIntegrationOpenCatalogRestAuthenticationPtrOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) Elem() CatalogIntegrationOpenCatalogRestAuthenticationOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestAuthentication) CatalogIntegrationOpenCatalogRestAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationOpenCatalogRestAuthentication
+		return ret
+	}).(CatalogIntegrationOpenCatalogRestAuthenticationOutput)
+}
+
+// Specifies one or more scopes for the OAuth token.
+func (o CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestAuthentication) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthAllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+func (o CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) OauthClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) OauthClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+func (o CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput) OauthTokenUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OauthTokenUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogRestConfig struct {
+	// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+	AccessDelegationMode *string `pulumi:"accessDelegationMode"`
+	// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+	CatalogApiType *string `pulumi:"catalogApiType"`
+	// Specifies the name of the catalog to use in Open Catalog.
+	CatalogName string `pulumi:"catalogName"`
+	// Specifies Open Catalog account URL.
+	CatalogUri string `pulumi:"catalogUri"`
+}
+
+// CatalogIntegrationOpenCatalogRestConfigInput is an input type that accepts CatalogIntegrationOpenCatalogRestConfigArgs and CatalogIntegrationOpenCatalogRestConfigOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogRestConfigInput` via:
+//
+//	CatalogIntegrationOpenCatalogRestConfigArgs{...}
+type CatalogIntegrationOpenCatalogRestConfigInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogRestConfigOutput() CatalogIntegrationOpenCatalogRestConfigOutput
+	ToCatalogIntegrationOpenCatalogRestConfigOutputWithContext(context.Context) CatalogIntegrationOpenCatalogRestConfigOutput
+}
+
+type CatalogIntegrationOpenCatalogRestConfigArgs struct {
+	// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+	AccessDelegationMode pulumi.StringPtrInput `pulumi:"accessDelegationMode"`
+	// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+	CatalogApiType pulumi.StringPtrInput `pulumi:"catalogApiType"`
+	// Specifies the name of the catalog to use in Open Catalog.
+	CatalogName pulumi.StringInput `pulumi:"catalogName"`
+	// Specifies Open Catalog account URL.
+	CatalogUri pulumi.StringInput `pulumi:"catalogUri"`
+}
+
+func (CatalogIntegrationOpenCatalogRestConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogRestConfig)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogRestConfigArgs) ToCatalogIntegrationOpenCatalogRestConfigOutput() CatalogIntegrationOpenCatalogRestConfigOutput {
+	return i.ToCatalogIntegrationOpenCatalogRestConfigOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogRestConfigArgs) ToCatalogIntegrationOpenCatalogRestConfigOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogRestConfigOutput)
+}
+
+func (i CatalogIntegrationOpenCatalogRestConfigArgs) ToCatalogIntegrationOpenCatalogRestConfigPtrOutput() CatalogIntegrationOpenCatalogRestConfigPtrOutput {
+	return i.ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogRestConfigArgs) ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogRestConfigOutput).ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(ctx)
+}
+
+// CatalogIntegrationOpenCatalogRestConfigPtrInput is an input type that accepts CatalogIntegrationOpenCatalogRestConfigArgs, CatalogIntegrationOpenCatalogRestConfigPtr and CatalogIntegrationOpenCatalogRestConfigPtrOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogRestConfigPtrInput` via:
+//
+//	        CatalogIntegrationOpenCatalogRestConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogIntegrationOpenCatalogRestConfigPtrInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogRestConfigPtrOutput() CatalogIntegrationOpenCatalogRestConfigPtrOutput
+	ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(context.Context) CatalogIntegrationOpenCatalogRestConfigPtrOutput
+}
+
+type catalogIntegrationOpenCatalogRestConfigPtrType CatalogIntegrationOpenCatalogRestConfigArgs
+
+func CatalogIntegrationOpenCatalogRestConfigPtr(v *CatalogIntegrationOpenCatalogRestConfigArgs) CatalogIntegrationOpenCatalogRestConfigPtrInput {
+	return (*catalogIntegrationOpenCatalogRestConfigPtrType)(v)
+}
+
+func (*catalogIntegrationOpenCatalogRestConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationOpenCatalogRestConfig)(nil)).Elem()
+}
+
+func (i *catalogIntegrationOpenCatalogRestConfigPtrType) ToCatalogIntegrationOpenCatalogRestConfigPtrOutput() CatalogIntegrationOpenCatalogRestConfigPtrOutput {
+	return i.ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogIntegrationOpenCatalogRestConfigPtrType) ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogRestConfigPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogRestConfigOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogRestConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogRestConfig)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogRestConfigOutput) ToCatalogIntegrationOpenCatalogRestConfigOutput() CatalogIntegrationOpenCatalogRestConfigOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogRestConfigOutput) ToCatalogIntegrationOpenCatalogRestConfigOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestConfigOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogRestConfigOutput) ToCatalogIntegrationOpenCatalogRestConfigPtrOutput() CatalogIntegrationOpenCatalogRestConfigPtrOutput {
+	return o.ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogIntegrationOpenCatalogRestConfigOutput) ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogIntegrationOpenCatalogRestConfig) *CatalogIntegrationOpenCatalogRestConfig {
+		return &v
+	}).(CatalogIntegrationOpenCatalogRestConfigPtrOutput)
+}
+
+// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+func (o CatalogIntegrationOpenCatalogRestConfigOutput) AccessDelegationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestConfig) *string { return v.AccessDelegationMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+func (o CatalogIntegrationOpenCatalogRestConfigOutput) CatalogApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestConfig) *string { return v.CatalogApiType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the catalog to use in Open Catalog.
+func (o CatalogIntegrationOpenCatalogRestConfigOutput) CatalogName() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestConfig) string { return v.CatalogName }).(pulumi.StringOutput)
+}
+
+// Specifies Open Catalog account URL.
+func (o CatalogIntegrationOpenCatalogRestConfigOutput) CatalogUri() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogRestConfig) string { return v.CatalogUri }).(pulumi.StringOutput)
+}
+
+type CatalogIntegrationOpenCatalogRestConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogRestConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogIntegrationOpenCatalogRestConfig)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) ToCatalogIntegrationOpenCatalogRestConfigPtrOutput() CatalogIntegrationOpenCatalogRestConfigPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) ToCatalogIntegrationOpenCatalogRestConfigPtrOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogRestConfigPtrOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) Elem() CatalogIntegrationOpenCatalogRestConfigOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestConfig) CatalogIntegrationOpenCatalogRestConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogIntegrationOpenCatalogRestConfig
+		return ret
+	}).(CatalogIntegrationOpenCatalogRestConfigOutput)
+}
+
+// Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) AccessDelegationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessDelegationMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) CatalogApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogApiType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the catalog to use in Open Catalog.
+func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies Open Catalog account URL.
+func (o CatalogIntegrationOpenCatalogRestConfigPtrOutput) CatalogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalogRestConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogShowOutput struct {
+	Category  *string `pulumi:"category"`
+	Comment   *string `pulumi:"comment"`
+	CreatedOn *string `pulumi:"createdOn"`
+	Enabled   *bool   `pulumi:"enabled"`
+	Name      *string `pulumi:"name"`
+	Type      *string `pulumi:"type"`
+}
+
+// CatalogIntegrationOpenCatalogShowOutputInput is an input type that accepts CatalogIntegrationOpenCatalogShowOutputArgs and CatalogIntegrationOpenCatalogShowOutputOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogShowOutputInput` via:
+//
+//	CatalogIntegrationOpenCatalogShowOutputArgs{...}
+type CatalogIntegrationOpenCatalogShowOutputInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogShowOutputOutput() CatalogIntegrationOpenCatalogShowOutputOutput
+	ToCatalogIntegrationOpenCatalogShowOutputOutputWithContext(context.Context) CatalogIntegrationOpenCatalogShowOutputOutput
+}
+
+type CatalogIntegrationOpenCatalogShowOutputArgs struct {
+	Category  pulumi.StringPtrInput `pulumi:"category"`
+	Comment   pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn pulumi.StringPtrInput `pulumi:"createdOn"`
+	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Type      pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CatalogIntegrationOpenCatalogShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogShowOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogShowOutputArgs) ToCatalogIntegrationOpenCatalogShowOutputOutput() CatalogIntegrationOpenCatalogShowOutputOutput {
+	return i.ToCatalogIntegrationOpenCatalogShowOutputOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogShowOutputArgs) ToCatalogIntegrationOpenCatalogShowOutputOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogShowOutputOutput)
+}
+
+// CatalogIntegrationOpenCatalogShowOutputArrayInput is an input type that accepts CatalogIntegrationOpenCatalogShowOutputArray and CatalogIntegrationOpenCatalogShowOutputArrayOutput values.
+// You can construct a concrete instance of `CatalogIntegrationOpenCatalogShowOutputArrayInput` via:
+//
+//	CatalogIntegrationOpenCatalogShowOutputArray{ CatalogIntegrationOpenCatalogShowOutputArgs{...} }
+type CatalogIntegrationOpenCatalogShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToCatalogIntegrationOpenCatalogShowOutputArrayOutput() CatalogIntegrationOpenCatalogShowOutputArrayOutput
+	ToCatalogIntegrationOpenCatalogShowOutputArrayOutputWithContext(context.Context) CatalogIntegrationOpenCatalogShowOutputArrayOutput
+}
+
+type CatalogIntegrationOpenCatalogShowOutputArray []CatalogIntegrationOpenCatalogShowOutputInput
+
+func (CatalogIntegrationOpenCatalogShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationOpenCatalogShowOutput)(nil)).Elem()
+}
+
+func (i CatalogIntegrationOpenCatalogShowOutputArray) ToCatalogIntegrationOpenCatalogShowOutputArrayOutput() CatalogIntegrationOpenCatalogShowOutputArrayOutput {
+	return i.ToCatalogIntegrationOpenCatalogShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CatalogIntegrationOpenCatalogShowOutputArray) ToCatalogIntegrationOpenCatalogShowOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogIntegrationOpenCatalogShowOutputArrayOutput)
+}
+
+type CatalogIntegrationOpenCatalogShowOutputOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogIntegrationOpenCatalogShowOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputOutput) ToCatalogIntegrationOpenCatalogShowOutputOutput() CatalogIntegrationOpenCatalogShowOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputOutput) ToCatalogIntegrationOpenCatalogShowOutputOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogShowOutputOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogShowOutput) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogShowOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationOpenCatalogShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CatalogIntegrationOpenCatalogShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CatalogIntegrationOpenCatalogShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogIntegrationOpenCatalogShowOutput)(nil)).Elem()
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputArrayOutput) ToCatalogIntegrationOpenCatalogShowOutputArrayOutput() CatalogIntegrationOpenCatalogShowOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputArrayOutput) ToCatalogIntegrationOpenCatalogShowOutputArrayOutputWithContext(ctx context.Context) CatalogIntegrationOpenCatalogShowOutputArrayOutput {
+	return o
+}
+
+func (o CatalogIntegrationOpenCatalogShowOutputArrayOutput) Index(i pulumi.IntInput) CatalogIntegrationOpenCatalogShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogIntegrationOpenCatalogShowOutput {
+		return vs[0].([]CatalogIntegrationOpenCatalogShowOutput)[vs[1].(int)]
+	}).(CatalogIntegrationOpenCatalogShowOutputOutput)
 }
 
 type ComputePoolDescribeOutput struct {
@@ -10232,11 +13188,10 @@ func (o ExternalTableTagArrayOutput) Index(i pulumi.IntInput) ExternalTableTagOu
 }
 
 type ExternalVolumeDescribeOutput struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Parent  *string `pulumi:"parent"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
+	Active           *string                                       `pulumi:"active"`
+	AllowWrites      *string                                       `pulumi:"allowWrites"`
+	Comment          *string                                       `pulumi:"comment"`
+	StorageLocations []ExternalVolumeDescribeOutputStorageLocation `pulumi:"storageLocations"`
 }
 
 // ExternalVolumeDescribeOutputInput is an input type that accepts ExternalVolumeDescribeOutputArgs and ExternalVolumeDescribeOutputOutput values.
@@ -10251,11 +13206,10 @@ type ExternalVolumeDescribeOutputInput interface {
 }
 
 type ExternalVolumeDescribeOutputArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Parent  pulumi.StringPtrInput `pulumi:"parent"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
+	Active           pulumi.StringPtrInput                                 `pulumi:"active"`
+	AllowWrites      pulumi.StringPtrInput                                 `pulumi:"allowWrites"`
+	Comment          pulumi.StringPtrInput                                 `pulumi:"comment"`
+	StorageLocations ExternalVolumeDescribeOutputStorageLocationArrayInput `pulumi:"storageLocations"`
 }
 
 func (ExternalVolumeDescribeOutputArgs) ElementType() reflect.Type {
@@ -10309,24 +13263,22 @@ func (o ExternalVolumeDescribeOutputOutput) ToExternalVolumeDescribeOutputOutput
 	return o
 }
 
-func (o ExternalVolumeDescribeOutputOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExternalVolumeDescribeOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
+func (o ExternalVolumeDescribeOutputOutput) Active() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutput) *string { return v.Active }).(pulumi.StringPtrOutput)
 }
 
-func (o ExternalVolumeDescribeOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExternalVolumeDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ExternalVolumeDescribeOutputOutput) AllowWrites() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutput) *string { return v.AllowWrites }).(pulumi.StringPtrOutput)
 }
 
-func (o ExternalVolumeDescribeOutputOutput) Parent() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExternalVolumeDescribeOutput) *string { return v.Parent }).(pulumi.StringPtrOutput)
+func (o ExternalVolumeDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-func (o ExternalVolumeDescribeOutputOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExternalVolumeDescribeOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o ExternalVolumeDescribeOutputOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExternalVolumeDescribeOutput) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o ExternalVolumeDescribeOutputOutput) StorageLocations() ExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutput) []ExternalVolumeDescribeOutputStorageLocation {
+		return v.StorageLocations
+	}).(ExternalVolumeDescribeOutputStorageLocationArrayOutput)
 }
 
 type ExternalVolumeDescribeOutputArrayOutput struct{ *pulumi.OutputState }
@@ -10347,6 +13299,618 @@ func (o ExternalVolumeDescribeOutputArrayOutput) Index(i pulumi.IntInput) Extern
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalVolumeDescribeOutput {
 		return vs[0].([]ExternalVolumeDescribeOutput)[vs[1].(int)]
 	}).(ExternalVolumeDescribeOutputOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocation struct {
+	AzureStorageLocations    []ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation    `pulumi:"azureStorageLocations"`
+	EncryptionType           *string                                                              `pulumi:"encryptionType"`
+	GcsStorageLocations      []ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation      `pulumi:"gcsStorageLocations"`
+	Name                     *string                                                              `pulumi:"name"`
+	S3CompatStorageLocations []ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation `pulumi:"s3CompatStorageLocations"`
+	S3StorageLocations       []ExternalVolumeDescribeOutputStorageLocationS3StorageLocation       `pulumi:"s3StorageLocations"`
+	StorageAllowedLocations  []string                                                             `pulumi:"storageAllowedLocations"`
+	StorageBaseUrl           *string                                                              `pulumi:"storageBaseUrl"`
+	StorageProvider          *string                                                              `pulumi:"storageProvider"`
+}
+
+// ExternalVolumeDescribeOutputStorageLocationInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationArgs and ExternalVolumeDescribeOutputStorageLocationOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationArgs{...}
+type ExternalVolumeDescribeOutputStorageLocationInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationOutput
+	ToExternalVolumeDescribeOutputStorageLocationOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationArgs struct {
+	AzureStorageLocations    ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput    `pulumi:"azureStorageLocations"`
+	EncryptionType           pulumi.StringPtrInput                                                        `pulumi:"encryptionType"`
+	GcsStorageLocations      ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput      `pulumi:"gcsStorageLocations"`
+	Name                     pulumi.StringPtrInput                                                        `pulumi:"name"`
+	S3CompatStorageLocations ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayInput `pulumi:"s3CompatStorageLocations"`
+	S3StorageLocations       ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayInput       `pulumi:"s3StorageLocations"`
+	StorageAllowedLocations  pulumi.StringArrayInput                                                      `pulumi:"storageAllowedLocations"`
+	StorageBaseUrl           pulumi.StringPtrInput                                                        `pulumi:"storageBaseUrl"`
+	StorageProvider          pulumi.StringPtrInput                                                        `pulumi:"storageProvider"`
+}
+
+func (ExternalVolumeDescribeOutputStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationOutput)
+}
+
+// ExternalVolumeDescribeOutputStorageLocationArrayInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationArray and ExternalVolumeDescribeOutputStorageLocationArrayOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationArrayInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationArray{ ExternalVolumeDescribeOutputStorageLocationArgs{...} }
+type ExternalVolumeDescribeOutputStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationArrayOutput
+	ToExternalVolumeDescribeOutputStorageLocationArrayOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationArrayOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationArray []ExternalVolumeDescribeOutputStorageLocationInput
+
+func (ExternalVolumeDescribeOutputStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationArrayOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) AzureStorageLocations() ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) []ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation {
+		return v.AzureStorageLocations
+	}).(ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) GcsStorageLocations() ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) []ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
+		return v.GcsStorageLocations
+	}).(ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) S3CompatStorageLocations() ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) []ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation {
+		return v.S3CompatStorageLocations
+	}).(ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) S3StorageLocations() ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) []ExternalVolumeDescribeOutputStorageLocationS3StorageLocation {
+		return v.S3StorageLocations
+	}).(ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) StorageAllowedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) []string { return v.StorageAllowedLocations }).(pulumi.StringArrayOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) StorageBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) *string { return v.StorageBaseUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationOutput) StorageProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocation) *string { return v.StorageProvider }).(pulumi.StringPtrOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationArrayOutput) Index(i pulumi.IntInput) ExternalVolumeDescribeOutputStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalVolumeDescribeOutputStorageLocation {
+		return vs[0].([]ExternalVolumeDescribeOutputStorageLocation)[vs[1].(int)]
+	}).(ExternalVolumeDescribeOutputStorageLocationOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation struct {
+	AzureConsentUrl         *string `pulumi:"azureConsentUrl"`
+	AzureMultiTenantAppName *string `pulumi:"azureMultiTenantAppName"`
+	AzureTenantId           *string `pulumi:"azureTenantId"`
+}
+
+// ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs and ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs{...}
+type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput
+	ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs struct {
+	AzureConsentUrl         pulumi.StringPtrInput `pulumi:"azureConsentUrl"`
+	AzureMultiTenantAppName pulumi.StringPtrInput `pulumi:"azureMultiTenantAppName"`
+	AzureTenantId           pulumi.StringPtrInput `pulumi:"azureTenantId"`
+}
+
+func (ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput)
+}
+
+// ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray and ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray{ ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs{...} }
+type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput
+	ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray []ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput
+
+func (ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) AzureConsentUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) *string {
+		return v.AzureConsentUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) AzureMultiTenantAppName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) *string {
+		return v.AzureMultiTenantAppName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) AzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) *string {
+		return v.AzureTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput) Index(i pulumi.IntInput) ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation {
+		return vs[0].([]ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)[vs[1].(int)]
+	}).(ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation struct {
+	EncryptionKmsKeyId       *string `pulumi:"encryptionKmsKeyId"`
+	StorageGcpServiceAccount *string `pulumi:"storageGcpServiceAccount"`
+}
+
+// ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs and ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs{...}
+type ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput
+	ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs struct {
+	EncryptionKmsKeyId       pulumi.StringPtrInput `pulumi:"encryptionKmsKeyId"`
+	StorageGcpServiceAccount pulumi.StringPtrInput `pulumi:"storageGcpServiceAccount"`
+}
+
+func (ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput)
+}
+
+// ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray and ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray{ ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs{...} }
+type ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput
+	ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray []ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput
+
+func (ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) EncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation) *string {
+		return v.EncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) StorageGcpServiceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation) *string {
+		return v.StorageGcpServiceAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput) Index(i pulumi.IntInput) ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
+		return vs[0].([]ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)[vs[1].(int)]
+	}).(ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation struct {
+	AwsAccessKeyId     *string `pulumi:"awsAccessKeyId"`
+	EncryptionKmsKeyId *string `pulumi:"encryptionKmsKeyId"`
+	Endpoint           *string `pulumi:"endpoint"`
+}
+
+// ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs and ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs{...}
+type ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput
+	ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs struct {
+	AwsAccessKeyId     pulumi.StringPtrInput `pulumi:"awsAccessKeyId"`
+	EncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"encryptionKmsKeyId"`
+	Endpoint           pulumi.StringPtrInput `pulumi:"endpoint"`
+}
+
+func (ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput)
+}
+
+// ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArray and ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArray{ ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs{...} }
+type ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput
+	ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArray []ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationInput
+
+func (ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput) AwsAccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation) *string {
+		return v.AwsAccessKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput) EncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation) *string {
+		return v.EncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput) Index(i pulumi.IntInput) ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation {
+		return vs[0].([]ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation)[vs[1].(int)]
+	}).(ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3StorageLocation struct {
+	EncryptionKmsKeyId       *string `pulumi:"encryptionKmsKeyId"`
+	StorageAwsAccessPointArn *string `pulumi:"storageAwsAccessPointArn"`
+	StorageAwsExternalId     *string `pulumi:"storageAwsExternalId"`
+	StorageAwsIamUserArn     *string `pulumi:"storageAwsIamUserArn"`
+	StorageAwsRoleArn        *string `pulumi:"storageAwsRoleArn"`
+	UsePrivatelinkEndpoint   *string `pulumi:"usePrivatelinkEndpoint"`
+}
+
+// ExternalVolumeDescribeOutputStorageLocationS3StorageLocationInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs and ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationS3StorageLocationInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs{...}
+type ExternalVolumeDescribeOutputStorageLocationS3StorageLocationInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput
+	ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs struct {
+	EncryptionKmsKeyId       pulumi.StringPtrInput `pulumi:"encryptionKmsKeyId"`
+	StorageAwsAccessPointArn pulumi.StringPtrInput `pulumi:"storageAwsAccessPointArn"`
+	StorageAwsExternalId     pulumi.StringPtrInput `pulumi:"storageAwsExternalId"`
+	StorageAwsIamUserArn     pulumi.StringPtrInput `pulumi:"storageAwsIamUserArn"`
+	StorageAwsRoleArn        pulumi.StringPtrInput `pulumi:"storageAwsRoleArn"`
+	UsePrivatelinkEndpoint   pulumi.StringPtrInput `pulumi:"usePrivatelinkEndpoint"`
+}
+
+func (ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationS3StorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs) ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput)
+}
+
+// ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArray and ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput values.
+// You can construct a concrete instance of `ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayInput` via:
+//
+//	ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArray{ ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs{...} }
+type ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput
+	ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutputWithContext(context.Context) ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArray []ExternalVolumeDescribeOutputStorageLocationS3StorageLocationInput
+
+func (ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocationS3StorageLocation)(nil)).Elem()
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput {
+	return i.ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArray) ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationS3StorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput() ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) EncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3StorageLocation) *string {
+		return v.EncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) StorageAwsAccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3StorageLocation) *string {
+		return v.StorageAwsAccessPointArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) StorageAwsExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3StorageLocation) *string {
+		return v.StorageAwsExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) StorageAwsIamUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3StorageLocation) *string {
+		return v.StorageAwsIamUserArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) StorageAwsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3StorageLocation) *string {
+		return v.StorageAwsRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput) UsePrivatelinkEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationS3StorageLocation) *string {
+		return v.UsePrivatelinkEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalVolumeDescribeOutputStorageLocationS3StorageLocation)(nil)).Elem()
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput() ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput) ToExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutputWithContext(ctx context.Context) ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput {
+	return o
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput) Index(i pulumi.IntInput) ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalVolumeDescribeOutputStorageLocationS3StorageLocation {
+		return vs[0].([]ExternalVolumeDescribeOutputStorageLocationS3StorageLocation)[vs[1].(int)]
+	}).(ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput)
 }
 
 type ExternalVolumeShowOutput struct {
@@ -10462,16 +14026,26 @@ type ExternalVolumeStorageLocation struct {
 	EncryptionKmsKeyId *string `pulumi:"encryptionKmsKeyId"`
 	// Specifies the encryption type used.
 	EncryptionType *string `pulumi:"encryptionType"`
+	// Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+	StorageAwsAccessPointArn *string `pulumi:"storageAwsAccessPointArn"`
 	// External ID that Snowflake uses to establish a trust relationship with AWS.
 	StorageAwsExternalId *string `pulumi:"storageAwsExternalId"`
+	// Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+	StorageAwsKeyId *string `pulumi:"storageAwsKeyId"`
 	// Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
 	StorageAwsRoleArn *string `pulumi:"storageAwsRoleArn"`
+	// Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+	StorageAwsSecretKey *string `pulumi:"storageAwsSecretKey"`
 	// Specifies the base URL for your cloud storage location.
 	StorageBaseUrl string `pulumi:"storageBaseUrl"`
+	// Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+	StorageEndpoint *string `pulumi:"storageEndpoint"`
 	// Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	StorageLocationName string `pulumi:"storageLocationName"`
-	// Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+	// Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
 	StorageProvider string `pulumi:"storageProvider"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	UsePrivatelinkEndpoint *string `pulumi:"usePrivatelinkEndpoint"`
 }
 
 // ExternalVolumeStorageLocationInput is an input type that accepts ExternalVolumeStorageLocationArgs and ExternalVolumeStorageLocationOutput values.
@@ -10492,16 +14066,26 @@ type ExternalVolumeStorageLocationArgs struct {
 	EncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"encryptionKmsKeyId"`
 	// Specifies the encryption type used.
 	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
+	// Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+	StorageAwsAccessPointArn pulumi.StringPtrInput `pulumi:"storageAwsAccessPointArn"`
 	// External ID that Snowflake uses to establish a trust relationship with AWS.
 	StorageAwsExternalId pulumi.StringPtrInput `pulumi:"storageAwsExternalId"`
+	// Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+	StorageAwsKeyId pulumi.StringPtrInput `pulumi:"storageAwsKeyId"`
 	// Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
 	StorageAwsRoleArn pulumi.StringPtrInput `pulumi:"storageAwsRoleArn"`
+	// Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+	StorageAwsSecretKey pulumi.StringPtrInput `pulumi:"storageAwsSecretKey"`
 	// Specifies the base URL for your cloud storage location.
 	StorageBaseUrl pulumi.StringInput `pulumi:"storageBaseUrl"`
+	// Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+	StorageEndpoint pulumi.StringPtrInput `pulumi:"storageEndpoint"`
 	// Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	StorageLocationName pulumi.StringInput `pulumi:"storageLocationName"`
-	// Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+	// Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
 	StorageProvider pulumi.StringInput `pulumi:"storageProvider"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	UsePrivatelinkEndpoint pulumi.StringPtrInput `pulumi:"usePrivatelinkEndpoint"`
 }
 
 func (ExternalVolumeStorageLocationArgs) ElementType() reflect.Type {
@@ -10570,9 +14154,19 @@ func (o ExternalVolumeStorageLocationOutput) EncryptionType() pulumi.StringPtrOu
 	return o.ApplyT(func(v ExternalVolumeStorageLocation) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+func (o ExternalVolumeStorageLocationOutput) StorageAwsAccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeStorageLocation) *string { return v.StorageAwsAccessPointArn }).(pulumi.StringPtrOutput)
+}
+
 // External ID that Snowflake uses to establish a trust relationship with AWS.
 func (o ExternalVolumeStorageLocationOutput) StorageAwsExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalVolumeStorageLocation) *string { return v.StorageAwsExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+func (o ExternalVolumeStorageLocationOutput) StorageAwsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeStorageLocation) *string { return v.StorageAwsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
@@ -10580,9 +14174,19 @@ func (o ExternalVolumeStorageLocationOutput) StorageAwsRoleArn() pulumi.StringPt
 	return o.ApplyT(func(v ExternalVolumeStorageLocation) *string { return v.StorageAwsRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+func (o ExternalVolumeStorageLocationOutput) StorageAwsSecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeStorageLocation) *string { return v.StorageAwsSecretKey }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the base URL for your cloud storage location.
 func (o ExternalVolumeStorageLocationOutput) StorageBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalVolumeStorageLocation) string { return v.StorageBaseUrl }).(pulumi.StringOutput)
+}
+
+// Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+func (o ExternalVolumeStorageLocationOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeStorageLocation) *string { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -10590,9 +14194,14 @@ func (o ExternalVolumeStorageLocationOutput) StorageLocationName() pulumi.String
 	return o.ApplyT(func(v ExternalVolumeStorageLocation) string { return v.StorageLocationName }).(pulumi.StringOutput)
 }
 
-// Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+// Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
 func (o ExternalVolumeStorageLocationOutput) StorageProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v ExternalVolumeStorageLocation) string { return v.StorageProvider }).(pulumi.StringOutput)
+}
+
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+func (o ExternalVolumeStorageLocationOutput) UsePrivatelinkEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeStorageLocation) *string { return v.UsePrivatelinkEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type ExternalVolumeStorageLocationArrayOutput struct{ *pulumi.OutputState }
@@ -16908,7 +20517,7 @@ type GrantOwnershipOn struct {
 	Future *GrantOwnershipOnFuture `pulumi:"future"`
 	// Specifies the identifier for the object on which you are transferring ownership.
 	ObjectName *string `pulumi:"objectName"`
-	// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+	// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -16930,7 +20539,7 @@ type GrantOwnershipOnArgs struct {
 	Future GrantOwnershipOnFuturePtrInput `pulumi:"future"`
 	// Specifies the identifier for the object on which you are transferring ownership.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+	// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -17026,7 +20635,7 @@ func (o GrantOwnershipOnOutput) ObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOn) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
 func (o GrantOwnershipOnOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOn) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -17085,7 +20694,7 @@ func (o GrantOwnershipOnPtrOutput) ObjectName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+// Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
 func (o GrantOwnershipOnPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnershipOn) *string {
 		if v == nil {
@@ -17100,7 +20709,7 @@ type GrantOwnershipOnAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema *string `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -17120,7 +20729,7 @@ type GrantOwnershipOnAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -17211,7 +20820,7 @@ func (o GrantOwnershipOnAllOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOnAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 func (o GrantOwnershipOnAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantOwnershipOnAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -17260,7 +20869,7 @@ func (o GrantOwnershipOnAllPtrOutput) InSchema() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 func (o GrantOwnershipOnAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnershipOnAll) *string {
 		if v == nil {
@@ -17275,7 +20884,7 @@ type GrantOwnershipOnFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema *string `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -17295,7 +20904,7 @@ type GrantOwnershipOnFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -17386,7 +20995,7 @@ func (o GrantOwnershipOnFutureOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOnFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 func (o GrantOwnershipOnFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantOwnershipOnFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -17435,7 +21044,7 @@ func (o GrantOwnershipOnFuturePtrOutput) InSchema() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 func (o GrantOwnershipOnFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnershipOnFuture) *string {
 		if v == nil {
@@ -18144,7 +21753,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural
 type GrantPrivilegesToAccountRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -18162,7 +21771,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -18251,7 +21860,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) InSchema() pulum
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -18298,7 +21907,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) InSchema() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -18861,7 +22470,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -18881,7 +22490,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -18972,7 +22581,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) InSchema() pulu
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -19021,7 +22630,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) InSchema() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -19035,6 +22644,7 @@ type ImageRepositoryShowOutput struct {
 	Comment                  *string `pulumi:"comment"`
 	CreatedOn                *string `pulumi:"createdOn"`
 	DatabaseName             *string `pulumi:"databaseName"`
+	Encryption               *string `pulumi:"encryption"`
 	Name                     *string `pulumi:"name"`
 	Owner                    *string `pulumi:"owner"`
 	OwnerRoleType            *string `pulumi:"ownerRoleType"`
@@ -19058,6 +22668,7 @@ type ImageRepositoryShowOutputArgs struct {
 	Comment                  pulumi.StringPtrInput `pulumi:"comment"`
 	CreatedOn                pulumi.StringPtrInput `pulumi:"createdOn"`
 	DatabaseName             pulumi.StringPtrInput `pulumi:"databaseName"`
+	Encryption               pulumi.StringPtrInput `pulumi:"encryption"`
 	Name                     pulumi.StringPtrInput `pulumi:"name"`
 	Owner                    pulumi.StringPtrInput `pulumi:"owner"`
 	OwnerRoleType            pulumi.StringPtrInput `pulumi:"ownerRoleType"`
@@ -19127,6 +22738,10 @@ func (o ImageRepositoryShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
 
 func (o ImageRepositoryShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) Encryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.Encryption }).(pulumi.StringPtrOutput)
 }
 
 func (o ImageRepositoryShowOutputOutput) Name() pulumi.StringPtrOutput {
@@ -49463,6 +53078,8 @@ func (o SemanticViewDimensionArrayOutput) Index(i pulumi.IntInput) SemanticViewD
 type SemanticViewFact struct {
 	// Specifies a comment for the fact.
 	Comment *string `pulumi:"comment"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+	IsPrivate *string `pulumi:"isPrivate"`
 	// Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
 	QualifiedExpressionName string `pulumi:"qualifiedExpressionName"`
 	// The SQL expression used to compute the fact.
@@ -49485,6 +53102,8 @@ type SemanticViewFactInput interface {
 type SemanticViewFactArgs struct {
 	// Specifies a comment for the fact.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+	IsPrivate pulumi.StringPtrInput `pulumi:"isPrivate"`
 	// Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
 	QualifiedExpressionName pulumi.StringInput `pulumi:"qualifiedExpressionName"`
 	// The SQL expression used to compute the fact.
@@ -49549,6 +53168,11 @@ func (o SemanticViewFactOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SemanticViewFact) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+func (o SemanticViewFactOutput) IsPrivate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SemanticViewFact) *string { return v.IsPrivate }).(pulumi.StringPtrOutput)
+}
+
 // Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
 func (o SemanticViewFactOutput) QualifiedExpressionName() pulumi.StringOutput {
 	return o.ApplyT(func(v SemanticViewFact) string { return v.QualifiedExpressionName }).(pulumi.StringOutput)
@@ -49585,6 +53209,8 @@ func (o SemanticViewFactArrayOutput) Index(i pulumi.IntInput) SemanticViewFactOu
 }
 
 type SemanticViewMetric struct {
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+	IsPrivate *string `pulumi:"isPrivate"`
 	// Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
 	SemanticExpression *SemanticViewMetricSemanticExpression `pulumi:"semanticExpression"`
 	// Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
@@ -49603,6 +53229,8 @@ type SemanticViewMetricInput interface {
 }
 
 type SemanticViewMetricArgs struct {
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+	IsPrivate pulumi.StringPtrInput `pulumi:"isPrivate"`
 	// Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
 	SemanticExpression SemanticViewMetricSemanticExpressionPtrInput `pulumi:"semanticExpression"`
 	// Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
@@ -49658,6 +53286,11 @@ func (o SemanticViewMetricOutput) ToSemanticViewMetricOutput() SemanticViewMetri
 
 func (o SemanticViewMetricOutput) ToSemanticViewMetricOutputWithContext(ctx context.Context) SemanticViewMetricOutput {
 	return o
+}
+
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+func (o SemanticViewMetricOutput) IsPrivate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SemanticViewMetric) *string { return v.IsPrivate }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
@@ -63729,5168 +67362,6 @@ func (o StageExternalAzureFileFormatJsonPtrOutput) TrimSpace() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-type StageExternalAzureFileFormatOrc struct {
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-}
-
-// StageExternalAzureFileFormatOrcInput is an input type that accepts StageExternalAzureFileFormatOrcArgs and StageExternalAzureFileFormatOrcOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatOrcInput` via:
-//
-//	StageExternalAzureFileFormatOrcArgs{...}
-type StageExternalAzureFileFormatOrcInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatOrcOutput() StageExternalAzureFileFormatOrcOutput
-	ToStageExternalAzureFileFormatOrcOutputWithContext(context.Context) StageExternalAzureFileFormatOrcOutput
-}
-
-type StageExternalAzureFileFormatOrcArgs struct {
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-}
-
-func (StageExternalAzureFileFormatOrcArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatOrc)(nil)).Elem()
-}
-
-func (i StageExternalAzureFileFormatOrcArgs) ToStageExternalAzureFileFormatOrcOutput() StageExternalAzureFileFormatOrcOutput {
-	return i.ToStageExternalAzureFileFormatOrcOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatOrcArgs) ToStageExternalAzureFileFormatOrcOutputWithContext(ctx context.Context) StageExternalAzureFileFormatOrcOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatOrcOutput)
-}
-
-func (i StageExternalAzureFileFormatOrcArgs) ToStageExternalAzureFileFormatOrcPtrOutput() StageExternalAzureFileFormatOrcPtrOutput {
-	return i.ToStageExternalAzureFileFormatOrcPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatOrcArgs) ToStageExternalAzureFileFormatOrcPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatOrcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatOrcOutput).ToStageExternalAzureFileFormatOrcPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureFileFormatOrcPtrInput is an input type that accepts StageExternalAzureFileFormatOrcArgs, StageExternalAzureFileFormatOrcPtr and StageExternalAzureFileFormatOrcPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatOrcPtrInput` via:
-//
-//	        StageExternalAzureFileFormatOrcArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureFileFormatOrcPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatOrcPtrOutput() StageExternalAzureFileFormatOrcPtrOutput
-	ToStageExternalAzureFileFormatOrcPtrOutputWithContext(context.Context) StageExternalAzureFileFormatOrcPtrOutput
-}
-
-type stageExternalAzureFileFormatOrcPtrType StageExternalAzureFileFormatOrcArgs
-
-func StageExternalAzureFileFormatOrcPtr(v *StageExternalAzureFileFormatOrcArgs) StageExternalAzureFileFormatOrcPtrInput {
-	return (*stageExternalAzureFileFormatOrcPtrType)(v)
-}
-
-func (*stageExternalAzureFileFormatOrcPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatOrc)(nil)).Elem()
-}
-
-func (i *stageExternalAzureFileFormatOrcPtrType) ToStageExternalAzureFileFormatOrcPtrOutput() StageExternalAzureFileFormatOrcPtrOutput {
-	return i.ToStageExternalAzureFileFormatOrcPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureFileFormatOrcPtrType) ToStageExternalAzureFileFormatOrcPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatOrcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatOrcPtrOutput)
-}
-
-type StageExternalAzureFileFormatOrcOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatOrcOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatOrc)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatOrcOutput) ToStageExternalAzureFileFormatOrcOutput() StageExternalAzureFileFormatOrcOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatOrcOutput) ToStageExternalAzureFileFormatOrcOutputWithContext(ctx context.Context) StageExternalAzureFileFormatOrcOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatOrcOutput) ToStageExternalAzureFileFormatOrcPtrOutput() StageExternalAzureFileFormatOrcPtrOutput {
-	return o.ToStageExternalAzureFileFormatOrcPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureFileFormatOrcOutput) ToStageExternalAzureFileFormatOrcPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatOrcPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureFileFormatOrc) *StageExternalAzureFileFormatOrc {
-		return &v
-	}).(StageExternalAzureFileFormatOrcPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatOrcOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatOrc) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatOrcOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatOrc) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatOrcOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatOrc) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatOrcPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatOrcPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatOrc)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatOrcPtrOutput) ToStageExternalAzureFileFormatOrcPtrOutput() StageExternalAzureFileFormatOrcPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatOrcPtrOutput) ToStageExternalAzureFileFormatOrcPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatOrcPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatOrcPtrOutput) Elem() StageExternalAzureFileFormatOrcOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatOrc) StageExternalAzureFileFormatOrc {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureFileFormatOrc
-		return ret
-	}).(StageExternalAzureFileFormatOrcOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatOrcPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatOrc) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatOrcPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatOrc) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatOrcPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatOrc) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatParquet struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	BinaryAsText *string `pulumi:"binaryAsText"`
-	// Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	UseLogicalType *string `pulumi:"useLogicalType"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	UseVectorizedScanner *string `pulumi:"useVectorizedScanner"`
-}
-
-// StageExternalAzureFileFormatParquetInput is an input type that accepts StageExternalAzureFileFormatParquetArgs and StageExternalAzureFileFormatParquetOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatParquetInput` via:
-//
-//	StageExternalAzureFileFormatParquetArgs{...}
-type StageExternalAzureFileFormatParquetInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatParquetOutput() StageExternalAzureFileFormatParquetOutput
-	ToStageExternalAzureFileFormatParquetOutputWithContext(context.Context) StageExternalAzureFileFormatParquetOutput
-}
-
-type StageExternalAzureFileFormatParquetArgs struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	BinaryAsText pulumi.StringPtrInput `pulumi:"binaryAsText"`
-	// Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	UseLogicalType pulumi.StringPtrInput `pulumi:"useLogicalType"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	UseVectorizedScanner pulumi.StringPtrInput `pulumi:"useVectorizedScanner"`
-}
-
-func (StageExternalAzureFileFormatParquetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatParquet)(nil)).Elem()
-}
-
-func (i StageExternalAzureFileFormatParquetArgs) ToStageExternalAzureFileFormatParquetOutput() StageExternalAzureFileFormatParquetOutput {
-	return i.ToStageExternalAzureFileFormatParquetOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatParquetArgs) ToStageExternalAzureFileFormatParquetOutputWithContext(ctx context.Context) StageExternalAzureFileFormatParquetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatParquetOutput)
-}
-
-func (i StageExternalAzureFileFormatParquetArgs) ToStageExternalAzureFileFormatParquetPtrOutput() StageExternalAzureFileFormatParquetPtrOutput {
-	return i.ToStageExternalAzureFileFormatParquetPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatParquetArgs) ToStageExternalAzureFileFormatParquetPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatParquetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatParquetOutput).ToStageExternalAzureFileFormatParquetPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureFileFormatParquetPtrInput is an input type that accepts StageExternalAzureFileFormatParquetArgs, StageExternalAzureFileFormatParquetPtr and StageExternalAzureFileFormatParquetPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatParquetPtrInput` via:
-//
-//	        StageExternalAzureFileFormatParquetArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureFileFormatParquetPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatParquetPtrOutput() StageExternalAzureFileFormatParquetPtrOutput
-	ToStageExternalAzureFileFormatParquetPtrOutputWithContext(context.Context) StageExternalAzureFileFormatParquetPtrOutput
-}
-
-type stageExternalAzureFileFormatParquetPtrType StageExternalAzureFileFormatParquetArgs
-
-func StageExternalAzureFileFormatParquetPtr(v *StageExternalAzureFileFormatParquetArgs) StageExternalAzureFileFormatParquetPtrInput {
-	return (*stageExternalAzureFileFormatParquetPtrType)(v)
-}
-
-func (*stageExternalAzureFileFormatParquetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatParquet)(nil)).Elem()
-}
-
-func (i *stageExternalAzureFileFormatParquetPtrType) ToStageExternalAzureFileFormatParquetPtrOutput() StageExternalAzureFileFormatParquetPtrOutput {
-	return i.ToStageExternalAzureFileFormatParquetPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureFileFormatParquetPtrType) ToStageExternalAzureFileFormatParquetPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatParquetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatParquetPtrOutput)
-}
-
-type StageExternalAzureFileFormatParquetOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatParquetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatParquet)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatParquetOutput) ToStageExternalAzureFileFormatParquetOutput() StageExternalAzureFileFormatParquetOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatParquetOutput) ToStageExternalAzureFileFormatParquetOutputWithContext(ctx context.Context) StageExternalAzureFileFormatParquetOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatParquetOutput) ToStageExternalAzureFileFormatParquetPtrOutput() StageExternalAzureFileFormatParquetPtrOutput {
-	return o.ToStageExternalAzureFileFormatParquetPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureFileFormatParquetOutput) ToStageExternalAzureFileFormatParquetPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatParquetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureFileFormatParquet) *StageExternalAzureFileFormatParquet {
-		return &v
-	}).(StageExternalAzureFileFormatParquetPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetOutput) BinaryAsText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatParquet) *string { return v.BinaryAsText }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
-func (o StageExternalAzureFileFormatParquetOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatParquet) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatParquetOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatParquet) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatParquet) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatParquet) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetOutput) UseLogicalType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatParquet) *string { return v.UseLogicalType }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetOutput) UseVectorizedScanner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatParquet) *string { return v.UseVectorizedScanner }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatParquetPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatParquetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatParquet)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatParquetPtrOutput) ToStageExternalAzureFileFormatParquetPtrOutput() StageExternalAzureFileFormatParquetPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatParquetPtrOutput) ToStageExternalAzureFileFormatParquetPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatParquetPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatParquetPtrOutput) Elem() StageExternalAzureFileFormatParquetOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatParquet) StageExternalAzureFileFormatParquet {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureFileFormatParquet
-		return ret
-	}).(StageExternalAzureFileFormatParquetOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetPtrOutput) BinaryAsText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BinaryAsText
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
-func (o StageExternalAzureFileFormatParquetPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatParquetPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatParquet) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetPtrOutput) UseLogicalType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UseLogicalType
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatParquetPtrOutput) UseVectorizedScanner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UseVectorizedScanner
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatXml struct {
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	DisableAutoConvert *string `pulumi:"disableAutoConvert"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	IgnoreUtf8Errors *string `pulumi:"ignoreUtf8Errors"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	PreserveSpace *string `pulumi:"preserveSpace"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark *string `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripOuterElement *string `pulumi:"stripOuterElement"`
-}
-
-// StageExternalAzureFileFormatXmlInput is an input type that accepts StageExternalAzureFileFormatXmlArgs and StageExternalAzureFileFormatXmlOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatXmlInput` via:
-//
-//	StageExternalAzureFileFormatXmlArgs{...}
-type StageExternalAzureFileFormatXmlInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatXmlOutput() StageExternalAzureFileFormatXmlOutput
-	ToStageExternalAzureFileFormatXmlOutputWithContext(context.Context) StageExternalAzureFileFormatXmlOutput
-}
-
-type StageExternalAzureFileFormatXmlArgs struct {
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	DisableAutoConvert pulumi.StringPtrInput `pulumi:"disableAutoConvert"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	IgnoreUtf8Errors pulumi.StringPtrInput `pulumi:"ignoreUtf8Errors"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	PreserveSpace pulumi.StringPtrInput `pulumi:"preserveSpace"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark pulumi.StringPtrInput `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripOuterElement pulumi.StringPtrInput `pulumi:"stripOuterElement"`
-}
-
-func (StageExternalAzureFileFormatXmlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatXml)(nil)).Elem()
-}
-
-func (i StageExternalAzureFileFormatXmlArgs) ToStageExternalAzureFileFormatXmlOutput() StageExternalAzureFileFormatXmlOutput {
-	return i.ToStageExternalAzureFileFormatXmlOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatXmlArgs) ToStageExternalAzureFileFormatXmlOutputWithContext(ctx context.Context) StageExternalAzureFileFormatXmlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatXmlOutput)
-}
-
-func (i StageExternalAzureFileFormatXmlArgs) ToStageExternalAzureFileFormatXmlPtrOutput() StageExternalAzureFileFormatXmlPtrOutput {
-	return i.ToStageExternalAzureFileFormatXmlPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatXmlArgs) ToStageExternalAzureFileFormatXmlPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatXmlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatXmlOutput).ToStageExternalAzureFileFormatXmlPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureFileFormatXmlPtrInput is an input type that accepts StageExternalAzureFileFormatXmlArgs, StageExternalAzureFileFormatXmlPtr and StageExternalAzureFileFormatXmlPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatXmlPtrInput` via:
-//
-//	        StageExternalAzureFileFormatXmlArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureFileFormatXmlPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatXmlPtrOutput() StageExternalAzureFileFormatXmlPtrOutput
-	ToStageExternalAzureFileFormatXmlPtrOutputWithContext(context.Context) StageExternalAzureFileFormatXmlPtrOutput
-}
-
-type stageExternalAzureFileFormatXmlPtrType StageExternalAzureFileFormatXmlArgs
-
-func StageExternalAzureFileFormatXmlPtr(v *StageExternalAzureFileFormatXmlArgs) StageExternalAzureFileFormatXmlPtrInput {
-	return (*stageExternalAzureFileFormatXmlPtrType)(v)
-}
-
-func (*stageExternalAzureFileFormatXmlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatXml)(nil)).Elem()
-}
-
-func (i *stageExternalAzureFileFormatXmlPtrType) ToStageExternalAzureFileFormatXmlPtrOutput() StageExternalAzureFileFormatXmlPtrOutput {
-	return i.ToStageExternalAzureFileFormatXmlPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureFileFormatXmlPtrType) ToStageExternalAzureFileFormatXmlPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatXmlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatXmlPtrOutput)
-}
-
-type StageExternalAzureFileFormatXmlOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatXmlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatXml)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatXmlOutput) ToStageExternalAzureFileFormatXmlOutput() StageExternalAzureFileFormatXmlOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatXmlOutput) ToStageExternalAzureFileFormatXmlOutputWithContext(ctx context.Context) StageExternalAzureFileFormatXmlOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatXmlOutput) ToStageExternalAzureFileFormatXmlPtrOutput() StageExternalAzureFileFormatXmlPtrOutput {
-	return o.ToStageExternalAzureFileFormatXmlPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureFileFormatXmlOutput) ToStageExternalAzureFileFormatXmlPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatXmlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureFileFormatXml) *StageExternalAzureFileFormatXml {
-		return &v
-	}).(StageExternalAzureFileFormatXmlPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalAzureFileFormatXmlOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatXml) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlOutput) DisableAutoConvert() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatXml) *string { return v.DisableAutoConvert }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlOutput) IgnoreUtf8Errors() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatXml) *string { return v.IgnoreUtf8Errors }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlOutput) PreserveSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatXml) *string { return v.PreserveSpace }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatXml) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatXml) *string { return v.SkipByteOrderMark }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlOutput) StripOuterElement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatXml) *string { return v.StripOuterElement }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatXmlPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatXmlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatXml)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatXmlPtrOutput) ToStageExternalAzureFileFormatXmlPtrOutput() StageExternalAzureFileFormatXmlPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatXmlPtrOutput) ToStageExternalAzureFileFormatXmlPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatXmlPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatXmlPtrOutput) Elem() StageExternalAzureFileFormatXmlOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatXml) StageExternalAzureFileFormatXml {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureFileFormatXml
-		return ret
-	}).(StageExternalAzureFileFormatXmlOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalAzureFileFormatXmlPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlPtrOutput) DisableAutoConvert() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisableAutoConvert
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlPtrOutput) IgnoreUtf8Errors() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IgnoreUtf8Errors
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlPtrOutput) PreserveSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PreserveSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlPtrOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SkipByteOrderMark
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatXmlPtrOutput) StripOuterElement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StripOuterElement
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureShowOutput struct {
-	Cloud              *string `pulumi:"cloud"`
-	Comment            *string `pulumi:"comment"`
-	CreatedOn          *string `pulumi:"createdOn"`
-	DatabaseName       *string `pulumi:"databaseName"`
-	DirectoryEnabled   *bool   `pulumi:"directoryEnabled"`
-	Endpoint           *string `pulumi:"endpoint"`
-	HasCredentials     *bool   `pulumi:"hasCredentials"`
-	HasEncryptionKey   *bool   `pulumi:"hasEncryptionKey"`
-	Name               *string `pulumi:"name"`
-	Owner              *string `pulumi:"owner"`
-	OwnerRoleType      *string `pulumi:"ownerRoleType"`
-	Region             *string `pulumi:"region"`
-	SchemaName         *string `pulumi:"schemaName"`
-	StorageIntegration *string `pulumi:"storageIntegration"`
-	Type               *string `pulumi:"type"`
-	Url                *string `pulumi:"url"`
-}
-
-// StageExternalAzureShowOutputInput is an input type that accepts StageExternalAzureShowOutputArgs and StageExternalAzureShowOutputOutput values.
-// You can construct a concrete instance of `StageExternalAzureShowOutputInput` via:
-//
-//	StageExternalAzureShowOutputArgs{...}
-type StageExternalAzureShowOutputInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureShowOutputOutput() StageExternalAzureShowOutputOutput
-	ToStageExternalAzureShowOutputOutputWithContext(context.Context) StageExternalAzureShowOutputOutput
-}
-
-type StageExternalAzureShowOutputArgs struct {
-	Cloud              pulumi.StringPtrInput `pulumi:"cloud"`
-	Comment            pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn          pulumi.StringPtrInput `pulumi:"createdOn"`
-	DatabaseName       pulumi.StringPtrInput `pulumi:"databaseName"`
-	DirectoryEnabled   pulumi.BoolPtrInput   `pulumi:"directoryEnabled"`
-	Endpoint           pulumi.StringPtrInput `pulumi:"endpoint"`
-	HasCredentials     pulumi.BoolPtrInput   `pulumi:"hasCredentials"`
-	HasEncryptionKey   pulumi.BoolPtrInput   `pulumi:"hasEncryptionKey"`
-	Name               pulumi.StringPtrInput `pulumi:"name"`
-	Owner              pulumi.StringPtrInput `pulumi:"owner"`
-	OwnerRoleType      pulumi.StringPtrInput `pulumi:"ownerRoleType"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
-	SchemaName         pulumi.StringPtrInput `pulumi:"schemaName"`
-	StorageIntegration pulumi.StringPtrInput `pulumi:"storageIntegration"`
-	Type               pulumi.StringPtrInput `pulumi:"type"`
-	Url                pulumi.StringPtrInput `pulumi:"url"`
-}
-
-func (StageExternalAzureShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureShowOutput)(nil)).Elem()
-}
-
-func (i StageExternalAzureShowOutputArgs) ToStageExternalAzureShowOutputOutput() StageExternalAzureShowOutputOutput {
-	return i.ToStageExternalAzureShowOutputOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureShowOutputArgs) ToStageExternalAzureShowOutputOutputWithContext(ctx context.Context) StageExternalAzureShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureShowOutputOutput)
-}
-
-// StageExternalAzureShowOutputArrayInput is an input type that accepts StageExternalAzureShowOutputArray and StageExternalAzureShowOutputArrayOutput values.
-// You can construct a concrete instance of `StageExternalAzureShowOutputArrayInput` via:
-//
-//	StageExternalAzureShowOutputArray{ StageExternalAzureShowOutputArgs{...} }
-type StageExternalAzureShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureShowOutputArrayOutput() StageExternalAzureShowOutputArrayOutput
-	ToStageExternalAzureShowOutputArrayOutputWithContext(context.Context) StageExternalAzureShowOutputArrayOutput
-}
-
-type StageExternalAzureShowOutputArray []StageExternalAzureShowOutputInput
-
-func (StageExternalAzureShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalAzureShowOutput)(nil)).Elem()
-}
-
-func (i StageExternalAzureShowOutputArray) ToStageExternalAzureShowOutputArrayOutput() StageExternalAzureShowOutputArrayOutput {
-	return i.ToStageExternalAzureShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureShowOutputArray) ToStageExternalAzureShowOutputArrayOutputWithContext(ctx context.Context) StageExternalAzureShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureShowOutputArrayOutput)
-}
-
-type StageExternalAzureShowOutputOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureShowOutput)(nil)).Elem()
-}
-
-func (o StageExternalAzureShowOutputOutput) ToStageExternalAzureShowOutputOutput() StageExternalAzureShowOutputOutput {
-	return o
-}
-
-func (o StageExternalAzureShowOutputOutput) ToStageExternalAzureShowOutputOutputWithContext(ctx context.Context) StageExternalAzureShowOutputOutput {
-	return o
-}
-
-func (o StageExternalAzureShowOutputOutput) Cloud() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.Cloud }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) DirectoryEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *bool { return v.DirectoryEnabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) HasCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *bool { return v.HasCredentials }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) HasEncryptionKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *bool { return v.HasEncryptionKey }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.Region }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) StorageIntegration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.StorageIntegration }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureShowOutputOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureShowOutput) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalAzureShowOutput)(nil)).Elem()
-}
-
-func (o StageExternalAzureShowOutputArrayOutput) ToStageExternalAzureShowOutputArrayOutput() StageExternalAzureShowOutputArrayOutput {
-	return o
-}
-
-func (o StageExternalAzureShowOutputArrayOutput) ToStageExternalAzureShowOutputArrayOutputWithContext(ctx context.Context) StageExternalAzureShowOutputArrayOutput {
-	return o
-}
-
-func (o StageExternalAzureShowOutputArrayOutput) Index(i pulumi.IntInput) StageExternalAzureShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalAzureShowOutput {
-		return vs[0].([]StageExternalAzureShowOutput)[vs[1].(int)]
-	}).(StageExternalAzureShowOutputOutput)
-}
-
-type StageExternalGcsDescribeOutput struct {
-	DirectoryTables []StageExternalGcsDescribeOutputDirectoryTable `pulumi:"directoryTables"`
-	FileFormats     []StageExternalGcsDescribeOutputFileFormat     `pulumi:"fileFormats"`
-}
-
-// StageExternalGcsDescribeOutputInput is an input type that accepts StageExternalGcsDescribeOutputArgs and StageExternalGcsDescribeOutputOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputInput` via:
-//
-//	StageExternalGcsDescribeOutputArgs{...}
-type StageExternalGcsDescribeOutputInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputOutput() StageExternalGcsDescribeOutputOutput
-	ToStageExternalGcsDescribeOutputOutputWithContext(context.Context) StageExternalGcsDescribeOutputOutput
-}
-
-type StageExternalGcsDescribeOutputArgs struct {
-	DirectoryTables StageExternalGcsDescribeOutputDirectoryTableArrayInput `pulumi:"directoryTables"`
-	FileFormats     StageExternalGcsDescribeOutputFileFormatArrayInput     `pulumi:"fileFormats"`
-}
-
-func (StageExternalGcsDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutput)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputArgs) ToStageExternalGcsDescribeOutputOutput() StageExternalGcsDescribeOutputOutput {
-	return i.ToStageExternalGcsDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputArgs) ToStageExternalGcsDescribeOutputOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputOutput)
-}
-
-// StageExternalGcsDescribeOutputArrayInput is an input type that accepts StageExternalGcsDescribeOutputArray and StageExternalGcsDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputArray{ StageExternalGcsDescribeOutputArgs{...} }
-type StageExternalGcsDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputArrayOutput() StageExternalGcsDescribeOutputArrayOutput
-	ToStageExternalGcsDescribeOutputArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputArrayOutput
-}
-
-type StageExternalGcsDescribeOutputArray []StageExternalGcsDescribeOutputInput
-
-func (StageExternalGcsDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutput)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputArray) ToStageExternalGcsDescribeOutputArrayOutput() StageExternalGcsDescribeOutputArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputArray) ToStageExternalGcsDescribeOutputArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutput)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputOutput) ToStageExternalGcsDescribeOutputOutput() StageExternalGcsDescribeOutputOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputOutput) ToStageExternalGcsDescribeOutputOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputOutput) DirectoryTables() StageExternalGcsDescribeOutputDirectoryTableArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutput) []StageExternalGcsDescribeOutputDirectoryTable {
-		return v.DirectoryTables
-	}).(StageExternalGcsDescribeOutputDirectoryTableArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputOutput) FileFormats() StageExternalGcsDescribeOutputFileFormatArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutput) []StageExternalGcsDescribeOutputFileFormat {
-		return v.FileFormats
-	}).(StageExternalGcsDescribeOutputFileFormatArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutput)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputArrayOutput) ToStageExternalGcsDescribeOutputArrayOutput() StageExternalGcsDescribeOutputArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputArrayOutput) ToStageExternalGcsDescribeOutputArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutput {
-		return vs[0].([]StageExternalGcsDescribeOutput)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputOutput)
-}
-
-type StageExternalGcsDescribeOutputDirectoryTable struct {
-	AutoRefresh     *bool   `pulumi:"autoRefresh"`
-	Enable          *bool   `pulumi:"enable"`
-	LastRefreshedOn *string `pulumi:"lastRefreshedOn"`
-}
-
-// StageExternalGcsDescribeOutputDirectoryTableInput is an input type that accepts StageExternalGcsDescribeOutputDirectoryTableArgs and StageExternalGcsDescribeOutputDirectoryTableOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputDirectoryTableInput` via:
-//
-//	StageExternalGcsDescribeOutputDirectoryTableArgs{...}
-type StageExternalGcsDescribeOutputDirectoryTableInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputDirectoryTableOutput() StageExternalGcsDescribeOutputDirectoryTableOutput
-	ToStageExternalGcsDescribeOutputDirectoryTableOutputWithContext(context.Context) StageExternalGcsDescribeOutputDirectoryTableOutput
-}
-
-type StageExternalGcsDescribeOutputDirectoryTableArgs struct {
-	AutoRefresh     pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
-	Enable          pulumi.BoolPtrInput   `pulumi:"enable"`
-	LastRefreshedOn pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
-}
-
-func (StageExternalGcsDescribeOutputDirectoryTableArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputDirectoryTable)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputDirectoryTableArgs) ToStageExternalGcsDescribeOutputDirectoryTableOutput() StageExternalGcsDescribeOutputDirectoryTableOutput {
-	return i.ToStageExternalGcsDescribeOutputDirectoryTableOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputDirectoryTableArgs) ToStageExternalGcsDescribeOutputDirectoryTableOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputDirectoryTableOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputDirectoryTableOutput)
-}
-
-// StageExternalGcsDescribeOutputDirectoryTableArrayInput is an input type that accepts StageExternalGcsDescribeOutputDirectoryTableArray and StageExternalGcsDescribeOutputDirectoryTableArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputDirectoryTableArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputDirectoryTableArray{ StageExternalGcsDescribeOutputDirectoryTableArgs{...} }
-type StageExternalGcsDescribeOutputDirectoryTableArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputDirectoryTableArrayOutput() StageExternalGcsDescribeOutputDirectoryTableArrayOutput
-	ToStageExternalGcsDescribeOutputDirectoryTableArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputDirectoryTableArrayOutput
-}
-
-type StageExternalGcsDescribeOutputDirectoryTableArray []StageExternalGcsDescribeOutputDirectoryTableInput
-
-func (StageExternalGcsDescribeOutputDirectoryTableArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputDirectoryTable)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputDirectoryTableArray) ToStageExternalGcsDescribeOutputDirectoryTableArrayOutput() StageExternalGcsDescribeOutputDirectoryTableArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputDirectoryTableArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputDirectoryTableArray) ToStageExternalGcsDescribeOutputDirectoryTableArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputDirectoryTableArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputDirectoryTableArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputDirectoryTableOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputDirectoryTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputDirectoryTable)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputDirectoryTableOutput) ToStageExternalGcsDescribeOutputDirectoryTableOutput() StageExternalGcsDescribeOutputDirectoryTableOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputDirectoryTableOutput) ToStageExternalGcsDescribeOutputDirectoryTableOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputDirectoryTableOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputDirectoryTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputDirectoryTable) *bool { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputDirectoryTableOutput) Enable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputDirectoryTable) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputDirectoryTableOutput) LastRefreshedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputDirectoryTable) *string { return v.LastRefreshedOn }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsDescribeOutputDirectoryTableArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputDirectoryTableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputDirectoryTable)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputDirectoryTableArrayOutput) ToStageExternalGcsDescribeOutputDirectoryTableArrayOutput() StageExternalGcsDescribeOutputDirectoryTableArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputDirectoryTableArrayOutput) ToStageExternalGcsDescribeOutputDirectoryTableArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputDirectoryTableArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputDirectoryTableArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputDirectoryTableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutputDirectoryTable {
-		return vs[0].([]StageExternalGcsDescribeOutputDirectoryTable)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputDirectoryTableOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormat struct {
-	Avros      []StageExternalGcsDescribeOutputFileFormatAvro    `pulumi:"avros"`
-	Csvs       []StageExternalGcsDescribeOutputFileFormatCsv     `pulumi:"csvs"`
-	FormatName *string                                           `pulumi:"formatName"`
-	Jsons      []StageExternalGcsDescribeOutputFileFormatJson    `pulumi:"jsons"`
-	Orcs       []StageExternalGcsDescribeOutputFileFormatOrc     `pulumi:"orcs"`
-	Parquets   []StageExternalGcsDescribeOutputFileFormatParquet `pulumi:"parquets"`
-	Xmls       []StageExternalGcsDescribeOutputFileFormatXml     `pulumi:"xmls"`
-}
-
-// StageExternalGcsDescribeOutputFileFormatInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatArgs and StageExternalGcsDescribeOutputFileFormatOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatArgs{...}
-type StageExternalGcsDescribeOutputFileFormatInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatOutput() StageExternalGcsDescribeOutputFileFormatOutput
-	ToStageExternalGcsDescribeOutputFileFormatOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatArgs struct {
-	Avros      StageExternalGcsDescribeOutputFileFormatAvroArrayInput    `pulumi:"avros"`
-	Csvs       StageExternalGcsDescribeOutputFileFormatCsvArrayInput     `pulumi:"csvs"`
-	FormatName pulumi.StringPtrInput                                     `pulumi:"formatName"`
-	Jsons      StageExternalGcsDescribeOutputFileFormatJsonArrayInput    `pulumi:"jsons"`
-	Orcs       StageExternalGcsDescribeOutputFileFormatOrcArrayInput     `pulumi:"orcs"`
-	Parquets   StageExternalGcsDescribeOutputFileFormatParquetArrayInput `pulumi:"parquets"`
-	Xmls       StageExternalGcsDescribeOutputFileFormatXmlArrayInput     `pulumi:"xmls"`
-}
-
-func (StageExternalGcsDescribeOutputFileFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormat)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatArgs) ToStageExternalGcsDescribeOutputFileFormatOutput() StageExternalGcsDescribeOutputFileFormatOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatArgs) ToStageExternalGcsDescribeOutputFileFormatOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatOutput)
-}
-
-// StageExternalGcsDescribeOutputFileFormatArrayInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatArray and StageExternalGcsDescribeOutputFileFormatArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatArray{ StageExternalGcsDescribeOutputFileFormatArgs{...} }
-type StageExternalGcsDescribeOutputFileFormatArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatArrayOutput() StageExternalGcsDescribeOutputFileFormatArrayOutput
-	ToStageExternalGcsDescribeOutputFileFormatArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatArrayOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatArray []StageExternalGcsDescribeOutputFileFormatInput
-
-func (StageExternalGcsDescribeOutputFileFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormat)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatArray) ToStageExternalGcsDescribeOutputFileFormatArrayOutput() StageExternalGcsDescribeOutputFileFormatArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatArray) ToStageExternalGcsDescribeOutputFileFormatArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormat)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) ToStageExternalGcsDescribeOutputFileFormatOutput() StageExternalGcsDescribeOutputFileFormatOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) ToStageExternalGcsDescribeOutputFileFormatOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) Avros() StageExternalGcsDescribeOutputFileFormatAvroArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormat) []StageExternalGcsDescribeOutputFileFormatAvro {
-		return v.Avros
-	}).(StageExternalGcsDescribeOutputFileFormatAvroArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) Csvs() StageExternalGcsDescribeOutputFileFormatCsvArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormat) []StageExternalGcsDescribeOutputFileFormatCsv {
-		return v.Csvs
-	}).(StageExternalGcsDescribeOutputFileFormatCsvArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) FormatName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormat) *string { return v.FormatName }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) Jsons() StageExternalGcsDescribeOutputFileFormatJsonArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormat) []StageExternalGcsDescribeOutputFileFormatJson {
-		return v.Jsons
-	}).(StageExternalGcsDescribeOutputFileFormatJsonArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) Orcs() StageExternalGcsDescribeOutputFileFormatOrcArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormat) []StageExternalGcsDescribeOutputFileFormatOrc {
-		return v.Orcs
-	}).(StageExternalGcsDescribeOutputFileFormatOrcArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) Parquets() StageExternalGcsDescribeOutputFileFormatParquetArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormat) []StageExternalGcsDescribeOutputFileFormatParquet {
-		return v.Parquets
-	}).(StageExternalGcsDescribeOutputFileFormatParquetArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOutput) Xmls() StageExternalGcsDescribeOutputFileFormatXmlArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormat) []StageExternalGcsDescribeOutputFileFormatXml {
-		return v.Xmls
-	}).(StageExternalGcsDescribeOutputFileFormatXmlArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormat)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatArrayOutput) ToStageExternalGcsDescribeOutputFileFormatArrayOutput() StageExternalGcsDescribeOutputFileFormatArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatArrayOutput) ToStageExternalGcsDescribeOutputFileFormatArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputFileFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutputFileFormat {
-		return vs[0].([]StageExternalGcsDescribeOutputFileFormat)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputFileFormatOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatAvro struct {
-	Compression              *string  `pulumi:"compression"`
-	NullIfs                  []string `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters *bool    `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                *bool    `pulumi:"trimSpace"`
-	Type                     *string  `pulumi:"type"`
-}
-
-// StageExternalGcsDescribeOutputFileFormatAvroInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatAvroArgs and StageExternalGcsDescribeOutputFileFormatAvroOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatAvroInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatAvroArgs{...}
-type StageExternalGcsDescribeOutputFileFormatAvroInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatAvroOutput() StageExternalGcsDescribeOutputFileFormatAvroOutput
-	ToStageExternalGcsDescribeOutputFileFormatAvroOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatAvroOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatAvroArgs struct {
-	Compression              pulumi.StringPtrInput   `pulumi:"compression"`
-	NullIfs                  pulumi.StringArrayInput `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters pulumi.BoolPtrInput     `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                pulumi.BoolPtrInput     `pulumi:"trimSpace"`
-	Type                     pulumi.StringPtrInput   `pulumi:"type"`
-}
-
-func (StageExternalGcsDescribeOutputFileFormatAvroArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatAvro)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatAvroArgs) ToStageExternalGcsDescribeOutputFileFormatAvroOutput() StageExternalGcsDescribeOutputFileFormatAvroOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatAvroOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatAvroArgs) ToStageExternalGcsDescribeOutputFileFormatAvroOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatAvroOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatAvroOutput)
-}
-
-// StageExternalGcsDescribeOutputFileFormatAvroArrayInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatAvroArray and StageExternalGcsDescribeOutputFileFormatAvroArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatAvroArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatAvroArray{ StageExternalGcsDescribeOutputFileFormatAvroArgs{...} }
-type StageExternalGcsDescribeOutputFileFormatAvroArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatAvroArrayOutput() StageExternalGcsDescribeOutputFileFormatAvroArrayOutput
-	ToStageExternalGcsDescribeOutputFileFormatAvroArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatAvroArrayOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatAvroArray []StageExternalGcsDescribeOutputFileFormatAvroInput
-
-func (StageExternalGcsDescribeOutputFileFormatAvroArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatAvro)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatAvroArray) ToStageExternalGcsDescribeOutputFileFormatAvroArrayOutput() StageExternalGcsDescribeOutputFileFormatAvroArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatAvroArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatAvroArray) ToStageExternalGcsDescribeOutputFileFormatAvroArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatAvroArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatAvroArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatAvroOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatAvroOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatAvro)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroOutput) ToStageExternalGcsDescribeOutputFileFormatAvroOutput() StageExternalGcsDescribeOutputFileFormatAvroOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroOutput) ToStageExternalGcsDescribeOutputFileFormatAvroOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatAvroOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatAvro) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatAvro) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatAvro) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroOutput) TrimSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatAvro) *bool { return v.TrimSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatAvro) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatAvroArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatAvroArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatAvro)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroArrayOutput) ToStageExternalGcsDescribeOutputFileFormatAvroArrayOutput() StageExternalGcsDescribeOutputFileFormatAvroArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroArrayOutput) ToStageExternalGcsDescribeOutputFileFormatAvroArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatAvroArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatAvroArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputFileFormatAvroOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutputFileFormatAvro {
-		return vs[0].([]StageExternalGcsDescribeOutputFileFormatAvro)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputFileFormatAvroOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatCsv struct {
-	BinaryFormat               *string  `pulumi:"binaryFormat"`
-	Compression                *string  `pulumi:"compression"`
-	DateFormat                 *string  `pulumi:"dateFormat"`
-	EmptyFieldAsNull           *bool    `pulumi:"emptyFieldAsNull"`
-	Encoding                   *string  `pulumi:"encoding"`
-	ErrorOnColumnCountMismatch *bool    `pulumi:"errorOnColumnCountMismatch"`
-	Escape                     *string  `pulumi:"escape"`
-	EscapeUnenclosedField      *string  `pulumi:"escapeUnenclosedField"`
-	FieldDelimiter             *string  `pulumi:"fieldDelimiter"`
-	FieldOptionallyEnclosedBy  *string  `pulumi:"fieldOptionallyEnclosedBy"`
-	FileExtension              *string  `pulumi:"fileExtension"`
-	MultiLine                  *bool    `pulumi:"multiLine"`
-	NullIfs                    []string `pulumi:"nullIfs"`
-	ParseHeader                *bool    `pulumi:"parseHeader"`
-	RecordDelimiter            *string  `pulumi:"recordDelimiter"`
-	ReplaceInvalidCharacters   *bool    `pulumi:"replaceInvalidCharacters"`
-	SkipBlankLines             *bool    `pulumi:"skipBlankLines"`
-	SkipByteOrderMark          *bool    `pulumi:"skipByteOrderMark"`
-	SkipHeader                 *int     `pulumi:"skipHeader"`
-	TimeFormat                 *string  `pulumi:"timeFormat"`
-	TimestampFormat            *string  `pulumi:"timestampFormat"`
-	TrimSpace                  *bool    `pulumi:"trimSpace"`
-	Type                       *string  `pulumi:"type"`
-	ValidateUtf8               *bool    `pulumi:"validateUtf8"`
-}
-
-// StageExternalGcsDescribeOutputFileFormatCsvInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatCsvArgs and StageExternalGcsDescribeOutputFileFormatCsvOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatCsvInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatCsvArgs{...}
-type StageExternalGcsDescribeOutputFileFormatCsvInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatCsvOutput() StageExternalGcsDescribeOutputFileFormatCsvOutput
-	ToStageExternalGcsDescribeOutputFileFormatCsvOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatCsvOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatCsvArgs struct {
-	BinaryFormat               pulumi.StringPtrInput   `pulumi:"binaryFormat"`
-	Compression                pulumi.StringPtrInput   `pulumi:"compression"`
-	DateFormat                 pulumi.StringPtrInput   `pulumi:"dateFormat"`
-	EmptyFieldAsNull           pulumi.BoolPtrInput     `pulumi:"emptyFieldAsNull"`
-	Encoding                   pulumi.StringPtrInput   `pulumi:"encoding"`
-	ErrorOnColumnCountMismatch pulumi.BoolPtrInput     `pulumi:"errorOnColumnCountMismatch"`
-	Escape                     pulumi.StringPtrInput   `pulumi:"escape"`
-	EscapeUnenclosedField      pulumi.StringPtrInput   `pulumi:"escapeUnenclosedField"`
-	FieldDelimiter             pulumi.StringPtrInput   `pulumi:"fieldDelimiter"`
-	FieldOptionallyEnclosedBy  pulumi.StringPtrInput   `pulumi:"fieldOptionallyEnclosedBy"`
-	FileExtension              pulumi.StringPtrInput   `pulumi:"fileExtension"`
-	MultiLine                  pulumi.BoolPtrInput     `pulumi:"multiLine"`
-	NullIfs                    pulumi.StringArrayInput `pulumi:"nullIfs"`
-	ParseHeader                pulumi.BoolPtrInput     `pulumi:"parseHeader"`
-	RecordDelimiter            pulumi.StringPtrInput   `pulumi:"recordDelimiter"`
-	ReplaceInvalidCharacters   pulumi.BoolPtrInput     `pulumi:"replaceInvalidCharacters"`
-	SkipBlankLines             pulumi.BoolPtrInput     `pulumi:"skipBlankLines"`
-	SkipByteOrderMark          pulumi.BoolPtrInput     `pulumi:"skipByteOrderMark"`
-	SkipHeader                 pulumi.IntPtrInput      `pulumi:"skipHeader"`
-	TimeFormat                 pulumi.StringPtrInput   `pulumi:"timeFormat"`
-	TimestampFormat            pulumi.StringPtrInput   `pulumi:"timestampFormat"`
-	TrimSpace                  pulumi.BoolPtrInput     `pulumi:"trimSpace"`
-	Type                       pulumi.StringPtrInput   `pulumi:"type"`
-	ValidateUtf8               pulumi.BoolPtrInput     `pulumi:"validateUtf8"`
-}
-
-func (StageExternalGcsDescribeOutputFileFormatCsvArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatCsv)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatCsvArgs) ToStageExternalGcsDescribeOutputFileFormatCsvOutput() StageExternalGcsDescribeOutputFileFormatCsvOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatCsvOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatCsvArgs) ToStageExternalGcsDescribeOutputFileFormatCsvOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatCsvOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatCsvOutput)
-}
-
-// StageExternalGcsDescribeOutputFileFormatCsvArrayInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatCsvArray and StageExternalGcsDescribeOutputFileFormatCsvArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatCsvArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatCsvArray{ StageExternalGcsDescribeOutputFileFormatCsvArgs{...} }
-type StageExternalGcsDescribeOutputFileFormatCsvArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatCsvArrayOutput() StageExternalGcsDescribeOutputFileFormatCsvArrayOutput
-	ToStageExternalGcsDescribeOutputFileFormatCsvArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatCsvArrayOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatCsvArray []StageExternalGcsDescribeOutputFileFormatCsvInput
-
-func (StageExternalGcsDescribeOutputFileFormatCsvArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatCsv)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatCsvArray) ToStageExternalGcsDescribeOutputFileFormatCsvArrayOutput() StageExternalGcsDescribeOutputFileFormatCsvArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatCsvArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatCsvArray) ToStageExternalGcsDescribeOutputFileFormatCsvArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatCsvArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatCsvArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatCsvOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatCsvOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatCsv)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) ToStageExternalGcsDescribeOutputFileFormatCsvOutput() StageExternalGcsDescribeOutputFileFormatCsvOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) ToStageExternalGcsDescribeOutputFileFormatCsvOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatCsvOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.BinaryFormat }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) EmptyFieldAsNull() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.EmptyFieldAsNull }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.Encoding }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) ErrorOnColumnCountMismatch() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.ErrorOnColumnCountMismatch }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) Escape() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.Escape }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) EscapeUnenclosedField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.EscapeUnenclosedField }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) FieldOptionallyEnclosedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.FieldOptionallyEnclosedBy }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.FileExtension }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) MultiLine() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.MultiLine }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) ParseHeader() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.ParseHeader }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) RecordDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.RecordDelimiter }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) SkipBlankLines() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.SkipBlankLines }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) SkipByteOrderMark() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.SkipByteOrderMark }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) SkipHeader() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *int { return v.SkipHeader }).(pulumi.IntPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) TrimSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.TrimSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvOutput) ValidateUtf8() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatCsv) *bool { return v.ValidateUtf8 }).(pulumi.BoolPtrOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatCsvArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatCsvArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatCsv)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvArrayOutput) ToStageExternalGcsDescribeOutputFileFormatCsvArrayOutput() StageExternalGcsDescribeOutputFileFormatCsvArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvArrayOutput) ToStageExternalGcsDescribeOutputFileFormatCsvArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatCsvArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatCsvArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputFileFormatCsvOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutputFileFormatCsv {
-		return vs[0].([]StageExternalGcsDescribeOutputFileFormatCsv)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputFileFormatCsvOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatJson struct {
-	AllowDuplicate           *bool    `pulumi:"allowDuplicate"`
-	BinaryFormat             *string  `pulumi:"binaryFormat"`
-	Compression              *string  `pulumi:"compression"`
-	DateFormat               *string  `pulumi:"dateFormat"`
-	EnableOctal              *bool    `pulumi:"enableOctal"`
-	FileExtension            *string  `pulumi:"fileExtension"`
-	IgnoreUtf8Errors         *bool    `pulumi:"ignoreUtf8Errors"`
-	MultiLine                *bool    `pulumi:"multiLine"`
-	NullIfs                  []string `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters *bool    `pulumi:"replaceInvalidCharacters"`
-	SkipByteOrderMark        *bool    `pulumi:"skipByteOrderMark"`
-	StripNullValues          *bool    `pulumi:"stripNullValues"`
-	StripOuterArray          *bool    `pulumi:"stripOuterArray"`
-	TimeFormat               *string  `pulumi:"timeFormat"`
-	TimestampFormat          *string  `pulumi:"timestampFormat"`
-	TrimSpace                *bool    `pulumi:"trimSpace"`
-	Type                     *string  `pulumi:"type"`
-}
-
-// StageExternalGcsDescribeOutputFileFormatJsonInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatJsonArgs and StageExternalGcsDescribeOutputFileFormatJsonOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatJsonInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatJsonArgs{...}
-type StageExternalGcsDescribeOutputFileFormatJsonInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatJsonOutput() StageExternalGcsDescribeOutputFileFormatJsonOutput
-	ToStageExternalGcsDescribeOutputFileFormatJsonOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatJsonOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatJsonArgs struct {
-	AllowDuplicate           pulumi.BoolPtrInput     `pulumi:"allowDuplicate"`
-	BinaryFormat             pulumi.StringPtrInput   `pulumi:"binaryFormat"`
-	Compression              pulumi.StringPtrInput   `pulumi:"compression"`
-	DateFormat               pulumi.StringPtrInput   `pulumi:"dateFormat"`
-	EnableOctal              pulumi.BoolPtrInput     `pulumi:"enableOctal"`
-	FileExtension            pulumi.StringPtrInput   `pulumi:"fileExtension"`
-	IgnoreUtf8Errors         pulumi.BoolPtrInput     `pulumi:"ignoreUtf8Errors"`
-	MultiLine                pulumi.BoolPtrInput     `pulumi:"multiLine"`
-	NullIfs                  pulumi.StringArrayInput `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters pulumi.BoolPtrInput     `pulumi:"replaceInvalidCharacters"`
-	SkipByteOrderMark        pulumi.BoolPtrInput     `pulumi:"skipByteOrderMark"`
-	StripNullValues          pulumi.BoolPtrInput     `pulumi:"stripNullValues"`
-	StripOuterArray          pulumi.BoolPtrInput     `pulumi:"stripOuterArray"`
-	TimeFormat               pulumi.StringPtrInput   `pulumi:"timeFormat"`
-	TimestampFormat          pulumi.StringPtrInput   `pulumi:"timestampFormat"`
-	TrimSpace                pulumi.BoolPtrInput     `pulumi:"trimSpace"`
-	Type                     pulumi.StringPtrInput   `pulumi:"type"`
-}
-
-func (StageExternalGcsDescribeOutputFileFormatJsonArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatJson)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatJsonArgs) ToStageExternalGcsDescribeOutputFileFormatJsonOutput() StageExternalGcsDescribeOutputFileFormatJsonOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatJsonOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatJsonArgs) ToStageExternalGcsDescribeOutputFileFormatJsonOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatJsonOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatJsonOutput)
-}
-
-// StageExternalGcsDescribeOutputFileFormatJsonArrayInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatJsonArray and StageExternalGcsDescribeOutputFileFormatJsonArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatJsonArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatJsonArray{ StageExternalGcsDescribeOutputFileFormatJsonArgs{...} }
-type StageExternalGcsDescribeOutputFileFormatJsonArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatJsonArrayOutput() StageExternalGcsDescribeOutputFileFormatJsonArrayOutput
-	ToStageExternalGcsDescribeOutputFileFormatJsonArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatJsonArrayOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatJsonArray []StageExternalGcsDescribeOutputFileFormatJsonInput
-
-func (StageExternalGcsDescribeOutputFileFormatJsonArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatJson)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatJsonArray) ToStageExternalGcsDescribeOutputFileFormatJsonArrayOutput() StageExternalGcsDescribeOutputFileFormatJsonArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatJsonArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatJsonArray) ToStageExternalGcsDescribeOutputFileFormatJsonArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatJsonArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatJsonArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatJsonOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatJsonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatJson)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) ToStageExternalGcsDescribeOutputFileFormatJsonOutput() StageExternalGcsDescribeOutputFileFormatJsonOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) ToStageExternalGcsDescribeOutputFileFormatJsonOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatJsonOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) AllowDuplicate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.AllowDuplicate }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *string { return v.BinaryFormat }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) EnableOctal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.EnableOctal }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *string { return v.FileExtension }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) IgnoreUtf8Errors() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.IgnoreUtf8Errors }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) MultiLine() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.MultiLine }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) SkipByteOrderMark() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.SkipByteOrderMark }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) StripNullValues() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.StripNullValues }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) StripOuterArray() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.StripOuterArray }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) TrimSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *bool { return v.TrimSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatJson) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatJsonArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatJsonArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatJson)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonArrayOutput) ToStageExternalGcsDescribeOutputFileFormatJsonArrayOutput() StageExternalGcsDescribeOutputFileFormatJsonArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonArrayOutput) ToStageExternalGcsDescribeOutputFileFormatJsonArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatJsonArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatJsonArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputFileFormatJsonOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutputFileFormatJson {
-		return vs[0].([]StageExternalGcsDescribeOutputFileFormatJson)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputFileFormatJsonOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatOrc struct {
-	NullIfs                  []string `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters *bool    `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                *bool    `pulumi:"trimSpace"`
-	Type                     *string  `pulumi:"type"`
-}
-
-// StageExternalGcsDescribeOutputFileFormatOrcInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatOrcArgs and StageExternalGcsDescribeOutputFileFormatOrcOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatOrcInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatOrcArgs{...}
-type StageExternalGcsDescribeOutputFileFormatOrcInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatOrcOutput() StageExternalGcsDescribeOutputFileFormatOrcOutput
-	ToStageExternalGcsDescribeOutputFileFormatOrcOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatOrcOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatOrcArgs struct {
-	NullIfs                  pulumi.StringArrayInput `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters pulumi.BoolPtrInput     `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                pulumi.BoolPtrInput     `pulumi:"trimSpace"`
-	Type                     pulumi.StringPtrInput   `pulumi:"type"`
-}
-
-func (StageExternalGcsDescribeOutputFileFormatOrcArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatOrc)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatOrcArgs) ToStageExternalGcsDescribeOutputFileFormatOrcOutput() StageExternalGcsDescribeOutputFileFormatOrcOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatOrcOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatOrcArgs) ToStageExternalGcsDescribeOutputFileFormatOrcOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatOrcOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatOrcOutput)
-}
-
-// StageExternalGcsDescribeOutputFileFormatOrcArrayInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatOrcArray and StageExternalGcsDescribeOutputFileFormatOrcArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatOrcArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatOrcArray{ StageExternalGcsDescribeOutputFileFormatOrcArgs{...} }
-type StageExternalGcsDescribeOutputFileFormatOrcArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatOrcArrayOutput() StageExternalGcsDescribeOutputFileFormatOrcArrayOutput
-	ToStageExternalGcsDescribeOutputFileFormatOrcArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatOrcArrayOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatOrcArray []StageExternalGcsDescribeOutputFileFormatOrcInput
-
-func (StageExternalGcsDescribeOutputFileFormatOrcArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatOrc)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatOrcArray) ToStageExternalGcsDescribeOutputFileFormatOrcArrayOutput() StageExternalGcsDescribeOutputFileFormatOrcArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatOrcArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatOrcArray) ToStageExternalGcsDescribeOutputFileFormatOrcArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatOrcArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatOrcArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatOrcOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatOrcOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatOrc)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcOutput) ToStageExternalGcsDescribeOutputFileFormatOrcOutput() StageExternalGcsDescribeOutputFileFormatOrcOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcOutput) ToStageExternalGcsDescribeOutputFileFormatOrcOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatOrcOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatOrc) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatOrc) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcOutput) TrimSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatOrc) *bool { return v.TrimSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatOrc) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatOrcArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatOrcArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatOrc)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcArrayOutput) ToStageExternalGcsDescribeOutputFileFormatOrcArrayOutput() StageExternalGcsDescribeOutputFileFormatOrcArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcArrayOutput) ToStageExternalGcsDescribeOutputFileFormatOrcArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatOrcArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatOrcArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputFileFormatOrcOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutputFileFormatOrc {
-		return vs[0].([]StageExternalGcsDescribeOutputFileFormatOrc)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputFileFormatOrcOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatParquet struct {
-	BinaryAsText             *bool    `pulumi:"binaryAsText"`
-	Compression              *string  `pulumi:"compression"`
-	NullIfs                  []string `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters *bool    `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                *bool    `pulumi:"trimSpace"`
-	Type                     *string  `pulumi:"type"`
-	UseLogicalType           *bool    `pulumi:"useLogicalType"`
-	UseVectorizedScanner     *bool    `pulumi:"useVectorizedScanner"`
-}
-
-// StageExternalGcsDescribeOutputFileFormatParquetInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatParquetArgs and StageExternalGcsDescribeOutputFileFormatParquetOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatParquetInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatParquetArgs{...}
-type StageExternalGcsDescribeOutputFileFormatParquetInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatParquetOutput() StageExternalGcsDescribeOutputFileFormatParquetOutput
-	ToStageExternalGcsDescribeOutputFileFormatParquetOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatParquetOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatParquetArgs struct {
-	BinaryAsText             pulumi.BoolPtrInput     `pulumi:"binaryAsText"`
-	Compression              pulumi.StringPtrInput   `pulumi:"compression"`
-	NullIfs                  pulumi.StringArrayInput `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters pulumi.BoolPtrInput     `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                pulumi.BoolPtrInput     `pulumi:"trimSpace"`
-	Type                     pulumi.StringPtrInput   `pulumi:"type"`
-	UseLogicalType           pulumi.BoolPtrInput     `pulumi:"useLogicalType"`
-	UseVectorizedScanner     pulumi.BoolPtrInput     `pulumi:"useVectorizedScanner"`
-}
-
-func (StageExternalGcsDescribeOutputFileFormatParquetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatParquet)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatParquetArgs) ToStageExternalGcsDescribeOutputFileFormatParquetOutput() StageExternalGcsDescribeOutputFileFormatParquetOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatParquetOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatParquetArgs) ToStageExternalGcsDescribeOutputFileFormatParquetOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatParquetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatParquetOutput)
-}
-
-// StageExternalGcsDescribeOutputFileFormatParquetArrayInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatParquetArray and StageExternalGcsDescribeOutputFileFormatParquetArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatParquetArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatParquetArray{ StageExternalGcsDescribeOutputFileFormatParquetArgs{...} }
-type StageExternalGcsDescribeOutputFileFormatParquetArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatParquetArrayOutput() StageExternalGcsDescribeOutputFileFormatParquetArrayOutput
-	ToStageExternalGcsDescribeOutputFileFormatParquetArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatParquetArrayOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatParquetArray []StageExternalGcsDescribeOutputFileFormatParquetInput
-
-func (StageExternalGcsDescribeOutputFileFormatParquetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatParquet)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatParquetArray) ToStageExternalGcsDescribeOutputFileFormatParquetArrayOutput() StageExternalGcsDescribeOutputFileFormatParquetArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatParquetArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatParquetArray) ToStageExternalGcsDescribeOutputFileFormatParquetArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatParquetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatParquetArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatParquetOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatParquetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatParquet)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) ToStageExternalGcsDescribeOutputFileFormatParquetOutput() StageExternalGcsDescribeOutputFileFormatParquetOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) ToStageExternalGcsDescribeOutputFileFormatParquetOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatParquetOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) BinaryAsText() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatParquet) *bool { return v.BinaryAsText }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatParquet) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatParquet) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatParquet) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) TrimSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatParquet) *bool { return v.TrimSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatParquet) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) UseLogicalType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatParquet) *bool { return v.UseLogicalType }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetOutput) UseVectorizedScanner() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatParquet) *bool { return v.UseVectorizedScanner }).(pulumi.BoolPtrOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatParquetArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatParquetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatParquet)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetArrayOutput) ToStageExternalGcsDescribeOutputFileFormatParquetArrayOutput() StageExternalGcsDescribeOutputFileFormatParquetArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetArrayOutput) ToStageExternalGcsDescribeOutputFileFormatParquetArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatParquetArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatParquetArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputFileFormatParquetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutputFileFormatParquet {
-		return vs[0].([]StageExternalGcsDescribeOutputFileFormatParquet)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputFileFormatParquetOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatXml struct {
-	Compression              *string `pulumi:"compression"`
-	DisableAutoConvert       *bool   `pulumi:"disableAutoConvert"`
-	IgnoreUtf8Errors         *bool   `pulumi:"ignoreUtf8Errors"`
-	PreserveSpace            *bool   `pulumi:"preserveSpace"`
-	ReplaceInvalidCharacters *bool   `pulumi:"replaceInvalidCharacters"`
-	SkipByteOrderMark        *bool   `pulumi:"skipByteOrderMark"`
-	StripOuterElement        *bool   `pulumi:"stripOuterElement"`
-	Type                     *string `pulumi:"type"`
-}
-
-// StageExternalGcsDescribeOutputFileFormatXmlInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatXmlArgs and StageExternalGcsDescribeOutputFileFormatXmlOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatXmlInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatXmlArgs{...}
-type StageExternalGcsDescribeOutputFileFormatXmlInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatXmlOutput() StageExternalGcsDescribeOutputFileFormatXmlOutput
-	ToStageExternalGcsDescribeOutputFileFormatXmlOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatXmlOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatXmlArgs struct {
-	Compression              pulumi.StringPtrInput `pulumi:"compression"`
-	DisableAutoConvert       pulumi.BoolPtrInput   `pulumi:"disableAutoConvert"`
-	IgnoreUtf8Errors         pulumi.BoolPtrInput   `pulumi:"ignoreUtf8Errors"`
-	PreserveSpace            pulumi.BoolPtrInput   `pulumi:"preserveSpace"`
-	ReplaceInvalidCharacters pulumi.BoolPtrInput   `pulumi:"replaceInvalidCharacters"`
-	SkipByteOrderMark        pulumi.BoolPtrInput   `pulumi:"skipByteOrderMark"`
-	StripOuterElement        pulumi.BoolPtrInput   `pulumi:"stripOuterElement"`
-	Type                     pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (StageExternalGcsDescribeOutputFileFormatXmlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatXml)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatXmlArgs) ToStageExternalGcsDescribeOutputFileFormatXmlOutput() StageExternalGcsDescribeOutputFileFormatXmlOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatXmlOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatXmlArgs) ToStageExternalGcsDescribeOutputFileFormatXmlOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatXmlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatXmlOutput)
-}
-
-// StageExternalGcsDescribeOutputFileFormatXmlArrayInput is an input type that accepts StageExternalGcsDescribeOutputFileFormatXmlArray and StageExternalGcsDescribeOutputFileFormatXmlArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsDescribeOutputFileFormatXmlArrayInput` via:
-//
-//	StageExternalGcsDescribeOutputFileFormatXmlArray{ StageExternalGcsDescribeOutputFileFormatXmlArgs{...} }
-type StageExternalGcsDescribeOutputFileFormatXmlArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDescribeOutputFileFormatXmlArrayOutput() StageExternalGcsDescribeOutputFileFormatXmlArrayOutput
-	ToStageExternalGcsDescribeOutputFileFormatXmlArrayOutputWithContext(context.Context) StageExternalGcsDescribeOutputFileFormatXmlArrayOutput
-}
-
-type StageExternalGcsDescribeOutputFileFormatXmlArray []StageExternalGcsDescribeOutputFileFormatXmlInput
-
-func (StageExternalGcsDescribeOutputFileFormatXmlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatXml)(nil)).Elem()
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatXmlArray) ToStageExternalGcsDescribeOutputFileFormatXmlArrayOutput() StageExternalGcsDescribeOutputFileFormatXmlArrayOutput {
-	return i.ToStageExternalGcsDescribeOutputFileFormatXmlArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDescribeOutputFileFormatXmlArray) ToStageExternalGcsDescribeOutputFileFormatXmlArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatXmlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDescribeOutputFileFormatXmlArrayOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatXmlOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatXmlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatXml)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) ToStageExternalGcsDescribeOutputFileFormatXmlOutput() StageExternalGcsDescribeOutputFileFormatXmlOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) ToStageExternalGcsDescribeOutputFileFormatXmlOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatXmlOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatXml) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) DisableAutoConvert() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatXml) *bool { return v.DisableAutoConvert }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) IgnoreUtf8Errors() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatXml) *bool { return v.IgnoreUtf8Errors }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) PreserveSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatXml) *bool { return v.PreserveSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatXml) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) SkipByteOrderMark() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatXml) *bool { return v.SkipByteOrderMark }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) StripOuterElement() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatXml) *bool { return v.StripOuterElement }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDescribeOutputFileFormatXml) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsDescribeOutputFileFormatXmlArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDescribeOutputFileFormatXmlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsDescribeOutputFileFormatXml)(nil)).Elem()
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlArrayOutput) ToStageExternalGcsDescribeOutputFileFormatXmlArrayOutput() StageExternalGcsDescribeOutputFileFormatXmlArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlArrayOutput) ToStageExternalGcsDescribeOutputFileFormatXmlArrayOutputWithContext(ctx context.Context) StageExternalGcsDescribeOutputFileFormatXmlArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsDescribeOutputFileFormatXmlArrayOutput) Index(i pulumi.IntInput) StageExternalGcsDescribeOutputFileFormatXmlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsDescribeOutputFileFormatXml {
-		return vs[0].([]StageExternalGcsDescribeOutputFileFormatXml)[vs[1].(int)]
-	}).(StageExternalGcsDescribeOutputFileFormatXmlOutput)
-}
-
-type StageExternalGcsDirectory struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
-	AutoRefresh *string `pulumi:"autoRefresh"`
-	// Specifies whether to enable a directory table on the external stage.
-	Enable bool `pulumi:"enable"`
-	// Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	NotificationIntegration *string `pulumi:"notificationIntegration"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
-	RefreshOnCreate *string `pulumi:"refreshOnCreate"`
-}
-
-// StageExternalGcsDirectoryInput is an input type that accepts StageExternalGcsDirectoryArgs and StageExternalGcsDirectoryOutput values.
-// You can construct a concrete instance of `StageExternalGcsDirectoryInput` via:
-//
-//	StageExternalGcsDirectoryArgs{...}
-type StageExternalGcsDirectoryInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDirectoryOutput() StageExternalGcsDirectoryOutput
-	ToStageExternalGcsDirectoryOutputWithContext(context.Context) StageExternalGcsDirectoryOutput
-}
-
-type StageExternalGcsDirectoryArgs struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
-	AutoRefresh pulumi.StringPtrInput `pulumi:"autoRefresh"`
-	// Specifies whether to enable a directory table on the external stage.
-	Enable pulumi.BoolInput `pulumi:"enable"`
-	// Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	NotificationIntegration pulumi.StringPtrInput `pulumi:"notificationIntegration"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
-	RefreshOnCreate pulumi.StringPtrInput `pulumi:"refreshOnCreate"`
-}
-
-func (StageExternalGcsDirectoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDirectory)(nil)).Elem()
-}
-
-func (i StageExternalGcsDirectoryArgs) ToStageExternalGcsDirectoryOutput() StageExternalGcsDirectoryOutput {
-	return i.ToStageExternalGcsDirectoryOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDirectoryArgs) ToStageExternalGcsDirectoryOutputWithContext(ctx context.Context) StageExternalGcsDirectoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDirectoryOutput)
-}
-
-func (i StageExternalGcsDirectoryArgs) ToStageExternalGcsDirectoryPtrOutput() StageExternalGcsDirectoryPtrOutput {
-	return i.ToStageExternalGcsDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsDirectoryArgs) ToStageExternalGcsDirectoryPtrOutputWithContext(ctx context.Context) StageExternalGcsDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDirectoryOutput).ToStageExternalGcsDirectoryPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsDirectoryPtrInput is an input type that accepts StageExternalGcsDirectoryArgs, StageExternalGcsDirectoryPtr and StageExternalGcsDirectoryPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsDirectoryPtrInput` via:
-//
-//	        StageExternalGcsDirectoryArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsDirectoryPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsDirectoryPtrOutput() StageExternalGcsDirectoryPtrOutput
-	ToStageExternalGcsDirectoryPtrOutputWithContext(context.Context) StageExternalGcsDirectoryPtrOutput
-}
-
-type stageExternalGcsDirectoryPtrType StageExternalGcsDirectoryArgs
-
-func StageExternalGcsDirectoryPtr(v *StageExternalGcsDirectoryArgs) StageExternalGcsDirectoryPtrInput {
-	return (*stageExternalGcsDirectoryPtrType)(v)
-}
-
-func (*stageExternalGcsDirectoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsDirectory)(nil)).Elem()
-}
-
-func (i *stageExternalGcsDirectoryPtrType) ToStageExternalGcsDirectoryPtrOutput() StageExternalGcsDirectoryPtrOutput {
-	return i.ToStageExternalGcsDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsDirectoryPtrType) ToStageExternalGcsDirectoryPtrOutputWithContext(ctx context.Context) StageExternalGcsDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsDirectoryPtrOutput)
-}
-
-type StageExternalGcsDirectoryOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsDirectory)(nil)).Elem()
-}
-
-func (o StageExternalGcsDirectoryOutput) ToStageExternalGcsDirectoryOutput() StageExternalGcsDirectoryOutput {
-	return o
-}
-
-func (o StageExternalGcsDirectoryOutput) ToStageExternalGcsDirectoryOutputWithContext(ctx context.Context) StageExternalGcsDirectoryOutput {
-	return o
-}
-
-func (o StageExternalGcsDirectoryOutput) ToStageExternalGcsDirectoryPtrOutput() StageExternalGcsDirectoryPtrOutput {
-	return o.ToStageExternalGcsDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsDirectoryOutput) ToStageExternalGcsDirectoryPtrOutputWithContext(ctx context.Context) StageExternalGcsDirectoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsDirectory) *StageExternalGcsDirectory {
-		return &v
-	}).(StageExternalGcsDirectoryPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
-func (o StageExternalGcsDirectoryOutput) AutoRefresh() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDirectory) *string { return v.AutoRefresh }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether to enable a directory table on the external stage.
-func (o StageExternalGcsDirectoryOutput) Enable() pulumi.BoolOutput {
-	return o.ApplyT(func(v StageExternalGcsDirectory) bool { return v.Enable }).(pulumi.BoolOutput)
-}
-
-// Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-func (o StageExternalGcsDirectoryOutput) NotificationIntegration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDirectory) *string { return v.NotificationIntegration }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
-func (o StageExternalGcsDirectoryOutput) RefreshOnCreate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsDirectory) *string { return v.RefreshOnCreate }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsDirectoryPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsDirectoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsDirectory)(nil)).Elem()
-}
-
-func (o StageExternalGcsDirectoryPtrOutput) ToStageExternalGcsDirectoryPtrOutput() StageExternalGcsDirectoryPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsDirectoryPtrOutput) ToStageExternalGcsDirectoryPtrOutputWithContext(ctx context.Context) StageExternalGcsDirectoryPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsDirectoryPtrOutput) Elem() StageExternalGcsDirectoryOutput {
-	return o.ApplyT(func(v *StageExternalGcsDirectory) StageExternalGcsDirectory {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsDirectory
-		return ret
-	}).(StageExternalGcsDirectoryOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
-func (o StageExternalGcsDirectoryPtrOutput) AutoRefresh() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AutoRefresh
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether to enable a directory table on the external stage.
-func (o StageExternalGcsDirectoryPtrOutput) Enable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsDirectory) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enable
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-func (o StageExternalGcsDirectoryPtrOutput) NotificationIntegration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NotificationIntegration
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
-func (o StageExternalGcsDirectoryPtrOutput) RefreshOnCreate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RefreshOnCreate
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsEncryption struct {
-	// GCS server-side encryption using a KMS key.
-	GcsSseKms *StageExternalGcsEncryptionGcsSseKms `pulumi:"gcsSseKms"`
-	// No encryption.
-	None *StageExternalGcsEncryptionNone `pulumi:"none"`
-}
-
-// StageExternalGcsEncryptionInput is an input type that accepts StageExternalGcsEncryptionArgs and StageExternalGcsEncryptionOutput values.
-// You can construct a concrete instance of `StageExternalGcsEncryptionInput` via:
-//
-//	StageExternalGcsEncryptionArgs{...}
-type StageExternalGcsEncryptionInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsEncryptionOutput() StageExternalGcsEncryptionOutput
-	ToStageExternalGcsEncryptionOutputWithContext(context.Context) StageExternalGcsEncryptionOutput
-}
-
-type StageExternalGcsEncryptionArgs struct {
-	// GCS server-side encryption using a KMS key.
-	GcsSseKms StageExternalGcsEncryptionGcsSseKmsPtrInput `pulumi:"gcsSseKms"`
-	// No encryption.
-	None StageExternalGcsEncryptionNonePtrInput `pulumi:"none"`
-}
-
-func (StageExternalGcsEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsEncryption)(nil)).Elem()
-}
-
-func (i StageExternalGcsEncryptionArgs) ToStageExternalGcsEncryptionOutput() StageExternalGcsEncryptionOutput {
-	return i.ToStageExternalGcsEncryptionOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsEncryptionArgs) ToStageExternalGcsEncryptionOutputWithContext(ctx context.Context) StageExternalGcsEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionOutput)
-}
-
-func (i StageExternalGcsEncryptionArgs) ToStageExternalGcsEncryptionPtrOutput() StageExternalGcsEncryptionPtrOutput {
-	return i.ToStageExternalGcsEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsEncryptionArgs) ToStageExternalGcsEncryptionPtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionOutput).ToStageExternalGcsEncryptionPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsEncryptionPtrInput is an input type that accepts StageExternalGcsEncryptionArgs, StageExternalGcsEncryptionPtr and StageExternalGcsEncryptionPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsEncryptionPtrInput` via:
-//
-//	        StageExternalGcsEncryptionArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsEncryptionPtrOutput() StageExternalGcsEncryptionPtrOutput
-	ToStageExternalGcsEncryptionPtrOutputWithContext(context.Context) StageExternalGcsEncryptionPtrOutput
-}
-
-type stageExternalGcsEncryptionPtrType StageExternalGcsEncryptionArgs
-
-func StageExternalGcsEncryptionPtr(v *StageExternalGcsEncryptionArgs) StageExternalGcsEncryptionPtrInput {
-	return (*stageExternalGcsEncryptionPtrType)(v)
-}
-
-func (*stageExternalGcsEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsEncryption)(nil)).Elem()
-}
-
-func (i *stageExternalGcsEncryptionPtrType) ToStageExternalGcsEncryptionPtrOutput() StageExternalGcsEncryptionPtrOutput {
-	return i.ToStageExternalGcsEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsEncryptionPtrType) ToStageExternalGcsEncryptionPtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionPtrOutput)
-}
-
-type StageExternalGcsEncryptionOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsEncryption)(nil)).Elem()
-}
-
-func (o StageExternalGcsEncryptionOutput) ToStageExternalGcsEncryptionOutput() StageExternalGcsEncryptionOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionOutput) ToStageExternalGcsEncryptionOutputWithContext(ctx context.Context) StageExternalGcsEncryptionOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionOutput) ToStageExternalGcsEncryptionPtrOutput() StageExternalGcsEncryptionPtrOutput {
-	return o.ToStageExternalGcsEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsEncryptionOutput) ToStageExternalGcsEncryptionPtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsEncryption) *StageExternalGcsEncryption {
-		return &v
-	}).(StageExternalGcsEncryptionPtrOutput)
-}
-
-// GCS server-side encryption using a KMS key.
-func (o StageExternalGcsEncryptionOutput) GcsSseKms() StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsEncryption) *StageExternalGcsEncryptionGcsSseKms { return v.GcsSseKms }).(StageExternalGcsEncryptionGcsSseKmsPtrOutput)
-}
-
-// No encryption.
-func (o StageExternalGcsEncryptionOutput) None() StageExternalGcsEncryptionNonePtrOutput {
-	return o.ApplyT(func(v StageExternalGcsEncryption) *StageExternalGcsEncryptionNone { return v.None }).(StageExternalGcsEncryptionNonePtrOutput)
-}
-
-type StageExternalGcsEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsEncryption)(nil)).Elem()
-}
-
-func (o StageExternalGcsEncryptionPtrOutput) ToStageExternalGcsEncryptionPtrOutput() StageExternalGcsEncryptionPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionPtrOutput) ToStageExternalGcsEncryptionPtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionPtrOutput) Elem() StageExternalGcsEncryptionOutput {
-	return o.ApplyT(func(v *StageExternalGcsEncryption) StageExternalGcsEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsEncryption
-		return ret
-	}).(StageExternalGcsEncryptionOutput)
-}
-
-// GCS server-side encryption using a KMS key.
-func (o StageExternalGcsEncryptionPtrOutput) GcsSseKms() StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsEncryption) *StageExternalGcsEncryptionGcsSseKms {
-		if v == nil {
-			return nil
-		}
-		return v.GcsSseKms
-	}).(StageExternalGcsEncryptionGcsSseKmsPtrOutput)
-}
-
-// No encryption.
-func (o StageExternalGcsEncryptionPtrOutput) None() StageExternalGcsEncryptionNonePtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsEncryption) *StageExternalGcsEncryptionNone {
-		if v == nil {
-			return nil
-		}
-		return v.None
-	}).(StageExternalGcsEncryptionNonePtrOutput)
-}
-
-type StageExternalGcsEncryptionGcsSseKms struct {
-	// Specifies the KMS-managed key ID.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-}
-
-// StageExternalGcsEncryptionGcsSseKmsInput is an input type that accepts StageExternalGcsEncryptionGcsSseKmsArgs and StageExternalGcsEncryptionGcsSseKmsOutput values.
-// You can construct a concrete instance of `StageExternalGcsEncryptionGcsSseKmsInput` via:
-//
-//	StageExternalGcsEncryptionGcsSseKmsArgs{...}
-type StageExternalGcsEncryptionGcsSseKmsInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsEncryptionGcsSseKmsOutput() StageExternalGcsEncryptionGcsSseKmsOutput
-	ToStageExternalGcsEncryptionGcsSseKmsOutputWithContext(context.Context) StageExternalGcsEncryptionGcsSseKmsOutput
-}
-
-type StageExternalGcsEncryptionGcsSseKmsArgs struct {
-	// Specifies the KMS-managed key ID.
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-}
-
-func (StageExternalGcsEncryptionGcsSseKmsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsEncryptionGcsSseKms)(nil)).Elem()
-}
-
-func (i StageExternalGcsEncryptionGcsSseKmsArgs) ToStageExternalGcsEncryptionGcsSseKmsOutput() StageExternalGcsEncryptionGcsSseKmsOutput {
-	return i.ToStageExternalGcsEncryptionGcsSseKmsOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsEncryptionGcsSseKmsArgs) ToStageExternalGcsEncryptionGcsSseKmsOutputWithContext(ctx context.Context) StageExternalGcsEncryptionGcsSseKmsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionGcsSseKmsOutput)
-}
-
-func (i StageExternalGcsEncryptionGcsSseKmsArgs) ToStageExternalGcsEncryptionGcsSseKmsPtrOutput() StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return i.ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsEncryptionGcsSseKmsArgs) ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionGcsSseKmsOutput).ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsEncryptionGcsSseKmsPtrInput is an input type that accepts StageExternalGcsEncryptionGcsSseKmsArgs, StageExternalGcsEncryptionGcsSseKmsPtr and StageExternalGcsEncryptionGcsSseKmsPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsEncryptionGcsSseKmsPtrInput` via:
-//
-//	        StageExternalGcsEncryptionGcsSseKmsArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsEncryptionGcsSseKmsPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsEncryptionGcsSseKmsPtrOutput() StageExternalGcsEncryptionGcsSseKmsPtrOutput
-	ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(context.Context) StageExternalGcsEncryptionGcsSseKmsPtrOutput
-}
-
-type stageExternalGcsEncryptionGcsSseKmsPtrType StageExternalGcsEncryptionGcsSseKmsArgs
-
-func StageExternalGcsEncryptionGcsSseKmsPtr(v *StageExternalGcsEncryptionGcsSseKmsArgs) StageExternalGcsEncryptionGcsSseKmsPtrInput {
-	return (*stageExternalGcsEncryptionGcsSseKmsPtrType)(v)
-}
-
-func (*stageExternalGcsEncryptionGcsSseKmsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsEncryptionGcsSseKms)(nil)).Elem()
-}
-
-func (i *stageExternalGcsEncryptionGcsSseKmsPtrType) ToStageExternalGcsEncryptionGcsSseKmsPtrOutput() StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return i.ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsEncryptionGcsSseKmsPtrType) ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionGcsSseKmsPtrOutput)
-}
-
-type StageExternalGcsEncryptionGcsSseKmsOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsEncryptionGcsSseKmsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsEncryptionGcsSseKms)(nil)).Elem()
-}
-
-func (o StageExternalGcsEncryptionGcsSseKmsOutput) ToStageExternalGcsEncryptionGcsSseKmsOutput() StageExternalGcsEncryptionGcsSseKmsOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionGcsSseKmsOutput) ToStageExternalGcsEncryptionGcsSseKmsOutputWithContext(ctx context.Context) StageExternalGcsEncryptionGcsSseKmsOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionGcsSseKmsOutput) ToStageExternalGcsEncryptionGcsSseKmsPtrOutput() StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return o.ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsEncryptionGcsSseKmsOutput) ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsEncryptionGcsSseKms) *StageExternalGcsEncryptionGcsSseKms {
-		return &v
-	}).(StageExternalGcsEncryptionGcsSseKmsPtrOutput)
-}
-
-// Specifies the KMS-managed key ID.
-func (o StageExternalGcsEncryptionGcsSseKmsOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsEncryptionGcsSseKms) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsEncryptionGcsSseKmsPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsEncryptionGcsSseKmsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsEncryptionGcsSseKms)(nil)).Elem()
-}
-
-func (o StageExternalGcsEncryptionGcsSseKmsPtrOutput) ToStageExternalGcsEncryptionGcsSseKmsPtrOutput() StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionGcsSseKmsPtrOutput) ToStageExternalGcsEncryptionGcsSseKmsPtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionGcsSseKmsPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionGcsSseKmsPtrOutput) Elem() StageExternalGcsEncryptionGcsSseKmsOutput {
-	return o.ApplyT(func(v *StageExternalGcsEncryptionGcsSseKms) StageExternalGcsEncryptionGcsSseKms {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsEncryptionGcsSseKms
-		return ret
-	}).(StageExternalGcsEncryptionGcsSseKmsOutput)
-}
-
-// Specifies the KMS-managed key ID.
-func (o StageExternalGcsEncryptionGcsSseKmsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsEncryptionGcsSseKms) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsEncryptionNone struct {
-}
-
-// StageExternalGcsEncryptionNoneInput is an input type that accepts StageExternalGcsEncryptionNoneArgs and StageExternalGcsEncryptionNoneOutput values.
-// You can construct a concrete instance of `StageExternalGcsEncryptionNoneInput` via:
-//
-//	StageExternalGcsEncryptionNoneArgs{...}
-type StageExternalGcsEncryptionNoneInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsEncryptionNoneOutput() StageExternalGcsEncryptionNoneOutput
-	ToStageExternalGcsEncryptionNoneOutputWithContext(context.Context) StageExternalGcsEncryptionNoneOutput
-}
-
-type StageExternalGcsEncryptionNoneArgs struct {
-}
-
-func (StageExternalGcsEncryptionNoneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsEncryptionNone)(nil)).Elem()
-}
-
-func (i StageExternalGcsEncryptionNoneArgs) ToStageExternalGcsEncryptionNoneOutput() StageExternalGcsEncryptionNoneOutput {
-	return i.ToStageExternalGcsEncryptionNoneOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsEncryptionNoneArgs) ToStageExternalGcsEncryptionNoneOutputWithContext(ctx context.Context) StageExternalGcsEncryptionNoneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionNoneOutput)
-}
-
-func (i StageExternalGcsEncryptionNoneArgs) ToStageExternalGcsEncryptionNonePtrOutput() StageExternalGcsEncryptionNonePtrOutput {
-	return i.ToStageExternalGcsEncryptionNonePtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsEncryptionNoneArgs) ToStageExternalGcsEncryptionNonePtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionNonePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionNoneOutput).ToStageExternalGcsEncryptionNonePtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsEncryptionNonePtrInput is an input type that accepts StageExternalGcsEncryptionNoneArgs, StageExternalGcsEncryptionNonePtr and StageExternalGcsEncryptionNonePtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsEncryptionNonePtrInput` via:
-//
-//	        StageExternalGcsEncryptionNoneArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsEncryptionNonePtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsEncryptionNonePtrOutput() StageExternalGcsEncryptionNonePtrOutput
-	ToStageExternalGcsEncryptionNonePtrOutputWithContext(context.Context) StageExternalGcsEncryptionNonePtrOutput
-}
-
-type stageExternalGcsEncryptionNonePtrType StageExternalGcsEncryptionNoneArgs
-
-func StageExternalGcsEncryptionNonePtr(v *StageExternalGcsEncryptionNoneArgs) StageExternalGcsEncryptionNonePtrInput {
-	return (*stageExternalGcsEncryptionNonePtrType)(v)
-}
-
-func (*stageExternalGcsEncryptionNonePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsEncryptionNone)(nil)).Elem()
-}
-
-func (i *stageExternalGcsEncryptionNonePtrType) ToStageExternalGcsEncryptionNonePtrOutput() StageExternalGcsEncryptionNonePtrOutput {
-	return i.ToStageExternalGcsEncryptionNonePtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsEncryptionNonePtrType) ToStageExternalGcsEncryptionNonePtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionNonePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsEncryptionNonePtrOutput)
-}
-
-type StageExternalGcsEncryptionNoneOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsEncryptionNoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsEncryptionNone)(nil)).Elem()
-}
-
-func (o StageExternalGcsEncryptionNoneOutput) ToStageExternalGcsEncryptionNoneOutput() StageExternalGcsEncryptionNoneOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionNoneOutput) ToStageExternalGcsEncryptionNoneOutputWithContext(ctx context.Context) StageExternalGcsEncryptionNoneOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionNoneOutput) ToStageExternalGcsEncryptionNonePtrOutput() StageExternalGcsEncryptionNonePtrOutput {
-	return o.ToStageExternalGcsEncryptionNonePtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsEncryptionNoneOutput) ToStageExternalGcsEncryptionNonePtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionNonePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsEncryptionNone) *StageExternalGcsEncryptionNone {
-		return &v
-	}).(StageExternalGcsEncryptionNonePtrOutput)
-}
-
-type StageExternalGcsEncryptionNonePtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsEncryptionNonePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsEncryptionNone)(nil)).Elem()
-}
-
-func (o StageExternalGcsEncryptionNonePtrOutput) ToStageExternalGcsEncryptionNonePtrOutput() StageExternalGcsEncryptionNonePtrOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionNonePtrOutput) ToStageExternalGcsEncryptionNonePtrOutputWithContext(ctx context.Context) StageExternalGcsEncryptionNonePtrOutput {
-	return o
-}
-
-func (o StageExternalGcsEncryptionNonePtrOutput) Elem() StageExternalGcsEncryptionNoneOutput {
-	return o.ApplyT(func(v *StageExternalGcsEncryptionNone) StageExternalGcsEncryptionNone {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsEncryptionNone
-		return ret
-	}).(StageExternalGcsEncryptionNoneOutput)
-}
-
-type StageExternalGcsFileFormat struct {
-	// AVRO file format options.
-	Avro *StageExternalGcsFileFormatAvro `pulumi:"avro"`
-	// CSV file format options.
-	Csv *StageExternalGcsFileFormatCsv `pulumi:"csv"`
-	// Fully qualified name of the file format (e.g., 'database.schema.format_name').
-	FormatName *string `pulumi:"formatName"`
-	// JSON file format options.
-	Json *StageExternalGcsFileFormatJson `pulumi:"json"`
-	// ORC file format options.
-	Orc *StageExternalGcsFileFormatOrc `pulumi:"orc"`
-	// Parquet file format options.
-	Parquet *StageExternalGcsFileFormatParquet `pulumi:"parquet"`
-	// XML file format options.
-	Xml *StageExternalGcsFileFormatXml `pulumi:"xml"`
-}
-
-// StageExternalGcsFileFormatInput is an input type that accepts StageExternalGcsFileFormatArgs and StageExternalGcsFileFormatOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatInput` via:
-//
-//	StageExternalGcsFileFormatArgs{...}
-type StageExternalGcsFileFormatInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatOutput() StageExternalGcsFileFormatOutput
-	ToStageExternalGcsFileFormatOutputWithContext(context.Context) StageExternalGcsFileFormatOutput
-}
-
-type StageExternalGcsFileFormatArgs struct {
-	// AVRO file format options.
-	Avro StageExternalGcsFileFormatAvroPtrInput `pulumi:"avro"`
-	// CSV file format options.
-	Csv StageExternalGcsFileFormatCsvPtrInput `pulumi:"csv"`
-	// Fully qualified name of the file format (e.g., 'database.schema.format_name').
-	FormatName pulumi.StringPtrInput `pulumi:"formatName"`
-	// JSON file format options.
-	Json StageExternalGcsFileFormatJsonPtrInput `pulumi:"json"`
-	// ORC file format options.
-	Orc StageExternalGcsFileFormatOrcPtrInput `pulumi:"orc"`
-	// Parquet file format options.
-	Parquet StageExternalGcsFileFormatParquetPtrInput `pulumi:"parquet"`
-	// XML file format options.
-	Xml StageExternalGcsFileFormatXmlPtrInput `pulumi:"xml"`
-}
-
-func (StageExternalGcsFileFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormat)(nil)).Elem()
-}
-
-func (i StageExternalGcsFileFormatArgs) ToStageExternalGcsFileFormatOutput() StageExternalGcsFileFormatOutput {
-	return i.ToStageExternalGcsFileFormatOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatArgs) ToStageExternalGcsFileFormatOutputWithContext(ctx context.Context) StageExternalGcsFileFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatOutput)
-}
-
-func (i StageExternalGcsFileFormatArgs) ToStageExternalGcsFileFormatPtrOutput() StageExternalGcsFileFormatPtrOutput {
-	return i.ToStageExternalGcsFileFormatPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatArgs) ToStageExternalGcsFileFormatPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatOutput).ToStageExternalGcsFileFormatPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsFileFormatPtrInput is an input type that accepts StageExternalGcsFileFormatArgs, StageExternalGcsFileFormatPtr and StageExternalGcsFileFormatPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatPtrInput` via:
-//
-//	        StageExternalGcsFileFormatArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsFileFormatPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatPtrOutput() StageExternalGcsFileFormatPtrOutput
-	ToStageExternalGcsFileFormatPtrOutputWithContext(context.Context) StageExternalGcsFileFormatPtrOutput
-}
-
-type stageExternalGcsFileFormatPtrType StageExternalGcsFileFormatArgs
-
-func StageExternalGcsFileFormatPtr(v *StageExternalGcsFileFormatArgs) StageExternalGcsFileFormatPtrInput {
-	return (*stageExternalGcsFileFormatPtrType)(v)
-}
-
-func (*stageExternalGcsFileFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormat)(nil)).Elem()
-}
-
-func (i *stageExternalGcsFileFormatPtrType) ToStageExternalGcsFileFormatPtrOutput() StageExternalGcsFileFormatPtrOutput {
-	return i.ToStageExternalGcsFileFormatPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsFileFormatPtrType) ToStageExternalGcsFileFormatPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatPtrOutput)
-}
-
-type StageExternalGcsFileFormatOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormat)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatOutput) ToStageExternalGcsFileFormatOutput() StageExternalGcsFileFormatOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatOutput) ToStageExternalGcsFileFormatOutputWithContext(ctx context.Context) StageExternalGcsFileFormatOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatOutput) ToStageExternalGcsFileFormatPtrOutput() StageExternalGcsFileFormatPtrOutput {
-	return o.ToStageExternalGcsFileFormatPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsFileFormatOutput) ToStageExternalGcsFileFormatPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsFileFormat) *StageExternalGcsFileFormat {
-		return &v
-	}).(StageExternalGcsFileFormatPtrOutput)
-}
-
-// AVRO file format options.
-func (o StageExternalGcsFileFormatOutput) Avro() StageExternalGcsFileFormatAvroPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormat) *StageExternalGcsFileFormatAvro { return v.Avro }).(StageExternalGcsFileFormatAvroPtrOutput)
-}
-
-// CSV file format options.
-func (o StageExternalGcsFileFormatOutput) Csv() StageExternalGcsFileFormatCsvPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormat) *StageExternalGcsFileFormatCsv { return v.Csv }).(StageExternalGcsFileFormatCsvPtrOutput)
-}
-
-// Fully qualified name of the file format (e.g., 'database.schema.format_name').
-func (o StageExternalGcsFileFormatOutput) FormatName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormat) *string { return v.FormatName }).(pulumi.StringPtrOutput)
-}
-
-// JSON file format options.
-func (o StageExternalGcsFileFormatOutput) Json() StageExternalGcsFileFormatJsonPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormat) *StageExternalGcsFileFormatJson { return v.Json }).(StageExternalGcsFileFormatJsonPtrOutput)
-}
-
-// ORC file format options.
-func (o StageExternalGcsFileFormatOutput) Orc() StageExternalGcsFileFormatOrcPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormat) *StageExternalGcsFileFormatOrc { return v.Orc }).(StageExternalGcsFileFormatOrcPtrOutput)
-}
-
-// Parquet file format options.
-func (o StageExternalGcsFileFormatOutput) Parquet() StageExternalGcsFileFormatParquetPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormat) *StageExternalGcsFileFormatParquet { return v.Parquet }).(StageExternalGcsFileFormatParquetPtrOutput)
-}
-
-// XML file format options.
-func (o StageExternalGcsFileFormatOutput) Xml() StageExternalGcsFileFormatXmlPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormat) *StageExternalGcsFileFormatXml { return v.Xml }).(StageExternalGcsFileFormatXmlPtrOutput)
-}
-
-type StageExternalGcsFileFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormat)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatPtrOutput) ToStageExternalGcsFileFormatPtrOutput() StageExternalGcsFileFormatPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatPtrOutput) ToStageExternalGcsFileFormatPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatPtrOutput) Elem() StageExternalGcsFileFormatOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormat) StageExternalGcsFileFormat {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsFileFormat
-		return ret
-	}).(StageExternalGcsFileFormatOutput)
-}
-
-// AVRO file format options.
-func (o StageExternalGcsFileFormatPtrOutput) Avro() StageExternalGcsFileFormatAvroPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormat) *StageExternalGcsFileFormatAvro {
-		if v == nil {
-			return nil
-		}
-		return v.Avro
-	}).(StageExternalGcsFileFormatAvroPtrOutput)
-}
-
-// CSV file format options.
-func (o StageExternalGcsFileFormatPtrOutput) Csv() StageExternalGcsFileFormatCsvPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormat) *StageExternalGcsFileFormatCsv {
-		if v == nil {
-			return nil
-		}
-		return v.Csv
-	}).(StageExternalGcsFileFormatCsvPtrOutput)
-}
-
-// Fully qualified name of the file format (e.g., 'database.schema.format_name').
-func (o StageExternalGcsFileFormatPtrOutput) FormatName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormat) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FormatName
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSON file format options.
-func (o StageExternalGcsFileFormatPtrOutput) Json() StageExternalGcsFileFormatJsonPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormat) *StageExternalGcsFileFormatJson {
-		if v == nil {
-			return nil
-		}
-		return v.Json
-	}).(StageExternalGcsFileFormatJsonPtrOutput)
-}
-
-// ORC file format options.
-func (o StageExternalGcsFileFormatPtrOutput) Orc() StageExternalGcsFileFormatOrcPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormat) *StageExternalGcsFileFormatOrc {
-		if v == nil {
-			return nil
-		}
-		return v.Orc
-	}).(StageExternalGcsFileFormatOrcPtrOutput)
-}
-
-// Parquet file format options.
-func (o StageExternalGcsFileFormatPtrOutput) Parquet() StageExternalGcsFileFormatParquetPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormat) *StageExternalGcsFileFormatParquet {
-		if v == nil {
-			return nil
-		}
-		return v.Parquet
-	}).(StageExternalGcsFileFormatParquetPtrOutput)
-}
-
-// XML file format options.
-func (o StageExternalGcsFileFormatPtrOutput) Xml() StageExternalGcsFileFormatXmlPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormat) *StageExternalGcsFileFormatXml {
-		if v == nil {
-			return nil
-		}
-		return v.Xml
-	}).(StageExternalGcsFileFormatXmlPtrOutput)
-}
-
-type StageExternalGcsFileFormatAvro struct {
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-}
-
-// StageExternalGcsFileFormatAvroInput is an input type that accepts StageExternalGcsFileFormatAvroArgs and StageExternalGcsFileFormatAvroOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatAvroInput` via:
-//
-//	StageExternalGcsFileFormatAvroArgs{...}
-type StageExternalGcsFileFormatAvroInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatAvroOutput() StageExternalGcsFileFormatAvroOutput
-	ToStageExternalGcsFileFormatAvroOutputWithContext(context.Context) StageExternalGcsFileFormatAvroOutput
-}
-
-type StageExternalGcsFileFormatAvroArgs struct {
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-}
-
-func (StageExternalGcsFileFormatAvroArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatAvro)(nil)).Elem()
-}
-
-func (i StageExternalGcsFileFormatAvroArgs) ToStageExternalGcsFileFormatAvroOutput() StageExternalGcsFileFormatAvroOutput {
-	return i.ToStageExternalGcsFileFormatAvroOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatAvroArgs) ToStageExternalGcsFileFormatAvroOutputWithContext(ctx context.Context) StageExternalGcsFileFormatAvroOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatAvroOutput)
-}
-
-func (i StageExternalGcsFileFormatAvroArgs) ToStageExternalGcsFileFormatAvroPtrOutput() StageExternalGcsFileFormatAvroPtrOutput {
-	return i.ToStageExternalGcsFileFormatAvroPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatAvroArgs) ToStageExternalGcsFileFormatAvroPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatAvroPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatAvroOutput).ToStageExternalGcsFileFormatAvroPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsFileFormatAvroPtrInput is an input type that accepts StageExternalGcsFileFormatAvroArgs, StageExternalGcsFileFormatAvroPtr and StageExternalGcsFileFormatAvroPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatAvroPtrInput` via:
-//
-//	        StageExternalGcsFileFormatAvroArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsFileFormatAvroPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatAvroPtrOutput() StageExternalGcsFileFormatAvroPtrOutput
-	ToStageExternalGcsFileFormatAvroPtrOutputWithContext(context.Context) StageExternalGcsFileFormatAvroPtrOutput
-}
-
-type stageExternalGcsFileFormatAvroPtrType StageExternalGcsFileFormatAvroArgs
-
-func StageExternalGcsFileFormatAvroPtr(v *StageExternalGcsFileFormatAvroArgs) StageExternalGcsFileFormatAvroPtrInput {
-	return (*stageExternalGcsFileFormatAvroPtrType)(v)
-}
-
-func (*stageExternalGcsFileFormatAvroPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatAvro)(nil)).Elem()
-}
-
-func (i *stageExternalGcsFileFormatAvroPtrType) ToStageExternalGcsFileFormatAvroPtrOutput() StageExternalGcsFileFormatAvroPtrOutput {
-	return i.ToStageExternalGcsFileFormatAvroPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsFileFormatAvroPtrType) ToStageExternalGcsFileFormatAvroPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatAvroPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatAvroPtrOutput)
-}
-
-type StageExternalGcsFileFormatAvroOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatAvroOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatAvro)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatAvroOutput) ToStageExternalGcsFileFormatAvroOutput() StageExternalGcsFileFormatAvroOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatAvroOutput) ToStageExternalGcsFileFormatAvroOutputWithContext(ctx context.Context) StageExternalGcsFileFormatAvroOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatAvroOutput) ToStageExternalGcsFileFormatAvroPtrOutput() StageExternalGcsFileFormatAvroPtrOutput {
-	return o.ToStageExternalGcsFileFormatAvroPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsFileFormatAvroOutput) ToStageExternalGcsFileFormatAvroPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatAvroPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsFileFormatAvro) *StageExternalGcsFileFormatAvro {
-		return &v
-	}).(StageExternalGcsFileFormatAvroPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalGcsFileFormatAvroOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatAvro) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatAvroOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatAvro) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatAvroOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatAvro) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatAvroOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatAvro) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatAvroPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatAvroPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatAvro)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatAvroPtrOutput) ToStageExternalGcsFileFormatAvroPtrOutput() StageExternalGcsFileFormatAvroPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatAvroPtrOutput) ToStageExternalGcsFileFormatAvroPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatAvroPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatAvroPtrOutput) Elem() StageExternalGcsFileFormatAvroOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatAvro) StageExternalGcsFileFormatAvro {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsFileFormatAvro
-		return ret
-	}).(StageExternalGcsFileFormatAvroOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalGcsFileFormatAvroPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatAvro) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatAvroPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatAvro) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatAvroPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatAvro) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatAvroPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatAvro) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatCsv struct {
-	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-	BinaryFormat *string `pulumi:"binaryFormat"`
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	DateFormat *string `pulumi:"dateFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	EmptyFieldAsNull *string `pulumi:"emptyFieldAsNull"`
-	// Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
-	Encoding *string `pulumi:"encoding"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ErrorOnColumnCountMismatch *string `pulumi:"errorOnColumnCountMismatch"`
-	// Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-	Escape *string `pulumi:"escape"`
-	// Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-	EscapeUnenclosedField *string `pulumi:"escapeUnenclosedField"`
-	// One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
-	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	// Character used to enclose strings. Use `NONE` to specify no enclosure character.
-	FieldOptionallyEnclosedBy *string `pulumi:"fieldOptionallyEnclosedBy"`
-	// Specifies the extension for files unloaded to a stage.
-	FileExtension *string `pulumi:"fileExtension"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	MultiLine *string `pulumi:"multiLine"`
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ParseHeader *string `pulumi:"parseHeader"`
-	// One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
-	RecordDelimiter *string `pulumi:"recordDelimiter"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipBlankLines *string `pulumi:"skipBlankLines"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark *string `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
-	SkipHeader *int `pulumi:"skipHeader"`
-	// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimeFormat *string `pulumi:"timeFormat"`
-	// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimestampFormat *string `pulumi:"timestampFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-}
-
-// StageExternalGcsFileFormatCsvInput is an input type that accepts StageExternalGcsFileFormatCsvArgs and StageExternalGcsFileFormatCsvOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatCsvInput` via:
-//
-//	StageExternalGcsFileFormatCsvArgs{...}
-type StageExternalGcsFileFormatCsvInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatCsvOutput() StageExternalGcsFileFormatCsvOutput
-	ToStageExternalGcsFileFormatCsvOutputWithContext(context.Context) StageExternalGcsFileFormatCsvOutput
-}
-
-type StageExternalGcsFileFormatCsvArgs struct {
-	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-	BinaryFormat pulumi.StringPtrInput `pulumi:"binaryFormat"`
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	EmptyFieldAsNull pulumi.StringPtrInput `pulumi:"emptyFieldAsNull"`
-	// Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ErrorOnColumnCountMismatch pulumi.StringPtrInput `pulumi:"errorOnColumnCountMismatch"`
-	// Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-	Escape pulumi.StringPtrInput `pulumi:"escape"`
-	// Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-	EscapeUnenclosedField pulumi.StringPtrInput `pulumi:"escapeUnenclosedField"`
-	// One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
-	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	// Character used to enclose strings. Use `NONE` to specify no enclosure character.
-	FieldOptionallyEnclosedBy pulumi.StringPtrInput `pulumi:"fieldOptionallyEnclosedBy"`
-	// Specifies the extension for files unloaded to a stage.
-	FileExtension pulumi.StringPtrInput `pulumi:"fileExtension"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	MultiLine pulumi.StringPtrInput `pulumi:"multiLine"`
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ParseHeader pulumi.StringPtrInput `pulumi:"parseHeader"`
-	// One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
-	RecordDelimiter pulumi.StringPtrInput `pulumi:"recordDelimiter"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipBlankLines pulumi.StringPtrInput `pulumi:"skipBlankLines"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark pulumi.StringPtrInput `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
-	SkipHeader pulumi.IntPtrInput `pulumi:"skipHeader"`
-	// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
-	// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimestampFormat pulumi.StringPtrInput `pulumi:"timestampFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-}
-
-func (StageExternalGcsFileFormatCsvArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatCsv)(nil)).Elem()
-}
-
-func (i StageExternalGcsFileFormatCsvArgs) ToStageExternalGcsFileFormatCsvOutput() StageExternalGcsFileFormatCsvOutput {
-	return i.ToStageExternalGcsFileFormatCsvOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatCsvArgs) ToStageExternalGcsFileFormatCsvOutputWithContext(ctx context.Context) StageExternalGcsFileFormatCsvOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatCsvOutput)
-}
-
-func (i StageExternalGcsFileFormatCsvArgs) ToStageExternalGcsFileFormatCsvPtrOutput() StageExternalGcsFileFormatCsvPtrOutput {
-	return i.ToStageExternalGcsFileFormatCsvPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatCsvArgs) ToStageExternalGcsFileFormatCsvPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatCsvPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatCsvOutput).ToStageExternalGcsFileFormatCsvPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsFileFormatCsvPtrInput is an input type that accepts StageExternalGcsFileFormatCsvArgs, StageExternalGcsFileFormatCsvPtr and StageExternalGcsFileFormatCsvPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatCsvPtrInput` via:
-//
-//	        StageExternalGcsFileFormatCsvArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsFileFormatCsvPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatCsvPtrOutput() StageExternalGcsFileFormatCsvPtrOutput
-	ToStageExternalGcsFileFormatCsvPtrOutputWithContext(context.Context) StageExternalGcsFileFormatCsvPtrOutput
-}
-
-type stageExternalGcsFileFormatCsvPtrType StageExternalGcsFileFormatCsvArgs
-
-func StageExternalGcsFileFormatCsvPtr(v *StageExternalGcsFileFormatCsvArgs) StageExternalGcsFileFormatCsvPtrInput {
-	return (*stageExternalGcsFileFormatCsvPtrType)(v)
-}
-
-func (*stageExternalGcsFileFormatCsvPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatCsv)(nil)).Elem()
-}
-
-func (i *stageExternalGcsFileFormatCsvPtrType) ToStageExternalGcsFileFormatCsvPtrOutput() StageExternalGcsFileFormatCsvPtrOutput {
-	return i.ToStageExternalGcsFileFormatCsvPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsFileFormatCsvPtrType) ToStageExternalGcsFileFormatCsvPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatCsvPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatCsvPtrOutput)
-}
-
-type StageExternalGcsFileFormatCsvOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatCsvOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatCsv)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatCsvOutput) ToStageExternalGcsFileFormatCsvOutput() StageExternalGcsFileFormatCsvOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatCsvOutput) ToStageExternalGcsFileFormatCsvOutputWithContext(ctx context.Context) StageExternalGcsFileFormatCsvOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatCsvOutput) ToStageExternalGcsFileFormatCsvPtrOutput() StageExternalGcsFileFormatCsvPtrOutput {
-	return o.ToStageExternalGcsFileFormatCsvPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsFileFormatCsvOutput) ToStageExternalGcsFileFormatCsvPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatCsvPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsFileFormatCsv) *StageExternalGcsFileFormatCsv {
-		return &v
-	}).(StageExternalGcsFileFormatCsvPtrOutput)
-}
-
-// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-func (o StageExternalGcsFileFormatCsvOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.BinaryFormat }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalGcsFileFormatCsvOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatCsvOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvOutput) EmptyFieldAsNull() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.EmptyFieldAsNull }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
-func (o StageExternalGcsFileFormatCsvOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.Encoding }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvOutput) ErrorOnColumnCountMismatch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.ErrorOnColumnCountMismatch }).(pulumi.StringPtrOutput)
-}
-
-// Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-func (o StageExternalGcsFileFormatCsvOutput) Escape() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.Escape }).(pulumi.StringPtrOutput)
-}
-
-// Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-func (o StageExternalGcsFileFormatCsvOutput) EscapeUnenclosedField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.EscapeUnenclosedField }).(pulumi.StringPtrOutput)
-}
-
-// One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
-func (o StageExternalGcsFileFormatCsvOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
-}
-
-// Character used to enclose strings. Use `NONE` to specify no enclosure character.
-func (o StageExternalGcsFileFormatCsvOutput) FieldOptionallyEnclosedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.FieldOptionallyEnclosedBy }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the extension for files unloaded to a stage.
-func (o StageExternalGcsFileFormatCsvOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.FileExtension }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvOutput) MultiLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.MultiLine }).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatCsvOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvOutput) ParseHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.ParseHeader }).(pulumi.StringPtrOutput)
-}
-
-// One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
-func (o StageExternalGcsFileFormatCsvOutput) RecordDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.RecordDelimiter }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvOutput) SkipBlankLines() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.SkipBlankLines }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.SkipByteOrderMark }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
-func (o StageExternalGcsFileFormatCsvOutput) SkipHeader() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *int { return v.SkipHeader }).(pulumi.IntPtrOutput)
-}
-
-// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatCsvOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatCsvOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatCsv) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatCsvPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatCsvPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatCsv)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatCsvPtrOutput) ToStageExternalGcsFileFormatCsvPtrOutput() StageExternalGcsFileFormatCsvPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatCsvPtrOutput) ToStageExternalGcsFileFormatCsvPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatCsvPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatCsvPtrOutput) Elem() StageExternalGcsFileFormatCsvOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) StageExternalGcsFileFormatCsv {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsFileFormatCsv
-		return ret
-	}).(StageExternalGcsFileFormatCsvOutput)
-}
-
-// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-func (o StageExternalGcsFileFormatCsvPtrOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BinaryFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalGcsFileFormatCsvPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatCsvPtrOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DateFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvPtrOutput) EmptyFieldAsNull() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EmptyFieldAsNull
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
-func (o StageExternalGcsFileFormatCsvPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvPtrOutput) ErrorOnColumnCountMismatch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ErrorOnColumnCountMismatch
-	}).(pulumi.StringPtrOutput)
-}
-
-// Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-func (o StageExternalGcsFileFormatCsvPtrOutput) Escape() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Escape
-	}).(pulumi.StringPtrOutput)
-}
-
-// Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-func (o StageExternalGcsFileFormatCsvPtrOutput) EscapeUnenclosedField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EscapeUnenclosedField
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
-func (o StageExternalGcsFileFormatCsvPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// Character used to enclose strings. Use `NONE` to specify no enclosure character.
-func (o StageExternalGcsFileFormatCsvPtrOutput) FieldOptionallyEnclosedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldOptionallyEnclosedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the extension for files unloaded to a stage.
-func (o StageExternalGcsFileFormatCsvPtrOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileExtension
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvPtrOutput) MultiLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MultiLine
-	}).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatCsvPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvPtrOutput) ParseHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ParseHeader
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
-func (o StageExternalGcsFileFormatCsvPtrOutput) RecordDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecordDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvPtrOutput) SkipBlankLines() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SkipBlankLines
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvPtrOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SkipByteOrderMark
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
-func (o StageExternalGcsFileFormatCsvPtrOutput) SkipHeader() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *int {
-		if v == nil {
-			return nil
-		}
-		return v.SkipHeader
-	}).(pulumi.IntPtrOutput)
-}
-
-// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatCsvPtrOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatCsvPtrOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimestampFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatCsvPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatJson struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	AllowDuplicate *string `pulumi:"allowDuplicate"`
-	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-	BinaryFormat *string `pulumi:"binaryFormat"`
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	DateFormat *string `pulumi:"dateFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	EnableOctal *string `pulumi:"enableOctal"`
-	// Specifies the extension for files unloaded to a stage.
-	FileExtension *string `pulumi:"fileExtension"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	IgnoreUtf8Errors *string `pulumi:"ignoreUtf8Errors"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	MultiLine *string `pulumi:"multiLine"`
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark *string `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripNullValues *string `pulumi:"stripNullValues"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripOuterArray *string `pulumi:"stripOuterArray"`
-	// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimeFormat *string `pulumi:"timeFormat"`
-	// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimestampFormat *string `pulumi:"timestampFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-}
-
-// StageExternalGcsFileFormatJsonInput is an input type that accepts StageExternalGcsFileFormatJsonArgs and StageExternalGcsFileFormatJsonOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatJsonInput` via:
-//
-//	StageExternalGcsFileFormatJsonArgs{...}
-type StageExternalGcsFileFormatJsonInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatJsonOutput() StageExternalGcsFileFormatJsonOutput
-	ToStageExternalGcsFileFormatJsonOutputWithContext(context.Context) StageExternalGcsFileFormatJsonOutput
-}
-
-type StageExternalGcsFileFormatJsonArgs struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	AllowDuplicate pulumi.StringPtrInput `pulumi:"allowDuplicate"`
-	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-	BinaryFormat pulumi.StringPtrInput `pulumi:"binaryFormat"`
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	EnableOctal pulumi.StringPtrInput `pulumi:"enableOctal"`
-	// Specifies the extension for files unloaded to a stage.
-	FileExtension pulumi.StringPtrInput `pulumi:"fileExtension"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	IgnoreUtf8Errors pulumi.StringPtrInput `pulumi:"ignoreUtf8Errors"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	MultiLine pulumi.StringPtrInput `pulumi:"multiLine"`
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark pulumi.StringPtrInput `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripNullValues pulumi.StringPtrInput `pulumi:"stripNullValues"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripOuterArray pulumi.StringPtrInput `pulumi:"stripOuterArray"`
-	// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
-	// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimestampFormat pulumi.StringPtrInput `pulumi:"timestampFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-}
-
-func (StageExternalGcsFileFormatJsonArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatJson)(nil)).Elem()
-}
-
-func (i StageExternalGcsFileFormatJsonArgs) ToStageExternalGcsFileFormatJsonOutput() StageExternalGcsFileFormatJsonOutput {
-	return i.ToStageExternalGcsFileFormatJsonOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatJsonArgs) ToStageExternalGcsFileFormatJsonOutputWithContext(ctx context.Context) StageExternalGcsFileFormatJsonOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatJsonOutput)
-}
-
-func (i StageExternalGcsFileFormatJsonArgs) ToStageExternalGcsFileFormatJsonPtrOutput() StageExternalGcsFileFormatJsonPtrOutput {
-	return i.ToStageExternalGcsFileFormatJsonPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatJsonArgs) ToStageExternalGcsFileFormatJsonPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatJsonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatJsonOutput).ToStageExternalGcsFileFormatJsonPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsFileFormatJsonPtrInput is an input type that accepts StageExternalGcsFileFormatJsonArgs, StageExternalGcsFileFormatJsonPtr and StageExternalGcsFileFormatJsonPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatJsonPtrInput` via:
-//
-//	        StageExternalGcsFileFormatJsonArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsFileFormatJsonPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatJsonPtrOutput() StageExternalGcsFileFormatJsonPtrOutput
-	ToStageExternalGcsFileFormatJsonPtrOutputWithContext(context.Context) StageExternalGcsFileFormatJsonPtrOutput
-}
-
-type stageExternalGcsFileFormatJsonPtrType StageExternalGcsFileFormatJsonArgs
-
-func StageExternalGcsFileFormatJsonPtr(v *StageExternalGcsFileFormatJsonArgs) StageExternalGcsFileFormatJsonPtrInput {
-	return (*stageExternalGcsFileFormatJsonPtrType)(v)
-}
-
-func (*stageExternalGcsFileFormatJsonPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatJson)(nil)).Elem()
-}
-
-func (i *stageExternalGcsFileFormatJsonPtrType) ToStageExternalGcsFileFormatJsonPtrOutput() StageExternalGcsFileFormatJsonPtrOutput {
-	return i.ToStageExternalGcsFileFormatJsonPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsFileFormatJsonPtrType) ToStageExternalGcsFileFormatJsonPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatJsonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatJsonPtrOutput)
-}
-
-type StageExternalGcsFileFormatJsonOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatJsonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatJson)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatJsonOutput) ToStageExternalGcsFileFormatJsonOutput() StageExternalGcsFileFormatJsonOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatJsonOutput) ToStageExternalGcsFileFormatJsonOutputWithContext(ctx context.Context) StageExternalGcsFileFormatJsonOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatJsonOutput) ToStageExternalGcsFileFormatJsonPtrOutput() StageExternalGcsFileFormatJsonPtrOutput {
-	return o.ToStageExternalGcsFileFormatJsonPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsFileFormatJsonOutput) ToStageExternalGcsFileFormatJsonPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatJsonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsFileFormatJson) *StageExternalGcsFileFormatJson {
-		return &v
-	}).(StageExternalGcsFileFormatJsonPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) AllowDuplicate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.AllowDuplicate }).(pulumi.StringPtrOutput)
-}
-
-// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-func (o StageExternalGcsFileFormatJsonOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.BinaryFormat }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalGcsFileFormatJsonOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatJsonOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) EnableOctal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.EnableOctal }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the extension for files unloaded to a stage.
-func (o StageExternalGcsFileFormatJsonOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.FileExtension }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) IgnoreUtf8Errors() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.IgnoreUtf8Errors }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) MultiLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.MultiLine }).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatJsonOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.SkipByteOrderMark }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) StripNullValues() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.StripNullValues }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) StripOuterArray() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.StripOuterArray }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatJsonOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatJsonOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatJson) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatJsonPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatJsonPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatJson)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatJsonPtrOutput) ToStageExternalGcsFileFormatJsonPtrOutput() StageExternalGcsFileFormatJsonPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatJsonPtrOutput) ToStageExternalGcsFileFormatJsonPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatJsonPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatJsonPtrOutput) Elem() StageExternalGcsFileFormatJsonOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) StageExternalGcsFileFormatJson {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsFileFormatJson
-		return ret
-	}).(StageExternalGcsFileFormatJsonOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) AllowDuplicate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowDuplicate
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-func (o StageExternalGcsFileFormatJsonPtrOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BinaryFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalGcsFileFormatJsonPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatJsonPtrOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DateFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) EnableOctal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnableOctal
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the extension for files unloaded to a stage.
-func (o StageExternalGcsFileFormatJsonPtrOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileExtension
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) IgnoreUtf8Errors() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IgnoreUtf8Errors
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) MultiLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MultiLine
-	}).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatJsonPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SkipByteOrderMark
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) StripNullValues() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StripNullValues
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) StripOuterArray() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StripOuterArray
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatJsonPtrOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalGcsFileFormatJsonPtrOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimestampFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatJsonPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatOrc struct {
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-}
-
-// StageExternalGcsFileFormatOrcInput is an input type that accepts StageExternalGcsFileFormatOrcArgs and StageExternalGcsFileFormatOrcOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatOrcInput` via:
-//
-//	StageExternalGcsFileFormatOrcArgs{...}
-type StageExternalGcsFileFormatOrcInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatOrcOutput() StageExternalGcsFileFormatOrcOutput
-	ToStageExternalGcsFileFormatOrcOutputWithContext(context.Context) StageExternalGcsFileFormatOrcOutput
-}
-
-type StageExternalGcsFileFormatOrcArgs struct {
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-}
-
-func (StageExternalGcsFileFormatOrcArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatOrc)(nil)).Elem()
-}
-
-func (i StageExternalGcsFileFormatOrcArgs) ToStageExternalGcsFileFormatOrcOutput() StageExternalGcsFileFormatOrcOutput {
-	return i.ToStageExternalGcsFileFormatOrcOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatOrcArgs) ToStageExternalGcsFileFormatOrcOutputWithContext(ctx context.Context) StageExternalGcsFileFormatOrcOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatOrcOutput)
-}
-
-func (i StageExternalGcsFileFormatOrcArgs) ToStageExternalGcsFileFormatOrcPtrOutput() StageExternalGcsFileFormatOrcPtrOutput {
-	return i.ToStageExternalGcsFileFormatOrcPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatOrcArgs) ToStageExternalGcsFileFormatOrcPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatOrcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatOrcOutput).ToStageExternalGcsFileFormatOrcPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsFileFormatOrcPtrInput is an input type that accepts StageExternalGcsFileFormatOrcArgs, StageExternalGcsFileFormatOrcPtr and StageExternalGcsFileFormatOrcPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatOrcPtrInput` via:
-//
-//	        StageExternalGcsFileFormatOrcArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsFileFormatOrcPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatOrcPtrOutput() StageExternalGcsFileFormatOrcPtrOutput
-	ToStageExternalGcsFileFormatOrcPtrOutputWithContext(context.Context) StageExternalGcsFileFormatOrcPtrOutput
-}
-
-type stageExternalGcsFileFormatOrcPtrType StageExternalGcsFileFormatOrcArgs
-
-func StageExternalGcsFileFormatOrcPtr(v *StageExternalGcsFileFormatOrcArgs) StageExternalGcsFileFormatOrcPtrInput {
-	return (*stageExternalGcsFileFormatOrcPtrType)(v)
-}
-
-func (*stageExternalGcsFileFormatOrcPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatOrc)(nil)).Elem()
-}
-
-func (i *stageExternalGcsFileFormatOrcPtrType) ToStageExternalGcsFileFormatOrcPtrOutput() StageExternalGcsFileFormatOrcPtrOutput {
-	return i.ToStageExternalGcsFileFormatOrcPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsFileFormatOrcPtrType) ToStageExternalGcsFileFormatOrcPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatOrcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatOrcPtrOutput)
-}
-
-type StageExternalGcsFileFormatOrcOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatOrcOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatOrc)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatOrcOutput) ToStageExternalGcsFileFormatOrcOutput() StageExternalGcsFileFormatOrcOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatOrcOutput) ToStageExternalGcsFileFormatOrcOutputWithContext(ctx context.Context) StageExternalGcsFileFormatOrcOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatOrcOutput) ToStageExternalGcsFileFormatOrcPtrOutput() StageExternalGcsFileFormatOrcPtrOutput {
-	return o.ToStageExternalGcsFileFormatOrcPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsFileFormatOrcOutput) ToStageExternalGcsFileFormatOrcPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatOrcPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsFileFormatOrc) *StageExternalGcsFileFormatOrc {
-		return &v
-	}).(StageExternalGcsFileFormatOrcPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatOrcOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatOrc) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatOrcOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatOrc) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatOrcOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatOrc) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatOrcPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatOrcPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatOrc)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatOrcPtrOutput) ToStageExternalGcsFileFormatOrcPtrOutput() StageExternalGcsFileFormatOrcPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatOrcPtrOutput) ToStageExternalGcsFileFormatOrcPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatOrcPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatOrcPtrOutput) Elem() StageExternalGcsFileFormatOrcOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatOrc) StageExternalGcsFileFormatOrc {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsFileFormatOrc
-		return ret
-	}).(StageExternalGcsFileFormatOrcOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatOrcPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatOrc) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatOrcPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatOrc) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatOrcPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatOrc) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatParquet struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	BinaryAsText *string `pulumi:"binaryAsText"`
-	// Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	UseLogicalType *string `pulumi:"useLogicalType"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	UseVectorizedScanner *string `pulumi:"useVectorizedScanner"`
-}
-
-// StageExternalGcsFileFormatParquetInput is an input type that accepts StageExternalGcsFileFormatParquetArgs and StageExternalGcsFileFormatParquetOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatParquetInput` via:
-//
-//	StageExternalGcsFileFormatParquetArgs{...}
-type StageExternalGcsFileFormatParquetInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatParquetOutput() StageExternalGcsFileFormatParquetOutput
-	ToStageExternalGcsFileFormatParquetOutputWithContext(context.Context) StageExternalGcsFileFormatParquetOutput
-}
-
-type StageExternalGcsFileFormatParquetArgs struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	BinaryAsText pulumi.StringPtrInput `pulumi:"binaryAsText"`
-	// Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	UseLogicalType pulumi.StringPtrInput `pulumi:"useLogicalType"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	UseVectorizedScanner pulumi.StringPtrInput `pulumi:"useVectorizedScanner"`
-}
-
-func (StageExternalGcsFileFormatParquetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatParquet)(nil)).Elem()
-}
-
-func (i StageExternalGcsFileFormatParquetArgs) ToStageExternalGcsFileFormatParquetOutput() StageExternalGcsFileFormatParquetOutput {
-	return i.ToStageExternalGcsFileFormatParquetOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatParquetArgs) ToStageExternalGcsFileFormatParquetOutputWithContext(ctx context.Context) StageExternalGcsFileFormatParquetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatParquetOutput)
-}
-
-func (i StageExternalGcsFileFormatParquetArgs) ToStageExternalGcsFileFormatParquetPtrOutput() StageExternalGcsFileFormatParquetPtrOutput {
-	return i.ToStageExternalGcsFileFormatParquetPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatParquetArgs) ToStageExternalGcsFileFormatParquetPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatParquetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatParquetOutput).ToStageExternalGcsFileFormatParquetPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsFileFormatParquetPtrInput is an input type that accepts StageExternalGcsFileFormatParquetArgs, StageExternalGcsFileFormatParquetPtr and StageExternalGcsFileFormatParquetPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatParquetPtrInput` via:
-//
-//	        StageExternalGcsFileFormatParquetArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsFileFormatParquetPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatParquetPtrOutput() StageExternalGcsFileFormatParquetPtrOutput
-	ToStageExternalGcsFileFormatParquetPtrOutputWithContext(context.Context) StageExternalGcsFileFormatParquetPtrOutput
-}
-
-type stageExternalGcsFileFormatParquetPtrType StageExternalGcsFileFormatParquetArgs
-
-func StageExternalGcsFileFormatParquetPtr(v *StageExternalGcsFileFormatParquetArgs) StageExternalGcsFileFormatParquetPtrInput {
-	return (*stageExternalGcsFileFormatParquetPtrType)(v)
-}
-
-func (*stageExternalGcsFileFormatParquetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatParquet)(nil)).Elem()
-}
-
-func (i *stageExternalGcsFileFormatParquetPtrType) ToStageExternalGcsFileFormatParquetPtrOutput() StageExternalGcsFileFormatParquetPtrOutput {
-	return i.ToStageExternalGcsFileFormatParquetPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsFileFormatParquetPtrType) ToStageExternalGcsFileFormatParquetPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatParquetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatParquetPtrOutput)
-}
-
-type StageExternalGcsFileFormatParquetOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatParquetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatParquet)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatParquetOutput) ToStageExternalGcsFileFormatParquetOutput() StageExternalGcsFileFormatParquetOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatParquetOutput) ToStageExternalGcsFileFormatParquetOutputWithContext(ctx context.Context) StageExternalGcsFileFormatParquetOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatParquetOutput) ToStageExternalGcsFileFormatParquetPtrOutput() StageExternalGcsFileFormatParquetPtrOutput {
-	return o.ToStageExternalGcsFileFormatParquetPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsFileFormatParquetOutput) ToStageExternalGcsFileFormatParquetPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatParquetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsFileFormatParquet) *StageExternalGcsFileFormatParquet {
-		return &v
-	}).(StageExternalGcsFileFormatParquetPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetOutput) BinaryAsText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatParquet) *string { return v.BinaryAsText }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
-func (o StageExternalGcsFileFormatParquetOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatParquet) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatParquetOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatParquet) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatParquet) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatParquet) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetOutput) UseLogicalType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatParquet) *string { return v.UseLogicalType }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetOutput) UseVectorizedScanner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatParquet) *string { return v.UseVectorizedScanner }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatParquetPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatParquetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatParquet)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatParquetPtrOutput) ToStageExternalGcsFileFormatParquetPtrOutput() StageExternalGcsFileFormatParquetPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatParquetPtrOutput) ToStageExternalGcsFileFormatParquetPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatParquetPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatParquetPtrOutput) Elem() StageExternalGcsFileFormatParquetOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatParquet) StageExternalGcsFileFormatParquet {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsFileFormatParquet
-		return ret
-	}).(StageExternalGcsFileFormatParquetOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetPtrOutput) BinaryAsText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BinaryAsText
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
-func (o StageExternalGcsFileFormatParquetPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalGcsFileFormatParquetPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatParquet) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetPtrOutput) UseLogicalType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UseLogicalType
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatParquetPtrOutput) UseVectorizedScanner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatParquet) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UseVectorizedScanner
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatXml struct {
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	DisableAutoConvert *string `pulumi:"disableAutoConvert"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	IgnoreUtf8Errors *string `pulumi:"ignoreUtf8Errors"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	PreserveSpace *string `pulumi:"preserveSpace"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark *string `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripOuterElement *string `pulumi:"stripOuterElement"`
-}
-
-// StageExternalGcsFileFormatXmlInput is an input type that accepts StageExternalGcsFileFormatXmlArgs and StageExternalGcsFileFormatXmlOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatXmlInput` via:
-//
-//	StageExternalGcsFileFormatXmlArgs{...}
-type StageExternalGcsFileFormatXmlInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatXmlOutput() StageExternalGcsFileFormatXmlOutput
-	ToStageExternalGcsFileFormatXmlOutputWithContext(context.Context) StageExternalGcsFileFormatXmlOutput
-}
-
-type StageExternalGcsFileFormatXmlArgs struct {
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	DisableAutoConvert pulumi.StringPtrInput `pulumi:"disableAutoConvert"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	IgnoreUtf8Errors pulumi.StringPtrInput `pulumi:"ignoreUtf8Errors"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	PreserveSpace pulumi.StringPtrInput `pulumi:"preserveSpace"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark pulumi.StringPtrInput `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripOuterElement pulumi.StringPtrInput `pulumi:"stripOuterElement"`
-}
-
-func (StageExternalGcsFileFormatXmlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatXml)(nil)).Elem()
-}
-
-func (i StageExternalGcsFileFormatXmlArgs) ToStageExternalGcsFileFormatXmlOutput() StageExternalGcsFileFormatXmlOutput {
-	return i.ToStageExternalGcsFileFormatXmlOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatXmlArgs) ToStageExternalGcsFileFormatXmlOutputWithContext(ctx context.Context) StageExternalGcsFileFormatXmlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatXmlOutput)
-}
-
-func (i StageExternalGcsFileFormatXmlArgs) ToStageExternalGcsFileFormatXmlPtrOutput() StageExternalGcsFileFormatXmlPtrOutput {
-	return i.ToStageExternalGcsFileFormatXmlPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsFileFormatXmlArgs) ToStageExternalGcsFileFormatXmlPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatXmlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatXmlOutput).ToStageExternalGcsFileFormatXmlPtrOutputWithContext(ctx)
-}
-
-// StageExternalGcsFileFormatXmlPtrInput is an input type that accepts StageExternalGcsFileFormatXmlArgs, StageExternalGcsFileFormatXmlPtr and StageExternalGcsFileFormatXmlPtrOutput values.
-// You can construct a concrete instance of `StageExternalGcsFileFormatXmlPtrInput` via:
-//
-//	        StageExternalGcsFileFormatXmlArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalGcsFileFormatXmlPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsFileFormatXmlPtrOutput() StageExternalGcsFileFormatXmlPtrOutput
-	ToStageExternalGcsFileFormatXmlPtrOutputWithContext(context.Context) StageExternalGcsFileFormatXmlPtrOutput
-}
-
-type stageExternalGcsFileFormatXmlPtrType StageExternalGcsFileFormatXmlArgs
-
-func StageExternalGcsFileFormatXmlPtr(v *StageExternalGcsFileFormatXmlArgs) StageExternalGcsFileFormatXmlPtrInput {
-	return (*stageExternalGcsFileFormatXmlPtrType)(v)
-}
-
-func (*stageExternalGcsFileFormatXmlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatXml)(nil)).Elem()
-}
-
-func (i *stageExternalGcsFileFormatXmlPtrType) ToStageExternalGcsFileFormatXmlPtrOutput() StageExternalGcsFileFormatXmlPtrOutput {
-	return i.ToStageExternalGcsFileFormatXmlPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalGcsFileFormatXmlPtrType) ToStageExternalGcsFileFormatXmlPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatXmlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsFileFormatXmlPtrOutput)
-}
-
-type StageExternalGcsFileFormatXmlOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatXmlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsFileFormatXml)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatXmlOutput) ToStageExternalGcsFileFormatXmlOutput() StageExternalGcsFileFormatXmlOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatXmlOutput) ToStageExternalGcsFileFormatXmlOutputWithContext(ctx context.Context) StageExternalGcsFileFormatXmlOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatXmlOutput) ToStageExternalGcsFileFormatXmlPtrOutput() StageExternalGcsFileFormatXmlPtrOutput {
-	return o.ToStageExternalGcsFileFormatXmlPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalGcsFileFormatXmlOutput) ToStageExternalGcsFileFormatXmlPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatXmlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalGcsFileFormatXml) *StageExternalGcsFileFormatXml {
-		return &v
-	}).(StageExternalGcsFileFormatXmlPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalGcsFileFormatXmlOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatXml) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlOutput) DisableAutoConvert() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatXml) *string { return v.DisableAutoConvert }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlOutput) IgnoreUtf8Errors() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatXml) *string { return v.IgnoreUtf8Errors }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlOutput) PreserveSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatXml) *string { return v.PreserveSpace }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatXml) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatXml) *string { return v.SkipByteOrderMark }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlOutput) StripOuterElement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsFileFormatXml) *string { return v.StripOuterElement }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsFileFormatXmlPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsFileFormatXmlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalGcsFileFormatXml)(nil)).Elem()
-}
-
-func (o StageExternalGcsFileFormatXmlPtrOutput) ToStageExternalGcsFileFormatXmlPtrOutput() StageExternalGcsFileFormatXmlPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatXmlPtrOutput) ToStageExternalGcsFileFormatXmlPtrOutputWithContext(ctx context.Context) StageExternalGcsFileFormatXmlPtrOutput {
-	return o
-}
-
-func (o StageExternalGcsFileFormatXmlPtrOutput) Elem() StageExternalGcsFileFormatXmlOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatXml) StageExternalGcsFileFormatXml {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalGcsFileFormatXml
-		return ret
-	}).(StageExternalGcsFileFormatXmlOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalGcsFileFormatXmlPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlPtrOutput) DisableAutoConvert() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisableAutoConvert
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlPtrOutput) IgnoreUtf8Errors() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IgnoreUtf8Errors
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlPtrOutput) PreserveSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PreserveSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlPtrOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SkipByteOrderMark
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalGcsFileFormatXmlPtrOutput) StripOuterElement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalGcsFileFormatXml) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StripOuterElement
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsShowOutput struct {
-	Cloud              *string `pulumi:"cloud"`
-	Comment            *string `pulumi:"comment"`
-	CreatedOn          *string `pulumi:"createdOn"`
-	DatabaseName       *string `pulumi:"databaseName"`
-	DirectoryEnabled   *bool   `pulumi:"directoryEnabled"`
-	Endpoint           *string `pulumi:"endpoint"`
-	HasCredentials     *bool   `pulumi:"hasCredentials"`
-	HasEncryptionKey   *bool   `pulumi:"hasEncryptionKey"`
-	Name               *string `pulumi:"name"`
-	Owner              *string `pulumi:"owner"`
-	OwnerRoleType      *string `pulumi:"ownerRoleType"`
-	Region             *string `pulumi:"region"`
-	SchemaName         *string `pulumi:"schemaName"`
-	StorageIntegration *string `pulumi:"storageIntegration"`
-	Type               *string `pulumi:"type"`
-	Url                *string `pulumi:"url"`
-}
-
-// StageExternalGcsShowOutputInput is an input type that accepts StageExternalGcsShowOutputArgs and StageExternalGcsShowOutputOutput values.
-// You can construct a concrete instance of `StageExternalGcsShowOutputInput` via:
-//
-//	StageExternalGcsShowOutputArgs{...}
-type StageExternalGcsShowOutputInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsShowOutputOutput() StageExternalGcsShowOutputOutput
-	ToStageExternalGcsShowOutputOutputWithContext(context.Context) StageExternalGcsShowOutputOutput
-}
-
-type StageExternalGcsShowOutputArgs struct {
-	Cloud              pulumi.StringPtrInput `pulumi:"cloud"`
-	Comment            pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn          pulumi.StringPtrInput `pulumi:"createdOn"`
-	DatabaseName       pulumi.StringPtrInput `pulumi:"databaseName"`
-	DirectoryEnabled   pulumi.BoolPtrInput   `pulumi:"directoryEnabled"`
-	Endpoint           pulumi.StringPtrInput `pulumi:"endpoint"`
-	HasCredentials     pulumi.BoolPtrInput   `pulumi:"hasCredentials"`
-	HasEncryptionKey   pulumi.BoolPtrInput   `pulumi:"hasEncryptionKey"`
-	Name               pulumi.StringPtrInput `pulumi:"name"`
-	Owner              pulumi.StringPtrInput `pulumi:"owner"`
-	OwnerRoleType      pulumi.StringPtrInput `pulumi:"ownerRoleType"`
-	Region             pulumi.StringPtrInput `pulumi:"region"`
-	SchemaName         pulumi.StringPtrInput `pulumi:"schemaName"`
-	StorageIntegration pulumi.StringPtrInput `pulumi:"storageIntegration"`
-	Type               pulumi.StringPtrInput `pulumi:"type"`
-	Url                pulumi.StringPtrInput `pulumi:"url"`
-}
-
-func (StageExternalGcsShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsShowOutput)(nil)).Elem()
-}
-
-func (i StageExternalGcsShowOutputArgs) ToStageExternalGcsShowOutputOutput() StageExternalGcsShowOutputOutput {
-	return i.ToStageExternalGcsShowOutputOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsShowOutputArgs) ToStageExternalGcsShowOutputOutputWithContext(ctx context.Context) StageExternalGcsShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsShowOutputOutput)
-}
-
-// StageExternalGcsShowOutputArrayInput is an input type that accepts StageExternalGcsShowOutputArray and StageExternalGcsShowOutputArrayOutput values.
-// You can construct a concrete instance of `StageExternalGcsShowOutputArrayInput` via:
-//
-//	StageExternalGcsShowOutputArray{ StageExternalGcsShowOutputArgs{...} }
-type StageExternalGcsShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalGcsShowOutputArrayOutput() StageExternalGcsShowOutputArrayOutput
-	ToStageExternalGcsShowOutputArrayOutputWithContext(context.Context) StageExternalGcsShowOutputArrayOutput
-}
-
-type StageExternalGcsShowOutputArray []StageExternalGcsShowOutputInput
-
-func (StageExternalGcsShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsShowOutput)(nil)).Elem()
-}
-
-func (i StageExternalGcsShowOutputArray) ToStageExternalGcsShowOutputArrayOutput() StageExternalGcsShowOutputArrayOutput {
-	return i.ToStageExternalGcsShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalGcsShowOutputArray) ToStageExternalGcsShowOutputArrayOutputWithContext(ctx context.Context) StageExternalGcsShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalGcsShowOutputArrayOutput)
-}
-
-type StageExternalGcsShowOutputOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalGcsShowOutput)(nil)).Elem()
-}
-
-func (o StageExternalGcsShowOutputOutput) ToStageExternalGcsShowOutputOutput() StageExternalGcsShowOutputOutput {
-	return o
-}
-
-func (o StageExternalGcsShowOutputOutput) ToStageExternalGcsShowOutputOutputWithContext(ctx context.Context) StageExternalGcsShowOutputOutput {
-	return o
-}
-
-func (o StageExternalGcsShowOutputOutput) Cloud() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.Cloud }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) DirectoryEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *bool { return v.DirectoryEnabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) HasCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *bool { return v.HasCredentials }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) HasEncryptionKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *bool { return v.HasEncryptionKey }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.Region }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) StorageIntegration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.StorageIntegration }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalGcsShowOutputOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalGcsShowOutput) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalGcsShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalGcsShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalGcsShowOutput)(nil)).Elem()
-}
-
-func (o StageExternalGcsShowOutputArrayOutput) ToStageExternalGcsShowOutputArrayOutput() StageExternalGcsShowOutputArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsShowOutputArrayOutput) ToStageExternalGcsShowOutputArrayOutputWithContext(ctx context.Context) StageExternalGcsShowOutputArrayOutput {
-	return o
-}
-
-func (o StageExternalGcsShowOutputArrayOutput) Index(i pulumi.IntInput) StageExternalGcsShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalGcsShowOutput {
-		return vs[0].([]StageExternalGcsShowOutput)[vs[1].(int)]
-	}).(StageExternalGcsShowOutputOutput)
-}
-
-type StageExternalS3CompatibleCredentials struct {
-	// Specifies the AWS access key ID.
-	AwsKeyId string `pulumi:"awsKeyId"`
-	// Specifies the AWS secret access key.
-	AwsSecretKey string `pulumi:"awsSecretKey"`
-}
-
-// StageExternalS3CompatibleCredentialsInput is an input type that accepts StageExternalS3CompatibleCredentialsArgs and StageExternalS3CompatibleCredentialsOutput values.
-// You can construct a concrete instance of `StageExternalS3CompatibleCredentialsInput` via:
-//
-//	StageExternalS3CompatibleCredentialsArgs{...}
-type StageExternalS3CompatibleCredentialsInput interface {
-	pulumi.Input
-
-	ToStageExternalS3CompatibleCredentialsOutput() StageExternalS3CompatibleCredentialsOutput
-	ToStageExternalS3CompatibleCredentialsOutputWithContext(context.Context) StageExternalS3CompatibleCredentialsOutput
-}
-
-type StageExternalS3CompatibleCredentialsArgs struct {
-	// Specifies the AWS access key ID.
-	AwsKeyId pulumi.StringInput `pulumi:"awsKeyId"`
-	// Specifies the AWS secret access key.
-	AwsSecretKey pulumi.StringInput `pulumi:"awsSecretKey"`
-}
-
-func (StageExternalS3CompatibleCredentialsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalS3CompatibleCredentials)(nil)).Elem()
-}
-
-func (i StageExternalS3CompatibleCredentialsArgs) ToStageExternalS3CompatibleCredentialsOutput() StageExternalS3CompatibleCredentialsOutput {
-	return i.ToStageExternalS3CompatibleCredentialsOutputWithContext(context.Background())
-}
-
-func (i StageExternalS3CompatibleCredentialsArgs) ToStageExternalS3CompatibleCredentialsOutputWithContext(ctx context.Context) StageExternalS3CompatibleCredentialsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalS3CompatibleCredentialsOutput)
-}
-
-func (i StageExternalS3CompatibleCredentialsArgs) ToStageExternalS3CompatibleCredentialsPtrOutput() StageExternalS3CompatibleCredentialsPtrOutput {
-	return i.ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalS3CompatibleCredentialsArgs) ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(ctx context.Context) StageExternalS3CompatibleCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalS3CompatibleCredentialsOutput).ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(ctx)
-}
-
-// StageExternalS3CompatibleCredentialsPtrInput is an input type that accepts StageExternalS3CompatibleCredentialsArgs, StageExternalS3CompatibleCredentialsPtr and StageExternalS3CompatibleCredentialsPtrOutput values.
-// You can construct a concrete instance of `StageExternalS3CompatibleCredentialsPtrInput` via:
-//
-//	        StageExternalS3CompatibleCredentialsArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalS3CompatibleCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalS3CompatibleCredentialsPtrOutput() StageExternalS3CompatibleCredentialsPtrOutput
-	ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(context.Context) StageExternalS3CompatibleCredentialsPtrOutput
-}
-
-type stageExternalS3CompatibleCredentialsPtrType StageExternalS3CompatibleCredentialsArgs
-
-func StageExternalS3CompatibleCredentialsPtr(v *StageExternalS3CompatibleCredentialsArgs) StageExternalS3CompatibleCredentialsPtrInput {
-	return (*stageExternalS3CompatibleCredentialsPtrType)(v)
-}
-
-func (*stageExternalS3CompatibleCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalS3CompatibleCredentials)(nil)).Elem()
-}
-
-func (i *stageExternalS3CompatibleCredentialsPtrType) ToStageExternalS3CompatibleCredentialsPtrOutput() StageExternalS3CompatibleCredentialsPtrOutput {
-	return i.ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalS3CompatibleCredentialsPtrType) ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(ctx context.Context) StageExternalS3CompatibleCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalS3CompatibleCredentialsPtrOutput)
-}
-
-type StageExternalS3CompatibleCredentialsOutput struct{ *pulumi.OutputState }
-
-func (StageExternalS3CompatibleCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalS3CompatibleCredentials)(nil)).Elem()
-}
-
-func (o StageExternalS3CompatibleCredentialsOutput) ToStageExternalS3CompatibleCredentialsOutput() StageExternalS3CompatibleCredentialsOutput {
-	return o
-}
-
-func (o StageExternalS3CompatibleCredentialsOutput) ToStageExternalS3CompatibleCredentialsOutputWithContext(ctx context.Context) StageExternalS3CompatibleCredentialsOutput {
-	return o
-}
-
-func (o StageExternalS3CompatibleCredentialsOutput) ToStageExternalS3CompatibleCredentialsPtrOutput() StageExternalS3CompatibleCredentialsPtrOutput {
-	return o.ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalS3CompatibleCredentialsOutput) ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(ctx context.Context) StageExternalS3CompatibleCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalS3CompatibleCredentials) *StageExternalS3CompatibleCredentials {
-		return &v
-	}).(StageExternalS3CompatibleCredentialsPtrOutput)
-}
-
-// Specifies the AWS access key ID.
-func (o StageExternalS3CompatibleCredentialsOutput) AwsKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v StageExternalS3CompatibleCredentials) string { return v.AwsKeyId }).(pulumi.StringOutput)
-}
-
-// Specifies the AWS secret access key.
-func (o StageExternalS3CompatibleCredentialsOutput) AwsSecretKey() pulumi.StringOutput {
-	return o.ApplyT(func(v StageExternalS3CompatibleCredentials) string { return v.AwsSecretKey }).(pulumi.StringOutput)
-}
-
-type StageExternalS3CompatibleCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalS3CompatibleCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalS3CompatibleCredentials)(nil)).Elem()
-}
-
-func (o StageExternalS3CompatibleCredentialsPtrOutput) ToStageExternalS3CompatibleCredentialsPtrOutput() StageExternalS3CompatibleCredentialsPtrOutput {
-	return o
-}
-
-func (o StageExternalS3CompatibleCredentialsPtrOutput) ToStageExternalS3CompatibleCredentialsPtrOutputWithContext(ctx context.Context) StageExternalS3CompatibleCredentialsPtrOutput {
-	return o
-}
-
-func (o StageExternalS3CompatibleCredentialsPtrOutput) Elem() StageExternalS3CompatibleCredentialsOutput {
-	return o.ApplyT(func(v *StageExternalS3CompatibleCredentials) StageExternalS3CompatibleCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalS3CompatibleCredentials
-		return ret
-	}).(StageExternalS3CompatibleCredentialsOutput)
-}
-
-// Specifies the AWS access key ID.
-func (o StageExternalS3CompatibleCredentialsPtrOutput) AwsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalS3CompatibleCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AwsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the AWS secret access key.
-func (o StageExternalS3CompatibleCredentialsPtrOutput) AwsSecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalS3CompatibleCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AwsSecretKey
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -68978,6 +67449,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerShowOutputInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerShowOutputArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyClientPolicyInput)(nil)).Elem(), AuthenticationPolicyClientPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyClientPolicyArrayInput)(nil)).Elem(), AuthenticationPolicyClientPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyDescribeOutputInput)(nil)).Elem(), AuthenticationPolicyDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyDescribeOutputArrayInput)(nil)).Elem(), AuthenticationPolicyDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyMfaPolicyInput)(nil)).Elem(), AuthenticationPolicyMfaPolicyArgs{})
@@ -68988,6 +67461,46 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyShowOutputArrayInput)(nil)).Elem(), AuthenticationPolicyShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyWorkloadIdentityPolicyInput)(nil)).Elem(), AuthenticationPolicyWorkloadIdentityPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyWorkloadIdentityPolicyPtrInput)(nil)).Elem(), AuthenticationPolicyWorkloadIdentityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueDescribeOutputInput)(nil)).Elem(), CatalogIntegrationAwsGlueDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueDescribeOutputArrayInput)(nil)).Elem(), CatalogIntegrationAwsGlueDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueShowOutputInput)(nil)).Elem(), CatalogIntegrationAwsGlueShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationAwsGlueShowOutputArrayInput)(nil)).Elem(), CatalogIntegrationAwsGlueShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestBearerRestAuthenticationInput)(nil)).Elem(), CatalogIntegrationIcebergRestBearerRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestBearerRestAuthenticationPtrInput)(nil)).Elem(), CatalogIntegrationIcebergRestBearerRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputArrayInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputRestConfigInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputRestConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayInput)(nil)).Elem(), CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestOauthRestAuthenticationInput)(nil)).Elem(), CatalogIntegrationIcebergRestOauthRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestOauthRestAuthenticationPtrInput)(nil)).Elem(), CatalogIntegrationIcebergRestOauthRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestRestConfigInput)(nil)).Elem(), CatalogIntegrationIcebergRestRestConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestRestConfigPtrInput)(nil)).Elem(), CatalogIntegrationIcebergRestRestConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestShowOutputInput)(nil)).Elem(), CatalogIntegrationIcebergRestShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestShowOutputArrayInput)(nil)).Elem(), CatalogIntegrationIcebergRestShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestSigv4RestAuthenticationInput)(nil)).Elem(), CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrInput)(nil)).Elem(), CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationObjectStorageDescribeOutputInput)(nil)).Elem(), CatalogIntegrationObjectStorageDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationObjectStorageDescribeOutputArrayInput)(nil)).Elem(), CatalogIntegrationObjectStorageDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationObjectStorageShowOutputInput)(nil)).Elem(), CatalogIntegrationObjectStorageShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationObjectStorageShowOutputArrayInput)(nil)).Elem(), CatalogIntegrationObjectStorageShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputInput)(nil)).Elem(), CatalogIntegrationOpenCatalogDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputArrayInput)(nil)).Elem(), CatalogIntegrationOpenCatalogDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationInput)(nil)).Elem(), CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayInput)(nil)).Elem(), CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputRestConfigInput)(nil)).Elem(), CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayInput)(nil)).Elem(), CatalogIntegrationOpenCatalogDescribeOutputRestConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogRestAuthenticationInput)(nil)).Elem(), CatalogIntegrationOpenCatalogRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogRestAuthenticationPtrInput)(nil)).Elem(), CatalogIntegrationOpenCatalogRestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogRestConfigInput)(nil)).Elem(), CatalogIntegrationOpenCatalogRestConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogRestConfigPtrInput)(nil)).Elem(), CatalogIntegrationOpenCatalogRestConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogShowOutputInput)(nil)).Elem(), CatalogIntegrationOpenCatalogShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogIntegrationOpenCatalogShowOutputArrayInput)(nil)).Elem(), CatalogIntegrationOpenCatalogShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputInput)(nil)).Elem(), ComputePoolDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputArrayInput)(nil)).Elem(), ComputePoolDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolShowOutputInput)(nil)).Elem(), ComputePoolShowOutputArgs{})
@@ -69048,6 +67561,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalTableTagArrayInput)(nil)).Elem(), ExternalTableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputInput)(nil)).Elem(), ExternalVolumeDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputArrayInput)(nil)).Elem(), ExternalVolumeDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationArrayInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationS3StorageLocationInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayInput)(nil)).Elem(), ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeShowOutputInput)(nil)).Elem(), ExternalVolumeShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeShowOutputArrayInput)(nil)).Elem(), ExternalVolumeShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalVolumeStorageLocationInput)(nil)).Elem(), ExternalVolumeStorageLocationArgs{})
@@ -69838,58 +68361,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatCsvPtrInput)(nil)).Elem(), StageExternalAzureFileFormatCsvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatJsonInput)(nil)).Elem(), StageExternalAzureFileFormatJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatJsonPtrInput)(nil)).Elem(), StageExternalAzureFileFormatJsonArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatOrcInput)(nil)).Elem(), StageExternalAzureFileFormatOrcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatOrcPtrInput)(nil)).Elem(), StageExternalAzureFileFormatOrcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatParquetInput)(nil)).Elem(), StageExternalAzureFileFormatParquetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatParquetPtrInput)(nil)).Elem(), StageExternalAzureFileFormatParquetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatXmlInput)(nil)).Elem(), StageExternalAzureFileFormatXmlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatXmlPtrInput)(nil)).Elem(), StageExternalAzureFileFormatXmlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureShowOutputInput)(nil)).Elem(), StageExternalAzureShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureShowOutputArrayInput)(nil)).Elem(), StageExternalAzureShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputInput)(nil)).Elem(), StageExternalGcsDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputDirectoryTableInput)(nil)).Elem(), StageExternalGcsDescribeOutputDirectoryTableArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputDirectoryTableArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputDirectoryTableArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatAvroInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatAvroArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatAvroArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatAvroArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatCsvInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatCsvArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatCsvArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatCsvArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatJsonInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatJsonArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatJsonArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatJsonArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatOrcInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatOrcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatOrcArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatOrcArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatParquetInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatParquetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatParquetArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatParquetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatXmlInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatXmlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDescribeOutputFileFormatXmlArrayInput)(nil)).Elem(), StageExternalGcsDescribeOutputFileFormatXmlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDirectoryInput)(nil)).Elem(), StageExternalGcsDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsDirectoryPtrInput)(nil)).Elem(), StageExternalGcsDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsEncryptionInput)(nil)).Elem(), StageExternalGcsEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsEncryptionPtrInput)(nil)).Elem(), StageExternalGcsEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsEncryptionGcsSseKmsInput)(nil)).Elem(), StageExternalGcsEncryptionGcsSseKmsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsEncryptionGcsSseKmsPtrInput)(nil)).Elem(), StageExternalGcsEncryptionGcsSseKmsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsEncryptionNoneInput)(nil)).Elem(), StageExternalGcsEncryptionNoneArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsEncryptionNonePtrInput)(nil)).Elem(), StageExternalGcsEncryptionNoneArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatInput)(nil)).Elem(), StageExternalGcsFileFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatPtrInput)(nil)).Elem(), StageExternalGcsFileFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatAvroInput)(nil)).Elem(), StageExternalGcsFileFormatAvroArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatAvroPtrInput)(nil)).Elem(), StageExternalGcsFileFormatAvroArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatCsvInput)(nil)).Elem(), StageExternalGcsFileFormatCsvArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatCsvPtrInput)(nil)).Elem(), StageExternalGcsFileFormatCsvArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatJsonInput)(nil)).Elem(), StageExternalGcsFileFormatJsonArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatJsonPtrInput)(nil)).Elem(), StageExternalGcsFileFormatJsonArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatOrcInput)(nil)).Elem(), StageExternalGcsFileFormatOrcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatOrcPtrInput)(nil)).Elem(), StageExternalGcsFileFormatOrcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatParquetInput)(nil)).Elem(), StageExternalGcsFileFormatParquetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatParquetPtrInput)(nil)).Elem(), StageExternalGcsFileFormatParquetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatXmlInput)(nil)).Elem(), StageExternalGcsFileFormatXmlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsFileFormatXmlPtrInput)(nil)).Elem(), StageExternalGcsFileFormatXmlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsShowOutputInput)(nil)).Elem(), StageExternalGcsShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalGcsShowOutputArrayInput)(nil)).Elem(), StageExternalGcsShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalS3CompatibleCredentialsInput)(nil)).Elem(), StageExternalS3CompatibleCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalS3CompatibleCredentialsPtrInput)(nil)).Elem(), StageExternalS3CompatibleCredentialsArgs{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -69976,6 +68447,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerShowOutputOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(AuthenticationPolicyClientPolicyOutput{})
+	pulumi.RegisterOutputType(AuthenticationPolicyClientPolicyArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyDescribeOutputOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyMfaPolicyOutput{})
@@ -69986,6 +68459,46 @@ func init() {
 	pulumi.RegisterOutputType(AuthenticationPolicyShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyWorkloadIdentityPolicyOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyWorkloadIdentityPolicyPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueDescribeOutputOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueShowOutputOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationAwsGlueShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestBearerRestAuthenticationOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputRestConfigOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputRestConfigArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestOauthRestAuthenticationOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestOauthRestAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestRestConfigOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestRestConfigPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestShowOutputOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestSigv4RestAuthenticationOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationIcebergRestSigv4RestAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationObjectStorageDescribeOutputOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationObjectStorageDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationObjectStorageShowOutputOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationObjectStorageShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogDescribeOutputOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogDescribeOutputRestConfigOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogDescribeOutputRestConfigArrayOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogRestAuthenticationOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogRestAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogRestConfigOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogRestConfigPtrOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogShowOutputOutput{})
+	pulumi.RegisterOutputType(CatalogIntegrationOpenCatalogShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ComputePoolDescribeOutputOutput{})
 	pulumi.RegisterOutputType(ComputePoolDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(ComputePoolShowOutputOutput{})
@@ -70046,6 +68559,16 @@ func init() {
 	pulumi.RegisterOutputType(ExternalTableTagArrayOutput{})
 	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputOutput{})
 	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationArrayOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput{})
+	pulumi.RegisterOutputType(ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput{})
 	pulumi.RegisterOutputType(ExternalVolumeShowOutputOutput{})
 	pulumi.RegisterOutputType(ExternalVolumeShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ExternalVolumeStorageLocationOutput{})
@@ -70836,56 +69359,4 @@ func init() {
 	pulumi.RegisterOutputType(StageExternalAzureFileFormatCsvPtrOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureFileFormatJsonOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureFileFormatJsonPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatOrcOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatOrcPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatParquetOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatParquetPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatXmlOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatXmlPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureShowOutputOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputDirectoryTableOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputDirectoryTableArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatAvroOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatAvroArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatCsvOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatCsvArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatJsonOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatJsonArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatOrcOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatOrcArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatParquetOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatParquetArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatXmlOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDescribeOutputFileFormatXmlArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDirectoryOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsDirectoryPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsEncryptionOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsEncryptionGcsSseKmsOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsEncryptionGcsSseKmsPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsEncryptionNoneOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsEncryptionNonePtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatAvroOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatAvroPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatCsvOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatCsvPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatJsonOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatJsonPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatOrcOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatOrcPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatParquetOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatParquetPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatXmlOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsFileFormatXmlPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsShowOutputOutput{})
-	pulumi.RegisterOutputType(StageExternalGcsShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalS3CompatibleCredentialsOutput{})
-	pulumi.RegisterOutputType(StageExternalS3CompatibleCredentialsPtrOutput{})
 }

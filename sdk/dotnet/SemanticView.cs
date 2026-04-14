@@ -91,6 +91,7 @@ namespace Pulumi.Snowflake
     ///         {
     ///             new Snowflake.Inputs.SemanticViewFactArgs
     ///             {
+    ///                 IsPrivate = "true",
     ///                 Comment = "fact comment",
     ///                 QualifiedExpressionName = "\"lt1\".\"f2\"",
     ///                 SqlExpression = "\"lt1\".\"a1\"",
@@ -104,6 +105,7 @@ namespace Pulumi.Snowflake
     ///         {
     ///             new Snowflake.Inputs.SemanticViewMetricArgs
     ///             {
+    ///                 IsPrivate = "true",
     ///                 SemanticExpression = new Snowflake.Inputs.SemanticViewMetricSemanticExpressionArgs
     ///                 {
     ///                     Comment = "semantic expression comment",
@@ -118,6 +120,7 @@ namespace Pulumi.Snowflake
     ///             },
     ///             new Snowflake.Inputs.SemanticViewMetricArgs
     ///             {
+    ///                 IsPrivate = "false",
     ///                 WindowFunction = new Snowflake.Inputs.SemanticViewMetricWindowFunctionArgs
     ///                 {
     ///                     OverClause = new Snowflake.Inputs.SemanticViewMetricWindowFunctionOverClauseArgs

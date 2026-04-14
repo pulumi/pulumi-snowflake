@@ -25,16 +25,53 @@ namespace Pulumi.Snowflake
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var integration = new Snowflake.Index.NotificationIntegration("integration", new()
+    ///     // basic resource with AZURE_STORAGE_QUEUE
+    ///     var azure = new Snowflake.Index.NotificationIntegration("azure", new()
     ///     {
     ///         Name = "notification",
-    ///         Comment = "A notification integration.",
     ///         Enabled = true,
-    ///         Type = "QUEUE",
-    ///         Direction = "OUTBOUND",
     ///         NotificationProvider = "AZURE_STORAGE_QUEUE",
-    ///         AzureStorageQueuePrimaryUri = "...",
-    ///         AzureTenantId = "...",
+    ///         AzureStorageQueuePrimaryUri = "https://myaccount.queue.core.windows.net/myqueue",
+    ///         AzureTenantId = "a123b4c5-1234-123a-a12b-1a23b45678c9",
+    ///     });
+    /// 
+    ///     // basic resource with AWS_SNS
+    ///     var aws = new Snowflake.Index.NotificationIntegration("aws", new()
+    ///     {
+    ///         Name = "notification",
+    ///         Enabled = true,
+    ///         NotificationProvider = "AWS_SNS",
+    ///         AwsSnsTopicArn = "arn:aws:sns:us-east-1:001234567890:mytopic",
+    ///         AwsSnsRoleArn = "arn:aws:iam::001234567890:role/myrole",
+    ///     });
+    /// 
+    ///     // basic resource with GCP_PUBSUB (subscription)
+    ///     var gcpSubscription = new Snowflake.Index.NotificationIntegration("gcp_subscription", new()
+    ///     {
+    ///         Name = "notification",
+    ///         Enabled = true,
+    ///         NotificationProvider = "GCP_PUBSUB",
+    ///         GcpPubsubSubscriptionName = "projects/myproject/subscriptions/mysubscription",
+    ///     });
+    /// 
+    ///     // basic resource with GCP_PUBSUB (topic)
+    ///     var gcpTopic = new Snowflake.Index.NotificationIntegration("gcp_topic", new()
+    ///     {
+    ///         Name = "notification",
+    ///         Enabled = true,
+    ///         NotificationProvider = "GCP_PUBSUB",
+    ///         GcpPubsubTopicName = "projects/myproject/topics/mytopic",
+    ///     });
+    /// 
+    ///     // resource with all non-provider-specific fields set
+    ///     var complete = new Snowflake.Index.NotificationIntegration("complete", new()
+    ///     {
+    ///         Name = "notification",
+    ///         Enabled = true,
+    ///         Comment = "A notification integration.",
+    ///         NotificationProvider = "AZURE_STORAGE_QUEUE",
+    ///         AzureStorageQueuePrimaryUri = "https://myaccount.queue.core.windows.net/myqueue",
+    ///         AzureTenantId = "a123b4c5-1234-123a-a12b-1a23b45678c9",
     ///     });
     /// 
     /// });

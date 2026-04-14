@@ -479,11 +479,7 @@ class Table(pulumi.CustomResource):
                     "type": "VARIANT",
                     "comment": "extra data",
                 },
-            ],
-            primary_key={
-                "name": "my_key",
-                "keys": ["data"],
-            })
+            ])
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -577,11 +573,7 @@ class Table(pulumi.CustomResource):
                     "type": "VARIANT",
                     "comment": "extra data",
                 },
-            ],
-            primary_key={
-                "name": "my_key",
-                "keys": ["data"],
-            })
+            ])
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.

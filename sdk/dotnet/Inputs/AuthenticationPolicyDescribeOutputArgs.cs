@@ -15,6 +15,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("authenticationMethods")]
         public Input<string>? AuthenticationMethods { get; set; }
 
+        [Input("clientPolicy")]
+        public Input<string>? ClientPolicy { get; set; }
+
         [Input("clientTypes")]
         public Input<string>? ClientTypes { get; set; }
 

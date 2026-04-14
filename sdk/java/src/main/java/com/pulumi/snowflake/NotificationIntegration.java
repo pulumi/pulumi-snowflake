@@ -45,15 +45,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var integration = new NotificationIntegration("integration", NotificationIntegrationArgs.builder()
+ *         // basic resource with AZURE_STORAGE_QUEUE
+ *         var azure = new NotificationIntegration("azure", NotificationIntegrationArgs.builder()
  *             .name("notification")
- *             .comment("A notification integration.")
  *             .enabled(true)
- *             .type("QUEUE")
- *             .direction("OUTBOUND")
  *             .notificationProvider("AZURE_STORAGE_QUEUE")
- *             .azureStorageQueuePrimaryUri("...")
- *             .azureTenantId("...")
+ *             .azureStorageQueuePrimaryUri("https://myaccount.queue.core.windows.net/myqueue")
+ *             .azureTenantId("a123b4c5-1234-123a-a12b-1a23b45678c9")
+ *             .build());
+ * 
+ *         // basic resource with AWS_SNS
+ *         var aws = new NotificationIntegration("aws", NotificationIntegrationArgs.builder()
+ *             .name("notification")
+ *             .enabled(true)
+ *             .notificationProvider("AWS_SNS")
+ *             .awsSnsTopicArn("arn:aws:sns:us-east-1:001234567890:mytopic")
+ *             .awsSnsRoleArn("arn:aws:iam::001234567890:role/myrole")
+ *             .build());
+ * 
+ *         // basic resource with GCP_PUBSUB (subscription)
+ *         var gcpSubscription = new NotificationIntegration("gcpSubscription", NotificationIntegrationArgs.builder()
+ *             .name("notification")
+ *             .enabled(true)
+ *             .notificationProvider("GCP_PUBSUB")
+ *             .gcpPubsubSubscriptionName("projects/myproject/subscriptions/mysubscription")
+ *             .build());
+ * 
+ *         // basic resource with GCP_PUBSUB (topic)
+ *         var gcpTopic = new NotificationIntegration("gcpTopic", NotificationIntegrationArgs.builder()
+ *             .name("notification")
+ *             .enabled(true)
+ *             .notificationProvider("GCP_PUBSUB")
+ *             .gcpPubsubTopicName("projects/myproject/topics/mytopic")
+ *             .build());
+ * 
+ *         // resource with all non-provider-specific fields set
+ *         var complete = new NotificationIntegration("complete", NotificationIntegrationArgs.builder()
+ *             .name("notification")
+ *             .enabled(true)
+ *             .comment("A notification integration.")
+ *             .notificationProvider("AZURE_STORAGE_QUEUE")
+ *             .azureStorageQueuePrimaryUri("https://myaccount.queue.core.windows.net/myqueue")
+ *             .azureTenantId("a123b4c5-1234-123a-a12b-1a23b45678c9")
  *             .build());
  * 
  *     }

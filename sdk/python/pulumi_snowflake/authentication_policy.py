@@ -24,6 +24,7 @@ class AuthenticationPolicyArgs:
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]] = None,
                  client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -39,6 +40,7 @@ class AuthenticationPolicyArgs:
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]] client_policies: Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mfa_authentication_methods: A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
@@ -53,6 +55,8 @@ class AuthenticationPolicyArgs:
         pulumi.set(__self__, "schema", schema)
         if authentication_methods is not None:
             pulumi.set(__self__, "authentication_methods", authentication_methods)
+        if client_policies is not None:
+            pulumi.set(__self__, "client_policies", client_policies)
         if client_types is not None:
             pulumi.set(__self__, "client_types", client_types)
         if comment is not None:
@@ -110,6 +114,18 @@ class AuthenticationPolicyArgs:
     @authentication_methods.setter
     def authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_methods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientPolicies")
+    def client_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]:
+        """
+        Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
+        """
+        return pulumi.get(self, "client_policies")
+
+    @client_policies.setter
+    def client_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]):
+        pulumi.set(self, "client_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="clientTypes")
@@ -225,6 +241,7 @@ class AuthenticationPolicyArgs:
 class _AuthenticationPolicyState:
     def __init__(__self__, *,
                  authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]] = None,
                  client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  database: Optional[pulumi.Input[_builtins.str]] = None,
@@ -243,6 +260,7 @@ class _AuthenticationPolicyState:
         Input properties used for looking up and filtering AuthenticationPolicy resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]] client_policies: Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -260,6 +278,8 @@ class _AuthenticationPolicyState:
         """
         if authentication_methods is not None:
             pulumi.set(__self__, "authentication_methods", authentication_methods)
+        if client_policies is not None:
+            pulumi.set(__self__, "client_policies", client_policies)
         if client_types is not None:
             pulumi.set(__self__, "client_types", client_types)
         if comment is not None:
@@ -303,6 +323,18 @@ class _AuthenticationPolicyState:
     @authentication_methods.setter
     def authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_methods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientPolicies")
+    def client_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]:
+        """
+        Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
+        """
+        return pulumi.get(self, "client_policies")
+
+    @client_policies.setter
+    def client_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]):
+        pulumi.set(self, "client_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="clientTypes")
@@ -481,6 +513,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
                  client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  database: Optional[pulumi.Input[_builtins.str]] = None,
@@ -560,6 +593,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]] client_policies: Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -658,6 +692,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
                  client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  database: Optional[pulumi.Input[_builtins.str]] = None,
@@ -679,6 +714,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
             __props__ = AuthenticationPolicyArgs.__new__(AuthenticationPolicyArgs)
 
             __props__.__dict__["authentication_methods"] = authentication_methods
+            __props__.__dict__["client_policies"] = client_policies
             __props__.__dict__["client_types"] = client_types
             __props__.__dict__["comment"] = comment
             if database is None and not opts.urn:
@@ -708,6 +744,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            client_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
             client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: Optional[pulumi.Input[_builtins.str]] = None,
             database: Optional[pulumi.Input[_builtins.str]] = None,
@@ -730,6 +767,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]] client_policies: Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_types: A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the authentication policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -750,6 +788,7 @@ class AuthenticationPolicy(pulumi.CustomResource):
         __props__ = _AuthenticationPolicyState.__new__(_AuthenticationPolicyState)
 
         __props__.__dict__["authentication_methods"] = authentication_methods
+        __props__.__dict__["client_policies"] = client_policies
         __props__.__dict__["client_types"] = client_types
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
@@ -773,6 +812,14 @@ class AuthenticationPolicy(pulumi.CustomResource):
         A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         """
         return pulumi.get(self, "authentication_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="clientPolicies")
+    def client_policies(self) -> pulumi.Output[Optional[Sequence['outputs.AuthenticationPolicyClientPolicy']]]:
+        """
+        Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
+        """
+        return pulumi.get(self, "client_policies")
 
     @_builtins.property
     @pulumi.getter(name="clientTypes")

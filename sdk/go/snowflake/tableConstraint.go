@@ -96,7 +96,6 @@ import (
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col1"),
 //				},
-//				Comment: pulumi.String("hello world"),
 //			})
 //			if err != nil {
 //				return err
@@ -119,7 +118,6 @@ import (
 //				Enforced:   pulumi.Bool(false),
 //				Deferrable: pulumi.Bool(false),
 //				Initially:  pulumi.String("IMMEDIATE"),
-//				Comment:    pulumi.String("hello fk"),
 //			})
 //			if err != nil {
 //				return err
@@ -131,7 +129,6 @@ import (
 //				Columns: pulumi.StringArray{
 //					pulumi.String("col3"),
 //				},
-//				Comment: pulumi.String("hello unique"),
 //			})
 //			if err != nil {
 //				return err

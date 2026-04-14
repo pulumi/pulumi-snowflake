@@ -109,7 +109,6 @@ import javax.annotation.Nullable;
  *             .type("PRIMARY KEY")
  *             .tableId(t.fullyQualifiedName())
  *             .columns("col1")
- *             .comment("hello world")
  *             .build());
  * 
  *         var foreignKey = new TableConstraint("foreignKey", TableConstraintArgs.builder()
@@ -126,7 +125,6 @@ import javax.annotation.Nullable;
  *             .enforced(false)
  *             .deferrable(false)
  *             .initially("IMMEDIATE")
- *             .comment("hello fk")
  *             .build());
  * 
  *         var unique = new TableConstraint("unique", TableConstraintArgs.builder()
@@ -134,7 +132,6 @@ import javax.annotation.Nullable;
  *             .type("UNIQUE")
  *             .tableId(t.fullyQualifiedName())
  *             .columns("col3")
- *             .comment("hello unique")
  *             .build());
  * 
  *     }

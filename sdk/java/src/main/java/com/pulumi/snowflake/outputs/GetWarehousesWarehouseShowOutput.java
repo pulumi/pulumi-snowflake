@@ -23,6 +23,7 @@ public final class GetWarehousesWarehouseShowOutput {
     private Boolean isCurrent;
     private Boolean isDefault;
     private Integer maxClusterCount;
+    private String maxQueryPerformanceLevel;
     private Integer minClusterCount;
     private String name;
     private Double other;
@@ -30,6 +31,7 @@ public final class GetWarehousesWarehouseShowOutput {
     private String ownerRoleType;
     private Double provisioning;
     private Integer queryAccelerationMaxScaleFactor;
+    private Integer queryThroughputMultiplier;
     private Integer queued;
     private Double quiescing;
     private String resourceConstraint;
@@ -74,6 +76,9 @@ public final class GetWarehousesWarehouseShowOutput {
     public Integer maxClusterCount() {
         return this.maxClusterCount;
     }
+    public String maxQueryPerformanceLevel() {
+        return this.maxQueryPerformanceLevel;
+    }
     public Integer minClusterCount() {
         return this.minClusterCount;
     }
@@ -94,6 +99,9 @@ public final class GetWarehousesWarehouseShowOutput {
     }
     public Integer queryAccelerationMaxScaleFactor() {
         return this.queryAccelerationMaxScaleFactor;
+    }
+    public Integer queryThroughputMultiplier() {
+        return this.queryThroughputMultiplier;
     }
     public Integer queued() {
         return this.queued;
@@ -151,6 +159,7 @@ public final class GetWarehousesWarehouseShowOutput {
         private Boolean isCurrent;
         private Boolean isDefault;
         private Integer maxClusterCount;
+        private String maxQueryPerformanceLevel;
         private Integer minClusterCount;
         private String name;
         private Double other;
@@ -158,6 +167,7 @@ public final class GetWarehousesWarehouseShowOutput {
         private String ownerRoleType;
         private Double provisioning;
         private Integer queryAccelerationMaxScaleFactor;
+        private Integer queryThroughputMultiplier;
         private Integer queued;
         private Double quiescing;
         private String resourceConstraint;
@@ -183,6 +193,7 @@ public final class GetWarehousesWarehouseShowOutput {
     	      this.isCurrent = defaults.isCurrent;
     	      this.isDefault = defaults.isDefault;
     	      this.maxClusterCount = defaults.maxClusterCount;
+    	      this.maxQueryPerformanceLevel = defaults.maxQueryPerformanceLevel;
     	      this.minClusterCount = defaults.minClusterCount;
     	      this.name = defaults.name;
     	      this.other = defaults.other;
@@ -190,6 +201,7 @@ public final class GetWarehousesWarehouseShowOutput {
     	      this.ownerRoleType = defaults.ownerRoleType;
     	      this.provisioning = defaults.provisioning;
     	      this.queryAccelerationMaxScaleFactor = defaults.queryAccelerationMaxScaleFactor;
+    	      this.queryThroughputMultiplier = defaults.queryThroughputMultiplier;
     	      this.queued = defaults.queued;
     	      this.quiescing = defaults.quiescing;
     	      this.resourceConstraint = defaults.resourceConstraint;
@@ -285,6 +297,14 @@ public final class GetWarehousesWarehouseShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder maxQueryPerformanceLevel(String maxQueryPerformanceLevel) {
+            if (maxQueryPerformanceLevel == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "maxQueryPerformanceLevel");
+            }
+            this.maxQueryPerformanceLevel = maxQueryPerformanceLevel;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minClusterCount(Integer minClusterCount) {
             if (minClusterCount == null) {
               throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "minClusterCount");
@@ -338,6 +358,14 @@ public final class GetWarehousesWarehouseShowOutput {
               throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "queryAccelerationMaxScaleFactor");
             }
             this.queryAccelerationMaxScaleFactor = queryAccelerationMaxScaleFactor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder queryThroughputMultiplier(Integer queryThroughputMultiplier) {
+            if (queryThroughputMultiplier == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "queryThroughputMultiplier");
+            }
+            this.queryThroughputMultiplier = queryThroughputMultiplier;
             return this;
         }
         @CustomType.Setter
@@ -448,6 +476,7 @@ public final class GetWarehousesWarehouseShowOutput {
             _resultValue.isCurrent = isCurrent;
             _resultValue.isDefault = isDefault;
             _resultValue.maxClusterCount = maxClusterCount;
+            _resultValue.maxQueryPerformanceLevel = maxQueryPerformanceLevel;
             _resultValue.minClusterCount = minClusterCount;
             _resultValue.name = name;
             _resultValue.other = other;
@@ -455,6 +484,7 @@ public final class GetWarehousesWarehouseShowOutput {
             _resultValue.ownerRoleType = ownerRoleType;
             _resultValue.provisioning = provisioning;
             _resultValue.queryAccelerationMaxScaleFactor = queryAccelerationMaxScaleFactor;
+            _resultValue.queryThroughputMultiplier = queryThroughputMultiplier;
             _resultValue.queued = queued;
             _resultValue.quiescing = quiescing;
             _resultValue.resourceConstraint = resourceConstraint;

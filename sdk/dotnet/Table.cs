@@ -93,14 +93,6 @@ namespace Pulumi.Snowflake
     ///                 Comment = "extra data",
     ///             },
     ///         },
-    ///         PrimaryKey = new Snowflake.Inputs.TablePrimaryKeyArgs
-    ///         {
-    ///             Name = "my_key",
-    ///             Keys = new[]
-    ///             {
-    ///                 "data",
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

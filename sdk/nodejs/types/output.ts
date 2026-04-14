@@ -372,8 +372,20 @@ export interface ApiAuthenticationIntegrationWithJwtBearerShowOutput {
     name: string;
 }
 
+export interface AuthenticationPolicyClientPolicy {
+    /**
+     * The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+     */
+    clientType: string;
+    /**
+     * Minimum allowed version for this client/driver type (e.g. '1.14.1').
+     */
+    minimumVersion: string;
+}
+
 export interface AuthenticationPolicyDescribeOutput {
     authenticationMethods: string;
+    clientPolicy: string;
     clientTypes: string;
     comment: string;
     mfaEnrollment: string;
@@ -387,7 +399,7 @@ export interface AuthenticationPolicyDescribeOutput {
 
 export interface AuthenticationPolicyMfaPolicy {
     /**
-     * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+     * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
      */
     allowedMethods?: string[];
     /**
@@ -406,9 +418,13 @@ export interface AuthenticationPolicyPatPolicy {
      */
     maxExpiryInDays?: number;
     /**
-     * Specifies the network policy evaluation for the PAT.
+     * Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      */
     networkPolicyEvaluation?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    requireRoleRestrictionForServiceUsers?: string;
 }
 
 export interface AuthenticationPolicyShowOutput {
@@ -440,6 +456,227 @@ export interface AuthenticationPolicyWorkloadIdentityPolicy {
      * Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
      */
     allowedProviders?: string[];
+}
+
+export interface CatalogIntegrationAwsGlueDescribeOutput {
+    catalogNamespace: string;
+    catalogSource: string;
+    comment: string;
+    enabled: boolean;
+    glueAwsRoleArn: string;
+    glueCatalogId: string;
+    glueRegion: string;
+    id: string;
+    refreshIntervalSeconds: number;
+    tableFormat: string;
+}
+
+export interface CatalogIntegrationAwsGlueShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    type: string;
+}
+
+export interface CatalogIntegrationIcebergRestBearerRestAuthentication {
+    /**
+     * The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    bearerToken: string;
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutput {
+    bearerRestAuthentications: outputs.CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication[];
+    catalogNamespace: string;
+    catalogSource: string;
+    comment: string;
+    enabled: boolean;
+    id: string;
+    oauthRestAuthentications: outputs.CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication[];
+    refreshIntervalSeconds: number;
+    restConfigs: outputs.CatalogIntegrationIcebergRestDescribeOutputRestConfig[];
+    sigv4RestAuthentications: outputs.CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication[];
+    tableFormat: string;
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication {
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication {
+    oauthAllowedScopes: string[];
+    oauthClientId: string;
+    oauthTokenUri: string;
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutputRestConfig {
+    accessDelegationMode: string;
+    catalogApiType: string;
+    catalogName: string;
+    catalogUri: string;
+    prefix: string;
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication {
+    sigv4IamRole: string;
+    sigv4SigningRegion: string;
+}
+
+export interface CatalogIntegrationIcebergRestOauthRestAuthentication {
+    /**
+     * Specifies one or more scopes for the OAuth token.
+     */
+    oauthAllowedScopes: string[];
+    /**
+     * Specifies the client ID of the OAuth2 credential.
+     */
+    oauthClientId: string;
+    /**
+     * Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    oauthClientSecret: string;
+    /**
+     * Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+     */
+    oauthTokenUri?: string;
+}
+
+export interface CatalogIntegrationIcebergRestRestConfig {
+    /**
+     * Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+     */
+    accessDelegationMode?: string;
+    /**
+     * Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     */
+    catalogApiType?: string;
+    /**
+     * Specifies the catalog or identifier to request from your remote catalog service.
+     */
+    catalogName?: string;
+    /**
+     * Specifies the endpoint URL for the catalog REST API.
+     */
+    catalogUri: string;
+    /**
+     * Specifies an optional prefix appended to all API routes.
+     */
+    prefix?: string;
+}
+
+export interface CatalogIntegrationIcebergRestShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    type: string;
+}
+
+export interface CatalogIntegrationIcebergRestSigv4RestAuthentication {
+    /**
+     * Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    sigv4ExternalId?: string;
+    /**
+     * Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+     */
+    sigv4IamRole: string;
+    /**
+     * Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+     */
+    sigv4SigningRegion?: string;
+}
+
+export interface CatalogIntegrationObjectStorageDescribeOutput {
+    catalogSource: string;
+    comment: string;
+    enabled: boolean;
+    id: string;
+    refreshIntervalSeconds: number;
+    tableFormat: string;
+}
+
+export interface CatalogIntegrationObjectStorageShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    type: string;
+}
+
+export interface CatalogIntegrationOpenCatalogDescribeOutput {
+    catalogNamespace: string;
+    catalogSource: string;
+    comment: string;
+    enabled: boolean;
+    id: string;
+    refreshIntervalSeconds: number;
+    restAuthentications: outputs.CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication[];
+    restConfigs: outputs.CatalogIntegrationOpenCatalogDescribeOutputRestConfig[];
+    tableFormat: string;
+}
+
+export interface CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication {
+    oauthAllowedScopes: string[];
+    oauthClientId: string;
+    oauthTokenUri: string;
+}
+
+export interface CatalogIntegrationOpenCatalogDescribeOutputRestConfig {
+    accessDelegationMode: string;
+    catalogApiType: string;
+    catalogName: string;
+    catalogUri: string;
+}
+
+export interface CatalogIntegrationOpenCatalogRestAuthentication {
+    /**
+     * Specifies one or more scopes for the OAuth token.
+     */
+    oauthAllowedScopes: string[];
+    /**
+     * Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+     */
+    oauthClientId: string;
+    /**
+     * Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    oauthClientSecret: string;
+    /**
+     * Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+     */
+    oauthTokenUri?: string;
+}
+
+export interface CatalogIntegrationOpenCatalogRestConfig {
+    /**
+     * Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+     */
+    accessDelegationMode?: string;
+    /**
+     * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     */
+    catalogApiType?: string;
+    /**
+     * Specifies the name of the catalog to use in Open Catalog.
+     */
+    catalogName: string;
+    /**
+     * Specifies Open Catalog account URL.
+     */
+    catalogUri: string;
+}
+
+export interface CatalogIntegrationOpenCatalogShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    type: string;
 }
 
 export interface ComputePoolDescribeOutput {
@@ -766,11 +1003,48 @@ export interface ExternalTableTag {
 }
 
 export interface ExternalVolumeDescribeOutput {
-    default: string;
+    active: string;
+    allowWrites: string;
+    comment: string;
+    storageLocations: outputs.ExternalVolumeDescribeOutputStorageLocation[];
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocation {
+    azureStorageLocations: outputs.ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation[];
+    encryptionType: string;
+    gcsStorageLocations: outputs.ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation[];
     name: string;
-    parent: string;
-    type: string;
-    value: string;
+    s3CompatStorageLocations: outputs.ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation[];
+    s3StorageLocations: outputs.ExternalVolumeDescribeOutputStorageLocationS3StorageLocation[];
+    storageAllowedLocations: string[];
+    storageBaseUrl: string;
+    storageProvider: string;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation {
+    azureConsentUrl: string;
+    azureMultiTenantAppName: string;
+    azureTenantId: string;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
+    encryptionKmsKeyId: string;
+    storageGcpServiceAccount: string;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation {
+    awsAccessKeyId: string;
+    encryptionKmsKeyId: string;
+    endpoint: string;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocationS3StorageLocation {
+    encryptionKmsKeyId: string;
+    storageAwsAccessPointArn: string;
+    storageAwsExternalId: string;
+    storageAwsIamUserArn: string;
+    storageAwsRoleArn: string;
+    usePrivatelinkEndpoint: string;
 }
 
 export interface ExternalVolumeShowOutput {
@@ -793,25 +1067,45 @@ export interface ExternalVolumeStorageLocation {
      */
     encryptionType?: string;
     /**
+     * Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+     */
+    storageAwsAccessPointArn?: string;
+    /**
      * External ID that Snowflake uses to establish a trust relationship with AWS.
      */
-    storageAwsExternalId: string;
+    storageAwsExternalId?: string;
+    /**
+     * Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     */
+    storageAwsKeyId?: string;
     /**
      * Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
      */
     storageAwsRoleArn?: string;
     /**
+     * Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     */
+    storageAwsSecretKey?: string;
+    /**
      * Specifies the base URL for your cloud storage location.
      */
     storageBaseUrl: string;
+    /**
+     * Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     */
+    storageEndpoint?: string;
     /**
      * Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     storageLocationName: string;
     /**
-     * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+     * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
      */
     storageProvider: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    usePrivatelinkEndpoint?: string;
 }
 
 export interface FailoverGroupFromReplica {
@@ -1427,6 +1721,7 @@ export interface GetAuthenticationPoliciesAuthenticationPolicy {
 
 export interface GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
     authenticationMethods: string;
+    clientPolicy: string;
     clientTypes: string;
     comment: string;
     mfaEnrollment: string;
@@ -1493,6 +1788,65 @@ export interface GetAuthenticationPoliciesOn {
      * Returns records for the specified user.
      */
     user?: string;
+}
+
+export interface GetCatalogIntegrationsCatalogIntegration {
+    /**
+     * Holds the output of DESCRIBE CATALOG INTEGRATION.
+     */
+    describeOutputs: outputs.GetCatalogIntegrationsCatalogIntegrationDescribeOutput[];
+    /**
+     * Holds the output of SHOW CATALOG INTEGRATIONS.
+     */
+    showOutputs: outputs.GetCatalogIntegrationsCatalogIntegrationShowOutput[];
+}
+
+export interface GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
+    bearerRestAuthentications: outputs.GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication[];
+    catalogNamespace: string;
+    catalogSource: string;
+    comment: string;
+    enabled: boolean;
+    glueAwsRoleArn: string;
+    glueCatalogId: string;
+    glueRegion: string;
+    id: string;
+    oauthRestAuthentications: outputs.GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication[];
+    refreshIntervalSeconds: number;
+    restConfigs: outputs.GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig[];
+    sigv4RestAuthentications: outputs.GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication[];
+    tableFormat: string;
+}
+
+export interface GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication {
+}
+
+export interface GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication {
+    oauthAllowedScopes: string[];
+    oauthClientId: string;
+    oauthTokenUri: string;
+}
+
+export interface GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig {
+    accessDelegationMode: string;
+    catalogApiType: string;
+    catalogName: string;
+    catalogUri: string;
+    prefix: string;
+}
+
+export interface GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication {
+    sigv4IamRole: string;
+    sigv4SigningRegion: string;
+}
+
+export interface GetCatalogIntegrationsCatalogIntegrationShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    type: string;
 }
 
 export interface GetComputePoolsComputePool {
@@ -1994,6 +2348,68 @@ export interface GetExternalTablesExternalTable {
     schema: string;
 }
 
+export interface GetExternalVolumesExternalVolume {
+    /**
+     * Holds the output of DESCRIBE EXTERNAL VOLUME.
+     */
+    describeOutputs: outputs.GetExternalVolumesExternalVolumeDescribeOutput[];
+    /**
+     * Holds the output of SHOW EXTERNAL VOLUMES.
+     */
+    showOutputs: outputs.GetExternalVolumesExternalVolumeShowOutput[];
+}
+
+export interface GetExternalVolumesExternalVolumeDescribeOutput {
+    active: string;
+    allowWrites: string;
+    comment: string;
+    storageLocations: outputs.GetExternalVolumesExternalVolumeDescribeOutputStorageLocation[];
+}
+
+export interface GetExternalVolumesExternalVolumeDescribeOutputStorageLocation {
+    azureStorageLocations: outputs.GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation[];
+    encryptionType: string;
+    gcsStorageLocations: outputs.GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation[];
+    name: string;
+    s3CompatStorageLocations: outputs.GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation[];
+    s3StorageLocations: outputs.GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocation[];
+    storageAllowedLocations: string[];
+    storageBaseUrl: string;
+    storageProvider: string;
+}
+
+export interface GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation {
+    azureConsentUrl: string;
+    azureMultiTenantAppName: string;
+    azureTenantId: string;
+}
+
+export interface GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
+    encryptionKmsKeyId: string;
+    storageGcpServiceAccount: string;
+}
+
+export interface GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation {
+    awsAccessKeyId: string;
+    encryptionKmsKeyId: string;
+    endpoint: string;
+}
+
+export interface GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocation {
+    encryptionKmsKeyId: string;
+    storageAwsAccessPointArn: string;
+    storageAwsExternalId: string;
+    storageAwsIamUserArn: string;
+    storageAwsRoleArn: string;
+    usePrivatelinkEndpoint: string;
+}
+
+export interface GetExternalVolumesExternalVolumeShowOutput {
+    allowWrites: boolean;
+    comment: string;
+    name: string;
+}
+
 export interface GetFailoverGroupsFailoverGroup {
     /**
      * Account locator in a region.
@@ -2283,6 +2699,7 @@ export interface GetImageRepositoriesImageRepositoryShowOutput {
     comment: string;
     createdOn: string;
     databaseName: string;
+    encryption: string;
     name: string;
     owner: string;
     ownerRoleType: string;
@@ -4159,6 +4576,7 @@ export interface GetTagsTagShowOutput {
     name: string;
     owner: string;
     ownerRoleType: string;
+    propagate: string;
     schemaName: string;
 }
 
@@ -5556,6 +5974,7 @@ export interface GetWarehousesWarehouseShowOutput {
     isCurrent: boolean;
     isDefault: boolean;
     maxClusterCount: number;
+    maxQueryPerformanceLevel: string;
     minClusterCount: number;
     name: string;
     other: number;
@@ -5563,6 +5982,7 @@ export interface GetWarehousesWarehouseShowOutput {
     ownerRoleType: string;
     provisioning: number;
     queryAccelerationMaxScaleFactor: number;
+    queryThroughputMultiplier: number;
     queued: number;
     quiescing: number;
     resourceConstraint: string;
@@ -5619,7 +6039,7 @@ export interface GrantOwnershipOn {
      */
     objectName?: string;
     /**
-     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
      */
     objectType?: string;
 }
@@ -5634,7 +6054,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -5649,7 +6069,7 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -5712,7 +6132,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -5776,7 +6196,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: string;
 }
@@ -5785,6 +6205,7 @@ export interface ImageRepositoryShowOutput {
     comment: string;
     createdOn: string;
     databaseName: string;
+    encryption: string;
     name: string;
     owner: string;
     ownerRoleType: string;
@@ -8114,6 +8535,10 @@ export interface SemanticViewFact {
      */
     comment?: string;
     /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+     */
+    isPrivate?: string;
+    /**
      * Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
      */
     qualifiedExpressionName: string;
@@ -8128,6 +8553,10 @@ export interface SemanticViewFact {
 }
 
 export interface SemanticViewMetric {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+     */
+    isPrivate?: string;
     /**
      * Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
      */
@@ -11885,6 +12314,17 @@ export interface TableTag {
     value: string;
 }
 
+export interface TagOnConflict {
+    /**
+     * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    allowedValuesSequence?: boolean;
+    /**
+     * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    customValue?: string;
+}
+
 export interface TagShowOutput {
     allowedValues: string[];
     comment: string;
@@ -11893,6 +12333,7 @@ export interface TagShowOutput {
     name: string;
     owner: string;
     ownerRoleType: string;
+    propagate: string;
     schemaName: string;
 }
 
@@ -13189,6 +13630,51 @@ export interface ViewShowOutput {
     reserved: string;
     schemaName: string;
     text: string;
+}
+
+export interface WarehouseAdaptiveParameter {
+    statementQueuedTimeoutInSeconds: outputs.WarehouseAdaptiveParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.WarehouseAdaptiveParameterStatementTimeoutInSecond[];
+}
+
+export interface WarehouseAdaptiveParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseAdaptiveParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseAdaptiveShowOutput {
+    autoResume: boolean;
+    available: number;
+    comment: string;
+    createdOn: string;
+    isCurrent: boolean;
+    isDefault: boolean;
+    maxQueryPerformanceLevel: string;
+    name: string;
+    other: number;
+    owner: string;
+    ownerRoleType: string;
+    provisioning: number;
+    queryThroughputMultiplier: number;
+    queued: number;
+    quiescing: number;
+    resourceMonitor: string;
+    resumedOn: string;
+    running: number;
+    state: string;
+    type: string;
+    updatedOn: string;
 }
 
 export interface WarehouseParameter {

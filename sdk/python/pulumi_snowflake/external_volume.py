@@ -105,7 +105,7 @@ class _ExternalVolumeState:
 
         :param pulumi.Input[_builtins.str] allow_writes: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the external volume.
-        :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeShowOutputArgs']]] show_outputs: Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
@@ -154,7 +154,7 @@ class _ExternalVolumeState:
     @pulumi.getter(name="describeOutputs")
     def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]]]:
         """
-        Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+        Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
         """
         return pulumi.get(self, "describe_outputs")
 
@@ -227,7 +227,95 @@ class ExternalVolume(pulumi.CustomResource):
 
         Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # Basic - S3 storage location with required fields only
+        s3_basic = snowflake.ExternalVolume("s3_basic",
+            name="my_external_volume",
+            storage_locations=[{
+                "storage_location_name": "my-s3-location",
+                "storage_provider": "S3",
+                "storage_base_url": "s3://mybucket/",
+                "storage_aws_role_arn": "arn:aws:iam::123456789012:role/myrole",
+            }])
+        # Complete - S3 with all optional fields
+        s3_complete = snowflake.ExternalVolume("s3_complete",
+            name="my_external_volume_complete",
+            comment="my external volume",
+            allow_writes="true",
+            storage_locations=[{
+                "storage_location_name": "my-s3-location",
+                "storage_provider": "S3",
+                "storage_base_url": "s3://mybucket/",
+                "storage_aws_role_arn": "arn:aws:iam::123456789012:role/myrole",
+                "storage_aws_access_point_arn": "arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point",
+                "use_privatelink_endpoint": "true",
+                "encryption_type": "AWS_SSE_KMS",
+                "encryption_kms_key_id": "1234abcd-12ab-34cd-56ef-1234567890ab",
+            }])
+        # Basic - GCS storage location with required fields only
+        gcs_basic = snowflake.ExternalVolume("gcs_basic",
+            name="my_gcs_external_volume",
+            storage_locations=[{
+                "storage_location_name": "my-gcs-location",
+                "storage_provider": "GCS",
+                "storage_base_url": "gcs://mybucket/",
+            }])
+        # Complete - GCS with all optional fields
+        gcs_complete = snowflake.ExternalVolume("gcs_complete",
+            name="my_gcs_external_volume_complete",
+            storage_locations=[{
+                "storage_location_name": "my-gcs-location",
+                "storage_provider": "GCS",
+                "storage_base_url": "gcs://mybucket/",
+                "encryption_type": "GCS_SSE_KMS",
+                "encryption_kms_key_id": "1234abcd-12ab-34cd-56ef-1234567890ab",
+            }])
+        # Basic - Azure storage location with required fields only
+        azure_basic = snowflake.ExternalVolume("azure_basic",
+            name="my_azure_external_volume",
+            storage_locations=[{
+                "storage_location_name": "my-azure-location",
+                "storage_provider": "AZURE",
+                "storage_base_url": "azure://myaccount.blob.core.windows.net/mycontainer/",
+                "azure_tenant_id": "123e4567-e89b-12d3-a456-426614174000",
+            }])
+        # Complete - Azure with all optional fields
+        azure_complete = snowflake.ExternalVolume("azure_complete",
+            name="my_azure_external_volume_complete",
+            comment="my azure external volume",
+            allow_writes="true",
+            storage_locations=[{
+                "storage_location_name": "my-azure-location",
+                "storage_provider": "AZURE",
+                "storage_base_url": "azure://myaccount.blob.core.windows.net/mycontainer/",
+                "azure_tenant_id": "123e4567-e89b-12d3-a456-426614174000",
+                "use_privatelink_endpoint": "true",
+            }])
+        # S3-compatible storage location
+        s3compat = snowflake.ExternalVolume("s3compat",
+            name="my_s3compat_external_volume",
+            storage_locations=[{
+                "storage_location_name": "my-s3compat-location",
+                "storage_provider": "S3COMPAT",
+                "storage_base_url": "s3compat://mybucket/",
+                "storage_endpoint": "https://s3-compatible.example.com",
+                "storage_aws_key_id": aws_key_id,
+                "storage_aws_secret_key": aws_secret_key,
+            }])
+        ```
+
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/externalVolume:ExternalVolume example '"<external_volume_name>"'
+        ```
 
 
         :param str resource_name: The name of the resource.
@@ -248,7 +336,95 @@ class ExternalVolume(pulumi.CustomResource):
 
         Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # Basic - S3 storage location with required fields only
+        s3_basic = snowflake.ExternalVolume("s3_basic",
+            name="my_external_volume",
+            storage_locations=[{
+                "storage_location_name": "my-s3-location",
+                "storage_provider": "S3",
+                "storage_base_url": "s3://mybucket/",
+                "storage_aws_role_arn": "arn:aws:iam::123456789012:role/myrole",
+            }])
+        # Complete - S3 with all optional fields
+        s3_complete = snowflake.ExternalVolume("s3_complete",
+            name="my_external_volume_complete",
+            comment="my external volume",
+            allow_writes="true",
+            storage_locations=[{
+                "storage_location_name": "my-s3-location",
+                "storage_provider": "S3",
+                "storage_base_url": "s3://mybucket/",
+                "storage_aws_role_arn": "arn:aws:iam::123456789012:role/myrole",
+                "storage_aws_access_point_arn": "arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point",
+                "use_privatelink_endpoint": "true",
+                "encryption_type": "AWS_SSE_KMS",
+                "encryption_kms_key_id": "1234abcd-12ab-34cd-56ef-1234567890ab",
+            }])
+        # Basic - GCS storage location with required fields only
+        gcs_basic = snowflake.ExternalVolume("gcs_basic",
+            name="my_gcs_external_volume",
+            storage_locations=[{
+                "storage_location_name": "my-gcs-location",
+                "storage_provider": "GCS",
+                "storage_base_url": "gcs://mybucket/",
+            }])
+        # Complete - GCS with all optional fields
+        gcs_complete = snowflake.ExternalVolume("gcs_complete",
+            name="my_gcs_external_volume_complete",
+            storage_locations=[{
+                "storage_location_name": "my-gcs-location",
+                "storage_provider": "GCS",
+                "storage_base_url": "gcs://mybucket/",
+                "encryption_type": "GCS_SSE_KMS",
+                "encryption_kms_key_id": "1234abcd-12ab-34cd-56ef-1234567890ab",
+            }])
+        # Basic - Azure storage location with required fields only
+        azure_basic = snowflake.ExternalVolume("azure_basic",
+            name="my_azure_external_volume",
+            storage_locations=[{
+                "storage_location_name": "my-azure-location",
+                "storage_provider": "AZURE",
+                "storage_base_url": "azure://myaccount.blob.core.windows.net/mycontainer/",
+                "azure_tenant_id": "123e4567-e89b-12d3-a456-426614174000",
+            }])
+        # Complete - Azure with all optional fields
+        azure_complete = snowflake.ExternalVolume("azure_complete",
+            name="my_azure_external_volume_complete",
+            comment="my azure external volume",
+            allow_writes="true",
+            storage_locations=[{
+                "storage_location_name": "my-azure-location",
+                "storage_provider": "AZURE",
+                "storage_base_url": "azure://myaccount.blob.core.windows.net/mycontainer/",
+                "azure_tenant_id": "123e4567-e89b-12d3-a456-426614174000",
+                "use_privatelink_endpoint": "true",
+            }])
+        # S3-compatible storage location
+        s3compat = snowflake.ExternalVolume("s3compat",
+            name="my_s3compat_external_volume",
+            storage_locations=[{
+                "storage_location_name": "my-s3compat-location",
+                "storage_provider": "S3COMPAT",
+                "storage_base_url": "s3compat://mybucket/",
+                "storage_endpoint": "https://s3-compatible.example.com",
+                "storage_aws_key_id": aws_key_id,
+                "storage_aws_secret_key": aws_secret_key,
+            }])
+        ```
+
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/externalVolume:ExternalVolume example '"<external_volume_name>"'
+        ```
 
 
         :param str resource_name: The name of the resource.
@@ -314,7 +490,7 @@ class ExternalVolume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allow_writes: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the external volume.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeDescribeOutputArgs', 'ExternalVolumeDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeDescribeOutputArgs', 'ExternalVolumeDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeShowOutputArgs', 'ExternalVolumeShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
@@ -353,7 +529,7 @@ class ExternalVolume(pulumi.CustomResource):
     @pulumi.getter(name="describeOutputs")
     def describe_outputs(self) -> pulumi.Output[Sequence['outputs.ExternalVolumeDescribeOutput']]:
         """
-        Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+        Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
         """
         return pulumi.get(self, "describe_outputs")
 

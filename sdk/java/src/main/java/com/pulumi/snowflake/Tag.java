@@ -10,7 +10,9 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.TagArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.TagState;
+import com.pulumi.snowflake.outputs.TagOnConflict;
 import com.pulumi.snowflake.outputs.TagShowOutput;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +21,9 @@ import javax.annotation.Nullable;
 /**
  * &gt; **Required warehouse** For this resource, the provider now uses [tag references](https://docs.snowflake.com/en/sql-reference/functions/tag_references) to get information about masking policies attached to tags. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
  * 
- * &gt; **Current limitations** Recently, the tags propagation was introduced (check [2025-05-14-tag-propagation](https://docs.snowflake.com/en/release-notes/2025/other/2025-05-14-tag-propagation)). This resource is not currently supporting the `ON_CONFLICT` attribute and the tag allowed values ordering. If needed, use the `snowflake.Execute` for the time-being. This limitation will be addressed in the next versions of the provider.
+ * &gt; **Deprecation notice** The `allowedValues` field (unordered set) is deprecated and will be removed in the next major version. Use `orderedAllowedValues` (ordered list) instead. `orderedAllowedValues` preserves the order you specify, which is required when using `on_conflict.allowed_values_sequence` for [tag propagation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation) conflict resolution. See the migration guide for details.
+ * 
+ * &gt; **Note** A new `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experimental feature is available for this resource. When enabled, it improves how `allowedValues` / `orderedAllowedValues` are handled — removing the field from the configuration correctly reverts the tag to accepting any value, and a new `noAllowedValues` field allows you to explicitly block any value from being set on the tag (note that sometimes to enter this state, the provider may temporarily add and drop `SNOWFLAKE_TERRAFORM_TEMP_TAG_ALLOWED_VALUE` value). Without the flag, the behavior is unchanged from previous versions and the `noAllowedValues` field has no effect. To enable it, add `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` to the `experimentalFeaturesEnabled` provider field. See the migration guide for more details.
  * 
  * Resource used to manage tags. For more information, check [tag documentation](https://docs.snowflake.com/en/sql-reference/sql/create-tag). For assigning tags to Snowflake objects, see tagAssociation resource.
  * 
@@ -33,14 +37,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/tag:Tag")
 public class Tag extends com.pulumi.resources.CustomResource {
     /**
-     * Set of allowed values for the tag.
+     * Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      * 
      */
+    @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
     @Export(name="allowedValues", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedValues;
 
     /**
-     * @return Set of allowed values for the tag.
+     * @return Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
      * 
      */
     public Output<Optional<List<String>>> allowedValues() {
@@ -115,6 +123,62 @@ public class Tag extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+     * 
+     */
+    @Export(name="noAllowedValues", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> noAllowedValues;
+
+    /**
+     * @return When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+     * 
+     */
+    public Output<Optional<Boolean>> noAllowedValues() {
+        return Codegen.optional(this.noAllowedValues);
+    }
+    /**
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
+    @Export(name="onConflict", refs={TagOnConflict.class}, tree="[0]")
+    private Output</* @Nullable */ TagOnConflict> onConflict;
+
+    /**
+     * @return Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
+    public Output<Optional<TagOnConflict>> onConflict() {
+        return Codegen.optional(this.onConflict);
+    }
+    /**
+     * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     * 
+     */
+    @Export(name="orderedAllowedValues", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> orderedAllowedValues;
+
+    /**
+     * @return Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     * 
+     */
+    public Output<Optional<List<String>>> orderedAllowedValues() {
+        return Codegen.optional(this.orderedAllowedValues);
+    }
+    /**
+     * Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+     * 
+     */
+    @Export(name="propagate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> propagate;
+
+    /**
+     * @return Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+     * 
+     */
+    public Output<Optional<String>> propagate() {
+        return Codegen.optional(this.propagate);
     }
     /**
      * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.

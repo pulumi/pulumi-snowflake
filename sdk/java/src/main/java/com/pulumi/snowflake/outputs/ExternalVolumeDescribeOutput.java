@@ -4,34 +4,32 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.snowflake.outputs.ExternalVolumeDescribeOutputStorageLocation;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ExternalVolumeDescribeOutput {
-    private @Nullable String default_;
-    private @Nullable String name;
-    private @Nullable String parent;
-    private @Nullable String type;
-    private @Nullable String value;
+    private @Nullable String active;
+    private @Nullable String allowWrites;
+    private @Nullable String comment;
+    private @Nullable List<ExternalVolumeDescribeOutputStorageLocation> storageLocations;
 
     private ExternalVolumeDescribeOutput() {}
-    public Optional<String> default_() {
-        return Optional.ofNullable(this.default_);
+    public Optional<String> active() {
+        return Optional.ofNullable(this.active);
     }
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    public Optional<String> allowWrites() {
+        return Optional.ofNullable(this.allowWrites);
     }
-    public Optional<String> parent() {
-        return Optional.ofNullable(this.parent);
+    public Optional<String> comment() {
+        return Optional.ofNullable(this.comment);
     }
-    public Optional<String> type() {
-        return Optional.ofNullable(this.type);
-    }
-    public Optional<String> value() {
-        return Optional.ofNullable(this.value);
+    public List<ExternalVolumeDescribeOutputStorageLocation> storageLocations() {
+        return this.storageLocations == null ? List.of() : this.storageLocations;
     }
 
     public static Builder builder() {
@@ -43,58 +41,52 @@ public final class ExternalVolumeDescribeOutput {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String default_;
-        private @Nullable String name;
-        private @Nullable String parent;
-        private @Nullable String type;
-        private @Nullable String value;
+        private @Nullable String active;
+        private @Nullable String allowWrites;
+        private @Nullable String comment;
+        private @Nullable List<ExternalVolumeDescribeOutputStorageLocation> storageLocations;
         public Builder() {}
         public Builder(ExternalVolumeDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.default_ = defaults.default_;
-    	      this.name = defaults.name;
-    	      this.parent = defaults.parent;
-    	      this.type = defaults.type;
-    	      this.value = defaults.value;
+    	      this.active = defaults.active;
+    	      this.allowWrites = defaults.allowWrites;
+    	      this.comment = defaults.comment;
+    	      this.storageLocations = defaults.storageLocations;
         }
 
-        @CustomType.Setter("default")
-        public Builder default_(@Nullable String default_) {
+        @CustomType.Setter
+        public Builder active(@Nullable String active) {
 
-            this.default_ = default_;
+            this.active = active;
             return this;
         }
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
+        public Builder allowWrites(@Nullable String allowWrites) {
 
-            this.name = name;
+            this.allowWrites = allowWrites;
             return this;
         }
         @CustomType.Setter
-        public Builder parent(@Nullable String parent) {
+        public Builder comment(@Nullable String comment) {
 
-            this.parent = parent;
+            this.comment = comment;
             return this;
         }
         @CustomType.Setter
-        public Builder type(@Nullable String type) {
+        public Builder storageLocations(@Nullable List<ExternalVolumeDescribeOutputStorageLocation> storageLocations) {
 
-            this.type = type;
+            this.storageLocations = storageLocations;
             return this;
         }
-        @CustomType.Setter
-        public Builder value(@Nullable String value) {
-
-            this.value = value;
-            return this;
+        public Builder storageLocations(ExternalVolumeDescribeOutputStorageLocation... storageLocations) {
+            return storageLocations(List.of(storageLocations));
         }
         public ExternalVolumeDescribeOutput build() {
             final var _resultValue = new ExternalVolumeDescribeOutput();
-            _resultValue.default_ = default_;
-            _resultValue.name = name;
-            _resultValue.parent = parent;
-            _resultValue.type = type;
-            _resultValue.value = value;
+            _resultValue.active = active;
+            _resultValue.allowWrites = allowWrites;
+            _resultValue.comment = comment;
+            _resultValue.storageLocations = storageLocations;
             return _resultValue;
         }
     }

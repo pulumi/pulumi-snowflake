@@ -5,7 +5,9 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.TagOnConflictArgs;
 import com.pulumi.snowflake.inputs.TagShowOutputArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,16 +20,24 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     public static final TagState Empty = new TagState();
 
     /**
-     * Set of allowed values for the tag.
+     * Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      * 
      */
+    @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
     @Import(name="allowedValues")
     private @Nullable Output<List<String>> allowedValues;
 
     /**
-     * @return Set of allowed values for the tag.
+     * @return Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
+     * 
+     * @deprecated
+     * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      * 
      */
+    @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
     public Optional<Output<List<String>>> allowedValues() {
         return Optional.ofNullable(this.allowedValues);
     }
@@ -108,6 +118,66 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+     * 
+     */
+    @Import(name="noAllowedValues")
+    private @Nullable Output<Boolean> noAllowedValues;
+
+    /**
+     * @return When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+     * 
+     */
+    public Optional<Output<Boolean>> noAllowedValues() {
+        return Optional.ofNullable(this.noAllowedValues);
+    }
+
+    /**
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
+    @Import(name="onConflict")
+    private @Nullable Output<TagOnConflictArgs> onConflict;
+
+    /**
+     * @return Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
+    public Optional<Output<TagOnConflictArgs>> onConflict() {
+        return Optional.ofNullable(this.onConflict);
+    }
+
+    /**
+     * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     * 
+     */
+    @Import(name="orderedAllowedValues")
+    private @Nullable Output<List<String>> orderedAllowedValues;
+
+    /**
+     * @return Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     * 
+     */
+    public Optional<Output<List<String>>> orderedAllowedValues() {
+        return Optional.ofNullable(this.orderedAllowedValues);
+    }
+
+    /**
+     * Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+     * 
+     */
+    @Import(name="propagate")
+    private @Nullable Output<String> propagate;
+
+    /**
+     * @return Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+     * 
+     */
+    public Optional<Output<String>> propagate() {
+        return Optional.ofNullable(this.propagate);
+    }
+
+    /**
      * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
@@ -146,6 +216,10 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         this.fullyQualifiedName = $.fullyQualifiedName;
         this.maskingPolicies = $.maskingPolicies;
         this.name = $.name;
+        this.noAllowedValues = $.noAllowedValues;
+        this.onConflict = $.onConflict;
+        this.orderedAllowedValues = $.orderedAllowedValues;
+        this.propagate = $.propagate;
         this.schema = $.schema;
         this.showOutputs = $.showOutputs;
     }
@@ -169,32 +243,44 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedValues Set of allowed values for the tag.
+         * @param allowedValues Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
         public Builder allowedValues(@Nullable Output<List<String>> allowedValues) {
             $.allowedValues = allowedValues;
             return this;
         }
 
         /**
-         * @param allowedValues Set of allowed values for the tag.
+         * @param allowedValues Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
         public Builder allowedValues(List<String> allowedValues) {
             return allowedValues(Output.of(allowedValues));
         }
 
         /**
-         * @param allowedValues Set of allowed values for the tag.
+         * @param allowedValues Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+         * 
          */
+        @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
         public Builder allowedValues(String... allowedValues) {
             return allowedValues(List.of(allowedValues));
         }
@@ -312,6 +398,100 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param noAllowedValues When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noAllowedValues(@Nullable Output<Boolean> noAllowedValues) {
+            $.noAllowedValues = noAllowedValues;
+            return this;
+        }
+
+        /**
+         * @param noAllowedValues When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder noAllowedValues(Boolean noAllowedValues) {
+            return noAllowedValues(Output.of(noAllowedValues));
+        }
+
+        /**
+         * @param onConflict Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onConflict(@Nullable Output<TagOnConflictArgs> onConflict) {
+            $.onConflict = onConflict;
+            return this;
+        }
+
+        /**
+         * @param onConflict Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onConflict(TagOnConflictArgs onConflict) {
+            return onConflict(Output.of(onConflict));
+        }
+
+        /**
+         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderedAllowedValues(@Nullable Output<List<String>> orderedAllowedValues) {
+            $.orderedAllowedValues = orderedAllowedValues;
+            return this;
+        }
+
+        /**
+         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderedAllowedValues(List<String> orderedAllowedValues) {
+            return orderedAllowedValues(Output.of(orderedAllowedValues));
+        }
+
+        /**
+         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderedAllowedValues(String... orderedAllowedValues) {
+            return orderedAllowedValues(List.of(orderedAllowedValues));
+        }
+
+        /**
+         * @param propagate Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propagate(@Nullable Output<String> propagate) {
+            $.propagate = propagate;
+            return this;
+        }
+
+        /**
+         * @param propagate Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propagate(String propagate) {
+            return propagate(Output.of(propagate));
         }
 
         /**

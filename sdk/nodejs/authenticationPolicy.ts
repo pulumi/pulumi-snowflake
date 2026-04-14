@@ -104,6 +104,10 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
      */
     declare public readonly authenticationMethods: pulumi.Output<string[] | undefined>;
     /**
+     * Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+     */
+    declare public readonly clientPolicies: pulumi.Output<outputs.AuthenticationPolicyClientPolicy[] | undefined>;
+    /**
      * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      */
     declare public readonly clientTypes: pulumi.Output<string[] | undefined>;
@@ -176,6 +180,7 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AuthenticationPolicyState | undefined;
             resourceInputs["authenticationMethods"] = state?.authenticationMethods;
+            resourceInputs["clientPolicies"] = state?.clientPolicies;
             resourceInputs["clientTypes"] = state?.clientTypes;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["database"] = state?.database;
@@ -199,6 +204,7 @@ export class AuthenticationPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'schema'");
             }
             resourceInputs["authenticationMethods"] = args?.authenticationMethods;
+            resourceInputs["clientPolicies"] = args?.clientPolicies;
             resourceInputs["clientTypes"] = args?.clientTypes;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["database"] = args?.database;
@@ -227,6 +233,10 @@ export interface AuthenticationPolicyState {
      * A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
      */
     authenticationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+     */
+    clientPolicies?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyClientPolicy>[]>;
     /**
      * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      */
@@ -295,6 +305,10 @@ export interface AuthenticationPolicyArgs {
      * A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
      */
     authenticationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+     */
+    clientPolicies?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyClientPolicy>[]>;
     /**
      * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      */

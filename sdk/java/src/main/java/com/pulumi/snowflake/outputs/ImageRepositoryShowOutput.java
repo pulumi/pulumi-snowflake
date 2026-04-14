@@ -14,6 +14,7 @@ public final class ImageRepositoryShowOutput {
     private @Nullable String comment;
     private @Nullable String createdOn;
     private @Nullable String databaseName;
+    private @Nullable String encryption;
     private @Nullable String name;
     private @Nullable String owner;
     private @Nullable String ownerRoleType;
@@ -30,6 +31,9 @@ public final class ImageRepositoryShowOutput {
     }
     public Optional<String> databaseName() {
         return Optional.ofNullable(this.databaseName);
+    }
+    public Optional<String> encryption() {
+        return Optional.ofNullable(this.encryption);
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -62,6 +66,7 @@ public final class ImageRepositoryShowOutput {
         private @Nullable String comment;
         private @Nullable String createdOn;
         private @Nullable String databaseName;
+        private @Nullable String encryption;
         private @Nullable String name;
         private @Nullable String owner;
         private @Nullable String ownerRoleType;
@@ -74,6 +79,7 @@ public final class ImageRepositoryShowOutput {
     	      this.comment = defaults.comment;
     	      this.createdOn = defaults.createdOn;
     	      this.databaseName = defaults.databaseName;
+    	      this.encryption = defaults.encryption;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
     	      this.ownerRoleType = defaults.ownerRoleType;
@@ -98,6 +104,12 @@ public final class ImageRepositoryShowOutput {
         public Builder databaseName(@Nullable String databaseName) {
 
             this.databaseName = databaseName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryption(@Nullable String encryption) {
+
+            this.encryption = encryption;
             return this;
         }
         @CustomType.Setter
@@ -141,6 +153,7 @@ public final class ImageRepositoryShowOutput {
             _resultValue.comment = comment;
             _resultValue.createdOn = createdOn;
             _resultValue.databaseName = databaseName;
+            _resultValue.encryption = encryption;
             _resultValue.name = name;
             _resultValue.owner = owner;
             _resultValue.ownerRoleType = ownerRoleType;

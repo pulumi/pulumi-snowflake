@@ -23,7 +23,131 @@ import javax.annotation.Nullable;
  * 
  * Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.ExternalVolume;
+ * import com.pulumi.snowflake.ExternalVolumeArgs;
+ * import com.pulumi.snowflake.inputs.ExternalVolumeStorageLocationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Basic - S3 storage location with required fields only
+ *         var s3Basic = new ExternalVolume("s3Basic", ExternalVolumeArgs.builder()
+ *             .name("my_external_volume")
+ *             .storageLocations(ExternalVolumeStorageLocationArgs.builder()
+ *                 .storageLocationName("my-s3-location")
+ *                 .storageProvider("S3")
+ *                 .storageBaseUrl("s3://mybucket/")
+ *                 .storageAwsRoleArn("arn:aws:iam::123456789012:role/myrole")
+ *                 .build())
+ *             .build());
+ * 
+ *         // Complete - S3 with all optional fields
+ *         var s3Complete = new ExternalVolume("s3Complete", ExternalVolumeArgs.builder()
+ *             .name("my_external_volume_complete")
+ *             .comment("my external volume")
+ *             .allowWrites("true")
+ *             .storageLocations(ExternalVolumeStorageLocationArgs.builder()
+ *                 .storageLocationName("my-s3-location")
+ *                 .storageProvider("S3")
+ *                 .storageBaseUrl("s3://mybucket/")
+ *                 .storageAwsRoleArn("arn:aws:iam::123456789012:role/myrole")
+ *                 .storageAwsAccessPointArn("arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point")
+ *                 .usePrivatelinkEndpoint("true")
+ *                 .encryptionType("AWS_SSE_KMS")
+ *                 .encryptionKmsKeyId("1234abcd-12ab-34cd-56ef-1234567890ab")
+ *                 .build())
+ *             .build());
+ * 
+ *         // Basic - GCS storage location with required fields only
+ *         var gcsBasic = new ExternalVolume("gcsBasic", ExternalVolumeArgs.builder()
+ *             .name("my_gcs_external_volume")
+ *             .storageLocations(ExternalVolumeStorageLocationArgs.builder()
+ *                 .storageLocationName("my-gcs-location")
+ *                 .storageProvider("GCS")
+ *                 .storageBaseUrl("gcs://mybucket/")
+ *                 .build())
+ *             .build());
+ * 
+ *         // Complete - GCS with all optional fields
+ *         var gcsComplete = new ExternalVolume("gcsComplete", ExternalVolumeArgs.builder()
+ *             .name("my_gcs_external_volume_complete")
+ *             .storageLocations(ExternalVolumeStorageLocationArgs.builder()
+ *                 .storageLocationName("my-gcs-location")
+ *                 .storageProvider("GCS")
+ *                 .storageBaseUrl("gcs://mybucket/")
+ *                 .encryptionType("GCS_SSE_KMS")
+ *                 .encryptionKmsKeyId("1234abcd-12ab-34cd-56ef-1234567890ab")
+ *                 .build())
+ *             .build());
+ * 
+ *         // Basic - Azure storage location with required fields only
+ *         var azureBasic = new ExternalVolume("azureBasic", ExternalVolumeArgs.builder()
+ *             .name("my_azure_external_volume")
+ *             .storageLocations(ExternalVolumeStorageLocationArgs.builder()
+ *                 .storageLocationName("my-azure-location")
+ *                 .storageProvider("AZURE")
+ *                 .storageBaseUrl("azure://myaccount.blob.core.windows.net/mycontainer/")
+ *                 .azureTenantId("123e4567-e89b-12d3-a456-426614174000")
+ *                 .build())
+ *             .build());
+ * 
+ *         // Complete - Azure with all optional fields
+ *         var azureComplete = new ExternalVolume("azureComplete", ExternalVolumeArgs.builder()
+ *             .name("my_azure_external_volume_complete")
+ *             .comment("my azure external volume")
+ *             .allowWrites("true")
+ *             .storageLocations(ExternalVolumeStorageLocationArgs.builder()
+ *                 .storageLocationName("my-azure-location")
+ *                 .storageProvider("AZURE")
+ *                 .storageBaseUrl("azure://myaccount.blob.core.windows.net/mycontainer/")
+ *                 .azureTenantId("123e4567-e89b-12d3-a456-426614174000")
+ *                 .usePrivatelinkEndpoint("true")
+ *                 .build())
+ *             .build());
+ * 
+ *         // S3-compatible storage location
+ *         var s3compat = new ExternalVolume("s3compat", ExternalVolumeArgs.builder()
+ *             .name("my_s3compat_external_volume")
+ *             .storageLocations(ExternalVolumeStorageLocationArgs.builder()
+ *                 .storageLocationName("my-s3compat-location")
+ *                 .storageProvider("S3COMPAT")
+ *                 .storageBaseUrl("s3compat://mybucket/")
+ *                 .storageEndpoint("https://s3-compatible.example.com")
+ *                 .storageAwsKeyId(awsKeyId)
+ *                 .storageAwsSecretKey(awsSecretKey)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/externalVolume:ExternalVolume example &#39;&#34;&lt;external_volume_name&gt;&#34;&#39;
+ * ```
  * 
  */
 @ResourceType(type="snowflake:index/externalVolume:ExternalVolume")
@@ -57,14 +181,14 @@ public class ExternalVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+     * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
      * 
      */
     @Export(name="describeOutputs", refs={List.class,ExternalVolumeDescribeOutput.class}, tree="[0,1]")
     private Output<List<ExternalVolumeDescribeOutput>> describeOutputs;
 
     /**
-     * @return Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+     * @return Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
      * 
      */
     public Output<List<ExternalVolumeDescribeOutput>> describeOutputs() {

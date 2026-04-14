@@ -36,6 +36,13 @@ public final class ImageRepositoryShowOutputArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.databaseName);
     }
 
+    @Import(name="encryption")
+    private @Nullable Output<String> encryption;
+
+    public Optional<Output<String>> encryption() {
+        return Optional.ofNullable(this.encryption);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -84,6 +91,7 @@ public final class ImageRepositoryShowOutputArgs extends com.pulumi.resources.Re
         this.comment = $.comment;
         this.createdOn = $.createdOn;
         this.databaseName = $.databaseName;
+        this.encryption = $.encryption;
         this.name = $.name;
         this.owner = $.owner;
         this.ownerRoleType = $.ownerRoleType;
@@ -135,6 +143,15 @@ public final class ImageRepositoryShowOutputArgs extends com.pulumi.resources.Re
 
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        public Builder encryption(@Nullable Output<String> encryption) {
+            $.encryption = encryption;
+            return this;
+        }
+
+        public Builder encryption(String encryption) {
+            return encryption(Output.of(encryption));
         }
 
         public Builder name(@Nullable Output<String> name) {
