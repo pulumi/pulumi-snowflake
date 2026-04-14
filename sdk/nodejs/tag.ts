@@ -9,7 +9,9 @@ import * as utilities from "./utilities";
 /**
  * > **Required warehouse** For this resource, the provider now uses [tag references](https://docs.snowflake.com/en/sql-reference/functions/tag_references) to get information about masking policies attached to tags. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
  *
- * > **Current limitations** Recently, the tags propagation was introduced (check [2025-05-14-tag-propagation](https://docs.snowflake.com/en/release-notes/2025/other/2025-05-14-tag-propagation)). This resource is not currently supporting the `ON_CONFLICT` attribute and the tag allowed values ordering. If needed, use the `snowflake.Execute` for the time-being. This limitation will be addressed in the next versions of the provider.
+ * > **Deprecation notice** The `allowedValues` field (unordered set) is deprecated and will be removed in the next major version. Use `orderedAllowedValues` (ordered list) instead. `orderedAllowedValues` preserves the order you specify, which is required when using `on_conflict.allowed_values_sequence` for [tag propagation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation) conflict resolution. See the migration guide for details.
+ *
+ * > **Note** A new `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experimental feature is available for this resource. When enabled, it improves how `allowedValues` / `orderedAllowedValues` are handled — removing the field from the configuration correctly reverts the tag to accepting any value, and a new `noAllowedValues` field allows you to explicitly block any value from being set on the tag (note that sometimes to enter this state, the provider may temporarily add and drop `SNOWFLAKE_TERRAFORM_TEMP_TAG_ALLOWED_VALUE` value). Without the flag, the behavior is unchanged from previous versions and the `noAllowedValues` field has no effect. To enable it, add `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` to the `experimentalFeaturesEnabled` provider field. See the migration guide for more details.
  *
  * Resource used to manage tags. For more information, check [tag documentation](https://docs.snowflake.com/en/sql-reference/sql/create-tag). For assigning tags to Snowflake objects, see tagAssociation resource.
  *
@@ -48,7 +50,9 @@ export class Tag extends pulumi.CustomResource {
     }
 
     /**
-     * Set of allowed values for the tag.
+     * Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
+     *
+     * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      */
     declare public readonly allowedValues: pulumi.Output<string[] | undefined>;
     /**
@@ -71,6 +75,22 @@ export class Tag extends pulumi.CustomResource {
      * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+     */
+    declare public readonly noAllowedValues: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    declare public readonly onConflict: pulumi.Output<outputs.TagOnConflict | undefined>;
+    /**
+     * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     */
+    declare public readonly orderedAllowedValues: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+     */
+    declare public readonly propagate: pulumi.Output<string | undefined>;
     /**
      * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -99,6 +119,10 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
             resourceInputs["maskingPolicies"] = state?.maskingPolicies;
             resourceInputs["name"] = state?.name;
+            resourceInputs["noAllowedValues"] = state?.noAllowedValues;
+            resourceInputs["onConflict"] = state?.onConflict;
+            resourceInputs["orderedAllowedValues"] = state?.orderedAllowedValues;
+            resourceInputs["propagate"] = state?.propagate;
             resourceInputs["schema"] = state?.schema;
             resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
@@ -114,6 +138,10 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["database"] = args?.database;
             resourceInputs["maskingPolicies"] = args?.maskingPolicies;
             resourceInputs["name"] = args?.name;
+            resourceInputs["noAllowedValues"] = args?.noAllowedValues;
+            resourceInputs["onConflict"] = args?.onConflict;
+            resourceInputs["orderedAllowedValues"] = args?.orderedAllowedValues;
+            resourceInputs["propagate"] = args?.propagate;
             resourceInputs["schema"] = args?.schema;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
@@ -128,7 +156,9 @@ export class Tag extends pulumi.CustomResource {
  */
 export interface TagState {
     /**
-     * Set of allowed values for the tag.
+     * Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
+     *
+     * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      */
     allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -152,6 +182,22 @@ export interface TagState {
      */
     name?: pulumi.Input<string>;
     /**
+     * When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+     */
+    noAllowedValues?: pulumi.Input<boolean>;
+    /**
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    onConflict?: pulumi.Input<inputs.TagOnConflict>;
+    /**
+     * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     */
+    orderedAllowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+     */
+    propagate?: pulumi.Input<string>;
+    /**
      * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
@@ -166,7 +212,9 @@ export interface TagState {
  */
 export interface TagArgs {
     /**
-     * Set of allowed values for the tag.
+     * Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
+     *
+     * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      */
     allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -185,6 +233,22 @@ export interface TagArgs {
      * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
+     */
+    noAllowedValues?: pulumi.Input<boolean>;
+    /**
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    onConflict?: pulumi.Input<inputs.TagOnConflict>;
+    /**
+     * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     */
+    orderedAllowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
+     */
+    propagate?: pulumi.Input<string>;
     /**
      * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

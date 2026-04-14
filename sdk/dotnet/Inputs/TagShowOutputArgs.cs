@@ -38,6 +38,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("ownerRoleType")]
         public Input<string>? OwnerRoleType { get; set; }
 
+        [Input("propagate")]
+        public Input<string>? Propagate { get; set; }
+
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
 

@@ -44,7 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.snowflake.inputs.TableColumnArgs;
  * import com.pulumi.snowflake.inputs.TableColumnDefaultArgs;
  * import com.pulumi.snowflake.inputs.TableColumnIdentityArgs;
- * import com.pulumi.snowflake.inputs.TablePrimaryKeyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -111,10 +110,6 @@ import javax.annotation.Nullable;
  *                     .type("VARIANT")
  *                     .comment("extra data")
  *                     .build())
- *             .primaryKey(TablePrimaryKeyArgs.builder()
- *                 .name("my_key")
- *                 .keys("data")
- *                 .build())
  *             .build());
  * 
  *     }

@@ -24,6 +24,7 @@ class ImageRepositoryArgs:
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageRepository resource.
@@ -31,12 +32,15 @@ class ImageRepositoryArgs:
         :param pulumi.Input[_builtins.str] database: The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the object.
+        :param pulumi.Input[_builtins.str] encryption: Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -78,6 +82,18 @@ class ImageRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption", value)
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -94,6 +110,7 @@ class _ImageRepositoryState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  database: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
                  fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
@@ -103,6 +120,7 @@ class _ImageRepositoryState:
 
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the object.
         :param pulumi.Input[_builtins.str] database: The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] encryption: Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -112,6 +130,8 @@ class _ImageRepositoryState:
             pulumi.set(__self__, "comment", comment)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if fully_qualified_name is not None:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
@@ -144,6 +164,18 @@ class _ImageRepositoryState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
@@ -202,11 +234,14 @@ class ImageRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  database: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note** Quoted names for special characters or case-sensitive names are not supported. The same constraint also applies to database and schema names where you create an image repository. That is, database and schema names without quotes are valid when creating an image repository. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository)). Please use only characters compatible with [unquoted identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax#label-unquoted-identifier).
+
+        > **Note** The `encryption` attribute can only be set at creation time and Snowflake default is used if omitted. Changing this value requires destroying and recreating the resource. When importing an existing image repository, the `encryption` field is not populated in state — only `show_output[0].encryption` reflects the actual value. To avoid a diff after import, either omit `encryption` from your configuration or set it explicitly to match the current Snowflake value.
 
         Resource used to manage image repositories. For more information, check [image repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository). Snowpark Container Services provides an OCIv2-compliant image registry service and a storage unit call repository to store images. See [Working with an image registry and repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository) developer guide for more details.
 
@@ -245,6 +280,7 @@ class ImageRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the object.
         :param pulumi.Input[_builtins.str] database: The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] encryption: Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
@@ -256,6 +292,8 @@ class ImageRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note** Quoted names for special characters or case-sensitive names are not supported. The same constraint also applies to database and schema names where you create an image repository. That is, database and schema names without quotes are valid when creating an image repository. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository)). Please use only characters compatible with [unquoted identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax#label-unquoted-identifier).
+
+        > **Note** The `encryption` attribute can only be set at creation time and Snowflake default is used if omitted. Changing this value requires destroying and recreating the resource. When importing an existing image repository, the `encryption` field is not populated in state — only `show_output[0].encryption` reflects the actual value. To avoid a diff after import, either omit `encryption` from your configuration or set it explicitly to match the current Snowflake value.
 
         Resource used to manage image repositories. For more information, check [image repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository). Snowpark Container Services provides an OCIv2-compliant image registry service and a storage unit call repository to store images. See [Working with an image registry and repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository) developer guide for more details.
 
@@ -307,6 +345,7 @@ class ImageRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  database: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schema: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -322,6 +361,7 @@ class ImageRepository(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["name"] = name
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
@@ -340,6 +380,7 @@ class ImageRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: Optional[pulumi.Input[_builtins.str]] = None,
             database: Optional[pulumi.Input[_builtins.str]] = None,
+            encryption: Optional[pulumi.Input[_builtins.str]] = None,
             fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             schema: Optional[pulumi.Input[_builtins.str]] = None,
@@ -353,6 +394,7 @@ class ImageRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the object.
         :param pulumi.Input[_builtins.str] database: The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.str] encryption: Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -364,6 +406,7 @@ class ImageRepository(pulumi.CustomResource):
 
         __props__.__dict__["comment"] = comment
         __props__.__dict__["database"] = database
+        __props__.__dict__["encryption"] = encryption
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["schema"] = schema
@@ -385,6 +428,14 @@ class ImageRepository(pulumi.CustomResource):
         The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+        """
+        return pulumi.get(self, "encryption")
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")

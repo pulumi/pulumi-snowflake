@@ -87,6 +87,7 @@ import (
 //				},
 //				Facts: snowflake.SemanticViewFactArray{
 //					&snowflake.SemanticViewFactArgs{
+//						IsPrivate:               pulumi.String("true"),
 //						Comment:                 pulumi.String("fact comment"),
 //						QualifiedExpressionName: pulumi.String("\"lt1\".\"f2\""),
 //						SqlExpression:           pulumi.String("\"lt1\".\"a1\""),
@@ -97,6 +98,7 @@ import (
 //				},
 //				Metrics: snowflake.SemanticViewMetricArray{
 //					&snowflake.SemanticViewMetricArgs{
+//						IsPrivate: pulumi.String("true"),
 //						SemanticExpression: &snowflake.SemanticViewMetricSemanticExpressionArgs{
 //							Comment:                 pulumi.String("semantic expression comment"),
 //							QualifiedExpressionName: pulumi.String("\"lt1\".\"m1\""),
@@ -108,6 +110,7 @@ import (
 //						},
 //					},
 //					&snowflake.SemanticViewMetricArgs{
+//						IsPrivate: pulumi.String("false"),
 //						WindowFunction: &snowflake.SemanticViewMetricWindowFunctionArgs{
 //							OverClause: &snowflake.SemanticViewMetricWindowFunctionOverClauseArgs{
 //								PartitionBy: pulumi.String("\"lt1\".\"d2\""),

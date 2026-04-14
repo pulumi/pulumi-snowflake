@@ -424,6 +424,7 @@ class SemanticView(pulumi.CustomResource):
                 "synonyms": ["dim2"],
             }],
             facts=[{
+                "is_private": "true",
                 "comment": "fact comment",
                 "qualified_expression_name": "\\"lt1\\".\\"f2\\"",
                 "sql_expression": "\\"lt1\\".\\"a1\\"",
@@ -431,6 +432,7 @@ class SemanticView(pulumi.CustomResource):
             }],
             metrics=[
                 {
+                    "is_private": "true",
                     "semantic_expression": {
                         "comment": "semantic expression comment",
                         "qualified_expression_name": "\\"lt1\\".\\"m1\\"",
@@ -442,6 +444,7 @@ class SemanticView(pulumi.CustomResource):
                     },
                 },
                 {
+                    "is_private": "false",
                     "window_function": {
                         "over_clause": {
                             "partition_by": "\\"lt1\\".\\"d2\\"",
@@ -585,6 +588,7 @@ class SemanticView(pulumi.CustomResource):
                 "synonyms": ["dim2"],
             }],
             facts=[{
+                "is_private": "true",
                 "comment": "fact comment",
                 "qualified_expression_name": "\\"lt1\\".\\"f2\\"",
                 "sql_expression": "\\"lt1\\".\\"a1\\"",
@@ -592,6 +596,7 @@ class SemanticView(pulumi.CustomResource):
             }],
             metrics=[
                 {
+                    "is_private": "true",
                     "semantic_expression": {
                         "comment": "semantic expression comment",
                         "qualified_expression_name": "\\"lt1\\".\\"m1\\"",
@@ -603,6 +608,7 @@ class SemanticView(pulumi.CustomResource):
                     },
                 },
                 {
+                    "is_private": "false",
                     "window_function": {
                         "over_clause": {
                             "partition_by": "\\"lt1\\".\\"d2\\"",

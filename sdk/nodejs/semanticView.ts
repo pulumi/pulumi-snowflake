@@ -62,6 +62,7 @@ import * as utilities from "./utilities";
  *         synonyms: ["dim2"],
  *     }],
  *     facts: [{
+ *         isPrivate: "true",
  *         comment: "fact comment",
  *         qualifiedExpressionName: "\"lt1\".\"f2\"",
  *         sqlExpression: "\"lt1\".\"a1\"",
@@ -69,6 +70,7 @@ import * as utilities from "./utilities";
  *     }],
  *     metrics: [
  *         {
+ *             isPrivate: "true",
  *             semanticExpression: {
  *                 comment: "semantic expression comment",
  *                 qualifiedExpressionName: "\"lt1\".\"m1\"",
@@ -80,6 +82,7 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *         {
+ *             isPrivate: "false",
  *             windowFunction: {
  *                 overClause: {
  *                     partitionBy: "\"lt1\".\"d2\"",

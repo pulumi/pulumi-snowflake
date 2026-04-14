@@ -14,6 +14,10 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class SemanticViewMetric
     {
         /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether the metric is private.
+        /// </summary>
+        public readonly string? IsPrivate;
+        /// <summary>
         /// Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
         /// </summary>
         public readonly Outputs.SemanticViewMetricSemanticExpression? SemanticExpression;
@@ -24,10 +28,13 @@ namespace Pulumi.Snowflake.Outputs
 
         [OutputConstructor]
         private SemanticViewMetric(
+            string? isPrivate,
+
             Outputs.SemanticViewMetricSemanticExpression? semanticExpression,
 
             Outputs.SemanticViewMetricWindowFunction? windowFunction)
         {
+            IsPrivate = isPrivate;
             SemanticExpression = semanticExpression;
             WindowFunction = windowFunction;
         }

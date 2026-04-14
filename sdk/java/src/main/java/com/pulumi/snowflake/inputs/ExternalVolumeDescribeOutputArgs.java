@@ -5,7 +5,9 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.ExternalVolumeDescribeOutputStorageLocationArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,49 +17,41 @@ public final class ExternalVolumeDescribeOutputArgs extends com.pulumi.resources
 
     public static final ExternalVolumeDescribeOutputArgs Empty = new ExternalVolumeDescribeOutputArgs();
 
-    @Import(name="default")
-    private @Nullable Output<String> default_;
+    @Import(name="active")
+    private @Nullable Output<String> active;
 
-    public Optional<Output<String>> default_() {
-        return Optional.ofNullable(this.default_);
+    public Optional<Output<String>> active() {
+        return Optional.ofNullable(this.active);
     }
 
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="allowWrites")
+    private @Nullable Output<String> allowWrites;
 
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Optional<Output<String>> allowWrites() {
+        return Optional.ofNullable(this.allowWrites);
     }
 
-    @Import(name="parent")
-    private @Nullable Output<String> parent;
+    @Import(name="comment")
+    private @Nullable Output<String> comment;
 
-    public Optional<Output<String>> parent() {
-        return Optional.ofNullable(this.parent);
+    public Optional<Output<String>> comment() {
+        return Optional.ofNullable(this.comment);
     }
 
-    @Import(name="type")
-    private @Nullable Output<String> type;
+    @Import(name="storageLocations")
+    private @Nullable Output<List<ExternalVolumeDescribeOutputStorageLocationArgs>> storageLocations;
 
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
-    }
-
-    @Import(name="value")
-    private @Nullable Output<String> value;
-
-    public Optional<Output<String>> value() {
-        return Optional.ofNullable(this.value);
+    public Optional<Output<List<ExternalVolumeDescribeOutputStorageLocationArgs>>> storageLocations() {
+        return Optional.ofNullable(this.storageLocations);
     }
 
     private ExternalVolumeDescribeOutputArgs() {}
 
     private ExternalVolumeDescribeOutputArgs(ExternalVolumeDescribeOutputArgs $) {
-        this.default_ = $.default_;
-        this.name = $.name;
-        this.parent = $.parent;
-        this.type = $.type;
-        this.value = $.value;
+        this.active = $.active;
+        this.allowWrites = $.allowWrites;
+        this.comment = $.comment;
+        this.storageLocations = $.storageLocations;
     }
 
     public static Builder builder() {
@@ -78,49 +72,44 @@ public final class ExternalVolumeDescribeOutputArgs extends com.pulumi.resources
             $ = new ExternalVolumeDescribeOutputArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder default_(@Nullable Output<String> default_) {
-            $.default_ = default_;
+        public Builder active(@Nullable Output<String> active) {
+            $.active = active;
             return this;
         }
 
-        public Builder default_(String default_) {
-            return default_(Output.of(default_));
+        public Builder active(String active) {
+            return active(Output.of(active));
         }
 
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
+        public Builder allowWrites(@Nullable Output<String> allowWrites) {
+            $.allowWrites = allowWrites;
             return this;
         }
 
-        public Builder name(String name) {
-            return name(Output.of(name));
+        public Builder allowWrites(String allowWrites) {
+            return allowWrites(Output.of(allowWrites));
         }
 
-        public Builder parent(@Nullable Output<String> parent) {
-            $.parent = parent;
+        public Builder comment(@Nullable Output<String> comment) {
+            $.comment = comment;
             return this;
         }
 
-        public Builder parent(String parent) {
-            return parent(Output.of(parent));
+        public Builder comment(String comment) {
+            return comment(Output.of(comment));
         }
 
-        public Builder type(@Nullable Output<String> type) {
-            $.type = type;
+        public Builder storageLocations(@Nullable Output<List<ExternalVolumeDescribeOutputStorageLocationArgs>> storageLocations) {
+            $.storageLocations = storageLocations;
             return this;
         }
 
-        public Builder type(String type) {
-            return type(Output.of(type));
+        public Builder storageLocations(List<ExternalVolumeDescribeOutputStorageLocationArgs> storageLocations) {
+            return storageLocations(Output.of(storageLocations));
         }
 
-        public Builder value(@Nullable Output<String> value) {
-            $.value = value;
-            return this;
-        }
-
-        public Builder value(String value) {
-            return value(Output.of(value));
+        public Builder storageLocations(ExternalVolumeDescribeOutputStorageLocationArgs... storageLocations) {
+            return storageLocations(List.of(storageLocations));
         }
 
         public ExternalVolumeDescribeOutputArgs build() {

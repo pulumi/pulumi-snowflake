@@ -28,30 +28,55 @@ public final class ExternalVolumeStorageLocation {
      */
     private @Nullable String encryptionType;
     /**
+     * @return Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+     * 
+     */
+    private @Nullable String storageAwsAccessPointArn;
+    /**
      * @return External ID that Snowflake uses to establish a trust relationship with AWS.
      * 
      */
     private @Nullable String storageAwsExternalId;
+    /**
+     * @return Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    private @Nullable String storageAwsKeyId;
     /**
      * @return Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
      * 
      */
     private @Nullable String storageAwsRoleArn;
     /**
+     * @return Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    private @Nullable String storageAwsSecretKey;
+    /**
      * @return Specifies the base URL for your cloud storage location.
      * 
      */
     private String storageBaseUrl;
+    /**
+     * @return Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    private @Nullable String storageEndpoint;
     /**
      * @return Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     private String storageLocationName;
     /**
-     * @return Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+     * @return Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
      * 
      */
     private String storageProvider;
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    private @Nullable String usePrivatelinkEndpoint;
 
     private ExternalVolumeStorageLocation() {}
     /**
@@ -76,11 +101,25 @@ public final class ExternalVolumeStorageLocation {
         return Optional.ofNullable(this.encryptionType);
     }
     /**
+     * @return Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+     * 
+     */
+    public Optional<String> storageAwsAccessPointArn() {
+        return Optional.ofNullable(this.storageAwsAccessPointArn);
+    }
+    /**
      * @return External ID that Snowflake uses to establish a trust relationship with AWS.
      * 
      */
     public Optional<String> storageAwsExternalId() {
         return Optional.ofNullable(this.storageAwsExternalId);
+    }
+    /**
+     * @return Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    public Optional<String> storageAwsKeyId() {
+        return Optional.ofNullable(this.storageAwsKeyId);
     }
     /**
      * @return Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
@@ -90,11 +129,25 @@ public final class ExternalVolumeStorageLocation {
         return Optional.ofNullable(this.storageAwsRoleArn);
     }
     /**
+     * @return Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    public Optional<String> storageAwsSecretKey() {
+        return Optional.ofNullable(this.storageAwsSecretKey);
+    }
+    /**
      * @return Specifies the base URL for your cloud storage location.
      * 
      */
     public String storageBaseUrl() {
         return this.storageBaseUrl;
+    }
+    /**
+     * @return Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    public Optional<String> storageEndpoint() {
+        return Optional.ofNullable(this.storageEndpoint);
     }
     /**
      * @return Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
@@ -104,11 +157,18 @@ public final class ExternalVolumeStorageLocation {
         return this.storageLocationName;
     }
     /**
-     * @return Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+     * @return Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
      * 
      */
     public String storageProvider() {
         return this.storageProvider;
+    }
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<String> usePrivatelinkEndpoint() {
+        return Optional.ofNullable(this.usePrivatelinkEndpoint);
     }
 
     public static Builder builder() {
@@ -123,22 +183,32 @@ public final class ExternalVolumeStorageLocation {
         private @Nullable String azureTenantId;
         private @Nullable String encryptionKmsKeyId;
         private @Nullable String encryptionType;
+        private @Nullable String storageAwsAccessPointArn;
         private @Nullable String storageAwsExternalId;
+        private @Nullable String storageAwsKeyId;
         private @Nullable String storageAwsRoleArn;
+        private @Nullable String storageAwsSecretKey;
         private String storageBaseUrl;
+        private @Nullable String storageEndpoint;
         private String storageLocationName;
         private String storageProvider;
+        private @Nullable String usePrivatelinkEndpoint;
         public Builder() {}
         public Builder(ExternalVolumeStorageLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureTenantId = defaults.azureTenantId;
     	      this.encryptionKmsKeyId = defaults.encryptionKmsKeyId;
     	      this.encryptionType = defaults.encryptionType;
+    	      this.storageAwsAccessPointArn = defaults.storageAwsAccessPointArn;
     	      this.storageAwsExternalId = defaults.storageAwsExternalId;
+    	      this.storageAwsKeyId = defaults.storageAwsKeyId;
     	      this.storageAwsRoleArn = defaults.storageAwsRoleArn;
+    	      this.storageAwsSecretKey = defaults.storageAwsSecretKey;
     	      this.storageBaseUrl = defaults.storageBaseUrl;
+    	      this.storageEndpoint = defaults.storageEndpoint;
     	      this.storageLocationName = defaults.storageLocationName;
     	      this.storageProvider = defaults.storageProvider;
+    	      this.usePrivatelinkEndpoint = defaults.usePrivatelinkEndpoint;
         }
 
         @CustomType.Setter
@@ -160,9 +230,21 @@ public final class ExternalVolumeStorageLocation {
             return this;
         }
         @CustomType.Setter
+        public Builder storageAwsAccessPointArn(@Nullable String storageAwsAccessPointArn) {
+
+            this.storageAwsAccessPointArn = storageAwsAccessPointArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageAwsExternalId(@Nullable String storageAwsExternalId) {
 
             this.storageAwsExternalId = storageAwsExternalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storageAwsKeyId(@Nullable String storageAwsKeyId) {
+
+            this.storageAwsKeyId = storageAwsKeyId;
             return this;
         }
         @CustomType.Setter
@@ -172,11 +254,23 @@ public final class ExternalVolumeStorageLocation {
             return this;
         }
         @CustomType.Setter
+        public Builder storageAwsSecretKey(@Nullable String storageAwsSecretKey) {
+
+            this.storageAwsSecretKey = storageAwsSecretKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageBaseUrl(String storageBaseUrl) {
             if (storageBaseUrl == null) {
               throw new MissingRequiredPropertyException("ExternalVolumeStorageLocation", "storageBaseUrl");
             }
             this.storageBaseUrl = storageBaseUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storageEndpoint(@Nullable String storageEndpoint) {
+
+            this.storageEndpoint = storageEndpoint;
             return this;
         }
         @CustomType.Setter
@@ -195,16 +289,27 @@ public final class ExternalVolumeStorageLocation {
             this.storageProvider = storageProvider;
             return this;
         }
+        @CustomType.Setter
+        public Builder usePrivatelinkEndpoint(@Nullable String usePrivatelinkEndpoint) {
+
+            this.usePrivatelinkEndpoint = usePrivatelinkEndpoint;
+            return this;
+        }
         public ExternalVolumeStorageLocation build() {
             final var _resultValue = new ExternalVolumeStorageLocation();
             _resultValue.azureTenantId = azureTenantId;
             _resultValue.encryptionKmsKeyId = encryptionKmsKeyId;
             _resultValue.encryptionType = encryptionType;
+            _resultValue.storageAwsAccessPointArn = storageAwsAccessPointArn;
             _resultValue.storageAwsExternalId = storageAwsExternalId;
+            _resultValue.storageAwsKeyId = storageAwsKeyId;
             _resultValue.storageAwsRoleArn = storageAwsRoleArn;
+            _resultValue.storageAwsSecretKey = storageAwsSecretKey;
             _resultValue.storageBaseUrl = storageBaseUrl;
+            _resultValue.storageEndpoint = storageEndpoint;
             _resultValue.storageLocationName = storageLocationName;
             _resultValue.storageProvider = storageProvider;
+            _resultValue.usePrivatelinkEndpoint = usePrivatelinkEndpoint;
             return _resultValue;
         }
     }

@@ -501,8 +501,7 @@ class TableConstraint(pulumi.CustomResource):
             name="myconstraint",
             type="PRIMARY KEY",
             table_id=t.fully_qualified_name,
-            columns=["col1"],
-            comment="hello world")
+            columns=["col1"])
         foreign_key = snowflake.TableConstraint("foreign_key",
             name="myconstraintfk",
             type="FOREIGN KEY",
@@ -516,14 +515,12 @@ class TableConstraint(pulumi.CustomResource):
             },
             enforced=False,
             deferrable=False,
-            initially="IMMEDIATE",
-            comment="hello fk")
+            initially="IMMEDIATE")
         unique = snowflake.TableConstraint("unique",
             name="unique",
             type="UNIQUE",
             table_id=t.fully_qualified_name,
-            columns=["col3"],
-            comment="hello unique")
+            columns=["col3"])
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -613,8 +610,7 @@ class TableConstraint(pulumi.CustomResource):
             name="myconstraint",
             type="PRIMARY KEY",
             table_id=t.fully_qualified_name,
-            columns=["col1"],
-            comment="hello world")
+            columns=["col1"])
         foreign_key = snowflake.TableConstraint("foreign_key",
             name="myconstraintfk",
             type="FOREIGN KEY",
@@ -628,14 +624,12 @@ class TableConstraint(pulumi.CustomResource):
             },
             enforced=False,
             deferrable=False,
-            initially="IMMEDIATE",
-            comment="hello fk")
+            initially="IMMEDIATE")
         unique = snowflake.TableConstraint("unique",
             name="unique",
             type="UNIQUE",
             table_id=t.fully_qualified_name,
-            columns=["col3"],
-            comment="hello unique")
+            columns=["col3"])
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.

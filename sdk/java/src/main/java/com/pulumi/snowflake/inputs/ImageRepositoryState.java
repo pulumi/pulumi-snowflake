@@ -48,6 +48,21 @@ public final class ImageRepositoryState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+     * 
+     */
+    @Import(name="encryption")
+    private @Nullable Output<String> encryption;
+
+    /**
+     * @return Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+     * 
+     */
+    public Optional<Output<String>> encryption() {
+        return Optional.ofNullable(this.encryption);
+    }
+
+    /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
@@ -112,6 +127,7 @@ public final class ImageRepositoryState extends com.pulumi.resources.ResourceArg
     private ImageRepositoryState(ImageRepositoryState $) {
         this.comment = $.comment;
         this.database = $.database;
+        this.encryption = $.encryption;
         this.fullyQualifiedName = $.fullyQualifiedName;
         this.name = $.name;
         this.schema = $.schema;
@@ -176,6 +192,27 @@ public final class ImageRepositoryState extends com.pulumi.resources.ResourceArg
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param encryption Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryption(@Nullable Output<String> encryption) {
+            $.encryption = encryption;
+            return this;
+        }
+
+        /**
+         * @param encryption Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryption(String encryption) {
+            return encryption(Output.of(encryption));
         }
 
         /**

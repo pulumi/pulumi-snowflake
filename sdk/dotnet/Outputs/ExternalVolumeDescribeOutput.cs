@@ -13,29 +13,25 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class ExternalVolumeDescribeOutput
     {
-        public readonly string? Default;
-        public readonly string? Name;
-        public readonly string? Parent;
-        public readonly string? Type;
-        public readonly string? Value;
+        public readonly string? Active;
+        public readonly string? AllowWrites;
+        public readonly string? Comment;
+        public readonly ImmutableArray<Outputs.ExternalVolumeDescribeOutputStorageLocation> StorageLocations;
 
         [OutputConstructor]
         private ExternalVolumeDescribeOutput(
-            string? @default,
+            string? active,
 
-            string? name,
+            string? allowWrites,
 
-            string? parent,
+            string? comment,
 
-            string? type,
-
-            string? value)
+            ImmutableArray<Outputs.ExternalVolumeDescribeOutputStorageLocation> storageLocations)
         {
-            Default = @default;
-            Name = name;
-            Parent = parent;
-            Type = type;
-            Value = value;
+            Active = active;
+            AllowWrites = allowWrites;
+            Comment = comment;
+            StorageLocations = storageLocations;
         }
     }
 }

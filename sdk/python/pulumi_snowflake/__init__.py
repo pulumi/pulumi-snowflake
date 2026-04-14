@@ -17,6 +17,10 @@ from .api_authentication_integration_with_client_credentials import *
 from .api_authentication_integration_with_jwt_bearer import *
 from .api_integration import *
 from .authentication_policy import *
+from .catalog_integration_aws_glue import *
+from .catalog_integration_iceberg_rest import *
+from .catalog_integration_object_storage import *
+from .catalog_integration_open_catalog import *
 from .compute_pool import *
 from .cortex_search_service import *
 from .current_account import *
@@ -41,6 +45,7 @@ from .get_account_roles import *
 from .get_accounts import *
 from .get_alerts import *
 from .get_authentication_policies import *
+from .get_catalog_integrations import *
 from .get_compute_pools import *
 from .get_connections import *
 from .get_cortex_search_services import *
@@ -53,6 +58,7 @@ from .get_databases import *
 from .get_dynamic_tables import *
 from .get_external_functions import *
 from .get_external_tables import *
+from .get_external_volumes import *
 from .get_failover_groups import *
 from .get_file_formats import *
 from .get_functions import *
@@ -169,6 +175,7 @@ from .user_programmatic_access_token import *
 from .user_public_keys import *
 from .view import *
 from .warehouse import *
+from .warehouse_adaptive import *
 from ._inputs import *
 from . import outputs
 
@@ -268,6 +275,38 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/authenticationPolicy:AuthenticationPolicy": "AuthenticationPolicy"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/catalogIntegrationAwsGlue",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue": "CatalogIntegrationAwsGlue"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/catalogIntegrationIcebergRest",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/catalogIntegrationIcebergRest:CatalogIntegrationIcebergRest": "CatalogIntegrationIcebergRest"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/catalogIntegrationObjectStorage",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/catalogIntegrationObjectStorage:CatalogIntegrationObjectStorage": "CatalogIntegrationObjectStorage"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/catalogIntegrationOpenCatalog",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/catalogIntegrationOpenCatalog:CatalogIntegrationOpenCatalog": "CatalogIntegrationOpenCatalog"
   }
  },
  {
@@ -1036,6 +1075,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/warehouse:Warehouse": "Warehouse"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/warehouseAdaptive",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/warehouseAdaptive:WarehouseAdaptive": "WarehouseAdaptive"
   }
  }
 ]

@@ -19,6 +19,7 @@ public final class TagShowOutput {
     private @Nullable String name;
     private @Nullable String owner;
     private @Nullable String ownerRoleType;
+    private @Nullable String propagate;
     private @Nullable String schemaName;
 
     private TagShowOutput() {}
@@ -43,6 +44,9 @@ public final class TagShowOutput {
     public Optional<String> ownerRoleType() {
         return Optional.ofNullable(this.ownerRoleType);
     }
+    public Optional<String> propagate() {
+        return Optional.ofNullable(this.propagate);
+    }
     public Optional<String> schemaName() {
         return Optional.ofNullable(this.schemaName);
     }
@@ -63,6 +67,7 @@ public final class TagShowOutput {
         private @Nullable String name;
         private @Nullable String owner;
         private @Nullable String ownerRoleType;
+        private @Nullable String propagate;
         private @Nullable String schemaName;
         public Builder() {}
         public Builder(TagShowOutput defaults) {
@@ -74,6 +79,7 @@ public final class TagShowOutput {
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
     	      this.ownerRoleType = defaults.ownerRoleType;
+    	      this.propagate = defaults.propagate;
     	      this.schemaName = defaults.schemaName;
         }
 
@@ -123,6 +129,12 @@ public final class TagShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder propagate(@Nullable String propagate) {
+
+            this.propagate = propagate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schemaName(@Nullable String schemaName) {
 
             this.schemaName = schemaName;
@@ -137,6 +149,7 @@ public final class TagShowOutput {
             _resultValue.name = name;
             _resultValue.owner = owner;
             _resultValue.ownerRoleType = ownerRoleType;
+            _resultValue.propagate = propagate;
             _resultValue.schemaName = schemaName;
             return _resultValue;
         }

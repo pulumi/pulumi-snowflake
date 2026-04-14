@@ -106,6 +106,7 @@ import javax.annotation.Nullable;
  *                 .synonyms("dim2")
  *                 .build())
  *             .facts(SemanticViewFactArgs.builder()
+ *                 .isPrivate("true")
  *                 .comment("fact comment")
  *                 .qualifiedExpressionName("\"lt1\".\"f2\"")
  *                 .sqlExpression("\"lt1\".\"a1\"")
@@ -113,6 +114,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .metrics(            
  *                 SemanticViewMetricArgs.builder()
+ *                     .isPrivate("true")
  *                     .semanticExpression(SemanticViewMetricSemanticExpressionArgs.builder()
  *                         .comment("semantic expression comment")
  *                         .qualifiedExpressionName("\"lt1\".\"m1\"")
@@ -123,6 +125,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 SemanticViewMetricArgs.builder()
+ *                     .isPrivate("false")
  *                     .windowFunction(SemanticViewMetricWindowFunctionArgs.builder()
  *                         .overClause(SemanticViewMetricWindowFunctionOverClauseArgs.builder()
  *                             .partitionBy("\"lt1\".\"d2\"")

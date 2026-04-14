@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.SemanticViewMetricSemanticExpressionArgs;
 import com.pulumi.snowflake.inputs.SemanticViewMetricWindowFunctionArgs;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class SemanticViewMetricArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SemanticViewMetricArgs Empty = new SemanticViewMetricArgs();
+
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+     * 
+     */
+    @Import(name="isPrivate")
+    private @Nullable Output<String> isPrivate;
+
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+     * 
+     */
+    public Optional<Output<String>> isPrivate() {
+        return Optional.ofNullable(this.isPrivate);
+    }
 
     /**
      * Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
@@ -49,6 +65,7 @@ public final class SemanticViewMetricArgs extends com.pulumi.resources.ResourceA
     private SemanticViewMetricArgs() {}
 
     private SemanticViewMetricArgs(SemanticViewMetricArgs $) {
+        this.isPrivate = $.isPrivate;
         this.semanticExpression = $.semanticExpression;
         this.windowFunction = $.windowFunction;
     }
@@ -69,6 +86,27 @@ public final class SemanticViewMetricArgs extends com.pulumi.resources.ResourceA
 
         public Builder(SemanticViewMetricArgs defaults) {
             $ = new SemanticViewMetricArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param isPrivate (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isPrivate(@Nullable Output<String> isPrivate) {
+            $.isPrivate = isPrivate;
+            return this;
+        }
+
+        /**
+         * @param isPrivate (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isPrivate(String isPrivate) {
+            return isPrivate(Output.of(isPrivate));
         }
 
         /**

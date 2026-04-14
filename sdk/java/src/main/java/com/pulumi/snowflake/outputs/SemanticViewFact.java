@@ -19,6 +19,11 @@ public final class SemanticViewFact {
      */
     private @Nullable String comment;
     /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+     * 
+     */
+    private @Nullable String isPrivate;
+    /**
      * @return Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
      * 
      */
@@ -41,6 +46,13 @@ public final class SemanticViewFact {
      */
     public Optional<String> comment() {
         return Optional.ofNullable(this.comment);
+    }
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+     * 
+     */
+    public Optional<String> isPrivate() {
+        return Optional.ofNullable(this.isPrivate);
     }
     /**
      * @return Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
@@ -74,6 +86,7 @@ public final class SemanticViewFact {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String comment;
+        private @Nullable String isPrivate;
         private String qualifiedExpressionName;
         private String sqlExpression;
         private @Nullable List<String> synonyms;
@@ -81,6 +94,7 @@ public final class SemanticViewFact {
         public Builder(SemanticViewFact defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
+    	      this.isPrivate = defaults.isPrivate;
     	      this.qualifiedExpressionName = defaults.qualifiedExpressionName;
     	      this.sqlExpression = defaults.sqlExpression;
     	      this.synonyms = defaults.synonyms;
@@ -90,6 +104,12 @@ public final class SemanticViewFact {
         public Builder comment(@Nullable String comment) {
 
             this.comment = comment;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isPrivate(@Nullable String isPrivate) {
+
+            this.isPrivate = isPrivate;
             return this;
         }
         @CustomType.Setter
@@ -120,6 +140,7 @@ public final class SemanticViewFact {
         public SemanticViewFact build() {
             final var _resultValue = new SemanticViewFact();
             _resultValue.comment = comment;
+            _resultValue.isPrivate = isPrivate;
             _resultValue.qualifiedExpressionName = qualifiedExpressionName;
             _resultValue.sqlExpression = sqlExpression;
             _resultValue.synonyms = synonyms;

@@ -62,6 +62,21 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
     }
 
     /**
+     * Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+     * 
+     */
+    @Import(name="storageAwsAccessPointArn")
+    private @Nullable Output<String> storageAwsAccessPointArn;
+
+    /**
+     * @return Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+     * 
+     */
+    public Optional<Output<String>> storageAwsAccessPointArn() {
+        return Optional.ofNullable(this.storageAwsAccessPointArn);
+    }
+
+    /**
      * External ID that Snowflake uses to establish a trust relationship with AWS.
      * 
      */
@@ -74,6 +89,21 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> storageAwsExternalId() {
         return Optional.ofNullable(this.storageAwsExternalId);
+    }
+
+    /**
+     * Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    @Import(name="storageAwsKeyId")
+    private @Nullable Output<String> storageAwsKeyId;
+
+    /**
+     * @return Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    public Optional<Output<String>> storageAwsKeyId() {
+        return Optional.ofNullable(this.storageAwsKeyId);
     }
 
     /**
@@ -92,6 +122,21 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
     }
 
     /**
+     * Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    @Import(name="storageAwsSecretKey")
+    private @Nullable Output<String> storageAwsSecretKey;
+
+    /**
+     * @return Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    public Optional<Output<String>> storageAwsSecretKey() {
+        return Optional.ofNullable(this.storageAwsSecretKey);
+    }
+
+    /**
      * Specifies the base URL for your cloud storage location.
      * 
      */
@@ -104,6 +149,21 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
      */
     public Output<String> storageBaseUrl() {
         return this.storageBaseUrl;
+    }
+
+    /**
+     * Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    @Import(name="storageEndpoint")
+    private @Nullable Output<String> storageEndpoint;
+
+    /**
+     * @return Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     * 
+     */
+    public Optional<Output<String>> storageEndpoint() {
+        return Optional.ofNullable(this.storageEndpoint);
     }
 
     /**
@@ -122,18 +182,33 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+     * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
      * 
      */
     @Import(name="storageProvider", required=true)
     private Output<String> storageProvider;
 
     /**
-     * @return Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+     * @return Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
      * 
      */
     public Output<String> storageProvider() {
         return this.storageProvider;
+    }
+
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    @Import(name="usePrivatelinkEndpoint")
+    private @Nullable Output<String> usePrivatelinkEndpoint;
+
+    /**
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * 
+     */
+    public Optional<Output<String>> usePrivatelinkEndpoint() {
+        return Optional.ofNullable(this.usePrivatelinkEndpoint);
     }
 
     private ExternalVolumeStorageLocationArgs() {}
@@ -142,11 +217,16 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
         this.azureTenantId = $.azureTenantId;
         this.encryptionKmsKeyId = $.encryptionKmsKeyId;
         this.encryptionType = $.encryptionType;
+        this.storageAwsAccessPointArn = $.storageAwsAccessPointArn;
         this.storageAwsExternalId = $.storageAwsExternalId;
+        this.storageAwsKeyId = $.storageAwsKeyId;
         this.storageAwsRoleArn = $.storageAwsRoleArn;
+        this.storageAwsSecretKey = $.storageAwsSecretKey;
         this.storageBaseUrl = $.storageBaseUrl;
+        this.storageEndpoint = $.storageEndpoint;
         this.storageLocationName = $.storageLocationName;
         this.storageProvider = $.storageProvider;
+        this.usePrivatelinkEndpoint = $.usePrivatelinkEndpoint;
     }
 
     public static Builder builder() {
@@ -231,6 +311,27 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
         }
 
         /**
+         * @param storageAwsAccessPointArn Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAwsAccessPointArn(@Nullable Output<String> storageAwsAccessPointArn) {
+            $.storageAwsAccessPointArn = storageAwsAccessPointArn;
+            return this;
+        }
+
+        /**
+         * @param storageAwsAccessPointArn Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAwsAccessPointArn(String storageAwsAccessPointArn) {
+            return storageAwsAccessPointArn(Output.of(storageAwsAccessPointArn));
+        }
+
+        /**
          * @param storageAwsExternalId External ID that Snowflake uses to establish a trust relationship with AWS.
          * 
          * @return builder
@@ -249,6 +350,27 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
          */
         public Builder storageAwsExternalId(String storageAwsExternalId) {
             return storageAwsExternalId(Output.of(storageAwsExternalId));
+        }
+
+        /**
+         * @param storageAwsKeyId Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAwsKeyId(@Nullable Output<String> storageAwsKeyId) {
+            $.storageAwsKeyId = storageAwsKeyId;
+            return this;
+        }
+
+        /**
+         * @param storageAwsKeyId Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAwsKeyId(String storageAwsKeyId) {
+            return storageAwsKeyId(Output.of(storageAwsKeyId));
         }
 
         /**
@@ -273,6 +395,27 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
         }
 
         /**
+         * @param storageAwsSecretKey Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAwsSecretKey(@Nullable Output<String> storageAwsSecretKey) {
+            $.storageAwsSecretKey = storageAwsSecretKey;
+            return this;
+        }
+
+        /**
+         * @param storageAwsSecretKey Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAwsSecretKey(String storageAwsSecretKey) {
+            return storageAwsSecretKey(Output.of(storageAwsSecretKey));
+        }
+
+        /**
          * @param storageBaseUrl Specifies the base URL for your cloud storage location.
          * 
          * @return builder
@@ -291,6 +434,27 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
          */
         public Builder storageBaseUrl(String storageBaseUrl) {
             return storageBaseUrl(Output.of(storageBaseUrl));
+        }
+
+        /**
+         * @param storageEndpoint Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageEndpoint(@Nullable Output<String> storageEndpoint) {
+            $.storageEndpoint = storageEndpoint;
+            return this;
+        }
+
+        /**
+         * @param storageEndpoint Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageEndpoint(String storageEndpoint) {
+            return storageEndpoint(Output.of(storageEndpoint));
         }
 
         /**
@@ -315,7 +479,7 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param storageProvider Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+         * @param storageProvider Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
          * 
          * @return builder
          * 
@@ -326,13 +490,34 @@ public final class ExternalVolumeStorageLocationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param storageProvider Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+         * @param storageProvider Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
          * 
          * @return builder
          * 
          */
         public Builder storageProvider(String storageProvider) {
             return storageProvider(Output.of(storageProvider));
+        }
+
+        /**
+         * @param usePrivatelinkEndpoint (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usePrivatelinkEndpoint(@Nullable Output<String> usePrivatelinkEndpoint) {
+            $.usePrivatelinkEndpoint = usePrivatelinkEndpoint;
+            return this;
+        }
+
+        /**
+         * @param usePrivatelinkEndpoint (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usePrivatelinkEndpoint(String usePrivatelinkEndpoint) {
+            return usePrivatelinkEndpoint(Output.of(usePrivatelinkEndpoint));
         }
 
         public ExternalVolumeStorageLocationArgs build() {

@@ -43,6 +43,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiIntegration{}
 	case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
 		r = &AuthenticationPolicy{}
+	case "snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue":
+		r = &CatalogIntegrationAwsGlue{}
+	case "snowflake:index/catalogIntegrationIcebergRest:CatalogIntegrationIcebergRest":
+		r = &CatalogIntegrationIcebergRest{}
+	case "snowflake:index/catalogIntegrationObjectStorage:CatalogIntegrationObjectStorage":
+		r = &CatalogIntegrationObjectStorage{}
+	case "snowflake:index/catalogIntegrationOpenCatalog:CatalogIntegrationOpenCatalog":
+		r = &CatalogIntegrationOpenCatalog{}
 	case "snowflake:index/computePool:ComputePool":
 		r = &ComputePool{}
 	case "snowflake:index/cortexSearchService:CortexSearchService":
@@ -235,6 +243,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &View{}
 	case "snowflake:index/warehouse:Warehouse":
 		r = &Warehouse{}
+	case "snowflake:index/warehouseAdaptive:WarehouseAdaptive":
+		r = &WarehouseAdaptive{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -319,6 +329,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/authenticationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/catalogIntegrationAwsGlue",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/catalogIntegrationIcebergRest",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/catalogIntegrationObjectStorage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/catalogIntegrationOpenCatalog",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -799,6 +829,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/warehouse",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/warehouseAdaptive",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

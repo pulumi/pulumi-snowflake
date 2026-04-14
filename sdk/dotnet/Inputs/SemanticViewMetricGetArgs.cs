@@ -13,6 +13,12 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class SemanticViewMetricGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`Default`)) Specifies whether the metric is private.
+        /// </summary>
+        [Input("isPrivate")]
+        public Input<string>? IsPrivate { get; set; }
+
+        /// <summary>
         /// Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
         /// </summary>
         [Input("semanticExpression")]

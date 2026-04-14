@@ -67,7 +67,6 @@ import * as utilities from "./utilities";
  *     type: "PRIMARY KEY",
  *     tableId: t.fullyQualifiedName,
  *     columns: ["col1"],
- *     comment: "hello world",
  * });
  * const foreignKey = new snowflake.TableConstraint("foreign_key", {
  *     name: "myconstraintfk",
@@ -83,14 +82,12 @@ import * as utilities from "./utilities";
  *     enforced: false,
  *     deferrable: false,
  *     initially: "IMMEDIATE",
- *     comment: "hello fk",
  * });
  * const unique = new snowflake.TableConstraint("unique", {
  *     name: "unique",
  *     type: "UNIQUE",
  *     tableId: t.fullyQualifiedName,
  *     columns: ["col3"],
- *     comment: "hello unique",
  * });
  * ```
  *

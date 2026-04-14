@@ -118,6 +118,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> AuthenticationMethods { get; private set; } = null!;
 
         /// <summary>
+        /// Allows to set policies per-client type. Only valid when `ClientTypes` is empty, contains ALL, or contains DRIVERS.
+        /// </summary>
+        [Output("clientPolicies")]
+        public Output<ImmutableArray<Outputs.AuthenticationPolicyClientPolicy>> ClientPolicies { get; private set; } = null!;
+
+        /// <summary>
         /// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `ClientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `ClientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         /// </summary>
         [Output("clientTypes")]
@@ -259,6 +265,18 @@ namespace Pulumi.Snowflake
             set => _authenticationMethods = value;
         }
 
+        [Input("clientPolicies")]
+        private InputList<Inputs.AuthenticationPolicyClientPolicyArgs>? _clientPolicies;
+
+        /// <summary>
+        /// Allows to set policies per-client type. Only valid when `ClientTypes` is empty, contains ALL, or contains DRIVERS.
+        /// </summary>
+        public InputList<Inputs.AuthenticationPolicyClientPolicyArgs> ClientPolicies
+        {
+            get => _clientPolicies ?? (_clientPolicies = new InputList<Inputs.AuthenticationPolicyClientPolicyArgs>());
+            set => _clientPolicies = value;
+        }
+
         [Input("clientTypes")]
         private InputList<string>? _clientTypes;
 
@@ -362,6 +380,18 @@ namespace Pulumi.Snowflake
         {
             get => _authenticationMethods ?? (_authenticationMethods = new InputList<string>());
             set => _authenticationMethods = value;
+        }
+
+        [Input("clientPolicies")]
+        private InputList<Inputs.AuthenticationPolicyClientPolicyGetArgs>? _clientPolicies;
+
+        /// <summary>
+        /// Allows to set policies per-client type. Only valid when `ClientTypes` is empty, contains ALL, or contains DRIVERS.
+        /// </summary>
+        public InputList<Inputs.AuthenticationPolicyClientPolicyGetArgs> ClientPolicies
+        {
+            get => _clientPolicies ?? (_clientPolicies = new InputList<Inputs.AuthenticationPolicyClientPolicyGetArgs>());
+            set => _clientPolicies = value;
         }
 
         [Input("clientTypes")]

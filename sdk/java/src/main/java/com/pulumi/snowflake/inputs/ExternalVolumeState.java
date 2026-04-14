@@ -50,14 +50,14 @@ public final class ExternalVolumeState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+     * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
      * 
      */
     @Import(name="describeOutputs")
     private @Nullable Output<List<ExternalVolumeDescribeOutputArgs>> describeOutputs;
 
     /**
-     * @return Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+     * @return Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
      * 
      */
     public Optional<Output<List<ExternalVolumeDescribeOutputArgs>>> describeOutputs() {
@@ -197,7 +197,7 @@ public final class ExternalVolumeState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param describeOutputs Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+         * @param describeOutputs Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ExternalVolumeState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param describeOutputs Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+         * @param describeOutputs Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ExternalVolumeState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param describeOutputs Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+         * @param describeOutputs Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
          * 
          * @return builder
          * 

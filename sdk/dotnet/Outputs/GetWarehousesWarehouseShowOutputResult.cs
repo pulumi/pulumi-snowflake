@@ -23,6 +23,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly bool IsCurrent;
         public readonly bool IsDefault;
         public readonly int MaxClusterCount;
+        public readonly string MaxQueryPerformanceLevel;
         public readonly int MinClusterCount;
         public readonly string Name;
         public readonly double Other;
@@ -30,6 +31,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string OwnerRoleType;
         public readonly double Provisioning;
         public readonly int QueryAccelerationMaxScaleFactor;
+        public readonly int QueryThroughputMultiplier;
         public readonly int Queued;
         public readonly double Quiescing;
         public readonly string ResourceConstraint;
@@ -65,6 +67,8 @@ namespace Pulumi.Snowflake.Outputs
 
             int maxClusterCount,
 
+            string maxQueryPerformanceLevel,
+
             int minClusterCount,
 
             string name,
@@ -78,6 +82,8 @@ namespace Pulumi.Snowflake.Outputs
             double provisioning,
 
             int queryAccelerationMaxScaleFactor,
+
+            int queryThroughputMultiplier,
 
             int queued,
 
@@ -113,6 +119,7 @@ namespace Pulumi.Snowflake.Outputs
             IsCurrent = isCurrent;
             IsDefault = isDefault;
             MaxClusterCount = maxClusterCount;
+            MaxQueryPerformanceLevel = maxQueryPerformanceLevel;
             MinClusterCount = minClusterCount;
             Name = name;
             Other = other;
@@ -120,6 +127,7 @@ namespace Pulumi.Snowflake.Outputs
             OwnerRoleType = ownerRoleType;
             Provisioning = provisioning;
             QueryAccelerationMaxScaleFactor = queryAccelerationMaxScaleFactor;
+            QueryThroughputMultiplier = queryThroughputMultiplier;
             Queued = queued;
             Quiescing = quiescing;
             ResourceConstraint = resourceConstraint;

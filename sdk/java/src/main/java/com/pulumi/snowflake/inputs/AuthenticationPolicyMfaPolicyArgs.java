@@ -17,14 +17,14 @@ public final class AuthenticationPolicyMfaPolicyArgs extends com.pulumi.resource
     public static final AuthenticationPolicyMfaPolicyArgs Empty = new AuthenticationPolicyMfaPolicyArgs();
 
     /**
-     * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
      * 
      */
     @Import(name="allowedMethods")
     private @Nullable Output<List<String>> allowedMethods;
 
     /**
-     * @return Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+     * @return Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
      * 
      */
     public Optional<Output<List<String>>> allowedMethods() {
@@ -72,7 +72,7 @@ public final class AuthenticationPolicyMfaPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AuthenticationPolicyMfaPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AuthenticationPolicyMfaPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
+         * @param allowedMethods Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it&#39;s a nested field). Prefer using uppercased values.
          * 
          * @return builder
          * 

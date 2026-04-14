@@ -70,10 +70,6 @@ import * as utilities from "./utilities";
  *             comment: "extra data",
  *         },
  *     ],
- *     primaryKey: {
- *         name: "my_key",
- *         keys: ["data"],
- *     },
  * });
  * ```
  *

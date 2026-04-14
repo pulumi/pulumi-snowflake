@@ -16,15 +16,44 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const integration = new snowflake.NotificationIntegration("integration", {
+ * // basic resource with AZURE_STORAGE_QUEUE
+ * const azure = new snowflake.NotificationIntegration("azure", {
  *     name: "notification",
- *     comment: "A notification integration.",
  *     enabled: true,
- *     type: "QUEUE",
- *     direction: "OUTBOUND",
  *     notificationProvider: "AZURE_STORAGE_QUEUE",
- *     azureStorageQueuePrimaryUri: "...",
- *     azureTenantId: "...",
+ *     azureStorageQueuePrimaryUri: "https://myaccount.queue.core.windows.net/myqueue",
+ *     azureTenantId: "a123b4c5-1234-123a-a12b-1a23b45678c9",
+ * });
+ * // basic resource with AWS_SNS
+ * const aws = new snowflake.NotificationIntegration("aws", {
+ *     name: "notification",
+ *     enabled: true,
+ *     notificationProvider: "AWS_SNS",
+ *     awsSnsTopicArn: "arn:aws:sns:us-east-1:001234567890:mytopic",
+ *     awsSnsRoleArn: "arn:aws:iam::001234567890:role/myrole",
+ * });
+ * // basic resource with GCP_PUBSUB (subscription)
+ * const gcpSubscription = new snowflake.NotificationIntegration("gcp_subscription", {
+ *     name: "notification",
+ *     enabled: true,
+ *     notificationProvider: "GCP_PUBSUB",
+ *     gcpPubsubSubscriptionName: "projects/myproject/subscriptions/mysubscription",
+ * });
+ * // basic resource with GCP_PUBSUB (topic)
+ * const gcpTopic = new snowflake.NotificationIntegration("gcp_topic", {
+ *     name: "notification",
+ *     enabled: true,
+ *     notificationProvider: "GCP_PUBSUB",
+ *     gcpPubsubTopicName: "projects/myproject/topics/mytopic",
+ * });
+ * // resource with all non-provider-specific fields set
+ * const complete = new snowflake.NotificationIntegration("complete", {
+ *     name: "notification",
+ *     enabled: true,
+ *     comment: "A notification integration.",
+ *     notificationProvider: "AZURE_STORAGE_QUEUE",
+ *     azureStorageQueuePrimaryUri: "https://myaccount.queue.core.windows.net/myqueue",
+ *     azureTenantId: "a123b4c5-1234-123a-a12b-1a23b45678c9",
  * });
  * ```
  *

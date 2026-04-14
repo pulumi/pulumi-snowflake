@@ -16,7 +16,149 @@ import (
 //
 // Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Basic - S3 storage location with required fields only
+//			_, err := snowflake.NewExternalVolume(ctx, "s3_basic", &snowflake.ExternalVolumeArgs{
+//				Name: pulumi.String("my_external_volume"),
+//				StorageLocations: snowflake.ExternalVolumeStorageLocationArray{
+//					&snowflake.ExternalVolumeStorageLocationArgs{
+//						StorageLocationName: pulumi.String("my-s3-location"),
+//						StorageProvider:     pulumi.String("S3"),
+//						StorageBaseUrl:      pulumi.String("s3://mybucket/"),
+//						StorageAwsRoleArn:   pulumi.String("arn:aws:iam::123456789012:role/myrole"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Complete - S3 with all optional fields
+//			_, err = snowflake.NewExternalVolume(ctx, "s3_complete", &snowflake.ExternalVolumeArgs{
+//				Name:        pulumi.String("my_external_volume_complete"),
+//				Comment:     pulumi.String("my external volume"),
+//				AllowWrites: pulumi.String("true"),
+//				StorageLocations: snowflake.ExternalVolumeStorageLocationArray{
+//					&snowflake.ExternalVolumeStorageLocationArgs{
+//						StorageLocationName:      pulumi.String("my-s3-location"),
+//						StorageProvider:          pulumi.String("S3"),
+//						StorageBaseUrl:           pulumi.String("s3://mybucket/"),
+//						StorageAwsRoleArn:        pulumi.String("arn:aws:iam::123456789012:role/myrole"),
+//						StorageAwsAccessPointArn: pulumi.String("arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point"),
+//						UsePrivatelinkEndpoint:   pulumi.String("true"),
+//						EncryptionType:           pulumi.String("AWS_SSE_KMS"),
+//						EncryptionKmsKeyId:       pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Basic - GCS storage location with required fields only
+//			_, err = snowflake.NewExternalVolume(ctx, "gcs_basic", &snowflake.ExternalVolumeArgs{
+//				Name: pulumi.String("my_gcs_external_volume"),
+//				StorageLocations: snowflake.ExternalVolumeStorageLocationArray{
+//					&snowflake.ExternalVolumeStorageLocationArgs{
+//						StorageLocationName: pulumi.String("my-gcs-location"),
+//						StorageProvider:     pulumi.String("GCS"),
+//						StorageBaseUrl:      pulumi.String("gcs://mybucket/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Complete - GCS with all optional fields
+//			_, err = snowflake.NewExternalVolume(ctx, "gcs_complete", &snowflake.ExternalVolumeArgs{
+//				Name: pulumi.String("my_gcs_external_volume_complete"),
+//				StorageLocations: snowflake.ExternalVolumeStorageLocationArray{
+//					&snowflake.ExternalVolumeStorageLocationArgs{
+//						StorageLocationName: pulumi.String("my-gcs-location"),
+//						StorageProvider:     pulumi.String("GCS"),
+//						StorageBaseUrl:      pulumi.String("gcs://mybucket/"),
+//						EncryptionType:      pulumi.String("GCS_SSE_KMS"),
+//						EncryptionKmsKeyId:  pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Basic - Azure storage location with required fields only
+//			_, err = snowflake.NewExternalVolume(ctx, "azure_basic", &snowflake.ExternalVolumeArgs{
+//				Name: pulumi.String("my_azure_external_volume"),
+//				StorageLocations: snowflake.ExternalVolumeStorageLocationArray{
+//					&snowflake.ExternalVolumeStorageLocationArgs{
+//						StorageLocationName: pulumi.String("my-azure-location"),
+//						StorageProvider:     pulumi.String("AZURE"),
+//						StorageBaseUrl:      pulumi.String("azure://myaccount.blob.core.windows.net/mycontainer/"),
+//						AzureTenantId:       pulumi.String("123e4567-e89b-12d3-a456-426614174000"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Complete - Azure with all optional fields
+//			_, err = snowflake.NewExternalVolume(ctx, "azure_complete", &snowflake.ExternalVolumeArgs{
+//				Name:        pulumi.String("my_azure_external_volume_complete"),
+//				Comment:     pulumi.String("my azure external volume"),
+//				AllowWrites: pulumi.String("true"),
+//				StorageLocations: snowflake.ExternalVolumeStorageLocationArray{
+//					&snowflake.ExternalVolumeStorageLocationArgs{
+//						StorageLocationName:    pulumi.String("my-azure-location"),
+//						StorageProvider:        pulumi.String("AZURE"),
+//						StorageBaseUrl:         pulumi.String("azure://myaccount.blob.core.windows.net/mycontainer/"),
+//						AzureTenantId:          pulumi.String("123e4567-e89b-12d3-a456-426614174000"),
+//						UsePrivatelinkEndpoint: pulumi.String("true"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// S3-compatible storage location
+//			_, err = snowflake.NewExternalVolume(ctx, "s3compat", &snowflake.ExternalVolumeArgs{
+//				Name: pulumi.String("my_s3compat_external_volume"),
+//				StorageLocations: snowflake.ExternalVolumeStorageLocationArray{
+//					&snowflake.ExternalVolumeStorageLocationArgs{
+//						StorageLocationName: pulumi.String("my-s3compat-location"),
+//						StorageProvider:     pulumi.String("S3COMPAT"),
+//						StorageBaseUrl:      pulumi.String("s3compat://mybucket/"),
+//						StorageEndpoint:     pulumi.String("https://s3-compatible.example.com"),
+//						StorageAwsKeyId:     pulumi.Any(awsKeyId),
+//						StorageAwsSecretKey: pulumi.Any(awsSecretKey),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/externalVolume:ExternalVolume example '"<external_volume_name>"'
+// ```
 type ExternalVolume struct {
 	pulumi.CustomResourceState
 
@@ -24,7 +166,7 @@ type ExternalVolume struct {
 	AllowWrites pulumi.StringPtrOutput `pulumi:"allowWrites"`
 	// Specifies a comment for the external volume.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
 	DescribeOutputs ExternalVolumeDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
@@ -73,7 +215,7 @@ type externalVolumeState struct {
 	AllowWrites *string `pulumi:"allowWrites"`
 	// Specifies a comment for the external volume.
 	Comment *string `pulumi:"comment"`
-	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
 	DescribeOutputs []ExternalVolumeDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
@@ -90,7 +232,7 @@ type ExternalVolumeState struct {
 	AllowWrites pulumi.StringPtrInput
 	// Specifies a comment for the external volume.
 	Comment pulumi.StringPtrInput
-	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
 	DescribeOutputs ExternalVolumeDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
@@ -226,7 +368,7 @@ func (o ExternalVolumeOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalVolume) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
 func (o ExternalVolumeOutput) DescribeOutputs() ExternalVolumeDescribeOutputArrayOutput {
 	return o.ApplyT(func(v *ExternalVolume) ExternalVolumeDescribeOutputArrayOutput { return v.DescribeOutputs }).(ExternalVolumeDescribeOutputArrayOutput)
 }

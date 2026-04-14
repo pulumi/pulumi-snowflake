@@ -372,8 +372,20 @@ export interface ApiAuthenticationIntegrationWithJwtBearerShowOutput {
     name?: pulumi.Input<string>;
 }
 
+export interface AuthenticationPolicyClientPolicy {
+    /**
+     * The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+     */
+    clientType: pulumi.Input<string>;
+    /**
+     * Minimum allowed version for this client/driver type (e.g. '1.14.1').
+     */
+    minimumVersion: pulumi.Input<string>;
+}
+
 export interface AuthenticationPolicyDescribeOutput {
     authenticationMethods?: pulumi.Input<string>;
+    clientPolicy?: pulumi.Input<string>;
     clientTypes?: pulumi.Input<string>;
     comment?: pulumi.Input<string>;
     mfaEnrollment?: pulumi.Input<string>;
@@ -387,7 +399,7 @@ export interface AuthenticationPolicyDescribeOutput {
 
 export interface AuthenticationPolicyMfaPolicy {
     /**
-     * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+     * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
      */
     allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -406,9 +418,13 @@ export interface AuthenticationPolicyPatPolicy {
      */
     maxExpiryInDays?: pulumi.Input<number>;
     /**
-     * Specifies the network policy evaluation for the PAT.
+     * Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      */
     networkPolicyEvaluation?: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    requireRoleRestrictionForServiceUsers?: pulumi.Input<string>;
 }
 
 export interface AuthenticationPolicyShowOutput {
@@ -440,6 +456,227 @@ export interface AuthenticationPolicyWorkloadIdentityPolicy {
      * Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
      */
     allowedProviders?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface CatalogIntegrationAwsGlueDescribeOutput {
+    catalogNamespace?: pulumi.Input<string>;
+    catalogSource?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    glueAwsRoleArn?: pulumi.Input<string>;
+    glueCatalogId?: pulumi.Input<string>;
+    glueRegion?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    refreshIntervalSeconds?: pulumi.Input<number>;
+    tableFormat?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationAwsGlueShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestBearerRestAuthentication {
+    /**
+     * The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    bearerToken: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutput {
+    bearerRestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication>[]>;
+    catalogNamespace?: pulumi.Input<string>;
+    catalogSource?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    id?: pulumi.Input<string>;
+    oauthRestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication>[]>;
+    refreshIntervalSeconds?: pulumi.Input<number>;
+    restConfigs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputRestConfig>[]>;
+    sigv4RestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication>[]>;
+    tableFormat?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication {
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication {
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    oauthClientId?: pulumi.Input<string>;
+    oauthTokenUri?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutputRestConfig {
+    accessDelegationMode?: pulumi.Input<string>;
+    catalogApiType?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    catalogUri?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication {
+    sigv4IamRole?: pulumi.Input<string>;
+    sigv4SigningRegion?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestOauthRestAuthentication {
+    /**
+     * Specifies one or more scopes for the OAuth token.
+     */
+    oauthAllowedScopes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the client ID of the OAuth2 credential.
+     */
+    oauthClientId: pulumi.Input<string>;
+    /**
+     * Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    oauthClientSecret: pulumi.Input<string>;
+    /**
+     * Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+     */
+    oauthTokenUri?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestRestConfig {
+    /**
+     * Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+     */
+    accessDelegationMode?: pulumi.Input<string>;
+    /**
+     * Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     */
+    catalogApiType?: pulumi.Input<string>;
+    /**
+     * Specifies the catalog or identifier to request from your remote catalog service.
+     */
+    catalogName?: pulumi.Input<string>;
+    /**
+     * Specifies the endpoint URL for the catalog REST API.
+     */
+    catalogUri: pulumi.Input<string>;
+    /**
+     * Specifies an optional prefix appended to all API routes.
+     */
+    prefix?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationIcebergRestSigv4RestAuthentication {
+    /**
+     * Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    sigv4ExternalId?: pulumi.Input<string>;
+    /**
+     * Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+     */
+    sigv4IamRole: pulumi.Input<string>;
+    /**
+     * Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+     */
+    sigv4SigningRegion?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationObjectStorageDescribeOutput {
+    catalogSource?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    id?: pulumi.Input<string>;
+    refreshIntervalSeconds?: pulumi.Input<number>;
+    tableFormat?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationObjectStorageShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationOpenCatalogDescribeOutput {
+    catalogNamespace?: pulumi.Input<string>;
+    catalogSource?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    id?: pulumi.Input<string>;
+    refreshIntervalSeconds?: pulumi.Input<number>;
+    restAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication>[]>;
+    restConfigs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogDescribeOutputRestConfig>[]>;
+    tableFormat?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication {
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    oauthClientId?: pulumi.Input<string>;
+    oauthTokenUri?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationOpenCatalogDescribeOutputRestConfig {
+    accessDelegationMode?: pulumi.Input<string>;
+    catalogApiType?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    catalogUri?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationOpenCatalogRestAuthentication {
+    /**
+     * Specifies one or more scopes for the OAuth token.
+     */
+    oauthAllowedScopes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+     */
+    oauthClientId: pulumi.Input<string>;
+    /**
+     * Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    oauthClientSecret: pulumi.Input<string>;
+    /**
+     * Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+     */
+    oauthTokenUri?: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationOpenCatalogRestConfig {
+    /**
+     * Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+     */
+    accessDelegationMode?: pulumi.Input<string>;
+    /**
+     * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+     */
+    catalogApiType?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the catalog to use in Open Catalog.
+     */
+    catalogName: pulumi.Input<string>;
+    /**
+     * Specifies Open Catalog account URL.
+     */
+    catalogUri: pulumi.Input<string>;
+}
+
+export interface CatalogIntegrationOpenCatalogShowOutput {
+    category?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 export interface ComputePoolDescribeOutput {
@@ -766,11 +1003,48 @@ export interface ExternalTableTag {
 }
 
 export interface ExternalVolumeDescribeOutput {
-    default?: pulumi.Input<string>;
+    active?: pulumi.Input<string>;
+    allowWrites?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    storageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocation>[]>;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocation {
+    azureStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation>[]>;
+    encryptionType?: pulumi.Input<string>;
+    gcsStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation>[]>;
     name?: pulumi.Input<string>;
-    parent?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    s3CompatStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation>[]>;
+    s3StorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationS3StorageLocation>[]>;
+    storageAllowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    storageBaseUrl?: pulumi.Input<string>;
+    storageProvider?: pulumi.Input<string>;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation {
+    azureConsentUrl?: pulumi.Input<string>;
+    azureMultiTenantAppName?: pulumi.Input<string>;
+    azureTenantId?: pulumi.Input<string>;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
+    encryptionKmsKeyId?: pulumi.Input<string>;
+    storageGcpServiceAccount?: pulumi.Input<string>;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation {
+    awsAccessKeyId?: pulumi.Input<string>;
+    encryptionKmsKeyId?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
+}
+
+export interface ExternalVolumeDescribeOutputStorageLocationS3StorageLocation {
+    encryptionKmsKeyId?: pulumi.Input<string>;
+    storageAwsAccessPointArn?: pulumi.Input<string>;
+    storageAwsExternalId?: pulumi.Input<string>;
+    storageAwsIamUserArn?: pulumi.Input<string>;
+    storageAwsRoleArn?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<string>;
 }
 
 export interface ExternalVolumeShowOutput {
@@ -793,25 +1067,45 @@ export interface ExternalVolumeStorageLocation {
      */
     encryptionType?: pulumi.Input<string>;
     /**
+     * Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+     */
+    storageAwsAccessPointArn?: pulumi.Input<string>;
+    /**
      * External ID that Snowflake uses to establish a trust relationship with AWS.
      */
     storageAwsExternalId?: pulumi.Input<string>;
+    /**
+     * Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     */
+    storageAwsKeyId?: pulumi.Input<string>;
     /**
      * Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
      */
     storageAwsRoleArn?: pulumi.Input<string>;
     /**
+     * Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     */
+    storageAwsSecretKey?: pulumi.Input<string>;
+    /**
      * Specifies the base URL for your cloud storage location.
      */
     storageBaseUrl: pulumi.Input<string>;
+    /**
+     * Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+     */
+    storageEndpoint?: pulumi.Input<string>;
     /**
      * Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     storageLocationName: pulumi.Input<string>;
     /**
-     * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+     * Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
      */
     storageProvider: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    usePrivatelinkEndpoint?: pulumi.Input<string>;
 }
 
 export interface FailoverGroupFromReplica {
@@ -2774,7 +3068,7 @@ export interface GrantOwnershipOn {
      */
     objectName?: pulumi.Input<string>;
     /**
-     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
      */
     objectType?: pulumi.Input<string>;
 }
@@ -2789,7 +3083,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2804,7 +3098,7 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2867,7 +3161,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2931,7 +3225,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2940,6 +3234,7 @@ export interface ImageRepositoryShowOutput {
     comment?: pulumi.Input<string>;
     createdOn?: pulumi.Input<string>;
     databaseName?: pulumi.Input<string>;
+    encryption?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     owner?: pulumi.Input<string>;
     ownerRoleType?: pulumi.Input<string>;
@@ -5292,6 +5587,10 @@ export interface SemanticViewFact {
      */
     comment?: pulumi.Input<string>;
     /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+     */
+    isPrivate?: pulumi.Input<string>;
+    /**
      * Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
      */
     qualifiedExpressionName: pulumi.Input<string>;
@@ -5306,6 +5605,10 @@ export interface SemanticViewFact {
 }
 
 export interface SemanticViewMetric {
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+     */
+    isPrivate?: pulumi.Input<string>;
     /**
      * Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
      */
@@ -9063,6 +9366,17 @@ export interface TableTag {
     value: pulumi.Input<string>;
 }
 
+export interface TagOnConflict {
+    /**
+     * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    allowedValuesSequence?: pulumi.Input<boolean>;
+    /**
+     * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    customValue?: pulumi.Input<string>;
+}
+
 export interface TagShowOutput {
     allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
     comment?: pulumi.Input<string>;
@@ -9071,6 +9385,7 @@ export interface TagShowOutput {
     name?: pulumi.Input<string>;
     owner?: pulumi.Input<string>;
     ownerRoleType?: pulumi.Input<string>;
+    propagate?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
 }
 
@@ -10367,6 +10682,51 @@ export interface ViewShowOutput {
     reserved?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
     text?: pulumi.Input<string>;
+}
+
+export interface WarehouseAdaptiveParameter {
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveParameterStatementQueuedTimeoutInSecond>[]>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveParameterStatementTimeoutInSecond>[]>;
+}
+
+export interface WarehouseAdaptiveParameterStatementQueuedTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface WarehouseAdaptiveParameterStatementTimeoutInSecond {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface WarehouseAdaptiveShowOutput {
+    autoResume?: pulumi.Input<boolean>;
+    available?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    isCurrent?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
+    maxQueryPerformanceLevel?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    other?: pulumi.Input<number>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    provisioning?: pulumi.Input<number>;
+    queryThroughputMultiplier?: pulumi.Input<number>;
+    queued?: pulumi.Input<number>;
+    quiescing?: pulumi.Input<number>;
+    resourceMonitor?: pulumi.Input<string>;
+    resumedOn?: pulumi.Input<string>;
+    running?: pulumi.Input<number>;
+    state?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    updatedOn?: pulumi.Input<string>;
 }
 
 export interface WarehouseParameter {

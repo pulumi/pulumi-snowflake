@@ -16,6 +16,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Comment;
         public readonly string CreatedOn;
         public readonly string DatabaseName;
+        public readonly string Encryption;
         public readonly string Name;
         public readonly string Owner;
         public readonly string OwnerRoleType;
@@ -30,6 +31,8 @@ namespace Pulumi.Snowflake.Outputs
             string createdOn,
 
             string databaseName,
+
+            string encryption,
 
             string name,
 
@@ -46,6 +49,7 @@ namespace Pulumi.Snowflake.Outputs
             Comment = comment;
             CreatedOn = createdOn;
             DatabaseName = databaseName;
+            Encryption = encryption;
             Name = name;
             Owner = owner;
             OwnerRoleType = ownerRoleType;

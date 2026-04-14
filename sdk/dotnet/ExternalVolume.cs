@@ -14,7 +14,149 @@ namespace Pulumi.Snowflake
     /// 
     /// Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Basic - S3 storage location with required fields only
+    ///     var s3Basic = new Snowflake.Index.ExternalVolume("s3_basic", new()
+    ///     {
+    ///         Name = "my_external_volume",
+    ///         StorageLocations = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalVolumeStorageLocationArgs
+    ///             {
+    ///                 StorageLocationName = "my-s3-location",
+    ///                 StorageProvider = "S3",
+    ///                 StorageBaseUrl = "s3://mybucket/",
+    ///                 StorageAwsRoleArn = "arn:aws:iam::123456789012:role/myrole",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Complete - S3 with all optional fields
+    ///     var s3Complete = new Snowflake.Index.ExternalVolume("s3_complete", new()
+    ///     {
+    ///         Name = "my_external_volume_complete",
+    ///         Comment = "my external volume",
+    ///         AllowWrites = "true",
+    ///         StorageLocations = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalVolumeStorageLocationArgs
+    ///             {
+    ///                 StorageLocationName = "my-s3-location",
+    ///                 StorageProvider = "S3",
+    ///                 StorageBaseUrl = "s3://mybucket/",
+    ///                 StorageAwsRoleArn = "arn:aws:iam::123456789012:role/myrole",
+    ///                 StorageAwsAccessPointArn = "arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point",
+    ///                 UsePrivatelinkEndpoint = "true",
+    ///                 EncryptionType = "AWS_SSE_KMS",
+    ///                 EncryptionKmsKeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Basic - GCS storage location with required fields only
+    ///     var gcsBasic = new Snowflake.Index.ExternalVolume("gcs_basic", new()
+    ///     {
+    ///         Name = "my_gcs_external_volume",
+    ///         StorageLocations = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalVolumeStorageLocationArgs
+    ///             {
+    ///                 StorageLocationName = "my-gcs-location",
+    ///                 StorageProvider = "GCS",
+    ///                 StorageBaseUrl = "gcs://mybucket/",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Complete - GCS with all optional fields
+    ///     var gcsComplete = new Snowflake.Index.ExternalVolume("gcs_complete", new()
+    ///     {
+    ///         Name = "my_gcs_external_volume_complete",
+    ///         StorageLocations = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalVolumeStorageLocationArgs
+    ///             {
+    ///                 StorageLocationName = "my-gcs-location",
+    ///                 StorageProvider = "GCS",
+    ///                 StorageBaseUrl = "gcs://mybucket/",
+    ///                 EncryptionType = "GCS_SSE_KMS",
+    ///                 EncryptionKmsKeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Basic - Azure storage location with required fields only
+    ///     var azureBasic = new Snowflake.Index.ExternalVolume("azure_basic", new()
+    ///     {
+    ///         Name = "my_azure_external_volume",
+    ///         StorageLocations = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalVolumeStorageLocationArgs
+    ///             {
+    ///                 StorageLocationName = "my-azure-location",
+    ///                 StorageProvider = "AZURE",
+    ///                 StorageBaseUrl = "azure://myaccount.blob.core.windows.net/mycontainer/",
+    ///                 AzureTenantId = "123e4567-e89b-12d3-a456-426614174000",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Complete - Azure with all optional fields
+    ///     var azureComplete = new Snowflake.Index.ExternalVolume("azure_complete", new()
+    ///     {
+    ///         Name = "my_azure_external_volume_complete",
+    ///         Comment = "my azure external volume",
+    ///         AllowWrites = "true",
+    ///         StorageLocations = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalVolumeStorageLocationArgs
+    ///             {
+    ///                 StorageLocationName = "my-azure-location",
+    ///                 StorageProvider = "AZURE",
+    ///                 StorageBaseUrl = "azure://myaccount.blob.core.windows.net/mycontainer/",
+    ///                 AzureTenantId = "123e4567-e89b-12d3-a456-426614174000",
+    ///                 UsePrivatelinkEndpoint = "true",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // S3-compatible storage location
+    ///     var s3compat = new Snowflake.Index.ExternalVolume("s3compat", new()
+    ///     {
+    ///         Name = "my_s3compat_external_volume",
+    ///         StorageLocations = new[]
+    ///         {
+    ///             new Snowflake.Inputs.ExternalVolumeStorageLocationArgs
+    ///             {
+    ///                 StorageLocationName = "my-s3compat-location",
+    ///                 StorageProvider = "S3COMPAT",
+    ///                 StorageBaseUrl = "s3compat://mybucket/",
+    ///                 StorageEndpoint = "https://s3-compatible.example.com",
+    ///                 StorageAwsKeyId = awsKeyId,
+    ///                 StorageAwsSecretKey = awsSecretKey,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/externalVolume:ExternalVolume example '"&lt;external_volume_name&gt;"'
+    /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/externalVolume:ExternalVolume")]
     public partial class ExternalVolume : global::Pulumi.CustomResource
@@ -32,7 +174,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+        /// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
         /// </summary>
         [Output("describeOutputs")]
         public Output<ImmutableArray<Outputs.ExternalVolumeDescribeOutput>> DescribeOutputs { get; private set; } = null!;
@@ -161,7 +303,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ExternalVolumeDescribeOutputGetArgs>? _describeOutputs;
 
         /// <summary>
-        /// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+        /// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
         /// </summary>
         public InputList<Inputs.ExternalVolumeDescribeOutputGetArgs> DescribeOutputs
         {

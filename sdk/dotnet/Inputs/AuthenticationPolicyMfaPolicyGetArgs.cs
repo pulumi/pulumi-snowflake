@@ -16,7 +16,7 @@ namespace Pulumi.Snowflake.Inputs
         private InputList<string>? _allowedMethods;
 
         /// <summary>
-        /// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+        /// Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
         /// </summary>
         public InputList<string> AllowedMethods
         {

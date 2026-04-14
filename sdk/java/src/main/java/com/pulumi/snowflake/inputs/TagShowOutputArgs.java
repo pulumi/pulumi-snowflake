@@ -65,6 +65,13 @@ public final class TagShowOutputArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ownerRoleType);
     }
 
+    @Import(name="propagate")
+    private @Nullable Output<String> propagate;
+
+    public Optional<Output<String>> propagate() {
+        return Optional.ofNullable(this.propagate);
+    }
+
     @Import(name="schemaName")
     private @Nullable Output<String> schemaName;
 
@@ -82,6 +89,7 @@ public final class TagShowOutputArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.owner = $.owner;
         this.ownerRoleType = $.ownerRoleType;
+        this.propagate = $.propagate;
         this.schemaName = $.schemaName;
     }
 
@@ -168,6 +176,15 @@ public final class TagShowOutputArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder ownerRoleType(String ownerRoleType) {
             return ownerRoleType(Output.of(ownerRoleType));
+        }
+
+        public Builder propagate(@Nullable Output<String> propagate) {
+            $.propagate = propagate;
+            return this;
+        }
+
+        public Builder propagate(String propagate) {
+            return propagate(Output.of(propagate));
         }
 
         public Builder schemaName(@Nullable Output<String> schemaName) {

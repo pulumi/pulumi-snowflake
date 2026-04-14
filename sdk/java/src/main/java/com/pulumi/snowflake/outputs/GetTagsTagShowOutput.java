@@ -18,6 +18,7 @@ public final class GetTagsTagShowOutput {
     private String name;
     private String owner;
     private String ownerRoleType;
+    private String propagate;
     private String schemaName;
 
     private GetTagsTagShowOutput() {}
@@ -42,6 +43,9 @@ public final class GetTagsTagShowOutput {
     public String ownerRoleType() {
         return this.ownerRoleType;
     }
+    public String propagate() {
+        return this.propagate;
+    }
     public String schemaName() {
         return this.schemaName;
     }
@@ -62,6 +66,7 @@ public final class GetTagsTagShowOutput {
         private String name;
         private String owner;
         private String ownerRoleType;
+        private String propagate;
         private String schemaName;
         public Builder() {}
         public Builder(GetTagsTagShowOutput defaults) {
@@ -73,6 +78,7 @@ public final class GetTagsTagShowOutput {
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
     	      this.ownerRoleType = defaults.ownerRoleType;
+    	      this.propagate = defaults.propagate;
     	      this.schemaName = defaults.schemaName;
         }
 
@@ -136,6 +142,14 @@ public final class GetTagsTagShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder propagate(String propagate) {
+            if (propagate == null) {
+              throw new MissingRequiredPropertyException("GetTagsTagShowOutput", "propagate");
+            }
+            this.propagate = propagate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schemaName(String schemaName) {
             if (schemaName == null) {
               throw new MissingRequiredPropertyException("GetTagsTagShowOutput", "schemaName");
@@ -152,6 +166,7 @@ public final class GetTagsTagShowOutput {
             _resultValue.name = name;
             _resultValue.owner = owner;
             _resultValue.ownerRoleType = ownerRoleType;
+            _resultValue.propagate = propagate;
             _resultValue.schemaName = schemaName;
             return _resultValue;
         }

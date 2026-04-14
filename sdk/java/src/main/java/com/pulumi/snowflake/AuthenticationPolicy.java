@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.AuthenticationPolicyArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.AuthenticationPolicyState;
+import com.pulumi.snowflake.outputs.AuthenticationPolicyClientPolicy;
 import com.pulumi.snowflake.outputs.AuthenticationPolicyDescribeOutput;
 import com.pulumi.snowflake.outputs.AuthenticationPolicyMfaPolicy;
 import com.pulumi.snowflake.outputs.AuthenticationPolicyPatPolicy;
@@ -126,6 +127,20 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> authenticationMethods() {
         return Codegen.optional(this.authenticationMethods);
+    }
+    /**
+     * Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+     * 
+     */
+    @Export(name="clientPolicies", refs={List.class,AuthenticationPolicyClientPolicy.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AuthenticationPolicyClientPolicy>> clientPolicies;
+
+    /**
+     * @return Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+     * 
+     */
+    public Output<Optional<List<AuthenticationPolicyClientPolicy>>> clientPolicies() {
+        return Codegen.optional(this.clientPolicies);
     }
     /**
      * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.

@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * > **Note** Quoted names for special characters or case-sensitive names are not supported. The same constraint also applies to database and schema names where you create an image repository. That is, database and schema names without quotes are valid when creating an image repository. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository)). Please use only characters compatible with [unquoted identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax#label-unquoted-identifier).
  *
+ * > **Note** The `encryption` attribute can only be set at creation time and Snowflake default is used if omitted. Changing this value requires destroying and recreating the resource. When importing an existing image repository, the `encryption` field is not populated in state — only `show_output[0].encryption` reflects the actual value. To avoid a diff after import, either omit `encryption` from your configuration or set it explicitly to match the current Snowflake value.
+ *
  * Resource used to manage image repositories. For more information, check [image repositories documentation](https://docs.snowflake.com/en/sql-reference/sql/create-image-repository). Snowpark Container Services provides an OCIv2-compliant image registry service and a storage unit call repository to store images. See [Working with an image registry and repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository) developer guide for more details.
  *
  * ## Example Usage
@@ -80,6 +82,10 @@ export class ImageRepository extends pulumi.CustomResource {
      */
     declare public readonly database: pulumi.Output<string>;
     /**
+     * Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+     */
+    declare public readonly encryption: pulumi.Output<string | undefined>;
+    /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
@@ -111,6 +117,7 @@ export class ImageRepository extends pulumi.CustomResource {
             const state = argsOrState as ImageRepositoryState | undefined;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["database"] = state?.database;
+            resourceInputs["encryption"] = state?.encryption;
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
             resourceInputs["name"] = state?.name;
             resourceInputs["schema"] = state?.schema;
@@ -125,6 +132,7 @@ export class ImageRepository extends pulumi.CustomResource {
             }
             resourceInputs["comment"] = args?.comment;
             resourceInputs["database"] = args?.database;
+            resourceInputs["encryption"] = args?.encryption;
             resourceInputs["name"] = args?.name;
             resourceInputs["schema"] = args?.schema;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
@@ -147,6 +155,10 @@ export interface ImageRepositoryState {
      * The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+     */
+    encryption?: pulumi.Input<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
@@ -177,6 +189,10 @@ export interface ImageRepositoryArgs {
      * The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
+    /**
+     * Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
+     */
+    encryption?: pulumi.Input<string>;
     /**
      * Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

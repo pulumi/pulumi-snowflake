@@ -13,6 +13,7 @@ public final class GetImageRepositoriesImageRepositoryShowOutput {
     private String comment;
     private String createdOn;
     private String databaseName;
+    private String encryption;
     private String name;
     private String owner;
     private String ownerRoleType;
@@ -29,6 +30,9 @@ public final class GetImageRepositoriesImageRepositoryShowOutput {
     }
     public String databaseName() {
         return this.databaseName;
+    }
+    public String encryption() {
+        return this.encryption;
     }
     public String name() {
         return this.name;
@@ -61,6 +65,7 @@ public final class GetImageRepositoriesImageRepositoryShowOutput {
         private String comment;
         private String createdOn;
         private String databaseName;
+        private String encryption;
         private String name;
         private String owner;
         private String ownerRoleType;
@@ -73,6 +78,7 @@ public final class GetImageRepositoriesImageRepositoryShowOutput {
     	      this.comment = defaults.comment;
     	      this.createdOn = defaults.createdOn;
     	      this.databaseName = defaults.databaseName;
+    	      this.encryption = defaults.encryption;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
     	      this.ownerRoleType = defaults.ownerRoleType;
@@ -103,6 +109,14 @@ public final class GetImageRepositoriesImageRepositoryShowOutput {
               throw new MissingRequiredPropertyException("GetImageRepositoriesImageRepositoryShowOutput", "databaseName");
             }
             this.databaseName = databaseName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder encryption(String encryption) {
+            if (encryption == null) {
+              throw new MissingRequiredPropertyException("GetImageRepositoriesImageRepositoryShowOutput", "encryption");
+            }
+            this.encryption = encryption;
             return this;
         }
         @CustomType.Setter
@@ -158,6 +172,7 @@ public final class GetImageRepositoriesImageRepositoryShowOutput {
             _resultValue.comment = comment;
             _resultValue.createdOn = createdOn;
             _resultValue.databaseName = databaseName;
+            _resultValue.encryption = encryption;
             _resultValue.name = name;
             _resultValue.owner = owner;
             _resultValue.ownerRoleType = ownerRoleType;

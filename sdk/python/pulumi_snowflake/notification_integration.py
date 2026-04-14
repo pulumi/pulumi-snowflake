@@ -658,15 +658,40 @@ class NotificationIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        integration = snowflake.NotificationIntegration("integration",
+        # basic resource with AZURE_STORAGE_QUEUE
+        azure = snowflake.NotificationIntegration("azure",
             name="notification",
-            comment="A notification integration.",
             enabled=True,
-            type="QUEUE",
-            direction="OUTBOUND",
             notification_provider="AZURE_STORAGE_QUEUE",
-            azure_storage_queue_primary_uri="...",
-            azure_tenant_id="...")
+            azure_storage_queue_primary_uri="https://myaccount.queue.core.windows.net/myqueue",
+            azure_tenant_id="a123b4c5-1234-123a-a12b-1a23b45678c9")
+        # basic resource with AWS_SNS
+        aws = snowflake.NotificationIntegration("aws",
+            name="notification",
+            enabled=True,
+            notification_provider="AWS_SNS",
+            aws_sns_topic_arn="arn:aws:sns:us-east-1:001234567890:mytopic",
+            aws_sns_role_arn="arn:aws:iam::001234567890:role/myrole")
+        # basic resource with GCP_PUBSUB (subscription)
+        gcp_subscription = snowflake.NotificationIntegration("gcp_subscription",
+            name="notification",
+            enabled=True,
+            notification_provider="GCP_PUBSUB",
+            gcp_pubsub_subscription_name="projects/myproject/subscriptions/mysubscription")
+        # basic resource with GCP_PUBSUB (topic)
+        gcp_topic = snowflake.NotificationIntegration("gcp_topic",
+            name="notification",
+            enabled=True,
+            notification_provider="GCP_PUBSUB",
+            gcp_pubsub_topic_name="projects/myproject/topics/mytopic")
+        # resource with all non-provider-specific fields set
+        complete = snowflake.NotificationIntegration("complete",
+            name="notification",
+            enabled=True,
+            comment="A notification integration.",
+            notification_provider="AZURE_STORAGE_QUEUE",
+            azure_storage_queue_primary_uri="https://myaccount.queue.core.windows.net/myqueue",
+            azure_tenant_id="a123b4c5-1234-123a-a12b-1a23b45678c9")
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -712,15 +737,40 @@ class NotificationIntegration(pulumi.CustomResource):
         import pulumi
         import pulumi_snowflake as snowflake
 
-        integration = snowflake.NotificationIntegration("integration",
+        # basic resource with AZURE_STORAGE_QUEUE
+        azure = snowflake.NotificationIntegration("azure",
             name="notification",
-            comment="A notification integration.",
             enabled=True,
-            type="QUEUE",
-            direction="OUTBOUND",
             notification_provider="AZURE_STORAGE_QUEUE",
-            azure_storage_queue_primary_uri="...",
-            azure_tenant_id="...")
+            azure_storage_queue_primary_uri="https://myaccount.queue.core.windows.net/myqueue",
+            azure_tenant_id="a123b4c5-1234-123a-a12b-1a23b45678c9")
+        # basic resource with AWS_SNS
+        aws = snowflake.NotificationIntegration("aws",
+            name="notification",
+            enabled=True,
+            notification_provider="AWS_SNS",
+            aws_sns_topic_arn="arn:aws:sns:us-east-1:001234567890:mytopic",
+            aws_sns_role_arn="arn:aws:iam::001234567890:role/myrole")
+        # basic resource with GCP_PUBSUB (subscription)
+        gcp_subscription = snowflake.NotificationIntegration("gcp_subscription",
+            name="notification",
+            enabled=True,
+            notification_provider="GCP_PUBSUB",
+            gcp_pubsub_subscription_name="projects/myproject/subscriptions/mysubscription")
+        # basic resource with GCP_PUBSUB (topic)
+        gcp_topic = snowflake.NotificationIntegration("gcp_topic",
+            name="notification",
+            enabled=True,
+            notification_provider="GCP_PUBSUB",
+            gcp_pubsub_topic_name="projects/myproject/topics/mytopic")
+        # resource with all non-provider-specific fields set
+        complete = snowflake.NotificationIntegration("complete",
+            name="notification",
+            enabled=True,
+            comment="A notification integration.",
+            notification_provider="AZURE_STORAGE_QUEUE",
+            azure_storage_queue_primary_uri="https://myaccount.queue.core.windows.net/myqueue",
+            azure_tenant_id="a123b4c5-1234-123a-a12b-1a23b45678c9")
         ```
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.

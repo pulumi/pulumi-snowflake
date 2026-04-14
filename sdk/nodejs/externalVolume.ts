@@ -11,7 +11,102 @@ import * as utilities from "./utilities";
  *
  * Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * // Basic - S3 storage location with required fields only
+ * const s3Basic = new snowflake.ExternalVolume("s3_basic", {
+ *     name: "my_external_volume",
+ *     storageLocations: [{
+ *         storageLocationName: "my-s3-location",
+ *         storageProvider: "S3",
+ *         storageBaseUrl: "s3://mybucket/",
+ *         storageAwsRoleArn: "arn:aws:iam::123456789012:role/myrole",
+ *     }],
+ * });
+ * // Complete - S3 with all optional fields
+ * const s3Complete = new snowflake.ExternalVolume("s3_complete", {
+ *     name: "my_external_volume_complete",
+ *     comment: "my external volume",
+ *     allowWrites: "true",
+ *     storageLocations: [{
+ *         storageLocationName: "my-s3-location",
+ *         storageProvider: "S3",
+ *         storageBaseUrl: "s3://mybucket/",
+ *         storageAwsRoleArn: "arn:aws:iam::123456789012:role/myrole",
+ *         storageAwsAccessPointArn: "arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point",
+ *         usePrivatelinkEndpoint: "true",
+ *         encryptionType: "AWS_SSE_KMS",
+ *         encryptionKmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     }],
+ * });
+ * // Basic - GCS storage location with required fields only
+ * const gcsBasic = new snowflake.ExternalVolume("gcs_basic", {
+ *     name: "my_gcs_external_volume",
+ *     storageLocations: [{
+ *         storageLocationName: "my-gcs-location",
+ *         storageProvider: "GCS",
+ *         storageBaseUrl: "gcs://mybucket/",
+ *     }],
+ * });
+ * // Complete - GCS with all optional fields
+ * const gcsComplete = new snowflake.ExternalVolume("gcs_complete", {
+ *     name: "my_gcs_external_volume_complete",
+ *     storageLocations: [{
+ *         storageLocationName: "my-gcs-location",
+ *         storageProvider: "GCS",
+ *         storageBaseUrl: "gcs://mybucket/",
+ *         encryptionType: "GCS_SSE_KMS",
+ *         encryptionKmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     }],
+ * });
+ * // Basic - Azure storage location with required fields only
+ * const azureBasic = new snowflake.ExternalVolume("azure_basic", {
+ *     name: "my_azure_external_volume",
+ *     storageLocations: [{
+ *         storageLocationName: "my-azure-location",
+ *         storageProvider: "AZURE",
+ *         storageBaseUrl: "azure://myaccount.blob.core.windows.net/mycontainer/",
+ *         azureTenantId: "123e4567-e89b-12d3-a456-426614174000",
+ *     }],
+ * });
+ * // Complete - Azure with all optional fields
+ * const azureComplete = new snowflake.ExternalVolume("azure_complete", {
+ *     name: "my_azure_external_volume_complete",
+ *     comment: "my azure external volume",
+ *     allowWrites: "true",
+ *     storageLocations: [{
+ *         storageLocationName: "my-azure-location",
+ *         storageProvider: "AZURE",
+ *         storageBaseUrl: "azure://myaccount.blob.core.windows.net/mycontainer/",
+ *         azureTenantId: "123e4567-e89b-12d3-a456-426614174000",
+ *         usePrivatelinkEndpoint: "true",
+ *     }],
+ * });
+ * // S3-compatible storage location
+ * const s3compat = new snowflake.ExternalVolume("s3compat", {
+ *     name: "my_s3compat_external_volume",
+ *     storageLocations: [{
+ *         storageLocationName: "my-s3compat-location",
+ *         storageProvider: "S3COMPAT",
+ *         storageBaseUrl: "s3compat://mybucket/",
+ *         storageEndpoint: "https://s3-compatible.example.com",
+ *         storageAwsKeyId: awsKeyId,
+ *         storageAwsSecretKey: awsSecretKey,
+ *     }],
+ * });
+ * ```
+ *
  * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/externalVolume:ExternalVolume example '"<external_volume_name>"'
+ * ```
  */
 export class ExternalVolume extends pulumi.CustomResource {
     /**
@@ -50,7 +145,7 @@ export class ExternalVolume extends pulumi.CustomResource {
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
-     * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+     * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
      */
     declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.ExternalVolumeDescribeOutput[]>;
     /**
@@ -121,7 +216,7 @@ export interface ExternalVolumeState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
+     * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutput>[]>;
     /**

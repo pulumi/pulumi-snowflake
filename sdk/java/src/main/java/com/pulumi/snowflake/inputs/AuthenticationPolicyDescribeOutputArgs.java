@@ -22,6 +22,13 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
         return Optional.ofNullable(this.authenticationMethods);
     }
 
+    @Import(name="clientPolicy")
+    private @Nullable Output<String> clientPolicy;
+
+    public Optional<Output<String>> clientPolicy() {
+        return Optional.ofNullable(this.clientPolicy);
+    }
+
     @Import(name="clientTypes")
     private @Nullable Output<String> clientTypes;
 
@@ -89,6 +96,7 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
 
     private AuthenticationPolicyDescribeOutputArgs(AuthenticationPolicyDescribeOutputArgs $) {
         this.authenticationMethods = $.authenticationMethods;
+        this.clientPolicy = $.clientPolicy;
         this.clientTypes = $.clientTypes;
         this.comment = $.comment;
         this.mfaEnrollment = $.mfaEnrollment;
@@ -125,6 +133,15 @@ public final class AuthenticationPolicyDescribeOutputArgs extends com.pulumi.res
 
         public Builder authenticationMethods(String authenticationMethods) {
             return authenticationMethods(Output.of(authenticationMethods));
+        }
+
+        public Builder clientPolicy(@Nullable Output<String> clientPolicy) {
+            $.clientPolicy = clientPolicy;
+            return this;
+        }
+
+        public Builder clientPolicy(String clientPolicy) {
+            return clientPolicy(Output.of(clientPolicy));
         }
 
         public Builder clientTypes(@Nullable Output<String> clientTypes) {

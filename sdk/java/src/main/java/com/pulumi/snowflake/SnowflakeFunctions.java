@@ -18,6 +18,8 @@ import com.pulumi.snowflake.inputs.GetAlertsArgs;
 import com.pulumi.snowflake.inputs.GetAlertsPlainArgs;
 import com.pulumi.snowflake.inputs.GetAuthenticationPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetAuthenticationPoliciesPlainArgs;
+import com.pulumi.snowflake.inputs.GetCatalogIntegrationsArgs;
+import com.pulumi.snowflake.inputs.GetCatalogIntegrationsPlainArgs;
 import com.pulumi.snowflake.inputs.GetComputePoolsArgs;
 import com.pulumi.snowflake.inputs.GetComputePoolsPlainArgs;
 import com.pulumi.snowflake.inputs.GetConnectionsArgs;
@@ -38,6 +40,8 @@ import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
 import com.pulumi.snowflake.inputs.GetExternalTablesPlainArgs;
+import com.pulumi.snowflake.inputs.GetExternalVolumesArgs;
+import com.pulumi.snowflake.inputs.GetExternalVolumesPlainArgs;
 import com.pulumi.snowflake.inputs.GetFailoverGroupsArgs;
 import com.pulumi.snowflake.inputs.GetFailoverGroupsPlainArgs;
 import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
@@ -116,6 +120,7 @@ import com.pulumi.snowflake.outputs.GetAccountRolesResult;
 import com.pulumi.snowflake.outputs.GetAccountsResult;
 import com.pulumi.snowflake.outputs.GetAlertsResult;
 import com.pulumi.snowflake.outputs.GetAuthenticationPoliciesResult;
+import com.pulumi.snowflake.outputs.GetCatalogIntegrationsResult;
 import com.pulumi.snowflake.outputs.GetComputePoolsResult;
 import com.pulumi.snowflake.outputs.GetConnectionsResult;
 import com.pulumi.snowflake.outputs.GetCortexSearchServicesResult;
@@ -128,6 +133,7 @@ import com.pulumi.snowflake.outputs.GetDatabasesResult;
 import com.pulumi.snowflake.outputs.GetDynamicTablesResult;
 import com.pulumi.snowflake.outputs.GetExternalFunctionsResult;
 import com.pulumi.snowflake.outputs.GetExternalTablesResult;
+import com.pulumi.snowflake.outputs.GetExternalVolumesResult;
 import com.pulumi.snowflake.outputs.GetFailoverGroupsResult;
 import com.pulumi.snowflake.outputs.GetFileFormatsResult;
 import com.pulumi.snowflake.outputs.GetFunctionsResult;
@@ -645,6 +651,69 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetAuthenticationPoliciesResult> getAuthenticationPoliciesPlain(GetAuthenticationPoliciesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies", TypeShape.of(GetAuthenticationPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
+     * 
+     */
+    public static Output<GetCatalogIntegrationsResult> getCatalogIntegrations() {
+        return getCatalogIntegrations(GetCatalogIntegrationsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
+     * 
+     */
+    public static CompletableFuture<GetCatalogIntegrationsResult> getCatalogIntegrationsPlain() {
+        return getCatalogIntegrationsPlain(GetCatalogIntegrationsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
+     * 
+     */
+    public static Output<GetCatalogIntegrationsResult> getCatalogIntegrations(GetCatalogIntegrationsArgs args) {
+        return getCatalogIntegrations(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
+     * 
+     */
+    public static CompletableFuture<GetCatalogIntegrationsResult> getCatalogIntegrationsPlain(GetCatalogIntegrationsPlainArgs args) {
+        return getCatalogIntegrationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
+     * 
+     */
+    public static Output<GetCatalogIntegrationsResult> getCatalogIntegrations(GetCatalogIntegrationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", TypeShape.of(GetCatalogIntegrationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
+     * 
+     */
+    public static Output<GetCatalogIntegrationsResult> getCatalogIntegrations(GetCatalogIntegrationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", TypeShape.of(GetCatalogIntegrationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
+     * 
+     */
+    public static CompletableFuture<GetCatalogIntegrationsResult> getCatalogIntegrationsPlain(GetCatalogIntegrationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", TypeShape.of(GetCatalogIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `computePools`.
@@ -2678,6 +2747,69 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetExternalTablesResult> getExternalTablesPlain(GetExternalTablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
+     * 
+     */
+    public static Output<GetExternalVolumesResult> getExternalVolumes() {
+        return getExternalVolumes(GetExternalVolumesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
+     * 
+     */
+    public static CompletableFuture<GetExternalVolumesResult> getExternalVolumesPlain() {
+        return getExternalVolumesPlain(GetExternalVolumesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
+     * 
+     */
+    public static Output<GetExternalVolumesResult> getExternalVolumes(GetExternalVolumesArgs args) {
+        return getExternalVolumes(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
+     * 
+     */
+    public static CompletableFuture<GetExternalVolumesResult> getExternalVolumesPlain(GetExternalVolumesPlainArgs args) {
+        return getExternalVolumesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
+     * 
+     */
+    public static Output<GetExternalVolumesResult> getExternalVolumes(GetExternalVolumesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getExternalVolumes:getExternalVolumes", TypeShape.of(GetExternalVolumesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
+     * 
+     */
+    public static Output<GetExternalVolumesResult> getExternalVolumes(GetExternalVolumesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getExternalVolumes:getExternalVolumes", TypeShape.of(GetExternalVolumesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
+     * 
+     */
+    public static CompletableFuture<GetExternalVolumesResult> getExternalVolumesPlain(GetExternalVolumesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getExternalVolumes:getExternalVolumes", TypeShape.of(GetExternalVolumesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

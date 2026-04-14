@@ -66,14 +66,18 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.certRevocationCheckMode);
     }
     /**
-     * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+     * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+     * 
+     * @deprecated
+     * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
      * 
      */
+    @Deprecated /* This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. */
     @Export(name="clientIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientIp;
 
     /**
-     * @return IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
+     * @return This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
      * 
      */
     public Output<Optional<String>> clientIp() {
@@ -150,14 +154,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.disableSamlUrlCheck);
     }
     /**
-     * Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+     * Specifies the logging level to be used by the driver. Valid options are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. The following values are deprecated and will be removed in v3: `WARNING` (uses `WARN` instead), `PRINT` (uses `INFO` instead), `PANIC` (uses `FATAL` instead). Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
      * 
      */
     @Export(name="driverTracing", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> driverTracing;
 
     /**
-     * @return Specifies the logging level to be used by the driver. Valid options are: `trace` | `debug` | `info` | `print` | `warning` | `error` | `fatal` | `panic`. Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
+     * @return Specifies the logging level to be used by the driver. Valid options are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. The following values are deprecated and will be removed in v3: `WARNING` (uses `WARN` instead), `PRINT` (uses `INFO` instead), `PANIC` (uses `FATAL` instead). Can also be sourced from the `SNOWFLAKE_DRIVER_TRACING` environment variable.
      * 
      */
     public Output<Optional<String>> driverTracing() {

@@ -112,6 +112,8 @@ type AuthenticationPolicy struct {
 
 	// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
 	AuthenticationMethods pulumi.StringArrayOutput `pulumi:"authenticationMethods"`
+	// Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+	ClientPolicies AuthenticationPolicyClientPolicyArrayOutput `pulumi:"clientPolicies"`
 	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes pulumi.StringArrayOutput `pulumi:"clientTypes"`
 	// Specifies a comment for the authentication policy.
@@ -182,6 +184,8 @@ func GetAuthenticationPolicy(ctx *pulumi.Context,
 type authenticationPolicyState struct {
 	// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
 	AuthenticationMethods []string `pulumi:"authenticationMethods"`
+	// Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+	ClientPolicies []AuthenticationPolicyClientPolicy `pulumi:"clientPolicies"`
 	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes []string `pulumi:"clientTypes"`
 	// Specifies a comment for the authentication policy.
@@ -217,6 +221,8 @@ type authenticationPolicyState struct {
 type AuthenticationPolicyState struct {
 	// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
 	AuthenticationMethods pulumi.StringArrayInput
+	// Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+	ClientPolicies AuthenticationPolicyClientPolicyArrayInput
 	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes pulumi.StringArrayInput
 	// Specifies a comment for the authentication policy.
@@ -256,6 +262,8 @@ func (AuthenticationPolicyState) ElementType() reflect.Type {
 type authenticationPolicyArgs struct {
 	// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
 	AuthenticationMethods []string `pulumi:"authenticationMethods"`
+	// Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+	ClientPolicies []AuthenticationPolicyClientPolicy `pulumi:"clientPolicies"`
 	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes []string `pulumi:"clientTypes"`
 	// Specifies a comment for the authentication policy.
@@ -286,6 +294,8 @@ type authenticationPolicyArgs struct {
 type AuthenticationPolicyArgs struct {
 	// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
 	AuthenticationMethods pulumi.StringArrayInput
+	// Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+	ClientPolicies AuthenticationPolicyClientPolicyArrayInput
 	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes pulumi.StringArrayInput
 	// Specifies a comment for the authentication policy.
@@ -402,6 +412,11 @@ func (o AuthenticationPolicyOutput) ToAuthenticationPolicyOutputWithContext(ctx 
 // A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
 func (o AuthenticationPolicyOutput) AuthenticationMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringArrayOutput { return v.AuthenticationMethods }).(pulumi.StringArrayOutput)
+}
+
+// Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
+func (o AuthenticationPolicyOutput) ClientPolicies() AuthenticationPolicyClientPolicyArrayOutput {
+	return o.ApplyT(func(v *AuthenticationPolicy) AuthenticationPolicyClientPolicyArrayOutput { return v.ClientPolicies }).(AuthenticationPolicyClientPolicyArrayOutput)
 }
 
 // A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.

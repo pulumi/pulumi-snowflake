@@ -12,20 +12,22 @@ namespace Pulumi.Snowflake.Inputs
 
     public sealed class ExternalVolumeDescribeOutputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("default")]
-        public Input<string>? Default { get; set; }
+        [Input("active")]
+        public Input<string>? Active { get; set; }
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("allowWrites")]
+        public Input<string>? AllowWrites { get; set; }
 
-        [Input("parent")]
-        public Input<string>? Parent { get; set; }
+        [Input("comment")]
+        public Input<string>? Comment { get; set; }
 
-        [Input("type")]
-        public Input<string>? Type { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
+        [Input("storageLocations")]
+        private InputList<Inputs.ExternalVolumeDescribeOutputStorageLocationArgs>? _storageLocations;
+        public InputList<Inputs.ExternalVolumeDescribeOutputStorageLocationArgs> StorageLocations
+        {
+            get => _storageLocations ?? (_storageLocations = new InputList<Inputs.ExternalVolumeDescribeOutputStorageLocationArgs>());
+            set => _storageLocations = value;
+        }
 
         public ExternalVolumeDescribeOutputArgs()
         {

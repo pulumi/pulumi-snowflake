@@ -101,6 +101,8 @@ __all__ = [
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs',
     'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict',
+    'AuthenticationPolicyClientPolicyArgs',
+    'AuthenticationPolicyClientPolicyArgsDict',
     'AuthenticationPolicyDescribeOutputArgs',
     'AuthenticationPolicyDescribeOutputArgsDict',
     'AuthenticationPolicyMfaPolicyArgs',
@@ -111,6 +113,46 @@ __all__ = [
     'AuthenticationPolicyShowOutputArgsDict',
     'AuthenticationPolicyWorkloadIdentityPolicyArgs',
     'AuthenticationPolicyWorkloadIdentityPolicyArgsDict',
+    'CatalogIntegrationAwsGlueDescribeOutputArgs',
+    'CatalogIntegrationAwsGlueDescribeOutputArgsDict',
+    'CatalogIntegrationAwsGlueShowOutputArgs',
+    'CatalogIntegrationAwsGlueShowOutputArgsDict',
+    'CatalogIntegrationIcebergRestBearerRestAuthenticationArgs',
+    'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict',
+    'CatalogIntegrationIcebergRestDescribeOutputArgs',
+    'CatalogIntegrationIcebergRestDescribeOutputArgsDict',
+    'CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs',
+    'CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgsDict',
+    'CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs',
+    'CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgsDict',
+    'CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs',
+    'CatalogIntegrationIcebergRestDescribeOutputRestConfigArgsDict',
+    'CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs',
+    'CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgsDict',
+    'CatalogIntegrationIcebergRestOauthRestAuthenticationArgs',
+    'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict',
+    'CatalogIntegrationIcebergRestRestConfigArgs',
+    'CatalogIntegrationIcebergRestRestConfigArgsDict',
+    'CatalogIntegrationIcebergRestShowOutputArgs',
+    'CatalogIntegrationIcebergRestShowOutputArgsDict',
+    'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs',
+    'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict',
+    'CatalogIntegrationObjectStorageDescribeOutputArgs',
+    'CatalogIntegrationObjectStorageDescribeOutputArgsDict',
+    'CatalogIntegrationObjectStorageShowOutputArgs',
+    'CatalogIntegrationObjectStorageShowOutputArgsDict',
+    'CatalogIntegrationOpenCatalogDescribeOutputArgs',
+    'CatalogIntegrationOpenCatalogDescribeOutputArgsDict',
+    'CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs',
+    'CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgsDict',
+    'CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs',
+    'CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgsDict',
+    'CatalogIntegrationOpenCatalogRestAuthenticationArgs',
+    'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict',
+    'CatalogIntegrationOpenCatalogRestConfigArgs',
+    'CatalogIntegrationOpenCatalogRestConfigArgsDict',
+    'CatalogIntegrationOpenCatalogShowOutputArgs',
+    'CatalogIntegrationOpenCatalogShowOutputArgsDict',
     'ComputePoolDescribeOutputArgs',
     'ComputePoolDescribeOutputArgsDict',
     'ComputePoolShowOutputArgs',
@@ -171,6 +213,16 @@ __all__ = [
     'ExternalTableTagArgsDict',
     'ExternalVolumeDescribeOutputArgs',
     'ExternalVolumeDescribeOutputArgsDict',
+    'ExternalVolumeDescribeOutputStorageLocationArgs',
+    'ExternalVolumeDescribeOutputStorageLocationArgsDict',
+    'ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs',
+    'ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgsDict',
+    'ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs',
+    'ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgsDict',
+    'ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs',
+    'ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgsDict',
+    'ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs',
+    'ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgsDict',
     'ExternalVolumeShowOutputArgs',
     'ExternalVolumeShowOutputArgsDict',
     'ExternalVolumeStorageLocationArgs',
@@ -1235,6 +1287,8 @@ __all__ = [
     'TablePrimaryKeyArgsDict',
     'TableTagArgs',
     'TableTagArgsDict',
+    'TagOnConflictArgs',
+    'TagOnConflictArgsDict',
     'TagShowOutputArgs',
     'TagShowOutputArgsDict',
     'TaskParameterArgs',
@@ -1509,6 +1563,14 @@ __all__ = [
     'ViewRowAccessPolicyArgsDict',
     'ViewShowOutputArgs',
     'ViewShowOutputArgsDict',
+    'WarehouseAdaptiveParameterArgs',
+    'WarehouseAdaptiveParameterArgsDict',
+    'WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgs',
+    'WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgsDict',
+    'WarehouseAdaptiveParameterStatementTimeoutInSecondArgs',
+    'WarehouseAdaptiveParameterStatementTimeoutInSecondArgsDict',
+    'WarehouseAdaptiveShowOutputArgs',
+    'WarehouseAdaptiveShowOutputArgsDict',
     'WarehouseParameterArgs',
     'WarehouseParameterArgsDict',
     'WarehouseParameterMaxConcurrencyLevelArgs',
@@ -4886,8 +4948,56 @@ class ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs:
         pulumi.set(self, "name", value)
 
 
+class AuthenticationPolicyClientPolicyArgsDict(TypedDict):
+    client_type: pulumi.Input[_builtins.str]
+    """
+    The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+    """
+    minimum_version: pulumi.Input[_builtins.str]
+    """
+    Minimum allowed version for this client/driver type (e.g. '1.14.1').
+    """
+
+@pulumi.input_type
+class AuthenticationPolicyClientPolicyArgs:
+    def __init__(__self__, *,
+                 client_type: pulumi.Input[_builtins.str],
+                 minimum_version: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] client_type: The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+        :param pulumi.Input[_builtins.str] minimum_version: Minimum allowed version for this client/driver type (e.g. '1.14.1').
+        """
+        pulumi.set(__self__, "client_type", client_type)
+        pulumi.set(__self__, "minimum_version", minimum_version)
+
+    @_builtins.property
+    @pulumi.getter(name="clientType")
+    def client_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
+        """
+        return pulumi.get(self, "client_type")
+
+    @client_type.setter
+    def client_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumVersion")
+    def minimum_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        Minimum allowed version for this client/driver type (e.g. '1.14.1').
+        """
+        return pulumi.get(self, "minimum_version")
+
+    @minimum_version.setter
+    def minimum_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "minimum_version", value)
+
+
 class AuthenticationPolicyDescribeOutputArgsDict(TypedDict):
     authentication_methods: NotRequired[pulumi.Input[_builtins.str]]
+    client_policy: NotRequired[pulumi.Input[_builtins.str]]
     client_types: NotRequired[pulumi.Input[_builtins.str]]
     comment: NotRequired[pulumi.Input[_builtins.str]]
     mfa_enrollment: NotRequired[pulumi.Input[_builtins.str]]
@@ -4902,6 +5012,7 @@ class AuthenticationPolicyDescribeOutputArgsDict(TypedDict):
 class AuthenticationPolicyDescribeOutputArgs:
     def __init__(__self__, *,
                  authentication_methods: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  client_types: Optional[pulumi.Input[_builtins.str]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4913,6 +5024,8 @@ class AuthenticationPolicyDescribeOutputArgs:
                  workload_identity_policy: Optional[pulumi.Input[_builtins.str]] = None):
         if authentication_methods is not None:
             pulumi.set(__self__, "authentication_methods", authentication_methods)
+        if client_policy is not None:
+            pulumi.set(__self__, "client_policy", client_policy)
         if client_types is not None:
             pulumi.set(__self__, "client_types", client_types)
         if comment is not None:
@@ -4940,6 +5053,15 @@ class AuthenticationPolicyDescribeOutputArgs:
     @authentication_methods.setter
     def authentication_methods(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "authentication_methods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientPolicy")
+    def client_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "client_policy")
+
+    @client_policy.setter
+    def client_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="clientTypes")
@@ -5026,7 +5148,7 @@ class AuthenticationPolicyDescribeOutputArgs:
 class AuthenticationPolicyMfaPolicyArgsDict(TypedDict):
     allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
-    Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+    Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
     """
     enforce_mfa_on_external_authentication: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -5039,7 +5161,7 @@ class AuthenticationPolicyMfaPolicyArgs:
                  allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enforce_mfa_on_external_authentication: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_methods: Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_methods: Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
         :param pulumi.Input[_builtins.str] enforce_mfa_on_external_authentication: Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
         """
         if allowed_methods is not None:
@@ -5051,7 +5173,7 @@ class AuthenticationPolicyMfaPolicyArgs:
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
+        Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -5083,7 +5205,11 @@ class AuthenticationPolicyPatPolicyArgsDict(TypedDict):
     """
     network_policy_evaluation: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Specifies the network policy evaluation for the PAT.
+    Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
+    """
+    require_role_restriction_for_service_users: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
     """
 
 @pulumi.input_type
@@ -5091,11 +5217,13 @@ class AuthenticationPolicyPatPolicyArgs:
     def __init__(__self__, *,
                  default_expiry_in_days: Optional[pulumi.Input[_builtins.int]] = None,
                  max_expiry_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 network_policy_evaluation: Optional[pulumi.Input[_builtins.str]] = None):
+                 network_policy_evaluation: Optional[pulumi.Input[_builtins.str]] = None,
+                 require_role_restriction_for_service_users: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] default_expiry_in_days: Specifies the default expiration time (in days) for a programmatic access token.
         :param pulumi.Input[_builtins.int] max_expiry_in_days: Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
-        :param pulumi.Input[_builtins.str] network_policy_evaluation: Specifies the network policy evaluation for the PAT.
+        :param pulumi.Input[_builtins.str] network_policy_evaluation: Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
+        :param pulumi.Input[_builtins.str] require_role_restriction_for_service_users: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         if default_expiry_in_days is not None:
             pulumi.set(__self__, "default_expiry_in_days", default_expiry_in_days)
@@ -5103,6 +5231,8 @@ class AuthenticationPolicyPatPolicyArgs:
             pulumi.set(__self__, "max_expiry_in_days", max_expiry_in_days)
         if network_policy_evaluation is not None:
             pulumi.set(__self__, "network_policy_evaluation", network_policy_evaluation)
+        if require_role_restriction_for_service_users is not None:
+            pulumi.set(__self__, "require_role_restriction_for_service_users", require_role_restriction_for_service_users)
 
     @_builtins.property
     @pulumi.getter(name="defaultExpiryInDays")
@@ -5132,13 +5262,25 @@ class AuthenticationPolicyPatPolicyArgs:
     @pulumi.getter(name="networkPolicyEvaluation")
     def network_policy_evaluation(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the network policy evaluation for the PAT.
+        Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
         """
         return pulumi.get(self, "network_policy_evaluation")
 
     @network_policy_evaluation.setter
     def network_policy_evaluation(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "network_policy_evaluation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requireRoleRestrictionForServiceUsers")
+    def require_role_restriction_for_service_users(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "require_role_restriction_for_service_users")
+
+    @require_role_restriction_for_service_users.setter
+    def require_role_restriction_for_service_users(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "require_role_restriction_for_service_users", value)
 
 
 class AuthenticationPolicyShowOutputArgsDict(TypedDict):
@@ -5352,6 +5494,1570 @@ class AuthenticationPolicyWorkloadIdentityPolicyArgs:
     @allowed_providers.setter
     def allowed_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_providers", value)
+
+
+class CatalogIntegrationAwsGlueDescribeOutputArgsDict(TypedDict):
+    catalog_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_source: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    glue_aws_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    glue_catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    glue_region: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    table_format: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationAwsGlueDescribeOutputArgs:
+    def __init__(__self__, *,
+                 catalog_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 glue_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 glue_catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 glue_region: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 refresh_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 table_format: Optional[pulumi.Input[_builtins.str]] = None):
+        if catalog_namespace is not None:
+            pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_source is not None:
+            pulumi.set(__self__, "catalog_source", catalog_source)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if glue_aws_role_arn is not None:
+            pulumi.set(__self__, "glue_aws_role_arn", glue_aws_role_arn)
+        if glue_catalog_id is not None:
+            pulumi.set(__self__, "glue_catalog_id", glue_catalog_id)
+        if glue_region is not None:
+            pulumi.set(__self__, "glue_region", glue_region)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if refresh_interval_seconds is not None:
+            pulumi.set(__self__, "refresh_interval_seconds", refresh_interval_seconds)
+        if table_format is not None:
+            pulumi.set(__self__, "table_format", table_format)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_namespace")
+
+    @catalog_namespace.setter
+    def catalog_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_source")
+
+    @catalog_source.setter
+    def catalog_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="glueAwsRoleArn")
+    def glue_aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "glue_aws_role_arn")
+
+    @glue_aws_role_arn.setter
+    def glue_aws_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "glue_aws_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="glueCatalogId")
+    def glue_catalog_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "glue_catalog_id")
+
+    @glue_catalog_id.setter
+    def glue_catalog_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "glue_catalog_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="glueRegion")
+    def glue_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "glue_region")
+
+    @glue_region.setter
+    def glue_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "glue_region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshIntervalSeconds")
+    def refresh_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "refresh_interval_seconds")
+
+    @refresh_interval_seconds.setter
+    def refresh_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "refresh_interval_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "table_format")
+
+    @table_format.setter
+    def table_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_format", value)
+
+
+class CatalogIntegrationAwsGlueShowOutputArgsDict(TypedDict):
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationAwsGlueShowOutputArgs:
+    def __init__(__self__, *,
+                 category: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict(TypedDict):
+    bearer_token: pulumi.Input[_builtins.str]
+    """
+    The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+    """
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestBearerRestAuthenticationArgs:
+    def __init__(__self__, *,
+                 bearer_token: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] bearer_token: The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        pulumi.set(__self__, "bearer_token", bearer_token)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerToken")
+    def bearer_token(self) -> pulumi.Input[_builtins.str]:
+        """
+        The bearer token for the identity provider. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "bearer_token")
+
+    @bearer_token.setter
+    def bearer_token(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bearer_token", value)
+
+
+class CatalogIntegrationIcebergRestDescribeOutputArgsDict(TypedDict):
+    bearer_rest_authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgsDict']]]]
+    catalog_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_source: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_rest_authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgsDict']]]]
+    refresh_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    rest_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputRestConfigArgsDict']]]]
+    sigv4_rest_authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgsDict']]]]
+    table_format: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestDescribeOutputArgs:
+    def __init__(__self__, *,
+                 bearer_rest_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs']]]] = None,
+                 catalog_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_rest_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs']]]] = None,
+                 refresh_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 rest_configs: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs']]]] = None,
+                 sigv4_rest_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs']]]] = None,
+                 table_format: Optional[pulumi.Input[_builtins.str]] = None):
+        if bearer_rest_authentications is not None:
+            pulumi.set(__self__, "bearer_rest_authentications", bearer_rest_authentications)
+        if catalog_namespace is not None:
+            pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_source is not None:
+            pulumi.set(__self__, "catalog_source", catalog_source)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if oauth_rest_authentications is not None:
+            pulumi.set(__self__, "oauth_rest_authentications", oauth_rest_authentications)
+        if refresh_interval_seconds is not None:
+            pulumi.set(__self__, "refresh_interval_seconds", refresh_interval_seconds)
+        if rest_configs is not None:
+            pulumi.set(__self__, "rest_configs", rest_configs)
+        if sigv4_rest_authentications is not None:
+            pulumi.set(__self__, "sigv4_rest_authentications", sigv4_rest_authentications)
+        if table_format is not None:
+            pulumi.set(__self__, "table_format", table_format)
+
+    @_builtins.property
+    @pulumi.getter(name="bearerRestAuthentications")
+    def bearer_rest_authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs']]]]:
+        return pulumi.get(self, "bearer_rest_authentications")
+
+    @bearer_rest_authentications.setter
+    def bearer_rest_authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs']]]]):
+        pulumi.set(self, "bearer_rest_authentications", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_namespace")
+
+    @catalog_namespace.setter
+    def catalog_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_source")
+
+    @catalog_source.setter
+    def catalog_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthRestAuthentications")
+    def oauth_rest_authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs']]]]:
+        return pulumi.get(self, "oauth_rest_authentications")
+
+    @oauth_rest_authentications.setter
+    def oauth_rest_authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs']]]]):
+        pulumi.set(self, "oauth_rest_authentications", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshIntervalSeconds")
+    def refresh_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "refresh_interval_seconds")
+
+    @refresh_interval_seconds.setter
+    def refresh_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "refresh_interval_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restConfigs")
+    def rest_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs']]]]:
+        return pulumi.get(self, "rest_configs")
+
+    @rest_configs.setter
+    def rest_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs']]]]):
+        pulumi.set(self, "rest_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sigv4RestAuthentications")
+    def sigv4_rest_authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs']]]]:
+        return pulumi.get(self, "sigv4_rest_authentications")
+
+    @sigv4_rest_authentications.setter
+    def sigv4_rest_authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs']]]]):
+        pulumi.set(self, "sigv4_rest_authentications", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "table_format")
+
+    @table_format.setter
+    def table_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_format", value)
+
+
+class CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs:
+    def __init__(__self__):
+        pass
+
+
+class CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgsDict(TypedDict):
+    oauth_allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    oauth_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_token_uri: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs:
+    def __init__(__self__, *,
+                 oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_token_uri: Optional[pulumi.Input[_builtins.str]] = None):
+        if oauth_allowed_scopes is not None:
+            pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        if oauth_client_id is not None:
+            pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        if oauth_token_uri is not None:
+            pulumi.set(__self__, "oauth_token_uri", oauth_token_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @oauth_allowed_scopes.setter
+    def oauth_allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "oauth_allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "oauth_client_id")
+
+    @oauth_client_id.setter
+    def oauth_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenUri")
+    def oauth_token_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "oauth_token_uri")
+
+    @oauth_token_uri.setter
+    def oauth_token_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_token_uri", value)
+
+
+class CatalogIntegrationIcebergRestDescribeOutputRestConfigArgsDict(TypedDict):
+    access_delegation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_api_type: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_name: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_uri: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs:
+    def __init__(__self__, *,
+                 access_delegation_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_api_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+        if access_delegation_mode is not None:
+            pulumi.set(__self__, "access_delegation_mode", access_delegation_mode)
+        if catalog_api_type is not None:
+            pulumi.set(__self__, "catalog_api_type", catalog_api_type)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if catalog_uri is not None:
+            pulumi.set(__self__, "catalog_uri", catalog_uri)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="accessDelegationMode")
+    def access_delegation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "access_delegation_mode")
+
+    @access_delegation_mode.setter
+    def access_delegation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "access_delegation_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogApiType")
+    def catalog_api_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_api_type")
+
+    @catalog_api_type.setter
+    def catalog_api_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_api_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogUri")
+    def catalog_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_uri")
+
+    @catalog_uri.setter
+    def catalog_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+
+class CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgsDict(TypedDict):
+    sigv4_iam_role: NotRequired[pulumi.Input[_builtins.str]]
+    sigv4_signing_region: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs:
+    def __init__(__self__, *,
+                 sigv4_iam_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 sigv4_signing_region: Optional[pulumi.Input[_builtins.str]] = None):
+        if sigv4_iam_role is not None:
+            pulumi.set(__self__, "sigv4_iam_role", sigv4_iam_role)
+        if sigv4_signing_region is not None:
+            pulumi.set(__self__, "sigv4_signing_region", sigv4_signing_region)
+
+    @_builtins.property
+    @pulumi.getter(name="sigv4IamRole")
+    def sigv4_iam_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "sigv4_iam_role")
+
+    @sigv4_iam_role.setter
+    def sigv4_iam_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sigv4_iam_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sigv4SigningRegion")
+    def sigv4_signing_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "sigv4_signing_region")
+
+    @sigv4_signing_region.setter
+    def sigv4_signing_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sigv4_signing_region", value)
+
+
+class CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict(TypedDict):
+    oauth_allowed_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies one or more scopes for the OAuth token.
+    """
+    oauth_client_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the client ID of the OAuth2 credential.
+    """
+    oauth_client_secret: pulumi.Input[_builtins.str]
+    """
+    Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+    """
+    oauth_token_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+    """
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestOauthRestAuthenticationArgs:
+    def __init__(__self__, *,
+                 oauth_allowed_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 oauth_client_id: pulumi.Input[_builtins.str],
+                 oauth_client_secret: pulumi.Input[_builtins.str],
+                 oauth_token_uri: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_allowed_scopes: Specifies one or more scopes for the OAuth token.
+        :param pulumi.Input[_builtins.str] oauth_client_id: Specifies the client ID of the OAuth2 credential.
+        :param pulumi.Input[_builtins.str] oauth_client_secret: Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.str] oauth_token_uri: Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+        """
+        pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        pulumi.set(__self__, "oauth_client_secret", oauth_client_secret)
+        if oauth_token_uri is not None:
+            pulumi.set(__self__, "oauth_token_uri", oauth_token_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies one or more scopes for the OAuth token.
+        """
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @oauth_allowed_scopes.setter
+    def oauth_allowed_scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "oauth_allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the client ID of the OAuth2 credential.
+        """
+        return pulumi.get(self, "oauth_client_id")
+
+    @oauth_client_id.setter
+    def oauth_client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "oauth_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientSecret")
+    def oauth_client_secret(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the secret of the OAuth2 credential. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "oauth_client_secret")
+
+    @oauth_client_secret.setter
+    def oauth_client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "oauth_client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenUri")
+    def oauth_token_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+        """
+        return pulumi.get(self, "oauth_token_uri")
+
+    @oauth_token_uri.setter
+    def oauth_token_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_token_uri", value)
+
+
+class CatalogIntegrationIcebergRestRestConfigArgsDict(TypedDict):
+    catalog_uri: pulumi.Input[_builtins.str]
+    """
+    Specifies the endpoint URL for the catalog REST API.
+    """
+    access_delegation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+    """
+    catalog_api_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+    """
+    catalog_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the catalog or identifier to request from your remote catalog service.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies an optional prefix appended to all API routes.
+    """
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestRestConfigArgs:
+    def __init__(__self__, *,
+                 catalog_uri: pulumi.Input[_builtins.str],
+                 access_delegation_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_api_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] catalog_uri: Specifies the endpoint URL for the catalog REST API.
+        :param pulumi.Input[_builtins.str] access_delegation_mode: Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+        :param pulumi.Input[_builtins.str] catalog_api_type: Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        :param pulumi.Input[_builtins.str] catalog_name: Specifies the catalog or identifier to request from your remote catalog service.
+        :param pulumi.Input[_builtins.str] prefix: Specifies an optional prefix appended to all API routes.
+        """
+        pulumi.set(__self__, "catalog_uri", catalog_uri)
+        if access_delegation_mode is not None:
+            pulumi.set(__self__, "access_delegation_mode", access_delegation_mode)
+        if catalog_api_type is not None:
+            pulumi.set(__self__, "catalog_api_type", catalog_api_type)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogUri")
+    def catalog_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the endpoint URL for the catalog REST API.
+        """
+        return pulumi.get(self, "catalog_uri")
+
+    @catalog_uri.setter
+    def catalog_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "catalog_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessDelegationMode")
+    def access_delegation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+        """
+        return pulumi.get(self, "access_delegation_mode")
+
+    @access_delegation_mode.setter
+    def access_delegation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "access_delegation_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogApiType")
+    def catalog_api_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        """
+        return pulumi.get(self, "catalog_api_type")
+
+    @catalog_api_type.setter
+    def catalog_api_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_api_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the catalog or identifier to request from your remote catalog service.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies an optional prefix appended to all API routes.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+
+class CatalogIntegrationIcebergRestShowOutputArgsDict(TypedDict):
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestShowOutputArgs:
+    def __init__(__self__, *,
+                 category: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict(TypedDict):
+    sigv4_iam_role: pulumi.Input[_builtins.str]
+    """
+    Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+    """
+    sigv4_external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+    """
+    sigv4_signing_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+    """
+
+@pulumi.input_type
+class CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs:
+    def __init__(__self__, *,
+                 sigv4_iam_role: pulumi.Input[_builtins.str],
+                 sigv4_external_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 sigv4_signing_region: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] sigv4_iam_role: Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+        :param pulumi.Input[_builtins.str] sigv4_external_id: Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.str] sigv4_signing_region: Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+        """
+        pulumi.set(__self__, "sigv4_iam_role", sigv4_iam_role)
+        if sigv4_external_id is not None:
+            pulumi.set(__self__, "sigv4_external_id", sigv4_external_id)
+        if sigv4_signing_region is not None:
+            pulumi.set(__self__, "sigv4_signing_region", sigv4_signing_region)
+
+    @_builtins.property
+    @pulumi.getter(name="sigv4IamRole")
+    def sigv4_iam_role(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
+        """
+        return pulumi.get(self, "sigv4_iam_role")
+
+    @sigv4_iam_role.setter
+    def sigv4_iam_role(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sigv4_iam_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sigv4ExternalId")
+    def sigv4_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "sigv4_external_id")
+
+    @sigv4_external_id.setter
+    def sigv4_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sigv4_external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sigv4SigningRegion")
+    def sigv4_signing_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
+        """
+        return pulumi.get(self, "sigv4_signing_region")
+
+    @sigv4_signing_region.setter
+    def sigv4_signing_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sigv4_signing_region", value)
+
+
+class CatalogIntegrationObjectStorageDescribeOutputArgsDict(TypedDict):
+    catalog_source: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    table_format: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationObjectStorageDescribeOutputArgs:
+    def __init__(__self__, *,
+                 catalog_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 refresh_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 table_format: Optional[pulumi.Input[_builtins.str]] = None):
+        if catalog_source is not None:
+            pulumi.set(__self__, "catalog_source", catalog_source)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if refresh_interval_seconds is not None:
+            pulumi.set(__self__, "refresh_interval_seconds", refresh_interval_seconds)
+        if table_format is not None:
+            pulumi.set(__self__, "table_format", table_format)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_source")
+
+    @catalog_source.setter
+    def catalog_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshIntervalSeconds")
+    def refresh_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "refresh_interval_seconds")
+
+    @refresh_interval_seconds.setter
+    def refresh_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "refresh_interval_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "table_format")
+
+    @table_format.setter
+    def table_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_format", value)
+
+
+class CatalogIntegrationObjectStorageShowOutputArgsDict(TypedDict):
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationObjectStorageShowOutputArgs:
+    def __init__(__self__, *,
+                 category: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class CatalogIntegrationOpenCatalogDescribeOutputArgsDict(TypedDict):
+    catalog_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_source: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    rest_authentications: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgsDict']]]]
+    rest_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgsDict']]]]
+    table_format: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationOpenCatalogDescribeOutputArgs:
+    def __init__(__self__, *,
+                 catalog_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 refresh_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 rest_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs']]]] = None,
+                 rest_configs: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs']]]] = None,
+                 table_format: Optional[pulumi.Input[_builtins.str]] = None):
+        if catalog_namespace is not None:
+            pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_source is not None:
+            pulumi.set(__self__, "catalog_source", catalog_source)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if refresh_interval_seconds is not None:
+            pulumi.set(__self__, "refresh_interval_seconds", refresh_interval_seconds)
+        if rest_authentications is not None:
+            pulumi.set(__self__, "rest_authentications", rest_authentications)
+        if rest_configs is not None:
+            pulumi.set(__self__, "rest_configs", rest_configs)
+        if table_format is not None:
+            pulumi.set(__self__, "table_format", table_format)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_namespace")
+
+    @catalog_namespace.setter
+    def catalog_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_source")
+
+    @catalog_source.setter
+    def catalog_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshIntervalSeconds")
+    def refresh_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "refresh_interval_seconds")
+
+    @refresh_interval_seconds.setter
+    def refresh_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "refresh_interval_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restAuthentications")
+    def rest_authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs']]]]:
+        return pulumi.get(self, "rest_authentications")
+
+    @rest_authentications.setter
+    def rest_authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs']]]]):
+        pulumi.set(self, "rest_authentications", value)
+
+    @_builtins.property
+    @pulumi.getter(name="restConfigs")
+    def rest_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs']]]]:
+        return pulumi.get(self, "rest_configs")
+
+    @rest_configs.setter
+    def rest_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs']]]]):
+        pulumi.set(self, "rest_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "table_format")
+
+    @table_format.setter
+    def table_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "table_format", value)
+
+
+class CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgsDict(TypedDict):
+    oauth_allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    oauth_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_token_uri: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs:
+    def __init__(__self__, *,
+                 oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 oauth_token_uri: Optional[pulumi.Input[_builtins.str]] = None):
+        if oauth_allowed_scopes is not None:
+            pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        if oauth_client_id is not None:
+            pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        if oauth_token_uri is not None:
+            pulumi.set(__self__, "oauth_token_uri", oauth_token_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @oauth_allowed_scopes.setter
+    def oauth_allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "oauth_allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "oauth_client_id")
+
+    @oauth_client_id.setter
+    def oauth_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenUri")
+    def oauth_token_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "oauth_token_uri")
+
+    @oauth_token_uri.setter
+    def oauth_token_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_token_uri", value)
+
+
+class CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgsDict(TypedDict):
+    access_delegation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_api_type: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_name: NotRequired[pulumi.Input[_builtins.str]]
+    catalog_uri: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs:
+    def __init__(__self__, *,
+                 access_delegation_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_api_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_uri: Optional[pulumi.Input[_builtins.str]] = None):
+        if access_delegation_mode is not None:
+            pulumi.set(__self__, "access_delegation_mode", access_delegation_mode)
+        if catalog_api_type is not None:
+            pulumi.set(__self__, "catalog_api_type", catalog_api_type)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if catalog_uri is not None:
+            pulumi.set(__self__, "catalog_uri", catalog_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="accessDelegationMode")
+    def access_delegation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "access_delegation_mode")
+
+    @access_delegation_mode.setter
+    def access_delegation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "access_delegation_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogApiType")
+    def catalog_api_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_api_type")
+
+    @catalog_api_type.setter
+    def catalog_api_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_api_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogUri")
+    def catalog_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "catalog_uri")
+
+    @catalog_uri.setter
+    def catalog_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_uri", value)
+
+
+class CatalogIntegrationOpenCatalogRestAuthenticationArgsDict(TypedDict):
+    oauth_allowed_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies one or more scopes for the OAuth token.
+    """
+    oauth_client_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+    """
+    oauth_client_secret: pulumi.Input[_builtins.str]
+    """
+    Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+    """
+    oauth_token_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+    """
+
+@pulumi.input_type
+class CatalogIntegrationOpenCatalogRestAuthenticationArgs:
+    def __init__(__self__, *,
+                 oauth_allowed_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 oauth_client_id: pulumi.Input[_builtins.str],
+                 oauth_client_secret: pulumi.Input[_builtins.str],
+                 oauth_token_uri: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_allowed_scopes: Specifies one or more scopes for the OAuth token.
+        :param pulumi.Input[_builtins.str] oauth_client_id: Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+        :param pulumi.Input[_builtins.str] oauth_client_secret: Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.str] oauth_token_uri: Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+        """
+        pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        pulumi.set(__self__, "oauth_client_secret", oauth_client_secret)
+        if oauth_token_uri is not None:
+            pulumi.set(__self__, "oauth_token_uri", oauth_token_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies one or more scopes for the OAuth token.
+        """
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @oauth_allowed_scopes.setter
+    def oauth_allowed_scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "oauth_allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the client ID of the OAuth2 credential associated with your Open Catalog service connection.
+        """
+        return pulumi.get(self, "oauth_client_id")
+
+    @oauth_client_id.setter
+    def oauth_client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "oauth_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientSecret")
+    def oauth_client_secret(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the secret of the OAuth2 credential associated with your Open Catalog service connection. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "oauth_client_secret")
+
+    @oauth_client_secret.setter
+    def oauth_client_secret(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "oauth_client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenUri")
+    def oauth_token_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
+        """
+        return pulumi.get(self, "oauth_token_uri")
+
+    @oauth_token_uri.setter
+    def oauth_token_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "oauth_token_uri", value)
+
+
+class CatalogIntegrationOpenCatalogRestConfigArgsDict(TypedDict):
+    catalog_name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the catalog to use in Open Catalog.
+    """
+    catalog_uri: pulumi.Input[_builtins.str]
+    """
+    Specifies Open Catalog account URL.
+    """
+    access_delegation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+    """
+    catalog_api_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+    """
+
+@pulumi.input_type
+class CatalogIntegrationOpenCatalogRestConfigArgs:
+    def __init__(__self__, *,
+                 catalog_name: pulumi.Input[_builtins.str],
+                 catalog_uri: pulumi.Input[_builtins.str],
+                 access_delegation_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 catalog_api_type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] catalog_name: Specifies the name of the catalog to use in Open Catalog.
+        :param pulumi.Input[_builtins.str] catalog_uri: Specifies Open Catalog account URL.
+        :param pulumi.Input[_builtins.str] access_delegation_mode: Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+        :param pulumi.Input[_builtins.str] catalog_api_type: Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        """
+        pulumi.set(__self__, "catalog_name", catalog_name)
+        pulumi.set(__self__, "catalog_uri", catalog_uri)
+        if access_delegation_mode is not None:
+            pulumi.set(__self__, "access_delegation_mode", access_delegation_mode)
+        if catalog_api_type is not None:
+            pulumi.set(__self__, "catalog_api_type", catalog_api_type)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the name of the catalog to use in Open Catalog.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "catalog_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogUri")
+    def catalog_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies Open Catalog account URL.
+        """
+        return pulumi.get(self, "catalog_uri")
+
+    @catalog_uri.setter
+    def catalog_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "catalog_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessDelegationMode")
+    def access_delegation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
+        """
+        return pulumi.get(self, "access_delegation_mode")
+
+    @access_delegation_mode.setter
+    def access_delegation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "access_delegation_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogApiType")
+    def catalog_api_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
+        """
+        return pulumi.get(self, "catalog_api_type")
+
+    @catalog_api_type.setter
+    def catalog_api_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "catalog_api_type", value)
+
+
+class CatalogIntegrationOpenCatalogShowOutputArgsDict(TypedDict):
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class CatalogIntegrationOpenCatalogShowOutputArgs:
+    def __init__(__self__, *,
+                 category: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 class ComputePoolDescribeOutputArgsDict(TypedDict):
@@ -8085,39 +9791,132 @@ class ExternalTableTagArgs:
 
 
 class ExternalVolumeDescribeOutputArgsDict(TypedDict):
-    default: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    parent: NotRequired[pulumi.Input[_builtins.str]]
-    type: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    active: NotRequired[pulumi.Input[_builtins.str]]
+    allow_writes: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    storage_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationArgsDict']]]]
 
 @pulumi.input_type
 class ExternalVolumeDescribeOutputArgs:
     def __init__(__self__, *,
-                 default: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if parent is not None:
-            pulumi.set(__self__, "parent", parent)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+                 active: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_writes: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationArgs']]]] = None):
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if allow_writes is not None:
+            pulumi.set(__self__, "allow_writes", allow_writes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if storage_locations is not None:
+            pulumi.set(__self__, "storage_locations", storage_locations)
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "default")
+    def active(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "active")
 
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "default", value)
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "active", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowWrites")
+    def allow_writes(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "allow_writes")
+
+    @allow_writes.setter
+    def allow_writes(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "allow_writes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageLocations")
+    def storage_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationArgs']]]]:
+        return pulumi.get(self, "storage_locations")
+
+    @storage_locations.setter
+    def storage_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationArgs']]]]):
+        pulumi.set(self, "storage_locations", value)
+
+
+class ExternalVolumeDescribeOutputStorageLocationArgsDict(TypedDict):
+    azure_storage_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgsDict']]]]
+    encryption_type: NotRequired[pulumi.Input[_builtins.str]]
+    gcs_storage_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgsDict']]]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    s3_compat_storage_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgsDict']]]]
+    s3_storage_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgsDict']]]]
+    storage_allowed_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    storage_base_url: NotRequired[pulumi.Input[_builtins.str]]
+    storage_provider: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class ExternalVolumeDescribeOutputStorageLocationArgs:
+    def __init__(__self__, *,
+                 azure_storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs']]]] = None,
+                 encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 gcs_storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs']]]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 s3_compat_storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs']]]] = None,
+                 s3_storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs']]]] = None,
+                 storage_allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_base_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_provider: Optional[pulumi.Input[_builtins.str]] = None):
+        if azure_storage_locations is not None:
+            pulumi.set(__self__, "azure_storage_locations", azure_storage_locations)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+        if gcs_storage_locations is not None:
+            pulumi.set(__self__, "gcs_storage_locations", gcs_storage_locations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if s3_compat_storage_locations is not None:
+            pulumi.set(__self__, "s3_compat_storage_locations", s3_compat_storage_locations)
+        if s3_storage_locations is not None:
+            pulumi.set(__self__, "s3_storage_locations", s3_storage_locations)
+        if storage_allowed_locations is not None:
+            pulumi.set(__self__, "storage_allowed_locations", storage_allowed_locations)
+        if storage_base_url is not None:
+            pulumi.set(__self__, "storage_base_url", storage_base_url)
+        if storage_provider is not None:
+            pulumi.set(__self__, "storage_provider", storage_provider)
+
+    @_builtins.property
+    @pulumi.getter(name="azureStorageLocations")
+    def azure_storage_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs']]]]:
+        return pulumi.get(self, "azure_storage_locations")
+
+    @azure_storage_locations.setter
+    def azure_storage_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs']]]]):
+        pulumi.set(self, "azure_storage_locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gcsStorageLocations")
+    def gcs_storage_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs']]]]:
+        return pulumi.get(self, "gcs_storage_locations")
+
+    @gcs_storage_locations.setter
+    def gcs_storage_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs']]]]):
+        pulumi.set(self, "gcs_storage_locations", value)
 
     @_builtins.property
     @pulumi.getter
@@ -8129,31 +9928,259 @@ class ExternalVolumeDescribeOutputArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter
-    def parent(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "parent")
+    @pulumi.getter(name="s3CompatStorageLocations")
+    def s3_compat_storage_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs']]]]:
+        return pulumi.get(self, "s3_compat_storage_locations")
 
-    @parent.setter
-    def parent(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "parent", value)
+    @s3_compat_storage_locations.setter
+    def s3_compat_storage_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs']]]]):
+        pulumi.set(self, "s3_compat_storage_locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3StorageLocations")
+    def s3_storage_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs']]]]:
+        return pulumi.get(self, "s3_storage_locations")
+
+    @s3_storage_locations.setter
+    def s3_storage_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs']]]]):
+        pulumi.set(self, "s3_storage_locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAllowedLocations")
+    def storage_allowed_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "storage_allowed_locations")
+
+    @storage_allowed_locations.setter
+    def storage_allowed_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "storage_allowed_locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageBaseUrl")
+    def storage_base_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_base_url")
+
+    @storage_base_url.setter
+    def storage_base_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_base_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageProvider")
+    def storage_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_provider")
+
+    @storage_provider.setter
+    def storage_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_provider", value)
+
+
+class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgsDict(TypedDict):
+    azure_consent_url: NotRequired[pulumi.Input[_builtins.str]]
+    azure_multi_tenant_app_name: NotRequired[pulumi.Input[_builtins.str]]
+    azure_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs:
+    def __init__(__self__, *,
+                 azure_consent_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_multi_tenant_app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+        if azure_consent_url is not None:
+            pulumi.set(__self__, "azure_consent_url", azure_consent_url)
+        if azure_multi_tenant_app_name is not None:
+            pulumi.set(__self__, "azure_multi_tenant_app_name", azure_multi_tenant_app_name)
+        if azure_tenant_id is not None:
+            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="azureConsentUrl")
+    def azure_consent_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "azure_consent_url")
+
+    @azure_consent_url.setter
+    def azure_consent_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "azure_consent_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureMultiTenantAppName")
+    def azure_multi_tenant_app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "azure_multi_tenant_app_name")
+
+    @azure_multi_tenant_app_name.setter
+    def azure_multi_tenant_app_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "azure_multi_tenant_app_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureTenantId")
+    def azure_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "azure_tenant_id")
+
+    @azure_tenant_id.setter
+    def azure_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "azure_tenant_id", value)
+
+
+class ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgsDict(TypedDict):
+    encryption_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_gcp_service_account: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs:
+    def __init__(__self__, *,
+                 encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_gcp_service_account: Optional[pulumi.Input[_builtins.str]] = None):
+        if encryption_kms_key_id is not None:
+            pulumi.set(__self__, "encryption_kms_key_id", encryption_kms_key_id)
+        if storage_gcp_service_account is not None:
+            pulumi.set(__self__, "storage_gcp_service_account", storage_gcp_service_account)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKmsKeyId")
+    def encryption_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "encryption_kms_key_id")
+
+    @encryption_kms_key_id.setter
+    def encryption_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageGcpServiceAccount")
+    def storage_gcp_service_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_gcp_service_account")
+
+    @storage_gcp_service_account.setter
+    def storage_gcp_service_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_gcp_service_account", value)
+
+
+class ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgsDict(TypedDict):
+    aws_access_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs:
+    def __init__(__self__, *,
+                 aws_access_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+        if aws_access_key_id is not None:
+            pulumi.set(__self__, "aws_access_key_id", aws_access_key_id)
+        if encryption_kms_key_id is not None:
+            pulumi.set(__self__, "encryption_kms_key_id", encryption_kms_key_id)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="awsAccessKeyId")
+    def aws_access_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "aws_access_key_id")
+
+    @aws_access_key_id.setter
+    def aws_access_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "aws_access_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKmsKeyId")
+    def encryption_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "encryption_kms_key_id")
+
+    @encryption_kms_key_id.setter
+    def encryption_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "type")
+    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "endpoint")
 
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "type", value)
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "endpoint", value)
+
+
+class ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgsDict(TypedDict):
+    encryption_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_aws_access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
+    storage_aws_external_id: NotRequired[pulumi.Input[_builtins.str]]
+    storage_aws_iam_user_arn: NotRequired[pulumi.Input[_builtins.str]]
+    storage_aws_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    use_privatelink_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs:
+    def __init__(__self__, *,
+                 encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_aws_access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_aws_iam_user_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+        if encryption_kms_key_id is not None:
+            pulumi.set(__self__, "encryption_kms_key_id", encryption_kms_key_id)
+        if storage_aws_access_point_arn is not None:
+            pulumi.set(__self__, "storage_aws_access_point_arn", storage_aws_access_point_arn)
+        if storage_aws_external_id is not None:
+            pulumi.set(__self__, "storage_aws_external_id", storage_aws_external_id)
+        if storage_aws_iam_user_arn is not None:
+            pulumi.set(__self__, "storage_aws_iam_user_arn", storage_aws_iam_user_arn)
+        if storage_aws_role_arn is not None:
+            pulumi.set(__self__, "storage_aws_role_arn", storage_aws_role_arn)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
 
     @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        return pulumi.get(self, "value")
+    @pulumi.getter(name="encryptionKmsKeyId")
+    def encryption_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "encryption_kms_key_id")
 
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
+    @encryption_kms_key_id.setter
+    def encryption_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsAccessPointArn")
+    def storage_aws_access_point_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_aws_access_point_arn")
+
+    @storage_aws_access_point_arn.setter
+    def storage_aws_access_point_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_aws_access_point_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsExternalId")
+    def storage_aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_aws_external_id")
+
+    @storage_aws_external_id.setter
+    def storage_aws_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_aws_external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsIamUserArn")
+    def storage_aws_iam_user_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_aws_iam_user_arn")
+
+    @storage_aws_iam_user_arn.setter
+    def storage_aws_iam_user_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_aws_iam_user_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsRoleArn")
+    def storage_aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "storage_aws_role_arn")
+
+    @storage_aws_role_arn.setter
+    def storage_aws_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_aws_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+    @use_privatelink_endpoint.setter
+    def use_privatelink_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "use_privatelink_endpoint", value)
 
 
 class ExternalVolumeShowOutputArgsDict(TypedDict):
@@ -8213,7 +10240,7 @@ class ExternalVolumeStorageLocationArgsDict(TypedDict):
     """
     storage_provider: pulumi.Input[_builtins.str]
     """
-    Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+    Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
     """
     azure_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -8227,13 +10254,33 @@ class ExternalVolumeStorageLocationArgsDict(TypedDict):
     """
     Specifies the encryption type used.
     """
+    storage_aws_access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+    """
     storage_aws_external_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     External ID that Snowflake uses to establish a trust relationship with AWS.
     """
+    storage_aws_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+    """
     storage_aws_role_arn: NotRequired[pulumi.Input[_builtins.str]]
     """
     Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
+    """
+    storage_aws_secret_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+    """
+    storage_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+    """
+    use_privatelink_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
     """
 
 @pulumi.input_type
@@ -8245,17 +10292,27 @@ class ExternalVolumeStorageLocationArgs:
                  azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_aws_access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 storage_aws_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_aws_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] storage_base_url: Specifies the base URL for your cloud storage location.
         :param pulumi.Input[_builtins.str] storage_location_name: Name of the storage location. Must be unique for the external volume. Do not use the name `terraform_provider_sentinel_storage_location` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] storage_provider: Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+        :param pulumi.Input[_builtins.str] storage_provider: Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
         :param pulumi.Input[_builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         :param pulumi.Input[_builtins.str] encryption_kms_key_id: Specifies the ID for the KMS-managed key used to encrypt files.
         :param pulumi.Input[_builtins.str] encryption_type: Specifies the encryption type used.
+        :param pulumi.Input[_builtins.str] storage_aws_access_point_arn: Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
         :param pulumi.Input[_builtins.str] storage_aws_external_id: External ID that Snowflake uses to establish a trust relationship with AWS.
+        :param pulumi.Input[_builtins.str] storage_aws_key_id: Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
         :param pulumi.Input[_builtins.str] storage_aws_role_arn: Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
+        :param pulumi.Input[_builtins.str] storage_aws_secret_key: Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+        :param pulumi.Input[_builtins.str] storage_endpoint: Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+        :param pulumi.Input[_builtins.str] use_privatelink_endpoint: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         pulumi.set(__self__, "storage_base_url", storage_base_url)
         pulumi.set(__self__, "storage_location_name", storage_location_name)
@@ -8266,10 +10323,20 @@ class ExternalVolumeStorageLocationArgs:
             pulumi.set(__self__, "encryption_kms_key_id", encryption_kms_key_id)
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
+        if storage_aws_access_point_arn is not None:
+            pulumi.set(__self__, "storage_aws_access_point_arn", storage_aws_access_point_arn)
         if storage_aws_external_id is not None:
             pulumi.set(__self__, "storage_aws_external_id", storage_aws_external_id)
+        if storage_aws_key_id is not None:
+            pulumi.set(__self__, "storage_aws_key_id", storage_aws_key_id)
         if storage_aws_role_arn is not None:
             pulumi.set(__self__, "storage_aws_role_arn", storage_aws_role_arn)
+        if storage_aws_secret_key is not None:
+            pulumi.set(__self__, "storage_aws_secret_key", storage_aws_secret_key)
+        if storage_endpoint is not None:
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="storageBaseUrl")
@@ -8299,7 +10366,7 @@ class ExternalVolumeStorageLocationArgs:
     @pulumi.getter(name="storageProvider")
     def storage_provider(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV`.
+        Specifies the cloud storage provider that stores your data files. Valid values are (case-insensitive): `GCS` | `AZURE` | `S3` | `S3GOV` | `S3COMPAT`.
         """
         return pulumi.get(self, "storage_provider")
 
@@ -8344,6 +10411,18 @@ class ExternalVolumeStorageLocationArgs:
         pulumi.set(self, "encryption_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAwsAccessPointArn")
+    def storage_aws_access_point_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
+        """
+        return pulumi.get(self, "storage_aws_access_point_arn")
+
+    @storage_aws_access_point_arn.setter
+    def storage_aws_access_point_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_aws_access_point_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageAwsExternalId")
     def storage_aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -8356,6 +10435,18 @@ class ExternalVolumeStorageLocationArgs:
         pulumi.set(self, "storage_aws_external_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAwsKeyId")
+    def storage_aws_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+        """
+        return pulumi.get(self, "storage_aws_key_id")
+
+    @storage_aws_key_id.setter
+    def storage_aws_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_aws_key_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -8366,6 +10457,42 @@ class ExternalVolumeStorageLocationArgs:
     @storage_aws_role_arn.setter
     def storage_aws_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_aws_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAwsSecretKey")
+    def storage_aws_secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+        """
+        return pulumi.get(self, "storage_aws_secret_key")
+
+    @storage_aws_secret_key.setter
+    def storage_aws_secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_aws_secret_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageEndpoint")
+    def storage_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
+        """
+        return pulumi.get(self, "storage_endpoint")
+
+    @storage_endpoint.setter
+    def storage_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+    @use_privatelink_endpoint.setter
+    def use_privatelink_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "use_privatelink_endpoint", value)
 
 
 class FailoverGroupFromReplicaArgsDict(TypedDict):
@@ -12626,7 +14753,7 @@ class GrantOwnershipOnArgsDict(TypedDict):
     """
     object_type: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+    Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
     """
 
 @pulumi.input_type
@@ -12640,7 +14767,7 @@ class GrantOwnershipOnArgs:
         :param pulumi.Input['GrantOwnershipOnAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantOwnershipOnFutureArgs'] future: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input[_builtins.str] object_name: Specifies the identifier for the object on which you are transferring ownership.
-        :param pulumi.Input[_builtins.str] object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        :param pulumi.Input[_builtins.str] object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -12691,7 +14818,7 @@ class GrantOwnershipOnArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         return pulumi.get(self, "object_type")
 
@@ -12703,7 +14830,7 @@ class GrantOwnershipOnArgs:
 class GrantOwnershipOnAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+    Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -12721,7 +14848,7 @@ class GrantOwnershipOnAllArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -12735,7 +14862,7 @@ class GrantOwnershipOnAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -12771,7 +14898,7 @@ class GrantOwnershipOnAllArgs:
 class GrantOwnershipOnFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+    Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -12789,7 +14916,7 @@ class GrantOwnershipOnFutureArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -12803,7 +14930,7 @@ class GrantOwnershipOnFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13098,7 +15225,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
     """
     in_database: NotRequired[pulumi.Input[_builtins.str]]
     in_schema: NotRequired[pulumi.Input[_builtins.str]]
@@ -13110,7 +15237,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -13122,7 +15249,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13378,7 +15505,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
     """
     in_database: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -13396,7 +15523,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[_builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -13410,7 +15537,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13447,6 +15574,7 @@ class ImageRepositoryShowOutputArgsDict(TypedDict):
     comment: NotRequired[pulumi.Input[_builtins.str]]
     created_on: NotRequired[pulumi.Input[_builtins.str]]
     database_name: NotRequired[pulumi.Input[_builtins.str]]
+    encryption: NotRequired[pulumi.Input[_builtins.str]]
     name: NotRequired[pulumi.Input[_builtins.str]]
     owner: NotRequired[pulumi.Input[_builtins.str]]
     owner_role_type: NotRequired[pulumi.Input[_builtins.str]]
@@ -13460,6 +15588,7 @@ class ImageRepositoryShowOutputArgs:
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
                  created_on: Optional[pulumi.Input[_builtins.str]] = None,
                  database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  owner: Optional[pulumi.Input[_builtins.str]] = None,
                  owner_role_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -13472,6 +15601,8 @@ class ImageRepositoryShowOutputArgs:
             pulumi.set(__self__, "created_on", created_on)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner is not None:
@@ -13511,6 +15642,15 @@ class ImageRepositoryShowOutputArgs:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter
@@ -33903,6 +36043,10 @@ class SemanticViewFactArgsDict(TypedDict):
     """
     Specifies a comment for the fact.
     """
+    is_private: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+    """
     synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     List of synonyms for the fact.
@@ -33914,17 +36058,21 @@ class SemanticViewFactArgs:
                  qualified_expression_name: pulumi.Input[_builtins.str],
                  sql_expression: pulumi.Input[_builtins.str],
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_private: Optional[pulumi.Input[_builtins.str]] = None,
                  synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] qualified_expression_name: Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\\"<table_alias>\\".\\"<semantic_expression_name>\\""`.
         :param pulumi.Input[_builtins.str] sql_expression: The SQL expression used to compute the fact.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the fact.
+        :param pulumi.Input[_builtins.str] is_private: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] synonyms: List of synonyms for the fact.
         """
         pulumi.set(__self__, "qualified_expression_name", qualified_expression_name)
         pulumi.set(__self__, "sql_expression", sql_expression)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if is_private is not None:
+            pulumi.set(__self__, "is_private", is_private)
         if synonyms is not None:
             pulumi.set(__self__, "synonyms", synonyms)
 
@@ -33965,6 +36113,18 @@ class SemanticViewFactArgs:
         pulumi.set(self, "comment", value)
 
     @_builtins.property
+    @pulumi.getter(name="isPrivate")
+    def is_private(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
+        """
+        return pulumi.get(self, "is_private")
+
+    @is_private.setter
+    def is_private(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "is_private", value)
+
+    @_builtins.property
     @pulumi.getter
     def synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -33978,6 +36138,10 @@ class SemanticViewFactArgs:
 
 
 class SemanticViewMetricArgsDict(TypedDict):
+    is_private: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+    """
     semantic_expression: NotRequired[pulumi.Input['SemanticViewMetricSemanticExpressionArgsDict']]
     """
     Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
@@ -33990,16 +36154,32 @@ class SemanticViewMetricArgsDict(TypedDict):
 @pulumi.input_type
 class SemanticViewMetricArgs:
     def __init__(__self__, *,
+                 is_private: Optional[pulumi.Input[_builtins.str]] = None,
                  semantic_expression: Optional[pulumi.Input['SemanticViewMetricSemanticExpressionArgs']] = None,
                  window_function: Optional[pulumi.Input['SemanticViewMetricWindowFunctionArgs']] = None):
         """
+        :param pulumi.Input[_builtins.str] is_private: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
         :param pulumi.Input['SemanticViewMetricSemanticExpressionArgs'] semantic_expression: Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
         :param pulumi.Input['SemanticViewMetricWindowFunctionArgs'] window_function: Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
         """
+        if is_private is not None:
+            pulumi.set(__self__, "is_private", is_private)
         if semantic_expression is not None:
             pulumi.set(__self__, "semantic_expression", semantic_expression)
         if window_function is not None:
             pulumi.set(__self__, "window_function", window_function)
+
+    @_builtins.property
+    @pulumi.getter(name="isPrivate")
+    def is_private(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
+        """
+        return pulumi.get(self, "is_private")
+
+    @is_private.setter
+    def is_private(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "is_private", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticExpression")
@@ -60407,6 +62587,55 @@ class TableTagArgs:
         pulumi.set(self, "schema", value)
 
 
+class TagOnConflictArgsDict(TypedDict):
+    allowed_values_sequence: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+    """
+    custom_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+    """
+
+@pulumi.input_type
+class TagOnConflictArgs:
+    def __init__(__self__, *,
+                 allowed_values_sequence: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] allowed_values_sequence: The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.str] custom_value: Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        if allowed_values_sequence is not None:
+            pulumi.set(__self__, "allowed_values_sequence", allowed_values_sequence)
+        if custom_value is not None:
+            pulumi.set(__self__, "custom_value", custom_value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValuesSequence")
+    def allowed_values_sequence(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "allowed_values_sequence")
+
+    @allowed_values_sequence.setter
+    def allowed_values_sequence(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allowed_values_sequence", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customValue")
+    def custom_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "custom_value")
+
+    @custom_value.setter
+    def custom_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_value", value)
+
+
 class TagShowOutputArgsDict(TypedDict):
     allowed_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     comment: NotRequired[pulumi.Input[_builtins.str]]
@@ -60415,6 +62644,7 @@ class TagShowOutputArgsDict(TypedDict):
     name: NotRequired[pulumi.Input[_builtins.str]]
     owner: NotRequired[pulumi.Input[_builtins.str]]
     owner_role_type: NotRequired[pulumi.Input[_builtins.str]]
+    propagate: NotRequired[pulumi.Input[_builtins.str]]
     schema_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
@@ -60427,6 +62657,7 @@ class TagShowOutputArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  owner: Optional[pulumi.Input[_builtins.str]] = None,
                  owner_role_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 propagate: Optional[pulumi.Input[_builtins.str]] = None,
                  schema_name: Optional[pulumi.Input[_builtins.str]] = None):
         if allowed_values is not None:
             pulumi.set(__self__, "allowed_values", allowed_values)
@@ -60442,6 +62673,8 @@ class TagShowOutputArgs:
             pulumi.set(__self__, "owner", owner)
         if owner_role_type is not None:
             pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if propagate is not None:
+            pulumi.set(__self__, "propagate", propagate)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
 
@@ -60507,6 +62740,15 @@ class TagShowOutputArgs:
     @owner_role_type.setter
     def owner_role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def propagate(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "propagate")
+
+    @propagate.setter
+    def propagate(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "propagate", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
@@ -72336,6 +74578,463 @@ class ViewShowOutputArgs:
     @text.setter
     def text(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "text", value)
+
+
+class WarehouseAdaptiveParameterArgsDict(TypedDict):
+    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgsDict']]]]
+    statement_timeout_in_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementTimeoutInSecondArgsDict']]]]
+
+@pulumi.input_type
+class WarehouseAdaptiveParameterArgs:
+    def __init__(__self__, *,
+                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgs']]]] = None,
+                 statement_timeout_in_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementTimeoutInSecondArgs']]]] = None):
+        if statement_queued_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+        if statement_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgs']]]]:
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @statement_queued_timeout_in_seconds.setter
+    def statement_queued_timeout_in_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgs']]]]):
+        pulumi.set(self, "statement_queued_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statementTimeoutInSeconds")
+    def statement_timeout_in_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementTimeoutInSecondArgs']]]]:
+        return pulumi.get(self, "statement_timeout_in_seconds")
+
+    @statement_timeout_in_seconds.setter
+    def statement_timeout_in_seconds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementTimeoutInSecondArgs']]]]):
+        pulumi.set(self, "statement_timeout_in_seconds", value)
+
+
+class WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    level: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 level: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class WarehouseAdaptiveParameterStatementTimeoutInSecondArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    level: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class WarehouseAdaptiveParameterStatementTimeoutInSecondArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 level: Optional[pulumi.Input[_builtins.str]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class WarehouseAdaptiveShowOutputArgsDict(TypedDict):
+    auto_resume: NotRequired[pulumi.Input[_builtins.bool]]
+    available: NotRequired[pulumi.Input[_builtins.float]]
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    created_on: NotRequired[pulumi.Input[_builtins.str]]
+    is_current: NotRequired[pulumi.Input[_builtins.bool]]
+    is_default: NotRequired[pulumi.Input[_builtins.bool]]
+    max_query_performance_level: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    other: NotRequired[pulumi.Input[_builtins.float]]
+    owner: NotRequired[pulumi.Input[_builtins.str]]
+    owner_role_type: NotRequired[pulumi.Input[_builtins.str]]
+    provisioning: NotRequired[pulumi.Input[_builtins.float]]
+    query_throughput_multiplier: NotRequired[pulumi.Input[_builtins.int]]
+    queued: NotRequired[pulumi.Input[_builtins.int]]
+    quiescing: NotRequired[pulumi.Input[_builtins.float]]
+    resource_monitor: NotRequired[pulumi.Input[_builtins.str]]
+    resumed_on: NotRequired[pulumi.Input[_builtins.str]]
+    running: NotRequired[pulumi.Input[_builtins.int]]
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    updated_on: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class WarehouseAdaptiveShowOutputArgs:
+    def __init__(__self__, *,
+                 auto_resume: Optional[pulumi.Input[_builtins.bool]] = None,
+                 available: Optional[pulumi.Input[_builtins.float]] = None,
+                 comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_current: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
+                 max_query_performance_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 other: Optional[pulumi.Input[_builtins.float]] = None,
+                 owner: Optional[pulumi.Input[_builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 provisioning: Optional[pulumi.Input[_builtins.float]] = None,
+                 query_throughput_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
+                 queued: Optional[pulumi.Input[_builtins.int]] = None,
+                 quiescing: Optional[pulumi.Input[_builtins.float]] = None,
+                 resource_monitor: Optional[pulumi.Input[_builtins.str]] = None,
+                 resumed_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 running: Optional[pulumi.Input[_builtins.int]] = None,
+                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 updated_on: Optional[pulumi.Input[_builtins.str]] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if available is not None:
+            pulumi.set(__self__, "available", available)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if max_query_performance_level is not None:
+            pulumi.set(__self__, "max_query_performance_level", max_query_performance_level)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if other is not None:
+            pulumi.set(__self__, "other", other)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if provisioning is not None:
+            pulumi.set(__self__, "provisioning", provisioning)
+        if query_throughput_multiplier is not None:
+            pulumi.set(__self__, "query_throughput_multiplier", query_throughput_multiplier)
+        if queued is not None:
+            pulumi.set(__self__, "queued", queued)
+        if quiescing is not None:
+            pulumi.set(__self__, "quiescing", quiescing)
+        if resource_monitor is not None:
+            pulumi.set(__self__, "resource_monitor", resource_monitor)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if running is not None:
+            pulumi.set(__self__, "running", running)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @_builtins.property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "auto_resume")
+
+    @auto_resume.setter
+    def auto_resume(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "auto_resume", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def available(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "available")
+
+    @available.setter
+    def available(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "available", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_current")
+
+    @is_current.setter
+    def is_current(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_current", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_default")
+
+    @is_default.setter
+    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_default", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxQueryPerformanceLevel")
+    def max_query_performance_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "max_query_performance_level")
+
+    @max_query_performance_level.setter
+    def max_query_performance_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "max_query_performance_level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def other(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "other")
+
+    @other.setter
+    def other(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "other", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def provisioning(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "provisioning")
+
+    @provisioning.setter
+    def provisioning(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "provisioning", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryThroughputMultiplier")
+    def query_throughput_multiplier(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "query_throughput_multiplier")
+
+    @query_throughput_multiplier.setter
+    def query_throughput_multiplier(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "query_throughput_multiplier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def queued(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "queued")
+
+    @queued.setter
+    def queued(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "queued", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def quiescing(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "quiescing")
+
+    @quiescing.setter
+    def quiescing(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "quiescing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceMonitor")
+    def resource_monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "resource_monitor")
+
+    @resource_monitor.setter
+    def resource_monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_monitor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "resumed_on")
+
+    @resumed_on.setter
+    def resumed_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resumed_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def running(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "running")
+
+    @running.setter
+    def running(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "running", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "updated_on", value)
 
 
 class WarehouseParameterArgsDict(TypedDict):
