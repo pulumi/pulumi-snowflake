@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic - S3 storage location with required fields only
-    ///     var s3Basic = new Snowflake.Index.ExternalVolume("s3_basic", new()
+    ///     var s3Basic = new Snowflake.ExternalVolume("s3_basic", new()
     ///     {
     ///         Name = "my_external_volume",
     ///         StorageLocations = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Complete - S3 with all optional fields
-    ///     var s3Complete = new Snowflake.Index.ExternalVolume("s3_complete", new()
+    ///     var s3Complete = new Snowflake.ExternalVolume("s3_complete", new()
     ///     {
     ///         Name = "my_external_volume_complete",
     ///         Comment = "my external volume",
@@ -63,7 +63,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Basic - GCS storage location with required fields only
-    ///     var gcsBasic = new Snowflake.Index.ExternalVolume("gcs_basic", new()
+    ///     var gcsBasic = new Snowflake.ExternalVolume("gcs_basic", new()
     ///     {
     ///         Name = "my_gcs_external_volume",
     ///         StorageLocations = new[]
@@ -78,7 +78,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Complete - GCS with all optional fields
-    ///     var gcsComplete = new Snowflake.Index.ExternalVolume("gcs_complete", new()
+    ///     var gcsComplete = new Snowflake.ExternalVolume("gcs_complete", new()
     ///     {
     ///         Name = "my_gcs_external_volume_complete",
     ///         StorageLocations = new[]
@@ -95,7 +95,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Basic - Azure storage location with required fields only
-    ///     var azureBasic = new Snowflake.Index.ExternalVolume("azure_basic", new()
+    ///     var azureBasic = new Snowflake.ExternalVolume("azure_basic", new()
     ///     {
     ///         Name = "my_azure_external_volume",
     ///         StorageLocations = new[]
@@ -111,7 +111,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Complete - Azure with all optional fields
-    ///     var azureComplete = new Snowflake.Index.ExternalVolume("azure_complete", new()
+    ///     var azureComplete = new Snowflake.ExternalVolume("azure_complete", new()
     ///     {
     ///         Name = "my_azure_external_volume_complete",
     ///         Comment = "my azure external volume",
@@ -130,7 +130,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // S3-compatible storage location
-    ///     var s3compat = new Snowflake.Index.ExternalVolume("s3compat", new()
+    ///     var s3compat = new Snowflake.ExternalVolume("s3compat", new()
     ///     {
     ///         Name = "my_s3compat_external_volume",
     ///         StorageLocations = new[]

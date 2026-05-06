@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource
-    ///     var basic = new Snowflake.Index.CatalogIntegrationObjectStorage("basic", new()
+    ///     var basic = new Snowflake.CatalogIntegrationObjectStorage("basic", new()
     ///     {
     ///         Name = "example",
     ///         Enabled = false,
@@ -36,7 +36,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // complete resource
-    ///     var complete = new Snowflake.Index.CatalogIntegrationObjectStorage("complete", new()
+    ///     var complete = new Snowflake.CatalogIntegrationObjectStorage("complete", new()
     ///     {
     ///         Name = "example_complete",
     ///         Enabled = true,

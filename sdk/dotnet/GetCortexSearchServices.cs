@@ -25,22 +25,22 @@ namespace Pulumi.Snowflake
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Simple usage
-        ///     var simple = Snowflake.Index.GetCortexSearchServices.Invoke();
+        ///     var simple = Snowflake.GetCortexSearchServices.Invoke();
         /// 
         ///     // Filtering (like)
-        ///     var like = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var like = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         Like = "some-name",
         ///     });
         /// 
         ///     // Filtering (starts_with)
-        ///     var startsWith = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var startsWith = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         StartsWith = "prefix-",
         ///     });
         /// 
         ///     // Filtering (limit)
-        ///     var limit = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var limit = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         Limit = new Snowflake.Inputs.GetCortexSearchServicesLimitInputArgs
         ///         {
@@ -78,22 +78,22 @@ namespace Pulumi.Snowflake
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Simple usage
-        ///     var simple = Snowflake.Index.GetCortexSearchServices.Invoke();
+        ///     var simple = Snowflake.GetCortexSearchServices.Invoke();
         /// 
         ///     // Filtering (like)
-        ///     var like = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var like = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         Like = "some-name",
         ///     });
         /// 
         ///     // Filtering (starts_with)
-        ///     var startsWith = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var startsWith = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         StartsWith = "prefix-",
         ///     });
         /// 
         ///     // Filtering (limit)
-        ///     var limit = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var limit = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         Limit = new Snowflake.Inputs.GetCortexSearchServicesLimitInputArgs
         ///         {
@@ -131,22 +131,22 @@ namespace Pulumi.Snowflake
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Simple usage
-        ///     var simple = Snowflake.Index.GetCortexSearchServices.Invoke();
+        ///     var simple = Snowflake.GetCortexSearchServices.Invoke();
         /// 
         ///     // Filtering (like)
-        ///     var like = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var like = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         Like = "some-name",
         ///     });
         /// 
         ///     // Filtering (starts_with)
-        ///     var startsWith = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var startsWith = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         StartsWith = "prefix-",
         ///     });
         /// 
         ///     // Filtering (limit)
-        ///     var limit = Snowflake.Index.GetCortexSearchServices.Invoke(new()
+        ///     var limit = Snowflake.GetCortexSearchServices.Invoke(new()
         ///     {
         ///         Limit = new Snowflake.Inputs.GetCortexSearchServicesLimitInputArgs
         ///         {

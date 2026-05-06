@@ -25,13 +25,13 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic adaptive warehouse (only required fields)
-    ///     var basic = new Snowflake.Index.WarehouseAdaptive("basic", new()
+    ///     var basic = new Snowflake.WarehouseAdaptive("basic", new()
     ///     {
     ///         Name = "my_adaptive_warehouse",
     ///     });
     /// 
     ///     // Complete adaptive warehouse (all fields set)
-    ///     var complete = new Snowflake.Index.WarehouseAdaptive("complete", new()
+    ///     var complete = new Snowflake.WarehouseAdaptive("complete", new()
     ///     {
     ///         Name = "my_adaptive_warehouse_complete",
     ///         Comment = "My adaptive warehouse with all options set",

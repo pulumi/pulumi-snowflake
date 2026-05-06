@@ -25,9 +25,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.Index.GetCurrentAccount.Invoke();
+        ///     var @this = Snowflake.GetCurrentAccount.Invoke();
         /// 
-        ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
+        ///     var snowflakeAccountUrl = new Aws.SsmParameter("snowflake_account_url", new()
         ///     {
         ///         Name = "/snowflake/account_url",
         ///         Type = "String",
@@ -56,9 +56,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.Index.GetCurrentAccount.Invoke();
+        ///     var @this = Snowflake.GetCurrentAccount.Invoke();
         /// 
-        ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
+        ///     var snowflakeAccountUrl = new Aws.SsmParameter("snowflake_account_url", new()
         ///     {
         ///         Name = "/snowflake/account_url",
         ///         Type = "String",
@@ -87,9 +87,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var @this = Snowflake.Index.GetCurrentAccount.Invoke();
+        ///     var @this = Snowflake.GetCurrentAccount.Invoke();
         /// 
-        ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
+        ///     var snowflakeAccountUrl = new Aws.SsmParameter("snowflake_account_url", new()
         ///     {
         ///         Name = "/snowflake/account_url",
         ///         Type = "String",

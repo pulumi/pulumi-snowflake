@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource
-    ///     var basic = new Snowflake.Index.CatalogIntegrationAwsGlue("basic", new()
+    ///     var basic = new Snowflake.CatalogIntegrationAwsGlue("basic", new()
     ///     {
     ///         Name = "example",
     ///         Enabled = false,
@@ -37,7 +37,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // complete resource
-    ///     var complete = new Snowflake.Index.CatalogIntegrationAwsGlue("complete", new()
+    ///     var complete = new Snowflake.CatalogIntegrationAwsGlue("complete", new()
     ///     {
     ///         Name = "example_complete",
     ///         Enabled = true,
