@@ -140,10 +140,10 @@ def get_compute_pools(like: Optional[_builtins.str] = None,
         limit=pulumi.get(__ret__, 'limit'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_compute_pools_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             limit: Optional[pulumi.Input[Optional[Union['GetComputePoolsLimitArgs', 'GetComputePoolsLimitArgsDict']]]] = None,
-                             starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_compute_pools_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             limit: pulumi.Input[Optional[Optional[Union['GetComputePoolsLimitArgs', 'GetComputePoolsLimitArgsDict']]]] = None,
+                             starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputePoolsResult]:
     """
     Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `compute_pools`.

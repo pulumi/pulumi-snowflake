@@ -142,10 +142,10 @@ def get_masking_policies(in_: Optional[Union['GetMaskingPoliciesInArgs', 'GetMas
         limit=pulumi.get(__ret__, 'limit'),
         masking_policies=pulumi.get(__ret__, 'masking_policies'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_masking_policies_output(in_: Optional[pulumi.Input[Optional[Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict']]]] = None,
-                                like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                limit: Optional[pulumi.Input[Optional[Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict']]]] = None,
-                                with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_masking_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict']]]] = None,
+                                like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                limit: pulumi.Input[Optional[Optional[Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict']]]] = None,
+                                with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaskingPoliciesResult]:
     """
     !> **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).

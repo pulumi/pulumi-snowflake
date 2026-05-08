@@ -23,18 +23,18 @@ class StageArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 snowflake_iam_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['StageTagArgs']]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Stage resource.
 
@@ -109,168 +109,168 @@ class StageArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsExternalId")
-    def aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         """
         return pulumi.get(self, "aws_external_id")
 
     @aws_external_id.setter
-    def aws_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stage.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="copyOptions")
-    def copy_options(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_options(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the copy options for the stage.
         """
         return pulumi.get(self, "copy_options")
 
     @copy_options.setter
-    def copy_options(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_options(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the credentials for the stage.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directory settings for the stage.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the encryption settings for the stage.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="snowflakeIamUser")
-    def snowflake_iam_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snowflake_iam_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         """
         return pulumi.get(self, "snowflake_iam_user")
 
     @snowflake_iam_user.setter
-    def snowflake_iam_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snowflake_iam_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snowflake_iam_user", value)
 
     @_builtins.property
     @pulumi.getter(name="storageIntegration")
-    def storage_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         """
         return pulumi.get(self, "storage_integration")
 
     @storage_integration.setter
-    def storage_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_integration", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL for the stage.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
 @pulumi.input_type
 class _StageState:
     def __init__(__self__, *,
-                 aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 snowflake_iam_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['StageTagArgs']]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Stage resources.
 
@@ -326,183 +326,183 @@ class _StageState:
 
     @_builtins.property
     @pulumi.getter(name="awsExternalId")
-    def aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         """
         return pulumi.get(self, "aws_external_id")
 
     @aws_external_id.setter
-    def aws_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_external_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stage.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="copyOptions")
-    def copy_options(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_options(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the copy options for the stage.
         """
         return pulumi.get(self, "copy_options")
 
     @copy_options.setter
-    def copy_options(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_options(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the credentials for the stage.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the stage.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directory settings for the stage.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the encryption settings for the stage.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the stage.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="snowflakeIamUser")
-    def snowflake_iam_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snowflake_iam_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         """
         return pulumi.get(self, "snowflake_iam_user")
 
     @snowflake_iam_user.setter
-    def snowflake_iam_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snowflake_iam_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snowflake_iam_user", value)
 
     @_builtins.property
     @pulumi.getter(name="storageIntegration")
-    def storage_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         """
         return pulumi.get(self, "storage_integration")
 
     @storage_integration.setter
-    def storage_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_integration", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL for the stage.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -512,20 +512,20 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 snowflake_iam_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -659,20 +659,20 @@ class Stage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_options: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 snowflake_iam_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_options: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -713,21 +713,21 @@ class Stage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_options: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            directory: Optional[pulumi.Input[_builtins.str]] = None,
-            encryption: Optional[pulumi.Input[_builtins.str]] = None,
-            file_format: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            snowflake_iam_user: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Stage':
+            aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_options: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            directory: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption: pulumi.Input[Optional[_builtins.str]] = None,
+            file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Stage':
         """
         Get an existing Stage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

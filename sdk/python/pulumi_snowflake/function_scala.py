@@ -26,22 +26,22 @@ class FunctionScalaArgs:
                  return_type: pulumi.Input[_builtins.str],
                  runtime_version: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 function_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 return_results_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]] = None,
-                 target_path: Optional[pulumi.Input['FunctionScalaTargetPathArgs']] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 function_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaImportArgs']]]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 return_results_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]] = None,
+                 target_path: pulumi.Input[Optional['FunctionScalaTargetPathArgs']] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionScala resource.
 
@@ -167,225 +167,225 @@ class FunctionScalaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]:
+    def arguments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]:
         """
         List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]):
+    def arguments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]):
         pulumi.set(self, "arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `user-defined function`) Specifies a comment for the function.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
-    def enable_console_output(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_console_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
     @enable_console_output.setter
-    def enable_console_output(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_console_output(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_console_output", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="functionDefinition")
-    def function_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "function_definition")
 
     @function_definition.setter
-    def function_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]:
+    def imports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]:
         """
         The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
         """
         return pulumi.get(self, "imports")
 
     @imports.setter
-    def imports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]):
+    def imports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]):
         pulumi.set(self, "imports", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecure")
-    def is_secure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_secure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_secure")
 
     @is_secure.setter
-    def is_secure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_secure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_secure", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="metricLevel")
-    def metric_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
     @metric_level.setter
-    def metric_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullInputBehavior")
-    def null_input_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def null_input_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
     @null_input_behavior.setter
-    def null_input_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def null_input_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "null_input_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
         """
         return pulumi.get(self, "packages")
 
     @packages.setter
-    def packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "packages", value)
 
     @_builtins.property
     @pulumi.getter(name="returnResultsBehavior")
-    def return_results_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def return_results_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         """
         return pulumi.get(self, "return_results_behavior")
 
     @return_results_behavior.setter
-    def return_results_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def return_results_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "return_results_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]:
         """
         Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPath")
-    def target_path(self) -> Optional[pulumi.Input['FunctionScalaTargetPathArgs']]:
+    def target_path(self) -> pulumi.Input[Optional['FunctionScalaTargetPathArgs']]:
         """
         The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "target_path")
 
     @target_path.setter
-    def target_path(self, value: Optional[pulumi.Input['FunctionScalaTargetPathArgs']]):
+    def target_path(self, value: pulumi.Input[Optional['FunctionScalaTargetPathArgs']]):
         pulumi.set(self, "target_path", value)
 
     @_builtins.property
     @pulumi.getter(name="traceLevel")
-    def trace_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trace_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
     @trace_level.setter
-    def trace_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trace_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trace_level", value)
 
 
 @pulumi.input_type
 class _FunctionScalaState:
     def __init__(__self__, *,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 handler: Optional[pulumi.Input[_builtins.str]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaParameterArgs']]]] = None,
-                 return_results_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaShowOutputArgs']]]] = None,
-                 target_path: Optional[pulumi.Input['FunctionScalaTargetPathArgs']] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaImportArgs']]]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterArgs']]]] = None,
+                 return_results_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaShowOutputArgs']]]] = None,
+                 target_path: pulumi.Input[Optional['FunctionScalaTargetPathArgs']] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionScala resources.
 
@@ -468,302 +468,302 @@ class _FunctionScalaState:
 
     @_builtins.property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]:
+    def arguments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]:
         """
         List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]):
+    def arguments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]):
         pulumi.set(self, "arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `user-defined function`) Specifies a comment for the function.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
-    def enable_console_output(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_console_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
     @enable_console_output.setter
-    def enable_console_output(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_console_output(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_console_output", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="functionDefinition")
-    def function_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "function_definition")
 
     @function_definition.setter
-    def function_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="functionLanguage")
-    def function_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies language for the user. Used to detect external changes.
         """
         return pulumi.get(self, "function_language")
 
     @function_language.setter
-    def function_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def handler(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def handler(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "handler")
 
     @handler.setter
-    def handler(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def handler(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handler", value)
 
     @_builtins.property
     @pulumi.getter
-    def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]:
+    def imports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]:
         """
         The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
         """
         return pulumi.get(self, "imports")
 
     @imports.setter
-    def imports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]):
+    def imports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]):
         pulumi.set(self, "imports", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecure")
-    def is_secure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_secure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_secure")
 
     @is_secure.setter
-    def is_secure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_secure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_secure", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="metricLevel")
-    def metric_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
     @metric_level.setter
-    def metric_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullInputBehavior")
-    def null_input_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def null_input_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
     @null_input_behavior.setter
-    def null_input_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def null_input_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "null_input_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
         """
         return pulumi.get(self, "packages")
 
     @packages.setter
-    def packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "packages", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterArgs']]]]:
         """
         Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="returnResultsBehavior")
-    def return_results_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def return_results_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         """
         return pulumi.get(self, "return_results_behavior")
 
     @return_results_behavior.setter
-    def return_results_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def return_results_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "return_results_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="returnType")
-    def return_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def return_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         """
         return pulumi.get(self, "return_type")
 
     @return_type.setter
-    def return_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def return_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "return_type", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersion")
-    def runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Scala runtime version to use. The supported versions of Scala are: 2.12.
         """
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
-    def runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]:
         """
         Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW FUNCTION` for the given function.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="targetPath")
-    def target_path(self) -> Optional[pulumi.Input['FunctionScalaTargetPathArgs']]:
+    def target_path(self) -> pulumi.Input[Optional['FunctionScalaTargetPathArgs']]:
         """
         The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "target_path")
 
     @target_path.setter
-    def target_path(self, value: Optional[pulumi.Input['FunctionScalaTargetPathArgs']]):
+    def target_path(self, value: pulumi.Input[Optional['FunctionScalaTargetPathArgs']]):
         pulumi.set(self, "target_path", value)
 
     @_builtins.property
     @pulumi.getter(name="traceLevel")
-    def trace_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trace_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
     @trace_level.setter
-    def trace_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trace_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trace_level", value)
 
 
@@ -773,27 +773,27 @@ class FunctionScala(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 function_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 handler: Optional[pulumi.Input[_builtins.str]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 return_results_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]]] = None,
-                 target_path: Optional[pulumi.Input[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 function_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 return_results_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]]] = None,
+                 target_path: pulumi.Input[Optional[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -1070,27 +1070,27 @@ class FunctionScala(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 function_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 handler: Optional[pulumi.Input[_builtins.str]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 return_results_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]]] = None,
-                 target_path: Optional[pulumi.Input[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 function_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 return_results_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]]] = None,
+                 target_path: pulumi.Input[Optional[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1145,31 +1145,31 @@ class FunctionScala(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-            external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            function_definition: Optional[pulumi.Input[_builtins.str]] = None,
-            function_language: Optional[pulumi.Input[_builtins.str]] = None,
-            handler: Optional[pulumi.Input[_builtins.str]] = None,
-            imports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]]] = None,
-            is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-            log_level: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaParameterArgs', 'FunctionScalaParameterArgsDict']]]]] = None,
-            return_results_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            return_type: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaShowOutputArgs', 'FunctionScalaShowOutputArgsDict']]]]] = None,
-            target_path: Optional[pulumi.Input[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']]] = None,
-            trace_level: Optional[pulumi.Input[_builtins.str]] = None) -> 'FunctionScala':
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            function_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            function_language: pulumi.Input[Optional[_builtins.str]] = None,
+            handler: pulumi.Input[Optional[_builtins.str]] = None,
+            imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]]] = None,
+            is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+            log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaParameterArgs', 'FunctionScalaParameterArgsDict']]]]] = None,
+            return_results_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            return_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaShowOutputArgs', 'FunctionScalaShowOutputArgsDict']]]]] = None,
+            target_path: pulumi.Input[Optional[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']]] = None,
+            trace_level: pulumi.Input[Optional[_builtins.str]] = None) -> 'FunctionScala':
         """
         Get an existing FunctionScala resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

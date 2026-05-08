@@ -131,8 +131,8 @@ def get_database_role(database: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner=pulumi.get(__ret__, 'owner'))
-def get_database_role_output(database: Optional[pulumi.Input[_builtins.str]] = None,
-                             name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_role_output(database: pulumi.Input[Optional[_builtins.str]] = None,
+                             name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseRoleResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

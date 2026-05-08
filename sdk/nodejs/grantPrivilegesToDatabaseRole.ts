@@ -127,39 +127,39 @@ export interface GrantPrivilegesToDatabaseRoleState {
     /**
      * (Default: `false`) Grant all privileges on the database role.
      */
-    allPrivileges?: pulumi.Input<boolean>;
+    allPrivileges?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
      */
-    alwaysApply?: pulumi.Input<boolean>;
+    alwaysApply?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
-    alwaysApplyTrigger?: pulumi.Input<string>;
+    alwaysApplyTrigger?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
-    databaseRoleName?: pulumi.Input<string>;
+    databaseRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
-    onDatabase?: pulumi.Input<string>;
+    onDatabase?: pulumi.Input<string | undefined>;
     /**
      * Specifies the schema on which privileges will be granted.
      */
-    onSchema?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchema>;
+    onSchema?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchema | undefined>;
     /**
      * Specifies the schema object on which privileges will be granted.
      */
-    onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObject>;
+    onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObject | undefined>;
     /**
      * The privileges to grant on the database role.
      */
-    privileges?: pulumi.Input<pulumi.Input<string>[]>;
+    privileges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      */
-    withGrantOption?: pulumi.Input<boolean>;
+    withGrantOption?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -169,15 +169,15 @@ export interface GrantPrivilegesToDatabaseRoleArgs {
     /**
      * (Default: `false`) Grant all privileges on the database role.
      */
-    allPrivileges?: pulumi.Input<boolean>;
+    allPrivileges?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
      */
-    alwaysApply?: pulumi.Input<boolean>;
+    alwaysApply?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
-    alwaysApplyTrigger?: pulumi.Input<string>;
+    alwaysApplyTrigger?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
@@ -185,21 +185,21 @@ export interface GrantPrivilegesToDatabaseRoleArgs {
     /**
      * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
-    onDatabase?: pulumi.Input<string>;
+    onDatabase?: pulumi.Input<string | undefined>;
     /**
      * Specifies the schema on which privileges will be granted.
      */
-    onSchema?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchema>;
+    onSchema?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchema | undefined>;
     /**
      * Specifies the schema object on which privileges will be granted.
      */
-    onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObject>;
+    onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObject | undefined>;
     /**
      * The privileges to grant on the database role.
      */
-    privileges?: pulumi.Input<pulumi.Input<string>[]>;
+    privileges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      */
-    withGrantOption?: pulumi.Input<boolean>;
+    withGrantOption?: pulumi.Input<boolean | undefined>;
 }

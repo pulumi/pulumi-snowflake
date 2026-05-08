@@ -21,12 +21,12 @@ __all__ = ['NetworkPolicyArgs', 'NetworkPolicy']
 @pulumi.input_type
 class NetworkPolicyArgs:
     def __init__(__self__, *,
-                 allowed_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkPolicy resource.
 
@@ -52,89 +52,89 @@ class NetworkPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedIpLists")
-    def allowed_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_ip_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
         """
         return pulumi.get(self, "allowed_ip_lists")
 
     @allowed_ip_lists.setter
-    def allowed_ip_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_ip_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_ip_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedNetworkRuleLists")
-    def allowed_network_rule_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_network_rule_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
         """
         return pulumi.get(self, "allowed_network_rule_lists")
 
     @allowed_network_rule_lists.setter
-    def allowed_network_rule_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_network_rule_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_network_rule_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedIpLists")
-    def blocked_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_ip_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
         """
         return pulumi.get(self, "blocked_ip_lists")
 
     @blocked_ip_lists.setter
-    def blocked_ip_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_ip_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_ip_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedNetworkRuleLists")
-    def blocked_network_rule_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_network_rule_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
         """
         return pulumi.get(self, "blocked_network_rule_lists")
 
     @blocked_network_rule_lists.setter
-    def blocked_network_rule_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_network_rule_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_network_rule_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the network policy.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _NetworkPolicyState:
     def __init__(__self__, *,
-                 allowed_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyDescribeOutputArgs']]]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyShowOutputArgs']]]] = None):
+                 allowed_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkPolicyDescribeOutputArgs']]]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkPolicyShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering NetworkPolicy resources.
 
@@ -169,110 +169,110 @@ class _NetworkPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="allowedIpLists")
-    def allowed_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_ip_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
         """
         return pulumi.get(self, "allowed_ip_lists")
 
     @allowed_ip_lists.setter
-    def allowed_ip_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_ip_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_ip_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedNetworkRuleLists")
-    def allowed_network_rule_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_network_rule_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
         """
         return pulumi.get(self, "allowed_network_rule_lists")
 
     @allowed_network_rule_lists.setter
-    def allowed_network_rule_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_network_rule_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_network_rule_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedIpLists")
-    def blocked_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_ip_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
         """
         return pulumi.get(self, "blocked_ip_lists")
 
     @blocked_ip_lists.setter
-    def blocked_ip_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_ip_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_ip_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedNetworkRuleLists")
-    def blocked_network_rule_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_network_rule_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
         """
         return pulumi.get(self, "blocked_network_rule_lists")
 
     @blocked_network_rule_lists.setter
-    def blocked_network_rule_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_network_rule_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_network_rule_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the network policy.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkPolicyDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkPolicyDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkPolicyShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkPolicyShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -282,12 +282,12 @@ class NetworkPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
@@ -391,12 +391,12 @@ class NetworkPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 blocked_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,15 +425,15 @@ class NetworkPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            allowed_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            blocked_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            blocked_network_rule_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkPolicyDescribeOutputArgs', 'NetworkPolicyDescribeOutputArgsDict']]]]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkPolicyShowOutputArgs', 'NetworkPolicyShowOutputArgsDict']]]]] = None) -> 'NetworkPolicy':
+            allowed_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkPolicyDescribeOutputArgs', 'NetworkPolicyDescribeOutputArgsDict']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkPolicyShowOutputArgs', 'NetworkPolicyShowOutputArgsDict']]]]] = None) -> 'NetworkPolicy':
         """
         Get an existing NetworkPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

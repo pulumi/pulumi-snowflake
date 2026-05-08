@@ -151,9 +151,9 @@ def get_secrets(in_: Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]
         like=pulumi.get(__ret__, 'like'),
         secrets=pulumi.get(__ret__, 'secrets'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_secrets_output(in_: Optional[pulumi.Input[Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]]] = None,
-                       like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_secrets_output(in_: pulumi.Input[Optional[Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]]] = None,
+                       like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Data source used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.

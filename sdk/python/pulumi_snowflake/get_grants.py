@@ -244,11 +244,11 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
         grants_on=pulumi.get(__ret__, 'grants_on'),
         grants_to=pulumi.get(__ret__, 'grants_to'),
         id=pulumi.get(__ret__, 'id'))
-def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict']]]] = None,
-                      future_grants_to: Optional[pulumi.Input[Optional[Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict']]]] = None,
-                      grants_of: Optional[pulumi.Input[Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict']]]] = None,
-                      grants_on: Optional[pulumi.Input[Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict']]]] = None,
-                      grants_to: Optional[pulumi.Input[Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']]]] = None,
+def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict']]]] = None,
+                      future_grants_to: pulumi.Input[Optional[Optional[Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict']]]] = None,
+                      grants_of: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict']]]] = None,
+                      grants_on: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict']]]] = None,
+                      grants_to: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrantsResult]:
     """
     ## Example Usage

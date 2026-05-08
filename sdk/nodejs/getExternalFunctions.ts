@@ -100,9 +100,9 @@ export interface GetExternalFunctionsOutputArgs {
     /**
      * The database from which to return the schemas from.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * The schema from which to return the external functions from.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }

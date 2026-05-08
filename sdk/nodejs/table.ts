@@ -225,55 +225,55 @@ export interface TableState {
     /**
      * (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
      */
-    changeTracking?: pulumi.Input<boolean>;
+    changeTracking?: pulumi.Input<boolean | undefined>;
     /**
      * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
-    clusterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    clusterBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Definitions of a column to create in the table. Minimum one required.
      */
-    columns?: pulumi.Input<pulumi.Input<inputs.TableColumn>[]>;
+    columns?: pulumi.Input<pulumi.Input<inputs.TableColumn>[] | undefined>;
     /**
      * Specifies a comment for the table.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
      */
-    dataRetentionTimeInDays?: pulumi.Input<number>;
+    dataRetentionTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * The database in which to create the table.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the role that owns the table.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Definitions of primary key constraint to create on table
      *
      * @deprecated Use snowflake.TableConstraint instead
      */
-    primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
+    primaryKey?: pulumi.Input<inputs.TablePrimaryKey | undefined>;
     /**
      * The schema in which to create the table.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TableTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TableTag>[] | undefined>;
 }
 
 /**
@@ -283,11 +283,11 @@ export interface TableArgs {
     /**
      * (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
      */
-    changeTracking?: pulumi.Input<boolean>;
+    changeTracking?: pulumi.Input<boolean | undefined>;
     /**
      * A list of one or more table columns/expressions to be used as clustering key(s) for the table
      */
-    clusterBies?: pulumi.Input<pulumi.Input<string>[]>;
+    clusterBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Definitions of a column to create in the table. Minimum one required.
      */
@@ -295,11 +295,11 @@ export interface TableArgs {
     /**
      * Specifies a comment for the table.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
      */
-    dataRetentionTimeInDays?: pulumi.Input<number>;
+    dataRetentionTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * The database in which to create the table.
      */
@@ -307,13 +307,13 @@ export interface TableArgs {
     /**
      * Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Definitions of primary key constraint to create on table
      *
      * @deprecated Use snowflake.TableConstraint instead
      */
-    primaryKey?: pulumi.Input<inputs.TablePrimaryKey>;
+    primaryKey?: pulumi.Input<inputs.TablePrimaryKey | undefined>;
     /**
      * The schema in which to create the table.
      */
@@ -323,5 +323,5 @@ export interface TableArgs {
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TableTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TableTag>[] | undefined>;
 }

@@ -21,21 +21,21 @@ class PasswordPolicyArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 history: Optional[pulumi.Input[_builtins.int]] = None,
-                 if_not_exists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lockout_time_mins: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_lower_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_numeric_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_special_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_upper_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 history: pulumi.Input[Optional[_builtins.int]] = None,
+                 if_not_exists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lockout_time_mins: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_lower_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_numeric_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_special_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_upper_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PasswordPolicy resource.
 
@@ -116,206 +116,206 @@ class PasswordPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Adds a comment or overwrites an existing comment for the password policy.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def history(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def history(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         """
         return pulumi.get(self, "history")
 
     @history.setter
-    def history(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def history(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "history", value)
 
     @_builtins.property
     @pulumi.getter(name="ifNotExists")
-    def if_not_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def if_not_exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Prevent overwriting a previous password policy with the same name.
         """
         return pulumi.get(self, "if_not_exists")
 
     @if_not_exists.setter
-    def if_not_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def if_not_exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "if_not_exists", value)
 
     @_builtins.property
     @pulumi.getter(name="lockoutTimeMins")
-    def lockout_time_mins(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lockout_time_mins(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
         """
         return pulumi.get(self, "lockout_time_mins")
 
     @lockout_time_mins.setter
-    def lockout_time_mins(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lockout_time_mins(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lockout_time_mins", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAgeDays")
-    def max_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
         """
         return pulumi.get(self, "max_age_days")
 
     @max_age_days.setter
-    def max_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_days", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
         """
         return pulumi.get(self, "max_length")
 
     @max_length.setter
-    def max_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_length", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter(name="minAgeDays")
-    def min_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_age_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
         """
         return pulumi.get(self, "min_age_days")
 
     @min_age_days.setter
-    def min_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_age_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_age_days", value)
 
     @_builtins.property
     @pulumi.getter(name="minLength")
-    def min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
         """
         return pulumi.get(self, "min_length")
 
     @min_length.setter
-    def min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="minLowerCaseChars")
-    def min_lower_case_chars(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_lower_case_chars(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         """
         return pulumi.get(self, "min_lower_case_chars")
 
     @min_lower_case_chars.setter
-    def min_lower_case_chars(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_lower_case_chars(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_lower_case_chars", value)
 
     @_builtins.property
     @pulumi.getter(name="minNumericChars")
-    def min_numeric_chars(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_numeric_chars(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         """
         return pulumi.get(self, "min_numeric_chars")
 
     @min_numeric_chars.setter
-    def min_numeric_chars(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_numeric_chars(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_numeric_chars", value)
 
     @_builtins.property
     @pulumi.getter(name="minSpecialChars")
-    def min_special_chars(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_special_chars(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         """
         return pulumi.get(self, "min_special_chars")
 
     @min_special_chars.setter
-    def min_special_chars(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_special_chars(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_special_chars", value)
 
     @_builtins.property
     @pulumi.getter(name="minUpperCaseChars")
-    def min_upper_case_chars(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_upper_case_chars(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         """
         return pulumi.get(self, "min_upper_case_chars")
 
     @min_upper_case_chars.setter
-    def min_upper_case_chars(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_upper_case_chars(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_upper_case_chars", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the password policy; must be unique for your account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orReplace")
-    def or_replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def or_replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Whether to override a previous password policy with the same name.
         """
         return pulumi.get(self, "or_replace")
 
     @or_replace.setter
-    def or_replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def or_replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "or_replace", value)
 
 
 @pulumi.input_type
 class _PasswordPolicyState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 history: Optional[pulumi.Input[_builtins.int]] = None,
-                 if_not_exists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lockout_time_mins: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_lower_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_numeric_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_special_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_upper_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 history: pulumi.Input[Optional[_builtins.int]] = None,
+                 if_not_exists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lockout_time_mins: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_lower_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_numeric_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_special_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_upper_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PasswordPolicy resources.
 
@@ -377,218 +377,218 @@ class _PasswordPolicyState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Adds a comment or overwrites an existing comment for the password policy.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database this password policy belongs to.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def history(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def history(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
         """
         return pulumi.get(self, "history")
 
     @history.setter
-    def history(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def history(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "history", value)
 
     @_builtins.property
     @pulumi.getter(name="ifNotExists")
-    def if_not_exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def if_not_exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Prevent overwriting a previous password policy with the same name.
         """
         return pulumi.get(self, "if_not_exists")
 
     @if_not_exists.setter
-    def if_not_exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def if_not_exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "if_not_exists", value)
 
     @_builtins.property
     @pulumi.getter(name="lockoutTimeMins")
-    def lockout_time_mins(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lockout_time_mins(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
         """
         return pulumi.get(self, "lockout_time_mins")
 
     @lockout_time_mins.setter
-    def lockout_time_mins(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lockout_time_mins(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lockout_time_mins", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAgeDays")
-    def max_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
         """
         return pulumi.get(self, "max_age_days")
 
     @max_age_days.setter
-    def max_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age_days", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
         """
         return pulumi.get(self, "max_length")
 
     @max_length.setter
-    def max_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_length", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter(name="minAgeDays")
-    def min_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_age_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
         """
         return pulumi.get(self, "min_age_days")
 
     @min_age_days.setter
-    def min_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_age_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_age_days", value)
 
     @_builtins.property
     @pulumi.getter(name="minLength")
-    def min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
         """
         return pulumi.get(self, "min_length")
 
     @min_length.setter
-    def min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="minLowerCaseChars")
-    def min_lower_case_chars(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_lower_case_chars(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         """
         return pulumi.get(self, "min_lower_case_chars")
 
     @min_lower_case_chars.setter
-    def min_lower_case_chars(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_lower_case_chars(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_lower_case_chars", value)
 
     @_builtins.property
     @pulumi.getter(name="minNumericChars")
-    def min_numeric_chars(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_numeric_chars(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         """
         return pulumi.get(self, "min_numeric_chars")
 
     @min_numeric_chars.setter
-    def min_numeric_chars(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_numeric_chars(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_numeric_chars", value)
 
     @_builtins.property
     @pulumi.getter(name="minSpecialChars")
-    def min_special_chars(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_special_chars(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         """
         return pulumi.get(self, "min_special_chars")
 
     @min_special_chars.setter
-    def min_special_chars(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_special_chars(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_special_chars", value)
 
     @_builtins.property
     @pulumi.getter(name="minUpperCaseChars")
-    def min_upper_case_chars(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_upper_case_chars(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
         """
         return pulumi.get(self, "min_upper_case_chars")
 
     @min_upper_case_chars.setter
-    def min_upper_case_chars(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_upper_case_chars(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_upper_case_chars", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the password policy; must be unique for your account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orReplace")
-    def or_replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def or_replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Whether to override a previous password policy with the same name.
         """
         return pulumi.get(self, "or_replace")
 
     @or_replace.setter
-    def or_replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def or_replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "or_replace", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema this password policy belongs to.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
 
@@ -598,23 +598,23 @@ class PasswordPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 history: Optional[pulumi.Input[_builtins.int]] = None,
-                 if_not_exists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lockout_time_mins: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_lower_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_numeric_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_special_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_upper_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 history: pulumi.Input[Optional[_builtins.int]] = None,
+                 if_not_exists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lockout_time_mins: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_lower_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_numeric_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_special_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_upper_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -677,23 +677,23 @@ class PasswordPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 history: Optional[pulumi.Input[_builtins.int]] = None,
-                 if_not_exists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 lockout_time_mins: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_lower_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_numeric_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_special_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_upper_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 history: pulumi.Input[Optional[_builtins.int]] = None,
+                 if_not_exists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 lockout_time_mins: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_lower_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_numeric_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_special_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_upper_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -735,24 +735,24 @@ class PasswordPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            history: Optional[pulumi.Input[_builtins.int]] = None,
-            if_not_exists: Optional[pulumi.Input[_builtins.bool]] = None,
-            lockout_time_mins: Optional[pulumi.Input[_builtins.int]] = None,
-            max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-            max_length: Optional[pulumi.Input[_builtins.int]] = None,
-            max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-            min_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-            min_length: Optional[pulumi.Input[_builtins.int]] = None,
-            min_lower_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-            min_numeric_chars: Optional[pulumi.Input[_builtins.int]] = None,
-            min_special_chars: Optional[pulumi.Input[_builtins.int]] = None,
-            min_upper_case_chars: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None) -> 'PasswordPolicy':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            history: pulumi.Input[Optional[_builtins.int]] = None,
+            if_not_exists: pulumi.Input[Optional[_builtins.bool]] = None,
+            lockout_time_mins: pulumi.Input[Optional[_builtins.int]] = None,
+            max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+            max_length: pulumi.Input[Optional[_builtins.int]] = None,
+            max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+            min_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+            min_length: pulumi.Input[Optional[_builtins.int]] = None,
+            min_lower_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+            min_numeric_chars: pulumi.Input[Optional[_builtins.int]] = None,
+            min_special_chars: pulumi.Input[Optional[_builtins.int]] = None,
+            min_upper_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None) -> 'PasswordPolicy':
         """
         Get an existing PasswordPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

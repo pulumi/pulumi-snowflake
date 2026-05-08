@@ -216,51 +216,51 @@ export interface UserProgrammaticAccessTokenState {
     /**
      * Descriptive comment about the programmatic access token.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    daysToExpiry?: pulumi.Input<number>;
+    daysToExpiry?: pulumi.Input<number | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    disabled?: pulumi.Input<string>;
+    disabled?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
      */
-    expireRotatedTokenAfterHours?: pulumi.Input<number>;
+    expireRotatedTokenAfterHours?: pulumi.Input<number | undefined>;
     /**
      * Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotatedTokenName` fields are marked as computed.
      */
-    keeper?: pulumi.Input<string>;
+    keeper?: pulumi.Input<string | undefined>;
     /**
      * The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    minsToBypassNetworkPolicyRequirement?: pulumi.Input<number>;
+    minsToBypassNetworkPolicyRequirement?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    roleRestriction?: pulumi.Input<string>;
+    roleRestriction?: pulumi.Input<string | undefined>;
     /**
      * Name of the token that represents the prior secret. This field is updated only when the token is rotated. In this case, the field is marked as computed.
      */
-    rotatedTokenName?: pulumi.Input<string>;
+    rotatedTokenName?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW USER PROGRAMMATIC ACCESS TOKENS` for the given user programmatic access token.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.UserProgrammaticAccessTokenShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.UserProgrammaticAccessTokenShowOutput>[] | undefined>;
     /**
      * The token itself. Use this to authenticate to an endpoint. The data in this field is updated only when the token is created or rotated. In this case, the field is marked as computed.
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
     /**
      * The name of the user that the token is associated with. A user cannot use another user's programmatic access token to authenticate. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -270,35 +270,35 @@ export interface UserProgrammaticAccessTokenArgs {
     /**
      * Descriptive comment about the programmatic access token.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    daysToExpiry?: pulumi.Input<number>;
+    daysToExpiry?: pulumi.Input<number | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    disabled?: pulumi.Input<string>;
+    disabled?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
      */
-    expireRotatedTokenAfterHours?: pulumi.Input<number>;
+    expireRotatedTokenAfterHours?: pulumi.Input<number | undefined>;
     /**
      * Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotatedTokenName` fields are marked as computed.
      */
-    keeper?: pulumi.Input<string>;
+    keeper?: pulumi.Input<string | undefined>;
     /**
      * The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    minsToBypassNetworkPolicyRequirement?: pulumi.Input<number>;
+    minsToBypassNetworkPolicyRequirement?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    roleRestriction?: pulumi.Input<string>;
+    roleRestriction?: pulumi.Input<string | undefined>;
     /**
      * The name of the user that the token is associated with. A user cannot use another user's programmatic access token to authenticate. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

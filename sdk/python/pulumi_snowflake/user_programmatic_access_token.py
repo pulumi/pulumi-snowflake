@@ -22,14 +22,14 @@ __all__ = ['UserProgrammaticAccessTokenArgs', 'UserProgrammaticAccessToken']
 class UserProgrammaticAccessTokenArgs:
     def __init__(__self__, *,
                  user: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 days_to_expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_rotated_token_after_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 keeper: Optional[pulumi.Input[_builtins.str]] = None,
-                 mins_to_bypass_network_policy_requirement: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_restriction: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 days_to_expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_rotated_token_after_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 keeper: pulumi.Input[Optional[_builtins.str]] = None,
+                 mins_to_bypass_network_policy_requirement: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_restriction: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserProgrammaticAccessToken resource.
 
@@ -75,116 +75,116 @@ class UserProgrammaticAccessTokenArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Descriptive comment about the programmatic access token.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="daysToExpiry")
-    def days_to_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days_to_expiry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "days_to_expiry")
 
     @days_to_expiry.setter
-    def days_to_expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days_to_expiry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days_to_expiry", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="expireRotatedTokenAfterHours")
-    def expire_rotated_token_after_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expire_rotated_token_after_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
         """
         return pulumi.get(self, "expire_rotated_token_after_hours")
 
     @expire_rotated_token_after_hours.setter
-    def expire_rotated_token_after_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expire_rotated_token_after_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expire_rotated_token_after_hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def keeper(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keeper(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotated_token_name` fields are marked as computed.
         """
         return pulumi.get(self, "keeper")
 
     @keeper.setter
-    def keeper(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keeper(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keeper", value)
 
     @_builtins.property
     @pulumi.getter(name="minsToBypassNetworkPolicyRequirement")
-    def mins_to_bypass_network_policy_requirement(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mins_to_bypass_network_policy_requirement(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "mins_to_bypass_network_policy_requirement")
 
     @mins_to_bypass_network_policy_requirement.setter
-    def mins_to_bypass_network_policy_requirement(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mins_to_bypass_network_policy_requirement(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mins_to_bypass_network_policy_requirement", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleRestriction")
-    def role_restriction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_restriction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "role_restriction")
 
     @role_restriction.setter
-    def role_restriction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_restriction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_restriction", value)
 
 
 @pulumi.input_type
 class _UserProgrammaticAccessTokenState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 days_to_expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_rotated_token_after_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 keeper: Optional[pulumi.Input[_builtins.str]] = None,
-                 mins_to_bypass_network_policy_requirement: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_restriction: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotated_token_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['UserProgrammaticAccessTokenShowOutputArgs']]]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 days_to_expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_rotated_token_after_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 keeper: pulumi.Input[Optional[_builtins.str]] = None,
+                 mins_to_bypass_network_policy_requirement: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_restriction: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotated_token_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['UserProgrammaticAccessTokenShowOutputArgs']]]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserProgrammaticAccessToken resources.
 
@@ -228,146 +228,146 @@ class _UserProgrammaticAccessTokenState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Descriptive comment about the programmatic access token.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="daysToExpiry")
-    def days_to_expiry(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def days_to_expiry(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days that the programmatic access token can be used for authentication. This field cannot be altered after the token is created. Instead, you must rotate the token with the `keeper` field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "days_to_expiry")
 
     @days_to_expiry.setter
-    def days_to_expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def days_to_expiry(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "days_to_expiry", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Disables or enables the programmatic access token. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="expireRotatedTokenAfterHours")
-    def expire_rotated_token_after_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expire_rotated_token_after_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) This field is only used when the token is rotated by changing the `keeper` field. Sets the expiration time of the existing token secret to expire after the specified number of hours. You can set this to a value of 0 to expire the current token secret immediately.
         """
         return pulumi.get(self, "expire_rotated_token_after_hours")
 
     @expire_rotated_token_after_hours.setter
-    def expire_rotated_token_after_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expire_rotated_token_after_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expire_rotated_token_after_hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def keeper(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keeper(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arbitrary string that, if and only if, changed from a non-empty to a different non-empty value (or known after apply), will trigger a key to be rotated. When you add this field to the configuration, or remove it from the configuration, the rotation is not triggered. When the token is rotated, the `token` and `rotated_token_name` fields are marked as computed.
         """
         return pulumi.get(self, "keeper")
 
     @keeper.setter
-    def keeper(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keeper(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keeper", value)
 
     @_builtins.property
     @pulumi.getter(name="minsToBypassNetworkPolicyRequirement")
-    def mins_to_bypass_network_policy_requirement(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mins_to_bypass_network_policy_requirement(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of minutes during which a user can use this token to access Snowflake without being subject to an active network policy. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "mins_to_bypass_network_policy_requirement")
 
     @mins_to_bypass_network_policy_requirement.setter
-    def mins_to_bypass_network_policy_requirement(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mins_to_bypass_network_policy_requirement(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mins_to_bypass_network_policy_requirement", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name for the programmatic access token; must be unique for the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleRestriction")
-    def role_restriction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_restriction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the role used for privilege evaluation and object creation. This must be one of the roles that has already been granted to the user. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "role_restriction")
 
     @role_restriction.setter
-    def role_restriction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_restriction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_restriction", value)
 
     @_builtins.property
     @pulumi.getter(name="rotatedTokenName")
-    def rotated_token_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rotated_token_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the token that represents the prior secret. This field is updated only when the token is rotated. In this case, the field is marked as computed.
         """
         return pulumi.get(self, "rotated_token_name")
 
     @rotated_token_name.setter
-    def rotated_token_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rotated_token_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rotated_token_name", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProgrammaticAccessTokenShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserProgrammaticAccessTokenShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW USER PROGRAMMATIC ACCESS TOKENS` for the given user programmatic access token.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProgrammaticAccessTokenShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserProgrammaticAccessTokenShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The token itself. Use this to authenticate to an endpoint. The data in this field is updated only when the token is created or rotated. In this case, the field is marked as computed.
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user that the token is associated with. A user cannot use another user's programmatic access token to authenticate. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user", value)
 
 
@@ -377,15 +377,15 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 days_to_expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_rotated_token_after_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 keeper: Optional[pulumi.Input[_builtins.str]] = None,
-                 mins_to_bypass_network_policy_requirement: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_restriction: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 days_to_expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_rotated_token_after_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 keeper: pulumi.Input[Optional[_builtins.str]] = None,
+                 mins_to_bypass_network_policy_requirement: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_restriction: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note** Read more about PAT support in the provider in our Authentication Methods guide.
@@ -564,15 +564,15 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 days_to_expiry: Optional[pulumi.Input[_builtins.int]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_rotated_token_after_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 keeper: Optional[pulumi.Input[_builtins.str]] = None,
-                 mins_to_bypass_network_policy_requirement: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_restriction: Optional[pulumi.Input[_builtins.str]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 days_to_expiry: pulumi.Input[Optional[_builtins.int]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_rotated_token_after_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 keeper: pulumi.Input[Optional[_builtins.str]] = None,
+                 mins_to_bypass_network_policy_requirement: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_restriction: pulumi.Input[Optional[_builtins.str]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -608,18 +608,18 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            days_to_expiry: Optional[pulumi.Input[_builtins.int]] = None,
-            disabled: Optional[pulumi.Input[_builtins.str]] = None,
-            expire_rotated_token_after_hours: Optional[pulumi.Input[_builtins.int]] = None,
-            keeper: Optional[pulumi.Input[_builtins.str]] = None,
-            mins_to_bypass_network_policy_requirement: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            role_restriction: Optional[pulumi.Input[_builtins.str]] = None,
-            rotated_token_name: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserProgrammaticAccessTokenShowOutputArgs', 'UserProgrammaticAccessTokenShowOutputArgsDict']]]]] = None,
-            token: Optional[pulumi.Input[_builtins.str]] = None,
-            user: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserProgrammaticAccessToken':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            days_to_expiry: pulumi.Input[Optional[_builtins.int]] = None,
+            disabled: pulumi.Input[Optional[_builtins.str]] = None,
+            expire_rotated_token_after_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            keeper: pulumi.Input[Optional[_builtins.str]] = None,
+            mins_to_bypass_network_policy_requirement: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            role_restriction: pulumi.Input[Optional[_builtins.str]] = None,
+            rotated_token_name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserProgrammaticAccessTokenShowOutputArgs', 'UserProgrammaticAccessTokenShowOutputArgsDict']]]]] = None,
+            token: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserProgrammaticAccessToken':
         """
         Get an existing UserProgrammaticAccessToken resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

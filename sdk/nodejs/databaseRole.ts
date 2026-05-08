@@ -123,23 +123,23 @@ export interface DatabaseRoleState {
     /**
      * Specifies a comment for the database role.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.DatabaseRoleShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.DatabaseRoleShowOutput>[] | undefined>;
 }
 
 /**
@@ -149,7 +149,7 @@ export interface DatabaseRoleArgs {
     /**
      * Specifies a comment for the database role.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -157,5 +157,5 @@ export interface DatabaseRoleArgs {
     /**
      * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

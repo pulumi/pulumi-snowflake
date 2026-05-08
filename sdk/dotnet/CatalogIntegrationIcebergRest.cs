@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Basic + OAuth
-    ///     var oauthBasic = new Snowflake.Index.CatalogIntegrationIcebergRest("oauth_basic", new()
+    ///     var oauthBasic = new Snowflake.CatalogIntegrationIcebergRest("oauth_basic", new()
     ///     {
     ///         Name = "example_iceberg_rest_oauth",
     ///         Enabled = false,
@@ -48,7 +48,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Complete + OAuth
-    ///     var oauthComplete = new Snowflake.Index.CatalogIntegrationIcebergRest("oauth_complete", new()
+    ///     var oauthComplete = new Snowflake.CatalogIntegrationIcebergRest("oauth_complete", new()
     ///     {
     ///         Name = "example_iceberg_rest_oauth_complete",
     ///         Enabled = true,
@@ -76,7 +76,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // Bearer token
-    ///     var bearer = new Snowflake.Index.CatalogIntegrationIcebergRest("bearer", new()
+    ///     var bearer = new Snowflake.CatalogIntegrationIcebergRest("bearer", new()
     ///     {
     ///         Name = "example_iceberg_rest_bearer",
     ///         Enabled = false,
@@ -91,7 +91,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // SigV4
-    ///     var sigv4 = new Snowflake.Index.CatalogIntegrationIcebergRest("sigv4", new()
+    ///     var sigv4 = new Snowflake.CatalogIntegrationIcebergRest("sigv4", new()
     ///     {
     ///         Name = "example_iceberg_rest_sigv4",
     ///         Enabled = false,

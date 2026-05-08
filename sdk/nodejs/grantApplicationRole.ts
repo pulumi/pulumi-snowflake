@@ -93,15 +93,15 @@ export interface GrantApplicationRoleState {
     /**
      * The fully qualified name of the application on which application role will be granted.
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the application role to grant.
      */
-    applicationRoleName?: pulumi.Input<string>;
+    applicationRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
      */
-    parentAccountRoleName?: pulumi.Input<string>;
+    parentAccountRoleName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -111,7 +111,7 @@ export interface GrantApplicationRoleArgs {
     /**
      * The fully qualified name of the application on which application role will be granted.
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the application role to grant.
      */
@@ -119,5 +119,5 @@ export interface GrantApplicationRoleArgs {
     /**
      * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
      */
-    parentAccountRoleName?: pulumi.Input<string>;
+    parentAccountRoleName?: pulumi.Input<string | undefined>;
 }

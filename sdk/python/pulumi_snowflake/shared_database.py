@@ -20,22 +20,22 @@ __all__ = ['SharedDatabaseArgs', 'SharedDatabase']
 class SharedDatabaseArgs:
     def __init__(__self__, *,
                  from_share: pulumi.Input[_builtins.str],
-                 catalog: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ddl_collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quoted_identifiers_ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_serialization_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_task_managed_initial_warehouse_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_task_minimum_trigger_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None):
+                 catalog: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspend_task_after_num_failures: pulumi.Input[Optional[_builtins.int]] = None,
+                 task_auto_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_task_managed_initial_warehouse_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_task_minimum_trigger_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_task_timeout_ms: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SharedDatabase resource.
 
@@ -105,218 +105,218 @@ class SharedDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def catalog(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
-    def catalog(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the database.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDdlCollation")
-    def default_ddl_collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_ddl_collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
 
     @default_ddl_collation.setter
-    def default_ddl_collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_ddl_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_ddl_collation", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
-    def enable_console_output(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_console_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         """
         return pulumi.get(self, "enable_console_output")
 
     @enable_console_output.setter
-    def enable_console_output(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_console_output(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_console_output", value)
 
     @_builtins.property
     @pulumi.getter(name="externalVolume")
-    def external_volume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_volume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
     @external_volume.setter
-    def external_volume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_volume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_volume", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
-    def quoted_identifiers_ignore_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def quoted_identifiers_ignore_case(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
     @quoted_identifiers_ignore_case.setter
-    def quoted_identifiers_ignore_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def quoted_identifiers_ignore_case(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "quoted_identifiers_ignore_case", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceInvalidCharacters")
-    def replace_invalid_characters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_invalid_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
     @replace_invalid_characters.setter
-    def replace_invalid_characters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_invalid_characters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_invalid_characters", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSerializationPolicy")
-    def storage_serialization_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_serialization_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
     @storage_serialization_policy.setter
-    def storage_serialization_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_serialization_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_serialization_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendTaskAfterNumFailures")
-    def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def suspend_task_after_num_failures(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
     @suspend_task_after_num_failures.setter
-    def suspend_task_after_num_failures(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def suspend_task_after_num_failures(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "suspend_task_after_num_failures", value)
 
     @_builtins.property
     @pulumi.getter(name="taskAutoRetryAttempts")
-    def task_auto_retry_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def task_auto_retry_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
     @task_auto_retry_attempts.setter
-    def task_auto_retry_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def task_auto_retry_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "task_auto_retry_attempts", value)
 
     @_builtins.property
     @pulumi.getter(name="traceLevel")
-    def trace_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trace_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         """
         return pulumi.get(self, "trace_level")
 
     @trace_level.setter
-    def trace_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trace_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trace_level", value)
 
     @_builtins.property
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
-    def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_task_managed_initial_warehouse_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
     @user_task_managed_initial_warehouse_size.setter
-    def user_task_managed_initial_warehouse_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_task_managed_initial_warehouse_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_task_managed_initial_warehouse_size", value)
 
     @_builtins.property
     @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
-    def user_task_minimum_trigger_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def user_task_minimum_trigger_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum amount of time between Triggered Task executions in seconds.
         """
         return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
 
     @user_task_minimum_trigger_interval_in_seconds.setter
-    def user_task_minimum_trigger_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def user_task_minimum_trigger_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "user_task_minimum_trigger_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="userTaskTimeoutMs")
-    def user_task_timeout_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def user_task_timeout_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
     @user_task_timeout_ms.setter
-    def user_task_timeout_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def user_task_timeout_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "user_task_timeout_ms", value)
 
 
 @pulumi.input_type
 class _SharedDatabaseState:
     def __init__(__self__, *,
-                 catalog: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ddl_collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_share: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quoted_identifiers_ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_serialization_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_task_managed_initial_warehouse_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_task_minimum_trigger_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None):
+                 catalog: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_share: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspend_task_after_num_failures: pulumi.Input[Optional[_builtins.int]] = None,
+                 task_auto_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_task_managed_initial_warehouse_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_task_minimum_trigger_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_task_timeout_ms: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering SharedDatabase resources.
 
@@ -378,218 +378,218 @@ class _SharedDatabaseState:
 
     @_builtins.property
     @pulumi.getter
-    def catalog(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def catalog(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
-    def catalog(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def catalog(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the database.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultDdlCollation")
-    def default_ddl_collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_ddl_collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
 
     @default_ddl_collation.setter
-    def default_ddl_collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_ddl_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_ddl_collation", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
-    def enable_console_output(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_console_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         """
         return pulumi.get(self, "enable_console_output")
 
     @enable_console_output.setter
-    def enable_console_output(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_console_output(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_console_output", value)
 
     @_builtins.property
     @pulumi.getter(name="externalVolume")
-    def external_volume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_volume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
     @external_volume.setter
-    def external_volume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_volume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_volume", value)
 
     @_builtins.property
     @pulumi.getter(name="fromShare")
-    def from_share(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_share(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "from_share")
 
     @from_share.setter
-    def from_share(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_share(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_share", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
-    def quoted_identifiers_ignore_case(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def quoted_identifiers_ignore_case(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
     @quoted_identifiers_ignore_case.setter
-    def quoted_identifiers_ignore_case(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def quoted_identifiers_ignore_case(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "quoted_identifiers_ignore_case", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceInvalidCharacters")
-    def replace_invalid_characters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_invalid_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
     @replace_invalid_characters.setter
-    def replace_invalid_characters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_invalid_characters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_invalid_characters", value)
 
     @_builtins.property
     @pulumi.getter(name="storageSerializationPolicy")
-    def storage_serialization_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_serialization_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
     @storage_serialization_policy.setter
-    def storage_serialization_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_serialization_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_serialization_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendTaskAfterNumFailures")
-    def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def suspend_task_after_num_failures(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
     @suspend_task_after_num_failures.setter
-    def suspend_task_after_num_failures(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def suspend_task_after_num_failures(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "suspend_task_after_num_failures", value)
 
     @_builtins.property
     @pulumi.getter(name="taskAutoRetryAttempts")
-    def task_auto_retry_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def task_auto_retry_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
     @task_auto_retry_attempts.setter
-    def task_auto_retry_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def task_auto_retry_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "task_auto_retry_attempts", value)
 
     @_builtins.property
     @pulumi.getter(name="traceLevel")
-    def trace_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trace_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         """
         return pulumi.get(self, "trace_level")
 
     @trace_level.setter
-    def trace_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trace_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trace_level", value)
 
     @_builtins.property
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
-    def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_task_managed_initial_warehouse_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
     @user_task_managed_initial_warehouse_size.setter
-    def user_task_managed_initial_warehouse_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_task_managed_initial_warehouse_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_task_managed_initial_warehouse_size", value)
 
     @_builtins.property
     @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
-    def user_task_minimum_trigger_interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def user_task_minimum_trigger_interval_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum amount of time between Triggered Task executions in seconds.
         """
         return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
 
     @user_task_minimum_trigger_interval_in_seconds.setter
-    def user_task_minimum_trigger_interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def user_task_minimum_trigger_interval_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "user_task_minimum_trigger_interval_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="userTaskTimeoutMs")
-    def user_task_timeout_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def user_task_timeout_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
     @user_task_timeout_ms.setter
-    def user_task_timeout_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def user_task_timeout_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "user_task_timeout_ms", value)
 
 
@@ -599,23 +599,23 @@ class SharedDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ddl_collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_share: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quoted_identifiers_ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_serialization_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_task_managed_initial_warehouse_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_task_minimum_trigger_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None,
+                 catalog: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_share: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspend_task_after_num_failures: pulumi.Input[Optional[_builtins.int]] = None,
+                 task_auto_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_task_managed_initial_warehouse_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_task_minimum_trigger_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_task_timeout_ms: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         !> **Note** The provider does not detect external changes on database type. In this case, remove the database of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
@@ -690,23 +690,23 @@ class SharedDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_ddl_collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_share: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 quoted_identifiers_ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 storage_serialization_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_task_managed_initial_warehouse_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_task_minimum_trigger_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None,
+                 catalog: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_share: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspend_task_after_num_failures: pulumi.Input[Optional[_builtins.int]] = None,
+                 task_auto_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_task_managed_initial_warehouse_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_task_minimum_trigger_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_task_timeout_ms: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -746,24 +746,24 @@ class SharedDatabase(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catalog: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            default_ddl_collation: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-            external_volume: Optional[pulumi.Input[_builtins.str]] = None,
-            from_share: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            log_level: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            quoted_identifiers_ignore_case: Optional[pulumi.Input[_builtins.bool]] = None,
-            replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-            storage_serialization_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            suspend_task_after_num_failures: Optional[pulumi.Input[_builtins.int]] = None,
-            task_auto_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-            trace_level: Optional[pulumi.Input[_builtins.str]] = None,
-            user_task_managed_initial_warehouse_size: Optional[pulumi.Input[_builtins.str]] = None,
-            user_task_minimum_trigger_interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            user_task_timeout_ms: Optional[pulumi.Input[_builtins.int]] = None) -> 'SharedDatabase':
+            catalog: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+            from_share: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            suspend_task_after_num_failures: pulumi.Input[Optional[_builtins.int]] = None,
+            task_auto_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            trace_level: pulumi.Input[Optional[_builtins.str]] = None,
+            user_task_managed_initial_warehouse_size: pulumi.Input[Optional[_builtins.str]] = None,
+            user_task_minimum_trigger_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            user_task_timeout_ms: pulumi.Input[Optional[_builtins.int]] = None) -> 'SharedDatabase':
         """
         Get an existing SharedDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

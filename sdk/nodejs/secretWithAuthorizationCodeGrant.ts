@@ -155,47 +155,47 @@ export interface SecretWithAuthorizationCodeGrantState {
     /**
      * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
      */
-    apiAuthentication?: pulumi.Input<string>;
+    apiAuthentication?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the secret.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECRET` for the given secret.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithAuthorizationCodeGrantDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithAuthorizationCodeGrantDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    oauthRefreshToken?: pulumi.Input<string>;
+    oauthRefreshToken?: pulumi.Input<string | undefined>;
     /**
      * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
      */
-    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      */
-    secretType?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW SECRETS` for the given secret.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithAuthorizationCodeGrantShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithAuthorizationCodeGrantShowOutput>[] | undefined>;
 }
 
 /**
@@ -209,7 +209,7 @@ export interface SecretWithAuthorizationCodeGrantArgs {
     /**
      * Specifies a comment for the secret.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -217,7 +217,7 @@ export interface SecretWithAuthorizationCodeGrantArgs {
     /**
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */

@@ -25,19 +25,19 @@ class Saml2IntegrationArgs:
                  saml2_provider: pulumi.Input[_builtins.str],
                  saml2_sso_url: pulumi.Input[_builtins.str],
                  saml2_x509_cert: pulumi.Input[_builtins.str],
-                 allowed_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_user_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_enable_sp_initiated: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_force_authn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_post_logout_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_requested_nameid_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sign_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_snowflake_acs_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_snowflake_issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sp_initiated_login_page_label: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_user_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_enable_sp_initiated: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_force_authn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_post_logout_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_requested_nameid_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sign_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_snowflake_acs_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_snowflake_issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sp_initiated_login_page_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Saml2Integration resource.
 
@@ -140,184 +140,184 @@ class Saml2IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedEmailPatterns")
-    def allowed_email_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_email_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         """
         return pulumi.get(self, "allowed_email_patterns")
 
     @allowed_email_patterns.setter
-    def allowed_email_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_email_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_email_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedUserDomains")
-    def allowed_user_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_user_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         """
         return pulumi.get(self, "allowed_user_domains")
 
     @allowed_user_domains.setter
-    def allowed_user_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_user_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_user_domains", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2EnableSpInitiated")
-    def saml2_enable_sp_initiated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_enable_sp_initiated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "saml2_enable_sp_initiated")
 
     @saml2_enable_sp_initiated.setter
-    def saml2_enable_sp_initiated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_enable_sp_initiated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_enable_sp_initiated", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2ForceAuthn")
-    def saml2_force_authn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_force_authn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "saml2_force_authn")
 
     @saml2_force_authn.setter
-    def saml2_force_authn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_force_authn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_force_authn", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2PostLogoutRedirectUrl")
-    def saml2_post_logout_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_post_logout_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
         """
         return pulumi.get(self, "saml2_post_logout_redirect_url")
 
     @saml2_post_logout_redirect_url.setter
-    def saml2_post_logout_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_post_logout_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_post_logout_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2RequestedNameidFormat")
-    def saml2_requested_nameid_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_requested_nameid_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` | `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` | `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` | `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` | `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
         """
         return pulumi.get(self, "saml2_requested_nameid_format")
 
     @saml2_requested_nameid_format.setter
-    def saml2_requested_nameid_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_requested_nameid_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_requested_nameid_format", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SignRequest")
-    def saml2_sign_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_sign_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "saml2_sign_request")
 
     @saml2_sign_request.setter
-    def saml2_sign_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_sign_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_sign_request", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SnowflakeAcsUrl")
-    def saml2_snowflake_acs_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_snowflake_acs_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         """
         return pulumi.get(self, "saml2_snowflake_acs_url")
 
     @saml2_snowflake_acs_url.setter
-    def saml2_snowflake_acs_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_snowflake_acs_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_snowflake_acs_url", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SnowflakeIssuerUrl")
-    def saml2_snowflake_issuer_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_snowflake_issuer_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         """
         return pulumi.get(self, "saml2_snowflake_issuer_url")
 
     @saml2_snowflake_issuer_url.setter
-    def saml2_snowflake_issuer_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_snowflake_issuer_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_snowflake_issuer_url", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SpInitiatedLoginPageLabel")
-    def saml2_sp_initiated_login_page_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_sp_initiated_login_page_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string containing the label to display after the Log In With button on the login page. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         """
         return pulumi.get(self, "saml2_sp_initiated_login_page_label")
 
     @saml2_sp_initiated_login_page_label.setter
-    def saml2_sp_initiated_login_page_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_sp_initiated_login_page_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_sp_initiated_login_page_label", value)
 
 
 @pulumi.input_type
 class _Saml2IntegrationState:
     def __init__(__self__, *,
-                 allowed_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_user_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_enable_sp_initiated: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_force_authn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_post_logout_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_requested_nameid_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sign_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_snowflake_acs_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_snowflake_issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sp_initiated_login_page_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_x509_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationShowOutputArgs']]]] = None):
+                 allowed_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_user_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_enable_sp_initiated: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_force_authn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_post_logout_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_requested_nameid_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sign_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_snowflake_acs_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_snowflake_issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sp_initiated_login_page_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_x509_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Saml2Integration resources.
 
@@ -385,242 +385,242 @@ class _Saml2IntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="allowedEmailPatterns")
-    def allowed_email_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_email_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         """
         return pulumi.get(self, "allowed_email_patterns")
 
     @allowed_email_patterns.setter
-    def allowed_email_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_email_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_email_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedUserDomains")
-    def allowed_user_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_user_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         """
         return pulumi.get(self, "allowed_user_domains")
 
     @allowed_user_domains.setter
-    def allowed_user_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_user_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_user_domains", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2EnableSpInitiated")
-    def saml2_enable_sp_initiated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_enable_sp_initiated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "saml2_enable_sp_initiated")
 
     @saml2_enable_sp_initiated.setter
-    def saml2_enable_sp_initiated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_enable_sp_initiated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_enable_sp_initiated", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2ForceAuthn")
-    def saml2_force_authn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_force_authn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "saml2_force_authn")
 
     @saml2_force_authn.setter
-    def saml2_force_authn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_force_authn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_force_authn", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2Issuer")
-    def saml2_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string containing the IdP EntityID / Issuer.
         """
         return pulumi.get(self, "saml2_issuer")
 
     @saml2_issuer.setter
-    def saml2_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2PostLogoutRedirectUrl")
-    def saml2_post_logout_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_post_logout_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
         """
         return pulumi.get(self, "saml2_post_logout_redirect_url")
 
     @saml2_post_logout_redirect_url.setter
-    def saml2_post_logout_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_post_logout_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_post_logout_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2Provider")
-    def saml2_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string describing the IdP. Valid options are: `OKTA` | `ADFS` | `CUSTOM`.
         """
         return pulumi.get(self, "saml2_provider")
 
     @saml2_provider.setter
-    def saml2_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2RequestedNameidFormat")
-    def saml2_requested_nameid_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_requested_nameid_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` | `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` | `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` | `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` | `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
         """
         return pulumi.get(self, "saml2_requested_nameid_format")
 
     @saml2_requested_nameid_format.setter
-    def saml2_requested_nameid_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_requested_nameid_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_requested_nameid_format", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SignRequest")
-    def saml2_sign_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_sign_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "saml2_sign_request")
 
     @saml2_sign_request.setter
-    def saml2_sign_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_sign_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_sign_request", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SnowflakeAcsUrl")
-    def saml2_snowflake_acs_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_snowflake_acs_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         """
         return pulumi.get(self, "saml2_snowflake_acs_url")
 
     @saml2_snowflake_acs_url.setter
-    def saml2_snowflake_acs_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_snowflake_acs_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_snowflake_acs_url", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SnowflakeIssuerUrl")
-    def saml2_snowflake_issuer_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_snowflake_issuer_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         """
         return pulumi.get(self, "saml2_snowflake_issuer_url")
 
     @saml2_snowflake_issuer_url.setter
-    def saml2_snowflake_issuer_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_snowflake_issuer_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_snowflake_issuer_url", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SpInitiatedLoginPageLabel")
-    def saml2_sp_initiated_login_page_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_sp_initiated_login_page_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string containing the label to display after the Log In With button on the login page. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         """
         return pulumi.get(self, "saml2_sp_initiated_login_page_label")
 
     @saml2_sp_initiated_login_page_label.setter
-    def saml2_sp_initiated_login_page_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_sp_initiated_login_page_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_sp_initiated_login_page_label", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2SsoUrl")
-    def saml2_sso_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_sso_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
         """
         return pulumi.get(self, "saml2_sso_url")
 
     @saml2_sso_url.setter
-    def saml2_sso_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_sso_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_sso_url", value)
 
     @_builtins.property
     @pulumi.getter(name="saml2X509Cert")
-    def saml2_x509_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml2_x509_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
         """
         return pulumi.get(self, "saml2_x509_cert")
 
     @saml2_x509_cert.setter
-    def saml2_x509_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml2_x509_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml2_x509_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -630,23 +630,23 @@ class Saml2Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_user_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_enable_sp_initiated: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_force_authn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_post_logout_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_requested_nameid_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sign_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_snowflake_acs_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_snowflake_issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sp_initiated_login_page_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_x509_cert: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_user_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_enable_sp_initiated: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_force_authn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_post_logout_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_requested_nameid_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sign_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_snowflake_acs_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_snowflake_issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sp_initiated_login_page_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_x509_cert: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
@@ -805,23 +805,23 @@ class Saml2Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allowed_user_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_enable_sp_initiated: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_force_authn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_post_logout_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_requested_nameid_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sign_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_snowflake_acs_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_snowflake_issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sp_initiated_login_page_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml2_x509_cert: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_user_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_enable_sp_initiated: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_force_authn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_post_logout_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_requested_nameid_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sign_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_snowflake_acs_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_snowflake_issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sp_initiated_login_page_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml2_x509_cert: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -871,26 +871,26 @@ class Saml2Integration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            allowed_user_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Saml2IntegrationDescribeOutputArgs', 'Saml2IntegrationDescribeOutputArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_enable_sp_initiated: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_force_authn: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_post_logout_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_provider: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_requested_nameid_format: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_sign_request: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_snowflake_acs_url: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_snowflake_issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_sp_initiated_login_page_label: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-            saml2_x509_cert: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Saml2IntegrationShowOutputArgs', 'Saml2IntegrationShowOutputArgsDict']]]]] = None) -> 'Saml2Integration':
+            allowed_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_user_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Saml2IntegrationDescribeOutputArgs', 'Saml2IntegrationDescribeOutputArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_enable_sp_initiated: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_force_authn: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_post_logout_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_requested_nameid_format: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_sign_request: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_snowflake_acs_url: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_snowflake_issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_sp_initiated_login_page_label: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_x509_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Saml2IntegrationShowOutputArgs', 'Saml2IntegrationShowOutputArgsDict']]]]] = None) -> 'Saml2Integration':
         """
         Get an existing Saml2Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

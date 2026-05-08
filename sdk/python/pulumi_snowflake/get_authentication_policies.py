@@ -176,12 +176,12 @@ def get_authentication_policies(in_: Optional[Union['GetAuthenticationPoliciesIn
         on=pulumi.get(__ret__, 'on'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_authentication_policies_output(in_: Optional[pulumi.Input[Optional[Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict']]]] = None,
-                                       like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       limit: Optional[pulumi.Input[Optional[Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict']]]] = None,
-                                       on: Optional[pulumi.Input[Optional[Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict']]]] = None,
-                                       starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_authentication_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict']]]] = None,
+                                       like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       limit: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict']]]] = None,
+                                       on: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict']]]] = None,
+                                       starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthenticationPoliciesResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

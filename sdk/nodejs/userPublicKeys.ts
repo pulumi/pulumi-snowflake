@@ -86,15 +86,15 @@ export interface UserPublicKeysState {
     /**
      * Name of the user.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
      */
-    rsaPublicKey?: pulumi.Input<string>;
+    rsaPublicKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
-    rsaPublicKey2?: pulumi.Input<string>;
+    rsaPublicKey2?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -104,13 +104,13 @@ export interface UserPublicKeysArgs {
     /**
      * Name of the user.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
      */
-    rsaPublicKey?: pulumi.Input<string>;
+    rsaPublicKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
-    rsaPublicKey2?: pulumi.Input<string>;
+    rsaPublicKey2?: pulumi.Input<string | undefined>;
 }

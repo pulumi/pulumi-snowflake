@@ -25,12 +25,12 @@ class StreamlitArgs:
                  main_file: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  stage: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Streamlit resource.
 
@@ -112,93 +112,93 @@ class StreamlitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the streamlit.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryLocation")
-    def directory_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         """
         return pulumi.get(self, "directory_location")
 
     @directory_location.setter
-    def directory_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_location", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         External access integrations connected to the Streamlit.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryWarehouse")
-    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
         """
         return pulumi.get(self, "query_warehouse")
 
     @query_warehouse.setter
-    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a title for the Streamlit app to display in Snowsight.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
 @pulumi.input_type
 class _StreamlitState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]]] = None,
-                 directory_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 main_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StreamlitShowOutputArgs']]]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]]] = None,
+                 directory_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 main_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StreamlitShowOutputArgs']]]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Streamlit resources.
 
@@ -245,158 +245,158 @@ class _StreamlitState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the streamlit.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="directoryLocation")
-    def directory_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         """
         return pulumi.get(self, "directory_location")
 
     @directory_location.setter
-    def directory_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_location", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         External access integrations connected to the Streamlit.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mainFile")
-    def main_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def main_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
         """
         return pulumi.get(self, "main_file")
 
     @main_file.setter
-    def main_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def main_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "main_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryWarehouse")
-    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
         """
         return pulumi.get(self, "query_warehouse")
 
     @query_warehouse.setter
-    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamlitShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamlitShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW STREAMLIT` for the given streamlit.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamlitShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StreamlitShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stage in which streamlit files are located. For more information about this resource, see docs.
         """
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a title for the Streamlit app to display in Snowsight.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -406,16 +406,16 @@ class Streamlit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 main_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 main_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         <!-- TODO(SNOW-1541938): remove this after fix on snowflake side -->
@@ -487,16 +487,16 @@ class Streamlit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory_location: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 main_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 main_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -537,19 +537,19 @@ class Streamlit(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]]] = None,
-            directory_location: Optional[pulumi.Input[_builtins.str]] = None,
-            external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            main_file: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]]] = None,
-            stage: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None) -> 'Streamlit':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]]] = None,
+            directory_location: pulumi.Input[Optional[_builtins.str]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            main_file: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]]] = None,
+            stage: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> 'Streamlit':
         """
         Get an existing Streamlit resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

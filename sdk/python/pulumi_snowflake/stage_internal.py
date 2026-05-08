@@ -23,11 +23,11 @@ class StageInternalArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input['StageInternalDirectoryArgs']] = None,
-                 encryption: Optional[pulumi.Input['StageInternalEncryptionArgs']] = None,
-                 file_format: Optional[pulumi.Input['StageInternalFileFormatArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional['StageInternalDirectoryArgs']] = None,
+                 encryption: pulumi.Input[Optional['StageInternalEncryptionArgs']] = None,
+                 file_format: pulumi.Input[Optional['StageInternalFileFormatArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StageInternal resource.
 
@@ -78,79 +78,79 @@ class StageInternalArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stage.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input['StageInternalDirectoryArgs']]:
+    def directory(self) -> pulumi.Input[Optional['StageInternalDirectoryArgs']]:
         """
         Directory tables store a catalog of staged files in cloud storage.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input['StageInternalDirectoryArgs']]):
+    def directory(self, value: pulumi.Input[Optional['StageInternalDirectoryArgs']]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['StageInternalEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['StageInternalEncryptionArgs']]:
         """
         Specifies the encryption settings for the internal stage.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['StageInternalEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['StageInternalEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input['StageInternalFileFormatArgs']]:
+    def file_format(self) -> pulumi.Input[Optional['StageInternalFileFormatArgs']]:
         """
         Specifies the file format for the stage.
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input['StageInternalFileFormatArgs']]):
+    def file_format(self, value: pulumi.Input[Optional['StageInternalFileFormatArgs']]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _StageInternalState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StageInternalDescribeOutputArgs']]]] = None,
-                 directory: Optional[pulumi.Input['StageInternalDirectoryArgs']] = None,
-                 encryption: Optional[pulumi.Input['StageInternalEncryptionArgs']] = None,
-                 file_format: Optional[pulumi.Input['StageInternalFileFormatArgs']] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StageInternalShowOutputArgs']]]] = None,
-                 stage_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputArgs']]]] = None,
+                 directory: pulumi.Input[Optional['StageInternalDirectoryArgs']] = None,
+                 encryption: pulumi.Input[Optional['StageInternalEncryptionArgs']] = None,
+                 file_format: pulumi.Input[Optional['StageInternalFileFormatArgs']] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalShowOutputArgs']]]] = None,
+                 stage_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StageInternal resources.
 
@@ -191,134 +191,134 @@ class _StageInternalState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stage.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageInternalDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE STAGE` for the given stage.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageInternalDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input['StageInternalDirectoryArgs']]:
+    def directory(self) -> pulumi.Input[Optional['StageInternalDirectoryArgs']]:
         """
         Directory tables store a catalog of staged files in cloud storage.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input['StageInternalDirectoryArgs']]):
+    def directory(self, value: pulumi.Input[Optional['StageInternalDirectoryArgs']]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['StageInternalEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['StageInternalEncryptionArgs']]:
         """
         Specifies the encryption settings for the internal stage.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['StageInternalEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['StageInternalEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input['StageInternalFileFormatArgs']]:
+    def file_format(self) -> pulumi.Input[Optional['StageInternalFileFormatArgs']]:
         """
         Specifies the file format for the stage.
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input['StageInternalFileFormatArgs']]):
+    def file_format(self, value: pulumi.Input[Optional['StageInternalFileFormatArgs']]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageInternalShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW STAGES` for the given stage.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageInternalShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="stageType")
-    def stage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "stage_type")
 
     @stage_type.setter
-    def stage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_type", value)
 
 
@@ -328,13 +328,13 @@ class StageInternal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
-                 encryption: Optional[pulumi.Input[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
-                 file_format: Optional[pulumi.Input[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -735,13 +735,13 @@ class StageInternal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
-                 encryption: Optional[pulumi.Input[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
-                 file_format: Optional[pulumi.Input[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -776,17 +776,17 @@ class StageInternal(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageInternalDescribeOutputArgs', 'StageInternalDescribeOutputArgsDict']]]]] = None,
-            directory: Optional[pulumi.Input[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
-            encryption: Optional[pulumi.Input[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
-            file_format: Optional[pulumi.Input[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageInternalShowOutputArgs', 'StageInternalShowOutputArgsDict']]]]] = None,
-            stage_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'StageInternal':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageInternalDescribeOutputArgs', 'StageInternalDescribeOutputArgsDict']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageInternalShowOutputArgs', 'StageInternalShowOutputArgsDict']]]]] = None,
+            stage_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'StageInternal':
         """
         Get an existing StageInternal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

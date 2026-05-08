@@ -76,9 +76,9 @@ export interface GetStorageIntegrationsOutputArgs {
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Runs DESC STORAGE INTEGRATION for each storage integration returned by SHOW STORAGE INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }

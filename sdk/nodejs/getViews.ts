@@ -106,21 +106,21 @@ export interface GetViewsOutputArgs {
     /**
      * IN clause to filter the list of views
      */
-    in?: pulumi.Input<inputs.GetViewsInArgs>;
+    in?: pulumi.Input<inputs.GetViewsInArgs | undefined>;
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    limit?: pulumi.Input<inputs.GetViewsLimitArgs>;
+    limit?: pulumi.Input<inputs.GetViewsLimitArgs | undefined>;
     /**
      * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      */
-    startsWith?: pulumi.Input<string>;
+    startsWith?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }

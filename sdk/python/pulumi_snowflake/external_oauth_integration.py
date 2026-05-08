@@ -26,17 +26,17 @@ class ExternalOauthIntegrationArgs:
                  external_oauth_snowflake_user_mapping_attribute: pulumi.Input[_builtins.str],
                  external_oauth_token_user_mapping_claims: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  external_oauth_type: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_any_role_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_scope_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_scope_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_any_role_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_audience_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_jws_keys_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_scope_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_scope_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExternalOauthIntegration resource.
 
@@ -147,160 +147,160 @@ class ExternalOauthIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the OAuth integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthAllowedRolesLists")
-    def external_oauth_allowed_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_allowed_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
         """
         return pulumi.get(self, "external_oauth_allowed_roles_lists")
 
     @external_oauth_allowed_roles_lists.setter
-    def external_oauth_allowed_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_allowed_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_allowed_roles_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthAnyRoleMode")
-    def external_oauth_any_role_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_any_role_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
         """
         return pulumi.get(self, "external_oauth_any_role_mode")
 
     @external_oauth_any_role_mode.setter
-    def external_oauth_any_role_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_any_role_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_any_role_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthAudienceLists")
-    def external_oauth_audience_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_audience_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
         """
         return pulumi.get(self, "external_oauth_audience_lists")
 
     @external_oauth_audience_lists.setter
-    def external_oauth_audience_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_audience_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_audience_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthBlockedRolesLists")
-    def external_oauth_blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_blocked_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         """
         return pulumi.get(self, "external_oauth_blocked_roles_lists")
 
     @external_oauth_blocked_roles_lists.setter
-    def external_oauth_blocked_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_blocked_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_blocked_roles_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthJwsKeysUrls")
-    def external_oauth_jws_keys_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_jws_keys_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_jws_keys_urls")
 
     @external_oauth_jws_keys_urls.setter
-    def external_oauth_jws_keys_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_jws_keys_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_jws_keys_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthRsaPublicKey")
-    def external_oauth_rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_rsa_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_rsa_public_key")
 
     @external_oauth_rsa_public_key.setter
-    def external_oauth_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_rsa_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_rsa_public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthRsaPublicKey2")
-    def external_oauth_rsa_public_key2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_rsa_public_key2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_rsa_public_key2")
 
     @external_oauth_rsa_public_key2.setter
-    def external_oauth_rsa_public_key2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_rsa_public_key2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_rsa_public_key2", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthScopeDelimiter")
-    def external_oauth_scope_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_scope_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the scope delimiter in the authorization token.
         """
         return pulumi.get(self, "external_oauth_scope_delimiter")
 
     @external_oauth_scope_delimiter.setter
-    def external_oauth_scope_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_scope_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_scope_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthScopeMappingAttribute")
-    def external_oauth_scope_mapping_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_scope_mapping_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_scope_mapping_attribute")
 
     @external_oauth_scope_mapping_attribute.setter
-    def external_oauth_scope_mapping_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_scope_mapping_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_scope_mapping_attribute", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ExternalOauthIntegrationState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_any_role_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_scope_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_scope_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_oauth_allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_any_role_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_audience_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_jws_keys_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_scope_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_scope_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_snowflake_user_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_token_user_mapping_claims: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalOauthIntegration resources.
 
@@ -368,242 +368,242 @@ class _ExternalOauthIntegrationState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the OAuth integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to initiate operation of the integration or suspend it.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthAllowedRolesLists")
-    def external_oauth_allowed_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_allowed_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
         """
         return pulumi.get(self, "external_oauth_allowed_roles_lists")
 
     @external_oauth_allowed_roles_lists.setter
-    def external_oauth_allowed_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_allowed_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_allowed_roles_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthAnyRoleMode")
-    def external_oauth_any_role_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_any_role_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
         """
         return pulumi.get(self, "external_oauth_any_role_mode")
 
     @external_oauth_any_role_mode.setter
-    def external_oauth_any_role_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_any_role_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_any_role_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthAudienceLists")
-    def external_oauth_audience_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_audience_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
         """
         return pulumi.get(self, "external_oauth_audience_lists")
 
     @external_oauth_audience_lists.setter
-    def external_oauth_audience_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_audience_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_audience_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthBlockedRolesLists")
-    def external_oauth_blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_blocked_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         """
         return pulumi.get(self, "external_oauth_blocked_roles_lists")
 
     @external_oauth_blocked_roles_lists.setter
-    def external_oauth_blocked_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_blocked_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_blocked_roles_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthIssuer")
-    def external_oauth_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL to define the OAuth 2.0 authorization server.
         """
         return pulumi.get(self, "external_oauth_issuer")
 
     @external_oauth_issuer.setter
-    def external_oauth_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthJwsKeysUrls")
-    def external_oauth_jws_keys_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_jws_keys_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_jws_keys_urls")
 
     @external_oauth_jws_keys_urls.setter
-    def external_oauth_jws_keys_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_jws_keys_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_jws_keys_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthRsaPublicKey")
-    def external_oauth_rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_rsa_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_rsa_public_key")
 
     @external_oauth_rsa_public_key.setter
-    def external_oauth_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_rsa_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_rsa_public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthRsaPublicKey2")
-    def external_oauth_rsa_public_key2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_rsa_public_key2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_rsa_public_key2")
 
     @external_oauth_rsa_public_key2.setter
-    def external_oauth_rsa_public_key2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_rsa_public_key2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_rsa_public_key2", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthScopeDelimiter")
-    def external_oauth_scope_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_scope_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the scope delimiter in the authorization token.
         """
         return pulumi.get(self, "external_oauth_scope_delimiter")
 
     @external_oauth_scope_delimiter.setter
-    def external_oauth_scope_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_scope_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_scope_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthScopeMappingAttribute")
-    def external_oauth_scope_mapping_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_scope_mapping_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_scope_mapping_attribute")
 
     @external_oauth_scope_mapping_attribute.setter
-    def external_oauth_scope_mapping_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_scope_mapping_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_scope_mapping_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthSnowflakeUserMappingAttribute")
-    def external_oauth_snowflake_user_mapping_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_snowflake_user_mapping_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
         """
         return pulumi.get(self, "external_oauth_snowflake_user_mapping_attribute")
 
     @external_oauth_snowflake_user_mapping_attribute.setter
-    def external_oauth_snowflake_user_mapping_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_snowflake_user_mapping_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_snowflake_user_mapping_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthTokenUserMappingClaims")
-    def external_oauth_token_user_mapping_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_oauth_token_user_mapping_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "external_oauth_token_user_mapping_claims")
 
     @external_oauth_token_user_mapping_claims.setter
-    def external_oauth_token_user_mapping_claims(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_oauth_token_user_mapping_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_oauth_token_user_mapping_claims", value)
 
     @_builtins.property
     @pulumi.getter(name="externalOauthType")
-    def external_oauth_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_oauth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
         """
         return pulumi.get(self, "external_oauth_type")
 
     @external_oauth_type.setter
-    def external_oauth_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_oauth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_oauth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedParameters")
-    def related_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]]:
+    def related_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]]:
         """
         Parameters related to this security integration.
         """
         return pulumi.get(self, "related_parameters")
 
     @related_parameters.setter
-    def related_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]]):
+    def related_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterArgs']]]]):
         pulumi.set(self, "related_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -613,22 +613,22 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_any_role_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_scope_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_scope_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_oauth_allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_any_role_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_audience_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_jws_keys_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_scope_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_scope_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_snowflake_user_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_token_user_mapping_claims: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
@@ -702,22 +702,22 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_any_role_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_scope_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_scope_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_oauth_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external_oauth_allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_any_role_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_audience_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_jws_keys_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_scope_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_scope_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_snowflake_user_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_oauth_token_user_mapping_claims: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_oauth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -767,26 +767,26 @@ class ExternalOauthIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationDescribeOutputArgs', 'ExternalOauthIntegrationDescribeOutputArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            external_oauth_allowed_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            external_oauth_any_role_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            external_oauth_audience_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            external_oauth_blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            external_oauth_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            external_oauth_jws_keys_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            external_oauth_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            external_oauth_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-            external_oauth_scope_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-            external_oauth_scope_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            external_oauth_snowflake_user_mapping_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            external_oauth_token_user_mapping_claims: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            external_oauth_type: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict']]]]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict']]]]] = None) -> 'ExternalOauthIntegration':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationDescribeOutputArgs', 'ExternalOauthIntegrationDescribeOutputArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_oauth_allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_any_role_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_audience_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_jws_keys_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_scope_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_scope_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_snowflake_user_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_token_user_mapping_claims: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict']]]]] = None) -> 'ExternalOauthIntegration':
         """
         Get an existing ExternalOauthIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

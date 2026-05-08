@@ -153,39 +153,39 @@ export interface NetworkPolicyState {
     /**
      * Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
      */
-    allowedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedIpLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
      */
-    allowedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowedIpList`.
      */
-    blockedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedIpLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
      */
-    blockedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the network policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE NETWORK POLICY` for the given network policy.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkPolicyDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkPolicyDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW NETWORK POLICIES` for the given network policy.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkPolicyShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkPolicyShowOutput>[] | undefined>;
 }
 
 /**
@@ -195,25 +195,25 @@ export interface NetworkPolicyArgs {
     /**
      * Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
      */
-    allowedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedIpLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
      */
-    allowedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blockedIpList`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowedIpList`.
      */
-    blockedIpLists?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedIpLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
      */
-    blockedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedNetworkRuleLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the network policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

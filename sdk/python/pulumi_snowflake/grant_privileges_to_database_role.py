@@ -22,14 +22,14 @@ __all__ = ['GrantPrivilegesToDatabaseRoleArgs', 'GrantPrivilegesToDatabaseRole']
 class GrantPrivilegesToDatabaseRoleArgs:
     def __init__(__self__, *,
                  database_role_name: pulumi.Input[_builtins.str],
-                 all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_schema: Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs']] = None,
-                 on_schema_object: Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None):
+                 all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_schema: pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaArgs']] = None,
+                 on_schema_object: pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToDatabaseRole resource.
 
@@ -75,113 +75,113 @@ class GrantPrivilegesToDatabaseRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="allPrivileges")
-    def all_privileges(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def all_privileges(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Grant all privileges on the database role.
         """
         return pulumi.get(self, "all_privileges")
 
     @all_privileges.setter
-    def all_privileges(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def all_privileges(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "all_privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
-    def always_apply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_apply(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
         """
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
-    def always_apply(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_apply(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_apply", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysApplyTrigger")
-    def always_apply_trigger(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def always_apply_trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
     @always_apply_trigger.setter
-    def always_apply_trigger(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def always_apply_trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "always_apply_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="onDatabase")
-    def on_database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
     @on_database.setter
-    def on_database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_database", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchema")
-    def on_schema(self) -> Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs']]:
+    def on_schema(self) -> pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaArgs']]:
         """
         Specifies the schema on which privileges will be granted.
         """
         return pulumi.get(self, "on_schema")
 
     @on_schema.setter
-    def on_schema(self, value: Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs']]):
+    def on_schema(self, value: pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaArgs']]):
         pulumi.set(self, "on_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchemaObject")
-    def on_schema_object(self) -> Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']]:
+    def on_schema_object(self) -> pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']]:
         """
         Specifies the schema object on which privileges will be granted.
         """
         return pulumi.get(self, "on_schema_object")
 
     @on_schema_object.setter
-    def on_schema_object(self, value: Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']]):
+    def on_schema_object(self, value: pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']]):
         pulumi.set(self, "on_schema_object", value)
 
     @_builtins.property
     @pulumi.getter
-    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def privileges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The privileges to grant on the database role.
         """
         return pulumi.get(self, "privileges")
 
     @privileges.setter
-    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def privileges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="withGrantOption")
-    def with_grant_option(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_grant_option(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
         """
         return pulumi.get(self, "with_grant_option")
 
     @with_grant_option.setter
-    def with_grant_option(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_grant_option(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_grant_option", value)
 
 
 @pulumi.input_type
 class _GrantPrivilegesToDatabaseRoleState:
     def __init__(__self__, *,
-                 all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_schema: Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs']] = None,
-                 on_schema_object: Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None):
+                 all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_schema: pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaArgs']] = None,
+                 on_schema_object: pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GrantPrivilegesToDatabaseRole resources.
 
@@ -216,110 +216,110 @@ class _GrantPrivilegesToDatabaseRoleState:
 
     @_builtins.property
     @pulumi.getter(name="allPrivileges")
-    def all_privileges(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def all_privileges(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Grant all privileges on the database role.
         """
         return pulumi.get(self, "all_privileges")
 
     @all_privileges.setter
-    def all_privileges(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def all_privileges(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "all_privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
-    def always_apply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_apply(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
         """
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
-    def always_apply(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_apply(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_apply", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysApplyTrigger")
-    def always_apply_trigger(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def always_apply_trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
     @always_apply_trigger.setter
-    def always_apply_trigger(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def always_apply_trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "always_apply_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseRoleName")
-    def database_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
     @database_role_name.setter
-    def database_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="onDatabase")
-    def on_database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
     @on_database.setter
-    def on_database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_database", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchema")
-    def on_schema(self) -> Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs']]:
+    def on_schema(self) -> pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaArgs']]:
         """
         Specifies the schema on which privileges will be granted.
         """
         return pulumi.get(self, "on_schema")
 
     @on_schema.setter
-    def on_schema(self, value: Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs']]):
+    def on_schema(self, value: pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaArgs']]):
         pulumi.set(self, "on_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchemaObject")
-    def on_schema_object(self) -> Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']]:
+    def on_schema_object(self) -> pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']]:
         """
         Specifies the schema object on which privileges will be granted.
         """
         return pulumi.get(self, "on_schema_object")
 
     @on_schema_object.setter
-    def on_schema_object(self, value: Optional[pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']]):
+    def on_schema_object(self, value: pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs']]):
         pulumi.set(self, "on_schema_object", value)
 
     @_builtins.property
     @pulumi.getter
-    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def privileges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The privileges to grant on the database role.
         """
         return pulumi.get(self, "privileges")
 
     @privileges.setter
-    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def privileges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="withGrantOption")
-    def with_grant_option(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_grant_option(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
         """
         return pulumi.get(self, "with_grant_option")
 
     @with_grant_option.setter
-    def with_grant_option(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_grant_option(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_grant_option", value)
 
 
@@ -329,15 +329,15 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
-                 on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None,
+                 all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
+                 on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
@@ -388,15 +388,15 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
-                 on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None,
+                 all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
+                 on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -427,15 +427,15 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-            always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-            always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-            database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            on_database: Optional[pulumi.Input[_builtins.str]] = None,
-            on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
-            on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
-            privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None) -> 'GrantPrivilegesToDatabaseRole':
+            all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+            always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+            always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            on_database: pulumi.Input[Optional[_builtins.str]] = None,
+            on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
+            on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
+            privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GrantPrivilegesToDatabaseRole':
         """
         Get an existing GrantPrivilegesToDatabaseRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

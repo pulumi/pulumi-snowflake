@@ -158,11 +158,11 @@ def get_views(in_: Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']] = Non
         starts_with=pulumi.get(__ret__, 'starts_with'),
         views=pulumi.get(__ret__, 'views'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_views_output(in_: Optional[pulumi.Input[Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']]]] = None,
-                     like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     limit: Optional[pulumi.Input[Optional[Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict']]]] = None,
-                     starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_views_output(in_: pulumi.Input[Optional[Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']]]] = None,
+                     like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     limit: pulumi.Input[Optional[Optional[Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict']]]] = None,
+                     starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewsResult]:
     """
     !> **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).

@@ -223,51 +223,51 @@ export interface CatalogIntegrationIcebergRestState {
     /**
      * Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
      */
-    bearerRestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestBearerRestAuthentication>;
+    bearerRestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestBearerRestAuthentication | undefined>;
     /**
      * Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
      */
-    catalogNamespace?: pulumi.Input<string>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutput>[] | undefined>;
     /**
      * Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
      */
-    oauthRestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestOauthRestAuthentication>;
+    oauthRestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestOauthRestAuthentication | undefined>;
     /**
      * Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
      */
-    refreshIntervalSeconds?: pulumi.Input<number>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies information about REST configuration.
      */
-    restConfig?: pulumi.Input<inputs.CatalogIntegrationIcebergRestRestConfig>;
+    restConfig?: pulumi.Input<inputs.CatalogIntegrationIcebergRestRestConfig | undefined>;
     /**
      * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestShowOutput>[] | undefined>;
     /**
      * Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
      */
-    sigv4RestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestSigv4RestAuthentication>;
+    sigv4RestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestSigv4RestAuthentication | undefined>;
 }
 
 /**
@@ -277,15 +277,15 @@ export interface CatalogIntegrationIcebergRestArgs {
     /**
      * Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
      */
-    bearerRestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestBearerRestAuthentication>;
+    bearerRestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestBearerRestAuthentication | undefined>;
     /**
      * Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
      */
-    catalogNamespace?: pulumi.Input<string>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
      */
@@ -293,15 +293,15 @@ export interface CatalogIntegrationIcebergRestArgs {
     /**
      * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
      */
-    oauthRestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestOauthRestAuthentication>;
+    oauthRestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestOauthRestAuthentication | undefined>;
     /**
      * Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
      */
-    refreshIntervalSeconds?: pulumi.Input<number>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies information about REST configuration.
      */
@@ -309,5 +309,5 @@ export interface CatalogIntegrationIcebergRestArgs {
     /**
      * Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
      */
-    sigv4RestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestSigv4RestAuthentication>;
+    sigv4RestAuthentication?: pulumi.Input<inputs.CatalogIntegrationIcebergRestSigv4RestAuthentication | undefined>;
 }

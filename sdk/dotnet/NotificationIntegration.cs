@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // basic resource with AZURE_STORAGE_QUEUE
-    ///     var azure = new Snowflake.Index.NotificationIntegration("azure", new()
+    ///     var azure = new Snowflake.NotificationIntegration("azure", new()
     ///     {
     ///         Name = "notification",
     ///         Enabled = true,
@@ -36,7 +36,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // basic resource with AWS_SNS
-    ///     var aws = new Snowflake.Index.NotificationIntegration("aws", new()
+    ///     var aws = new Snowflake.NotificationIntegration("aws", new()
     ///     {
     ///         Name = "notification",
     ///         Enabled = true,
@@ -46,7 +46,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // basic resource with GCP_PUBSUB (subscription)
-    ///     var gcpSubscription = new Snowflake.Index.NotificationIntegration("gcp_subscription", new()
+    ///     var gcpSubscription = new Snowflake.NotificationIntegration("gcp_subscription", new()
     ///     {
     ///         Name = "notification",
     ///         Enabled = true,
@@ -55,7 +55,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // basic resource with GCP_PUBSUB (topic)
-    ///     var gcpTopic = new Snowflake.Index.NotificationIntegration("gcp_topic", new()
+    ///     var gcpTopic = new Snowflake.NotificationIntegration("gcp_topic", new()
     ///     {
     ///         Name = "notification",
     ///         Enabled = true,
@@ -64,7 +64,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // resource with all non-provider-specific fields set
-    ///     var complete = new Snowflake.Index.NotificationIntegration("complete", new()
+    ///     var complete = new Snowflake.NotificationIntegration("complete", new()
     ///     {
     ///         Name = "notification",
     ///         Enabled = true,

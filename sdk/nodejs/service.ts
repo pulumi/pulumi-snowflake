@@ -193,75 +193,75 @@ export interface ServiceState {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a service. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    autoResume?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity (service is idle) after which Snowflake automatically suspends the service.
      */
-    autoSuspendSecs?: pulumi.Input<number>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
     /**
      * Specifies a comment for the service.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    computePool?: pulumi.Input<string>;
+    computePool?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SERVICE` for the given service.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ServiceDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ServiceDescribeOutput>[] | undefined>;
     /**
      * Specifies the names of the external access integrations that allow your service to access external sites.
      */
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    fromSpecification?: pulumi.Input<inputs.ServiceFromSpecification>;
+    fromSpecification?: pulumi.Input<inputs.ServiceFromSpecification | undefined>;
     /**
      * Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    fromSpecificationTemplate?: pulumi.Input<inputs.ServiceFromSpecificationTemplate>;
+    fromSpecificationTemplate?: pulumi.Input<inputs.ServiceFromSpecificationTemplate | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of service instances to run.
      */
-    maxInstances?: pulumi.Input<number>;
+    maxInstances?: pulumi.Input<number | undefined>;
     /**
      * Specifies the minimum number of service instances to run.
      */
-    minInstances?: pulumi.Input<number>;
+    minInstances?: pulumi.Input<number | undefined>;
     /**
      * Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
      */
-    minReadyInstances?: pulumi.Input<number>;
+    minReadyInstances?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    queryWarehouse?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
      */
-    serviceType?: pulumi.Input<string>;
+    serviceType?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW SERVICES` for the given service.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ServiceShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ServiceShowOutput>[] | undefined>;
 }
 
 /**
@@ -271,15 +271,15 @@ export interface ServiceArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a service. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    autoResume?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity (service is idle) after which Snowflake automatically suspends the service.
      */
-    autoSuspendSecs?: pulumi.Input<number>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
     /**
      * Specifies a comment for the service.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -291,35 +291,35 @@ export interface ServiceArgs {
     /**
      * Specifies the names of the external access integrations that allow your service to access external sites.
      */
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    fromSpecification?: pulumi.Input<inputs.ServiceFromSpecification>;
+    fromSpecification?: pulumi.Input<inputs.ServiceFromSpecification | undefined>;
     /**
      * Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    fromSpecificationTemplate?: pulumi.Input<inputs.ServiceFromSpecificationTemplate>;
+    fromSpecificationTemplate?: pulumi.Input<inputs.ServiceFromSpecificationTemplate | undefined>;
     /**
      * Specifies the maximum number of service instances to run.
      */
-    maxInstances?: pulumi.Input<number>;
+    maxInstances?: pulumi.Input<number | undefined>;
     /**
      * Specifies the minimum number of service instances to run.
      */
-    minInstances?: pulumi.Input<number>;
+    minInstances?: pulumi.Input<number | undefined>;
     /**
      * Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
      */
-    minReadyInstances?: pulumi.Input<number>;
+    minReadyInstances?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    queryWarehouse?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

@@ -146,43 +146,43 @@ export interface SecretWithBasicAuthenticationState {
     /**
      * Specifies a comment for the secret.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECRET` for the given secret.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithBasicAuthenticationDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithBasicAuthenticationDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      */
-    secretType?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW SECRETS` for the given secret.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithBasicAuthenticationShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithBasicAuthenticationShowOutput>[] | undefined>;
     /**
      * Specifies the username value to store in the secret.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface SecretWithBasicAuthenticationArgs {
     /**
      * Specifies a comment for the secret.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -200,7 +200,7 @@ export interface SecretWithBasicAuthenticationArgs {
     /**
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */

@@ -6,59 +6,59 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface AccountRoleShowOutput {
-    assignedToUsers?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    grantedRoles?: pulumi.Input<number>;
-    grantedToRoles?: pulumi.Input<number>;
-    isCurrent?: pulumi.Input<boolean>;
-    isDefault?: pulumi.Input<boolean>;
-    isInherited?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
+    assignedToUsers?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    grantedRoles?: pulumi.Input<number | undefined>;
+    grantedToRoles?: pulumi.Input<number | undefined>;
+    isCurrent?: pulumi.Input<boolean | undefined>;
+    isDefault?: pulumi.Input<boolean | undefined>;
+    isInherited?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
 }
 
 export interface AccountShowOutput {
-    accountLocator?: pulumi.Input<string>;
-    accountLocatorUrl?: pulumi.Input<string>;
-    accountName?: pulumi.Input<string>;
-    accountOldUrlLastUsed?: pulumi.Input<string>;
-    accountOldUrlSavedOn?: pulumi.Input<string>;
-    accountUrl?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    consumptionBillingEntityName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    droppedOn?: pulumi.Input<string>;
-    edition?: pulumi.Input<string>;
-    isEventsAccount?: pulumi.Input<boolean>;
-    isOrgAdmin?: pulumi.Input<boolean>;
-    isOrganizationAccount?: pulumi.Input<boolean>;
-    managedAccounts?: pulumi.Input<number>;
-    marketplaceConsumerBillingEntityName?: pulumi.Input<string>;
-    marketplaceProviderBillingEntityName?: pulumi.Input<string>;
-    movedOn?: pulumi.Input<string>;
-    movedToOrganization?: pulumi.Input<string>;
-    oldAccountUrl?: pulumi.Input<string>;
-    organizationName?: pulumi.Input<string>;
-    organizationOldUrl?: pulumi.Input<string>;
-    organizationOldUrlLastUsed?: pulumi.Input<string>;
-    organizationOldUrlSavedOn?: pulumi.Input<string>;
-    organizationUrlExpirationOn?: pulumi.Input<string>;
-    regionGroup?: pulumi.Input<string>;
-    restoredOn?: pulumi.Input<string>;
-    scheduledDeletionTime?: pulumi.Input<string>;
-    snowflakeRegion?: pulumi.Input<string>;
+    accountLocator?: pulumi.Input<string | undefined>;
+    accountLocatorUrl?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string | undefined>;
+    accountOldUrlLastUsed?: pulumi.Input<string | undefined>;
+    accountOldUrlSavedOn?: pulumi.Input<string | undefined>;
+    accountUrl?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    consumptionBillingEntityName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    droppedOn?: pulumi.Input<string | undefined>;
+    edition?: pulumi.Input<string | undefined>;
+    isEventsAccount?: pulumi.Input<boolean | undefined>;
+    isOrgAdmin?: pulumi.Input<boolean | undefined>;
+    isOrganizationAccount?: pulumi.Input<boolean | undefined>;
+    managedAccounts?: pulumi.Input<number | undefined>;
+    marketplaceConsumerBillingEntityName?: pulumi.Input<string | undefined>;
+    marketplaceProviderBillingEntityName?: pulumi.Input<string | undefined>;
+    movedOn?: pulumi.Input<string | undefined>;
+    movedToOrganization?: pulumi.Input<string | undefined>;
+    oldAccountUrl?: pulumi.Input<string | undefined>;
+    organizationName?: pulumi.Input<string | undefined>;
+    organizationOldUrl?: pulumi.Input<string | undefined>;
+    organizationOldUrlLastUsed?: pulumi.Input<string | undefined>;
+    organizationOldUrlSavedOn?: pulumi.Input<string | undefined>;
+    organizationUrlExpirationOn?: pulumi.Input<string | undefined>;
+    regionGroup?: pulumi.Input<string | undefined>;
+    restoredOn?: pulumi.Input<string | undefined>;
+    scheduledDeletionTime?: pulumi.Input<string | undefined>;
+    snowflakeRegion?: pulumi.Input<string | undefined>;
 }
 
 export interface AlertAlertSchedule {
     /**
      * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
      */
-    cron?: pulumi.Input<inputs.AlertAlertScheduleCron>;
+    cron?: pulumi.Input<inputs.AlertAlertScheduleCron | undefined>;
     /**
      * Specifies the interval in minutes for the alert schedule. The interval must be greater than 0 and less than 1440 (24 hours).
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
 }
 
 export interface AlertAlertScheduleCron {
@@ -73,303 +73,303 @@ export interface AlertAlertScheduleCron {
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput {
-    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType>[]>;
-    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment>[]>;
-    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled>[]>;
-    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity>[]>;
-    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope>[]>;
-    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint>[]>;
-    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod>[]>;
-    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant>[]>;
-    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity>[]>;
-    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint>[]>;
-    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration>[]>;
+    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType>[] | undefined>;
+    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment>[] | undefined>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled>[] | undefined>;
+    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity>[] | undefined>;
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope>[] | undefined>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint>[] | undefined>;
+    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod>[] | undefined>;
+    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant>[] | undefined>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity>[] | undefined>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint>[] | undefined>;
+    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration>[] | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthType {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabled {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidity {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegration {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    integrationType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    integrationType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput {
-    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType>[]>;
-    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment>[]>;
-    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled>[]>;
-    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity>[]>;
-    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope>[]>;
-    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint>[]>;
-    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod>[]>;
-    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant>[]>;
-    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity>[]>;
-    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint>[]>;
-    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration>[]>;
+    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType>[] | undefined>;
+    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment>[] | undefined>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled>[] | undefined>;
+    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity>[] | undefined>;
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope>[] | undefined>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint>[] | undefined>;
+    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod>[] | undefined>;
+    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant>[] | undefined>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity>[] | undefined>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint>[] | undefined>;
+    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration>[] | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthType {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabled {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidity {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegration {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithClientCredentialsShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    integrationType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    integrationType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutput {
-    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType>[]>;
-    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment>[]>;
-    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled>[]>;
-    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity>[]>;
-    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope>[]>;
-    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint>[]>;
-    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod>[]>;
-    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant>[]>;
-    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity>[]>;
-    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint>[]>;
-    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration>[]>;
+    authTypes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType>[] | undefined>;
+    comments?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment>[] | undefined>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled>[] | undefined>;
+    oauthAccessTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity>[] | undefined>;
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope>[] | undefined>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint>[] | undefined>;
+    oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod>[] | undefined>;
+    oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant>[] | undefined>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity>[] | undefined>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint>[] | undefined>;
+    parentIntegrations?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration>[] | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthType {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabled {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidity {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    integrationType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    integrationType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface AuthenticationPolicyClientPolicy {
@@ -384,100 +384,100 @@ export interface AuthenticationPolicyClientPolicy {
 }
 
 export interface AuthenticationPolicyDescribeOutput {
-    authenticationMethods?: pulumi.Input<string>;
-    clientPolicy?: pulumi.Input<string>;
-    clientTypes?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    mfaEnrollment?: pulumi.Input<string>;
-    mfaPolicy?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    patPolicy?: pulumi.Input<string>;
-    securityIntegrations?: pulumi.Input<string>;
-    workloadIdentityPolicy?: pulumi.Input<string>;
+    authenticationMethods?: pulumi.Input<string | undefined>;
+    clientPolicy?: pulumi.Input<string | undefined>;
+    clientTypes?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    mfaEnrollment?: pulumi.Input<string | undefined>;
+    mfaPolicy?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    patPolicy?: pulumi.Input<string | undefined>;
+    securityIntegrations?: pulumi.Input<string | undefined>;
+    workloadIdentityPolicy?: pulumi.Input<string | undefined>;
 }
 
 export interface AuthenticationPolicyMfaPolicy {
     /**
      * Specifies the allowed methods for the MFA policy. Valid values are: `ALL` | `PASSKEY` | `TOTP` | `OTP` | `DUO`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
      */
-    allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Determines whether multi-factor authentication (MFA) is enforced on external authentication. Valid values are (case-insensitive): `ALL` | `NONE`.
      */
-    enforceMfaOnExternalAuthentication?: pulumi.Input<string>;
+    enforceMfaOnExternalAuthentication?: pulumi.Input<string | undefined>;
 }
 
 export interface AuthenticationPolicyPatPolicy {
     /**
      * Specifies the default expiration time (in days) for a programmatic access token.
      */
-    defaultExpiryInDays?: pulumi.Input<number>;
+    defaultExpiryInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of days that can be set for the expiration time for a programmatic access token.
      */
-    maxExpiryInDays?: pulumi.Input<number>;
+    maxExpiryInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the network policy evaluation for the PAT. Valid values are: `ENFORCED_REQUIRED` | `ENFORCED_NOT_REQUIRED` | `NOT_ENFORCED`.
      */
-    networkPolicyEvaluation?: pulumi.Input<string>;
+    networkPolicyEvaluation?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, when you generate a programmatic access token for a service user, you must restrict the use of that token to a specific role. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    requireRoleRestrictionForServiceUsers?: pulumi.Input<string>;
+    requireRoleRestrictionForServiceUsers?: pulumi.Input<string | undefined>;
 }
 
 export interface AuthenticationPolicyShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    kind?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    options?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    options?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface AuthenticationPolicyWorkloadIdentityPolicy {
     /**
      * Specifies the list of AWS account IDs allowed by the authentication policy during workload identity authentication of type `AWS`.
      */
-    allowedAwsAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedAwsAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the list of Azure Entra ID issuers allowed by the authentication policy during workload identity authentication of type `AZURE`.
      */
-    allowedAzureIssuers?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedAzureIssuers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the list of OIDC issuers allowed by the authentication policy during workload identity authentication of type `OIDC`.
      */
-    allowedOidcIssuers?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOidcIssuers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the allowed providers for the workload identity policy. Valid values are: `ALL` | `AWS` | `AZURE` | `GCP` | `OIDC`. These values are case-sensitive due to Terraform limitations (it's a nested field). Prefer using uppercased values.
      */
-    allowedProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedProviders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface CatalogIntegrationAwsGlueDescribeOutput {
-    catalogNamespace?: pulumi.Input<string>;
-    catalogSource?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    glueAwsRoleArn?: pulumi.Input<string>;
-    glueCatalogId?: pulumi.Input<string>;
-    glueRegion?: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
-    refreshIntervalSeconds?: pulumi.Input<number>;
-    tableFormat?: pulumi.Input<string>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
+    catalogSource?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    glueAwsRoleArn?: pulumi.Input<string | undefined>;
+    glueCatalogId?: pulumi.Input<string | undefined>;
+    glueRegion?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
+    tableFormat?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationAwsGlueShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationIcebergRestBearerRestAuthentication {
@@ -488,39 +488,39 @@ export interface CatalogIntegrationIcebergRestBearerRestAuthentication {
 }
 
 export interface CatalogIntegrationIcebergRestDescribeOutput {
-    bearerRestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication>[]>;
-    catalogNamespace?: pulumi.Input<string>;
-    catalogSource?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    id?: pulumi.Input<string>;
-    oauthRestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication>[]>;
-    refreshIntervalSeconds?: pulumi.Input<number>;
-    restConfigs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputRestConfig>[]>;
-    sigv4RestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication>[]>;
-    tableFormat?: pulumi.Input<string>;
+    bearerRestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication>[] | undefined>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
+    catalogSource?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    oauthRestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication>[] | undefined>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
+    restConfigs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputRestConfig>[] | undefined>;
+    sigv4RestAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication>[] | undefined>;
+    tableFormat?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthentication {
 }
 
 export interface CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthentication {
-    oauthAllowedScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    oauthClientId?: pulumi.Input<string>;
-    oauthTokenUri?: pulumi.Input<string>;
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    oauthClientId?: pulumi.Input<string | undefined>;
+    oauthTokenUri?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationIcebergRestDescribeOutputRestConfig {
-    accessDelegationMode?: pulumi.Input<string>;
-    catalogApiType?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    catalogUri?: pulumi.Input<string>;
-    prefix?: pulumi.Input<string>;
+    accessDelegationMode?: pulumi.Input<string | undefined>;
+    catalogApiType?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    catalogUri?: pulumi.Input<string | undefined>;
+    prefix?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthentication {
-    sigv4IamRole?: pulumi.Input<string>;
-    sigv4SigningRegion?: pulumi.Input<string>;
+    sigv4IamRole?: pulumi.Input<string | undefined>;
+    sigv4SigningRegion?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationIcebergRestOauthRestAuthentication {
@@ -539,22 +539,22 @@ export interface CatalogIntegrationIcebergRestOauthRestAuthentication {
     /**
      * Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
      */
-    oauthTokenUri?: pulumi.Input<string>;
+    oauthTokenUri?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationIcebergRestRestConfig {
     /**
      * Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
      */
-    accessDelegationMode?: pulumi.Input<string>;
+    accessDelegationMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the connection type for the catalog API. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
      */
-    catalogApiType?: pulumi.Input<string>;
+    catalogApiType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the catalog or identifier to request from your remote catalog service.
      */
-    catalogName?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the endpoint URL for the catalog REST API.
      */
@@ -562,23 +562,23 @@ export interface CatalogIntegrationIcebergRestRestConfig {
     /**
      * Specifies an optional prefix appended to all API routes.
      */
-    prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationIcebergRestShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationIcebergRestSigv4RestAuthentication {
     /**
      * Specifies an external ID that Snowflake uses to establish a trust relationship with AWS. If you don’t specify this parameter, Snowflake automatically generates a unique external ID when you create a catalog integration. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    sigv4ExternalId?: pulumi.Input<string>;
+    sigv4ExternalId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) for an IAM role that has permission to access your REST API in API Gateway.
      */
@@ -586,50 +586,50 @@ export interface CatalogIntegrationIcebergRestSigv4RestAuthentication {
     /**
      * Specifies the AWS Region associated with your API in API Gateway. If you don’t specify this parameter, Snowflake uses the region in which your Snowflake account is deployed.
      */
-    sigv4SigningRegion?: pulumi.Input<string>;
+    sigv4SigningRegion?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationObjectStorageDescribeOutput {
-    catalogSource?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    id?: pulumi.Input<string>;
-    refreshIntervalSeconds?: pulumi.Input<number>;
-    tableFormat?: pulumi.Input<string>;
+    catalogSource?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
+    tableFormat?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationObjectStorageShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationOpenCatalogDescribeOutput {
-    catalogNamespace?: pulumi.Input<string>;
-    catalogSource?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    id?: pulumi.Input<string>;
-    refreshIntervalSeconds?: pulumi.Input<number>;
-    restAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication>[]>;
-    restConfigs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogDescribeOutputRestConfig>[]>;
-    tableFormat?: pulumi.Input<string>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
+    catalogSource?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
+    restAuthentications?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication>[] | undefined>;
+    restConfigs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogDescribeOutputRestConfig>[] | undefined>;
+    tableFormat?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationOpenCatalogDescribeOutputRestAuthentication {
-    oauthAllowedScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    oauthClientId?: pulumi.Input<string>;
-    oauthTokenUri?: pulumi.Input<string>;
+    oauthAllowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    oauthClientId?: pulumi.Input<string | undefined>;
+    oauthTokenUri?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationOpenCatalogDescribeOutputRestConfig {
-    accessDelegationMode?: pulumi.Input<string>;
-    catalogApiType?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    catalogUri?: pulumi.Input<string>;
+    accessDelegationMode?: pulumi.Input<string | undefined>;
+    catalogApiType?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    catalogUri?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationOpenCatalogRestAuthentication {
@@ -648,18 +648,18 @@ export interface CatalogIntegrationOpenCatalogRestAuthentication {
     /**
      * Specifies URL for the third-party identity provider. If not specified, Snowflake assumes the remote catalog provider is the identity provider.
      */
-    oauthTokenUri?: pulumi.Input<string>;
+    oauthTokenUri?: pulumi.Input<string | undefined>;
 }
 
 export interface CatalogIntegrationOpenCatalogRestConfig {
     /**
      * Specifies the access delegation mode for accessing Iceberg table files in your external cloud storage. Valid values are (case-insensitive): `VENDED_CREDENTIALS` | `EXTERNAL_VOLUME_CREDENTIALS`.
      */
-    accessDelegationMode?: pulumi.Input<string>;
+    accessDelegationMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies how Snowflake connects to Open Catalog. Valid values are (case-insensitive): `PUBLIC` | `PRIVATE` | `AWS_API_GATEWAY` | `AWS_PRIVATE_API_GATEWAY` | `AWS_GLUE` | `AWS_PRIVATE_GLUE`.
      */
-    catalogApiType?: pulumi.Input<string>;
+    catalogApiType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the catalog to use in Open Catalog.
      */
@@ -671,103 +671,103 @@ export interface CatalogIntegrationOpenCatalogRestConfig {
 }
 
 export interface CatalogIntegrationOpenCatalogShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ComputePoolDescribeOutput {
-    activeNodes?: pulumi.Input<number>;
-    application?: pulumi.Input<string>;
-    autoResume?: pulumi.Input<boolean>;
-    autoSuspendSecs?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    errorCode?: pulumi.Input<string>;
-    idleNodes?: pulumi.Input<number>;
-    instanceFamily?: pulumi.Input<string>;
-    isExclusive?: pulumi.Input<boolean>;
-    maxNodes?: pulumi.Input<number>;
-    minNodes?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    numJobs?: pulumi.Input<number>;
-    numServices?: pulumi.Input<number>;
-    owner?: pulumi.Input<string>;
-    resumedOn?: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
-    statusMessage?: pulumi.Input<string>;
-    targetNodes?: pulumi.Input<number>;
-    updatedOn?: pulumi.Input<string>;
+    activeNodes?: pulumi.Input<number | undefined>;
+    application?: pulumi.Input<string | undefined>;
+    autoResume?: pulumi.Input<boolean | undefined>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    errorCode?: pulumi.Input<string | undefined>;
+    idleNodes?: pulumi.Input<number | undefined>;
+    instanceFamily?: pulumi.Input<string | undefined>;
+    isExclusive?: pulumi.Input<boolean | undefined>;
+    maxNodes?: pulumi.Input<number | undefined>;
+    minNodes?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    numJobs?: pulumi.Input<number | undefined>;
+    numServices?: pulumi.Input<number | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    statusMessage?: pulumi.Input<string | undefined>;
+    targetNodes?: pulumi.Input<number | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface ComputePoolShowOutput {
-    activeNodes?: pulumi.Input<number>;
-    application?: pulumi.Input<string>;
-    autoResume?: pulumi.Input<boolean>;
-    autoSuspendSecs?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    idleNodes?: pulumi.Input<number>;
-    instanceFamily?: pulumi.Input<string>;
-    isExclusive?: pulumi.Input<boolean>;
-    maxNodes?: pulumi.Input<number>;
-    minNodes?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    numJobs?: pulumi.Input<number>;
-    numServices?: pulumi.Input<number>;
-    owner?: pulumi.Input<string>;
-    resumedOn?: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
-    targetNodes?: pulumi.Input<number>;
-    updatedOn?: pulumi.Input<string>;
+    activeNodes?: pulumi.Input<number | undefined>;
+    application?: pulumi.Input<string | undefined>;
+    autoResume?: pulumi.Input<boolean | undefined>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    idleNodes?: pulumi.Input<number | undefined>;
+    instanceFamily?: pulumi.Input<string | undefined>;
+    isExclusive?: pulumi.Input<boolean | undefined>;
+    maxNodes?: pulumi.Input<number | undefined>;
+    minNodes?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    numJobs?: pulumi.Input<number | undefined>;
+    numServices?: pulumi.Input<number | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    targetNodes?: pulumi.Input<number | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface CortexSearchServiceDescribeOutput {
-    attributeColumns?: pulumi.Input<pulumi.Input<string>[]>;
-    columns?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    dataTimestamp?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    definition?: pulumi.Input<string>;
-    embeddingModel?: pulumi.Input<string>;
-    indexingError?: pulumi.Input<string>;
-    indexingState?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    searchColumn?: pulumi.Input<string>;
-    serviceQueryUrl?: pulumi.Input<string>;
-    sourceDataNumRows?: pulumi.Input<number>;
-    targetLag?: pulumi.Input<string>;
-    warehouse?: pulumi.Input<string>;
+    attributeColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    columns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    dataTimestamp?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    definition?: pulumi.Input<string | undefined>;
+    embeddingModel?: pulumi.Input<string | undefined>;
+    indexingError?: pulumi.Input<string | undefined>;
+    indexingState?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    searchColumn?: pulumi.Input<string | undefined>;
+    serviceQueryUrl?: pulumi.Input<string | undefined>;
+    sourceDataNumRows?: pulumi.Input<number | undefined>;
+    targetLag?: pulumi.Input<string | undefined>;
+    warehouse?: pulumi.Input<string | undefined>;
 }
 
 export interface CurrentOrganizationAccountShowOutput {
-    accountLocator?: pulumi.Input<string>;
-    accountLocatorUrl?: pulumi.Input<string>;
-    accountName?: pulumi.Input<string>;
-    accountOldUrlLastUsed?: pulumi.Input<string>;
-    accountOldUrlSavedOn?: pulumi.Input<string>;
-    accountUrl?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    consumptionBillingEntityName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    edition?: pulumi.Input<string>;
-    isEventsAccount?: pulumi.Input<boolean>;
-    isOrgAdmin?: pulumi.Input<boolean>;
-    isOrganizationAccount?: pulumi.Input<boolean>;
-    managedAccounts?: pulumi.Input<number>;
-    marketplaceConsumerBillingEntityName?: pulumi.Input<string>;
-    marketplaceProviderBillingEntityName?: pulumi.Input<string>;
-    oldAccountUrl?: pulumi.Input<string>;
-    organizationName?: pulumi.Input<string>;
-    organizationOldUrl?: pulumi.Input<string>;
-    organizationOldUrlLastUsed?: pulumi.Input<string>;
-    organizationOldUrlSavedOn?: pulumi.Input<string>;
-    snowflakeRegion?: pulumi.Input<string>;
+    accountLocator?: pulumi.Input<string | undefined>;
+    accountLocatorUrl?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string | undefined>;
+    accountOldUrlLastUsed?: pulumi.Input<string | undefined>;
+    accountOldUrlSavedOn?: pulumi.Input<string | undefined>;
+    accountUrl?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    consumptionBillingEntityName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    edition?: pulumi.Input<string | undefined>;
+    isEventsAccount?: pulumi.Input<boolean | undefined>;
+    isOrgAdmin?: pulumi.Input<boolean | undefined>;
+    isOrganizationAccount?: pulumi.Input<boolean | undefined>;
+    managedAccounts?: pulumi.Input<number | undefined>;
+    marketplaceConsumerBillingEntityName?: pulumi.Input<string | undefined>;
+    marketplaceProviderBillingEntityName?: pulumi.Input<string | undefined>;
+    oldAccountUrl?: pulumi.Input<string | undefined>;
+    organizationName?: pulumi.Input<string | undefined>;
+    organizationOldUrl?: pulumi.Input<string | undefined>;
+    organizationOldUrlLastUsed?: pulumi.Input<string | undefined>;
+    organizationOldUrlSavedOn?: pulumi.Input<string | undefined>;
+    snowflakeRegion?: pulumi.Input<string | undefined>;
 }
 
 export interface DatabaseReplication {
@@ -778,7 +778,7 @@ export interface DatabaseReplication {
     /**
      * Allows replicating data to accounts on lower editions in either of the following scenarios: 1. The primary database is in a Business Critical (or higher) account but one or more of the accounts approved for replication are on lower editions. Business Critical Edition is intended for Snowflake accounts with extremely sensitive data. 2. The primary database is in a Business Critical (or higher) account and a signed business associate agreement is in place to store PHI data in the account per HIPAA and HITRUST regulations, but no such agreement is in place for one or more of the accounts approved for replication, regardless if they are Business Critical (or higher) accounts. Both scenarios are prohibited by default in an effort to help prevent account administrators for Business Critical (or higher) accounts from inadvertently replicating sensitive data to accounts on lower editions.
      */
-    ignoreEditionCheck?: pulumi.Input<boolean>;
+    ignoreEditionCheck?: pulumi.Input<boolean | undefined>;
 }
 
 export interface DatabaseReplicationEnableToAccount {
@@ -789,33 +789,33 @@ export interface DatabaseReplicationEnableToAccount {
     /**
      * Specifies if failover should be enabled for the specified account identifier
      */
-    withFailover?: pulumi.Input<boolean>;
+    withFailover?: pulumi.Input<boolean | undefined>;
 }
 
 export interface DatabaseRoleShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    grantedDatabaseRoles?: pulumi.Input<number>;
-    grantedToDatabaseRoles?: pulumi.Input<number>;
-    grantedToRoles?: pulumi.Input<number>;
-    isCurrent?: pulumi.Input<boolean>;
-    isDefault?: pulumi.Input<boolean>;
-    isInherited?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    grantedDatabaseRoles?: pulumi.Input<number | undefined>;
+    grantedToDatabaseRoles?: pulumi.Input<number | undefined>;
+    grantedToRoles?: pulumi.Input<number | undefined>;
+    isCurrent?: pulumi.Input<boolean | undefined>;
+    isDefault?: pulumi.Input<boolean | undefined>;
+    isInherited?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
 }
 
 export interface DynamicTableTargetLag {
     /**
      * Specifies whether the target lag time is downstream.
      */
-    downstream?: pulumi.Input<boolean>;
+    downstream?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the maximum target lag time for the dynamic table.
      */
-    maximumDuration?: pulumi.Input<string>;
+    maximumDuration?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalFunctionArg {
@@ -841,131 +841,131 @@ export interface ExternalFunctionHeader {
 }
 
 export interface ExternalOauthIntegrationDescribeOutput {
-    comments?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputComment>[]>;
-    enableds?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputEnabled>[]>;
-    externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList>[]>;
-    externalOauthAnyRoleModes?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode>[]>;
-    externalOauthAudienceLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList>[]>;
-    externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList>[]>;
-    externalOauthIssuers?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthIssuer>[]>;
-    externalOauthJwsKeysUrls?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl>[]>;
-    externalOauthRsaPublicKey2s?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2>[]>;
-    externalOauthRsaPublicKeys?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey>[]>;
-    externalOauthScopeDelimiters?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter>[]>;
-    externalOauthSnowflakeUserMappingAttributes?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute>[]>;
-    externalOauthTokenUserMappingClaims?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputComment>[] | undefined>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputEnabled>[] | undefined>;
+    externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList>[] | undefined>;
+    externalOauthAnyRoleModes?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode>[] | undefined>;
+    externalOauthAudienceLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList>[] | undefined>;
+    externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList>[] | undefined>;
+    externalOauthIssuers?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthIssuer>[] | undefined>;
+    externalOauthJwsKeysUrls?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl>[] | undefined>;
+    externalOauthRsaPublicKey2s?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2>[] | undefined>;
+    externalOauthRsaPublicKeys?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey>[] | undefined>;
+    externalOauthScopeDelimiters?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter>[] | undefined>;
+    externalOauthSnowflakeUserMappingAttributes?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute>[] | undefined>;
+    externalOauthTokenUserMappingClaims?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim>[] | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputEnabled {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesList {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleMode {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthAudienceList {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesList {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthIssuer {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrl {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2 {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiter {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttribute {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaim {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationRelatedParameter {
-    externalOauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList>[]>;
+    externalOauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList>[] | undefined>;
 }
 
 export interface ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedList {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalOauthIntegrationShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    integrationType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    integrationType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalTableColumn {
@@ -987,7 +987,7 @@ export interface ExternalTableTag {
     /**
      * Name of the database that the tag was created in.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Tag name, e.g. department.
      */
@@ -995,7 +995,7 @@ export interface ExternalTableTag {
     /**
      * Name of the schema that the tag was created in.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Tag value, e.g. marketing_info.
      */
@@ -1003,89 +1003,89 @@ export interface ExternalTableTag {
 }
 
 export interface ExternalVolumeDescribeOutput {
-    active?: pulumi.Input<string>;
-    allowWrites?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    storageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocation>[]>;
+    active?: pulumi.Input<string | undefined>;
+    allowWrites?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    storageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocation>[] | undefined>;
 }
 
 export interface ExternalVolumeDescribeOutputStorageLocation {
-    azureStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation>[]>;
-    encryptionType?: pulumi.Input<string>;
-    gcsStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation>[]>;
-    name?: pulumi.Input<string>;
-    s3CompatStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation>[]>;
-    s3StorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationS3StorageLocation>[]>;
-    storageAllowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    storageBaseUrl?: pulumi.Input<string>;
-    storageProvider?: pulumi.Input<string>;
+    azureStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation>[] | undefined>;
+    encryptionType?: pulumi.Input<string | undefined>;
+    gcsStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation>[] | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    s3CompatStorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation>[] | undefined>;
+    s3StorageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutputStorageLocationS3StorageLocation>[] | undefined>;
+    storageAllowedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    storageBaseUrl?: pulumi.Input<string | undefined>;
+    storageProvider?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation {
-    azureConsentUrl?: pulumi.Input<string>;
-    azureMultiTenantAppName?: pulumi.Input<string>;
-    azureTenantId?: pulumi.Input<string>;
+    azureConsentUrl?: pulumi.Input<string | undefined>;
+    azureMultiTenantAppName?: pulumi.Input<string | undefined>;
+    azureTenantId?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
-    encryptionKmsKeyId?: pulumi.Input<string>;
-    storageGcpServiceAccount?: pulumi.Input<string>;
+    encryptionKmsKeyId?: pulumi.Input<string | undefined>;
+    storageGcpServiceAccount?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation {
-    awsAccessKeyId?: pulumi.Input<string>;
-    encryptionKmsKeyId?: pulumi.Input<string>;
-    endpoint?: pulumi.Input<string>;
+    awsAccessKeyId?: pulumi.Input<string | undefined>;
+    encryptionKmsKeyId?: pulumi.Input<string | undefined>;
+    endpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalVolumeDescribeOutputStorageLocationS3StorageLocation {
-    encryptionKmsKeyId?: pulumi.Input<string>;
-    storageAwsAccessPointArn?: pulumi.Input<string>;
-    storageAwsExternalId?: pulumi.Input<string>;
-    storageAwsIamUserArn?: pulumi.Input<string>;
-    storageAwsRoleArn?: pulumi.Input<string>;
-    usePrivatelinkEndpoint?: pulumi.Input<string>;
+    encryptionKmsKeyId?: pulumi.Input<string | undefined>;
+    storageAwsAccessPointArn?: pulumi.Input<string | undefined>;
+    storageAwsExternalId?: pulumi.Input<string | undefined>;
+    storageAwsIamUserArn?: pulumi.Input<string | undefined>;
+    storageAwsRoleArn?: pulumi.Input<string | undefined>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalVolumeShowOutput {
-    allowWrites?: pulumi.Input<boolean>;
-    comment?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    allowWrites?: pulumi.Input<boolean | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalVolumeStorageLocation {
     /**
      * Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
      */
-    azureTenantId?: pulumi.Input<string>;
+    azureTenantId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID for the KMS-managed key used to encrypt files.
      */
-    encryptionKmsKeyId?: pulumi.Input<string>;
+    encryptionKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the encryption type used.
      */
-    encryptionType?: pulumi.Input<string>;
+    encryptionType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the access point ARN for the S3 bucket containing your data files. Only applicable for S3 and S3GOV storage providers.
      */
-    storageAwsAccessPointArn?: pulumi.Input<string>;
+    storageAwsAccessPointArn?: pulumi.Input<string | undefined>;
     /**
      * External ID that Snowflake uses to establish a trust relationship with AWS.
      */
-    storageAwsExternalId?: pulumi.Input<string>;
+    storageAwsExternalId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the AWS key ID for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
      */
-    storageAwsKeyId?: pulumi.Input<string>;
+    storageAwsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the case-sensitive Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
      */
-    storageAwsRoleArn?: pulumi.Input<string>;
+    storageAwsRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the AWS secret key for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
      */
-    storageAwsSecretKey?: pulumi.Input<string>;
+    storageAwsSecretKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base URL for your cloud storage location.
      */
@@ -1093,7 +1093,7 @@ export interface ExternalVolumeStorageLocation {
     /**
      * Specifies the endpoint for the S3-compatible storage location. Only applicable for S3COMPAT storage provider.
      */
-    storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Name of the storage location. Must be unique for the external volume. Do not use the name `terraformProviderSentinelStorageLocation` - this is reserved for the provider for performing update operations. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -1105,7 +1105,7 @@ export interface ExternalVolumeStorageLocation {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a privatelink endpoint for the storage location. Only applicable for S3, S3GOV, and AZURE storage providers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    usePrivatelinkEndpoint?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface FailoverGroupFromReplica {
@@ -1127,11 +1127,11 @@ export interface FailoverGroupReplicationSchedule {
     /**
      * Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
      */
-    cron?: pulumi.Input<inputs.FailoverGroupReplicationScheduleCron>;
+    cron?: pulumi.Input<inputs.FailoverGroupReplicationScheduleCron | undefined>;
     /**
      * Specifies the interval in minutes for the replication schedule. The interval must be greater than 0 and less than 1440 (24 hours).
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
 }
 
 export interface FailoverGroupReplicationScheduleCron {
@@ -1153,7 +1153,7 @@ export interface FunctionJavaArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
@@ -1172,42 +1172,42 @@ export interface FunctionJavaImport {
 }
 
 export interface FunctionJavaParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterTraceLevel>[] | undefined>;
 }
 
 export interface FunctionJavaParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionJavaParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionJavaParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionJavaParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionJavaSecret {
@@ -1222,26 +1222,26 @@ export interface FunctionJavaSecret {
 }
 
 export interface FunctionJavaShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isDataMetric?: pulumi.Input<boolean>;
-    isExternalFunction?: pulumi.Input<boolean>;
-    isMemoizable?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    language?: pulumi.Input<string>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isDataMetric?: pulumi.Input<boolean | undefined>;
+    isExternalFunction?: pulumi.Input<boolean | undefined>;
+    isMemoizable?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    language?: pulumi.Input<string | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface FunctionJavaTargetPath {
@@ -1263,7 +1263,7 @@ export interface FunctionJavascriptArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
@@ -1271,65 +1271,65 @@ export interface FunctionJavascriptArgument {
 }
 
 export interface FunctionJavascriptParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterTraceLevel>[] | undefined>;
 }
 
 export interface FunctionJavascriptParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionJavascriptParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionJavascriptParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionJavascriptParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionJavascriptShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isDataMetric?: pulumi.Input<boolean>;
-    isExternalFunction?: pulumi.Input<boolean>;
-    isMemoizable?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    language?: pulumi.Input<string>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isDataMetric?: pulumi.Input<boolean | undefined>;
+    isExternalFunction?: pulumi.Input<boolean | undefined>;
+    isMemoizable?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    language?: pulumi.Input<string | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface FunctionPythonArgument {
@@ -1340,7 +1340,7 @@ export interface FunctionPythonArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
@@ -1359,42 +1359,42 @@ export interface FunctionPythonImport {
 }
 
 export interface FunctionPythonParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterTraceLevel>[] | undefined>;
 }
 
 export interface FunctionPythonParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionPythonParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionPythonParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionPythonParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionPythonSecret {
@@ -1409,26 +1409,26 @@ export interface FunctionPythonSecret {
 }
 
 export interface FunctionPythonShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isDataMetric?: pulumi.Input<boolean>;
-    isExternalFunction?: pulumi.Input<boolean>;
-    isMemoizable?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    language?: pulumi.Input<string>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isDataMetric?: pulumi.Input<boolean | undefined>;
+    isExternalFunction?: pulumi.Input<boolean | undefined>;
+    isMemoizable?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    language?: pulumi.Input<string | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface FunctionScalaArgument {
@@ -1439,7 +1439,7 @@ export interface FunctionScalaArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
@@ -1458,42 +1458,42 @@ export interface FunctionScalaImport {
 }
 
 export interface FunctionScalaParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterTraceLevel>[] | undefined>;
 }
 
 export interface FunctionScalaParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionScalaParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionScalaParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionScalaParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionScalaSecret {
@@ -1508,26 +1508,26 @@ export interface FunctionScalaSecret {
 }
 
 export interface FunctionScalaShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isDataMetric?: pulumi.Input<boolean>;
-    isExternalFunction?: pulumi.Input<boolean>;
-    isMemoizable?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    language?: pulumi.Input<string>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isDataMetric?: pulumi.Input<boolean | undefined>;
+    isExternalFunction?: pulumi.Input<boolean | undefined>;
+    isMemoizable?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    language?: pulumi.Input<string | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface FunctionScalaTargetPath {
@@ -1549,7 +1549,7 @@ export interface FunctionSqlArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
@@ -1557,65 +1557,65 @@ export interface FunctionSqlArgument {
 }
 
 export interface FunctionSqlParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterTraceLevel>[] | undefined>;
 }
 
 export interface FunctionSqlParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionSqlParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionSqlParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionSqlParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FunctionSqlShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isDataMetric?: pulumi.Input<boolean>;
-    isExternalFunction?: pulumi.Input<boolean>;
-    isMemoizable?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    language?: pulumi.Input<string>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isDataMetric?: pulumi.Input<boolean | undefined>;
+    isExternalFunction?: pulumi.Input<boolean | undefined>;
+    isMemoizable?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    language?: pulumi.Input<string | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetAuthenticationPoliciesIn {
@@ -1645,23 +1645,23 @@ export interface GetAuthenticationPoliciesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetAuthenticationPoliciesLimit {
@@ -1679,7 +1679,7 @@ export interface GetAuthenticationPoliciesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -1701,11 +1701,11 @@ export interface GetAuthenticationPoliciesOnArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified user.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 export interface GetComputePoolsLimit {
@@ -1723,7 +1723,7 @@ export interface GetComputePoolsLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -1749,15 +1749,15 @@ export interface GetCortexSearchServicesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the current database in use or for a specified database (db_name).
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema (schema_name).
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCortexSearchServicesLimit {
@@ -1775,7 +1775,7 @@ export interface GetCortexSearchServicesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -1797,7 +1797,7 @@ export interface GetDatabaseRolesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -1819,7 +1819,7 @@ export interface GetDatabasesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -1845,15 +1845,15 @@ export interface GetDynamicTablesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the current database in use or for a specified database (db_name).
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema (schema_name).
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetDynamicTablesLike {
@@ -1885,11 +1885,11 @@ export interface GetDynamicTablesLimitArgs {
     /**
      * The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of rows to return.
      */
-    rows?: pulumi.Input<number>;
+    rows?: pulumi.Input<number | undefined>;
 }
 
 export interface GetGitRepositoriesIn {
@@ -1911,15 +1911,15 @@ export interface GetGitRepositoriesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetGitRepositoriesLimit {
@@ -1937,7 +1937,7 @@ export interface GetGitRepositoriesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -1959,11 +1959,11 @@ export interface GetGrantsFutureGrantsInArgs {
     /**
      * Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetGrantsFutureGrantsTo {
@@ -1981,11 +1981,11 @@ export interface GetGrantsFutureGrantsToArgs {
     /**
      * Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
      */
-    accountRole?: pulumi.Input<string>;
+    accountRole?: pulumi.Input<string | undefined>;
     /**
      * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
-    databaseRole?: pulumi.Input<string>;
+    databaseRole?: pulumi.Input<string | undefined>;
 }
 
 export interface GetGrantsGrantsOf {
@@ -2011,19 +2011,19 @@ export interface GetGrantsGrantsOfArgs {
     /**
      * Lists all users and roles to which the account role has been granted.
      */
-    accountRole?: pulumi.Input<string>;
+    accountRole?: pulumi.Input<string | undefined>;
     /**
      * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
-    applicationRole?: pulumi.Input<string>;
+    applicationRole?: pulumi.Input<string | undefined>;
     /**
      * Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
-    databaseRole?: pulumi.Input<string>;
+    databaseRole?: pulumi.Input<string | undefined>;
     /**
      * Lists all the accounts for the share and indicates the accounts that are using the share.
      */
-    share?: pulumi.Input<string>;
+    share?: pulumi.Input<string | undefined>;
 }
 
 export interface GetGrantsGrantsOn {
@@ -2045,15 +2045,15 @@ export interface GetGrantsGrantsOnArgs {
     /**
      * Object hierarchy to list privileges on. The only valid value is: ACCOUNT. Setting this attribute lists all the account-level (i.e. global) privileges that have been granted to roles.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Name of object to list privileges on.
      */
-    objectName?: pulumi.Input<string>;
+    objectName?: pulumi.Input<string | undefined>;
     /**
      * Type of object to list privileges on.
      */
-    objectType?: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
 }
 
 export interface GetGrantsGrantsTo {
@@ -2087,27 +2087,27 @@ export interface GetGrantsGrantsToArgs {
     /**
      * Lists all privileges and roles granted to the role.
      */
-    accountRole?: pulumi.Input<string>;
+    accountRole?: pulumi.Input<string | undefined>;
     /**
      * Lists all the privileges and roles granted to the application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
      */
-    applicationRole?: pulumi.Input<string>;
+    applicationRole?: pulumi.Input<string | undefined>;
     /**
      * Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
-    databaseRole?: pulumi.Input<string>;
+    databaseRole?: pulumi.Input<string | undefined>;
     /**
      * Lists all the privileges granted to the share.
      */
-    share?: pulumi.Input<inputs.GetGrantsGrantsToShareArgs>;
+    share?: pulumi.Input<inputs.GetGrantsGrantsToShareArgs | undefined>;
     /**
      * Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }
 
 export interface GetGrantsGrantsToShare {
@@ -2143,15 +2143,15 @@ export interface GetImageRepositoriesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetListingsLimit {
@@ -2169,7 +2169,7 @@ export interface GetListingsLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2203,23 +2203,23 @@ export interface GetMaskingPoliciesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetMaskingPoliciesLimit {
@@ -2237,7 +2237,7 @@ export interface GetMaskingPoliciesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2263,15 +2263,15 @@ export interface GetNetworkRulesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetNetworkRulesLimit {
@@ -2289,7 +2289,7 @@ export interface GetNetworkRulesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2311,7 +2311,7 @@ export interface GetNotebooksLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2345,23 +2345,23 @@ export interface GetRowAccessPoliciesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRowAccessPoliciesLimit {
@@ -2379,7 +2379,7 @@ export interface GetRowAccessPoliciesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2409,19 +2409,19 @@ export interface GetSchemasInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database (db_name).
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
 }
 
 export interface GetSchemasLimit {
@@ -2439,7 +2439,7 @@ export interface GetSchemasLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2473,23 +2473,23 @@ export interface GetSecretsInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetSemanticViewsIn {
@@ -2511,15 +2511,15 @@ export interface GetSemanticViewsInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetSemanticViewsLimit {
@@ -2537,7 +2537,7 @@ export interface GetSemanticViewsLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2567,19 +2567,19 @@ export interface GetServicesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified compute pool.
      */
-    computePool?: pulumi.Input<string>;
+    computePool?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetServicesLimit {
@@ -2597,7 +2597,7 @@ export interface GetServicesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2631,23 +2631,23 @@ export interface GetStagesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetStreamlitsIn {
@@ -2669,15 +2669,15 @@ export interface GetStreamlitsInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the current database in use or for a specified database (db_name).
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema (schema_name).
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetStreamlitsLimit {
@@ -2695,7 +2695,7 @@ export interface GetStreamlitsLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2729,23 +2729,23 @@ export interface GetStreamsInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetStreamsLimit {
@@ -2763,7 +2763,7 @@ export interface GetStreamsLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2797,23 +2797,23 @@ export interface GetTablesInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetTablesLimit {
@@ -2831,7 +2831,7 @@ export interface GetTablesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2865,23 +2865,23 @@ export interface GetTagsInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetTasksIn {
@@ -2911,23 +2911,23 @@ export interface GetTasksInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the specified application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the specified application package.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetTasksLimit {
@@ -2945,7 +2945,7 @@ export interface GetTasksLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2967,7 +2967,7 @@ export interface GetUsersLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -2993,15 +2993,15 @@ export interface GetViewsInArgs {
     /**
      * Returns records for the entire account.
      */
-    account?: pulumi.Input<boolean>;
+    account?: pulumi.Input<boolean | undefined>;
     /**
      * Returns records for the current database in use or for a specified database.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Returns records for the current schema in use or a specified schema. Use fully qualified name.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetViewsLimit {
@@ -3019,7 +3019,7 @@ export interface GetViewsLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
-    from?: pulumi.Input<string>;
+    from?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of rows to return.
      */
@@ -3027,61 +3027,61 @@ export interface GetViewsLimitArgs {
 }
 
 export interface GitRepositoryDescribeOutput {
-    apiIntegration?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    gitCredentials?: pulumi.Input<string>;
-    lastFetchedAt?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    origin?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
+    apiIntegration?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    gitCredentials?: pulumi.Input<string | undefined>;
+    lastFetchedAt?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    origin?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface GitRepositoryShowOutput {
-    apiIntegration?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    gitCredentials?: pulumi.Input<string>;
-    lastFetchedAt?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    origin?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
+    apiIntegration?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    gitCredentials?: pulumi.Input<string | undefined>;
+    lastFetchedAt?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    origin?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface GrantOwnershipOn {
     /**
      * Configures the privilege to be granted on all objects in either a database or schema.
      */
-    all?: pulumi.Input<inputs.GrantOwnershipOnAll>;
+    all?: pulumi.Input<inputs.GrantOwnershipOnAll | undefined>;
     /**
      * Configures the privilege to be granted on all objects in either a database or schema.
      */
-    future?: pulumi.Input<inputs.GrantOwnershipOnFuture>;
+    future?: pulumi.Input<inputs.GrantOwnershipOnFuture | undefined>;
     /**
      * Specifies the identifier for the object on which you are transferring ownership.
      */
-    objectName?: pulumi.Input<string>;
+    objectName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
      */
-    objectType?: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
 }
 
 export interface GrantOwnershipOnAll {
     /**
      * The fully qualified name of the database. For more information about this resource, see docs.
      */
-    inDatabase?: pulumi.Input<string>;
+    inDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema. For more information about this resource, see docs.
      */
-    inSchema?: pulumi.Input<string>;
+    inSchema?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
@@ -3092,11 +3092,11 @@ export interface GrantOwnershipOnFuture {
     /**
      * The fully qualified name of the database. For more information about this resource, see docs.
      */
-    inDatabase?: pulumi.Input<string>;
+    inDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema. For more information about this resource, see docs.
      */
-    inSchema?: pulumi.Input<string>;
+    inSchema?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
@@ -3118,39 +3118,39 @@ export interface GrantPrivilegesToAccountRoleOnSchema {
     /**
      * The fully qualified name of the database.
      */
-    allSchemasInDatabase?: pulumi.Input<string>;
+    allSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the database.
      */
-    futureSchemasInDatabase?: pulumi.Input<string>;
+    futureSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema.
      */
-    schemaName?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface GrantPrivilegesToAccountRoleOnSchemaObject {
     /**
      * Configures the privilege to be granted on all objects in either a database or schema.
      */
-    all?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll>;
+    all?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll | undefined>;
     /**
      * Configures the privilege to be granted on future objects in either a database or schema.
      */
-    future?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture>;
+    future?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture | undefined>;
     /**
      * The fully qualified name of the object on which privileges will be granted.
      */
-    objectName?: pulumi.Input<string>;
+    objectName?: pulumi.Input<string | undefined>;
     /**
      * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
-    objectType?: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
 }
 
 export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
-    inDatabase?: pulumi.Input<string>;
-    inSchema?: pulumi.Input<string>;
+    inDatabase?: pulumi.Input<string | undefined>;
+    inSchema?: pulumi.Input<string | undefined>;
     /**
      * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
      */
@@ -3158,8 +3158,8 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
 }
 
 export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
-    inDatabase?: pulumi.Input<string>;
-    inSchema?: pulumi.Input<string>;
+    inDatabase?: pulumi.Input<string | undefined>;
+    inSchema?: pulumi.Input<string | undefined>;
     /**
      * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
      */
@@ -3170,45 +3170,45 @@ export interface GrantPrivilegesToDatabaseRoleOnSchema {
     /**
      * The fully qualified name of the database.
      */
-    allSchemasInDatabase?: pulumi.Input<string>;
+    allSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the database.
      */
-    futureSchemasInDatabase?: pulumi.Input<string>;
+    futureSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema.
      */
-    schemaName?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
     /**
      * Configures the privilege to be granted on all objects in either a database or schema.
      */
-    all?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectAll>;
+    all?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectAll | undefined>;
     /**
      * Configures the privilege to be granted on future objects in either a database or schema.
      */
-    future?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture>;
+    future?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture | undefined>;
     /**
      * The fully qualified name of the object on which privileges will be granted.
      */
-    objectName?: pulumi.Input<string>;
+    objectName?: pulumi.Input<string | undefined>;
     /**
      * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
-    objectType?: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
 }
 
 export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
     /**
      * The fully qualified name of the database.
      */
-    inDatabase?: pulumi.Input<string>;
+    inDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema.
      */
-    inSchema?: pulumi.Input<string>;
+    inSchema?: pulumi.Input<string | undefined>;
     /**
      * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
      */
@@ -3219,11 +3219,11 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
     /**
      * The fully qualified name of the database.
      */
-    inDatabase?: pulumi.Input<string>;
+    inDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema.
      */
-    inSchema?: pulumi.Input<string>;
+    inSchema?: pulumi.Input<string | undefined>;
     /**
      * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
      */
@@ -3231,86 +3231,86 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
 }
 
 export interface ImageRepositoryShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    encryption?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    privatelinkRepositoryUrl?: pulumi.Input<string>;
-    repositoryUrl?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    encryption?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    privatelinkRepositoryUrl?: pulumi.Input<string | undefined>;
+    repositoryUrl?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface JobServiceDescribeOutput {
-    autoResume?: pulumi.Input<boolean>;
-    autoSuspendSecs?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    computePool?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    currentInstances?: pulumi.Input<number>;
-    databaseName?: pulumi.Input<string>;
-    dnsName?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
-    isAsyncJob?: pulumi.Input<boolean>;
-    isJob?: pulumi.Input<boolean>;
-    isUpgrading?: pulumi.Input<boolean>;
-    managingObjectDomain?: pulumi.Input<string>;
-    managingObjectName?: pulumi.Input<string>;
-    maxInstances?: pulumi.Input<number>;
-    minInstances?: pulumi.Input<number>;
-    minReadyInstances?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    queryWarehouse?: pulumi.Input<string>;
-    resumedOn?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    spec?: pulumi.Input<string>;
-    specDigest?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
-    suspendedOn?: pulumi.Input<string>;
-    targetInstances?: pulumi.Input<number>;
-    updatedOn?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<boolean | undefined>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    computePool?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    currentInstances?: pulumi.Input<number | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    dnsName?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    isAsyncJob?: pulumi.Input<boolean | undefined>;
+    isJob?: pulumi.Input<boolean | undefined>;
+    isUpgrading?: pulumi.Input<boolean | undefined>;
+    managingObjectDomain?: pulumi.Input<string | undefined>;
+    managingObjectName?: pulumi.Input<string | undefined>;
+    maxInstances?: pulumi.Input<number | undefined>;
+    minInstances?: pulumi.Input<number | undefined>;
+    minReadyInstances?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    spec?: pulumi.Input<string | undefined>;
+    specDigest?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+    suspendedOn?: pulumi.Input<string | undefined>;
+    targetInstances?: pulumi.Input<number | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface JobServiceFromSpecification {
     /**
      * The file name of the service specification. Example: `spec.yaml`.
      */
-    file?: pulumi.Input<string>;
+    file?: pulumi.Input<string | undefined>;
     /**
      * The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
     /**
      * The embedded text of the service specification.
      */
-    text?: pulumi.Input<string>;
+    text?: pulumi.Input<string | undefined>;
 }
 
 export interface JobServiceFromSpecificationTemplate {
     /**
      * The file name of the service specification template. Example: `spec.yaml`.
      */
-    file?: pulumi.Input<string>;
+    file?: pulumi.Input<string | undefined>;
     /**
      * The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
     /**
      * The embedded text of the service specification template.
      */
-    text?: pulumi.Input<string>;
+    text?: pulumi.Input<string | undefined>;
     /**
      * List of the specified template variables and the values of those variables.
      */
@@ -3329,53 +3329,53 @@ export interface JobServiceFromSpecificationTemplateUsing {
 }
 
 export interface JobServiceShowOutput {
-    autoResume?: pulumi.Input<boolean>;
-    autoSuspendSecs?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    computePool?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    currentInstances?: pulumi.Input<number>;
-    databaseName?: pulumi.Input<string>;
-    dnsName?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
-    isAsyncJob?: pulumi.Input<boolean>;
-    isJob?: pulumi.Input<boolean>;
-    isUpgrading?: pulumi.Input<boolean>;
-    managingObjectDomain?: pulumi.Input<string>;
-    managingObjectName?: pulumi.Input<string>;
-    maxInstances?: pulumi.Input<number>;
-    minInstances?: pulumi.Input<number>;
-    minReadyInstances?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    queryWarehouse?: pulumi.Input<string>;
-    resumedOn?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    specDigest?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
-    suspendedOn?: pulumi.Input<string>;
-    targetInstances?: pulumi.Input<number>;
-    updatedOn?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<boolean | undefined>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    computePool?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    currentInstances?: pulumi.Input<number | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    dnsName?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    isAsyncJob?: pulumi.Input<boolean | undefined>;
+    isJob?: pulumi.Input<boolean | undefined>;
+    isUpgrading?: pulumi.Input<boolean | undefined>;
+    managingObjectDomain?: pulumi.Input<string | undefined>;
+    managingObjectName?: pulumi.Input<string | undefined>;
+    maxInstances?: pulumi.Input<number | undefined>;
+    minInstances?: pulumi.Input<number | undefined>;
+    minReadyInstances?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    specDigest?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+    suspendedOn?: pulumi.Input<string | undefined>;
+    targetInstances?: pulumi.Input<number | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserDefaultWorkloadIdentity {
     /**
      * AWS workload identity configuration.
      */
-    aws?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityAws>;
+    aws?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityAws | undefined>;
     /**
      * Azure workload identity configuration.
      */
-    azure?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityAzure>;
+    azure?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityAzure | undefined>;
     /**
      * GCP workload identity configuration.
      */
-    gcp?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityGcp>;
+    gcp?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityGcp | undefined>;
     /**
      * Generic OIDC workload identity configuration.
      */
-    oidc?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityOidc>;
+    oidc?: pulumi.Input<inputs.LegacyServiceUserDefaultWorkloadIdentityOidc | undefined>;
 }
 
 export interface LegacyServiceUserDefaultWorkloadIdentityAws {
@@ -3411,7 +3411,7 @@ export interface LegacyServiceUserDefaultWorkloadIdentityOidc {
     /**
      * List of allowed OIDC audiences.
      */
-    oidcAudienceLists?: pulumi.Input<pulumi.Input<string>[]>;
+    oidcAudienceLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The OIDC subject identifier.
      */
@@ -3419,578 +3419,578 @@ export interface LegacyServiceUserDefaultWorkloadIdentityOidc {
 }
 
 export interface LegacyServiceUserParameter {
-    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterAbortDetachedQuery>[]>;
-    autocommits?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterAutocommit>[]>;
-    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterBinaryInputFormat>[]>;
-    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterBinaryOutputFormat>[]>;
-    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMemoryLimit>[]>;
-    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx>[]>;
-    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientPrefetchThread>[]>;
-    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientResultChunkSize>[]>;
-    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientResultColumnCaseInsensitive>[]>;
-    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency>[]>;
-    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientSessionKeepAlife>[]>;
-    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientTimestampTypeMapping>[]>;
-    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterDateInputFormat>[]>;
-    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterDateOutputFormat>[]>;
-    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization>[]>;
-    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableUnredactedQuerySyntaxError>[]>;
-    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterErrorOnNondeterministicMerge>[]>;
-    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterErrorOnNondeterministicUpdate>[]>;
-    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterGeographyOutputFormat>[]>;
-    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterGeometryOutputFormat>[]>;
-    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt>[]>;
-    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc>[]>;
-    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcUseSessionTimezone>[]>;
-    jsonIndents?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJsonIndent>[]>;
-    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterLockTimeout>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterLogLevel>[]>;
-    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterMultiStatementCount>[]>;
-    networkPolicies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterNetworkPolicy>[]>;
-    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterNoorderSequenceAsDefault>[]>;
-    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt>[]>;
-    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterPreventUnloadToInternalStage>[]>;
-    queryTags?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterQueryTag>[]>;
-    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterQuotedIdentifiersIgnoreCase>[]>;
-    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterRowsPerResultset>[]>;
-    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterS3StageVpceDnsName>[]>;
-    searchPaths?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterSearchPath>[]>;
-    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterSimulatedDataSharingConsumer>[]>;
-    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStatementQueuedTimeoutInSecond>[]>;
-    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStatementTimeoutInSecond>[]>;
-    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStrictJsonOutput>[]>;
-    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimeInputFormat>[]>;
-    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimeOutputFormat>[]>;
-    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampDayIsAlways24h>[]>;
-    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampInputFormat>[]>;
-    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampLtzOutputFormat>[]>;
-    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampNtzOutputFormat>[]>;
-    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampOutputFormat>[]>;
-    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampTypeMapping>[]>;
-    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampTzOutputFormat>[]>;
-    timezones?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimezone>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTraceLevel>[]>;
-    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTransactionAbortOnError>[]>;
-    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTransactionDefaultIsolationLevel>[]>;
-    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTwoDigitCenturyStart>[]>;
-    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterUnsupportedDdlAction>[]>;
-    useCachedResults?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterUseCachedResult>[]>;
-    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterWeekOfYearPolicy>[]>;
-    weekStarts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterWeekStart>[]>;
+    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterAbortDetachedQuery>[] | undefined>;
+    autocommits?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterAutocommit>[] | undefined>;
+    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterBinaryInputFormat>[] | undefined>;
+    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterBinaryOutputFormat>[] | undefined>;
+    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMemoryLimit>[] | undefined>;
+    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx>[] | undefined>;
+    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientPrefetchThread>[] | undefined>;
+    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientResultChunkSize>[] | undefined>;
+    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientResultColumnCaseInsensitive>[] | undefined>;
+    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency>[] | undefined>;
+    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientSessionKeepAlife>[] | undefined>;
+    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterClientTimestampTypeMapping>[] | undefined>;
+    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterDateInputFormat>[] | undefined>;
+    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterDateOutputFormat>[] | undefined>;
+    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization>[] | undefined>;
+    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterEnableUnredactedQuerySyntaxError>[] | undefined>;
+    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterErrorOnNondeterministicMerge>[] | undefined>;
+    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterErrorOnNondeterministicUpdate>[] | undefined>;
+    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterGeographyOutputFormat>[] | undefined>;
+    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterGeometryOutputFormat>[] | undefined>;
+    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcTreatDecimalAsInt>[] | undefined>;
+    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc>[] | undefined>;
+    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJdbcUseSessionTimezone>[] | undefined>;
+    jsonIndents?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterJsonIndent>[] | undefined>;
+    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterLockTimeout>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterLogLevel>[] | undefined>;
+    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterMultiStatementCount>[] | undefined>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterNetworkPolicy>[] | undefined>;
+    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterNoorderSequenceAsDefault>[] | undefined>;
+    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterOdbcTreatDecimalAsInt>[] | undefined>;
+    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterPreventUnloadToInternalStage>[] | undefined>;
+    queryTags?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterQueryTag>[] | undefined>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
+    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterRowsPerResultset>[] | undefined>;
+    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterS3StageVpceDnsName>[] | undefined>;
+    searchPaths?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterSearchPath>[] | undefined>;
+    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterSimulatedDataSharingConsumer>[] | undefined>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStatementQueuedTimeoutInSecond>[] | undefined>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStatementTimeoutInSecond>[] | undefined>;
+    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterStrictJsonOutput>[] | undefined>;
+    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimeInputFormat>[] | undefined>;
+    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimeOutputFormat>[] | undefined>;
+    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampDayIsAlways24h>[] | undefined>;
+    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampInputFormat>[] | undefined>;
+    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampLtzOutputFormat>[] | undefined>;
+    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampNtzOutputFormat>[] | undefined>;
+    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampOutputFormat>[] | undefined>;
+    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampTypeMapping>[] | undefined>;
+    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimestampTzOutputFormat>[] | undefined>;
+    timezones?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTimezone>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTraceLevel>[] | undefined>;
+    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTransactionAbortOnError>[] | undefined>;
+    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTransactionDefaultIsolationLevel>[] | undefined>;
+    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterTwoDigitCenturyStart>[] | undefined>;
+    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterUnsupportedDdlAction>[] | undefined>;
+    useCachedResults?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterUseCachedResult>[] | undefined>;
+    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterWeekOfYearPolicy>[] | undefined>;
+    weekStarts?: pulumi.Input<pulumi.Input<inputs.LegacyServiceUserParameterWeekStart>[] | undefined>;
 }
 
 export interface LegacyServiceUserParameterAbortDetachedQuery {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterAutocommit {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterBinaryInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterBinaryOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterClientMemoryLimit {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterClientMetadataRequestUseConnectionCtx {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterClientPrefetchThread {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterClientResultChunkSize {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterClientResultColumnCaseInsensitive {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterClientSessionKeepAlife {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequency {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterClientTimestampTypeMapping {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterDateInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterDateOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimization {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterEnableUnredactedQuerySyntaxError {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterErrorOnNondeterministicMerge {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterErrorOnNondeterministicUpdate {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterGeographyOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterGeometryOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterJdbcTreatDecimalAsInt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtc {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterJdbcUseSessionTimezone {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterJsonIndent {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterLockTimeout {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterMultiStatementCount {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterNetworkPolicy {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterNoorderSequenceAsDefault {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterOdbcTreatDecimalAsInt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterPreventUnloadToInternalStage {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterQueryTag {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterQuotedIdentifiersIgnoreCase {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterRowsPerResultset {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterS3StageVpceDnsName {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterSearchPath {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterSimulatedDataSharingConsumer {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterStatementQueuedTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterStatementTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterStrictJsonOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimeInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimeOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimestampDayIsAlways24h {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimestampInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimestampLtzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimestampNtzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimestampOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimestampTypeMapping {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimestampTzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTimezone {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTransactionAbortOnError {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTransactionDefaultIsolationLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterTwoDigitCenturyStart {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterUnsupportedDdlAction {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterUseCachedResult {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterWeekOfYearPolicy {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserParameterWeekStart {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    daysToExpiry?: pulumi.Input<string>;
-    defaultNamespace?: pulumi.Input<string>;
-    defaultRole?: pulumi.Input<string>;
-    defaultSecondaryRoles?: pulumi.Input<string>;
-    defaultWarehouse?: pulumi.Input<string>;
-    disabled?: pulumi.Input<boolean>;
-    displayName?: pulumi.Input<string>;
-    email?: pulumi.Input<string>;
-    expiresAtTime?: pulumi.Input<string>;
-    extAuthnDuo?: pulumi.Input<boolean>;
-    extAuthnUid?: pulumi.Input<string>;
-    firstName?: pulumi.Input<string>;
-    hasMfa?: pulumi.Input<boolean>;
-    hasPassword?: pulumi.Input<boolean>;
-    hasRsaPublicKey?: pulumi.Input<boolean>;
-    hasWorkloadIdentity?: pulumi.Input<boolean>;
-    lastName?: pulumi.Input<string>;
-    lastSuccessLogin?: pulumi.Input<string>;
-    lockedUntilTime?: pulumi.Input<string>;
-    loginName?: pulumi.Input<string>;
-    minsToBypassMfa?: pulumi.Input<string>;
-    minsToUnlock?: pulumi.Input<string>;
-    mustChangePassword?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    snowflakeLock?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    daysToExpiry?: pulumi.Input<string | undefined>;
+    defaultNamespace?: pulumi.Input<string | undefined>;
+    defaultRole?: pulumi.Input<string | undefined>;
+    defaultSecondaryRoles?: pulumi.Input<string | undefined>;
+    defaultWarehouse?: pulumi.Input<string | undefined>;
+    disabled?: pulumi.Input<boolean | undefined>;
+    displayName?: pulumi.Input<string | undefined>;
+    email?: pulumi.Input<string | undefined>;
+    expiresAtTime?: pulumi.Input<string | undefined>;
+    extAuthnDuo?: pulumi.Input<boolean | undefined>;
+    extAuthnUid?: pulumi.Input<string | undefined>;
+    firstName?: pulumi.Input<string | undefined>;
+    hasMfa?: pulumi.Input<boolean | undefined>;
+    hasPassword?: pulumi.Input<boolean | undefined>;
+    hasRsaPublicKey?: pulumi.Input<boolean | undefined>;
+    hasWorkloadIdentity?: pulumi.Input<boolean | undefined>;
+    lastName?: pulumi.Input<string | undefined>;
+    lastSuccessLogin?: pulumi.Input<string | undefined>;
+    lockedUntilTime?: pulumi.Input<string | undefined>;
+    loginName?: pulumi.Input<string | undefined>;
+    minsToBypassMfa?: pulumi.Input<string | undefined>;
+    minsToUnlock?: pulumi.Input<string | undefined>;
+    mustChangePassword?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    snowflakeLock?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ListingManifest {
     /**
      * Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
      */
-    fromStage?: pulumi.Input<inputs.ListingManifestFromStage>;
+    fromStage?: pulumi.Input<inputs.ListingManifestFromStage | undefined>;
     /**
      * Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
      */
-    fromString?: pulumi.Input<string>;
+    fromString?: pulumi.Input<string | undefined>;
 }
 
 export interface ListingManifestFromStage {
     /**
      * Location of the manifest file in the stage. If not specified, the manifest file will be expected to be at the root of the stage.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the stage where the manifest file is located.
      */
@@ -3998,40 +3998,40 @@ export interface ListingManifestFromStage {
     /**
      * Specifies a comment for the listing version. Whenever a new version is created, this comment will be associated with it. The comment on the version will be visible in the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command output.
      */
-    versionComment?: pulumi.Input<string>;
+    versionComment?: pulumi.Input<string | undefined>;
     /**
      * Represents manifest version name. It's case-sensitive and used in manifest versioning. Version name should be specified or changed whenever any changes in the manifest should be applied to the listing. Later on the versions of the listing can be analyzed by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command. The resource does not track the changes on the specified stage.
      */
-    versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
 }
 
 export interface ListingShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    detailedTargetAccounts?: pulumi.Input<string>;
-    distribution?: pulumi.Input<string>;
-    globalName?: pulumi.Input<string>;
-    isApplication?: pulumi.Input<boolean>;
-    isByRequest?: pulumi.Input<boolean>;
-    isLimitedTrial?: pulumi.Input<boolean>;
-    isMonetized?: pulumi.Input<boolean>;
-    isMountlessQueryable?: pulumi.Input<boolean>;
-    isTargeted?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    organizationProfileName?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    profile?: pulumi.Input<string>;
-    publishedOn?: pulumi.Input<string>;
-    regions?: pulumi.Input<string>;
-    rejectedOn?: pulumi.Input<string>;
-    reviewState?: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
-    subtitle?: pulumi.Input<string>;
-    targetAccounts?: pulumi.Input<string>;
-    title?: pulumi.Input<string>;
-    uniformListingLocator?: pulumi.Input<string>;
-    updatedOn?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    detailedTargetAccounts?: pulumi.Input<string | undefined>;
+    distribution?: pulumi.Input<string | undefined>;
+    globalName?: pulumi.Input<string | undefined>;
+    isApplication?: pulumi.Input<boolean | undefined>;
+    isByRequest?: pulumi.Input<boolean | undefined>;
+    isLimitedTrial?: pulumi.Input<boolean | undefined>;
+    isMonetized?: pulumi.Input<boolean | undefined>;
+    isMountlessQueryable?: pulumi.Input<boolean | undefined>;
+    isTargeted?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    organizationProfileName?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    profile?: pulumi.Input<string | undefined>;
+    publishedOn?: pulumi.Input<string | undefined>;
+    regions?: pulumi.Input<string | undefined>;
+    rejectedOn?: pulumi.Input<string | undefined>;
+    reviewState?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    subtitle?: pulumi.Input<string | undefined>;
+    targetAccounts?: pulumi.Input<string | undefined>;
+    title?: pulumi.Input<string | undefined>;
+    uniformListingLocator?: pulumi.Input<string | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface MaskingPolicyArgument {
@@ -4046,34 +4046,34 @@ export interface MaskingPolicyArgument {
 }
 
 export interface MaskingPolicyDescribeOutput {
-    body?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    returnType?: pulumi.Input<string>;
-    signatures?: pulumi.Input<pulumi.Input<inputs.MaskingPolicyDescribeOutputSignature>[]>;
+    body?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    returnType?: pulumi.Input<string | undefined>;
+    signatures?: pulumi.Input<pulumi.Input<inputs.MaskingPolicyDescribeOutputSignature>[] | undefined>;
 }
 
 export interface MaskingPolicyDescribeOutputSignature {
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface MaskingPolicyShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    exemptOtherPolicies?: pulumi.Input<boolean>;
-    kind?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    exemptOtherPolicies?: pulumi.Input<boolean | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface MaterializedViewTag {
     /**
      * Name of the database that the tag was created in.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Tag name, e.g. department.
      */
@@ -4081,7 +4081,7 @@ export interface MaterializedViewTag {
     /**
      * Name of the schema that the tag was created in.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Tag value, e.g. marketing_info.
      */
@@ -4089,84 +4089,84 @@ export interface MaterializedViewTag {
 }
 
 export interface NetworkPolicyDescribeOutput {
-    allowedIpList?: pulumi.Input<string>;
-    allowedNetworkRuleList?: pulumi.Input<string>;
-    blockedIpList?: pulumi.Input<string>;
-    blockedNetworkRuleList?: pulumi.Input<string>;
+    allowedIpList?: pulumi.Input<string | undefined>;
+    allowedNetworkRuleList?: pulumi.Input<string | undefined>;
+    blockedIpList?: pulumi.Input<string | undefined>;
+    blockedNetworkRuleList?: pulumi.Input<string | undefined>;
 }
 
 export interface NetworkPolicyShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    entriesInAllowedIpList?: pulumi.Input<number>;
-    entriesInAllowedNetworkRules?: pulumi.Input<number>;
-    entriesInBlockedIpList?: pulumi.Input<number>;
-    entriesInBlockedNetworkRules?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    entriesInAllowedIpList?: pulumi.Input<number | undefined>;
+    entriesInAllowedNetworkRules?: pulumi.Input<number | undefined>;
+    entriesInBlockedIpList?: pulumi.Input<number | undefined>;
+    entriesInBlockedNetworkRules?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface NetworkRuleDescribeOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    valueLists?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    valueLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface NetworkRuleShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    entriesInValueList?: pulumi.Input<number>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    entriesInValueList?: pulumi.Input<number | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface NotebookDescribeOutput {
-    codeWarehouse?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    computePool?: pulumi.Input<string>;
-    defaultPackages?: pulumi.Input<string>;
-    defaultVersion?: pulumi.Input<string>;
-    defaultVersionAlias?: pulumi.Input<string>;
-    defaultVersionGitCommitHash?: pulumi.Input<string>;
-    defaultVersionLocationUri?: pulumi.Input<string>;
-    defaultVersionName?: pulumi.Input<string>;
-    defaultVersionSourceLocationUri?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    externalAccessSecrets?: pulumi.Input<string>;
-    idleAutoShutdownTimeSeconds?: pulumi.Input<number>;
-    importUrls?: pulumi.Input<string>;
-    lastVersionAlias?: pulumi.Input<string>;
-    lastVersionGitCommitHash?: pulumi.Input<string>;
-    lastVersionLocationUri?: pulumi.Input<string>;
-    lastVersionName?: pulumi.Input<string>;
-    lastVersionSourceLocationUri?: pulumi.Input<string>;
-    liveVersionLocationUri?: pulumi.Input<string>;
-    mainFile?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    queryWarehouse?: pulumi.Input<string>;
-    runtimeEnvironmentVersion?: pulumi.Input<string>;
-    runtimeName?: pulumi.Input<string>;
-    title?: pulumi.Input<string>;
-    urlId?: pulumi.Input<string>;
-    userPackages?: pulumi.Input<string>;
+    codeWarehouse?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    computePool?: pulumi.Input<string | undefined>;
+    defaultPackages?: pulumi.Input<string | undefined>;
+    defaultVersion?: pulumi.Input<string | undefined>;
+    defaultVersionAlias?: pulumi.Input<string | undefined>;
+    defaultVersionGitCommitHash?: pulumi.Input<string | undefined>;
+    defaultVersionLocationUri?: pulumi.Input<string | undefined>;
+    defaultVersionName?: pulumi.Input<string | undefined>;
+    defaultVersionSourceLocationUri?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    externalAccessSecrets?: pulumi.Input<string | undefined>;
+    idleAutoShutdownTimeSeconds?: pulumi.Input<number | undefined>;
+    importUrls?: pulumi.Input<string | undefined>;
+    lastVersionAlias?: pulumi.Input<string | undefined>;
+    lastVersionGitCommitHash?: pulumi.Input<string | undefined>;
+    lastVersionLocationUri?: pulumi.Input<string | undefined>;
+    lastVersionName?: pulumi.Input<string | undefined>;
+    lastVersionSourceLocationUri?: pulumi.Input<string | undefined>;
+    liveVersionLocationUri?: pulumi.Input<string | undefined>;
+    mainFile?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
+    runtimeEnvironmentVersion?: pulumi.Input<string | undefined>;
+    runtimeName?: pulumi.Input<string | undefined>;
+    title?: pulumi.Input<string | undefined>;
+    urlId?: pulumi.Input<string | undefined>;
+    userPackages?: pulumi.Input<string | undefined>;
 }
 
 export interface NotebookFrom {
     /**
      * Location of the .ipynb file in the stage.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the stage where the .ipynb file is located.
      */
@@ -4174,343 +4174,343 @@ export interface NotebookFrom {
 }
 
 export interface NotebookShowOutput {
-    codeWarehouse?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    queryWarehouse?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    urlId?: pulumi.Input<string>;
+    codeWarehouse?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    urlId?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutput {
-    blockedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList>[]>;
-    comments?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputComment>[]>;
-    enableds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputEnabled>[]>;
-    networkPolicies?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy>[]>;
-    oauthAllowNonTlsRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri>[]>;
-    oauthAllowedAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint>[]>;
-    oauthAllowedTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint>[]>;
-    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint>[]>;
-    oauthClientRsaPublicKey2Fps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp>[]>;
-    oauthClientRsaPublicKeyFps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp>[]>;
-    oauthClientTypes?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType>[]>;
-    oauthEnforcePkces?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce>[]>;
-    oauthIssueRefreshTokens?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken>[]>;
-    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity>[]>;
-    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint>[]>;
-    oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole>[]>;
-    preAuthorizedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList>[]>;
+    blockedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList>[] | undefined>;
+    comments?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputComment>[] | undefined>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputEnabled>[] | undefined>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy>[] | undefined>;
+    oauthAllowNonTlsRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri>[] | undefined>;
+    oauthAllowedAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint>[] | undefined>;
+    oauthAllowedTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint>[] | undefined>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint>[] | undefined>;
+    oauthClientRsaPublicKey2Fps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp>[] | undefined>;
+    oauthClientRsaPublicKeyFps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp>[] | undefined>;
+    oauthClientTypes?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType>[] | undefined>;
+    oauthEnforcePkces?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce>[] | undefined>;
+    oauthIssueRefreshTokens?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken>[] | undefined>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity>[] | undefined>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint>[] | undefined>;
+    oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole>[] | undefined>;
+    preAuthorizedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList>[] | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputEnabled {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputNetworkPolicy {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUri {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientType {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsRelatedParameter {
-    oauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList>[]>;
+    oauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList>[] | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    integrationType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    integrationType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
-    blockedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList>[]>;
-    comments?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment>[]>;
-    enableds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled>[]>;
-    networkPolicies?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy>[]>;
-    oauthAllowNonTlsRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri>[]>;
-    oauthAllowedAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint>[]>;
-    oauthAllowedTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint>[]>;
-    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint>[]>;
-    oauthClientRsaPublicKey2Fps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp>[]>;
-    oauthClientRsaPublicKeyFps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp>[]>;
-    oauthClientTypes?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType>[]>;
-    oauthEnforcePkces?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce>[]>;
-    oauthIssueRefreshTokens?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken>[]>;
-    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity>[]>;
-    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint>[]>;
-    oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole>[]>;
-    preAuthorizedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList>[]>;
+    blockedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList>[] | undefined>;
+    comments?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment>[] | undefined>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled>[] | undefined>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy>[] | undefined>;
+    oauthAllowNonTlsRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri>[] | undefined>;
+    oauthAllowedAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint>[] | undefined>;
+    oauthAllowedTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint>[] | undefined>;
+    oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint>[] | undefined>;
+    oauthClientRsaPublicKey2Fps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp>[] | undefined>;
+    oauthClientRsaPublicKeyFps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp>[] | undefined>;
+    oauthClientTypes?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType>[] | undefined>;
+    oauthEnforcePkces?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce>[] | undefined>;
+    oauthIssueRefreshTokens?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken>[] | undefined>;
+    oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity>[] | undefined>;
+    oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint>[] | undefined>;
+    oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole>[] | undefined>;
+    preAuthorizedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList>[] | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputEnabled {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicy {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUri {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsRelatedParameter {
-    oauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList>[]>;
+    oauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList>[] | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    integrationType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    integrationType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface ObjectParameterObjectIdentifier {
     /**
      * Name of the database that the object was created in.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Name of the object to set the parameter for.
      */
@@ -4518,22 +4518,22 @@ export interface ObjectParameterObjectIdentifier {
     /**
      * Name of the schema that the object was created in.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface PrimaryConnectionShowOutput {
-    accountLocator?: pulumi.Input<string>;
-    accountName?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    connectionUrl?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    failoverAllowedToAccounts?: pulumi.Input<pulumi.Input<string>[]>;
-    isPrimary?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    organizationName?: pulumi.Input<string>;
-    primary?: pulumi.Input<string>;
-    regionGroup?: pulumi.Input<string>;
-    snowflakeRegion?: pulumi.Input<string>;
+    accountLocator?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    connectionUrl?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    failoverAllowedToAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    isPrimary?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    organizationName?: pulumi.Input<string | undefined>;
+    primary?: pulumi.Input<string | undefined>;
+    regionGroup?: pulumi.Input<string | undefined>;
+    snowflakeRegion?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavaArgument {
@@ -4544,7 +4544,7 @@ export interface ProcedureJavaArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
@@ -4563,42 +4563,42 @@ export interface ProcedureJavaImport {
 }
 
 export interface ProcedureJavaParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterTraceLevel>[] | undefined>;
 }
 
 export interface ProcedureJavaParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavaParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavaParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavaParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavaSecret {
@@ -4613,22 +4613,22 @@ export interface ProcedureJavaSecret {
 }
 
 export interface ProcedureJavaShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ProcedureJavaTargetPath {
@@ -4650,7 +4650,7 @@ export interface ProcedureJavascriptArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
@@ -4658,61 +4658,61 @@ export interface ProcedureJavascriptArgument {
 }
 
 export interface ProcedureJavascriptParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterTraceLevel>[] | undefined>;
 }
 
 export interface ProcedureJavascriptParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavascriptParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavascriptParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavascriptParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureJavascriptShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ProcedurePythonArgument {
@@ -4723,7 +4723,7 @@ export interface ProcedurePythonArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
@@ -4742,42 +4742,42 @@ export interface ProcedurePythonImport {
 }
 
 export interface ProcedurePythonParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterTraceLevel>[] | undefined>;
 }
 
 export interface ProcedurePythonParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedurePythonParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedurePythonParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedurePythonParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedurePythonSecret {
@@ -4792,22 +4792,22 @@ export interface ProcedurePythonSecret {
 }
 
 export interface ProcedurePythonShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ProcedureScalaArgument {
@@ -4818,7 +4818,7 @@ export interface ProcedureScalaArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
@@ -4837,42 +4837,42 @@ export interface ProcedureScalaImport {
 }
 
 export interface ProcedureScalaParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterTraceLevel>[] | undefined>;
 }
 
 export interface ProcedureScalaParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureScalaParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureScalaParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureScalaParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureScalaSecret {
@@ -4887,22 +4887,22 @@ export interface ProcedureScalaSecret {
 }
 
 export interface ProcedureScalaShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ProcedureScalaTargetPath {
@@ -4924,7 +4924,7 @@ export interface ProcedureSqlArgument {
     /**
      * Optional default value for the argument. For text values use single quotes. Numeric values can be unquoted. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    argDefaultValue?: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string | undefined>;
     /**
      * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
@@ -4932,61 +4932,61 @@ export interface ProcedureSqlArgument {
 }
 
 export interface ProcedureSqlParameter {
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterEnableConsoleOutput>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterLogLevel>[]>;
-    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterMetricLevel>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterTraceLevel>[]>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterEnableConsoleOutput>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterLogLevel>[] | undefined>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterMetricLevel>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterTraceLevel>[] | undefined>;
 }
 
 export interface ProcedureSqlParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureSqlParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureSqlParameterMetricLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureSqlParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ProcedureSqlShowOutput {
-    argumentsRaw?: pulumi.Input<string>;
-    catalogName?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<string>;
-    isAggregate?: pulumi.Input<boolean>;
-    isAnsi?: pulumi.Input<boolean>;
-    isBuiltin?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    isTableFunction?: pulumi.Input<boolean>;
-    maxNumArguments?: pulumi.Input<number>;
-    minNumArguments?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secrets?: pulumi.Input<string>;
-    validForClustering?: pulumi.Input<boolean>;
+    argumentsRaw?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<string | undefined>;
+    isAggregate?: pulumi.Input<boolean | undefined>;
+    isAnsi?: pulumi.Input<boolean | undefined>;
+    isBuiltin?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    isTableFunction?: pulumi.Input<boolean | undefined>;
+    maxNumArguments?: pulumi.Input<number | undefined>;
+    minNumArguments?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secrets?: pulumi.Input<string | undefined>;
+    validForClustering?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ProviderTokenAccessor {
@@ -5013,19 +5013,19 @@ export interface ProviderTokenAccessor {
 }
 
 export interface ResourceMonitorShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    creditQuota?: pulumi.Input<number>;
-    endTime?: pulumi.Input<string>;
-    frequency?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    remainingCredits?: pulumi.Input<number>;
-    startTime?: pulumi.Input<string>;
-    suspendAt?: pulumi.Input<number>;
-    suspendImmediateAt?: pulumi.Input<number>;
-    usedCredits?: pulumi.Input<number>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    creditQuota?: pulumi.Input<number | undefined>;
+    endTime?: pulumi.Input<string | undefined>;
+    frequency?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    remainingCredits?: pulumi.Input<number | undefined>;
+    startTime?: pulumi.Input<string | undefined>;
+    suspendAt?: pulumi.Input<number | undefined>;
+    suspendImmediateAt?: pulumi.Input<number | undefined>;
+    usedCredits?: pulumi.Input<number | undefined>;
 }
 
 export interface RowAccessPolicyArgument {
@@ -5040,533 +5040,533 @@ export interface RowAccessPolicyArgument {
 }
 
 export interface RowAccessPolicyDescribeOutput {
-    body?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    returnType?: pulumi.Input<string>;
-    signatures?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyDescribeOutputSignature>[]>;
+    body?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    returnType?: pulumi.Input<string | undefined>;
+    signatures?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyDescribeOutputSignature>[] | undefined>;
 }
 
 export interface RowAccessPolicyDescribeOutputSignature {
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface RowAccessPolicyShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    kind?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    options?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    options?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutput {
-    allowedEmailPatterns?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputAllowedEmailPattern>[]>;
-    allowedUserDomains?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputAllowedUserDomain>[]>;
-    comments?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputComment>[]>;
-    saml2DigestMethodsUseds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed>[]>;
-    saml2EnableSpInitiateds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2EnableSpInitiated>[]>;
-    saml2ForceAuthns?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2ForceAuthn>[]>;
-    saml2Issuers?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2Issuer>[]>;
-    saml2PostLogoutRedirectUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl>[]>;
-    saml2Providers?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2Provider>[]>;
-    saml2RequestedNameidFormats?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat>[]>;
-    saml2SignRequests?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SignRequest>[]>;
-    saml2SignatureMethodsUseds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed>[]>;
-    saml2SnowflakeAcsUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl>[]>;
-    saml2SnowflakeIssuerUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl>[]>;
-    saml2SnowflakeMetadatas?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata>[]>;
-    saml2SpInitiatedLoginPageLabels?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel>[]>;
-    saml2SsoUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SsoUrl>[]>;
+    allowedEmailPatterns?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputAllowedEmailPattern>[] | undefined>;
+    allowedUserDomains?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputAllowedUserDomain>[] | undefined>;
+    comments?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputComment>[] | undefined>;
+    saml2DigestMethodsUseds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed>[] | undefined>;
+    saml2EnableSpInitiateds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2EnableSpInitiated>[] | undefined>;
+    saml2ForceAuthns?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2ForceAuthn>[] | undefined>;
+    saml2Issuers?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2Issuer>[] | undefined>;
+    saml2PostLogoutRedirectUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl>[] | undefined>;
+    saml2Providers?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2Provider>[] | undefined>;
+    saml2RequestedNameidFormats?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat>[] | undefined>;
+    saml2SignRequests?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SignRequest>[] | undefined>;
+    saml2SignatureMethodsUseds?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed>[] | undefined>;
+    saml2SnowflakeAcsUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl>[] | undefined>;
+    saml2SnowflakeIssuerUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl>[] | undefined>;
+    saml2SnowflakeMetadatas?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata>[] | undefined>;
+    saml2SpInitiatedLoginPageLabels?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel>[] | undefined>;
+    saml2SsoUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SsoUrl>[] | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputAllowedEmailPattern {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputAllowedUserDomain {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2EnableSpInitiated {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2ForceAuthn {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2Issuer {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2Provider {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SignRequest {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SsoUrl {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface Saml2IntegrationShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    integrationType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    integrationType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaDescribeOutput {
-    createdOn?: pulumi.Input<string>;
-    kind?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameter {
-    catalogs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterCatalog>[]>;
-    dataRetentionTimeInDays?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDataRetentionTimeInDay>[]>;
-    defaultDdlCollations?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDefaultDdlCollation>[]>;
-    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterEnableConsoleOutput>[]>;
-    externalVolumes?: pulumi.Input<pulumi.Input<inputs.SchemaParameterExternalVolume>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.SchemaParameterLogLevel>[]>;
-    maxDataExtensionTimeInDays?: pulumi.Input<pulumi.Input<inputs.SchemaParameterMaxDataExtensionTimeInDay>[]>;
-    pipeExecutionPauseds?: pulumi.Input<pulumi.Input<inputs.SchemaParameterPipeExecutionPaused>[]>;
-    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.SchemaParameterQuotedIdentifiersIgnoreCase>[]>;
-    replaceInvalidCharacters?: pulumi.Input<pulumi.Input<inputs.SchemaParameterReplaceInvalidCharacter>[]>;
-    storageSerializationPolicies?: pulumi.Input<pulumi.Input<inputs.SchemaParameterStorageSerializationPolicy>[]>;
-    suspendTaskAfterNumFailures?: pulumi.Input<pulumi.Input<inputs.SchemaParameterSuspendTaskAfterNumFailure>[]>;
-    taskAutoRetryAttempts?: pulumi.Input<pulumi.Input<inputs.SchemaParameterTaskAutoRetryAttempt>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.SchemaParameterTraceLevel>[]>;
-    userTaskManagedInitialWarehouseSizes?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskManagedInitialWarehouseSize>[]>;
-    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskMinimumTriggerIntervalInSecond>[]>;
-    userTaskTimeoutMs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskTimeoutM>[]>;
+    catalogs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterCatalog>[] | undefined>;
+    dataRetentionTimeInDays?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDataRetentionTimeInDay>[] | undefined>;
+    defaultDdlCollations?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDefaultDdlCollation>[] | undefined>;
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterEnableConsoleOutput>[] | undefined>;
+    externalVolumes?: pulumi.Input<pulumi.Input<inputs.SchemaParameterExternalVolume>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.SchemaParameterLogLevel>[] | undefined>;
+    maxDataExtensionTimeInDays?: pulumi.Input<pulumi.Input<inputs.SchemaParameterMaxDataExtensionTimeInDay>[] | undefined>;
+    pipeExecutionPauseds?: pulumi.Input<pulumi.Input<inputs.SchemaParameterPipeExecutionPaused>[] | undefined>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.SchemaParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<pulumi.Input<inputs.SchemaParameterReplaceInvalidCharacter>[] | undefined>;
+    storageSerializationPolicies?: pulumi.Input<pulumi.Input<inputs.SchemaParameterStorageSerializationPolicy>[] | undefined>;
+    suspendTaskAfterNumFailures?: pulumi.Input<pulumi.Input<inputs.SchemaParameterSuspendTaskAfterNumFailure>[] | undefined>;
+    taskAutoRetryAttempts?: pulumi.Input<pulumi.Input<inputs.SchemaParameterTaskAutoRetryAttempt>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.SchemaParameterTraceLevel>[] | undefined>;
+    userTaskManagedInitialWarehouseSizes?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskManagedInitialWarehouseSize>[] | undefined>;
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskMinimumTriggerIntervalInSecond>[] | undefined>;
+    userTaskTimeoutMs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterUserTaskTimeoutM>[] | undefined>;
 }
 
 export interface SchemaParameterCatalog {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterDataRetentionTimeInDay {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterDefaultDdlCollation {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterEnableConsoleOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterExternalVolume {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterMaxDataExtensionTimeInDay {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterPipeExecutionPaused {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterQuotedIdentifiersIgnoreCase {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterReplaceInvalidCharacter {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterStorageSerializationPolicy {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterSuspendTaskAfterNumFailure {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterTaskAutoRetryAttempt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterUserTaskManagedInitialWarehouseSize {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterUserTaskMinimumTriggerIntervalInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaParameterUserTaskTimeoutM {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SchemaShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    droppedOn?: pulumi.Input<string>;
-    isCurrent?: pulumi.Input<boolean>;
-    isDefault?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    options?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    retentionTime?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    droppedOn?: pulumi.Input<string | undefined>;
+    isCurrent?: pulumi.Input<boolean | undefined>;
+    isDefault?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    options?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    retentionTime?: pulumi.Input<string | undefined>;
 }
 
 export interface ScimIntegrationDescribeOutput {
-    comments?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputComment>[]>;
-    enableds?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputEnabled>[]>;
-    networkPolicies?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputNetworkPolicy>[]>;
-    runAsRoles?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputRunAsRole>[]>;
-    syncPasswords?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputSyncPassword>[]>;
+    comments?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputComment>[] | undefined>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputEnabled>[] | undefined>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputNetworkPolicy>[] | undefined>;
+    runAsRoles?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputRunAsRole>[] | undefined>;
+    syncPasswords?: pulumi.Input<pulumi.Input<inputs.ScimIntegrationDescribeOutputSyncPassword>[] | undefined>;
 }
 
 export interface ScimIntegrationDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ScimIntegrationDescribeOutputEnabled {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ScimIntegrationDescribeOutputNetworkPolicy {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ScimIntegrationDescribeOutputRunAsRole {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ScimIntegrationDescribeOutputSyncPassword {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ScimIntegrationShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    integrationType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    integrationType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface SecondaryConnectionShowOutput {
-    accountLocator?: pulumi.Input<string>;
-    accountName?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    connectionUrl?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    failoverAllowedToAccounts?: pulumi.Input<pulumi.Input<string>[]>;
-    isPrimary?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    organizationName?: pulumi.Input<string>;
-    primary?: pulumi.Input<string>;
-    regionGroup?: pulumi.Input<string>;
-    snowflakeRegion?: pulumi.Input<string>;
+    accountLocator?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    connectionUrl?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    failoverAllowedToAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    isPrimary?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    organizationName?: pulumi.Input<string | undefined>;
+    primary?: pulumi.Input<string | undefined>;
+    regionGroup?: pulumi.Input<string | undefined>;
+    snowflakeRegion?: pulumi.Input<string | undefined>;
 }
 
 export interface SecretWithAuthorizationCodeGrantDescribeOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    integrationName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    oauthAccessTokenExpiryTime?: pulumi.Input<string>;
-    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    owner?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secretType?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    integrationName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oauthAccessTokenExpiryTime?: pulumi.Input<string | undefined>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string | undefined>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secretType?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 export interface SecretWithAuthorizationCodeGrantShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secretType?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secretType?: pulumi.Input<string | undefined>;
 }
 
 export interface SecretWithBasicAuthenticationDescribeOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    integrationName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    oauthAccessTokenExpiryTime?: pulumi.Input<string>;
-    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    owner?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secretType?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    integrationName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oauthAccessTokenExpiryTime?: pulumi.Input<string | undefined>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string | undefined>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secretType?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 export interface SecretWithBasicAuthenticationShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secretType?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secretType?: pulumi.Input<string | undefined>;
 }
 
 export interface SecretWithClientCredentialsDescribeOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    integrationName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    oauthAccessTokenExpiryTime?: pulumi.Input<string>;
-    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    owner?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secretType?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    integrationName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oauthAccessTokenExpiryTime?: pulumi.Input<string | undefined>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string | undefined>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secretType?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 export interface SecretWithClientCredentialsShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secretType?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secretType?: pulumi.Input<string | undefined>;
 }
 
 export interface SecretWithGenericStringDescribeOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    integrationName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    oauthAccessTokenExpiryTime?: pulumi.Input<string>;
-    oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    owner?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secretType?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    integrationName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oauthAccessTokenExpiryTime?: pulumi.Input<string | undefined>;
+    oauthRefreshTokenExpiryTime?: pulumi.Input<string | undefined>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secretType?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 export interface SecretWithGenericStringShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    secretType?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    secretType?: pulumi.Input<string | undefined>;
 }
 
 export interface SemanticViewDimension {
     /**
      * Specifies a comment for the dimension.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
      */
@@ -5578,18 +5578,18 @@ export interface SemanticViewDimension {
     /**
      * List of synonyms for the dimension.
      */
-    synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+    synonyms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface SemanticViewFact {
     /**
      * Specifies a comment for the fact.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the fact is private.
      */
-    isPrivate?: pulumi.Input<string>;
+    isPrivate?: pulumi.Input<string | undefined>;
     /**
      * Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`.
      */
@@ -5601,29 +5601,29 @@ export interface SemanticViewFact {
     /**
      * List of synonyms for the fact.
      */
-    synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+    synonyms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface SemanticViewMetric {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
      */
-    isPrivate?: pulumi.Input<string>;
+    isPrivate?: pulumi.Input<string | undefined>;
     /**
      * Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
      */
-    semanticExpression?: pulumi.Input<inputs.SemanticViewMetricSemanticExpression>;
+    semanticExpression?: pulumi.Input<inputs.SemanticViewMetricSemanticExpression | undefined>;
     /**
      * Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
      */
-    windowFunction?: pulumi.Input<inputs.SemanticViewMetricWindowFunction>;
+    windowFunction?: pulumi.Input<inputs.SemanticViewMetricWindowFunction | undefined>;
 }
 
 export interface SemanticViewMetricSemanticExpression {
     /**
      * Specifies a comment for the semantic expression.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies a qualified name for the metric: `<table_alias>.<semantic_expression_name>`. Remember to wrap each part in double quotes like `"\"<table_alias>\".\"<semantic_expression_name>\""`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `<table_alias>.` part but still wrap in double quotes, e.g. `"\"<semantic_expression_name>\""`.
      */
@@ -5635,7 +5635,7 @@ export interface SemanticViewMetricSemanticExpression {
     /**
      * List of synonyms for this semantic expression.
      */
-    synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+    synonyms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface SemanticViewMetricWindowFunction {
@@ -5657,22 +5657,22 @@ export interface SemanticViewMetricWindowFunctionOverClause {
     /**
      * Specifies an order by clause. It must be a complete SQL expression, including any `[ ASC | DESC ] [ NULLS { FIRST | LAST } ]` modifiers.
      */
-    orderBy?: pulumi.Input<string>;
+    orderBy?: pulumi.Input<string | undefined>;
     /**
      * Specifies a partition by clause.
      */
-    partitionBy?: pulumi.Input<string>;
+    partitionBy?: pulumi.Input<string | undefined>;
     /**
      * Specifies a window frame clause.
      */
-    windowFrameClause?: pulumi.Input<string>;
+    windowFrameClause?: pulumi.Input<string | undefined>;
 }
 
 export interface SemanticViewRelationship {
     /**
      * Specifies one or more columns in the second logical table that are referred to by the first logical table. Column names in this list are case-sensitive - the provider uses double quotes to wrap each of them when sending the SQL to Snowflake.
      */
-    referencedRelationshipColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    referencedRelationshipColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the other logical table and one or more of its columns that are referred to by the first logical table. Each referenced table can have either a `tableName` or a `tableAlias`, not both.
      */
@@ -5684,7 +5684,7 @@ export interface SemanticViewRelationship {
     /**
      * Specifies an optional identifier for the relationship. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
      */
-    relationshipIdentifier?: pulumi.Input<string>;
+    relationshipIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Specifies one of the logical tables that refers to columns in another logical table. Each table can have either a `tableName` or a `tableAlias`, not both.
      */
@@ -5695,48 +5695,48 @@ export interface SemanticViewRelationshipReferencedTableNameOrAlias {
     /**
      * The alias used for the logical table, cannot be used in combination with the `tableName`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
      */
-    tableAlias?: pulumi.Input<string>;
+    tableAlias?: pulumi.Input<string | undefined>;
     /**
      * The name of the logical table, cannot be used in combination with the `tableAlias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 export interface SemanticViewRelationshipTableNameOrAlias {
     /**
      * The alias used for the logical table, cannot be used in combination with the `tableName`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
      */
-    tableAlias?: pulumi.Input<string>;
+    tableAlias?: pulumi.Input<string | undefined>;
     /**
      * The name of the logical table, cannot be used in combination with the `tableAlias`. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }
 
 export interface SemanticViewShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    extension?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    extension?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface SemanticViewTable {
     /**
      * Specifies a comment for the logical table.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Definitions of primary keys in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
      */
-    primaryKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    primaryKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of synonyms for the logical table.
      */
-    synonyms?: pulumi.Input<pulumi.Input<string>[]>;
+    synonyms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies an alias for a logical table in the semantic view. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
      */
@@ -5748,7 +5748,7 @@ export interface SemanticViewTable {
     /**
      * Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
      */
-    uniques?: pulumi.Input<pulumi.Input<inputs.SemanticViewTableUnique>[]>;
+    uniques?: pulumi.Input<pulumi.Input<inputs.SemanticViewTableUnique>[] | undefined>;
 }
 
 export interface SemanticViewTableUnique {
@@ -5759,73 +5759,73 @@ export interface SemanticViewTableUnique {
 }
 
 export interface ServiceDescribeOutput {
-    autoResume?: pulumi.Input<boolean>;
-    autoSuspendSecs?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    computePool?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    currentInstances?: pulumi.Input<number>;
-    databaseName?: pulumi.Input<string>;
-    dnsName?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
-    isAsyncJob?: pulumi.Input<boolean>;
-    isJob?: pulumi.Input<boolean>;
-    isUpgrading?: pulumi.Input<boolean>;
-    managingObjectDomain?: pulumi.Input<string>;
-    managingObjectName?: pulumi.Input<string>;
-    maxInstances?: pulumi.Input<number>;
-    minInstances?: pulumi.Input<number>;
-    minReadyInstances?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    queryWarehouse?: pulumi.Input<string>;
-    resumedOn?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    spec?: pulumi.Input<string>;
-    specDigest?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
-    suspendedOn?: pulumi.Input<string>;
-    targetInstances?: pulumi.Input<number>;
-    updatedOn?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<boolean | undefined>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    computePool?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    currentInstances?: pulumi.Input<number | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    dnsName?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    isAsyncJob?: pulumi.Input<boolean | undefined>;
+    isJob?: pulumi.Input<boolean | undefined>;
+    isUpgrading?: pulumi.Input<boolean | undefined>;
+    managingObjectDomain?: pulumi.Input<string | undefined>;
+    managingObjectName?: pulumi.Input<string | undefined>;
+    maxInstances?: pulumi.Input<number | undefined>;
+    minInstances?: pulumi.Input<number | undefined>;
+    minReadyInstances?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    spec?: pulumi.Input<string | undefined>;
+    specDigest?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+    suspendedOn?: pulumi.Input<string | undefined>;
+    targetInstances?: pulumi.Input<number | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceFromSpecification {
     /**
      * The file name of the service specification. Example: `spec.yaml`.
      */
-    file?: pulumi.Input<string>;
+    file?: pulumi.Input<string | undefined>;
     /**
      * The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
     /**
      * The embedded text of the service specification.
      */
-    text?: pulumi.Input<string>;
+    text?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceFromSpecificationTemplate {
     /**
      * The file name of the service specification template. Example: `spec.yaml`.
      */
-    file?: pulumi.Input<string>;
+    file?: pulumi.Input<string | undefined>;
     /**
      * The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
     /**
      * The embedded text of the service specification template.
      */
-    text?: pulumi.Input<string>;
+    text?: pulumi.Input<string | undefined>;
     /**
      * List of the specified template variables and the values of those variables.
      */
@@ -5844,53 +5844,53 @@ export interface ServiceFromSpecificationTemplateUsing {
 }
 
 export interface ServiceShowOutput {
-    autoResume?: pulumi.Input<boolean>;
-    autoSuspendSecs?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    computePool?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    currentInstances?: pulumi.Input<number>;
-    databaseName?: pulumi.Input<string>;
-    dnsName?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
-    isAsyncJob?: pulumi.Input<boolean>;
-    isJob?: pulumi.Input<boolean>;
-    isUpgrading?: pulumi.Input<boolean>;
-    managingObjectDomain?: pulumi.Input<string>;
-    managingObjectName?: pulumi.Input<string>;
-    maxInstances?: pulumi.Input<number>;
-    minInstances?: pulumi.Input<number>;
-    minReadyInstances?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    queryWarehouse?: pulumi.Input<string>;
-    resumedOn?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    specDigest?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
-    suspendedOn?: pulumi.Input<string>;
-    targetInstances?: pulumi.Input<number>;
-    updatedOn?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<boolean | undefined>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    computePool?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    currentInstances?: pulumi.Input<number | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    dnsName?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    isAsyncJob?: pulumi.Input<boolean | undefined>;
+    isJob?: pulumi.Input<boolean | undefined>;
+    isUpgrading?: pulumi.Input<boolean | undefined>;
+    managingObjectDomain?: pulumi.Input<string | undefined>;
+    managingObjectName?: pulumi.Input<string | undefined>;
+    maxInstances?: pulumi.Input<number | undefined>;
+    minInstances?: pulumi.Input<number | undefined>;
+    minReadyInstances?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    specDigest?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+    suspendedOn?: pulumi.Input<string | undefined>;
+    targetInstances?: pulumi.Input<number | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserDefaultWorkloadIdentity {
     /**
      * AWS workload identity configuration.
      */
-    aws?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityAws>;
+    aws?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityAws | undefined>;
     /**
      * Azure workload identity configuration.
      */
-    azure?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityAzure>;
+    azure?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityAzure | undefined>;
     /**
      * GCP workload identity configuration.
      */
-    gcp?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityGcp>;
+    gcp?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityGcp | undefined>;
     /**
      * Generic OIDC workload identity configuration.
      */
-    oidc?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityOidc>;
+    oidc?: pulumi.Input<inputs.ServiceUserDefaultWorkloadIdentityOidc | undefined>;
 }
 
 export interface ServiceUserDefaultWorkloadIdentityAws {
@@ -5926,7 +5926,7 @@ export interface ServiceUserDefaultWorkloadIdentityOidc {
     /**
      * List of allowed OIDC audiences.
      */
-    oidcAudienceLists?: pulumi.Input<pulumi.Input<string>[]>;
+    oidcAudienceLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The OIDC subject identifier.
      */
@@ -5934,560 +5934,560 @@ export interface ServiceUserDefaultWorkloadIdentityOidc {
 }
 
 export interface ServiceUserParameter {
-    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAbortDetachedQuery>[]>;
-    autocommits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAutocommit>[]>;
-    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterBinaryInputFormat>[]>;
-    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterBinaryOutputFormat>[]>;
-    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMemoryLimit>[]>;
-    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMetadataRequestUseConnectionCtx>[]>;
-    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientPrefetchThread>[]>;
-    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientResultChunkSize>[]>;
-    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientResultColumnCaseInsensitive>[]>;
-    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency>[]>;
-    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientSessionKeepAlife>[]>;
-    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientTimestampTypeMapping>[]>;
-    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterDateInputFormat>[]>;
-    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterDateOutputFormat>[]>;
-    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableUnloadPhysicalTypeOptimization>[]>;
-    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableUnredactedQuerySyntaxError>[]>;
-    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterErrorOnNondeterministicMerge>[]>;
-    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterErrorOnNondeterministicUpdate>[]>;
-    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterGeographyOutputFormat>[]>;
-    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterGeometryOutputFormat>[]>;
-    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcTreatDecimalAsInt>[]>;
-    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcTreatTimestampNtzAsUtc>[]>;
-    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcUseSessionTimezone>[]>;
-    jsonIndents?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJsonIndent>[]>;
-    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterLockTimeout>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterLogLevel>[]>;
-    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterMultiStatementCount>[]>;
-    networkPolicies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterNetworkPolicy>[]>;
-    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterNoorderSequenceAsDefault>[]>;
-    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterOdbcTreatDecimalAsInt>[]>;
-    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterPreventUnloadToInternalStage>[]>;
-    queryTags?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterQueryTag>[]>;
-    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterQuotedIdentifiersIgnoreCase>[]>;
-    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterRowsPerResultset>[]>;
-    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterS3StageVpceDnsName>[]>;
-    searchPaths?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterSearchPath>[]>;
-    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterSimulatedDataSharingConsumer>[]>;
-    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStatementQueuedTimeoutInSecond>[]>;
-    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStatementTimeoutInSecond>[]>;
-    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStrictJsonOutput>[]>;
-    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimeInputFormat>[]>;
-    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimeOutputFormat>[]>;
-    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampDayIsAlways24h>[]>;
-    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampInputFormat>[]>;
-    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampLtzOutputFormat>[]>;
-    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampNtzOutputFormat>[]>;
-    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampOutputFormat>[]>;
-    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampTypeMapping>[]>;
-    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampTzOutputFormat>[]>;
-    timezones?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimezone>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTraceLevel>[]>;
-    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTransactionAbortOnError>[]>;
-    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTransactionDefaultIsolationLevel>[]>;
-    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTwoDigitCenturyStart>[]>;
-    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterUnsupportedDdlAction>[]>;
-    useCachedResults?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterUseCachedResult>[]>;
-    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterWeekOfYearPolicy>[]>;
-    weekStarts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterWeekStart>[]>;
+    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAbortDetachedQuery>[] | undefined>;
+    autocommits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterAutocommit>[] | undefined>;
+    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterBinaryInputFormat>[] | undefined>;
+    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterBinaryOutputFormat>[] | undefined>;
+    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMemoryLimit>[] | undefined>;
+    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientMetadataRequestUseConnectionCtx>[] | undefined>;
+    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientPrefetchThread>[] | undefined>;
+    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientResultChunkSize>[] | undefined>;
+    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientResultColumnCaseInsensitive>[] | undefined>;
+    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency>[] | undefined>;
+    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientSessionKeepAlife>[] | undefined>;
+    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterClientTimestampTypeMapping>[] | undefined>;
+    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterDateInputFormat>[] | undefined>;
+    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterDateOutputFormat>[] | undefined>;
+    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableUnloadPhysicalTypeOptimization>[] | undefined>;
+    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterEnableUnredactedQuerySyntaxError>[] | undefined>;
+    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterErrorOnNondeterministicMerge>[] | undefined>;
+    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterErrorOnNondeterministicUpdate>[] | undefined>;
+    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterGeographyOutputFormat>[] | undefined>;
+    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterGeometryOutputFormat>[] | undefined>;
+    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcTreatDecimalAsInt>[] | undefined>;
+    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcTreatTimestampNtzAsUtc>[] | undefined>;
+    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJdbcUseSessionTimezone>[] | undefined>;
+    jsonIndents?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterJsonIndent>[] | undefined>;
+    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterLockTimeout>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterLogLevel>[] | undefined>;
+    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterMultiStatementCount>[] | undefined>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterNetworkPolicy>[] | undefined>;
+    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterNoorderSequenceAsDefault>[] | undefined>;
+    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterOdbcTreatDecimalAsInt>[] | undefined>;
+    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterPreventUnloadToInternalStage>[] | undefined>;
+    queryTags?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterQueryTag>[] | undefined>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
+    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterRowsPerResultset>[] | undefined>;
+    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterS3StageVpceDnsName>[] | undefined>;
+    searchPaths?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterSearchPath>[] | undefined>;
+    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterSimulatedDataSharingConsumer>[] | undefined>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStatementQueuedTimeoutInSecond>[] | undefined>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStatementTimeoutInSecond>[] | undefined>;
+    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterStrictJsonOutput>[] | undefined>;
+    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimeInputFormat>[] | undefined>;
+    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimeOutputFormat>[] | undefined>;
+    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampDayIsAlways24h>[] | undefined>;
+    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampInputFormat>[] | undefined>;
+    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampLtzOutputFormat>[] | undefined>;
+    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampNtzOutputFormat>[] | undefined>;
+    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampOutputFormat>[] | undefined>;
+    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampTypeMapping>[] | undefined>;
+    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimestampTzOutputFormat>[] | undefined>;
+    timezones?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTimezone>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTraceLevel>[] | undefined>;
+    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTransactionAbortOnError>[] | undefined>;
+    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTransactionDefaultIsolationLevel>[] | undefined>;
+    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterTwoDigitCenturyStart>[] | undefined>;
+    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterUnsupportedDdlAction>[] | undefined>;
+    useCachedResults?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterUseCachedResult>[] | undefined>;
+    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterWeekOfYearPolicy>[] | undefined>;
+    weekStarts?: pulumi.Input<pulumi.Input<inputs.ServiceUserParameterWeekStart>[] | undefined>;
 }
 
 export interface ServiceUserParameterAbortDetachedQuery {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterAutocommit {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterBinaryInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterBinaryOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterClientMemoryLimit {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterClientMetadataRequestUseConnectionCtx {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterClientPrefetchThread {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterClientResultChunkSize {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterClientResultColumnCaseInsensitive {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterClientSessionKeepAlife {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterClientSessionKeepAliveHeartbeatFrequency {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterClientTimestampTypeMapping {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterDateInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterDateOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterEnableUnloadPhysicalTypeOptimization {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterEnableUnredactedQuerySyntaxError {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterErrorOnNondeterministicMerge {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterErrorOnNondeterministicUpdate {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterGeographyOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterGeometryOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterJdbcTreatDecimalAsInt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterJdbcTreatTimestampNtzAsUtc {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterJdbcUseSessionTimezone {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterJsonIndent {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterLockTimeout {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterMultiStatementCount {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterNetworkPolicy {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterNoorderSequenceAsDefault {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterOdbcTreatDecimalAsInt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterPreventUnloadToInternalStage {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterQueryTag {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterQuotedIdentifiersIgnoreCase {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterRowsPerResultset {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterS3StageVpceDnsName {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterSearchPath {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterSimulatedDataSharingConsumer {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterStatementQueuedTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterStatementTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterStrictJsonOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimeInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimeOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimestampDayIsAlways24h {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimestampInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimestampLtzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimestampNtzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimestampOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimestampTypeMapping {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimestampTzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTimezone {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTransactionAbortOnError {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTransactionDefaultIsolationLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterTwoDigitCenturyStart {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterUnsupportedDdlAction {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterUseCachedResult {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterWeekOfYearPolicy {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserParameterWeekStart {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    daysToExpiry?: pulumi.Input<string>;
-    defaultNamespace?: pulumi.Input<string>;
-    defaultRole?: pulumi.Input<string>;
-    defaultSecondaryRoles?: pulumi.Input<string>;
-    defaultWarehouse?: pulumi.Input<string>;
-    disabled?: pulumi.Input<boolean>;
-    displayName?: pulumi.Input<string>;
-    email?: pulumi.Input<string>;
-    expiresAtTime?: pulumi.Input<string>;
-    extAuthnDuo?: pulumi.Input<boolean>;
-    extAuthnUid?: pulumi.Input<string>;
-    firstName?: pulumi.Input<string>;
-    hasMfa?: pulumi.Input<boolean>;
-    hasPassword?: pulumi.Input<boolean>;
-    hasRsaPublicKey?: pulumi.Input<boolean>;
-    hasWorkloadIdentity?: pulumi.Input<boolean>;
-    lastName?: pulumi.Input<string>;
-    lastSuccessLogin?: pulumi.Input<string>;
-    lockedUntilTime?: pulumi.Input<string>;
-    loginName?: pulumi.Input<string>;
-    minsToBypassMfa?: pulumi.Input<string>;
-    minsToUnlock?: pulumi.Input<string>;
-    mustChangePassword?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    snowflakeLock?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    daysToExpiry?: pulumi.Input<string | undefined>;
+    defaultNamespace?: pulumi.Input<string | undefined>;
+    defaultRole?: pulumi.Input<string | undefined>;
+    defaultSecondaryRoles?: pulumi.Input<string | undefined>;
+    defaultWarehouse?: pulumi.Input<string | undefined>;
+    disabled?: pulumi.Input<boolean | undefined>;
+    displayName?: pulumi.Input<string | undefined>;
+    email?: pulumi.Input<string | undefined>;
+    expiresAtTime?: pulumi.Input<string | undefined>;
+    extAuthnDuo?: pulumi.Input<boolean | undefined>;
+    extAuthnUid?: pulumi.Input<string | undefined>;
+    firstName?: pulumi.Input<string | undefined>;
+    hasMfa?: pulumi.Input<boolean | undefined>;
+    hasPassword?: pulumi.Input<boolean | undefined>;
+    hasRsaPublicKey?: pulumi.Input<boolean | undefined>;
+    hasWorkloadIdentity?: pulumi.Input<boolean | undefined>;
+    lastName?: pulumi.Input<string | undefined>;
+    lastSuccessLogin?: pulumi.Input<string | undefined>;
+    lockedUntilTime?: pulumi.Input<string | undefined>;
+    loginName?: pulumi.Input<string | undefined>;
+    minsToBypassMfa?: pulumi.Input<string | undefined>;
+    minsToUnlock?: pulumi.Input<string | undefined>;
+    mustChangePassword?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    snowflakeLock?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureCredentials {
@@ -6498,115 +6498,115 @@ export interface StageExternalAzureCredentials {
 }
 
 export interface StageExternalAzureDescribeOutput {
-    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputDirectoryTable>[]>;
-    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormat>[]>;
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputDirectoryTable>[] | undefined>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormat>[] | undefined>;
 }
 
 export interface StageExternalAzureDescribeOutputDirectoryTable {
-    autoRefresh?: pulumi.Input<boolean>;
-    enable?: pulumi.Input<boolean>;
-    lastRefreshedOn?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<boolean | undefined>;
+    enable?: pulumi.Input<boolean | undefined>;
+    lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureDescribeOutputFileFormat {
-    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatAvro>[]>;
-    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatCsv>[]>;
-    formatName?: pulumi.Input<string>;
-    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatJson>[]>;
-    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatOrc>[]>;
-    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatParquet>[]>;
-    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatXml>[]>;
+    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatAvro>[] | undefined>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatCsv>[] | undefined>;
+    formatName?: pulumi.Input<string | undefined>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatJson>[] | undefined>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatOrc>[] | undefined>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatParquet>[] | undefined>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutputFileFormatXml>[] | undefined>;
 }
 
 export interface StageExternalAzureDescribeOutputFileFormatAvro {
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureDescribeOutputFileFormatCsv {
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    emptyFieldAsNull?: pulumi.Input<boolean>;
-    encoding?: pulumi.Input<string>;
-    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
-    escape?: pulumi.Input<string>;
-    escapeUnenclosedField?: pulumi.Input<string>;
-    fieldDelimiter?: pulumi.Input<string>;
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
-    fileExtension?: pulumi.Input<string>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    parseHeader?: pulumi.Input<boolean>;
-    recordDelimiter?: pulumi.Input<string>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipBlankLines?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    skipHeader?: pulumi.Input<number>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    validateUtf8?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    emptyFieldAsNull?: pulumi.Input<boolean | undefined>;
+    encoding?: pulumi.Input<string | undefined>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean | undefined>;
+    escape?: pulumi.Input<string | undefined>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    parseHeader?: pulumi.Input<boolean | undefined>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipBlankLines?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    skipHeader?: pulumi.Input<number | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    validateUtf8?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalAzureDescribeOutputFileFormatJson {
-    allowDuplicate?: pulumi.Input<boolean>;
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    enableOctal?: pulumi.Input<boolean>;
-    fileExtension?: pulumi.Input<string>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripNullValues?: pulumi.Input<boolean>;
-    stripOuterArray?: pulumi.Input<boolean>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<boolean | undefined>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    enableOctal?: pulumi.Input<boolean | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripNullValues?: pulumi.Input<boolean | undefined>;
+    stripOuterArray?: pulumi.Input<boolean | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureDescribeOutputFileFormatOrc {
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureDescribeOutputFileFormatParquet {
-    binaryAsText?: pulumi.Input<boolean>;
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    useLogicalType?: pulumi.Input<boolean>;
-    useVectorizedScanner?: pulumi.Input<boolean>;
+    binaryAsText?: pulumi.Input<boolean | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    useLogicalType?: pulumi.Input<boolean | undefined>;
+    useVectorizedScanner?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalAzureDescribeOutputFileFormatXml {
-    compression?: pulumi.Input<string>;
-    disableAutoConvert?: pulumi.Input<boolean>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    preserveSpace?: pulumi.Input<boolean>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripOuterElement?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    disableAutoConvert?: pulumi.Input<boolean | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    preserveSpace?: pulumi.Input<boolean | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripOuterElement?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureDirectory {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
      */
-    autoRefresh?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to enable a directory table on the external stage.
      */
@@ -6614,22 +6614,22 @@ export interface StageExternalAzureDirectory {
     /**
      * Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    notificationIntegration?: pulumi.Input<string>;
+    notificationIntegration?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
      */
-    refreshOnCreate?: pulumi.Input<string>;
+    refreshOnCreate?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureEncryption {
     /**
      * Azure client-side encryption using a master key.
      */
-    azureCse?: pulumi.Input<inputs.StageExternalAzureEncryptionAzureCse>;
+    azureCse?: pulumi.Input<inputs.StageExternalAzureEncryptionAzureCse | undefined>;
     /**
      * No encryption.
      */
-    none?: pulumi.Input<inputs.StageExternalAzureEncryptionNone>;
+    none?: pulumi.Input<inputs.StageExternalAzureEncryptionNone | undefined>;
 }
 
 export interface StageExternalAzureEncryptionAzureCse {
@@ -6646,416 +6646,416 @@ export interface StageExternalAzureFileFormat {
     /**
      * AVRO file format options.
      */
-    avro?: pulumi.Input<inputs.StageExternalAzureFileFormatAvro>;
+    avro?: pulumi.Input<inputs.StageExternalAzureFileFormatAvro | undefined>;
     /**
      * CSV file format options.
      */
-    csv?: pulumi.Input<inputs.StageExternalAzureFileFormatCsv>;
+    csv?: pulumi.Input<inputs.StageExternalAzureFileFormatCsv | undefined>;
     /**
      * Fully qualified name of the file format (e.g., 'database.schema.format_name').
      */
-    formatName?: pulumi.Input<string>;
+    formatName?: pulumi.Input<string | undefined>;
     /**
      * JSON file format options.
      */
-    json?: pulumi.Input<inputs.StageExternalAzureFileFormatJson>;
+    json?: pulumi.Input<inputs.StageExternalAzureFileFormatJson | undefined>;
     /**
      * ORC file format options.
      */
-    orc?: pulumi.Input<inputs.StageExternalAzureFileFormatOrc>;
+    orc?: pulumi.Input<inputs.StageExternalAzureFileFormatOrc | undefined>;
     /**
      * Parquet file format options.
      */
-    parquet?: pulumi.Input<inputs.StageExternalAzureFileFormatParquet>;
+    parquet?: pulumi.Input<inputs.StageExternalAzureFileFormatParquet | undefined>;
     /**
      * XML file format options.
      */
-    xml?: pulumi.Input<inputs.StageExternalAzureFileFormatXml>;
+    xml?: pulumi.Input<inputs.StageExternalAzureFileFormatXml | undefined>;
 }
 
 export interface StageExternalAzureFileFormatAvro {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureFileFormatCsv {
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    emptyFieldAsNull?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<string | undefined>;
     /**
      * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escape?: pulumi.Input<string>;
+    escape?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escapeUnenclosedField?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
      */
-    fieldDelimiter?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Character used to enclose strings. Use `NONE` to specify no enclosure character.
      */
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    parseHeader?: pulumi.Input<string>;
+    parseHeader?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
      */
-    recordDelimiter?: pulumi.Input<string>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipBlankLines?: pulumi.Input<string>;
+    skipBlankLines?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
      */
-    skipHeader?: pulumi.Input<number>;
+    skipHeader?: pulumi.Input<number | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureFileFormatJson {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    allowDuplicate?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<string | undefined>;
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableOctal?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripNullValues?: pulumi.Input<string>;
+    stripNullValues?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterArray?: pulumi.Input<string>;
+    stripOuterArray?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureFileFormatOrc {
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureFileFormatParquet {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    binaryAsText?: pulumi.Input<string>;
+    binaryAsText?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useLogicalType?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useVectorizedScanner?: pulumi.Input<string>;
+    useVectorizedScanner?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureFileFormatXml {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    disableAutoConvert?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    preserveSpace?: pulumi.Input<string>;
+    preserveSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterElement?: pulumi.Input<string>;
+    stripOuterElement?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureShowOutput {
-    cloud?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    directoryEnabled?: pulumi.Input<boolean>;
-    endpoint?: pulumi.Input<string>;
-    hasCredentials?: pulumi.Input<boolean>;
-    hasEncryptionKey?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    region?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    storageIntegration?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    url?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    directoryEnabled?: pulumi.Input<boolean | undefined>;
+    endpoint?: pulumi.Input<string | undefined>;
+    hasCredentials?: pulumi.Input<boolean | undefined>;
+    hasEncryptionKey?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    region?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    storageIntegration?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutput {
-    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputDirectoryTable>[]>;
-    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormat>[]>;
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputDirectoryTable>[] | undefined>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormat>[] | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutputDirectoryTable {
-    autoRefresh?: pulumi.Input<boolean>;
-    enable?: pulumi.Input<boolean>;
-    lastRefreshedOn?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<boolean | undefined>;
+    enable?: pulumi.Input<boolean | undefined>;
+    lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutputFileFormat {
-    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatAvro>[]>;
-    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatCsv>[]>;
-    formatName?: pulumi.Input<string>;
-    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatJson>[]>;
-    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatOrc>[]>;
-    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatParquet>[]>;
-    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatXml>[]>;
+    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatAvro>[] | undefined>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatCsv>[] | undefined>;
+    formatName?: pulumi.Input<string | undefined>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatJson>[] | undefined>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatOrc>[] | undefined>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatParquet>[] | undefined>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalGcsDescribeOutputFileFormatXml>[] | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutputFileFormatAvro {
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutputFileFormatCsv {
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    emptyFieldAsNull?: pulumi.Input<boolean>;
-    encoding?: pulumi.Input<string>;
-    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
-    escape?: pulumi.Input<string>;
-    escapeUnenclosedField?: pulumi.Input<string>;
-    fieldDelimiter?: pulumi.Input<string>;
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
-    fileExtension?: pulumi.Input<string>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    parseHeader?: pulumi.Input<boolean>;
-    recordDelimiter?: pulumi.Input<string>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipBlankLines?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    skipHeader?: pulumi.Input<number>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    validateUtf8?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    emptyFieldAsNull?: pulumi.Input<boolean | undefined>;
+    encoding?: pulumi.Input<string | undefined>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean | undefined>;
+    escape?: pulumi.Input<string | undefined>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    parseHeader?: pulumi.Input<boolean | undefined>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipBlankLines?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    skipHeader?: pulumi.Input<number | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    validateUtf8?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutputFileFormatJson {
-    allowDuplicate?: pulumi.Input<boolean>;
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    enableOctal?: pulumi.Input<boolean>;
-    fileExtension?: pulumi.Input<string>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripNullValues?: pulumi.Input<boolean>;
-    stripOuterArray?: pulumi.Input<boolean>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<boolean | undefined>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    enableOctal?: pulumi.Input<boolean | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripNullValues?: pulumi.Input<boolean | undefined>;
+    stripOuterArray?: pulumi.Input<boolean | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutputFileFormatOrc {
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutputFileFormatParquet {
-    binaryAsText?: pulumi.Input<boolean>;
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    useLogicalType?: pulumi.Input<boolean>;
-    useVectorizedScanner?: pulumi.Input<boolean>;
+    binaryAsText?: pulumi.Input<boolean | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    useLogicalType?: pulumi.Input<boolean | undefined>;
+    useVectorizedScanner?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalGcsDescribeOutputFileFormatXml {
-    compression?: pulumi.Input<string>;
-    disableAutoConvert?: pulumi.Input<boolean>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    preserveSpace?: pulumi.Input<boolean>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripOuterElement?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    disableAutoConvert?: pulumi.Input<boolean | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    preserveSpace?: pulumi.Input<boolean | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripOuterElement?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsDirectory {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
      */
-    autoRefresh?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to enable a directory table on the external stage.
      */
@@ -7063,29 +7063,29 @@ export interface StageExternalGcsDirectory {
     /**
      * Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    notificationIntegration?: pulumi.Input<string>;
+    notificationIntegration?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
      */
-    refreshOnCreate?: pulumi.Input<string>;
+    refreshOnCreate?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsEncryption {
     /**
      * GCS server-side encryption using a KMS key.
      */
-    gcsSseKms?: pulumi.Input<inputs.StageExternalGcsEncryptionGcsSseKms>;
+    gcsSseKms?: pulumi.Input<inputs.StageExternalGcsEncryptionGcsSseKms | undefined>;
     /**
      * No encryption.
      */
-    none?: pulumi.Input<inputs.StageExternalGcsEncryptionNone>;
+    none?: pulumi.Input<inputs.StageExternalGcsEncryptionNone | undefined>;
 }
 
 export interface StageExternalGcsEncryptionGcsSseKms {
     /**
      * Specifies the KMS-managed key ID.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsEncryptionNone {
@@ -7095,304 +7095,304 @@ export interface StageExternalGcsFileFormat {
     /**
      * AVRO file format options.
      */
-    avro?: pulumi.Input<inputs.StageExternalGcsFileFormatAvro>;
+    avro?: pulumi.Input<inputs.StageExternalGcsFileFormatAvro | undefined>;
     /**
      * CSV file format options.
      */
-    csv?: pulumi.Input<inputs.StageExternalGcsFileFormatCsv>;
+    csv?: pulumi.Input<inputs.StageExternalGcsFileFormatCsv | undefined>;
     /**
      * Fully qualified name of the file format (e.g., 'database.schema.format_name').
      */
-    formatName?: pulumi.Input<string>;
+    formatName?: pulumi.Input<string | undefined>;
     /**
      * JSON file format options.
      */
-    json?: pulumi.Input<inputs.StageExternalGcsFileFormatJson>;
+    json?: pulumi.Input<inputs.StageExternalGcsFileFormatJson | undefined>;
     /**
      * ORC file format options.
      */
-    orc?: pulumi.Input<inputs.StageExternalGcsFileFormatOrc>;
+    orc?: pulumi.Input<inputs.StageExternalGcsFileFormatOrc | undefined>;
     /**
      * Parquet file format options.
      */
-    parquet?: pulumi.Input<inputs.StageExternalGcsFileFormatParquet>;
+    parquet?: pulumi.Input<inputs.StageExternalGcsFileFormatParquet | undefined>;
     /**
      * XML file format options.
      */
-    xml?: pulumi.Input<inputs.StageExternalGcsFileFormatXml>;
+    xml?: pulumi.Input<inputs.StageExternalGcsFileFormatXml | undefined>;
 }
 
 export interface StageExternalGcsFileFormatAvro {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsFileFormatCsv {
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    emptyFieldAsNull?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<string | undefined>;
     /**
      * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escape?: pulumi.Input<string>;
+    escape?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escapeUnenclosedField?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
      */
-    fieldDelimiter?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Character used to enclose strings. Use `NONE` to specify no enclosure character.
      */
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    parseHeader?: pulumi.Input<string>;
+    parseHeader?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
      */
-    recordDelimiter?: pulumi.Input<string>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipBlankLines?: pulumi.Input<string>;
+    skipBlankLines?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
      */
-    skipHeader?: pulumi.Input<number>;
+    skipHeader?: pulumi.Input<number | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsFileFormatJson {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    allowDuplicate?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<string | undefined>;
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableOctal?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripNullValues?: pulumi.Input<string>;
+    stripNullValues?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterArray?: pulumi.Input<string>;
+    stripOuterArray?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsFileFormatOrc {
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsFileFormatParquet {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    binaryAsText?: pulumi.Input<string>;
+    binaryAsText?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useLogicalType?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useVectorizedScanner?: pulumi.Input<string>;
+    useVectorizedScanner?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsFileFormatXml {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    disableAutoConvert?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    preserveSpace?: pulumi.Input<string>;
+    preserveSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterElement?: pulumi.Input<string>;
+    stripOuterElement?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalGcsShowOutput {
-    cloud?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    directoryEnabled?: pulumi.Input<boolean>;
-    endpoint?: pulumi.Input<string>;
-    hasCredentials?: pulumi.Input<boolean>;
-    hasEncryptionKey?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    region?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    storageIntegration?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    url?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    directoryEnabled?: pulumi.Input<boolean | undefined>;
+    endpoint?: pulumi.Input<string | undefined>;
+    hasCredentials?: pulumi.Input<boolean | undefined>;
+    hasEncryptionKey?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    region?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    storageIntegration?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleCredentials {
@@ -7407,120 +7407,120 @@ export interface StageExternalS3CompatibleCredentials {
 }
 
 export interface StageExternalS3CompatibleDescribeOutput {
-    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputDirectoryTable>[]>;
-    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormat>[]>;
-    locations?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputLocation>[]>;
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputDirectoryTable>[] | undefined>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormat>[] | undefined>;
+    locations?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputLocation>[] | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputDirectoryTable {
-    autoRefresh?: pulumi.Input<boolean>;
-    enable?: pulumi.Input<boolean>;
-    lastRefreshedOn?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<boolean | undefined>;
+    enable?: pulumi.Input<boolean | undefined>;
+    lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputFileFormat {
-    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatAvro>[]>;
-    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatCsv>[]>;
-    formatName?: pulumi.Input<string>;
-    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatJson>[]>;
-    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatOrc>[]>;
-    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatParquet>[]>;
-    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatXml>[]>;
+    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatAvro>[] | undefined>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatCsv>[] | undefined>;
+    formatName?: pulumi.Input<string | undefined>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatJson>[] | undefined>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatOrc>[] | undefined>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatParquet>[] | undefined>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalS3CompatibleDescribeOutputFileFormatXml>[] | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputFileFormatAvro {
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputFileFormatCsv {
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    emptyFieldAsNull?: pulumi.Input<boolean>;
-    encoding?: pulumi.Input<string>;
-    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
-    escape?: pulumi.Input<string>;
-    escapeUnenclosedField?: pulumi.Input<string>;
-    fieldDelimiter?: pulumi.Input<string>;
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
-    fileExtension?: pulumi.Input<string>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    parseHeader?: pulumi.Input<boolean>;
-    recordDelimiter?: pulumi.Input<string>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipBlankLines?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    skipHeader?: pulumi.Input<number>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    validateUtf8?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    emptyFieldAsNull?: pulumi.Input<boolean | undefined>;
+    encoding?: pulumi.Input<string | undefined>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean | undefined>;
+    escape?: pulumi.Input<string | undefined>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    parseHeader?: pulumi.Input<boolean | undefined>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipBlankLines?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    skipHeader?: pulumi.Input<number | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    validateUtf8?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputFileFormatJson {
-    allowDuplicate?: pulumi.Input<boolean>;
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    enableOctal?: pulumi.Input<boolean>;
-    fileExtension?: pulumi.Input<string>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripNullValues?: pulumi.Input<boolean>;
-    stripOuterArray?: pulumi.Input<boolean>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<boolean | undefined>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    enableOctal?: pulumi.Input<boolean | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripNullValues?: pulumi.Input<boolean | undefined>;
+    stripOuterArray?: pulumi.Input<boolean | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputFileFormatOrc {
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputFileFormatParquet {
-    binaryAsText?: pulumi.Input<boolean>;
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    useLogicalType?: pulumi.Input<boolean>;
-    useVectorizedScanner?: pulumi.Input<boolean>;
+    binaryAsText?: pulumi.Input<boolean | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    useLogicalType?: pulumi.Input<boolean | undefined>;
+    useVectorizedScanner?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputFileFormatXml {
-    compression?: pulumi.Input<string>;
-    disableAutoConvert?: pulumi.Input<boolean>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    preserveSpace?: pulumi.Input<boolean>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripOuterElement?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    disableAutoConvert?: pulumi.Input<boolean | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    preserveSpace?: pulumi.Input<boolean | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripOuterElement?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleDescribeOutputLocation {
-    urls?: pulumi.Input<pulumi.Input<string>[]>;
+    urls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface StageExternalS3CompatibleDirectory {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
      */
-    autoRefresh?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to enable a directory table on the external stage.
      */
@@ -7528,453 +7528,453 @@ export interface StageExternalS3CompatibleDirectory {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
      */
-    refreshOnCreate?: pulumi.Input<string>;
+    refreshOnCreate?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleFileFormat {
     /**
      * AVRO file format options.
      */
-    avro?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatAvro>;
+    avro?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatAvro | undefined>;
     /**
      * CSV file format options.
      */
-    csv?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatCsv>;
+    csv?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatCsv | undefined>;
     /**
      * Fully qualified name of the file format (e.g., 'database.schema.format_name').
      */
-    formatName?: pulumi.Input<string>;
+    formatName?: pulumi.Input<string | undefined>;
     /**
      * JSON file format options.
      */
-    json?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatJson>;
+    json?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatJson | undefined>;
     /**
      * ORC file format options.
      */
-    orc?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatOrc>;
+    orc?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatOrc | undefined>;
     /**
      * Parquet file format options.
      */
-    parquet?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatParquet>;
+    parquet?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatParquet | undefined>;
     /**
      * XML file format options.
      */
-    xml?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatXml>;
+    xml?: pulumi.Input<inputs.StageExternalS3CompatibleFileFormatXml | undefined>;
 }
 
 export interface StageExternalS3CompatibleFileFormatAvro {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleFileFormatCsv {
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    emptyFieldAsNull?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<string | undefined>;
     /**
      * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escape?: pulumi.Input<string>;
+    escape?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escapeUnenclosedField?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
      */
-    fieldDelimiter?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Character used to enclose strings. Use `NONE` to specify no enclosure character.
      */
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    parseHeader?: pulumi.Input<string>;
+    parseHeader?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
      */
-    recordDelimiter?: pulumi.Input<string>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipBlankLines?: pulumi.Input<string>;
+    skipBlankLines?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
      */
-    skipHeader?: pulumi.Input<number>;
+    skipHeader?: pulumi.Input<number | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleFileFormatJson {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    allowDuplicate?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<string | undefined>;
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableOctal?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripNullValues?: pulumi.Input<string>;
+    stripNullValues?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterArray?: pulumi.Input<string>;
+    stripOuterArray?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleFileFormatOrc {
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleFileFormatParquet {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    binaryAsText?: pulumi.Input<string>;
+    binaryAsText?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useLogicalType?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useVectorizedScanner?: pulumi.Input<string>;
+    useVectorizedScanner?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleFileFormatXml {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    disableAutoConvert?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    preserveSpace?: pulumi.Input<string>;
+    preserveSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterElement?: pulumi.Input<string>;
+    stripOuterElement?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3CompatibleShowOutput {
-    cloud?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    directoryEnabled?: pulumi.Input<boolean>;
-    endpoint?: pulumi.Input<string>;
-    hasCredentials?: pulumi.Input<boolean>;
-    hasEncryptionKey?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    region?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    storageIntegration?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    url?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    directoryEnabled?: pulumi.Input<boolean | undefined>;
+    endpoint?: pulumi.Input<string | undefined>;
+    hasCredentials?: pulumi.Input<boolean | undefined>;
+    hasEncryptionKey?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    region?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    storageIntegration?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3Credentials {
     /**
      * Specifies the AWS access key ID.
      */
-    awsKeyId?: pulumi.Input<string>;
+    awsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the AWS IAM role ARN to use for accessing the bucket.
      */
-    awsRole?: pulumi.Input<string>;
+    awsRole?: pulumi.Input<string | undefined>;
     /**
      * Specifies the AWS secret access key.
      */
-    awsSecretKey?: pulumi.Input<string>;
+    awsSecretKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the AWS session token for temporary credentials.
      */
-    awsToken?: pulumi.Input<string>;
+    awsToken?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3DescribeOutput {
-    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputDirectoryTable>[]>;
-    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormat>[]>;
-    locations?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputLocation>[]>;
-    privatelinks?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputPrivatelink>[]>;
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputDirectoryTable>[] | undefined>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormat>[] | undefined>;
+    locations?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputLocation>[] | undefined>;
+    privatelinks?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputPrivatelink>[] | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputDirectoryTable {
-    autoRefresh?: pulumi.Input<boolean>;
-    enable?: pulumi.Input<boolean>;
-    lastRefreshedOn?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<boolean | undefined>;
+    enable?: pulumi.Input<boolean | undefined>;
+    lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputFileFormat {
-    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatAvro>[]>;
-    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatCsv>[]>;
-    formatName?: pulumi.Input<string>;
-    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatJson>[]>;
-    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatOrc>[]>;
-    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatParquet>[]>;
-    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatXml>[]>;
+    avros?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatAvro>[] | undefined>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatCsv>[] | undefined>;
+    formatName?: pulumi.Input<string | undefined>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatJson>[] | undefined>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatOrc>[] | undefined>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatParquet>[] | undefined>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutputFileFormatXml>[] | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputFileFormatAvro {
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputFileFormatCsv {
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    emptyFieldAsNull?: pulumi.Input<boolean>;
-    encoding?: pulumi.Input<string>;
-    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
-    escape?: pulumi.Input<string>;
-    escapeUnenclosedField?: pulumi.Input<string>;
-    fieldDelimiter?: pulumi.Input<string>;
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
-    fileExtension?: pulumi.Input<string>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    parseHeader?: pulumi.Input<boolean>;
-    recordDelimiter?: pulumi.Input<string>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipBlankLines?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    skipHeader?: pulumi.Input<number>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    validateUtf8?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    emptyFieldAsNull?: pulumi.Input<boolean | undefined>;
+    encoding?: pulumi.Input<string | undefined>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean | undefined>;
+    escape?: pulumi.Input<string | undefined>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    parseHeader?: pulumi.Input<boolean | undefined>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipBlankLines?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    skipHeader?: pulumi.Input<number | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    validateUtf8?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputFileFormatJson {
-    allowDuplicate?: pulumi.Input<boolean>;
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    enableOctal?: pulumi.Input<boolean>;
-    fileExtension?: pulumi.Input<string>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripNullValues?: pulumi.Input<boolean>;
-    stripOuterArray?: pulumi.Input<boolean>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<boolean | undefined>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    enableOctal?: pulumi.Input<boolean | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripNullValues?: pulumi.Input<boolean | undefined>;
+    stripOuterArray?: pulumi.Input<boolean | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputFileFormatOrc {
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputFileFormatParquet {
-    binaryAsText?: pulumi.Input<boolean>;
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    useLogicalType?: pulumi.Input<boolean>;
-    useVectorizedScanner?: pulumi.Input<boolean>;
+    binaryAsText?: pulumi.Input<boolean | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    useLogicalType?: pulumi.Input<boolean | undefined>;
+    useVectorizedScanner?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputFileFormatXml {
-    compression?: pulumi.Input<string>;
-    disableAutoConvert?: pulumi.Input<boolean>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    preserveSpace?: pulumi.Input<boolean>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripOuterElement?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    disableAutoConvert?: pulumi.Input<boolean | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    preserveSpace?: pulumi.Input<boolean | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripOuterElement?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputLocation {
-    awsAccessPointArn?: pulumi.Input<string>;
-    urls?: pulumi.Input<pulumi.Input<string>[]>;
+    awsAccessPointArn?: pulumi.Input<string | undefined>;
+    urls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface StageExternalS3DescribeOutputPrivatelink {
-    usePrivatelinkEndpoint?: pulumi.Input<boolean>;
+    usePrivatelinkEndpoint?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageExternalS3Directory {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
      */
-    autoRefresh?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to enable a directory table on the external stage.
      */
@@ -7982,26 +7982,26 @@ export interface StageExternalS3Directory {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
      */
-    refreshOnCreate?: pulumi.Input<string>;
+    refreshOnCreate?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3Encryption {
     /**
      * AWS client-side encryption using a master key.
      */
-    awsCse?: pulumi.Input<inputs.StageExternalS3EncryptionAwsCse>;
+    awsCse?: pulumi.Input<inputs.StageExternalS3EncryptionAwsCse | undefined>;
     /**
      * AWS server-side encryption using KMS-managed keys.
      */
-    awsSseKms?: pulumi.Input<inputs.StageExternalS3EncryptionAwsSseKms>;
+    awsSseKms?: pulumi.Input<inputs.StageExternalS3EncryptionAwsSseKms | undefined>;
     /**
      * AWS server-side encryption using S3-managed keys.
      */
-    awsSseS3?: pulumi.Input<inputs.StageExternalS3EncryptionAwsSseS3>;
+    awsSseS3?: pulumi.Input<inputs.StageExternalS3EncryptionAwsSseS3 | undefined>;
     /**
      * No encryption.
      */
-    none?: pulumi.Input<inputs.StageExternalS3EncryptionNone>;
+    none?: pulumi.Input<inputs.StageExternalS3EncryptionNone | undefined>;
 }
 
 export interface StageExternalS3EncryptionAwsCse {
@@ -8015,7 +8015,7 @@ export interface StageExternalS3EncryptionAwsSseKms {
     /**
      * Specifies the KMS-managed key ID.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3EncryptionAwsSseS3 {
@@ -8028,416 +8028,416 @@ export interface StageExternalS3FileFormat {
     /**
      * AVRO file format options.
      */
-    avro?: pulumi.Input<inputs.StageExternalS3FileFormatAvro>;
+    avro?: pulumi.Input<inputs.StageExternalS3FileFormatAvro | undefined>;
     /**
      * CSV file format options.
      */
-    csv?: pulumi.Input<inputs.StageExternalS3FileFormatCsv>;
+    csv?: pulumi.Input<inputs.StageExternalS3FileFormatCsv | undefined>;
     /**
      * Fully qualified name of the file format (e.g., 'database.schema.format_name').
      */
-    formatName?: pulumi.Input<string>;
+    formatName?: pulumi.Input<string | undefined>;
     /**
      * JSON file format options.
      */
-    json?: pulumi.Input<inputs.StageExternalS3FileFormatJson>;
+    json?: pulumi.Input<inputs.StageExternalS3FileFormatJson | undefined>;
     /**
      * ORC file format options.
      */
-    orc?: pulumi.Input<inputs.StageExternalS3FileFormatOrc>;
+    orc?: pulumi.Input<inputs.StageExternalS3FileFormatOrc | undefined>;
     /**
      * Parquet file format options.
      */
-    parquet?: pulumi.Input<inputs.StageExternalS3FileFormatParquet>;
+    parquet?: pulumi.Input<inputs.StageExternalS3FileFormatParquet | undefined>;
     /**
      * XML file format options.
      */
-    xml?: pulumi.Input<inputs.StageExternalS3FileFormatXml>;
+    xml?: pulumi.Input<inputs.StageExternalS3FileFormatXml | undefined>;
 }
 
 export interface StageExternalS3FileFormatAvro {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3FileFormatCsv {
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    emptyFieldAsNull?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<string | undefined>;
     /**
      * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escape?: pulumi.Input<string>;
+    escape?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escapeUnenclosedField?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
      */
-    fieldDelimiter?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Character used to enclose strings. Use `NONE` to specify no enclosure character.
      */
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    parseHeader?: pulumi.Input<string>;
+    parseHeader?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
      */
-    recordDelimiter?: pulumi.Input<string>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipBlankLines?: pulumi.Input<string>;
+    skipBlankLines?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
      */
-    skipHeader?: pulumi.Input<number>;
+    skipHeader?: pulumi.Input<number | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3FileFormatJson {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    allowDuplicate?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<string | undefined>;
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableOctal?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripNullValues?: pulumi.Input<string>;
+    stripNullValues?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterArray?: pulumi.Input<string>;
+    stripOuterArray?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3FileFormatOrc {
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3FileFormatParquet {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    binaryAsText?: pulumi.Input<string>;
+    binaryAsText?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useLogicalType?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useVectorizedScanner?: pulumi.Input<string>;
+    useVectorizedScanner?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3FileFormatXml {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    disableAutoConvert?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    preserveSpace?: pulumi.Input<string>;
+    preserveSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterElement?: pulumi.Input<string>;
+    stripOuterElement?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalS3ShowOutput {
-    cloud?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    directoryEnabled?: pulumi.Input<boolean>;
-    endpoint?: pulumi.Input<string>;
-    hasCredentials?: pulumi.Input<boolean>;
-    hasEncryptionKey?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    region?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    storageIntegration?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    url?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    directoryEnabled?: pulumi.Input<boolean | undefined>;
+    endpoint?: pulumi.Input<string | undefined>;
+    hasCredentials?: pulumi.Input<boolean | undefined>;
+    hasEncryptionKey?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    region?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    storageIntegration?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalDescribeOutput {
-    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputDirectoryTable>[]>;
-    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormat>[]>;
+    directoryTables?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputDirectoryTable>[] | undefined>;
+    fileFormats?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormat>[] | undefined>;
 }
 
 export interface StageInternalDescribeOutputDirectoryTable {
-    autoRefresh?: pulumi.Input<boolean>;
-    enable?: pulumi.Input<boolean>;
-    lastRefreshedOn?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<boolean | undefined>;
+    enable?: pulumi.Input<boolean | undefined>;
+    lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalDescribeOutputFileFormat {
-    avros?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatAvro>[]>;
-    csvs?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatCsv>[]>;
-    formatName?: pulumi.Input<string>;
-    jsons?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatJson>[]>;
-    orcs?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatOrc>[]>;
-    parquets?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatParquet>[]>;
-    xmls?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatXml>[]>;
+    avros?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatAvro>[] | undefined>;
+    csvs?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatCsv>[] | undefined>;
+    formatName?: pulumi.Input<string | undefined>;
+    jsons?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatJson>[] | undefined>;
+    orcs?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatOrc>[] | undefined>;
+    parquets?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatParquet>[] | undefined>;
+    xmls?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutputFileFormatXml>[] | undefined>;
 }
 
 export interface StageInternalDescribeOutputFileFormatAvro {
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalDescribeOutputFileFormatCsv {
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    emptyFieldAsNull?: pulumi.Input<boolean>;
-    encoding?: pulumi.Input<string>;
-    errorOnColumnCountMismatch?: pulumi.Input<boolean>;
-    escape?: pulumi.Input<string>;
-    escapeUnenclosedField?: pulumi.Input<string>;
-    fieldDelimiter?: pulumi.Input<string>;
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
-    fileExtension?: pulumi.Input<string>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    parseHeader?: pulumi.Input<boolean>;
-    recordDelimiter?: pulumi.Input<string>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipBlankLines?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    skipHeader?: pulumi.Input<number>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    validateUtf8?: pulumi.Input<boolean>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    emptyFieldAsNull?: pulumi.Input<boolean | undefined>;
+    encoding?: pulumi.Input<string | undefined>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean | undefined>;
+    escape?: pulumi.Input<string | undefined>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    parseHeader?: pulumi.Input<boolean | undefined>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipBlankLines?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    skipHeader?: pulumi.Input<number | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    validateUtf8?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageInternalDescribeOutputFileFormatJson {
-    allowDuplicate?: pulumi.Input<boolean>;
-    binaryFormat?: pulumi.Input<string>;
-    compression?: pulumi.Input<string>;
-    dateFormat?: pulumi.Input<string>;
-    enableOctal?: pulumi.Input<boolean>;
-    fileExtension?: pulumi.Input<string>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    multiLine?: pulumi.Input<boolean>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripNullValues?: pulumi.Input<boolean>;
-    stripOuterArray?: pulumi.Input<boolean>;
-    timeFormat?: pulumi.Input<string>;
-    timestampFormat?: pulumi.Input<string>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<boolean | undefined>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    enableOctal?: pulumi.Input<boolean | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripNullValues?: pulumi.Input<boolean | undefined>;
+    stripOuterArray?: pulumi.Input<boolean | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalDescribeOutputFileFormatOrc {
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalDescribeOutputFileFormatParquet {
-    binaryAsText?: pulumi.Input<boolean>;
-    compression?: pulumi.Input<string>;
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    trimSpace?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    useLogicalType?: pulumi.Input<boolean>;
-    useVectorizedScanner?: pulumi.Input<boolean>;
+    binaryAsText?: pulumi.Input<boolean | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    useLogicalType?: pulumi.Input<boolean | undefined>;
+    useVectorizedScanner?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StageInternalDescribeOutputFileFormatXml {
-    compression?: pulumi.Input<string>;
-    disableAutoConvert?: pulumi.Input<boolean>;
-    ignoreUtf8Errors?: pulumi.Input<boolean>;
-    preserveSpace?: pulumi.Input<boolean>;
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
-    skipByteOrderMark?: pulumi.Input<boolean>;
-    stripOuterElement?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
+    disableAutoConvert?: pulumi.Input<boolean | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    preserveSpace?: pulumi.Input<boolean | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripOuterElement?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalDirectory {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should automatically refresh the directory table metadata when new or updated data files are available on the internal named stage.
      */
-    autoRefresh?: pulumi.Input<string>;
+    autoRefresh?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to enable a directory table on the internal named stage.
      */
@@ -8448,11 +8448,11 @@ export interface StageInternalEncryption {
     /**
      * Client-side and server-side encryption.
      */
-    snowflakeFull?: pulumi.Input<inputs.StageInternalEncryptionSnowflakeFull>;
+    snowflakeFull?: pulumi.Input<inputs.StageInternalEncryptionSnowflakeFull | undefined>;
     /**
      * Server-side encryption only.
      */
-    snowflakeSse?: pulumi.Input<inputs.StageInternalEncryptionSnowflakeSse>;
+    snowflakeSse?: pulumi.Input<inputs.StageInternalEncryptionSnowflakeSse | undefined>;
 }
 
 export interface StageInternalEncryptionSnowflakeFull {
@@ -8465,311 +8465,311 @@ export interface StageInternalFileFormat {
     /**
      * AVRO file format options.
      */
-    avro?: pulumi.Input<inputs.StageInternalFileFormatAvro>;
+    avro?: pulumi.Input<inputs.StageInternalFileFormatAvro | undefined>;
     /**
      * CSV file format options.
      */
-    csv?: pulumi.Input<inputs.StageInternalFileFormatCsv>;
+    csv?: pulumi.Input<inputs.StageInternalFileFormatCsv | undefined>;
     /**
      * Fully qualified name of the file format (e.g., 'database.schema.format_name').
      */
-    formatName?: pulumi.Input<string>;
+    formatName?: pulumi.Input<string | undefined>;
     /**
      * JSON file format options.
      */
-    json?: pulumi.Input<inputs.StageInternalFileFormatJson>;
+    json?: pulumi.Input<inputs.StageInternalFileFormatJson | undefined>;
     /**
      * ORC file format options.
      */
-    orc?: pulumi.Input<inputs.StageInternalFileFormatOrc>;
+    orc?: pulumi.Input<inputs.StageInternalFileFormatOrc | undefined>;
     /**
      * Parquet file format options.
      */
-    parquet?: pulumi.Input<inputs.StageInternalFileFormatParquet>;
+    parquet?: pulumi.Input<inputs.StageInternalFileFormatParquet | undefined>;
     /**
      * XML file format options.
      */
-    xml?: pulumi.Input<inputs.StageInternalFileFormatXml>;
+    xml?: pulumi.Input<inputs.StageInternalFileFormatXml | undefined>;
 }
 
 export interface StageInternalFileFormatAvro {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalFileFormatCsv {
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    emptyFieldAsNull?: pulumi.Input<string>;
+    emptyFieldAsNull?: pulumi.Input<string | undefined>;
     /**
      * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
      */
-    encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    errorOnColumnCountMismatch?: pulumi.Input<string>;
+    errorOnColumnCountMismatch?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escape?: pulumi.Input<string>;
+    escape?: pulumi.Input<string | undefined>;
     /**
      * Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
      */
-    escapeUnenclosedField?: pulumi.Input<string>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
      */
-    fieldDelimiter?: pulumi.Input<string>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Character used to enclose strings. Use `NONE` to specify no enclosure character.
      */
-    fieldOptionallyEnclosedBy?: pulumi.Input<string>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    parseHeader?: pulumi.Input<string>;
+    parseHeader?: pulumi.Input<string | undefined>;
     /**
      * One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
      */
-    recordDelimiter?: pulumi.Input<string>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipBlankLines?: pulumi.Input<string>;
+    skipBlankLines?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
      */
-    skipHeader?: pulumi.Input<number>;
+    skipHeader?: pulumi.Input<number | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalFileFormatJson {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    allowDuplicate?: pulumi.Input<string>;
+    allowDuplicate?: pulumi.Input<string | undefined>;
     /**
      * Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
      */
-    binaryFormat?: pulumi.Input<string>;
+    binaryFormat?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableOctal?: pulumi.Input<string>;
+    enableOctal?: pulumi.Input<string | undefined>;
     /**
      * Specifies the extension for files unloaded to a stage.
      */
-    fileExtension?: pulumi.Input<string>;
+    fileExtension?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    multiLine?: pulumi.Input<string>;
+    multiLine?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripNullValues?: pulumi.Input<string>;
+    stripNullValues?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterArray?: pulumi.Input<string>;
+    stripOuterArray?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string | undefined>;
     /**
      * Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
      */
-    timestampFormat?: pulumi.Input<string>;
+    timestampFormat?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalFileFormatOrc {
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalFileFormatParquet {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    binaryAsText?: pulumi.Input<string>;
+    binaryAsText?: pulumi.Input<string | undefined>;
     /**
      * Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * String used to convert to and from SQL NULL.
      */
-    nullIfs?: pulumi.Input<pulumi.Input<string>[]>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    trimSpace?: pulumi.Input<string>;
+    trimSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useLogicalType?: pulumi.Input<string>;
+    useLogicalType?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use a vectorized scanner for loading Parquet files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    useVectorizedScanner?: pulumi.Input<string>;
+    useVectorizedScanner?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalFileFormatXml {
     /**
      * Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    disableAutoConvert?: pulumi.Input<string>;
+    disableAutoConvert?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    ignoreUtf8Errors?: pulumi.Input<string>;
+    ignoreUtf8Errors?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    preserveSpace?: pulumi.Input<string>;
+    preserveSpace?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    replaceInvalidCharacters?: pulumi.Input<string>;
+    replaceInvalidCharacters?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    skipByteOrderMark?: pulumi.Input<string>;
+    skipByteOrderMark?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    stripOuterElement?: pulumi.Input<string>;
+    stripOuterElement?: pulumi.Input<string | undefined>;
 }
 
 export interface StageInternalShowOutput {
-    cloud?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    directoryEnabled?: pulumi.Input<boolean>;
-    endpoint?: pulumi.Input<string>;
-    hasCredentials?: pulumi.Input<boolean>;
-    hasEncryptionKey?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    region?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    storageIntegration?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    url?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    directoryEnabled?: pulumi.Input<boolean | undefined>;
+    endpoint?: pulumi.Input<string | undefined>;
+    hasCredentials?: pulumi.Input<boolean | undefined>;
+    hasEncryptionKey?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    region?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    storageIntegration?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 export interface StageTag {
     /**
      * Name of the database that the tag was created in.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Tag name, e.g. department.
      */
@@ -8777,7 +8777,7 @@ export interface StageTag {
     /**
      * Name of the schema that the tag was created in.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Tag value, e.g. marketing_info.
      */
@@ -8785,483 +8785,483 @@ export interface StageTag {
 }
 
 export interface StorageIntegrationAwsDescribeOutput {
-    allowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    blockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    externalId?: pulumi.Input<string>;
-    iamUserArn?: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
-    objectAcl?: pulumi.Input<string>;
-    provider?: pulumi.Input<string>;
-    roleArn?: pulumi.Input<string>;
-    usePrivatelinkEndpoint?: pulumi.Input<boolean>;
+    allowedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    blockedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    externalId?: pulumi.Input<string | undefined>;
+    iamUserArn?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    objectAcl?: pulumi.Input<string | undefined>;
+    provider?: pulumi.Input<string | undefined>;
+    roleArn?: pulumi.Input<string | undefined>;
+    usePrivatelinkEndpoint?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StorageIntegrationAwsShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    storageType?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    storageType?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationAzureDescribeOutput {
-    allowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    blockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    consentUrl?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    id?: pulumi.Input<string>;
-    multiTenantAppName?: pulumi.Input<string>;
-    provider?: pulumi.Input<string>;
-    tenantId?: pulumi.Input<string>;
-    usePrivatelinkEndpoint?: pulumi.Input<boolean>;
+    allowedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    blockedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    consentUrl?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    multiTenantAppName?: pulumi.Input<string | undefined>;
+    provider?: pulumi.Input<string | undefined>;
+    tenantId?: pulumi.Input<string | undefined>;
+    usePrivatelinkEndpoint?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StorageIntegrationAzureShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    storageType?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    storageType?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutput {
-    azureConsentUrls?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputAzureConsentUrl>[]>;
-    azureMultiTenantAppNames?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputAzureMultiTenantAppName>[]>;
-    comments?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputComment>[]>;
-    enableds?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputEnabled>[]>;
-    storageAllowedLocations?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAllowedLocation>[]>;
-    storageAwsExternalIds?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsExternalId>[]>;
-    storageAwsIamUserArns?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsIamUserArn>[]>;
-    storageAwsObjectAcls?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsObjectAcl>[]>;
-    storageAwsRoleArns?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsRoleArn>[]>;
-    storageBlockedLocations?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageBlockedLocation>[]>;
-    storageGcpServiceAccounts?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageGcpServiceAccount>[]>;
-    storageProviders?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageProvider>[]>;
-    usePrivatelinkEndpoints?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputUsePrivatelinkEndpoint>[]>;
+    azureConsentUrls?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputAzureConsentUrl>[] | undefined>;
+    azureMultiTenantAppNames?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputAzureMultiTenantAppName>[] | undefined>;
+    comments?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputComment>[] | undefined>;
+    enableds?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputEnabled>[] | undefined>;
+    storageAllowedLocations?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAllowedLocation>[] | undefined>;
+    storageAwsExternalIds?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsExternalId>[] | undefined>;
+    storageAwsIamUserArns?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsIamUserArn>[] | undefined>;
+    storageAwsObjectAcls?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsObjectAcl>[] | undefined>;
+    storageAwsRoleArns?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageAwsRoleArn>[] | undefined>;
+    storageBlockedLocations?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageBlockedLocation>[] | undefined>;
+    storageGcpServiceAccounts?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageGcpServiceAccount>[] | undefined>;
+    storageProviders?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputStorageProvider>[] | undefined>;
+    usePrivatelinkEndpoints?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationDescribeOutputUsePrivatelinkEndpoint>[] | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputAzureConsentUrl {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputAzureMultiTenantAppName {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputComment {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputEnabled {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputStorageAllowedLocation {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputStorageAwsExternalId {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputStorageAwsIamUserArn {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputStorageAwsObjectAcl {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputStorageAwsRoleArn {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputStorageBlockedLocation {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputStorageGcpServiceAccount {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputStorageProvider {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationDescribeOutputUsePrivatelinkEndpoint {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface StorageIntegrationGcsDescribeOutput {
-    allowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    blockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    id?: pulumi.Input<string>;
-    provider?: pulumi.Input<string>;
-    serviceAccount?: pulumi.Input<string>;
-    usePrivatelinkEndpoint?: pulumi.Input<boolean>;
+    allowedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    blockedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    provider?: pulumi.Input<string | undefined>;
+    serviceAccount?: pulumi.Input<string | undefined>;
+    usePrivatelinkEndpoint?: pulumi.Input<boolean | undefined>;
 }
 
 export interface StorageIntegrationGcsShowOutput {
-    category?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    storageType?: pulumi.Input<string>;
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    storageType?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnDirectoryTableDescribeOutput {
-    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    invalidReason?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<boolean>;
-    staleAfter?: pulumi.Input<string>;
-    tableName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    baseTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string | undefined>;
+    stale?: pulumi.Input<boolean | undefined>;
+    staleAfter?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnDirectoryTableShowOutput {
-    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    invalidReason?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<boolean>;
-    staleAfter?: pulumi.Input<string>;
-    tableName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    baseTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string | undefined>;
+    stale?: pulumi.Input<boolean | undefined>;
+    staleAfter?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnExternalTableAt {
     /**
      * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
      */
-    offset?: pulumi.Input<string>;
+    offset?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
      */
-    stream?: pulumi.Input<string>;
+    stream?: pulumi.Input<string | undefined>;
     /**
      * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
-    timestamp?: pulumi.Input<string>;
+    timestamp?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnExternalTableBefore {
     /**
      * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
      */
-    offset?: pulumi.Input<string>;
+    offset?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
      */
-    stream?: pulumi.Input<string>;
+    stream?: pulumi.Input<string | undefined>;
     /**
      * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
-    timestamp?: pulumi.Input<string>;
+    timestamp?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnExternalTableDescribeOutput {
-    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    invalidReason?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<boolean>;
-    staleAfter?: pulumi.Input<string>;
-    tableName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    baseTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string | undefined>;
+    stale?: pulumi.Input<boolean | undefined>;
+    staleAfter?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnExternalTableShowOutput {
-    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    invalidReason?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<boolean>;
-    staleAfter?: pulumi.Input<string>;
-    tableName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    baseTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string | undefined>;
+    stale?: pulumi.Input<boolean | undefined>;
+    staleAfter?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnTableAt {
     /**
      * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
      */
-    offset?: pulumi.Input<string>;
+    offset?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
      */
-    stream?: pulumi.Input<string>;
+    stream?: pulumi.Input<string | undefined>;
     /**
      * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
-    timestamp?: pulumi.Input<string>;
+    timestamp?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnTableBefore {
     /**
      * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
      */
-    offset?: pulumi.Input<string>;
+    offset?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
      */
-    stream?: pulumi.Input<string>;
+    stream?: pulumi.Input<string | undefined>;
     /**
      * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
-    timestamp?: pulumi.Input<string>;
+    timestamp?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnTableDescribeOutput {
-    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    invalidReason?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<boolean>;
-    staleAfter?: pulumi.Input<string>;
-    tableName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    baseTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string | undefined>;
+    stale?: pulumi.Input<boolean | undefined>;
+    staleAfter?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnTableShowOutput {
-    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    invalidReason?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<boolean>;
-    staleAfter?: pulumi.Input<string>;
-    tableName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    baseTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string | undefined>;
+    stale?: pulumi.Input<boolean | undefined>;
+    staleAfter?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnViewAt {
     /**
      * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
      */
-    offset?: pulumi.Input<string>;
+    offset?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
      */
-    stream?: pulumi.Input<string>;
+    stream?: pulumi.Input<string | undefined>;
     /**
      * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
-    timestamp?: pulumi.Input<string>;
+    timestamp?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnViewBefore {
     /**
      * Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
      */
-    offset?: pulumi.Input<string>;
+    offset?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
      */
-    stream?: pulumi.Input<string>;
+    stream?: pulumi.Input<string | undefined>;
     /**
      * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
-    timestamp?: pulumi.Input<string>;
+    timestamp?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnViewDescribeOutput {
-    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    invalidReason?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<boolean>;
-    staleAfter?: pulumi.Input<string>;
-    tableName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    baseTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string | undefined>;
+    stale?: pulumi.Input<boolean | undefined>;
+    staleAfter?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamOnViewShowOutput {
-    baseTables?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    invalidReason?: pulumi.Input<string>;
-    mode?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    sourceType?: pulumi.Input<string>;
-    stale?: pulumi.Input<boolean>;
-    staleAfter?: pulumi.Input<string>;
-    tableName?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    baseTables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    invalidReason?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string | undefined>;
+    stale?: pulumi.Input<boolean | undefined>;
+    staleAfter?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface StreamlitDescribeOutput {
-    defaultPackages?: pulumi.Input<string>;
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
-    externalAccessSecrets?: pulumi.Input<string>;
-    importUrls?: pulumi.Input<pulumi.Input<string>[]>;
-    mainFile?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    queryWarehouse?: pulumi.Input<string>;
-    rootLocation?: pulumi.Input<string>;
-    title?: pulumi.Input<string>;
-    urlId?: pulumi.Input<string>;
-    userPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    defaultPackages?: pulumi.Input<string | undefined>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    externalAccessSecrets?: pulumi.Input<string | undefined>;
+    importUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    mainFile?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
+    rootLocation?: pulumi.Input<string | undefined>;
+    title?: pulumi.Input<string | undefined>;
+    urlId?: pulumi.Input<string | undefined>;
+    userPackages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface StreamlitShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    queryWarehouse?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    title?: pulumi.Input<string>;
-    urlId?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    title?: pulumi.Input<string | undefined>;
+    urlId?: pulumi.Input<string | undefined>;
 }
 
 export interface TableColumn {
     /**
      * (Default: ``) Column collation, e.g. utf8
      */
-    collate?: pulumi.Input<string>;
+    collate?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Column comment
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
      */
-    default?: pulumi.Input<inputs.TableColumnDefault>;
+    default?: pulumi.Input<inputs.TableColumnDefault | undefined>;
     /**
      * Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
      */
-    identity?: pulumi.Input<inputs.TableColumnIdentity>;
+    identity?: pulumi.Input<inputs.TableColumnIdentity | undefined>;
     /**
      * (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
      */
-    maskingPolicy?: pulumi.Input<string>;
+    maskingPolicy?: pulumi.Input<string | undefined>;
     /**
      * Column name
      */
@@ -9269,11 +9269,11 @@ export interface TableColumn {
     /**
      * (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      */
-    nullable?: pulumi.Input<boolean>;
+    nullable?: pulumi.Input<boolean | undefined>;
     /**
      * Record of schema evolution.
      */
-    schemaEvolutionRecord?: pulumi.Input<string>;
+    schemaEvolutionRecord?: pulumi.Input<string | undefined>;
     /**
      * Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
@@ -9284,41 +9284,41 @@ export interface TableColumnDefault {
     /**
      * The default constant value for the column
      */
-    constant?: pulumi.Input<string>;
+    constant?: pulumi.Input<string | undefined>;
     /**
      * The default expression value for the column
      */
-    expression?: pulumi.Input<string>;
+    expression?: pulumi.Input<string | undefined>;
     /**
      * The default sequence to use for the column
      */
-    sequence?: pulumi.Input<string>;
+    sequence?: pulumi.Input<string | undefined>;
 }
 
 export interface TableColumnIdentity {
     /**
      * (Default: `1`) The number to start incrementing at.
      */
-    startNum?: pulumi.Input<number>;
+    startNum?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Step size to increment by.
      */
-    stepNum?: pulumi.Input<number>;
+    stepNum?: pulumi.Input<number | undefined>;
 }
 
 export interface TableConstraintForeignKeyProperties {
     /**
      * (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
      */
-    match?: pulumi.Input<string>;
+    match?: pulumi.Input<string | undefined>;
     /**
      * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
      */
-    onDelete?: pulumi.Input<string>;
+    onDelete?: pulumi.Input<string | undefined>;
     /**
      * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
      */
-    onUpdate?: pulumi.Input<string>;
+    onUpdate?: pulumi.Input<string | undefined>;
     /**
      * The table and columns that the foreign key references.
      */
@@ -9344,14 +9344,14 @@ export interface TablePrimaryKey {
     /**
      * Name of constraint
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface TableTag {
     /**
      * Name of the database that the tag was created in.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Tag name, e.g. department.
      */
@@ -9359,7 +9359,7 @@ export interface TableTag {
     /**
      * Name of the schema that the tag was created in.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Tag value, e.g. marketing_info.
      */
@@ -9370,1215 +9370,1215 @@ export interface TagOnConflict {
     /**
      * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    allowedValuesSequence?: pulumi.Input<boolean>;
+    allowedValuesSequence?: pulumi.Input<boolean | undefined>;
     /**
      * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    customValue?: pulumi.Input<string>;
+    customValue?: pulumi.Input<string | undefined>;
 }
 
 export interface TagShowOutput {
-    allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    propagate?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
+    allowedValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    propagate?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameter {
-    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.TaskParameterAbortDetachedQuery>[]>;
-    autocommits?: pulumi.Input<pulumi.Input<inputs.TaskParameterAutocommit>[]>;
-    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterBinaryInputFormat>[]>;
-    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterBinaryOutputFormat>[]>;
-    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientMemoryLimit>[]>;
-    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientMetadataRequestUseConnectionCtx>[]>;
-    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientPrefetchThread>[]>;
-    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientResultChunkSize>[]>;
-    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientResultColumnCaseInsensitive>[]>;
-    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientSessionKeepAliveHeartbeatFrequency>[]>;
-    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientSessionKeepAlife>[]>;
-    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientTimestampTypeMapping>[]>;
-    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterDateInputFormat>[]>;
-    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterDateOutputFormat>[]>;
-    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.TaskParameterEnableUnloadPhysicalTypeOptimization>[]>;
-    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.TaskParameterErrorOnNondeterministicMerge>[]>;
-    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.TaskParameterErrorOnNondeterministicUpdate>[]>;
-    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterGeographyOutputFormat>[]>;
-    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterGeometryOutputFormat>[]>;
-    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.TaskParameterJdbcTreatTimestampNtzAsUtc>[]>;
-    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.TaskParameterJdbcUseSessionTimezone>[]>;
-    jsonIndents?: pulumi.Input<pulumi.Input<inputs.TaskParameterJsonIndent>[]>;
-    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.TaskParameterLockTimeout>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterLogLevel>[]>;
-    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.TaskParameterMultiStatementCount>[]>;
-    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.TaskParameterNoorderSequenceAsDefault>[]>;
-    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.TaskParameterOdbcTreatDecimalAsInt>[]>;
-    queryTags?: pulumi.Input<pulumi.Input<inputs.TaskParameterQueryTag>[]>;
-    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.TaskParameterQuotedIdentifiersIgnoreCase>[]>;
-    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.TaskParameterRowsPerResultset>[]>;
-    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.TaskParameterS3StageVpceDnsName>[]>;
-    searchPaths?: pulumi.Input<pulumi.Input<inputs.TaskParameterSearchPath>[]>;
-    serverlessTaskMaxStatementSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterServerlessTaskMaxStatementSize>[]>;
-    serverlessTaskMinStatementSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterServerlessTaskMinStatementSize>[]>;
-    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterStatementQueuedTimeoutInSecond>[]>;
-    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterStatementTimeoutInSecond>[]>;
-    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.TaskParameterStrictJsonOutput>[]>;
-    suspendTaskAfterNumFailures?: pulumi.Input<pulumi.Input<inputs.TaskParameterSuspendTaskAfterNumFailure>[]>;
-    taskAutoRetryAttempts?: pulumi.Input<pulumi.Input<inputs.TaskParameterTaskAutoRetryAttempt>[]>;
-    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimeInputFormat>[]>;
-    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimeOutputFormat>[]>;
-    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampDayIsAlways24h>[]>;
-    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampInputFormat>[]>;
-    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampLtzOutputFormat>[]>;
-    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampNtzOutputFormat>[]>;
-    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampOutputFormat>[]>;
-    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampTypeMapping>[]>;
-    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampTzOutputFormat>[]>;
-    timezones?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimezone>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterTraceLevel>[]>;
-    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.TaskParameterTransactionAbortOnError>[]>;
-    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterTransactionDefaultIsolationLevel>[]>;
-    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.TaskParameterTwoDigitCenturyStart>[]>;
-    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.TaskParameterUnsupportedDdlAction>[]>;
-    useCachedResults?: pulumi.Input<pulumi.Input<inputs.TaskParameterUseCachedResult>[]>;
-    userTaskManagedInitialWarehouseSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskManagedInitialWarehouseSize>[]>;
-    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskMinimumTriggerIntervalInSecond>[]>;
-    userTaskTimeoutMs?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskTimeoutM>[]>;
-    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.TaskParameterWeekOfYearPolicy>[]>;
-    weekStarts?: pulumi.Input<pulumi.Input<inputs.TaskParameterWeekStart>[]>;
+    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.TaskParameterAbortDetachedQuery>[] | undefined>;
+    autocommits?: pulumi.Input<pulumi.Input<inputs.TaskParameterAutocommit>[] | undefined>;
+    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterBinaryInputFormat>[] | undefined>;
+    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterBinaryOutputFormat>[] | undefined>;
+    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientMemoryLimit>[] | undefined>;
+    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientMetadataRequestUseConnectionCtx>[] | undefined>;
+    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientPrefetchThread>[] | undefined>;
+    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientResultChunkSize>[] | undefined>;
+    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientResultColumnCaseInsensitive>[] | undefined>;
+    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientSessionKeepAliveHeartbeatFrequency>[] | undefined>;
+    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientSessionKeepAlife>[] | undefined>;
+    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.TaskParameterClientTimestampTypeMapping>[] | undefined>;
+    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterDateInputFormat>[] | undefined>;
+    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterDateOutputFormat>[] | undefined>;
+    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.TaskParameterEnableUnloadPhysicalTypeOptimization>[] | undefined>;
+    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.TaskParameterErrorOnNondeterministicMerge>[] | undefined>;
+    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.TaskParameterErrorOnNondeterministicUpdate>[] | undefined>;
+    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterGeographyOutputFormat>[] | undefined>;
+    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterGeometryOutputFormat>[] | undefined>;
+    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.TaskParameterJdbcTreatTimestampNtzAsUtc>[] | undefined>;
+    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.TaskParameterJdbcUseSessionTimezone>[] | undefined>;
+    jsonIndents?: pulumi.Input<pulumi.Input<inputs.TaskParameterJsonIndent>[] | undefined>;
+    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.TaskParameterLockTimeout>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterLogLevel>[] | undefined>;
+    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.TaskParameterMultiStatementCount>[] | undefined>;
+    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.TaskParameterNoorderSequenceAsDefault>[] | undefined>;
+    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.TaskParameterOdbcTreatDecimalAsInt>[] | undefined>;
+    queryTags?: pulumi.Input<pulumi.Input<inputs.TaskParameterQueryTag>[] | undefined>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.TaskParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
+    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.TaskParameterRowsPerResultset>[] | undefined>;
+    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.TaskParameterS3StageVpceDnsName>[] | undefined>;
+    searchPaths?: pulumi.Input<pulumi.Input<inputs.TaskParameterSearchPath>[] | undefined>;
+    serverlessTaskMaxStatementSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterServerlessTaskMaxStatementSize>[] | undefined>;
+    serverlessTaskMinStatementSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterServerlessTaskMinStatementSize>[] | undefined>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterStatementQueuedTimeoutInSecond>[] | undefined>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterStatementTimeoutInSecond>[] | undefined>;
+    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.TaskParameterStrictJsonOutput>[] | undefined>;
+    suspendTaskAfterNumFailures?: pulumi.Input<pulumi.Input<inputs.TaskParameterSuspendTaskAfterNumFailure>[] | undefined>;
+    taskAutoRetryAttempts?: pulumi.Input<pulumi.Input<inputs.TaskParameterTaskAutoRetryAttempt>[] | undefined>;
+    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimeInputFormat>[] | undefined>;
+    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimeOutputFormat>[] | undefined>;
+    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampDayIsAlways24h>[] | undefined>;
+    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampInputFormat>[] | undefined>;
+    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampLtzOutputFormat>[] | undefined>;
+    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampNtzOutputFormat>[] | undefined>;
+    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampOutputFormat>[] | undefined>;
+    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampTypeMapping>[] | undefined>;
+    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimestampTzOutputFormat>[] | undefined>;
+    timezones?: pulumi.Input<pulumi.Input<inputs.TaskParameterTimezone>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterTraceLevel>[] | undefined>;
+    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.TaskParameterTransactionAbortOnError>[] | undefined>;
+    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.TaskParameterTransactionDefaultIsolationLevel>[] | undefined>;
+    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.TaskParameterTwoDigitCenturyStart>[] | undefined>;
+    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.TaskParameterUnsupportedDdlAction>[] | undefined>;
+    useCachedResults?: pulumi.Input<pulumi.Input<inputs.TaskParameterUseCachedResult>[] | undefined>;
+    userTaskManagedInitialWarehouseSizes?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskManagedInitialWarehouseSize>[] | undefined>;
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskMinimumTriggerIntervalInSecond>[] | undefined>;
+    userTaskTimeoutMs?: pulumi.Input<pulumi.Input<inputs.TaskParameterUserTaskTimeoutM>[] | undefined>;
+    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.TaskParameterWeekOfYearPolicy>[] | undefined>;
+    weekStarts?: pulumi.Input<pulumi.Input<inputs.TaskParameterWeekStart>[] | undefined>;
 }
 
 export interface TaskParameterAbortDetachedQuery {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterAutocommit {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterBinaryInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterBinaryOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterClientMemoryLimit {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterClientMetadataRequestUseConnectionCtx {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterClientPrefetchThread {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterClientResultChunkSize {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterClientResultColumnCaseInsensitive {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterClientSessionKeepAlife {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterClientSessionKeepAliveHeartbeatFrequency {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterClientTimestampTypeMapping {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterDateInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterDateOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterEnableUnloadPhysicalTypeOptimization {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterErrorOnNondeterministicMerge {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterErrorOnNondeterministicUpdate {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterGeographyOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterGeometryOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterJdbcTreatTimestampNtzAsUtc {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterJdbcUseSessionTimezone {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterJsonIndent {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterLockTimeout {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterMultiStatementCount {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterNoorderSequenceAsDefault {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterOdbcTreatDecimalAsInt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterQueryTag {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterQuotedIdentifiersIgnoreCase {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterRowsPerResultset {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterS3StageVpceDnsName {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterSearchPath {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterServerlessTaskMaxStatementSize {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterServerlessTaskMinStatementSize {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterStatementQueuedTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterStatementTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterStrictJsonOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterSuspendTaskAfterNumFailure {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTaskAutoRetryAttempt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimeInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimeOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimestampDayIsAlways24h {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimestampInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimestampLtzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimestampNtzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimestampOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimestampTypeMapping {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimestampTzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTimezone {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTransactionAbortOnError {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTransactionDefaultIsolationLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterTwoDigitCenturyStart {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterUnsupportedDdlAction {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterUseCachedResult {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterUserTaskManagedInitialWarehouseSize {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterUserTaskMinimumTriggerIntervalInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterUserTaskTimeoutM {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterWeekOfYearPolicy {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskParameterWeekStart {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskSchedule {
     /**
      * Specifies an interval (in hours) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `minutes`, and `usingCron`)
      */
-    hours?: pulumi.Input<number>;
+    hours?: pulumi.Input<number | undefined>;
     /**
      * Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `seconds`, `hours`, and `usingCron`)
      */
-    minutes?: pulumi.Input<number>;
+    minutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies an interval (in seconds) of wait time inserted between runs of the task. Accepts positive integers. (conflicts with `minutes`, `hours`, and `usingCron`)
      */
-    seconds?: pulumi.Input<number>;
+    seconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `seconds`, `minutes`, and `hours`)
      */
-    usingCron?: pulumi.Input<string>;
+    usingCron?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskShowOutput {
-    allowOverlappingExecution?: pulumi.Input<boolean>;
-    budget?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    condition?: pulumi.Input<string>;
-    config?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    definition?: pulumi.Input<string>;
-    errorIntegration?: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
-    lastCommittedOn?: pulumi.Input<string>;
-    lastSuspendedOn?: pulumi.Input<string>;
-    lastSuspendedReason?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    predecessors?: pulumi.Input<pulumi.Input<string>[]>;
-    schedule?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    state?: pulumi.Input<string>;
-    targetCompletionIntervals?: pulumi.Input<pulumi.Input<inputs.TaskShowOutputTargetCompletionInterval>[]>;
-    taskRelations?: pulumi.Input<pulumi.Input<inputs.TaskShowOutputTaskRelation>[]>;
-    warehouse?: pulumi.Input<string>;
+    allowOverlappingExecution?: pulumi.Input<boolean | undefined>;
+    budget?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    condition?: pulumi.Input<string | undefined>;
+    config?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    definition?: pulumi.Input<string | undefined>;
+    errorIntegration?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    lastCommittedOn?: pulumi.Input<string | undefined>;
+    lastSuspendedOn?: pulumi.Input<string | undefined>;
+    lastSuspendedReason?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    predecessors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    schedule?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    targetCompletionIntervals?: pulumi.Input<pulumi.Input<inputs.TaskShowOutputTargetCompletionInterval>[] | undefined>;
+    taskRelations?: pulumi.Input<pulumi.Input<inputs.TaskShowOutputTaskRelation>[] | undefined>;
+    warehouse?: pulumi.Input<string | undefined>;
 }
 
 export interface TaskShowOutputTargetCompletionInterval {
-    hours?: pulumi.Input<number>;
-    minutes?: pulumi.Input<number>;
-    seconds?: pulumi.Input<number>;
+    hours?: pulumi.Input<number | undefined>;
+    minutes?: pulumi.Input<number | undefined>;
+    seconds?: pulumi.Input<number | undefined>;
 }
 
 export interface TaskShowOutputTaskRelation {
-    finalizedRootTask?: pulumi.Input<string>;
-    finalizer?: pulumi.Input<string>;
-    predecessors?: pulumi.Input<pulumi.Input<string>[]>;
+    finalizedRootTask?: pulumi.Input<string | undefined>;
+    finalizer?: pulumi.Input<string | undefined>;
+    predecessors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface TaskTargetCompletionInterval {
     /**
      * Specifies the target completion interval in hours. (conflicts with `minutes` and `seconds`)
      */
-    hours?: pulumi.Input<number>;
+    hours?: pulumi.Input<number | undefined>;
     /**
      * Specifies the target completion interval in minutes. (conflicts with `hours` and `seconds`)
      */
-    minutes?: pulumi.Input<number>;
+    minutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the target completion interval in seconds. (conflicts with `hours` and `minutes`)
      */
-    seconds?: pulumi.Input<number>;
+    seconds?: pulumi.Input<number | undefined>;
 }
 
 export interface UserParameter {
-    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.UserParameterAbortDetachedQuery>[]>;
-    autocommits?: pulumi.Input<pulumi.Input<inputs.UserParameterAutocommit>[]>;
-    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterBinaryInputFormat>[]>;
-    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterBinaryOutputFormat>[]>;
-    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMemoryLimit>[]>;
-    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMetadataRequestUseConnectionCtx>[]>;
-    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.UserParameterClientPrefetchThread>[]>;
-    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.UserParameterClientResultChunkSize>[]>;
-    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.UserParameterClientResultColumnCaseInsensitive>[]>;
-    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.UserParameterClientSessionKeepAliveHeartbeatFrequency>[]>;
-    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.UserParameterClientSessionKeepAlife>[]>;
-    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.UserParameterClientTimestampTypeMapping>[]>;
-    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterDateInputFormat>[]>;
-    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterDateOutputFormat>[]>;
-    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableUnloadPhysicalTypeOptimization>[]>;
-    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableUnredactedQuerySyntaxError>[]>;
-    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.UserParameterErrorOnNondeterministicMerge>[]>;
-    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.UserParameterErrorOnNondeterministicUpdate>[]>;
-    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterGeographyOutputFormat>[]>;
-    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterGeometryOutputFormat>[]>;
-    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcTreatDecimalAsInt>[]>;
-    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcTreatTimestampNtzAsUtc>[]>;
-    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcUseSessionTimezone>[]>;
-    jsonIndents?: pulumi.Input<pulumi.Input<inputs.UserParameterJsonIndent>[]>;
-    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.UserParameterLockTimeout>[]>;
-    logLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterLogLevel>[]>;
-    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.UserParameterMultiStatementCount>[]>;
-    networkPolicies?: pulumi.Input<pulumi.Input<inputs.UserParameterNetworkPolicy>[]>;
-    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.UserParameterNoorderSequenceAsDefault>[]>;
-    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.UserParameterOdbcTreatDecimalAsInt>[]>;
-    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.UserParameterPreventUnloadToInternalStage>[]>;
-    queryTags?: pulumi.Input<pulumi.Input<inputs.UserParameterQueryTag>[]>;
-    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.UserParameterQuotedIdentifiersIgnoreCase>[]>;
-    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.UserParameterRowsPerResultset>[]>;
-    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.UserParameterS3StageVpceDnsName>[]>;
-    searchPaths?: pulumi.Input<pulumi.Input<inputs.UserParameterSearchPath>[]>;
-    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.UserParameterSimulatedDataSharingConsumer>[]>;
-    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.UserParameterStatementQueuedTimeoutInSecond>[]>;
-    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.UserParameterStatementTimeoutInSecond>[]>;
-    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.UserParameterStrictJsonOutput>[]>;
-    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimeInputFormat>[]>;
-    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimeOutputFormat>[]>;
-    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampDayIsAlways24h>[]>;
-    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampInputFormat>[]>;
-    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampLtzOutputFormat>[]>;
-    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampNtzOutputFormat>[]>;
-    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampOutputFormat>[]>;
-    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampTypeMapping>[]>;
-    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampTzOutputFormat>[]>;
-    timezones?: pulumi.Input<pulumi.Input<inputs.UserParameterTimezone>[]>;
-    traceLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterTraceLevel>[]>;
-    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.UserParameterTransactionAbortOnError>[]>;
-    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterTransactionDefaultIsolationLevel>[]>;
-    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.UserParameterTwoDigitCenturyStart>[]>;
-    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.UserParameterUnsupportedDdlAction>[]>;
-    useCachedResults?: pulumi.Input<pulumi.Input<inputs.UserParameterUseCachedResult>[]>;
-    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.UserParameterWeekOfYearPolicy>[]>;
-    weekStarts?: pulumi.Input<pulumi.Input<inputs.UserParameterWeekStart>[]>;
+    abortDetachedQueries?: pulumi.Input<pulumi.Input<inputs.UserParameterAbortDetachedQuery>[] | undefined>;
+    autocommits?: pulumi.Input<pulumi.Input<inputs.UserParameterAutocommit>[] | undefined>;
+    binaryInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterBinaryInputFormat>[] | undefined>;
+    binaryOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterBinaryOutputFormat>[] | undefined>;
+    clientMemoryLimits?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMemoryLimit>[] | undefined>;
+    clientMetadataRequestUseConnectionCtxes?: pulumi.Input<pulumi.Input<inputs.UserParameterClientMetadataRequestUseConnectionCtx>[] | undefined>;
+    clientPrefetchThreads?: pulumi.Input<pulumi.Input<inputs.UserParameterClientPrefetchThread>[] | undefined>;
+    clientResultChunkSizes?: pulumi.Input<pulumi.Input<inputs.UserParameterClientResultChunkSize>[] | undefined>;
+    clientResultColumnCaseInsensitives?: pulumi.Input<pulumi.Input<inputs.UserParameterClientResultColumnCaseInsensitive>[] | undefined>;
+    clientSessionKeepAliveHeartbeatFrequencies?: pulumi.Input<pulumi.Input<inputs.UserParameterClientSessionKeepAliveHeartbeatFrequency>[] | undefined>;
+    clientSessionKeepAlives?: pulumi.Input<pulumi.Input<inputs.UserParameterClientSessionKeepAlife>[] | undefined>;
+    clientTimestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.UserParameterClientTimestampTypeMapping>[] | undefined>;
+    dateInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterDateInputFormat>[] | undefined>;
+    dateOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterDateOutputFormat>[] | undefined>;
+    enableUnloadPhysicalTypeOptimizations?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableUnloadPhysicalTypeOptimization>[] | undefined>;
+    enableUnredactedQuerySyntaxErrors?: pulumi.Input<pulumi.Input<inputs.UserParameterEnableUnredactedQuerySyntaxError>[] | undefined>;
+    errorOnNondeterministicMerges?: pulumi.Input<pulumi.Input<inputs.UserParameterErrorOnNondeterministicMerge>[] | undefined>;
+    errorOnNondeterministicUpdates?: pulumi.Input<pulumi.Input<inputs.UserParameterErrorOnNondeterministicUpdate>[] | undefined>;
+    geographyOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterGeographyOutputFormat>[] | undefined>;
+    geometryOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterGeometryOutputFormat>[] | undefined>;
+    jdbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcTreatDecimalAsInt>[] | undefined>;
+    jdbcTreatTimestampNtzAsUtcs?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcTreatTimestampNtzAsUtc>[] | undefined>;
+    jdbcUseSessionTimezones?: pulumi.Input<pulumi.Input<inputs.UserParameterJdbcUseSessionTimezone>[] | undefined>;
+    jsonIndents?: pulumi.Input<pulumi.Input<inputs.UserParameterJsonIndent>[] | undefined>;
+    lockTimeouts?: pulumi.Input<pulumi.Input<inputs.UserParameterLockTimeout>[] | undefined>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterLogLevel>[] | undefined>;
+    multiStatementCounts?: pulumi.Input<pulumi.Input<inputs.UserParameterMultiStatementCount>[] | undefined>;
+    networkPolicies?: pulumi.Input<pulumi.Input<inputs.UserParameterNetworkPolicy>[] | undefined>;
+    noorderSequenceAsDefaults?: pulumi.Input<pulumi.Input<inputs.UserParameterNoorderSequenceAsDefault>[] | undefined>;
+    odbcTreatDecimalAsInts?: pulumi.Input<pulumi.Input<inputs.UserParameterOdbcTreatDecimalAsInt>[] | undefined>;
+    preventUnloadToInternalStages?: pulumi.Input<pulumi.Input<inputs.UserParameterPreventUnloadToInternalStage>[] | undefined>;
+    queryTags?: pulumi.Input<pulumi.Input<inputs.UserParameterQueryTag>[] | undefined>;
+    quotedIdentifiersIgnoreCases?: pulumi.Input<pulumi.Input<inputs.UserParameterQuotedIdentifiersIgnoreCase>[] | undefined>;
+    rowsPerResultsets?: pulumi.Input<pulumi.Input<inputs.UserParameterRowsPerResultset>[] | undefined>;
+    s3StageVpceDnsNames?: pulumi.Input<pulumi.Input<inputs.UserParameterS3StageVpceDnsName>[] | undefined>;
+    searchPaths?: pulumi.Input<pulumi.Input<inputs.UserParameterSearchPath>[] | undefined>;
+    simulatedDataSharingConsumers?: pulumi.Input<pulumi.Input<inputs.UserParameterSimulatedDataSharingConsumer>[] | undefined>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.UserParameterStatementQueuedTimeoutInSecond>[] | undefined>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.UserParameterStatementTimeoutInSecond>[] | undefined>;
+    strictJsonOutputs?: pulumi.Input<pulumi.Input<inputs.UserParameterStrictJsonOutput>[] | undefined>;
+    timeInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimeInputFormat>[] | undefined>;
+    timeOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimeOutputFormat>[] | undefined>;
+    timestampDayIsAlways24hs?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampDayIsAlways24h>[] | undefined>;
+    timestampInputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampInputFormat>[] | undefined>;
+    timestampLtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampLtzOutputFormat>[] | undefined>;
+    timestampNtzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampNtzOutputFormat>[] | undefined>;
+    timestampOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampOutputFormat>[] | undefined>;
+    timestampTypeMappings?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampTypeMapping>[] | undefined>;
+    timestampTzOutputFormats?: pulumi.Input<pulumi.Input<inputs.UserParameterTimestampTzOutputFormat>[] | undefined>;
+    timezones?: pulumi.Input<pulumi.Input<inputs.UserParameterTimezone>[] | undefined>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterTraceLevel>[] | undefined>;
+    transactionAbortOnErrors?: pulumi.Input<pulumi.Input<inputs.UserParameterTransactionAbortOnError>[] | undefined>;
+    transactionDefaultIsolationLevels?: pulumi.Input<pulumi.Input<inputs.UserParameterTransactionDefaultIsolationLevel>[] | undefined>;
+    twoDigitCenturyStarts?: pulumi.Input<pulumi.Input<inputs.UserParameterTwoDigitCenturyStart>[] | undefined>;
+    unsupportedDdlActions?: pulumi.Input<pulumi.Input<inputs.UserParameterUnsupportedDdlAction>[] | undefined>;
+    useCachedResults?: pulumi.Input<pulumi.Input<inputs.UserParameterUseCachedResult>[] | undefined>;
+    weekOfYearPolicies?: pulumi.Input<pulumi.Input<inputs.UserParameterWeekOfYearPolicy>[] | undefined>;
+    weekStarts?: pulumi.Input<pulumi.Input<inputs.UserParameterWeekStart>[] | undefined>;
 }
 
 export interface UserParameterAbortDetachedQuery {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterAutocommit {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterBinaryInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterBinaryOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterClientMemoryLimit {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterClientMetadataRequestUseConnectionCtx {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterClientPrefetchThread {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterClientResultChunkSize {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterClientResultColumnCaseInsensitive {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterClientSessionKeepAlife {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterClientSessionKeepAliveHeartbeatFrequency {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterClientTimestampTypeMapping {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterDateInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterDateOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterEnableUnloadPhysicalTypeOptimization {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterEnableUnredactedQuerySyntaxError {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterErrorOnNondeterministicMerge {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterErrorOnNondeterministicUpdate {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterGeographyOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterGeometryOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterJdbcTreatDecimalAsInt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterJdbcTreatTimestampNtzAsUtc {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterJdbcUseSessionTimezone {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterJsonIndent {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterLockTimeout {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterLogLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterMultiStatementCount {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterNetworkPolicy {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterNoorderSequenceAsDefault {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterOdbcTreatDecimalAsInt {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterPreventUnloadToInternalStage {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterQueryTag {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterQuotedIdentifiersIgnoreCase {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterRowsPerResultset {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterS3StageVpceDnsName {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterSearchPath {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterSimulatedDataSharingConsumer {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterStatementQueuedTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterStatementTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterStrictJsonOutput {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimeInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimeOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimestampDayIsAlways24h {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimestampInputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimestampLtzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimestampNtzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimestampOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimestampTypeMapping {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimestampTzOutputFormat {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTimezone {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTraceLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTransactionAbortOnError {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTransactionDefaultIsolationLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterTwoDigitCenturyStart {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterUnsupportedDdlAction {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterUseCachedResult {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterWeekOfYearPolicy {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserParameterWeekStart {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface UserProgrammaticAccessTokenShowOutput {
-    comment?: pulumi.Input<string>;
-    createdBy?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    expiresAt?: pulumi.Input<string>;
-    minsToBypassNetworkPolicyRequirement?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    roleRestriction?: pulumi.Input<string>;
-    rotatedTo?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
-    userName?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdBy?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    expiresAt?: pulumi.Input<string | undefined>;
+    minsToBypassNetworkPolicyRequirement?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    roleRestriction?: pulumi.Input<string | undefined>;
+    rotatedTo?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 export interface UserShowOutput {
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    daysToExpiry?: pulumi.Input<string>;
-    defaultNamespace?: pulumi.Input<string>;
-    defaultRole?: pulumi.Input<string>;
-    defaultSecondaryRoles?: pulumi.Input<string>;
-    defaultWarehouse?: pulumi.Input<string>;
-    disabled?: pulumi.Input<boolean>;
-    displayName?: pulumi.Input<string>;
-    email?: pulumi.Input<string>;
-    expiresAtTime?: pulumi.Input<string>;
-    extAuthnDuo?: pulumi.Input<boolean>;
-    extAuthnUid?: pulumi.Input<string>;
-    firstName?: pulumi.Input<string>;
-    hasMfa?: pulumi.Input<boolean>;
-    hasPassword?: pulumi.Input<boolean>;
-    hasRsaPublicKey?: pulumi.Input<boolean>;
-    hasWorkloadIdentity?: pulumi.Input<boolean>;
-    lastName?: pulumi.Input<string>;
-    lastSuccessLogin?: pulumi.Input<string>;
-    lockedUntilTime?: pulumi.Input<string>;
-    loginName?: pulumi.Input<string>;
-    minsToBypassMfa?: pulumi.Input<string>;
-    minsToUnlock?: pulumi.Input<string>;
-    mustChangePassword?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    snowflakeLock?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    daysToExpiry?: pulumi.Input<string | undefined>;
+    defaultNamespace?: pulumi.Input<string | undefined>;
+    defaultRole?: pulumi.Input<string | undefined>;
+    defaultSecondaryRoles?: pulumi.Input<string | undefined>;
+    defaultWarehouse?: pulumi.Input<string | undefined>;
+    disabled?: pulumi.Input<boolean | undefined>;
+    displayName?: pulumi.Input<string | undefined>;
+    email?: pulumi.Input<string | undefined>;
+    expiresAtTime?: pulumi.Input<string | undefined>;
+    extAuthnDuo?: pulumi.Input<boolean | undefined>;
+    extAuthnUid?: pulumi.Input<string | undefined>;
+    firstName?: pulumi.Input<string | undefined>;
+    hasMfa?: pulumi.Input<boolean | undefined>;
+    hasPassword?: pulumi.Input<boolean | undefined>;
+    hasRsaPublicKey?: pulumi.Input<boolean | undefined>;
+    hasWorkloadIdentity?: pulumi.Input<boolean | undefined>;
+    lastName?: pulumi.Input<string | undefined>;
+    lastSuccessLogin?: pulumi.Input<string | undefined>;
+    lockedUntilTime?: pulumi.Input<string | undefined>;
+    loginName?: pulumi.Input<string | undefined>;
+    minsToBypassMfa?: pulumi.Input<string | undefined>;
+    minsToUnlock?: pulumi.Input<string | undefined>;
+    mustChangePassword?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    snowflakeLock?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ViewAggregationPolicy {
     /**
      * Defines which columns uniquely identify an entity within the view.
      */
-    entityKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    entityKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Aggregation policy name.
      */
@@ -10593,9 +10593,9 @@ export interface ViewColumn {
     /**
      * Specifies a comment for the column.
      */
-    comment?: pulumi.Input<string>;
-    maskingPolicy?: pulumi.Input<inputs.ViewColumnMaskingPolicy>;
-    projectionPolicy?: pulumi.Input<inputs.ViewColumnProjectionPolicy>;
+    comment?: pulumi.Input<string | undefined>;
+    maskingPolicy?: pulumi.Input<inputs.ViewColumnMaskingPolicy | undefined>;
+    projectionPolicy?: pulumi.Input<inputs.ViewColumnProjectionPolicy | undefined>;
 }
 
 export interface ViewColumnMaskingPolicy {
@@ -10606,7 +10606,7 @@ export interface ViewColumnMaskingPolicy {
     /**
      * Specifies the arguments to pass into the conditional masking policy SQL expression. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
      */
-    usings?: pulumi.Input<pulumi.Input<string>[]>;
+    usings?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface ViewColumnProjectionPolicy {
@@ -10635,26 +10635,26 @@ export interface ViewDataMetricSchedule {
     /**
      * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
      */
-    minutes?: pulumi.Input<number>;
+    minutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
      */
-    usingCron?: pulumi.Input<string>;
+    usingCron?: pulumi.Input<string | undefined>;
 }
 
 export interface ViewDescribeOutput {
-    check?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    default?: pulumi.Input<string>;
-    expression?: pulumi.Input<string>;
-    isNullable?: pulumi.Input<boolean>;
-    isPrimary?: pulumi.Input<boolean>;
-    isUnique?: pulumi.Input<boolean>;
-    kind?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    policyName?: pulumi.Input<string>;
-    privacyDomain?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    check?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    default?: pulumi.Input<string | undefined>;
+    expression?: pulumi.Input<string | undefined>;
+    isNullable?: pulumi.Input<boolean | undefined>;
+    isPrimary?: pulumi.Input<boolean | undefined>;
+    isUnique?: pulumi.Input<boolean | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string | undefined>;
+    privacyDomain?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ViewRowAccessPolicy {
@@ -10669,126 +10669,126 @@ export interface ViewRowAccessPolicy {
 }
 
 export interface ViewShowOutput {
-    changeTracking?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    databaseName?: pulumi.Input<string>;
-    isMaterialized?: pulumi.Input<boolean>;
-    isSecure?: pulumi.Input<boolean>;
-    kind?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    reserved?: pulumi.Input<string>;
-    schemaName?: pulumi.Input<string>;
-    text?: pulumi.Input<string>;
+    changeTracking?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    isMaterialized?: pulumi.Input<boolean | undefined>;
+    isSecure?: pulumi.Input<boolean | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    reserved?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    text?: pulumi.Input<string | undefined>;
 }
 
 export interface WarehouseAdaptiveParameter {
-    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveParameterStatementQueuedTimeoutInSecond>[]>;
-    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveParameterStatementTimeoutInSecond>[]>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveParameterStatementQueuedTimeoutInSecond>[] | undefined>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveParameterStatementTimeoutInSecond>[] | undefined>;
 }
 
 export interface WarehouseAdaptiveParameterStatementQueuedTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface WarehouseAdaptiveParameterStatementTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface WarehouseAdaptiveShowOutput {
-    autoResume?: pulumi.Input<boolean>;
-    available?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    isCurrent?: pulumi.Input<boolean>;
-    isDefault?: pulumi.Input<boolean>;
-    maxQueryPerformanceLevel?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    other?: pulumi.Input<number>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    provisioning?: pulumi.Input<number>;
-    queryThroughputMultiplier?: pulumi.Input<number>;
-    queued?: pulumi.Input<number>;
-    quiescing?: pulumi.Input<number>;
-    resourceMonitor?: pulumi.Input<string>;
-    resumedOn?: pulumi.Input<string>;
-    running?: pulumi.Input<number>;
-    state?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    updatedOn?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<boolean | undefined>;
+    available?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    isCurrent?: pulumi.Input<boolean | undefined>;
+    isDefault?: pulumi.Input<boolean | undefined>;
+    maxQueryPerformanceLevel?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    other?: pulumi.Input<number | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    provisioning?: pulumi.Input<number | undefined>;
+    queryThroughputMultiplier?: pulumi.Input<number | undefined>;
+    queued?: pulumi.Input<number | undefined>;
+    quiescing?: pulumi.Input<number | undefined>;
+    resourceMonitor?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    running?: pulumi.Input<number | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 
 export interface WarehouseParameter {
-    maxConcurrencyLevels?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterMaxConcurrencyLevel>[]>;
-    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterStatementQueuedTimeoutInSecond>[]>;
-    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterStatementTimeoutInSecond>[]>;
+    maxConcurrencyLevels?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterMaxConcurrencyLevel>[] | undefined>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterStatementQueuedTimeoutInSecond>[] | undefined>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseParameterStatementTimeoutInSecond>[] | undefined>;
 }
 
 export interface WarehouseParameterMaxConcurrencyLevel {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface WarehouseParameterStatementQueuedTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface WarehouseParameterStatementTimeoutInSecond {
-    default?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    key?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface WarehouseShowOutput {
-    autoResume?: pulumi.Input<boolean>;
-    autoSuspend?: pulumi.Input<number>;
-    available?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    enableQueryAcceleration?: pulumi.Input<boolean>;
-    generation?: pulumi.Input<string>;
-    isCurrent?: pulumi.Input<boolean>;
-    isDefault?: pulumi.Input<boolean>;
-    maxClusterCount?: pulumi.Input<number>;
-    minClusterCount?: pulumi.Input<number>;
-    name?: pulumi.Input<string>;
-    other?: pulumi.Input<number>;
-    owner?: pulumi.Input<string>;
-    ownerRoleType?: pulumi.Input<string>;
-    provisioning?: pulumi.Input<number>;
-    queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
-    queued?: pulumi.Input<number>;
-    quiescing?: pulumi.Input<number>;
-    resourceConstraint?: pulumi.Input<string>;
-    resourceMonitor?: pulumi.Input<string>;
-    resumedOn?: pulumi.Input<string>;
-    running?: pulumi.Input<number>;
-    scalingPolicy?: pulumi.Input<string>;
-    size?: pulumi.Input<string>;
-    startedClusters?: pulumi.Input<number>;
-    state?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    updatedOn?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<boolean | undefined>;
+    autoSuspend?: pulumi.Input<number | undefined>;
+    available?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enableQueryAcceleration?: pulumi.Input<boolean | undefined>;
+    generation?: pulumi.Input<string | undefined>;
+    isCurrent?: pulumi.Input<boolean | undefined>;
+    isDefault?: pulumi.Input<boolean | undefined>;
+    maxClusterCount?: pulumi.Input<number | undefined>;
+    minClusterCount?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    other?: pulumi.Input<number | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    provisioning?: pulumi.Input<number | undefined>;
+    queryAccelerationMaxScaleFactor?: pulumi.Input<number | undefined>;
+    queued?: pulumi.Input<number | undefined>;
+    quiescing?: pulumi.Input<number | undefined>;
+    resourceConstraint?: pulumi.Input<string | undefined>;
+    resourceMonitor?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    running?: pulumi.Input<number | undefined>;
+    scalingPolicy?: pulumi.Input<string | undefined>;
+    size?: pulumi.Input<string | undefined>;
+    startedClusters?: pulumi.Input<number | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
 }
 export namespace config {
 }

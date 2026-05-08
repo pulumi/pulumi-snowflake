@@ -72,9 +72,9 @@ export interface GetNetworkPoliciesOutputArgs {
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }

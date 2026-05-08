@@ -111,28 +111,28 @@ export class AccountRole extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountRole resources.
  */
 export interface AccountRoleState {
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW ROLES` for the given role.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.AccountRoleShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.AccountRoleShowOutput>[] | undefined>;
 }
 
 /**
  * The set of arguments for constructing a AccountRole resource.
  */
 export interface AccountRoleArgs {
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

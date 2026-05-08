@@ -109,11 +109,11 @@ export interface UserAuthenticationPolicyAttachmentState {
     /**
      * Fully qualified name of the authentication policy
      */
-    authenticationPolicyName?: pulumi.Input<string>;
+    authenticationPolicyName?: pulumi.Input<string | undefined>;
     /**
      * User name of the user you want to attach the authentication policy to
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**

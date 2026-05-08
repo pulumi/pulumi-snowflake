@@ -172,12 +172,12 @@ def get_services(in_: Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict
         services=pulumi.get(__ret__, 'services'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_services_output(in_: Optional[pulumi.Input[Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict']]]] = None,
-                        like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        limit: Optional[pulumi.Input[Optional[Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict']]]] = None,
-                        service_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_services_output(in_: pulumi.Input[Optional[Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict']]]] = None,
+                        like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        limit: pulumi.Input[Optional[Optional[Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict']]]] = None,
+                        service_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServicesResult]:
     """
     Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.

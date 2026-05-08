@@ -73,9 +73,9 @@ class TableColumnMaskingPolicyApplicationArgs:
 @pulumi.input_type
 class _TableColumnMaskingPolicyApplicationState:
     def __init__(__self__, *,
-                 column: Optional[pulumi.Input[_builtins.str]] = None,
-                 masking_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None):
+                 column: pulumi.Input[Optional[_builtins.str]] = None,
+                 masking_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableColumnMaskingPolicyApplication resources.
 
@@ -92,38 +92,38 @@ class _TableColumnMaskingPolicyApplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The column to apply the masking policy to.
         """
         return pulumi.get(self, "column")
 
     @column.setter
-    def column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column", value)
 
     @_builtins.property
     @pulumi.getter(name="maskingPolicy")
-    def masking_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def masking_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name (`database.schema.policyname`) of the policy to apply.
         """
         return pulumi.get(self, "masking_policy")
 
     @masking_policy.setter
-    def masking_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def masking_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "masking_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.
         """
         return pulumi.get(self, "table")
 
     @table.setter
-    def table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table", value)
 
 
@@ -133,9 +133,9 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 column: Optional[pulumi.Input[_builtins.str]] = None,
-                 masking_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
+                 column: pulumi.Input[Optional[_builtins.str]] = None,
+                 masking_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -250,9 +250,9 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 column: Optional[pulumi.Input[_builtins.str]] = None,
-                 masking_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
+                 column: pulumi.Input[Optional[_builtins.str]] = None,
+                 masking_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,9 +281,9 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            column: Optional[pulumi.Input[_builtins.str]] = None,
-            masking_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            table: Optional[pulumi.Input[_builtins.str]] = None) -> 'TableColumnMaskingPolicyApplication':
+            column: pulumi.Input[Optional[_builtins.str]] = None,
+            masking_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None) -> 'TableColumnMaskingPolicyApplication':
         """
         Get an existing TableColumnMaskingPolicyApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

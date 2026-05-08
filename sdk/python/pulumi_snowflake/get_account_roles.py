@@ -107,8 +107,8 @@ def get_account_roles(in_class: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         in_class=pulumi.get(__ret__, 'in_class'),
         like=pulumi.get(__ret__, 'like'))
-def get_account_roles_output(in_class: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_account_roles_output(in_class: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountRolesResult]:
     """
     Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.

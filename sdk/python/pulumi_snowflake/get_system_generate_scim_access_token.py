@@ -101,7 +101,7 @@ def get_system_generate_scim_access_token(integration_name: Optional[_builtins.s
         access_token=pulumi.get(__ret__, 'access_token'),
         id=pulumi.get(__ret__, 'id'),
         integration_name=pulumi.get(__ret__, 'integration_name'))
-def get_system_generate_scim_access_token_output(integration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_system_generate_scim_access_token_output(integration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGenerateScimAccessTokenResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

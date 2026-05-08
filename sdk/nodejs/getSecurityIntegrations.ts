@@ -80,9 +80,9 @@ export interface GetSecurityIntegrationsOutputArgs {
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }

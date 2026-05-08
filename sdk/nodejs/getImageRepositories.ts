@@ -72,9 +72,9 @@ export interface GetImageRepositoriesOutputArgs {
     /**
      * IN clause to filter the list of objects
      */
-    in?: pulumi.Input<inputs.GetImageRepositoriesInArgs>;
+    in?: pulumi.Input<inputs.GetImageRepositoriesInArgs | undefined>;
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
 }

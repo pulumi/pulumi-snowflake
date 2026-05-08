@@ -192,51 +192,51 @@ export interface NotebookState {
     /**
      * Specifies a comment for the notebook.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE NOTEBOOK` for the given notebook.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.NotebookDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.NotebookDescribeOutput>[] | undefined>;
     /**
      * Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.
      */
-    froms?: pulumi.Input<pulumi.Input<inputs.NotebookFrom>[]>;
+    froms?: pulumi.Input<pulumi.Input<inputs.NotebookFrom>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds of idle time before the notebook is shut down automatically.
      */
-    idleAutoShutdownTimeSeconds?: pulumi.Input<number>;
+    idleAutoShutdownTimeSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies a user-specified identifier for the notebook file name.
      */
-    mainFile?: pulumi.Input<string>;
+    mainFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      */
-    queryWarehouse?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW NOTEBOOKS` for the given notebook
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.NotebookShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.NotebookShowOutput>[] | undefined>;
     /**
      * Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      */
-    warehouse?: pulumi.Input<string>;
+    warehouse?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface NotebookArgs {
     /**
      * Specifies a comment for the notebook.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -254,23 +254,23 @@ export interface NotebookArgs {
     /**
      * Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.
      */
-    froms?: pulumi.Input<pulumi.Input<inputs.NotebookFrom>[]>;
+    froms?: pulumi.Input<pulumi.Input<inputs.NotebookFrom>[] | undefined>;
     /**
      * Specifies the number of seconds of idle time before the notebook is shut down automatically.
      */
-    idleAutoShutdownTimeSeconds?: pulumi.Input<number>;
+    idleAutoShutdownTimeSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies a user-specified identifier for the notebook file name.
      */
-    mainFile?: pulumi.Input<string>;
+    mainFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
      */
-    queryWarehouse?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -278,5 +278,5 @@ export interface NotebookArgs {
     /**
      * Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
      */
-    warehouse?: pulumi.Input<string>;
+    warehouse?: pulumi.Input<string | undefined>;
 }

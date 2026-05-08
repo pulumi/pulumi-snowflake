@@ -95,7 +95,7 @@ export interface AccountAuthenticationPolicyAttachmentState {
     /**
      * Qualified name (`"db"."schema"."policyName"`) of the authentication policy to apply to the current account.
      */
-    authenticationPolicy?: pulumi.Input<string>;
+    authenticationPolicy?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -27,17 +27,17 @@ class ExternalFunctionArgs:
                  return_type: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  url_of_proxy_and_resource: pulumi.Input[_builtins.str],
-                 args: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input[_builtins.str]] = None,
-                 context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
-                 max_batch_rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_translator: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_translator: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_null_allowed: Optional[pulumi.Input[_builtins.bool]] = None):
+                 args: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional[_builtins.str]] = None,
+                 context_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
+                 max_batch_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_translator: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_translator: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_null_allowed: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ExternalFunction resource.
 
@@ -162,159 +162,159 @@ class ExternalFunctionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]:
+    def args(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]:
         """
         Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         """
         return pulumi.get(self, "args")
 
     @args.setter
-    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]):
+    def args(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]):
         pulumi.set(self, "args", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `user-defined function`) A description of the external function.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compression", value)
 
     @_builtins.property
     @pulumi.getter(name="contextHeaders")
-    def context_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def context_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Binds Snowflake context function results to HTTP headers.
         """
         return pulumi.get(self, "context_headers")
 
     @context_headers.setter
-    def context_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def context_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "context_headers", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]]:
         """
         Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchRows")
-    def max_batch_rows(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This specifies the maximum number of rows in each batch sent to the proxy service.
         """
         return pulumi.get(self, "max_batch_rows")
 
     @max_batch_rows.setter
-    def max_batch_rows(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_rows(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_rows", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullInputBehavior")
-    def null_input_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def null_input_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         """
         return pulumi.get(self, "null_input_behavior")
 
     @null_input_behavior.setter
-    def null_input_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def null_input_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "null_input_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTranslator")
-    def request_translator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_translator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the name of the request translator function
         """
         return pulumi.get(self, "request_translator")
 
     @request_translator.setter
-    def request_translator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_translator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_translator", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTranslator")
-    def response_translator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_translator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the name of the response translator function.
         """
         return pulumi.get(self, "response_translator")
 
     @response_translator.setter
-    def response_translator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_translator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_translator", value)
 
     @_builtins.property
     @pulumi.getter(name="returnNullAllowed")
-    def return_null_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def return_null_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         return pulumi.get(self, "return_null_allowed")
 
     @return_null_allowed.setter
-    def return_null_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def return_null_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "return_null_allowed", value)
 
 
 @pulumi.input_type
 class _ExternalFunctionState:
     def __init__(__self__, *,
-                 api_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 args: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input[_builtins.str]] = None,
-                 context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
-                 max_batch_rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_translator: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_translator: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_null_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_of_proxy_and_resource: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 args: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional[_builtins.str]] = None,
+                 context_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]] = None,
+                 max_batch_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_translator: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_translator: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_null_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_of_proxy_and_resource: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ExternalFunction resources.
 
@@ -379,230 +379,230 @@ class _ExternalFunctionState:
 
     @_builtins.property
     @pulumi.getter(name="apiIntegration")
-    def api_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API integration object that should be used to authenticate the call to the proxy service.
         """
         return pulumi.get(self, "api_integration")
 
     @api_integration.setter
-    def api_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_integration", value)
 
     @_builtins.property
     @pulumi.getter
-    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]:
+    def args(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]:
         """
         Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         """
         return pulumi.get(self, "args")
 
     @args.setter
-    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]):
+    def args(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]):
         pulumi.set(self, "args", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `user-defined function`) A description of the external function.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compression", value)
 
     @_builtins.property
     @pulumi.getter(name="contextHeaders")
-    def context_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def context_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Binds Snowflake context function results to HTTP headers.
         """
         return pulumi.get(self, "context_headers")
 
     @context_headers.setter
-    def context_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def context_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "context_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the external function was created.
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the external function.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]]:
+    def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]]:
         """
         Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]]):
+    def headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]]]):
         pulumi.set(self, "headers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBatchRows")
-    def max_batch_rows(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_batch_rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         This specifies the maximum number of rows in each batch sent to the proxy service.
         """
         return pulumi.get(self, "max_batch_rows")
 
     @max_batch_rows.setter
-    def max_batch_rows(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_batch_rows(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_batch_rows", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullInputBehavior")
-    def null_input_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def null_input_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         """
         return pulumi.get(self, "null_input_behavior")
 
     @null_input_behavior.setter
-    def null_input_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def null_input_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "null_input_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTranslator")
-    def request_translator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_translator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the name of the request translator function
         """
         return pulumi.get(self, "request_translator")
 
     @request_translator.setter
-    def request_translator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_translator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_translator", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTranslator")
-    def response_translator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_translator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This specifies the name of the response translator function.
         """
         return pulumi.get(self, "response_translator")
 
     @response_translator.setter
-    def response_translator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_translator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_translator", value)
 
     @_builtins.property
     @pulumi.getter(name="returnBehavior")
-    def return_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def return_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the behavior of the function when returning results
         """
         return pulumi.get(self, "return_behavior")
 
     @return_behavior.setter
-    def return_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def return_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "return_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="returnNullAllowed")
-    def return_null_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def return_null_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         return pulumi.get(self, "return_null_allowed")
 
     @return_null_allowed.setter
-    def return_null_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def return_null_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "return_null_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="returnType")
-    def return_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def return_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the data type returned by the external function.
         """
         return pulumi.get(self, "return_type")
 
     @return_type.setter
-    def return_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def return_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "return_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the external function.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="urlOfProxyAndResource")
-    def url_of_proxy_and_resource(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_of_proxy_and_resource(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
         """
         return pulumi.get(self, "url_of_proxy_and_resource")
 
     @url_of_proxy_and_resource.setter
-    def url_of_proxy_and_resource(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_of_proxy_and_resource(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_of_proxy_and_resource", value)
 
 
@@ -612,23 +612,23 @@ class ExternalFunction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 args: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input[_builtins.str]] = None,
-                 context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
-                 max_batch_rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_translator: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_translator: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_null_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_of_proxy_and_resource: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 args: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional[_builtins.str]] = None,
+                 context_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
+                 max_batch_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_translator: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_translator: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_null_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_of_proxy_and_resource: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -759,23 +759,23 @@ class ExternalFunction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 args: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input[_builtins.str]] = None,
-                 context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
-                 max_batch_rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_translator: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_translator: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_null_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_of_proxy_and_resource: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 args: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional[_builtins.str]] = None,
+                 context_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
+                 max_batch_rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_translator: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_translator: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_null_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_of_proxy_and_resource: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -826,25 +826,25 @@ class ExternalFunction(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_integration: Optional[pulumi.Input[_builtins.str]] = None,
-            args: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            compression: Optional[pulumi.Input[_builtins.str]] = None,
-            context_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            created_on: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
-            max_batch_rows: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            request_translator: Optional[pulumi.Input[_builtins.str]] = None,
-            response_translator: Optional[pulumi.Input[_builtins.str]] = None,
-            return_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            return_null_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-            return_type: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            url_of_proxy_and_resource: Optional[pulumi.Input[_builtins.str]] = None) -> 'ExternalFunction':
+            api_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            args: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            context_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]]] = None,
+            max_batch_rows: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            request_translator: pulumi.Input[Optional[_builtins.str]] = None,
+            response_translator: pulumi.Input[Optional[_builtins.str]] = None,
+            return_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            return_null_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+            return_type: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            url_of_proxy_and_resource: pulumi.Input[Optional[_builtins.str]] = None) -> 'ExternalFunction':
         """
         Get an existing ExternalFunction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

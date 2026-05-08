@@ -105,7 +105,7 @@ def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[_builtins.str]
         aws_sns_topic_arn=pulumi.get(__ret__, 'aws_sns_topic_arn'),
         aws_sns_topic_policy_json=pulumi.get(__ret__, 'aws_sns_topic_policy_json'),
         id=pulumi.get(__ret__, 'id'))
-def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGetAwsSnsIamPolicyResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

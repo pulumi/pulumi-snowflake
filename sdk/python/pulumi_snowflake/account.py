@@ -25,18 +25,18 @@ class AccountArgs:
                  edition: pulumi.Input[_builtins.str],
                  email: pulumi.Input[_builtins.str],
                  grace_period_in_days: pulumi.Input[_builtins.int],
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 consumption_billing_entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_org_admin: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 must_change_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 consumption_billing_entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_org_admin: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 must_change_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Account resource.
 
@@ -136,170 +136,170 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminRsaPublicKey")
-    def admin_rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_rsa_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Assigns a public key to the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "admin_rsa_public_key")
 
     @admin_rsa_public_key.setter
-    def admin_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_rsa_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_rsa_public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUserType")
-    def admin_user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_user_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Used for setting the type of the first user that is assigned the ACCOUNTADMIN role during account creation. Valid options are: `PERSON` | `SERVICE` | `LEGACY_SERVICE` External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "admin_user_type")
 
     @admin_user_type.setter
-    def admin_user_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_user_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_user_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the account.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="consumptionBillingEntity")
-    def consumption_billing_entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumption_billing_entity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines which billing entity is responsible for the account's consumption-based billing.
         """
         return pulumi.get(self, "consumption_billing_entity")
 
     @consumption_billing_entity.setter
-    def consumption_billing_entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumption_billing_entity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumption_billing_entity", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isOrgAdmin")
-    def is_org_admin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_org_admin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
         """
         return pulumi.get(self, "is_org_admin")
 
     @is_org_admin.setter
-    def is_org_admin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_org_admin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_org_admin", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mustChangePassword")
-    def must_change_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def must_change_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "must_change_password")
 
     @must_change_password.setter
-    def must_change_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def must_change_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "must_change_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="regionGroup")
-    def region_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
         """
         return pulumi.get(self, "region_group")
 
     @region_group.setter
-    def region_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_group", value)
 
 
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
-                 admin_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 consumption_billing_entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 grace_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_org_admin: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 must_change_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AccountShowOutputArgs']]]] = None):
+                 admin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 consumption_billing_entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 grace_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_org_admin: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 must_change_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['AccountShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
 
@@ -361,218 +361,218 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="adminName")
-    def admin_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "admin_name")
 
     @admin_name.setter
-    def admin_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_name", value)
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password for the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminRsaPublicKey")
-    def admin_rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_rsa_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Assigns a public key to the initial administrative user of the account. Either admin*password or admin*rsa*public*key has to be specified. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "admin_rsa_public_key")
 
     @admin_rsa_public_key.setter
-    def admin_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_rsa_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_rsa_public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUserType")
-    def admin_user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_user_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Used for setting the type of the first user that is assigned the ACCOUNTADMIN role during account creation. Valid options are: `PERSON` | `SERVICE` | `LEGACY_SERVICE` External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "admin_user_type")
 
     @admin_user_type.setter
-    def admin_user_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_user_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_user_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the account.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="consumptionBillingEntity")
-    def consumption_billing_entity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumption_billing_entity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines which billing entity is responsible for the account's consumption-based billing.
         """
         return pulumi.get(self, "consumption_billing_entity")
 
     @consumption_billing_entity.setter
-    def consumption_billing_entity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumption_billing_entity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumption_billing_entity", value)
 
     @_builtins.property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def edition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def edition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edition", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the initial administrative user of the account. This email address is used to send any notifications about the account. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gracePeriodInDays")
-    def grace_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def grace_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
         """
         return pulumi.get(self, "grace_period_in_days")
 
     @grace_period_in_days.setter
-    def grace_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def grace_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "grace_period_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="isOrgAdmin")
-    def is_org_admin(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_org_admin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
         """
         return pulumi.get(self, "is_org_admin")
 
     @is_org_admin.setter
-    def is_org_admin(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_org_admin(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_org_admin", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mustChangePassword")
-    def must_change_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def must_change_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "must_change_password")
 
     @must_change_password.setter
-    def must_change_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def must_change_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "must_change_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="regionGroup")
-    def region_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
         """
         return pulumi.get(self, "region_group")
 
     @region_group.setter
-    def region_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_group", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW ACCOUNTS` for the given account.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -582,22 +582,22 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 consumption_billing_entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 grace_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_org_admin: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 must_change_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 consumption_billing_entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 grace_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_org_admin: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 must_change_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The account resource allows you to create and manage Snowflake accounts. For more information, check [account documentation](https://docs.snowflake.com/en/user-guide/organizations-manage-accounts).
@@ -675,22 +675,22 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_user_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 consumption_billing_entity: Optional[pulumi.Input[_builtins.str]] = None,
-                 edition: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 grace_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_org_admin: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 must_change_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_user_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 consumption_billing_entity: pulumi.Input[Optional[_builtins.str]] = None,
+                 edition: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 grace_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_org_admin: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 must_change_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -738,24 +738,24 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_name: Optional[pulumi.Input[_builtins.str]] = None,
-            admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-            admin_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            admin_user_type: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            consumption_billing_entity: Optional[pulumi.Input[_builtins.str]] = None,
-            edition: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            first_name: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            grace_period_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            is_org_admin: Optional[pulumi.Input[_builtins.str]] = None,
-            last_name: Optional[pulumi.Input[_builtins.str]] = None,
-            must_change_password: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            region: Optional[pulumi.Input[_builtins.str]] = None,
-            region_group: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountShowOutputArgs', 'AccountShowOutputArgsDict']]]]] = None) -> 'Account':
+            admin_name: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_user_type: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            consumption_billing_entity: pulumi.Input[Optional[_builtins.str]] = None,
+            edition: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            first_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            grace_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            is_org_admin: pulumi.Input[Optional[_builtins.str]] = None,
+            last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            must_change_password: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            region_group: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountShowOutputArgs', 'AccountShowOutputArgsDict']]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

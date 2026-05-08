@@ -103,7 +103,7 @@ def get_shares(pattern: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         pattern=pulumi.get(__ret__, 'pattern'),
         shares=pulumi.get(__ret__, 'shares'))
-def get_shares_output(pattern: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_shares_output(pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharesResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

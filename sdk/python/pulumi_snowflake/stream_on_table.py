@@ -24,13 +24,13 @@ class StreamOnTableArgs:
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  table: pulumi.Input[_builtins.str],
-                 append_only: Optional[pulumi.Input[_builtins.str]] = None,
-                 at: Optional[pulumi.Input['StreamOnTableAtArgs']] = None,
-                 before: Optional[pulumi.Input['StreamOnTableBeforeArgs']] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_initial_rows: Optional[pulumi.Input[_builtins.str]] = None):
+                 append_only: pulumi.Input[Optional[_builtins.str]] = None,
+                 at: pulumi.Input[Optional['StreamOnTableAtArgs']] = None,
+                 before: pulumi.Input[Optional['StreamOnTableBeforeArgs']] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_initial_rows: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StreamOnTable resource.
 
@@ -101,107 +101,107 @@ class StreamOnTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="appendOnly")
-    def append_only(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def append_only(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "append_only")
 
     @append_only.setter
-    def append_only(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def append_only(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "append_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def at(self) -> Optional[pulumi.Input['StreamOnTableAtArgs']]:
+    def at(self) -> pulumi.Input[Optional['StreamOnTableAtArgs']]:
         """
         This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "at")
 
     @at.setter
-    def at(self, value: Optional[pulumi.Input['StreamOnTableAtArgs']]):
+    def at(self, value: pulumi.Input[Optional['StreamOnTableAtArgs']]):
         pulumi.set(self, "at", value)
 
     @_builtins.property
     @pulumi.getter
-    def before(self) -> Optional[pulumi.Input['StreamOnTableBeforeArgs']]:
+    def before(self) -> pulumi.Input[Optional['StreamOnTableBeforeArgs']]:
         """
         This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "before")
 
     @before.setter
-    def before(self, value: Optional[pulumi.Input['StreamOnTableBeforeArgs']]):
+    def before(self, value: pulumi.Input[Optional['StreamOnTableBeforeArgs']]):
         pulumi.set(self, "before", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stream.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="copyGrants")
-    def copy_grants(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_grants(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         """
         return pulumi.get(self, "copy_grants")
 
     @copy_grants.setter
-    def copy_grants(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_grants(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_grants", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="showInitialRows")
-    def show_initial_rows(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def show_initial_rows(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "show_initial_rows")
 
     @show_initial_rows.setter
-    def show_initial_rows(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def show_initial_rows(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "show_initial_rows", value)
 
 
 @pulumi.input_type
 class _StreamOnTableState:
     def __init__(__self__, *,
-                 append_only: Optional[pulumi.Input[_builtins.str]] = None,
-                 at: Optional[pulumi.Input['StreamOnTableAtArgs']] = None,
-                 before: Optional[pulumi.Input['StreamOnTableBeforeArgs']] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnTableDescribeOutputArgs']]]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_initial_rows: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnTableShowOutputArgs']]]] = None,
-                 stale: Optional[pulumi.Input[_builtins.bool]] = None,
-                 stream_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None):
+                 append_only: pulumi.Input[Optional[_builtins.str]] = None,
+                 at: pulumi.Input[Optional['StreamOnTableAtArgs']] = None,
+                 before: pulumi.Input[Optional['StreamOnTableBeforeArgs']] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StreamOnTableDescribeOutputArgs']]]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_initial_rows: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StreamOnTableShowOutputArgs']]]] = None,
+                 stale: pulumi.Input[Optional[_builtins.bool]] = None,
+                 stream_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamOnTable resources.
 
@@ -254,182 +254,182 @@ class _StreamOnTableState:
 
     @_builtins.property
     @pulumi.getter(name="appendOnly")
-    def append_only(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def append_only(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "append_only")
 
     @append_only.setter
-    def append_only(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def append_only(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "append_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def at(self) -> Optional[pulumi.Input['StreamOnTableAtArgs']]:
+    def at(self) -> pulumi.Input[Optional['StreamOnTableAtArgs']]:
         """
         This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "at")
 
     @at.setter
-    def at(self, value: Optional[pulumi.Input['StreamOnTableAtArgs']]):
+    def at(self, value: pulumi.Input[Optional['StreamOnTableAtArgs']]):
         pulumi.set(self, "at", value)
 
     @_builtins.property
     @pulumi.getter
-    def before(self) -> Optional[pulumi.Input['StreamOnTableBeforeArgs']]:
+    def before(self) -> pulumi.Input[Optional['StreamOnTableBeforeArgs']]:
         """
         This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "before")
 
     @before.setter
-    def before(self, value: Optional[pulumi.Input['StreamOnTableBeforeArgs']]):
+    def before(self, value: pulumi.Input[Optional['StreamOnTableBeforeArgs']]):
         pulumi.set(self, "before", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stream.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="copyGrants")
-    def copy_grants(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_grants(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         """
         return pulumi.get(self, "copy_grants")
 
     @copy_grants.setter
-    def copy_grants(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_grants(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_grants", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnTableDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamOnTableDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE STREAM` for the given stream.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnTableDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StreamOnTableDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="showInitialRows")
-    def show_initial_rows(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def show_initial_rows(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "show_initial_rows")
 
     @show_initial_rows.setter
-    def show_initial_rows(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def show_initial_rows(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "show_initial_rows", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnTableShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamOnTableShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW STREAMS` for the given stream.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamOnTableShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StreamOnTableShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def stale(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def stale(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
         """
         return pulumi.get(self, "stale")
 
     @stale.setter
-    def stale(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def stale(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "stale", value)
 
     @_builtins.property
     @pulumi.getter(name="streamType")
-    def stream_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "stream_type")
 
     @stream_type.setter
-    def stream_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "table")
 
     @table.setter
-    def table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table", value)
 
 
@@ -439,16 +439,16 @@ class StreamOnTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 append_only: Optional[pulumi.Input[_builtins.str]] = None,
-                 at: Optional[pulumi.Input[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
-                 before: Optional[pulumi.Input[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_initial_rows: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
+                 append_only: pulumi.Input[Optional[_builtins.str]] = None,
+                 at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
+                 before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_initial_rows: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note about copy_grants** Fields like `table`, `append_only`, `at`, `before`, `show_initial_rows` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copy_grants`. Beware that even though a change is marked as update, the resource is recreated.
@@ -508,16 +508,16 @@ class StreamOnTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 append_only: Optional[pulumi.Input[_builtins.str]] = None,
-                 at: Optional[pulumi.Input[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
-                 before: Optional[pulumi.Input[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_initial_rows: Optional[pulumi.Input[_builtins.str]] = None,
-                 table: Optional[pulumi.Input[_builtins.str]] = None,
+                 append_only: pulumi.Input[Optional[_builtins.str]] = None,
+                 at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
+                 before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_initial_rows: pulumi.Input[Optional[_builtins.str]] = None,
+                 table: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -558,21 +558,21 @@ class StreamOnTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            append_only: Optional[pulumi.Input[_builtins.str]] = None,
-            at: Optional[pulumi.Input[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
-            before: Optional[pulumi.Input[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamOnTableDescribeOutputArgs', 'StreamOnTableDescribeOutputArgsDict']]]]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            show_initial_rows: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict']]]]] = None,
-            stale: Optional[pulumi.Input[_builtins.bool]] = None,
-            stream_type: Optional[pulumi.Input[_builtins.str]] = None,
-            table: Optional[pulumi.Input[_builtins.str]] = None) -> 'StreamOnTable':
+            append_only: pulumi.Input[Optional[_builtins.str]] = None,
+            at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
+            before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnTableDescribeOutputArgs', 'StreamOnTableDescribeOutputArgsDict']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_initial_rows: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict']]]]] = None,
+            stale: pulumi.Input[Optional[_builtins.bool]] = None,
+            stream_type: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None) -> 'StreamOnTable':
         """
         Get an existing StreamOnTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

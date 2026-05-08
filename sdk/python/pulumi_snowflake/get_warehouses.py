@@ -125,9 +125,9 @@ def get_warehouses(like: Optional[_builtins.str] = None,
         warehouses=pulumi.get(__ret__, 'warehouses'),
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-def get_warehouses_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                          with_parameters: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_warehouses_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                          with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWarehousesResult]:
     """
     > **Note** Since [2025_07 BCR](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_07/bcr-2110), `describe_output` field is different from Snowflake. Now, in Snowflake always `resource_constraint` and `generation` are present. The provider, always takes the value from `resource_constraint` and dispatches it based on the warehouse type: for Standard warehouses, it sets `generation`, for Snowpark-optimized warehouses, it sets `resource_constraint`. This will be adjusted later.

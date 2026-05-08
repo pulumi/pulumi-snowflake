@@ -206,55 +206,55 @@ export interface StorageIntegrationAwsState {
     /**
      * Specifies a comment for the storage integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationAwsDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationAwsDescribeOutput>[] | undefined>;
     /**
      * Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW STORAGE INTEGRATIONS` for the given storage integration.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationAwsShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationAwsShowOutput>[] | undefined>;
     /**
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
      */
-    storageAllowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    storageAllowedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
      */
-    storageAwsExternalId?: pulumi.Input<string>;
+    storageAwsExternalId?: pulumi.Input<string | undefined>;
     /**
      * Enables support for AWS access control lists (ACLs) to grant the bucket owner full control. `bucket-owner-full-control` is the only currently supported value.
      */
-    storageAwsObjectAcl?: pulumi.Input<string>;
+    storageAwsObjectAcl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
      */
-    storageAwsRoleArn?: pulumi.Input<string>;
+    storageAwsRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
      */
-    storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
      */
-    storageProvider?: pulumi.Input<string>;
+    storageProvider?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    usePrivatelinkEndpoint?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -264,7 +264,7 @@ export interface StorageIntegrationAwsArgs {
     /**
      * Specifies a comment for the storage integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
      */
@@ -272,7 +272,7 @@ export interface StorageIntegrationAwsArgs {
     /**
      * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
      */
@@ -280,11 +280,11 @@ export interface StorageIntegrationAwsArgs {
     /**
      * Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
      */
-    storageAwsExternalId?: pulumi.Input<string>;
+    storageAwsExternalId?: pulumi.Input<string | undefined>;
     /**
      * Enables support for AWS access control lists (ACLs) to grant the bucket owner full control. `bucket-owner-full-control` is the only currently supported value.
      */
-    storageAwsObjectAcl?: pulumi.Input<string>;
+    storageAwsObjectAcl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) of the AWS identity and access management (IAM) role that grants privileges on the S3 bucket containing your data files.
      */
@@ -292,7 +292,7 @@ export interface StorageIntegrationAwsArgs {
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
      */
-    storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
      */
@@ -300,5 +300,5 @@ export interface StorageIntegrationAwsArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    usePrivatelinkEndpoint?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }

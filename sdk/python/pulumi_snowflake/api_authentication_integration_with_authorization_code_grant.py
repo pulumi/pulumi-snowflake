@@ -24,14 +24,14 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  oauth_client_id: pulumi.Input[_builtins.str],
                  oauth_client_secret: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_access_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 oauth_authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_token_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 oauth_authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiAuthenticationIntegrationWithAuthorizationCodeGrant resource.
 
@@ -105,118 +105,118 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAccessTokenValidity")
-    def oauth_access_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def oauth_access_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         """
         return pulumi.get(self, "oauth_access_token_validity")
 
     @oauth_access_token_validity.setter
-    def oauth_access_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def oauth_access_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "oauth_access_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAllowedScopes")
-    def oauth_allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def oauth_allowed_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
         """
         return pulumi.get(self, "oauth_allowed_scopes")
 
     @oauth_allowed_scopes.setter
-    def oauth_allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def oauth_allowed_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "oauth_allowed_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAuthorizationEndpoint")
-    def oauth_authorization_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_authorization_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL for authenticating to the external service. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "oauth_authorization_endpoint")
 
     @oauth_authorization_endpoint.setter
-    def oauth_authorization_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_authorization_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_authorization_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientAuthMethod")
-    def oauth_client_auth_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_auth_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         """
         return pulumi.get(self, "oauth_client_auth_method")
 
     @oauth_client_auth_method.setter
-    def oauth_client_auth_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_auth_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_auth_method", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthRefreshTokenValidity")
-    def oauth_refresh_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def oauth_refresh_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
         """
         return pulumi.get(self, "oauth_refresh_token_validity")
 
     @oauth_refresh_token_validity.setter
-    def oauth_refresh_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def oauth_refresh_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "oauth_refresh_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthTokenEndpoint")
-    def oauth_token_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_token_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "oauth_token_endpoint")
 
     @oauth_token_endpoint.setter
-    def oauth_token_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_token_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_token_endpoint", value)
 
 
 @pulumi.input_type
 class _ApiAuthenticationIntegrationWithAuthorizationCodeGrantState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_access_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 oauth_authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_token_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs']]]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 oauth_authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering ApiAuthenticationIntegrationWithAuthorizationCodeGrant resources.
 
@@ -266,170 +266,170 @@ class _ApiAuthenticationIntegrationWithAuthorizationCodeGrantState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether this security integration is enabled or disabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAccessTokenValidity")
-    def oauth_access_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def oauth_access_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         """
         return pulumi.get(self, "oauth_access_token_validity")
 
     @oauth_access_token_validity.setter
-    def oauth_access_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def oauth_access_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "oauth_access_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAllowedScopes")
-    def oauth_allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def oauth_allowed_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
         """
         return pulumi.get(self, "oauth_allowed_scopes")
 
     @oauth_allowed_scopes.setter
-    def oauth_allowed_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def oauth_allowed_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "oauth_allowed_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAuthorizationEndpoint")
-    def oauth_authorization_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_authorization_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL for authenticating to the external service. If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "oauth_authorization_endpoint")
 
     @oauth_authorization_endpoint.setter
-    def oauth_authorization_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_authorization_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_authorization_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientAuthMethod")
-    def oauth_client_auth_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_auth_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         """
         return pulumi.get(self, "oauth_client_auth_method")
 
     @oauth_client_auth_method.setter
-    def oauth_client_auth_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_auth_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_auth_method", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientId")
-    def oauth_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the client ID for the OAuth application in the external service.
         """
         return pulumi.get(self, "oauth_client_id")
 
     @oauth_client_id.setter
-    def oauth_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientSecret")
-    def oauth_client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "oauth_client_secret")
 
     @oauth_client_secret.setter
-    def oauth_client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthRefreshTokenValidity")
-    def oauth_refresh_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def oauth_refresh_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
         """
         return pulumi.get(self, "oauth_refresh_token_validity")
 
     @oauth_refresh_token_validity.setter
-    def oauth_refresh_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def oauth_refresh_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "oauth_refresh_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthTokenEndpoint")
-    def oauth_token_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_token_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "oauth_token_endpoint")
 
     @oauth_token_endpoint.setter
-    def oauth_token_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_token_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_token_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -439,17 +439,17 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrant(pulumi.CustomResour
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_access_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 oauth_authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_token_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 oauth_authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
@@ -516,17 +516,17 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrant(pulumi.CustomResour
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_access_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 oauth_authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_token_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 oauth_authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -568,20 +568,20 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrant(pulumi.CustomResour
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs', 'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_access_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-            oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            oauth_authorization_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_client_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-            oauth_token_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs', 'ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgsDict']]]]] = None) -> 'ApiAuthenticationIntegrationWithAuthorizationCodeGrant':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs', 'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            oauth_allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            oauth_authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs', 'ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgsDict']]]]] = None) -> 'ApiAuthenticationIntegrationWithAuthorizationCodeGrant':
         """
         Get an existing ApiAuthenticationIntegrationWithAuthorizationCodeGrant resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -140,10 +140,10 @@ def get_git_repositories(in_: Optional[Union['GetGitRepositoriesInArgs', 'GetGit
         like=pulumi.get(__ret__, 'like'),
         limit=pulumi.get(__ret__, 'limit'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_git_repositories_output(in_: Optional[pulumi.Input[Optional[Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict']]]] = None,
-                                like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                limit: Optional[pulumi.Input[Optional[Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict']]]] = None,
-                                with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_git_repositories_output(in_: pulumi.Input[Optional[Optional[Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict']]]] = None,
+                                like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                limit: pulumi.Input[Optional[Optional[Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict']]]] = None,
+                                with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGitRepositoriesResult]:
     """
     Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.

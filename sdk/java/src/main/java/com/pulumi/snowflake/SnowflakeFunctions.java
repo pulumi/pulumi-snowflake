@@ -288,8 +288,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetAlertsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -331,8 +331,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetAlertsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -374,8 +374,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetAlertsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -417,8 +417,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetAlertsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -460,8 +460,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetAlertsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -503,8 +503,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetAlertsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -546,8 +546,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetAlertsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -828,8 +828,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesLimitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -893,8 +893,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesLimitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -958,8 +958,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesLimitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1023,8 +1023,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesLimitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1088,8 +1088,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesLimitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1153,8 +1153,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesLimitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1218,8 +1218,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
      * import com.pulumi.snowflake.inputs.GetCortexSearchServicesLimitArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1283,8 +1283,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.SsmParameter;
      * import com.pulumi.aws.SsmParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1330,8 +1330,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.SsmParameter;
      * import com.pulumi.aws.SsmParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1377,8 +1377,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.SsmParameter;
      * import com.pulumi.aws.SsmParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1424,8 +1424,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.SsmParameter;
      * import com.pulumi.aws.SsmParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1471,8 +1471,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.SsmParameter;
      * import com.pulumi.aws.SsmParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1518,8 +1518,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.SsmParameter;
      * import com.pulumi.aws.SsmParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1565,8 +1565,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.SsmParameter;
      * import com.pulumi.aws.SsmParameterArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1674,8 +1674,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1716,8 +1716,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1758,8 +1758,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1800,8 +1800,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1842,8 +1842,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1884,8 +1884,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1927,8 +1927,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1970,8 +1970,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2013,8 +2013,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2056,8 +2056,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2246,8 +2246,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2289,8 +2289,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2332,8 +2332,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2375,8 +2375,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2418,8 +2418,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2461,8 +2461,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2504,8 +2504,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2547,8 +2547,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2590,8 +2590,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2633,8 +2633,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2676,8 +2676,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2719,8 +2719,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2888,8 +2888,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2931,8 +2931,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2974,8 +2974,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3017,8 +3017,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3060,8 +3060,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3103,8 +3103,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3146,8 +3146,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3189,8 +3189,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3232,8 +3232,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3275,8 +3275,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetFunctionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3371,8 +3371,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3547,8 +3547,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3723,8 +3723,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3899,8 +3899,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4075,8 +4075,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4251,8 +4251,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4427,8 +4427,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4788,8 +4788,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4831,8 +4831,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4874,8 +4874,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4917,8 +4917,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4960,8 +4960,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5180,8 +5180,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5244,8 +5244,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5308,8 +5308,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5372,8 +5372,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5436,8 +5436,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5500,8 +5500,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5564,8 +5564,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.DatabaseArgs;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetParametersArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5626,8 +5626,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetPipesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5669,8 +5669,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetPipesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5712,8 +5712,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetPipesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5755,8 +5755,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetPipesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5798,8 +5798,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetPipesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5841,8 +5841,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetProceduresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5884,8 +5884,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetProceduresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5927,8 +5927,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetProceduresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5970,8 +5970,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetProceduresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6013,8 +6013,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetProceduresArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6239,8 +6239,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSecretsArgs;
      * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6309,8 +6309,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSecretsArgs;
      * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6379,8 +6379,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSecretsArgs;
      * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6449,8 +6449,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSecretsArgs;
      * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6519,8 +6519,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSecretsArgs;
      * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6589,8 +6589,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSecretsArgs;
      * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6659,8 +6659,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSecretsArgs;
      * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6882,8 +6882,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSequencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6925,8 +6925,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSequencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6968,8 +6968,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSequencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7011,8 +7011,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSequencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7054,8 +7054,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSequencesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7146,8 +7146,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7191,8 +7191,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7236,8 +7236,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7281,8 +7281,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7326,8 +7326,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7371,8 +7371,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7416,8 +7416,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSharesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7685,8 +7685,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGenerateScimAccessTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7727,8 +7727,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGenerateScimAccessTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7769,8 +7769,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGenerateScimAccessTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7811,8 +7811,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGenerateScimAccessTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7853,8 +7853,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGenerateScimAccessTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7899,8 +7899,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7945,8 +7945,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7991,8 +7991,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8037,8 +8037,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8083,8 +8083,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8132,8 +8132,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.aws.Route53ZoneArgs;
      * import com.pulumi.aws.Route53Record;
      * import com.pulumi.aws.Route53RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8149,7 +8149,7 @@ public final class SnowflakeFunctions {
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(List.of(            
+     *             .ingress(Arrays.asList(            
      *                 Map.ofEntries(
      *                     Map.entry("fromPort", 80),
      *                     Map.entry("toPort", 80),
@@ -8168,14 +8168,14 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(List.of(Map.of("vpcId", vpcId)))
+     *             .vpc(Arrays.asList(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
@@ -8183,7 +8183,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
@@ -8191,7 +8191,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -8226,8 +8226,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.aws.Route53ZoneArgs;
      * import com.pulumi.aws.Route53Record;
      * import com.pulumi.aws.Route53RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8243,7 +8243,7 @@ public final class SnowflakeFunctions {
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(List.of(            
+     *             .ingress(Arrays.asList(            
      *                 Map.ofEntries(
      *                     Map.entry("fromPort", 80),
      *                     Map.entry("toPort", 80),
@@ -8262,14 +8262,14 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(List.of(Map.of("vpcId", vpcId)))
+     *             .vpc(Arrays.asList(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
@@ -8277,7 +8277,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
@@ -8285,7 +8285,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -8320,8 +8320,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.aws.Route53ZoneArgs;
      * import com.pulumi.aws.Route53Record;
      * import com.pulumi.aws.Route53RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8337,7 +8337,7 @@ public final class SnowflakeFunctions {
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(List.of(            
+     *             .ingress(Arrays.asList(            
      *                 Map.ofEntries(
      *                     Map.entry("fromPort", 80),
      *                     Map.entry("toPort", 80),
@@ -8356,14 +8356,14 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(List.of(Map.of("vpcId", vpcId)))
+     *             .vpc(Arrays.asList(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
@@ -8371,7 +8371,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
@@ -8379,7 +8379,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -8414,8 +8414,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.aws.Route53ZoneArgs;
      * import com.pulumi.aws.Route53Record;
      * import com.pulumi.aws.Route53RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8431,7 +8431,7 @@ public final class SnowflakeFunctions {
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(List.of(            
+     *             .ingress(Arrays.asList(            
      *                 Map.ofEntries(
      *                     Map.entry("fromPort", 80),
      *                     Map.entry("toPort", 80),
@@ -8450,14 +8450,14 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(List.of(Map.of("vpcId", vpcId)))
+     *             .vpc(Arrays.asList(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
@@ -8465,7 +8465,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
@@ -8473,7 +8473,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -8508,8 +8508,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.aws.Route53ZoneArgs;
      * import com.pulumi.aws.Route53Record;
      * import com.pulumi.aws.Route53RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8525,7 +8525,7 @@ public final class SnowflakeFunctions {
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(List.of(            
+     *             .ingress(Arrays.asList(            
      *                 Map.ofEntries(
      *                     Map.entry("fromPort", 80),
      *                     Map.entry("toPort", 80),
@@ -8544,14 +8544,14 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(List.of(Map.of("vpcId", vpcId)))
+     *             .vpc(Arrays.asList(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
@@ -8559,7 +8559,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
@@ -8567,7 +8567,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -8602,8 +8602,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.aws.Route53ZoneArgs;
      * import com.pulumi.aws.Route53Record;
      * import com.pulumi.aws.Route53RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8619,7 +8619,7 @@ public final class SnowflakeFunctions {
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(List.of(            
+     *             .ingress(Arrays.asList(            
      *                 Map.ofEntries(
      *                     Map.entry("fromPort", 80),
      *                     Map.entry("toPort", 80),
@@ -8638,14 +8638,14 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(List.of(Map.of("vpcId", vpcId)))
+     *             .vpc(Arrays.asList(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
@@ -8653,7 +8653,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
@@ -8661,7 +8661,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -8696,8 +8696,8 @@ public final class SnowflakeFunctions {
      * import com.pulumi.aws.Route53ZoneArgs;
      * import com.pulumi.aws.Route53Record;
      * import com.pulumi.aws.Route53RecordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8713,7 +8713,7 @@ public final class SnowflakeFunctions {
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(List.of(            
+     *             .ingress(Arrays.asList(            
      *                 Map.ofEntries(
      *                     Map.entry("fromPort", 80),
      *                     Map.entry("toPort", 80),
@@ -8732,14 +8732,14 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(List.of(Map.of("vpcId", vpcId)))
+     *             .vpc(Arrays.asList(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
@@ -8747,7 +8747,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
@@ -8755,7 +8755,7 @@ public final class SnowflakeFunctions {
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }

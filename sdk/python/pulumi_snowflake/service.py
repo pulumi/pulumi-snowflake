@@ -24,17 +24,17 @@ class ServiceArgs:
                  compute_pool: pulumi.Input[_builtins.str],
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: Optional[pulumi.Input['ServiceFromSpecificationArgs']] = None,
-                 from_specification_template: Optional[pulumi.Input['ServiceFromSpecificationTemplateArgs']] = None,
-                 max_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_ready_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 from_specification: pulumi.Input[Optional['ServiceFromSpecificationArgs']] = None,
+                 from_specification_template: pulumi.Input[Optional['ServiceFromSpecificationTemplateArgs']] = None,
+                 max_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -117,158 +117,158 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoResume")
-    def auto_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a service. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "auto_resume")
 
     @auto_resume.setter
-    def auto_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_resume", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSuspendSecs")
-    def auto_suspend_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_suspend_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity (service is idle) after which Snowflake automatically suspends the service.
         """
         return pulumi.get(self, "auto_suspend_secs")
 
     @auto_suspend_secs.setter
-    def auto_suspend_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_suspend_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_suspend_secs", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the service.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the names of the external access integrations that allow your service to access external sites.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSpecification")
-    def from_specification(self) -> Optional[pulumi.Input['ServiceFromSpecificationArgs']]:
+    def from_specification(self) -> pulumi.Input[Optional['ServiceFromSpecificationArgs']]:
         """
         Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         """
         return pulumi.get(self, "from_specification")
 
     @from_specification.setter
-    def from_specification(self, value: Optional[pulumi.Input['ServiceFromSpecificationArgs']]):
+    def from_specification(self, value: pulumi.Input[Optional['ServiceFromSpecificationArgs']]):
         pulumi.set(self, "from_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSpecificationTemplate")
-    def from_specification_template(self) -> Optional[pulumi.Input['ServiceFromSpecificationTemplateArgs']]:
+    def from_specification_template(self) -> pulumi.Input[Optional['ServiceFromSpecificationTemplateArgs']]:
         """
         Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         """
         return pulumi.get(self, "from_specification_template")
 
     @from_specification_template.setter
-    def from_specification_template(self, value: Optional[pulumi.Input['ServiceFromSpecificationTemplateArgs']]):
+    def from_specification_template(self, value: pulumi.Input[Optional['ServiceFromSpecificationTemplateArgs']]):
         pulumi.set(self, "from_specification_template", value)
 
     @_builtins.property
     @pulumi.getter(name="maxInstances")
-    def max_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of service instances to run.
         """
         return pulumi.get(self, "max_instances")
 
     @max_instances.setter
-    def max_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="minInstances")
-    def min_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of service instances to run.
         """
         return pulumi.get(self, "min_instances")
 
     @min_instances.setter
-    def min_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="minReadyInstances")
-    def min_ready_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_ready_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
         """
         return pulumi.get(self, "min_ready_instances")
 
     @min_ready_instances.setter
-    def min_ready_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_ready_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_ready_instances", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryWarehouse")
-    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "query_warehouse")
 
     @query_warehouse.setter
-    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
 
 @pulumi.input_type
 class _ServiceState:
     def __init__(__self__, *,
-                 auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDescribeOutputArgs']]]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: Optional[pulumi.Input['ServiceFromSpecificationArgs']] = None,
-                 from_specification_template: Optional[pulumi.Input['ServiceFromSpecificationTemplateArgs']] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_ready_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceShowOutputArgs']]]] = None):
+                 auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceDescribeOutputArgs']]]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 from_specification: pulumi.Input[Optional['ServiceFromSpecificationArgs']] = None,
+                 from_specification_template: pulumi.Input[Optional['ServiceFromSpecificationTemplateArgs']] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Service resources.
 
@@ -330,218 +330,218 @@ class _ServiceState:
 
     @_builtins.property
     @pulumi.getter(name="autoResume")
-    def auto_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a service. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "auto_resume")
 
     @auto_resume.setter
-    def auto_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_resume", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSuspendSecs")
-    def auto_suspend_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_suspend_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity (service is idle) after which Snowflake automatically suspends the service.
         """
         return pulumi.get(self, "auto_suspend_secs")
 
     @auto_suspend_secs.setter
-    def auto_suspend_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_suspend_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_suspend_secs", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the service.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="computePool")
-    def compute_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "compute_pool")
 
     @compute_pool.setter
-    def compute_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE SERVICE` for the given service.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the names of the external access integrations that allow your service to access external sites.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSpecification")
-    def from_specification(self) -> Optional[pulumi.Input['ServiceFromSpecificationArgs']]:
+    def from_specification(self) -> pulumi.Input[Optional['ServiceFromSpecificationArgs']]:
         """
         Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         """
         return pulumi.get(self, "from_specification")
 
     @from_specification.setter
-    def from_specification(self, value: Optional[pulumi.Input['ServiceFromSpecificationArgs']]):
+    def from_specification(self, value: pulumi.Input[Optional['ServiceFromSpecificationArgs']]):
         pulumi.set(self, "from_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSpecificationTemplate")
-    def from_specification_template(self) -> Optional[pulumi.Input['ServiceFromSpecificationTemplateArgs']]:
+    def from_specification_template(self) -> pulumi.Input[Optional['ServiceFromSpecificationTemplateArgs']]:
         """
         Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         """
         return pulumi.get(self, "from_specification_template")
 
     @from_specification_template.setter
-    def from_specification_template(self, value: Optional[pulumi.Input['ServiceFromSpecificationTemplateArgs']]):
+    def from_specification_template(self, value: pulumi.Input[Optional['ServiceFromSpecificationTemplateArgs']]):
         pulumi.set(self, "from_specification_template", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maxInstances")
-    def max_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of service instances to run.
         """
         return pulumi.get(self, "max_instances")
 
     @max_instances.setter
-    def max_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="minInstances")
-    def min_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of service instances to run.
         """
         return pulumi.get(self, "min_instances")
 
     @min_instances.setter
-    def min_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="minReadyInstances")
-    def min_ready_instances(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_ready_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
         """
         return pulumi.get(self, "min_ready_instances")
 
     @min_ready_instances.setter
-    def min_ready_instances(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_ready_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_ready_instances", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryWarehouse")
-    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "query_warehouse")
 
     @query_warehouse.setter
-    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "service_type")
 
     @service_type.setter
-    def service_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_type", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW SERVICES` for the given service.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -551,20 +551,20 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: Optional[pulumi.Input[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
-                 from_specification_template: Optional[pulumi.Input[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
-                 max_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_ready_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
+                 from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
+                 max_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note** Managing service state is limited. It is handled by `auto_suspend_secs`, and `auto_resume` fields. The provider does not support managing the state of services in Snowflake with `ALTER ... SUSPEND` and `ALTER ... RESUME`. See [Suspending a service documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-services#suspending-a-service) for more details.
@@ -632,20 +632,20 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: Optional[pulumi.Input[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
-                 from_specification_template: Optional[pulumi.Input[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
-                 max_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_ready_instances: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
+                 from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
+                 max_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -689,24 +689,24 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceDescribeOutputArgs', 'ServiceDescribeOutputArgsDict']]]]] = None,
-            external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            from_specification: Optional[pulumi.Input[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
-            from_specification_template: Optional[pulumi.Input[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            max_instances: Optional[pulumi.Input[_builtins.int]] = None,
-            min_instances: Optional[pulumi.Input[_builtins.int]] = None,
-            min_ready_instances: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            service_type: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict']]]]] = None) -> 'Service':
+            auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceDescribeOutputArgs', 'ServiceDescribeOutputArgsDict']]]]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
+            from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            max_instances: pulumi.Input[Optional[_builtins.int]] = None,
+            min_instances: pulumi.Input[Optional[_builtins.int]] = None,
+            min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            service_type: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict']]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

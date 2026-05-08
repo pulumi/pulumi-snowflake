@@ -124,9 +124,9 @@ def get_database_roles(in_database: Optional[_builtins.str] = None,
         in_database=pulumi.get(__ret__, 'in_database'),
         like=pulumi.get(__ret__, 'like'),
         limit=pulumi.get(__ret__, 'limit'))
-def get_database_roles_output(in_database: Optional[pulumi.Input[_builtins.str]] = None,
-                              like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              limit: Optional[pulumi.Input[Optional[Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict']]]] = None,
+def get_database_roles_output(in_database: pulumi.Input[Optional[_builtins.str]] = None,
+                              like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              limit: pulumi.Input[Optional[Optional[Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict']]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseRolesResult]:
     """
     Data source used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in show_output collection.

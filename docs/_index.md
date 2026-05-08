@@ -234,8 +234,8 @@ package generated_program;
 import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -1523,8 +1523,8 @@ package generated_program;
 import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;
@@ -1635,7 +1635,7 @@ using Snowflake = Pulumi.Snowflake;
 
 return await Deployment.RunAsync(() =>
 {
-    var test = new Snowflake.Index.Execute("test", new()
+    var test = new Snowflake.Execute("test", new()
     {
         ExecuteSQL = "CREATE DATABASE ABC",
         Revert = "DROP DATABASE ABC",
@@ -1693,8 +1693,8 @@ import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
 import com.pulumi.snowflake.Execute;
 import com.pulumi.snowflake.ExecuteArgs;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

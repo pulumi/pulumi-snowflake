@@ -24,13 +24,13 @@ class TableArgs:
                  columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 change_tracking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
+                 change_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional['TablePrimaryKeyArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -107,106 +107,106 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter(name="changeTracking")
-    def change_tracking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def change_tracking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         """
         return pulumi.get(self, "change_tracking")
 
     @change_tracking.setter
-    def change_tracking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def change_tracking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "change_tracking", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterBies")
-    def cluster_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more table columns/expressions to be used as clustering key(s) for the table
         """
         return pulumi.get(self, "cluster_bies")
 
     @cluster_bies.setter
-    def cluster_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_bies", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the table.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="dataRetentionTimeInDays")
-    def data_retention_time_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_retention_time_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
     @data_retention_time_in_days.setter
-    def data_retention_time_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_retention_time_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_retention_time_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
     @_utilities.deprecated("""Use TableConstraint instead""")
-    def primary_key(self) -> Optional[pulumi.Input['TablePrimaryKeyArgs']]:
+    def primary_key(self) -> pulumi.Input[Optional['TablePrimaryKeyArgs']]:
         """
         Definitions of primary key constraint to create on table
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input['TablePrimaryKeyArgs']]):
+    def primary_key(self, value: pulumi.Input[Optional['TablePrimaryKeyArgs']]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _TableState:
     def __init__(__self__, *,
-                 change_tracking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input['TablePrimaryKeyArgs']] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
+                 change_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional['TablePrimaryKeyArgs']] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Table resources.
 
@@ -256,148 +256,148 @@ class _TableState:
 
     @_builtins.property
     @pulumi.getter(name="changeTracking")
-    def change_tracking(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def change_tracking(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         """
         return pulumi.get(self, "change_tracking")
 
     @change_tracking.setter
-    def change_tracking(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def change_tracking(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "change_tracking", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterBies")
-    def cluster_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cluster_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more table columns/expressions to be used as clustering key(s) for the table
         """
         return pulumi.get(self, "cluster_bies")
 
     @cluster_bies.setter
-    def cluster_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cluster_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cluster_bies", value)
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]]:
         """
         Definitions of a column to create in the table. Minimum one required.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the table.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="dataRetentionTimeInDays")
-    def data_retention_time_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_retention_time_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
     @data_retention_time_in_days.setter
-    def data_retention_time_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_retention_time_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_retention_time_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the table.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the role that owns the table.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
     @_utilities.deprecated("""Use TableConstraint instead""")
-    def primary_key(self) -> Optional[pulumi.Input['TablePrimaryKeyArgs']]:
+    def primary_key(self) -> pulumi.Input[Optional['TablePrimaryKeyArgs']]:
         """
         Definitions of primary key constraint to create on table
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input['TablePrimaryKeyArgs']]):
+    def primary_key(self, value: pulumi.Input[Optional['TablePrimaryKeyArgs']]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the table.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -407,16 +407,16 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 change_tracking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
+                 change_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -602,16 +602,16 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 change_tracking: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_key: Optional[pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
+                 change_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -649,18 +649,18 @@ class Table(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            change_tracking: Optional[pulumi.Input[_builtins.bool]] = None,
-            cluster_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            data_retention_time_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_key: Optional[pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None) -> 'Table':
+            change_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+            cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

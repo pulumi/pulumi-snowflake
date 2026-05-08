@@ -22,39 +22,39 @@ class FileFormatArgs:
                  database: pulumi.Input[_builtins.str],
                  format_type: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 allow_duplicate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 binary_as_text: Optional[pulumi.Input[_builtins.bool]] = None,
-                 binary_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_auto_convert: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_snowflake_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 empty_field_as_null: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_octal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_on_column_count_mismatch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 escape: Optional[pulumi.Input[_builtins.str]] = None,
-                 escape_unenclosed_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_optionally_enclosed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_extension: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_utf8_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parse_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preserve_space: Optional[pulumi.Input[_builtins.bool]] = None,
-                 record_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_blank_lines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_byte_order_mark: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_header: Optional[pulumi.Input[_builtins.int]] = None,
-                 strip_null_values: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strip_outer_array: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strip_outer_element: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 trim_space: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_duplicate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 binary_as_text: pulumi.Input[Optional[_builtins.bool]] = None,
+                 binary_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_auto_convert: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_snowflake_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 empty_field_as_null: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_octal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_on_column_count_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escape: pulumi.Input[Optional[_builtins.str]] = None,
+                 escape_unenclosed_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_optionally_enclosed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_extension: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_utf8_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parse_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preserve_space: pulumi.Input[Optional[_builtins.bool]] = None,
+                 record_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_blank_lines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_byte_order_mark: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_header: pulumi.Input[Optional[_builtins.int]] = None,
+                 strip_null_values: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strip_outer_array: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strip_outer_element: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 trim_space: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FileFormat resource.
 
@@ -203,441 +203,441 @@ class FileFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowDuplicate")
-    def allow_duplicate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_duplicate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
         """
         return pulumi.get(self, "allow_duplicate")
 
     @allow_duplicate.setter
-    def allow_duplicate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_duplicate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_duplicate", value)
 
     @_builtins.property
     @pulumi.getter(name="binaryAsText")
-    def binary_as_text(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def binary_as_text(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text.
         """
         return pulumi.get(self, "binary_as_text")
 
     @binary_as_text.setter
-    def binary_as_text(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def binary_as_text(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "binary_as_text", value)
 
     @_builtins.property
     @pulumi.getter(name="binaryFormat")
-    def binary_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def binary_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the encoding format for binary input or output.
         """
         return pulumi.get(self, "binary_format")
 
     @binary_format.setter
-    def binary_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def binary_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "binary_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the file format.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the current compression algorithm for the data file.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compression", value)
 
     @_builtins.property
     @pulumi.getter(name="dateFormat")
-    def date_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the format of date values in the data files (data loading) or table (data unloading).
         """
         return pulumi.get(self, "date_format")
 
     @date_format.setter
-    def date_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_format", value)
 
     @_builtins.property
     @pulumi.getter(name="disableAutoConvert")
-    def disable_auto_convert(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_auto_convert(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
         """
         return pulumi.get(self, "disable_auto_convert")
 
     @disable_auto_convert.setter
-    def disable_auto_convert(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_auto_convert(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_auto_convert", value)
 
     @_builtins.property
     @pulumi.getter(name="disableSnowflakeData")
-    def disable_snowflake_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_snowflake_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
         """
         return pulumi.get(self, "disable_snowflake_data")
 
     @disable_snowflake_data.setter
-    def disable_snowflake_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_snowflake_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_snowflake_data", value)
 
     @_builtins.property
     @pulumi.getter(name="emptyFieldAsNull")
-    def empty_field_as_null(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def empty_field_as_null(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
         """
         return pulumi.get(self, "empty_field_as_null")
 
     @empty_field_as_null.setter
-    def empty_field_as_null(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def empty_field_as_null(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "empty_field_as_null", value)
 
     @_builtins.property
     @pulumi.getter(name="enableOctal")
-    def enable_octal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_octal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that enables parsing of octal numbers.
         """
         return pulumi.get(self, "enable_octal")
 
     @enable_octal.setter
-    def enable_octal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_octal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_octal", value)
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String (constant) that specifies the character set of the source data when loading data into a table.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="errorOnColumnCountMismatch")
-    def error_on_column_count_mismatch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def error_on_column_count_mismatch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
         """
         return pulumi.get(self, "error_on_column_count_mismatch")
 
     @error_on_column_count_mismatch.setter
-    def error_on_column_count_mismatch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def error_on_column_count_mismatch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "error_on_column_count_mismatch", value)
 
     @_builtins.property
     @pulumi.getter
-    def escape(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escape(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Single character string used as the escape character for field values.
         """
         return pulumi.get(self, "escape")
 
     @escape.setter
-    def escape(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escape(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escape", value)
 
     @_builtins.property
     @pulumi.getter(name="escapeUnenclosedField")
-    def escape_unenclosed_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escape_unenclosed_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Single character string used as the escape character for unenclosed field values only.
         """
         return pulumi.get(self, "escape_unenclosed_field")
 
     @escape_unenclosed_field.setter
-    def escape_unenclosed_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escape_unenclosed_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escape_unenclosed_field", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
         """
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldOptionallyEnclosedBy")
-    def field_optionally_enclosed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_optionally_enclosed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Character used to enclose strings.
         """
         return pulumi.get(self, "field_optionally_enclosed_by")
 
     @field_optionally_enclosed_by.setter
-    def field_optionally_enclosed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_optionally_enclosed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_optionally_enclosed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="fileExtension")
-    def file_extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_extension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the extension for files unloaded to a stage.
         """
         return pulumi.get(self, "file_extension")
 
     @file_extension.setter
-    def file_extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_extension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_extension", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreUtf8Errors")
-    def ignore_utf8_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_utf8_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether UTF-8 encoding errors produce error conditions.
         """
         return pulumi.get(self, "ignore_utf8_errors")
 
     @ignore_utf8_errors.setter
-    def ignore_utf8_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_utf8_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_utf8_errors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullIfs")
-    def null_ifs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def null_ifs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         String used to convert to and from SQL NULL.
         """
         return pulumi.get(self, "null_ifs")
 
     @null_ifs.setter
-    def null_ifs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def null_ifs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "null_ifs", value)
 
     @_builtins.property
     @pulumi.getter(name="parseHeader")
-    def parse_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def parse_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to use the first row headers in the data files to determine column names.
         """
         return pulumi.get(self, "parse_header")
 
     @parse_header.setter
-    def parse_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def parse_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "parse_header", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveSpace")
-    def preserve_space(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve_space(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
         """
         return pulumi.get(self, "preserve_space")
 
     @preserve_space.setter
-    def preserve_space(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve_space(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve_space", value)
 
     @_builtins.property
     @pulumi.getter(name="recordDelimiter")
-    def record_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def record_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         """
         return pulumi.get(self, "record_delimiter")
 
     @record_delimiter.setter
-    def record_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def record_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "record_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceInvalidCharacters")
-    def replace_invalid_characters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_invalid_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
     @replace_invalid_characters.setter
-    def replace_invalid_characters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_invalid_characters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_invalid_characters", value)
 
     @_builtins.property
     @pulumi.getter(name="skipBlankLines")
-    def skip_blank_lines(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_blank_lines(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies to skip any blank lines encountered in the data files.
         """
         return pulumi.get(self, "skip_blank_lines")
 
     @skip_blank_lines.setter
-    def skip_blank_lines(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_blank_lines(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_blank_lines", value)
 
     @_builtins.property
     @pulumi.getter(name="skipByteOrderMark")
-    def skip_byte_order_mark(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_byte_order_mark(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to skip the BOM (byte order mark), if present in a data file.
         """
         return pulumi.get(self, "skip_byte_order_mark")
 
     @skip_byte_order_mark.setter
-    def skip_byte_order_mark(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_byte_order_mark(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_byte_order_mark", value)
 
     @_builtins.property
     @pulumi.getter(name="skipHeader")
-    def skip_header(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def skip_header(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of lines at the start of the file to skip.
         """
         return pulumi.get(self, "skip_header")
 
     @skip_header.setter
-    def skip_header(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def skip_header(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "skip_header", value)
 
     @_builtins.property
     @pulumi.getter(name="stripNullValues")
-    def strip_null_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strip_null_values(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that instructs the JSON parser to remove object fields or array elements containing null values.
         """
         return pulumi.get(self, "strip_null_values")
 
     @strip_null_values.setter
-    def strip_null_values(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strip_null_values(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strip_null_values", value)
 
     @_builtins.property
     @pulumi.getter(name="stripOuterArray")
-    def strip_outer_array(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strip_outer_array(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that instructs the JSON parser to remove outer brackets.
         """
         return pulumi.get(self, "strip_outer_array")
 
     @strip_outer_array.setter
-    def strip_outer_array(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strip_outer_array(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strip_outer_array", value)
 
     @_builtins.property
     @pulumi.getter(name="stripOuterElement")
-    def strip_outer_element(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strip_outer_element(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
         """
         return pulumi.get(self, "strip_outer_element")
 
     @strip_outer_element.setter
-    def strip_outer_element(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strip_outer_element(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strip_outer_element", value)
 
     @_builtins.property
     @pulumi.getter(name="timeFormat")
-    def time_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the format of time values in the data files (data loading) or table (data unloading).
         """
         return pulumi.get(self, "time_format")
 
     @time_format.setter
-    def time_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_format", value)
 
     @_builtins.property
     @pulumi.getter(name="timestampFormat")
-    def timestamp_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timestamp_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         """
         return pulumi.get(self, "timestamp_format")
 
     @timestamp_format.setter
-    def timestamp_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timestamp_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timestamp_format", value)
 
     @_builtins.property
     @pulumi.getter(name="trimSpace")
-    def trim_space(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trim_space(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to remove white space from fields.
         """
         return pulumi.get(self, "trim_space")
 
     @trim_space.setter
-    def trim_space(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trim_space(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trim_space", value)
 
 
 @pulumi.input_type
 class _FileFormatState:
     def __init__(__self__, *,
-                 allow_duplicate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 binary_as_text: Optional[pulumi.Input[_builtins.bool]] = None,
-                 binary_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_auto_convert: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_snowflake_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 empty_field_as_null: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_octal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_on_column_count_mismatch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 escape: Optional[pulumi.Input[_builtins.str]] = None,
-                 escape_unenclosed_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_optionally_enclosed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_extension: Optional[pulumi.Input[_builtins.str]] = None,
-                 format_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_utf8_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parse_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preserve_space: Optional[pulumi.Input[_builtins.bool]] = None,
-                 record_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_blank_lines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_byte_order_mark: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_header: Optional[pulumi.Input[_builtins.int]] = None,
-                 strip_null_values: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strip_outer_array: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strip_outer_element: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 trim_space: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_duplicate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 binary_as_text: pulumi.Input[Optional[_builtins.bool]] = None,
+                 binary_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_auto_convert: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_snowflake_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 empty_field_as_null: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_octal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_on_column_count_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escape: pulumi.Input[Optional[_builtins.str]] = None,
+                 escape_unenclosed_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_optionally_enclosed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_extension: pulumi.Input[Optional[_builtins.str]] = None,
+                 format_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_utf8_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parse_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preserve_space: pulumi.Input[Optional[_builtins.bool]] = None,
+                 record_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_blank_lines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_byte_order_mark: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_header: pulumi.Input[Optional[_builtins.int]] = None,
+                 strip_null_values: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strip_outer_array: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strip_outer_element: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 trim_space: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FileFormat resources.
 
@@ -756,446 +756,446 @@ class _FileFormatState:
 
     @_builtins.property
     @pulumi.getter(name="allowDuplicate")
-    def allow_duplicate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_duplicate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
         """
         return pulumi.get(self, "allow_duplicate")
 
     @allow_duplicate.setter
-    def allow_duplicate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_duplicate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_duplicate", value)
 
     @_builtins.property
     @pulumi.getter(name="binaryAsText")
-    def binary_as_text(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def binary_as_text(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text.
         """
         return pulumi.get(self, "binary_as_text")
 
     @binary_as_text.setter
-    def binary_as_text(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def binary_as_text(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "binary_as_text", value)
 
     @_builtins.property
     @pulumi.getter(name="binaryFormat")
-    def binary_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def binary_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the encoding format for binary input or output.
         """
         return pulumi.get(self, "binary_format")
 
     @binary_format.setter
-    def binary_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def binary_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "binary_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the file format.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the current compression algorithm for the data file.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compression", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the file format.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="dateFormat")
-    def date_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def date_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the format of date values in the data files (data loading) or table (data unloading).
         """
         return pulumi.get(self, "date_format")
 
     @date_format.setter
-    def date_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def date_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "date_format", value)
 
     @_builtins.property
     @pulumi.getter(name="disableAutoConvert")
-    def disable_auto_convert(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_auto_convert(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
         """
         return pulumi.get(self, "disable_auto_convert")
 
     @disable_auto_convert.setter
-    def disable_auto_convert(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_auto_convert(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_auto_convert", value)
 
     @_builtins.property
     @pulumi.getter(name="disableSnowflakeData")
-    def disable_snowflake_data(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_snowflake_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether the XML parser disables recognition of Snowflake semi-structured data tags.
         """
         return pulumi.get(self, "disable_snowflake_data")
 
     @disable_snowflake_data.setter
-    def disable_snowflake_data(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_snowflake_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_snowflake_data", value)
 
     @_builtins.property
     @pulumi.getter(name="emptyFieldAsNull")
-    def empty_field_as_null(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def empty_field_as_null(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
         """
         return pulumi.get(self, "empty_field_as_null")
 
     @empty_field_as_null.setter
-    def empty_field_as_null(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def empty_field_as_null(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "empty_field_as_null", value)
 
     @_builtins.property
     @pulumi.getter(name="enableOctal")
-    def enable_octal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_octal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that enables parsing of octal numbers.
         """
         return pulumi.get(self, "enable_octal")
 
     @enable_octal.setter
-    def enable_octal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_octal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_octal", value)
 
     @_builtins.property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String (constant) that specifies the character set of the source data when loading data into a table.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="errorOnColumnCountMismatch")
-    def error_on_column_count_mismatch(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def error_on_column_count_mismatch(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
         """
         return pulumi.get(self, "error_on_column_count_mismatch")
 
     @error_on_column_count_mismatch.setter
-    def error_on_column_count_mismatch(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def error_on_column_count_mismatch(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "error_on_column_count_mismatch", value)
 
     @_builtins.property
     @pulumi.getter
-    def escape(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escape(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Single character string used as the escape character for field values.
         """
         return pulumi.get(self, "escape")
 
     @escape.setter
-    def escape(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escape(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escape", value)
 
     @_builtins.property
     @pulumi.getter(name="escapeUnenclosedField")
-    def escape_unenclosed_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def escape_unenclosed_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Single character string used as the escape character for unenclosed field values only.
         """
         return pulumi.get(self, "escape_unenclosed_field")
 
     @escape_unenclosed_field.setter
-    def escape_unenclosed_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def escape_unenclosed_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "escape_unenclosed_field", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
         """
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldOptionallyEnclosedBy")
-    def field_optionally_enclosed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_optionally_enclosed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Character used to enclose strings.
         """
         return pulumi.get(self, "field_optionally_enclosed_by")
 
     @field_optionally_enclosed_by.setter
-    def field_optionally_enclosed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_optionally_enclosed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_optionally_enclosed_by", value)
 
     @_builtins.property
     @pulumi.getter(name="fileExtension")
-    def file_extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_extension(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the extension for files unloaded to a stage.
         """
         return pulumi.get(self, "file_extension")
 
     @file_extension.setter
-    def file_extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_extension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_extension", value)
 
     @_builtins.property
     @pulumi.getter(name="formatType")
-    def format_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def format_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the format of the input files (for data loading) or output files (for data unloading).
         """
         return pulumi.get(self, "format_type")
 
     @format_type.setter
-    def format_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def format_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "format_type", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreUtf8Errors")
-    def ignore_utf8_errors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_utf8_errors(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether UTF-8 encoding errors produce error conditions.
         """
         return pulumi.get(self, "ignore_utf8_errors")
 
     @ignore_utf8_errors.setter
-    def ignore_utf8_errors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_utf8_errors(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_utf8_errors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullIfs")
-    def null_ifs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def null_ifs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         String used to convert to and from SQL NULL.
         """
         return pulumi.get(self, "null_ifs")
 
     @null_ifs.setter
-    def null_ifs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def null_ifs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "null_ifs", value)
 
     @_builtins.property
     @pulumi.getter(name="parseHeader")
-    def parse_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def parse_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to use the first row headers in the data files to determine column names.
         """
         return pulumi.get(self, "parse_header")
 
     @parse_header.setter
-    def parse_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def parse_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "parse_header", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveSpace")
-    def preserve_space(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve_space(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content.
         """
         return pulumi.get(self, "preserve_space")
 
     @preserve_space.setter
-    def preserve_space(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve_space(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve_space", value)
 
     @_builtins.property
     @pulumi.getter(name="recordDelimiter")
-    def record_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def record_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
         """
         return pulumi.get(self, "record_delimiter")
 
     @record_delimiter.setter
-    def record_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def record_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "record_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceInvalidCharacters")
-    def replace_invalid_characters(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_invalid_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
     @replace_invalid_characters.setter
-    def replace_invalid_characters(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_invalid_characters(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_invalid_characters", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the file format.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="skipBlankLines")
-    def skip_blank_lines(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_blank_lines(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies to skip any blank lines encountered in the data files.
         """
         return pulumi.get(self, "skip_blank_lines")
 
     @skip_blank_lines.setter
-    def skip_blank_lines(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_blank_lines(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_blank_lines", value)
 
     @_builtins.property
     @pulumi.getter(name="skipByteOrderMark")
-    def skip_byte_order_mark(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_byte_order_mark(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to skip the BOM (byte order mark), if present in a data file.
         """
         return pulumi.get(self, "skip_byte_order_mark")
 
     @skip_byte_order_mark.setter
-    def skip_byte_order_mark(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_byte_order_mark(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_byte_order_mark", value)
 
     @_builtins.property
     @pulumi.getter(name="skipHeader")
-    def skip_header(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def skip_header(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of lines at the start of the file to skip.
         """
         return pulumi.get(self, "skip_header")
 
     @skip_header.setter
-    def skip_header(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def skip_header(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "skip_header", value)
 
     @_builtins.property
     @pulumi.getter(name="stripNullValues")
-    def strip_null_values(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strip_null_values(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that instructs the JSON parser to remove object fields or array elements containing null values.
         """
         return pulumi.get(self, "strip_null_values")
 
     @strip_null_values.setter
-    def strip_null_values(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strip_null_values(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strip_null_values", value)
 
     @_builtins.property
     @pulumi.getter(name="stripOuterArray")
-    def strip_outer_array(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strip_outer_array(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that instructs the JSON parser to remove outer brackets.
         """
         return pulumi.get(self, "strip_outer_array")
 
     @strip_outer_array.setter
-    def strip_outer_array(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strip_outer_array(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strip_outer_array", value)
 
     @_builtins.property
     @pulumi.getter(name="stripOuterElement")
-    def strip_outer_element(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strip_outer_element(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
         """
         return pulumi.get(self, "strip_outer_element")
 
     @strip_outer_element.setter
-    def strip_outer_element(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strip_outer_element(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strip_outer_element", value)
 
     @_builtins.property
     @pulumi.getter(name="timeFormat")
-    def time_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the format of time values in the data files (data loading) or table (data unloading).
         """
         return pulumi.get(self, "time_format")
 
     @time_format.setter
-    def time_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_format", value)
 
     @_builtins.property
     @pulumi.getter(name="timestampFormat")
-    def timestamp_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timestamp_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the format of timestamp values in the data files (data loading) or table (data unloading).
         """
         return pulumi.get(self, "timestamp_format")
 
     @timestamp_format.setter
-    def timestamp_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timestamp_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timestamp_format", value)
 
     @_builtins.property
     @pulumi.getter(name="trimSpace")
-    def trim_space(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trim_space(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean that specifies whether to remove white space from fields.
         """
         return pulumi.get(self, "trim_space")
 
     @trim_space.setter
-    def trim_space(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trim_space(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trim_space", value)
 
 
@@ -1205,42 +1205,42 @@ class FileFormat(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_duplicate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 binary_as_text: Optional[pulumi.Input[_builtins.bool]] = None,
-                 binary_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_auto_convert: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_snowflake_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 empty_field_as_null: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_octal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_on_column_count_mismatch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 escape: Optional[pulumi.Input[_builtins.str]] = None,
-                 escape_unenclosed_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_optionally_enclosed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_extension: Optional[pulumi.Input[_builtins.str]] = None,
-                 format_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_utf8_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parse_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preserve_space: Optional[pulumi.Input[_builtins.bool]] = None,
-                 record_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_blank_lines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_byte_order_mark: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_header: Optional[pulumi.Input[_builtins.int]] = None,
-                 strip_null_values: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strip_outer_array: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strip_outer_element: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 trim_space: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_duplicate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 binary_as_text: pulumi.Input[Optional[_builtins.bool]] = None,
+                 binary_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_auto_convert: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_snowflake_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 empty_field_as_null: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_octal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_on_column_count_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escape: pulumi.Input[Optional[_builtins.str]] = None,
+                 escape_unenclosed_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_optionally_enclosed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_extension: pulumi.Input[Optional[_builtins.str]] = None,
+                 format_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_utf8_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parse_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preserve_space: pulumi.Input[Optional[_builtins.bool]] = None,
+                 record_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_blank_lines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_byte_order_mark: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_header: pulumi.Input[Optional[_builtins.int]] = None,
+                 strip_null_values: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strip_outer_array: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strip_outer_element: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 trim_space: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -1366,42 +1366,42 @@ class FileFormat(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_duplicate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 binary_as_text: Optional[pulumi.Input[_builtins.bool]] = None,
-                 binary_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compression: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 date_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_auto_convert: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable_snowflake_data: Optional[pulumi.Input[_builtins.bool]] = None,
-                 empty_field_as_null: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_octal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_on_column_count_mismatch: Optional[pulumi.Input[_builtins.bool]] = None,
-                 escape: Optional[pulumi.Input[_builtins.str]] = None,
-                 escape_unenclosed_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_optionally_enclosed_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_extension: Optional[pulumi.Input[_builtins.str]] = None,
-                 format_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_utf8_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parse_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preserve_space: Optional[pulumi.Input[_builtins.bool]] = None,
-                 record_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_blank_lines: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_byte_order_mark: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_header: Optional[pulumi.Input[_builtins.int]] = None,
-                 strip_null_values: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strip_outer_array: Optional[pulumi.Input[_builtins.bool]] = None,
-                 strip_outer_element: Optional[pulumi.Input[_builtins.bool]] = None,
-                 time_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 trim_space: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_duplicate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 binary_as_text: pulumi.Input[Optional[_builtins.bool]] = None,
+                 binary_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compression: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 date_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_auto_convert: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_snowflake_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 empty_field_as_null: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_octal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_on_column_count_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escape: pulumi.Input[Optional[_builtins.str]] = None,
+                 escape_unenclosed_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_optionally_enclosed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_extension: pulumi.Input[Optional[_builtins.str]] = None,
+                 format_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_utf8_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parse_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preserve_space: pulumi.Input[Optional[_builtins.bool]] = None,
+                 record_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_blank_lines: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_byte_order_mark: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_header: pulumi.Input[Optional[_builtins.int]] = None,
+                 strip_null_values: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strip_outer_array: pulumi.Input[Optional[_builtins.bool]] = None,
+                 strip_outer_element: pulumi.Input[Optional[_builtins.bool]] = None,
+                 time_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 trim_space: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1464,43 +1464,43 @@ class FileFormat(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_duplicate: Optional[pulumi.Input[_builtins.bool]] = None,
-            binary_as_text: Optional[pulumi.Input[_builtins.bool]] = None,
-            binary_format: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            compression: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            date_format: Optional[pulumi.Input[_builtins.str]] = None,
-            disable_auto_convert: Optional[pulumi.Input[_builtins.bool]] = None,
-            disable_snowflake_data: Optional[pulumi.Input[_builtins.bool]] = None,
-            empty_field_as_null: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable_octal: Optional[pulumi.Input[_builtins.bool]] = None,
-            encoding: Optional[pulumi.Input[_builtins.str]] = None,
-            error_on_column_count_mismatch: Optional[pulumi.Input[_builtins.bool]] = None,
-            escape: Optional[pulumi.Input[_builtins.str]] = None,
-            escape_unenclosed_field: Optional[pulumi.Input[_builtins.str]] = None,
-            field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-            field_optionally_enclosed_by: Optional[pulumi.Input[_builtins.str]] = None,
-            file_extension: Optional[pulumi.Input[_builtins.str]] = None,
-            format_type: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_utf8_errors: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            null_ifs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            parse_header: Optional[pulumi.Input[_builtins.bool]] = None,
-            preserve_space: Optional[pulumi.Input[_builtins.bool]] = None,
-            record_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-            replace_invalid_characters: Optional[pulumi.Input[_builtins.bool]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_blank_lines: Optional[pulumi.Input[_builtins.bool]] = None,
-            skip_byte_order_mark: Optional[pulumi.Input[_builtins.bool]] = None,
-            skip_header: Optional[pulumi.Input[_builtins.int]] = None,
-            strip_null_values: Optional[pulumi.Input[_builtins.bool]] = None,
-            strip_outer_array: Optional[pulumi.Input[_builtins.bool]] = None,
-            strip_outer_element: Optional[pulumi.Input[_builtins.bool]] = None,
-            time_format: Optional[pulumi.Input[_builtins.str]] = None,
-            timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
-            trim_space: Optional[pulumi.Input[_builtins.bool]] = None) -> 'FileFormat':
+            allow_duplicate: pulumi.Input[Optional[_builtins.bool]] = None,
+            binary_as_text: pulumi.Input[Optional[_builtins.bool]] = None,
+            binary_format: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            date_format: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_auto_convert: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_snowflake_data: pulumi.Input[Optional[_builtins.bool]] = None,
+            empty_field_as_null: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_octal: pulumi.Input[Optional[_builtins.bool]] = None,
+            encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            error_on_column_count_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+            escape: pulumi.Input[Optional[_builtins.str]] = None,
+            escape_unenclosed_field: pulumi.Input[Optional[_builtins.str]] = None,
+            field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            field_optionally_enclosed_by: pulumi.Input[Optional[_builtins.str]] = None,
+            file_extension: pulumi.Input[Optional[_builtins.str]] = None,
+            format_type: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_utf8_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parse_header: pulumi.Input[Optional[_builtins.bool]] = None,
+            preserve_space: pulumi.Input[Optional[_builtins.bool]] = None,
+            record_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_blank_lines: pulumi.Input[Optional[_builtins.bool]] = None,
+            skip_byte_order_mark: pulumi.Input[Optional[_builtins.bool]] = None,
+            skip_header: pulumi.Input[Optional[_builtins.int]] = None,
+            strip_null_values: pulumi.Input[Optional[_builtins.bool]] = None,
+            strip_outer_array: pulumi.Input[Optional[_builtins.bool]] = None,
+            strip_outer_element: pulumi.Input[Optional[_builtins.bool]] = None,
+            time_format: pulumi.Input[Optional[_builtins.str]] = None,
+            timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+            trim_space: pulumi.Input[Optional[_builtins.bool]] = None) -> 'FileFormat':
         """
         Get an existing FileFormat resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

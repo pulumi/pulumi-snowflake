@@ -24,12 +24,12 @@ class JobServiceArgs:
                  compute_pool: pulumi.Input[_builtins.str],
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: Optional[pulumi.Input['JobServiceFromSpecificationArgs']] = None,
-                 from_specification_template: Optional[pulumi.Input['JobServiceFromSpecificationTemplateArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 from_specification: pulumi.Input[Optional['JobServiceFromSpecificationArgs']] = None,
+                 from_specification_template: pulumi.Input[Optional['JobServiceFromSpecificationTemplateArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobService resource.
 
@@ -97,93 +97,93 @@ class JobServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the service.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the names of the external access integrations that allow your service to access external sites.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSpecification")
-    def from_specification(self) -> Optional[pulumi.Input['JobServiceFromSpecificationArgs']]:
+    def from_specification(self) -> pulumi.Input[Optional['JobServiceFromSpecificationArgs']]:
         """
         Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         """
         return pulumi.get(self, "from_specification")
 
     @from_specification.setter
-    def from_specification(self, value: Optional[pulumi.Input['JobServiceFromSpecificationArgs']]):
+    def from_specification(self, value: pulumi.Input[Optional['JobServiceFromSpecificationArgs']]):
         pulumi.set(self, "from_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSpecificationTemplate")
-    def from_specification_template(self) -> Optional[pulumi.Input['JobServiceFromSpecificationTemplateArgs']]:
+    def from_specification_template(self) -> pulumi.Input[Optional['JobServiceFromSpecificationTemplateArgs']]:
         """
         Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         """
         return pulumi.get(self, "from_specification_template")
 
     @from_specification_template.setter
-    def from_specification_template(self, value: Optional[pulumi.Input['JobServiceFromSpecificationTemplateArgs']]):
+    def from_specification_template(self, value: pulumi.Input[Optional['JobServiceFromSpecificationTemplateArgs']]):
         pulumi.set(self, "from_specification_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryWarehouse")
-    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "query_warehouse")
 
     @query_warehouse.setter
-    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
 
 @pulumi.input_type
 class _JobServiceState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobServiceDescribeOutputArgs']]]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: Optional[pulumi.Input['JobServiceFromSpecificationArgs']] = None,
-                 from_specification_template: Optional[pulumi.Input['JobServiceFromSpecificationTemplateArgs']] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobServiceShowOutputArgs']]]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['JobServiceDescribeOutputArgs']]]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 from_specification: pulumi.Input[Optional['JobServiceFromSpecificationArgs']] = None,
+                 from_specification_template: pulumi.Input[Optional['JobServiceFromSpecificationTemplateArgs']] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['JobServiceShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering JobService resources.
 
@@ -230,158 +230,158 @@ class _JobServiceState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the service.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="computePool")
-    def compute_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "compute_pool")
 
     @compute_pool.setter
-    def compute_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobServiceDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobServiceDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE SERVICE` for the given service.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobServiceDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobServiceDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the names of the external access integrations that allow your service to access external sites.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSpecification")
-    def from_specification(self) -> Optional[pulumi.Input['JobServiceFromSpecificationArgs']]:
+    def from_specification(self) -> pulumi.Input[Optional['JobServiceFromSpecificationArgs']]:
         """
         Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         """
         return pulumi.get(self, "from_specification")
 
     @from_specification.setter
-    def from_specification(self, value: Optional[pulumi.Input['JobServiceFromSpecificationArgs']]):
+    def from_specification(self, value: pulumi.Input[Optional['JobServiceFromSpecificationArgs']]):
         pulumi.set(self, "from_specification", value)
 
     @_builtins.property
     @pulumi.getter(name="fromSpecificationTemplate")
-    def from_specification_template(self) -> Optional[pulumi.Input['JobServiceFromSpecificationTemplateArgs']]:
+    def from_specification_template(self) -> pulumi.Input[Optional['JobServiceFromSpecificationTemplateArgs']]:
         """
         Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         """
         return pulumi.get(self, "from_specification_template")
 
     @from_specification_template.setter
-    def from_specification_template(self, value: Optional[pulumi.Input['JobServiceFromSpecificationTemplateArgs']]):
+    def from_specification_template(self, value: pulumi.Input[Optional['JobServiceFromSpecificationTemplateArgs']]):
         pulumi.set(self, "from_specification_template", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryWarehouse")
-    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "query_warehouse")
 
     @query_warehouse.setter
-    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
-    def service_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "service_type")
 
     @service_type.setter
-    def service_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_type", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobServiceShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobServiceShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW SERVICES` for the given service.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobServiceShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobServiceShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -391,15 +391,15 @@ class JobService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: Optional[pulumi.Input[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
-                 from_specification_template: Optional[pulumi.Input[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
+                 from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -472,15 +472,15 @@ class JobService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: Optional[pulumi.Input[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
-                 from_specification_template: Optional[pulumi.Input[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
+                 from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -519,19 +519,19 @@ class JobService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            compute_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobServiceDescribeOutputArgs', 'JobServiceDescribeOutputArgsDict']]]]] = None,
-            external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            from_specification: Optional[pulumi.Input[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
-            from_specification_template: Optional[pulumi.Input[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            service_type: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobServiceShowOutputArgs', 'JobServiceShowOutputArgsDict']]]]] = None) -> 'JobService':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobServiceDescribeOutputArgs', 'JobServiceDescribeOutputArgsDict']]]]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
+            from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            service_type: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobServiceShowOutputArgs', 'JobServiceShowOutputArgsDict']]]]] = None) -> 'JobService':
         """
         Get an existing JobService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

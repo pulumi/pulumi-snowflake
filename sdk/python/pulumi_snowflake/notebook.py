@@ -23,13 +23,13 @@ class NotebookArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 froms: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookFromArgs']]]] = None,
-                 idle_auto_shutdown_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 main_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 froms: pulumi.Input[Optional[Sequence[pulumi.Input['NotebookFromArgs']]]] = None,
+                 idle_auto_shutdown_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 main_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Notebook resource.
 
@@ -86,104 +86,104 @@ class NotebookArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the notebook.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def froms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotebookFromArgs']]]]:
+    def froms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotebookFromArgs']]]]:
         """
         Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.
         """
         return pulumi.get(self, "froms")
 
     @froms.setter
-    def froms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookFromArgs']]]]):
+    def froms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotebookFromArgs']]]]):
         pulumi.set(self, "froms", value)
 
     @_builtins.property
     @pulumi.getter(name="idleAutoShutdownTimeSeconds")
-    def idle_auto_shutdown_time_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_auto_shutdown_time_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds of idle time before the notebook is shut down automatically.
         """
         return pulumi.get(self, "idle_auto_shutdown_time_seconds")
 
     @idle_auto_shutdown_time_seconds.setter
-    def idle_auto_shutdown_time_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_auto_shutdown_time_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_auto_shutdown_time_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="mainFile")
-    def main_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def main_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a user-specified identifier for the notebook file name.
         """
         return pulumi.get(self, "main_file")
 
     @main_file.setter
-    def main_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def main_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "main_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryWarehouse")
-    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "query_warehouse")
 
     @query_warehouse.setter
-    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
     @_builtins.property
     @pulumi.getter
-    def warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "warehouse")
 
     @warehouse.setter
-    def warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warehouse", value)
 
 
 @pulumi.input_type
 class _NotebookState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookDescribeOutputArgs']]]] = None,
-                 froms: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookFromArgs']]]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_auto_shutdown_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 main_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookShowOutputArgs']]]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['NotebookDescribeOutputArgs']]]] = None,
+                 froms: pulumi.Input[Optional[Sequence[pulumi.Input['NotebookFromArgs']]]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_auto_shutdown_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 main_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['NotebookShowOutputArgs']]]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Notebook resources.
 
@@ -227,146 +227,146 @@ class _NotebookState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the notebook.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotebookDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotebookDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE NOTEBOOK` for the given notebook.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotebookDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def froms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotebookFromArgs']]]]:
+    def froms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotebookFromArgs']]]]:
         """
         Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.
         """
         return pulumi.get(self, "froms")
 
     @froms.setter
-    def froms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookFromArgs']]]]):
+    def froms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotebookFromArgs']]]]):
         pulumi.set(self, "froms", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="idleAutoShutdownTimeSeconds")
-    def idle_auto_shutdown_time_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_auto_shutdown_time_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds of idle time before the notebook is shut down automatically.
         """
         return pulumi.get(self, "idle_auto_shutdown_time_seconds")
 
     @idle_auto_shutdown_time_seconds.setter
-    def idle_auto_shutdown_time_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_auto_shutdown_time_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_auto_shutdown_time_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="mainFile")
-    def main_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def main_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a user-specified identifier for the notebook file name.
         """
         return pulumi.get(self, "main_file")
 
     @main_file.setter
-    def main_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def main_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "main_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryWarehouse")
-    def query_warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "query_warehouse")
 
     @query_warehouse.setter
-    def query_warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotebookShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NotebookShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW NOTEBOOKS` for the given notebook
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NotebookShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         return pulumi.get(self, "warehouse")
 
     @warehouse.setter
-    def warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warehouse", value)
 
 
@@ -376,15 +376,15 @@ class Notebook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 froms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
-                 idle_auto_shutdown_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 main_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
+                 idle_auto_shutdown_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 main_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note** Due to Snowflake limitations, external changes to `from` are not currently detected.
@@ -519,15 +519,15 @@ class Notebook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 froms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
-                 idle_auto_shutdown_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 main_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
+                 idle_auto_shutdown_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 main_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -563,18 +563,18 @@ class Notebook(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotebookDescribeOutputArgs', 'NotebookDescribeOutputArgsDict']]]]] = None,
-            froms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            idle_auto_shutdown_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            main_file: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            query_warehouse: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotebookShowOutputArgs', 'NotebookShowOutputArgsDict']]]]] = None,
-            warehouse: Optional[pulumi.Input[_builtins.str]] = None) -> 'Notebook':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookDescribeOutputArgs', 'NotebookDescribeOutputArgsDict']]]]] = None,
+            froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_auto_shutdown_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            main_file: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookShowOutputArgs', 'NotebookShowOutputArgsDict']]]]] = None,
+            warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> 'Notebook':
         """
         Get an existing Notebook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

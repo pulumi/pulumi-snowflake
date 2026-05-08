@@ -156,11 +156,11 @@ def get_databases(like: Optional[_builtins.str] = None,
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-def get_databases_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         limit: Optional[pulumi.Input[Optional[Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict']]]] = None,
-                         starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                         with_parameters: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_databases_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         limit: pulumi.Input[Optional[Optional[Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict']]]] = None,
+                         starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                         with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabasesResult]:
     """
     Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.

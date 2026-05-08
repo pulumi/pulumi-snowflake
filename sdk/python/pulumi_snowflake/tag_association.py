@@ -23,7 +23,7 @@ class TagAssociationArgs:
                  object_type: pulumi.Input[_builtins.str],
                  tag_id: pulumi.Input[_builtins.str],
                  tag_value: pulumi.Input[_builtins.str],
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TagAssociation resource.
 
@@ -90,25 +90,25 @@ class TagAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="skipValidation")
-    def skip_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) If true, skips validation of the tag association.
         """
         return pulumi.get(self, "skip_validation")
 
     @skip_validation.setter
-    def skip_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_validation", value)
 
 
 @pulumi.input_type
 class _TagAssociationState:
     def __init__(__self__, *,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 object_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 object_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagAssociation resources.
 
@@ -131,62 +131,62 @@ class _TagAssociationState:
 
     @_builtins.property
     @pulumi.getter(name="objectIdentifiers")
-    def object_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def object_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the object identifiers for the tag association.
         """
         return pulumi.get(self, "object_identifiers")
 
     @object_identifiers.setter
-    def object_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def object_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "object_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="objectType")
-    def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of object to add a tag. Allowed object types: `ACCOUNT` | `APPLICATION` | `APPLICATION PACKAGE` | `COMPUTE POOL` | `DATABASE` | `FAILOVER GROUP` | `INTEGRATION` | `NETWORK POLICY` | `REPLICATION GROUP` | `ROLE` | `SHARE` | `USER` | `WAREHOUSE` | `DATABASE ROLE` | `SCHEMA` | `ALERT` | `SNOWFLAKE.CORE.BUDGET` | `SNOWFLAKE.ML.CLASSIFICATION` | `EXTERNAL FUNCTION` | `EXTERNAL TABLE` | `FUNCTION` | `IMAGE REPOSITORY` | `GIT REPOSITORY` | `ICEBERG TABLE` | `MATERIALIZED VIEW` | `PIPE` | `MASKING POLICY` | `PASSWORD POLICY` | `ROW ACCESS POLICY` | `SESSION POLICY` | `PRIVACY POLICY` | `PROCEDURE` | `SERVICE` | `STAGE` | `STREAM` | `TABLE` | `TASK` | `VIEW` | `COLUMN` | `EVENT TABLE`.
         """
         return pulumi.get(self, "object_type")
 
     @object_type.setter
-    def object_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_type", value)
 
     @_builtins.property
     @pulumi.getter(name="skipValidation")
-    def skip_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) If true, skips validation of the tag association.
         """
         return pulumi.get(self, "skip_validation")
 
     @skip_validation.setter
-    def skip_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="tagId")
-    def tag_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the tag.
         """
         return pulumi.get(self, "tag_id")
 
     @tag_id.setter
-    def tag_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_value", value)
 
 
@@ -196,11 +196,11 @@ class TagAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 object_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 object_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note** For `ACCOUNT` object type, only identifiers with organization name are supported. See [account identifier docs](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-1-preferred-account-name-in-your-organization) for more details.
@@ -393,11 +393,11 @@ class TagAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 object_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 object_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -430,11 +430,11 @@ class TagAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            object_type: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-            tag_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tag_value: Optional[pulumi.Input[_builtins.str]] = None) -> 'TagAssociation':
+            object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            object_type: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+            tag_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_value: pulumi.Input[Optional[_builtins.str]] = None) -> 'TagAssociation':
         """
         Get an existing TagAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

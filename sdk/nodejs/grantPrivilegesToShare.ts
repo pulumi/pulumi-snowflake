@@ -124,39 +124,39 @@ export interface GrantPrivilegesToShareState {
     /**
      * The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
      */
-    onAllTablesInSchema?: pulumi.Input<string>;
+    onAllTablesInSchema?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
-    onDatabase?: pulumi.Input<string>;
+    onDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the function on which privileges will be granted.
      */
-    onFunction?: pulumi.Input<string>;
+    onFunction?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      */
-    onSchema?: pulumi.Input<string>;
+    onSchema?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      */
-    onTable?: pulumi.Input<string>;
+    onTable?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      */
-    onTag?: pulumi.Input<string>;
+    onTag?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      */
-    onView?: pulumi.Input<string>;
+    onView?: pulumi.Input<string | undefined>;
     /**
      * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      */
-    privileges?: pulumi.Input<pulumi.Input<string>[]>;
+    privileges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
-    toShare?: pulumi.Input<string>;
+    toShare?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -166,31 +166,31 @@ export interface GrantPrivilegesToShareArgs {
     /**
      * The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
      */
-    onAllTablesInSchema?: pulumi.Input<string>;
+    onAllTablesInSchema?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
-    onDatabase?: pulumi.Input<string>;
+    onDatabase?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the function on which privileges will be granted.
      */
-    onFunction?: pulumi.Input<string>;
+    onFunction?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      */
-    onSchema?: pulumi.Input<string>;
+    onSchema?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      */
-    onTable?: pulumi.Input<string>;
+    onTable?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      */
-    onTag?: pulumi.Input<string>;
+    onTag?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      */
-    onView?: pulumi.Input<string>;
+    onView?: pulumi.Input<string | undefined>;
     /**
      * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      */

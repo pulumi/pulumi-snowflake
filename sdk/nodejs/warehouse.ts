@@ -203,87 +203,87 @@ export interface WarehouseState {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    autoResume?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      */
-    autoSuspend?: pulumi.Input<number>;
+    autoSuspend?: pulumi.Input<number | undefined>;
     /**
      * Specifies a comment for the warehouse.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableQueryAcceleration?: pulumi.Input<string>;
+    enableQueryAcceleration?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
      */
-    generation?: pulumi.Input<string>;
+    generation?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
-    initiallySuspended?: pulumi.Input<boolean>;
+    initiallySuspended?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the maximum number of server clusters for the warehouse.
      */
-    maxClusterCount?: pulumi.Input<number>;
+    maxClusterCount?: pulumi.Input<number | undefined>;
     /**
      * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
      */
-    maxConcurrencyLevel?: pulumi.Input<number>;
+    maxConcurrencyLevel?: pulumi.Input<number | undefined>;
     /**
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
-    minClusterCount?: pulumi.Input<number>;
+    minClusterCount?: pulumi.Input<number | undefined>;
     /**
      * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.WarehouseParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.WarehouseParameter>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
-    queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
+    queryAccelerationMaxScaleFactor?: pulumi.Input<number | undefined>;
     /**
      * Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
      */
-    resourceConstraint?: pulumi.Input<string>;
+    resourceConstraint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      */
-    resourceMonitor?: pulumi.Input<string>;
+    resourceMonitor?: pulumi.Input<string | undefined>;
     /**
      * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      */
-    scalingPolicy?: pulumi.Input<string>;
+    scalingPolicy?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.WarehouseShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.WarehouseShowOutput>[] | undefined>;
     /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
-    statementQueuedTimeoutInSeconds?: pulumi.Input<number>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      */
-    statementTimeoutInSeconds?: pulumi.Input<number>;
+    statementTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      */
-    warehouseSize?: pulumi.Input<string>;
+    warehouseSize?: pulumi.Input<string | undefined>;
     /**
      * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      */
-    warehouseType?: pulumi.Input<string>;
+    warehouseType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -293,73 +293,73 @@ export interface WarehouseArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    autoResume?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      */
-    autoSuspend?: pulumi.Input<number>;
+    autoSuspend?: pulumi.Input<number | undefined>;
     /**
      * Specifies a comment for the warehouse.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enableQueryAcceleration?: pulumi.Input<string>;
+    enableQueryAcceleration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the generation for the warehouse. Only available for standard warehouses. Valid values are (case-insensitive): `1` | `2`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
      */
-    generation?: pulumi.Input<string>;
+    generation?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the warehouse is created initially in the ‘Suspended’ state.
      */
-    initiallySuspended?: pulumi.Input<boolean>;
+    initiallySuspended?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the maximum number of server clusters for the warehouse.
      */
-    maxClusterCount?: pulumi.Input<number>;
+    maxClusterCount?: pulumi.Input<number | undefined>;
     /**
      * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
      */
-    maxConcurrencyLevel?: pulumi.Input<number>;
+    maxConcurrencyLevel?: pulumi.Input<number | undefined>;
     /**
      * Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
      */
-    minClusterCount?: pulumi.Input<number>;
+    minClusterCount?: pulumi.Input<number | undefined>;
     /**
      * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
-    queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
+    queryAccelerationMaxScaleFactor?: pulumi.Input<number | undefined>;
     /**
      * Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
      */
-    resourceConstraint?: pulumi.Input<string>;
+    resourceConstraint?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      */
-    resourceMonitor?: pulumi.Input<string>;
+    resourceMonitor?: pulumi.Input<string | undefined>;
     /**
      * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      */
-    scalingPolicy?: pulumi.Input<string>;
+    scalingPolicy?: pulumi.Input<string | undefined>;
     /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
-    statementQueuedTimeoutInSeconds?: pulumi.Input<number>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
      */
-    statementTimeoutInSeconds?: pulumi.Input<number>;
+    statementTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      */
-    warehouseSize?: pulumi.Input<string>;
+    warehouseSize?: pulumi.Input<string | undefined>;
     /**
      * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      */
-    warehouseType?: pulumi.Input<string>;
+    warehouseType?: pulumi.Input<string | undefined>;
 }

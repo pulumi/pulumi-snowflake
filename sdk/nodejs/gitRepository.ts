@@ -178,43 +178,43 @@ export interface GitRepositoryState {
     /**
      * Identifier of API INTEGRATION containing information about the remote Git repository such as allowed credentials and prefixes for target URLs.
      */
-    apiIntegration?: pulumi.Input<string>;
+    apiIntegration?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the git repository.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE GIT REPOSITORY` for the given git repository.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.GitRepositoryDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.GitRepositoryDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Snowflake secret fully qualified name (e.g `"\"<db_name>\".\"<schema_name>\".\"<secret_name>\""`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
      */
-    gitCredentials?: pulumi.Input<string>;
+    gitCredentials?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the git repository; must be unique for the schema in which the git repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the origin URL of the remote Git repository that this Git repository clone represents. The URL must use HTTPS.
      */
-    origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW GIT REPOSITORIES` for the given git repository.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.GitRepositoryShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.GitRepositoryShowOutput>[] | undefined>;
 }
 
 /**
@@ -228,7 +228,7 @@ export interface GitRepositoryArgs {
     /**
      * Specifies a comment for the git repository.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -236,11 +236,11 @@ export interface GitRepositoryArgs {
     /**
      * Specifies the Snowflake secret fully qualified name (e.g `"\"<db_name>\".\"<schema_name>\".\"<secret_name>\""`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
      */
-    gitCredentials?: pulumi.Input<string>;
+    gitCredentials?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the git repository; must be unique for the schema in which the git repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the origin URL of the remote Git repository that this Git repository clone represents. The URL must use HTTPS.
      */

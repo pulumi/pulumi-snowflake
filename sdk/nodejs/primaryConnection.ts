@@ -136,27 +136,27 @@ export interface PrimaryConnectionState {
     /**
      * Specifies a comment for the connection.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
      */
-    enableFailoverToAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    enableFailoverToAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
      */
-    isPrimary?: pulumi.Input<boolean>;
+    isPrimary?: pulumi.Input<boolean | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW CONNECTIONS` for the given connection.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.PrimaryConnectionShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.PrimaryConnectionShowOutput>[] | undefined>;
 }
 
 /**
@@ -166,13 +166,13 @@ export interface PrimaryConnectionArgs {
     /**
      * Specifies a comment for the connection.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
      */
-    enableFailoverToAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    enableFailoverToAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

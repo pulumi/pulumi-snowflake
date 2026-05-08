@@ -96,17 +96,17 @@ export interface GetDynamicTablesOutputArgs {
     /**
      * IN clause to filter the list of dynamic tables.
      */
-    in?: pulumi.Input<inputs.GetDynamicTablesInArgs>;
+    in?: pulumi.Input<inputs.GetDynamicTablesInArgs | undefined>;
     /**
      * LIKE clause to filter the list of dynamic tables.
      */
-    like?: pulumi.Input<inputs.GetDynamicTablesLikeArgs>;
+    like?: pulumi.Input<inputs.GetDynamicTablesLikeArgs | undefined>;
     /**
      * Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
      */
-    limit?: pulumi.Input<inputs.GetDynamicTablesLimitArgs>;
+    limit?: pulumi.Input<inputs.GetDynamicTablesLimitArgs | undefined>;
     /**
      * Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
      */
-    startsWith?: pulumi.Input<string>;
+    startsWith?: pulumi.Input<string | undefined>;
 }

@@ -169,47 +169,47 @@ export interface ManagedAccountState {
     /**
      * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
      */
-    adminName?: pulumi.Input<string>;
+    adminName?: pulumi.Input<string | undefined>;
     /**
      * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      */
-    adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string | undefined>;
     /**
      * Cloud in which the managed account is located.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the managed account.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the managed account was created.
      */
-    createdOn?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Display name of the managed account.
      */
-    locator?: pulumi.Input<string>;
+    locator?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the managed account; must be unique for your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Snowflake Region in which the managed account is located.
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * (Default: `READER`) Specifies the type of managed account.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * URL for accessing the managed account, particularly through the web interface.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -227,13 +227,13 @@ export interface ManagedAccountArgs {
     /**
      * Specifies a comment for the managed account.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the managed account; must be unique for your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `READER`) Specifies the type of managed account.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

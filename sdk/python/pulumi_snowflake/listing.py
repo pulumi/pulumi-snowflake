@@ -22,11 +22,11 @@ __all__ = ['ListingArgs', 'Listing']
 class ListingArgs:
     def __init__(__self__, *,
                  manifest: pulumi.Input['ListingManifestArgs'],
-                 application_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish: Optional[pulumi.Input[_builtins.str]] = None,
-                 share: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish: pulumi.Input[Optional[_builtins.str]] = None,
+                 share: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Listing resource.
 
@@ -63,76 +63,76 @@ class ListingArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationPackage")
-    def application_package(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_package(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the application package attached to the listing.
         """
         return pulumi.get(self, "application_package")
 
     @application_package.setter
-    def application_package(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_package(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_package", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the listing.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def publish(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publish(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
         """
         return pulumi.get(self, "publish")
 
     @publish.setter
-    def publish(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publish(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publish", value)
 
     @_builtins.property
     @pulumi.getter
-    def share(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the share to attach to the listing.
         """
         return pulumi.get(self, "share")
 
     @share.setter
-    def share(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share", value)
 
 
 @pulumi.input_type
 class _ListingState:
     def __init__(__self__, *,
-                 application_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest: Optional[pulumi.Input['ListingManifestArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish: Optional[pulumi.Input[_builtins.str]] = None,
-                 share: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ListingShowOutputArgs']]]] = None):
+                 application_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest: pulumi.Input[Optional['ListingManifestArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish: pulumi.Input[Optional[_builtins.str]] = None,
+                 share: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ListingShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering Listing resources.
 
@@ -164,98 +164,98 @@ class _ListingState:
 
     @_builtins.property
     @pulumi.getter(name="applicationPackage")
-    def application_package(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_package(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the application package attached to the listing.
         """
         return pulumi.get(self, "application_package")
 
     @application_package.setter
-    def application_package(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_package(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_package", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the listing.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def manifest(self) -> Optional[pulumi.Input['ListingManifestArgs']]:
+    def manifest(self) -> pulumi.Input[Optional['ListingManifestArgs']]:
         """
         Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "manifest")
 
     @manifest.setter
-    def manifest(self, value: Optional[pulumi.Input['ListingManifestArgs']]):
+    def manifest(self, value: pulumi.Input[Optional['ListingManifestArgs']]):
         pulumi.set(self, "manifest", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def publish(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publish(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
         """
         return pulumi.get(self, "publish")
 
     @publish.setter
-    def publish(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publish(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publish", value)
 
     @_builtins.property
     @pulumi.getter
-    def share(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the share to attach to the listing.
         """
         return pulumi.get(self, "share")
 
     @share.setter
-    def share(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListingShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ListingShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW LISTINGS` for the given listing.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListingShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ListingShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -265,12 +265,12 @@ class Listing(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest: Optional[pulumi.Input[Union['ListingManifestArgs', 'ListingManifestArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish: Optional[pulumi.Input[_builtins.str]] = None,
-                 share: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest: pulumi.Input[Optional[Union['ListingManifestArgs', 'ListingManifestArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish: pulumi.Input[Optional[_builtins.str]] = None,
+                 share: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Warning** Versioning only works if your listing ever sourced the manifest from stage. This is a Snowflake limitation.
@@ -358,12 +358,12 @@ class Listing(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest: Optional[pulumi.Input[Union['ListingManifestArgs', 'ListingManifestArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish: Optional[pulumi.Input[_builtins.str]] = None,
-                 share: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest: pulumi.Input[Optional[Union['ListingManifestArgs', 'ListingManifestArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish: pulumi.Input[Optional[_builtins.str]] = None,
+                 share: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -393,14 +393,14 @@ class Listing(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_package: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            manifest: Optional[pulumi.Input[Union['ListingManifestArgs', 'ListingManifestArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            publish: Optional[pulumi.Input[_builtins.str]] = None,
-            share: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListingShowOutputArgs', 'ListingShowOutputArgsDict']]]]] = None) -> 'Listing':
+            application_package: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            manifest: pulumi.Input[Optional[Union['ListingManifestArgs', 'ListingManifestArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            publish: pulumi.Input[Optional[_builtins.str]] = None,
+            share: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListingShowOutputArgs', 'ListingShowOutputArgsDict']]]]] = None) -> 'Listing':
         """
         Get an existing Listing resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

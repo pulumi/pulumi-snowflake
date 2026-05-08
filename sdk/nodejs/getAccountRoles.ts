@@ -72,9 +72,9 @@ export interface GetAccountRolesOutputArgs {
     /**
      * Filters the SHOW GRANTS output by class name.
      */
-    inClass?: pulumi.Input<string>;
+    inClass?: pulumi.Input<string | undefined>;
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
 }

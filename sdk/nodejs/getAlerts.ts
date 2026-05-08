@@ -110,13 +110,13 @@ export interface GetAlertsOutputArgs {
     /**
      * The database from which to return the alerts from.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Filters the command output by object name.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * The schema from which to return the alerts from.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }

@@ -24,10 +24,10 @@ class ScimIntegrationArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  run_as_role: pulumi.Input[_builtins.str],
                  scim_client: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_password: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScimIntegration resource.
 
@@ -89,66 +89,66 @@ class ScimIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
         """
         return pulumi.get(self, "network_policy")
 
     @network_policy.setter
-    def network_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="syncPassword")
-    def sync_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "sync_password")
 
     @sync_password.setter
-    def sync_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_password", value)
 
 
 @pulumi.input_type
 class _ScimIntegrationState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_as_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 scim_client: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]] = None,
-                 sync_password: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_as_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 scim_client: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]] = None,
+                 sync_password: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ScimIntegration resources.
 
@@ -186,122 +186,122 @@ class _ScimIntegrationState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify whether the security integration is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
         """
         return pulumi.get(self, "network_policy")
 
     @network_policy.setter
-    def network_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsRole")
-    def run_as_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_as_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `generic_scim_provisioner`, `okta_provisioner`, or `aad_provisioner`, which are automatically converted to uppercase for backwards compatibility.
         """
         return pulumi.get(self, "run_as_role")
 
     @run_as_role.setter
-    def run_as_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_as_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_as_role", value)
 
     @_builtins.property
     @pulumi.getter(name="scimClient")
-    def scim_client(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scim_client(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
         """
         return pulumi.get(self, "scim_client")
 
     @scim_client.setter
-    def scim_client(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scim_client(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scim_client", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="syncPassword")
-    def sync_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "sync_password")
 
     @sync_password.setter
-    def sync_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_password", value)
 
 
@@ -311,13 +311,13 @@ class ScimIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_as_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 scim_client: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_as_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 scim_client: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_password: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
@@ -374,13 +374,13 @@ class ScimIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_as_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 scim_client: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_as_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 scim_client: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_password: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -416,16 +416,16 @@ class ScimIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScimIntegrationDescribeOutputArgs', 'ScimIntegrationDescribeOutputArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            run_as_role: Optional[pulumi.Input[_builtins.str]] = None,
-            scim_client: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScimIntegrationShowOutputArgs', 'ScimIntegrationShowOutputArgsDict']]]]] = None,
-            sync_password: Optional[pulumi.Input[_builtins.str]] = None) -> 'ScimIntegration':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScimIntegrationDescribeOutputArgs', 'ScimIntegrationDescribeOutputArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            run_as_role: pulumi.Input[Optional[_builtins.str]] = None,
+            scim_client: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScimIntegrationShowOutputArgs', 'ScimIntegrationShowOutputArgsDict']]]]] = None,
+            sync_password: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScimIntegration':
         """
         Get an existing ScimIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

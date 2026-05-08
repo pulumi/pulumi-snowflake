@@ -108,8 +108,8 @@ def get_image_repositories(in_: Optional[Union['GetImageRepositoriesInArgs', 'Ge
         image_repositories=pulumi.get(__ret__, 'image_repositories'),
         in_=pulumi.get(__ret__, 'in_'),
         like=pulumi.get(__ret__, 'like'))
-def get_image_repositories_output(in_: Optional[pulumi.Input[Optional[Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict']]]] = None,
-                                  like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_image_repositories_output(in_: pulumi.Input[Optional[Optional[Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict']]]] = None,
+                                  like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRepositoriesResult]:
     """
     Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.

@@ -171,23 +171,23 @@ export interface ObjectParameterState {
     /**
      * Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[]>;
+    objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[] | undefined>;
     /**
      * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    objectType?: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) If true, the object parameter will be set on the account level.
      */
-    onAccount?: pulumi.Input<boolean>;
+    onAccount?: pulumi.Input<boolean | undefined>;
     /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -201,15 +201,15 @@ export interface ObjectParameterArgs {
     /**
      * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[]>;
+    objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[] | undefined>;
     /**
      * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
      */
-    objectType?: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) If true, the object parameter will be set on the account level.
      */
-    onAccount?: pulumi.Input<boolean>;
+    onAccount?: pulumi.Input<boolean | undefined>;
     /**
      * Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
      */

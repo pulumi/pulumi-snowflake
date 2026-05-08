@@ -107,8 +107,8 @@ def get_network_policies(like: Optional[_builtins.str] = None,
         like=pulumi.get(__ret__, 'like'),
         network_policies=pulumi.get(__ret__, 'network_policies'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_network_policies_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_network_policies_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPoliciesResult]:
     """
     Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.

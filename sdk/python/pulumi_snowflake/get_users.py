@@ -160,11 +160,11 @@ def get_users(like: Optional[_builtins.str] = None,
         users=pulumi.get(__ret__, 'users'),
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-def get_users_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     limit: Optional[pulumi.Input[Optional[Union['GetUsersLimitArgs', 'GetUsersLimitArgsDict']]]] = None,
-                     starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                     with_parameters: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_users_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     limit: pulumi.Input[Optional[Optional[Union['GetUsersLimitArgs', 'GetUsersLimitArgsDict']]]] = None,
+                     starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                     with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     !> **Sensitive values** This data source's `display_name`, `email`, `login_name`, `first_name`, `middle_name` and `last_name` fields nested in `show_output` and `describe_output` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).

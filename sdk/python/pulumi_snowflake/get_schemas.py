@@ -175,12 +175,12 @@ def get_schemas(in_: Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-def get_schemas_output(in_: Optional[pulumi.Input[Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]]] = None,
-                       like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       limit: Optional[pulumi.Input[Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict']]]] = None,
-                       starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                       with_parameters: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_schemas_output(in_: pulumi.Input[Optional[Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]]] = None,
+                       like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       limit: pulumi.Input[Optional[Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict']]]] = None,
+                       starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                       with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemasResult]:
     """
     <!-- TODO(SNOW-1844996): Remove this note.-->

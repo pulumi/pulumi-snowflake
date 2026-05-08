@@ -244,75 +244,75 @@ export interface FunctionJavascriptState {
     /**
      * List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      */
-    arguments?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptArgument>[]>;
+    arguments?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptArgument>[] | undefined>;
     /**
      * (Default: `user-defined function`) Specifies a comment for the function.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
-    enableConsoleOutput?: pulumi.Input<boolean>;
+    enableConsoleOutput?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
-    functionDefinition?: pulumi.Input<string>;
+    functionDefinition?: pulumi.Input<string | undefined>;
     /**
      * Specifies language for the user. Used to detect external changes.
      */
-    functionLanguage?: pulumi.Input<string>;
+    functionLanguage?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isSecure?: pulumi.Input<string>;
+    isSecure?: pulumi.Input<string | undefined>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
-    logLevel?: pulumi.Input<string>;
+    logLevel?: pulumi.Input<string | undefined>;
     /**
      * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      */
-    metricLevel?: pulumi.Input<string>;
+    metricLevel?: pulumi.Input<string | undefined>;
     /**
      * The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      */
-    nullInputBehavior?: pulumi.Input<string>;
+    nullInputBehavior?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameter>[] | undefined>;
     /**
      * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
      */
-    returnResultsBehavior?: pulumi.Input<string>;
+    returnResultsBehavior?: pulumi.Input<string | undefined>;
     /**
      * Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      */
-    returnType?: pulumi.Input<string>;
+    returnType?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW FUNCTION` for the given function.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptShowOutput>[] | undefined>;
     /**
      * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      */
-    traceLevel?: pulumi.Input<string>;
+    traceLevel?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -322,11 +322,11 @@ export interface FunctionJavascriptArgs {
     /**
      * List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      */
-    arguments?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptArgument>[]>;
+    arguments?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptArgument>[] | undefined>;
     /**
      * (Default: `user-defined function`) Specifies a comment for the function.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -334,7 +334,7 @@ export interface FunctionJavascriptArgs {
     /**
      * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
-    enableConsoleOutput?: pulumi.Input<boolean>;
+    enableConsoleOutput?: pulumi.Input<boolean | undefined>;
     /**
      * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
@@ -342,27 +342,27 @@ export interface FunctionJavascriptArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isSecure?: pulumi.Input<string>;
+    isSecure?: pulumi.Input<string | undefined>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
-    logLevel?: pulumi.Input<string>;
+    logLevel?: pulumi.Input<string | undefined>;
     /**
      * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      */
-    metricLevel?: pulumi.Input<string>;
+    metricLevel?: pulumi.Input<string | undefined>;
     /**
      * The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      */
-    nullInputBehavior?: pulumi.Input<string>;
+    nullInputBehavior?: pulumi.Input<string | undefined>;
     /**
      * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
      */
-    returnResultsBehavior?: pulumi.Input<string>;
+    returnResultsBehavior?: pulumi.Input<string | undefined>;
     /**
      * Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      */
@@ -374,5 +374,5 @@ export interface FunctionJavascriptArgs {
     /**
      * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      */
-    traceLevel?: pulumi.Input<string>;
+    traceLevel?: pulumi.Input<string | undefined>;
 }

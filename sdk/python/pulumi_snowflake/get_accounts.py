@@ -107,8 +107,8 @@ def get_accounts(like: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         like=pulumi.get(__ret__, 'like'),
         with_history=pulumi.get(__ret__, 'with_history'))
-def get_accounts_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        with_history: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_accounts_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        with_history: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountsResult]:
     """
     Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.

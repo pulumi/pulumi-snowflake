@@ -144,43 +144,43 @@ export interface SecretWithClientCredentialsState {
     /**
      * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
      */
-    apiAuthentication?: pulumi.Input<string>;
+    apiAuthentication?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the secret.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECRET` for the given secret.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithClientCredentialsDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithClientCredentialsDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
      */
-    oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      */
-    secretType?: pulumi.Input<string>;
+    secretType?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW SECRETS` for the given secret.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithClientCredentialsShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithClientCredentialsShowOutput>[] | undefined>;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface SecretWithClientCredentialsArgs {
     /**
      * Specifies a comment for the secret.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -202,7 +202,7 @@ export interface SecretWithClientCredentialsArgs {
     /**
      * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
      */

@@ -26,16 +26,16 @@ class ExternalTableArgs:
                  file_format: pulumi.Input[_builtins.str],
                  location: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aws_sns_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 table_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
+                 auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         The set of arguments for constructing a ExternalTable resource.
 
@@ -146,146 +146,146 @@ class ExternalTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
-    def auto_refresh(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_refresh(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         """
         return pulumi.get(self, "auto_refresh")
 
     @auto_refresh.setter
-    def auto_refresh(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_refresh", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSnsTopic")
-    def aws_sns_topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the aws sns topic for the external table.
         """
         return pulumi.get(self, "aws_sns_topic")
 
     @aws_sns_topic.setter
-    def aws_sns_topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_topic", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the external table.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="copyGrants")
-    def copy_grants(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_grants(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         """
         return pulumi.get(self, "copy_grants")
 
     @copy_grants.setter
-    def copy_grants(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_grants(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_grants", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionBies")
-    def partition_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def partition_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies any partition columns to evaluate for the external table.
         """
         return pulumi.get(self, "partition_bies")
 
     @partition_bies.setter
-    def partition_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def partition_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "partition_bies", value)
 
     @_builtins.property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file names and/or paths on the external stage to match.
         """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshOnCreate")
-    def refresh_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def refresh_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies weather to refresh when an external table is created.
         """
         return pulumi.get(self, "refresh_on_create")
 
     @refresh_on_create.setter
-    def refresh_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def refresh_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "refresh_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="tableFormat")
-    def table_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         """
         return pulumi.get(self, "table_format")
 
     @table_format.setter
-    def table_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_format", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _ExternalTableState:
     def __init__(__self__, *,
-                 auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aws_sns_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
+                 auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableColumnArgs']]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalTable resources.
 
@@ -347,207 +347,207 @@ class _ExternalTableState:
 
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
-    def auto_refresh(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_refresh(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         """
         return pulumi.get(self, "auto_refresh")
 
     @auto_refresh.setter
-    def auto_refresh(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_refresh", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSnsTopic")
-    def aws_sns_topic(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the aws sns topic for the external table.
         """
         return pulumi.get(self, "aws_sns_topic")
 
     @aws_sns_topic.setter
-    def aws_sns_topic(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_topic", value)
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableColumnArgs']]]]:
         """
         Definitions of a column to create in the external table. Minimum one required.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the external table.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="copyGrants")
-    def copy_grants(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def copy_grants(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         """
         return pulumi.get(self, "copy_grants")
 
     @copy_grants.setter
-    def copy_grants(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def copy_grants(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "copy_grants", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the external table.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file format for the external table.
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the role that owns the external table.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionBies")
-    def partition_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def partition_bies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies any partition columns to evaluate for the external table.
         """
         return pulumi.get(self, "partition_bies")
 
     @partition_bies.setter
-    def partition_bies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def partition_bies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "partition_bies", value)
 
     @_builtins.property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file names and/or paths on the external stage to match.
         """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshOnCreate")
-    def refresh_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def refresh_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies weather to refresh when an external table is created.
         """
         return pulumi.get(self, "refresh_on_create")
 
     @refresh_on_create.setter
-    def refresh_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def refresh_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "refresh_on_create", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the external table.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="tableFormat")
-    def table_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         """
         return pulumi.get(self, "table_format")
 
     @table_format.setter
-    def table_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_format", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalTableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -557,21 +557,21 @@ class ExternalTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aws_sns_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None,
+                 auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -716,21 +716,21 @@ class ExternalTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aws_sns_topic: Optional[pulumi.Input[_builtins.str]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None,
+                 auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -777,23 +777,23 @@ class ExternalTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_refresh: Optional[pulumi.Input[_builtins.bool]] = None,
-            aws_sns_topic: Optional[pulumi.Input[_builtins.str]] = None,
-            columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_grants: Optional[pulumi.Input[_builtins.bool]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            file_format: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            partition_bies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            pattern: Optional[pulumi.Input[_builtins.str]] = None,
-            refresh_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            table_format: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None) -> 'ExternalTable':
+            auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+            aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            table_format: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None) -> 'ExternalTable':
         """
         Get an existing ExternalTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -21,16 +21,16 @@ class ApiIntegrationArgs:
     def __init__(__self__, *,
                  api_allowed_prefixes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  api_provider: pulumi.Input[_builtins.str],
-                 api_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_gcp_service_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_ad_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 google_audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_gcp_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_ad_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 google_audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiIntegration resource.
 
@@ -95,143 +95,143 @@ class ApiIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiAwsRoleArn")
-    def api_aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_aws_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) ARN of a cloud platform role.
         """
         return pulumi.get(self, "api_aws_role_arn")
 
     @api_aws_role_arn.setter
-    def api_aws_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_aws_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_aws_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="apiBlockedPrefixes")
-    def api_blocked_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def api_blocked_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         """
         return pulumi.get(self, "api_blocked_prefixes")
 
     @api_blocked_prefixes.setter
-    def api_blocked_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def api_blocked_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "api_blocked_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="apiGcpServiceAccount")
-    def api_gcp_service_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_gcp_service_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service account used for communication with the Google API Gateway.
         """
         return pulumi.get(self, "api_gcp_service_account")
 
     @api_gcp_service_account.setter
-    def api_gcp_service_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_gcp_service_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_gcp_service_account", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API key (also called a “subscription key”).
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="azureAdApplicationId")
-    def azure_ad_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_ad_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
         """
         return pulumi.get(self, "azure_ad_application_id")
 
     @azure_ad_application_id.setter
-    def azure_ad_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_ad_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_ad_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="azureTenantId")
-    def azure_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         """
         return pulumi.get(self, "azure_tenant_id")
 
     @azure_tenant_id.setter
-    def azure_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="googleAudience")
-    def google_audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def google_audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         """
         return pulumi.get(self, "google_audience")
 
     @google_audience.setter
-    def google_audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def google_audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "google_audience", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ApiIntegrationState:
     def __init__(__self__, *,
-                 api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_aws_iam_user_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_gcp_service_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_ad_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_consent_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_multi_tenant_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 google_audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_aws_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_gcp_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_ad_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_consent_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_multi_tenant_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 google_audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiIntegration resources.
 
@@ -290,209 +290,209 @@ class _ApiIntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="apiAllowedPrefixes")
-    def api_allowed_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def api_allowed_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
         """
         return pulumi.get(self, "api_allowed_prefixes")
 
     @api_allowed_prefixes.setter
-    def api_allowed_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def api_allowed_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "api_allowed_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="apiAwsExternalId")
-    def api_aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_aws_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external ID that Snowflake will use when assuming the AWS role.
         """
         return pulumi.get(self, "api_aws_external_id")
 
     @api_aws_external_id.setter
-    def api_aws_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_aws_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_aws_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="apiAwsIamUserArn")
-    def api_aws_iam_user_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_aws_iam_user_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Snowflake user that will attempt to assume the AWS role.
         """
         return pulumi.get(self, "api_aws_iam_user_arn")
 
     @api_aws_iam_user_arn.setter
-    def api_aws_iam_user_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_aws_iam_user_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_aws_iam_user_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="apiAwsRoleArn")
-    def api_aws_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_aws_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) ARN of a cloud platform role.
         """
         return pulumi.get(self, "api_aws_role_arn")
 
     @api_aws_role_arn.setter
-    def api_aws_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_aws_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_aws_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="apiBlockedPrefixes")
-    def api_blocked_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def api_blocked_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         """
         return pulumi.get(self, "api_blocked_prefixes")
 
     @api_blocked_prefixes.setter
-    def api_blocked_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def api_blocked_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "api_blocked_prefixes", value)
 
     @_builtins.property
     @pulumi.getter(name="apiGcpServiceAccount")
-    def api_gcp_service_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_gcp_service_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service account used for communication with the Google API Gateway.
         """
         return pulumi.get(self, "api_gcp_service_account")
 
     @api_gcp_service_account.setter
-    def api_gcp_service_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_gcp_service_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_gcp_service_account", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API key (also called a “subscription key”).
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="apiProvider")
-    def api_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the HTTPS proxy service type.
         """
         return pulumi.get(self, "api_provider")
 
     @api_provider.setter
-    def api_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="azureAdApplicationId")
-    def azure_ad_application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_ad_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
         """
         return pulumi.get(self, "azure_ad_application_id")
 
     @azure_ad_application_id.setter
-    def azure_ad_application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_ad_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_ad_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="azureConsentUrl")
-    def azure_consent_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_consent_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "azure_consent_url")
 
     @azure_consent_url.setter
-    def azure_consent_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_consent_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_consent_url", value)
 
     @_builtins.property
     @pulumi.getter(name="azureMultiTenantAppName")
-    def azure_multi_tenant_app_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_multi_tenant_app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "azure_multi_tenant_app_name")
 
     @azure_multi_tenant_app_name.setter
-    def azure_multi_tenant_app_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_multi_tenant_app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_multi_tenant_app_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureTenantId")
-    def azure_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         """
         return pulumi.get(self, "azure_tenant_id")
 
     @azure_tenant_id.setter
-    def azure_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the API integration was created.
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="googleAudience")
-    def google_audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def google_audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         """
         return pulumi.get(self, "google_audience")
 
     @google_audience.setter
-    def google_audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def google_audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "google_audience", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -502,18 +502,18 @@ class ApiIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_gcp_service_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_ad_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 google_audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_gcp_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_ad_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 google_audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -638,18 +638,18 @@ class ApiIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 api_gcp_service_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_ad_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 google_audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 api_gcp_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_ad_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 google_audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -693,24 +693,24 @@ class ApiIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            api_aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-            api_aws_iam_user_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            api_aws_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            api_blocked_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            api_gcp_service_account: Optional[pulumi.Input[_builtins.str]] = None,
-            api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            api_provider: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_ad_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_consent_url: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_multi_tenant_app_name: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            created_on: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            google_audience: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiIntegration':
+            api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_aws_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            api_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_gcp_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            api_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_ad_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_consent_url: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_multi_tenant_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            google_audience: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiIntegration':
         """
         Get an existing ApiIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

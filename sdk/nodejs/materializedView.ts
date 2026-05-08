@@ -177,45 +177,45 @@ export interface MaterializedViewState {
     /**
      * Specifies a comment for the view.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the view. Don't use the | character.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies that the view is secure.
      */
-    isSecure?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      */
-    orReplace?: pulumi.Input<boolean>;
+    orReplace?: pulumi.Input<boolean | undefined>;
     /**
      * The schema in which to create the view. Don't use the | character.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.MaterializedViewTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.MaterializedViewTag>[] | undefined>;
     /**
      * The warehouse name.
      */
-    warehouse?: pulumi.Input<string>;
+    warehouse?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,7 +225,7 @@ export interface MaterializedViewArgs {
     /**
      * Specifies a comment for the view.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the view. Don't use the | character.
      */
@@ -233,15 +233,15 @@ export interface MaterializedViewArgs {
     /**
      * (Default: `false`) Specifies that the view is secure.
      */
-    isSecure?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
      */
-    orReplace?: pulumi.Input<boolean>;
+    orReplace?: pulumi.Input<boolean | undefined>;
     /**
      * The schema in which to create the view. Don't use the | character.
      */
@@ -255,7 +255,7 @@ export interface MaterializedViewArgs {
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.MaterializedViewTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.MaterializedViewTag>[] | undefined>;
     /**
      * The warehouse name.
      */

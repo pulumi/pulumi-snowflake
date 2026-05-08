@@ -25,9 +25,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePrivateLink = Snowflake.Index.GetSystemGetPrivateLinkConfig.Invoke();
+        ///     var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();
         /// 
-        ///     var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkSecurityGroup = new Aws.SecurityGroup("snowflake_private_link", new()
         ///     {
         ///         VpcId = vpcId,
         ///         Ingress = new[]
@@ -49,7 +49,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkVpcEndpoint = new Aws.Index.VpcEndpoint("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkVpcEndpoint = new Aws.VpcEndpoint("snowflake_private_link", new()
         ///     {
         ///         VpcId = vpcId,
         ///         ServiceName = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.AwsVpceId),
@@ -62,7 +62,7 @@ namespace Pulumi.Snowflake
         ///         PrivateDnsEnabled = false,
         ///     });
         /// 
-        ///     var snowflakePrivateLinkRoute53Zone = new Aws.Index.Route53Zone("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkRoute53Zone = new Aws.Route53Zone("snowflake_private_link", new()
         ///     {
         ///         Name = "privatelink.snowflakecomputing.com",
         ///         Vpc = new[]
@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkUrl = new Aws.Index.Route53Record("snowflake_private_link_url", new()
+        ///     var snowflakePrivateLinkUrl = new Aws.Route53Record("snowflake_private_link_url", new()
         ///     {
         ///         ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,
         ///         Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.AccountUrl),
@@ -86,7 +86,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkOcspUrl = new Aws.Index.Route53Record("snowflake_private_link_ocsp_url", new()
+        ///     var snowflakePrivateLinkOcspUrl = new Aws.Route53Record("snowflake_private_link_ocsp_url", new()
         ///     {
         ///         ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,
         ///         Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.OcspUrl),
@@ -120,9 +120,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePrivateLink = Snowflake.Index.GetSystemGetPrivateLinkConfig.Invoke();
+        ///     var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();
         /// 
-        ///     var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkSecurityGroup = new Aws.SecurityGroup("snowflake_private_link", new()
         ///     {
         ///         VpcId = vpcId,
         ///         Ingress = new[]
@@ -144,7 +144,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkVpcEndpoint = new Aws.Index.VpcEndpoint("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkVpcEndpoint = new Aws.VpcEndpoint("snowflake_private_link", new()
         ///     {
         ///         VpcId = vpcId,
         ///         ServiceName = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.AwsVpceId),
@@ -157,7 +157,7 @@ namespace Pulumi.Snowflake
         ///         PrivateDnsEnabled = false,
         ///     });
         /// 
-        ///     var snowflakePrivateLinkRoute53Zone = new Aws.Index.Route53Zone("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkRoute53Zone = new Aws.Route53Zone("snowflake_private_link", new()
         ///     {
         ///         Name = "privatelink.snowflakecomputing.com",
         ///         Vpc = new[]
@@ -169,7 +169,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkUrl = new Aws.Index.Route53Record("snowflake_private_link_url", new()
+        ///     var snowflakePrivateLinkUrl = new Aws.Route53Record("snowflake_private_link_url", new()
         ///     {
         ///         ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,
         ///         Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.AccountUrl),
@@ -181,7 +181,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkOcspUrl = new Aws.Index.Route53Record("snowflake_private_link_ocsp_url", new()
+        ///     var snowflakePrivateLinkOcspUrl = new Aws.Route53Record("snowflake_private_link_ocsp_url", new()
         ///     {
         ///         ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,
         ///         Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.OcspUrl),
@@ -215,9 +215,9 @@ namespace Pulumi.Snowflake
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var snowflakePrivateLink = Snowflake.Index.GetSystemGetPrivateLinkConfig.Invoke();
+        ///     var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();
         /// 
-        ///     var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkSecurityGroup = new Aws.SecurityGroup("snowflake_private_link", new()
         ///     {
         ///         VpcId = vpcId,
         ///         Ingress = new[]
@@ -239,7 +239,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkVpcEndpoint = new Aws.Index.VpcEndpoint("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkVpcEndpoint = new Aws.VpcEndpoint("snowflake_private_link", new()
         ///     {
         ///         VpcId = vpcId,
         ///         ServiceName = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.AwsVpceId),
@@ -252,7 +252,7 @@ namespace Pulumi.Snowflake
         ///         PrivateDnsEnabled = false,
         ///     });
         /// 
-        ///     var snowflakePrivateLinkRoute53Zone = new Aws.Index.Route53Zone("snowflake_private_link", new()
+        ///     var snowflakePrivateLinkRoute53Zone = new Aws.Route53Zone("snowflake_private_link", new()
         ///     {
         ///         Name = "privatelink.snowflakecomputing.com",
         ///         Vpc = new[]
@@ -264,7 +264,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkUrl = new Aws.Index.Route53Record("snowflake_private_link_url", new()
+        ///     var snowflakePrivateLinkUrl = new Aws.Route53Record("snowflake_private_link_url", new()
         ///     {
         ///         ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,
         ///         Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.AccountUrl),
@@ -276,7 +276,7 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
-        ///     var snowflakePrivateLinkOcspUrl = new Aws.Index.Route53Record("snowflake_private_link_ocsp_url", new()
+        ///     var snowflakePrivateLinkOcspUrl = new Aws.Route53Record("snowflake_private_link_ocsp_url", new()
         ///     {
         ///         ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,
         ///         Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.OcspUrl),

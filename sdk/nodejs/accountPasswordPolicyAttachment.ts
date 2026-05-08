@@ -95,7 +95,7 @@ export interface AccountPasswordPolicyAttachmentState {
     /**
      * Qualified name (`"db"."schema"."policyName"`) of the password policy to apply to the current account.
      */
-    passwordPolicy?: pulumi.Input<string>;
+    passwordPolicy?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -144,10 +144,10 @@ def get_listings(like: Optional[_builtins.str] = None,
         listings=pulumi.get(__ret__, 'listings'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_listings_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        limit: Optional[pulumi.Input[Optional[Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict']]]] = None,
-                        starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_listings_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        limit: pulumi.Input[Optional[Optional[Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict']]]] = None,
+                        starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListingsResult]:
     """
     !> **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflake_listings_datasource` to `preview_features_enabled` field in the provider configuration. Read more about preview features in our documentation.

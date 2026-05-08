@@ -22,12 +22,12 @@ class PipeArgs:
                  copy_statement: pulumi.Input[_builtins.str],
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 auto_ingest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Pipe resource.
 
@@ -95,92 +95,92 @@ class PipeArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoIngest")
-    def auto_ingest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_ingest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies a auto_ingest param for the pipe.
         """
         return pulumi.get(self, "auto_ingest")
 
     @auto_ingest.setter
-    def auto_ingest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_ingest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_ingest", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSnsTopicArn")
-    def aws_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         """
         return pulumi.get(self, "aws_sns_topic_arn")
 
     @aws_sns_topic_arn.setter
-    def aws_sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the pipe.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="errorIntegration")
-    def error_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the notification integration used for error notifications.
         """
         return pulumi.get(self, "error_integration")
 
     @error_integration.setter
-    def error_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_integration", value)
 
     @_builtins.property
     @pulumi.getter
-    def integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an integration for the pipe.
         """
         return pulumi.get(self, "integration")
 
     @integration.setter
-    def integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _PipeState:
     def __init__(__self__, *,
-                 auto_ingest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_channel: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Pipe resources.
 
@@ -224,146 +224,146 @@ class _PipeState:
 
     @_builtins.property
     @pulumi.getter(name="autoIngest")
-    def auto_ingest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_ingest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies a auto_ingest param for the pipe.
         """
         return pulumi.get(self, "auto_ingest")
 
     @auto_ingest.setter
-    def auto_ingest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_ingest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_ingest", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSnsTopicArn")
-    def aws_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         """
         return pulumi.get(self, "aws_sns_topic_arn")
 
     @aws_sns_topic_arn.setter
-    def aws_sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the pipe.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="copyStatement")
-    def copy_statement(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def copy_statement(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the copy statement for the pipe.
         """
         return pulumi.get(self, "copy_statement")
 
     @copy_statement.setter
-    def copy_statement(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def copy_statement(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "copy_statement", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the pipe.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="errorIntegration")
-    def error_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the notification integration used for error notifications.
         """
         return pulumi.get(self, "error_integration")
 
     @error_integration.setter
-    def error_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an integration for the pipe.
         """
         return pulumi.get(self, "integration")
 
     @integration.setter
-    def integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationChannel")
-    def notification_channel(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
         """
         return pulumi.get(self, "notification_channel")
 
     @notification_channel.setter
-    def notification_channel(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_channel", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the role that owns the pipe.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the pipe.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
 
@@ -373,15 +373,15 @@ class Pipe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_ingest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -444,15 +444,15 @@ class Pipe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_ingest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 copy_statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 copy_statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -490,18 +490,18 @@ class Pipe(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_ingest: Optional[pulumi.Input[_builtins.bool]] = None,
-            aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            copy_statement: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            error_integration: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            integration: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_channel: Optional[pulumi.Input[_builtins.str]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None) -> 'Pipe':
+            auto_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+            aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_statement: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            integration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None) -> 'Pipe':
         """
         Get an existing Pipe resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

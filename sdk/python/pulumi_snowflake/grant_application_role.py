@@ -20,8 +20,8 @@ __all__ = ['GrantApplicationRoleArgs', 'GrantApplicationRole']
 class GrantApplicationRoleArgs:
     def __init__(__self__, *,
                  application_role_name: pulumi.Input[_builtins.str],
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_account_role_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_account_role_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantApplicationRole resource.
 
@@ -49,35 +49,35 @@ class GrantApplicationRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the application on which application role will be granted.
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentAccountRoleName")
-    def parent_account_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_account_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_account_role_name")
 
     @parent_account_role_name.setter
-    def parent_account_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_account_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_account_role_name", value)
 
 
 @pulumi.input_type
 class _GrantApplicationRoleState:
     def __init__(__self__, *,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_account_role_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_account_role_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantApplicationRole resources.
 
@@ -94,38 +94,38 @@ class _GrantApplicationRoleState:
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the application on which application role will be granted.
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationRoleName")
-    def application_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the application role to grant.
         """
         return pulumi.get(self, "application_role_name")
 
     @application_role_name.setter
-    def application_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentAccountRoleName")
-    def parent_account_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_account_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_account_role_name")
 
     @parent_account_role_name.setter
-    def parent_account_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_account_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_account_role_name", value)
 
 
@@ -135,9 +135,9 @@ class GrantApplicationRole(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -190,9 +190,9 @@ class GrantApplicationRole(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -217,9 +217,9 @@ class GrantApplicationRole(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_name: Optional[pulumi.Input[_builtins.str]] = None,
-            application_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_account_role_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'GrantApplicationRole':
+            application_name: pulumi.Input[Optional[_builtins.str]] = None,
+            application_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_account_role_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'GrantApplicationRole':
         """
         Get an existing GrantApplicationRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

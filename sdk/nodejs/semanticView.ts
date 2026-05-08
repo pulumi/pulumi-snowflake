@@ -285,47 +285,47 @@ export interface SemanticViewState {
     /**
      * Specifies a comment for the semantic view.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    dimensions?: pulumi.Input<pulumi.Input<inputs.SemanticViewDimension>[]>;
+    dimensions?: pulumi.Input<pulumi.Input<inputs.SemanticViewDimension>[] | undefined>;
     /**
      * The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    facts?: pulumi.Input<pulumi.Input<inputs.SemanticViewFact>[]>;
+    facts?: pulumi.Input<pulumi.Input<inputs.SemanticViewFact>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    metrics?: pulumi.Input<pulumi.Input<inputs.SemanticViewMetric>[]>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.SemanticViewMetric>[] | undefined>;
     /**
      * Specifies the identifier for the semantic view; must be unique within the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    relationships?: pulumi.Input<pulumi.Input<inputs.SemanticViewRelationship>[]>;
+    relationships?: pulumi.Input<pulumi.Input<inputs.SemanticViewRelationship>[] | undefined>;
     /**
      * The schema in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW SEMANTIC VIEWS` for the given semantic view.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.SemanticViewShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.SemanticViewShowOutput>[] | undefined>;
     /**
      * The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    tables?: pulumi.Input<pulumi.Input<inputs.SemanticViewTable>[]>;
+    tables?: pulumi.Input<pulumi.Input<inputs.SemanticViewTable>[] | undefined>;
 }
 
 /**
@@ -335,7 +335,7 @@ export interface SemanticViewArgs {
     /**
      * Specifies a comment for the semantic view.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -343,23 +343,23 @@ export interface SemanticViewArgs {
     /**
      * The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    dimensions?: pulumi.Input<pulumi.Input<inputs.SemanticViewDimension>[]>;
+    dimensions?: pulumi.Input<pulumi.Input<inputs.SemanticViewDimension>[] | undefined>;
     /**
      * The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    facts?: pulumi.Input<pulumi.Input<inputs.SemanticViewFact>[]>;
+    facts?: pulumi.Input<pulumi.Input<inputs.SemanticViewFact>[] | undefined>;
     /**
      * Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    metrics?: pulumi.Input<pulumi.Input<inputs.SemanticViewMetric>[]>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.SemanticViewMetric>[] | undefined>;
     /**
      * Specifies the identifier for the semantic view; must be unique within the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    relationships?: pulumi.Input<pulumi.Input<inputs.SemanticViewRelationship>[]>;
+    relationships?: pulumi.Input<pulumi.Input<inputs.SemanticViewRelationship>[] | undefined>;
     /**
      * The schema in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

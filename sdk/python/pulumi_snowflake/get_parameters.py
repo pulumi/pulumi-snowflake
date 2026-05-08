@@ -177,11 +177,11 @@ def get_parameters(object_name: Optional[_builtins.str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         pattern=pulumi.get(__ret__, 'pattern'),
         user=pulumi.get(__ret__, 'user'))
-def get_parameters_output(object_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          object_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          parameter_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          pattern: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          user: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_parameters_output(object_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          object_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          parameter_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          pattern: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          user: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParametersResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
